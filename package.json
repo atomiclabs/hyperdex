@@ -1,0 +1,73 @@
+{
+	"scripts": {
+		"postinstall": "electron-builder install-app-deps",
+		"test": "xo",
+		"start": "webpack && electron app",
+		"dev": "webpack-dev-server",
+		"pack": "webpack && electron-builder --dir",
+		"dist": "NODE_ENV=production webpack && electron-builder --mac --linux --win",
+		"release": "np --no-publish"
+	},
+	"dependencies": {
+		"react": "^16.2.0",
+		"react-dom": "^16.2.0"
+	},
+	"devDependencies": {
+		"babel-core": "^6.26.0",
+		"babel-loader": "^7.1.2",
+		"babel-preset-react": "^6.24.1",
+		"copy-webpack-plugin": "^4.2.3",
+		"electron": "^1.7.10",
+		"electron-builder": "^19.50.0",
+		"eslint-config-xo-react": "^0.15.0",
+		"eslint-plugin-react": "^7.5.1",
+		"np": "^2.18.2",
+		"webpack": "^3.10.0",
+		"webpack-dev-server": "^2.9.7",
+		"xo": "^0.18.2"
+	},
+	"xo": {
+		"envs": [
+			"node",
+			"browser"
+		],
+		"extends": "xo-react",
+		"rules": {
+			"import/no-extraneous-dependencies": "off"
+		}
+	},
+	"build": {
+		"files": [
+			"**/*",
+			"!renderer${/*}"
+		],
+		"appId": "com.lukechilds.hyperdex",
+		"mac": {
+			"category": "public.app-category.finance",
+			"electronUpdaterCompatibility": ">=2.18.0"
+		},
+		"dmg": {
+			"iconSize": 160,
+			"contents": [
+				{
+					"x": 180,
+					"y": 170
+				},
+				{
+					"x": 480,
+					"y": 170,
+					"type": "link",
+					"path": "/Applications"
+				}
+			]
+		},
+		"linux": {
+			"target": [
+				"AppImage",
+				"deb",
+				"rpm"
+			],
+			"category": "Finance"
+		}
+	}
+}
