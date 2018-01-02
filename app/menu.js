@@ -22,7 +22,7 @@ const viewSubmenu = [
 		label: 'Toggle Dark Mode',
 		accelerator: 'CmdOrCtrl+D',
 		click() {
-			// - sendAction('toggle-dark-mode');
+			sendAction('toggle-dark-mode');
 		}
 	}
 ];
@@ -68,7 +68,7 @@ if (process.platform !== 'darwin') {
 			electron.dialog.showMessageBox({
 				title: `About ${appName}`,
 				message: `${appName} ${app.getVersion()}`,
-				detail: 'Copyright © Luke Childs', // TODO: What should it say here?
+				detail: 'Copyright © Luke Childs',
 				icon: path.join(__dirname, 'static/icon.png')
 			});
 		}

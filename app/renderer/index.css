@@ -24,3 +24,8 @@ body {
 		'Segoe UI Emoji',
 		'Segoe UI Symbol';
 }
+
+.dark-mode body {
+	background: #000;
+	color: #fff;
+}
