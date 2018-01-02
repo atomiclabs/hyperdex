@@ -6,6 +6,7 @@ const {is} = require('electron-util');
 const appMenu = require('./menu');
 const config = require('./config');
 
+require('electron-unhandled')();
 require('electron-debug')({enabled: true});
 require('electron-context-menu')();
 

@@ -2,6 +2,8 @@ import electron from 'electron';
 import React from 'react';
 import {render} from 'react-dom';
 
+require('electron-unhandled')();
+
 const {ipcRenderer: ipc} = electron;
 const config = electron.remote.require('./config');
 

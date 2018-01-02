@@ -17,6 +17,7 @@
 		"electron-log": "^2.2.13",
 		"electron-react-devtools": "^0.5.2",
 		"electron-store": "^1.3.0",
+		"electron-unhandled": "^1.0.0",
 		"electron-updater": "^2.18.0",
 		"electron-util": "^0.2.1"
 	},
