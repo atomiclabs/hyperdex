@@ -30,19 +30,19 @@
 ### Run
 
 ```
-$ npm install && npm start
+$ yarn && yarn run start
 ```
 
 ### Build
 
 ```
-$ npm pack
+$ yarn run pack
 ```
 
 ### Release
 
 ```
-$ npm run release
+$ yarn run release
 ```
 
 Then edit the automatically created GitHub Releases draft and publish.
