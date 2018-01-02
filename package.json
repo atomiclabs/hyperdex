@@ -18,7 +18,7 @@
 		"babel-preset-react": "^6.24.1",
 		"copy-webpack-plugin": "^4.2.3",
 		"electron": "^1.7.10",
-		"electron-builder": "^19.50.0",
+		"electron-builder": "^19.51.0",
 		"eslint-config-xo-react": "^0.15.0",
 		"eslint-plugin-react": "^7.5.1",
 		"node-env-webpack-plugin": "^1.0.0",
@@ -67,8 +67,7 @@
 				"AppImage",
 				"deb",
 				"rpm"
-			],
-			"category": "Finance"
+			]
 		}
 	}
 }

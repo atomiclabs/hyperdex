@@ -74,7 +74,7 @@ electron-context-menu@^0.9.1:
     electron-dl "^1.2.0"
     electron-is-dev "^0.1.1"
 
-electron-debug@1.5.0:
+electron-debug@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/electron-debug/-/electron-debug-1.5.0.tgz#d88c02146efb7fc5ae1b21eac56fbe4987eae50c"
   dependencies:
