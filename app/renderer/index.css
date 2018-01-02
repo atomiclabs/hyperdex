@@ -1,0 +1,31 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: -apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Ubuntu,
+		'Helvetica Neue',
+		sans-serif,
+		'Apple Color Emoji',
+		'Segoe UI Emoji',
+		'Segoe UI Symbol';
+}
+
+.dark-mode body {
+	background: #000;
+	color: #fff;
+}
