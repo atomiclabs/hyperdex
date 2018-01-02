@@ -1,10 +1,7 @@
 'use strict';
 const path = require('path');
-const webpack = require('webpack');
+const NodeEnvPlugin = require('node-env-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-
-const NODE_ENV = process.env.NODE_ENV || 'development';
-const isProduction = NODE_ENV === 'production';
 
 module.exports = {
 	entry: './app/renderer',
@@ -19,7 +16,7 @@ module.exports = {
 			'.jsx'
 		]
 	},
-	devtool: isProduction ? 'hidden-source-map' : 'cheap-module-source-map',
+	devtool: NodeEnvPlugin.devtool,
 	module: {
 		rules: [
 			{
@@ -35,9 +32,7 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new webpack.EnvironmentPlugin({
-			NODE_ENV: 'development'
-		}),
+		new NodeEnvPlugin(),
 		new CopyPlugin([
 			{
 				context: 'app/renderer',

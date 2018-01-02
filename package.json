@@ -21,6 +21,7 @@
 		"electron-builder": "^19.50.0",
 		"eslint-config-xo-react": "^0.15.0",
 		"eslint-plugin-react": "^7.5.1",
+		"node-env-webpack-plugin": "^1.0.0",
 		"np": "^2.18.2",
 		"webpack": "^3.10.0",
 		"webpack-dev-server": "^2.9.7",
