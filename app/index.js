@@ -2,7 +2,7 @@
 const electron = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require('electron-updater');
-const {is} = require('electron-util');
+const {is, loadFile} = require('electron-util');
 const appMenu = require('./menu');
 const config = require('./config');
 
@@ -52,7 +52,7 @@ function createMainWindow() {
 		darkTheme: isDarkMode // GTK+3
 	});
 
-	win.loadURL(`file://${__dirname}/renderer-dist/index.html`);
+	loadFile(win, 'renderer-dist/index.html');
 
 	win.on('ready-to-show', () => {
 		win.show();

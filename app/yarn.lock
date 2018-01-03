@@ -149,11 +149,12 @@ electron-updater@^2.18.0:
     semver "^5.4.1"
     source-map-support "^0.5.0"
 
-electron-util@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/electron-util/-/electron-util-0.2.1.tgz#2f084303668cdd9a8b3a402e48717f976daab21c"
+electron-util@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/electron-util/-/electron-util-0.3.0.tgz#71043435b8d9ddbc37e078d6729b1db5002de007"
   dependencies:
     electron-is-dev "^0.3.0"
+    pkg-dir "^2.0.0"
 
 ensure-error@^1.0.0:
   version "1.0.0"
@@ -296,6 +297,12 @@ path-exists@^3.0.0:
 pify@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-3.0.0.tgz#e5a4acd2c101fdf3d9a4d07f0dbc4db49dd28176"
+
+pkg-dir@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-2.0.0.tgz#f6d5d1109e19d63edf428e0bd57e12777615334b"
+  dependencies:
+    find-up "^2.1.0"
 
 pkg-up@^2.0.0:
   version "2.0.0"
