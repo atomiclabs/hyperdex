@@ -106,12 +106,12 @@ electron-is-dev@^0.3.0:
   resolved "https://registry.yarnpkg.com/electron-is-dev/-/electron-is-dev-0.3.0.tgz#14e6fda5c68e9e4ecbeff9ccf037cbd7c05c5afe"
 
 electron-localshortcut@^3.0.0:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/electron-localshortcut/-/electron-localshortcut-3.0.2.tgz#df9cebe64140f4e58b680aacb2bd6278ae38ee61"
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/electron-localshortcut/-/electron-localshortcut-3.0.4.tgz#fbca732fe62714b5c1d6ec352530c6ca96dc8250"
   dependencies:
     debug "^2.6.8"
     electron-is-accelerator "^0.1.0"
-    keyboardevent-from-electron-accelerator "^0.7.0"
+    keyboardevent-from-electron-accelerator "^1.1.0"
     keyboardevents-areequal "^0.2.1"
 
 electron-log@^2.2.13:
@@ -238,9 +238,9 @@ jsonfile@^4.0.0:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
-keyboardevent-from-electron-accelerator@^0.7.0:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/keyboardevent-from-electron-accelerator/-/keyboardevent-from-electron-accelerator-0.7.1.tgz#aedafa5cc9a3a5f3f2b7c88b2ffd4057568118e7"
+keyboardevent-from-electron-accelerator@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/keyboardevent-from-electron-accelerator/-/keyboardevent-from-electron-accelerator-1.1.0.tgz#324614f6e33490c37ffc5be5876b3e85fe223c84"
 
 keyboardevents-areequal@^0.2.1:
   version "0.2.2"
