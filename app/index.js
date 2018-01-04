@@ -10,6 +10,14 @@ require('electron-unhandled')();
 require('electron-debug')({enabled: true});
 require('electron-context-menu')();
 
+try {
+	require('electron-reloader')(module, {
+		ignore: [
+			'renderer'
+		]
+	});
+} catch (err) {}
+
 const {app} = electron;
 
 app.setAppUserModelId('com.lukechilds.hyperdex');

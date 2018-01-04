@@ -3,7 +3,8 @@
 		"postinstall": "electron-builder install-app-deps",
 		"test": "xo",
 		"start": "webpack && electron app",
-		"dev": "webpack-dev-server",
+		"watch": "webpack --watch --display=errors-only",
+		"dev": "run-p start watch",
 		"pack": "webpack && electron-builder --dir",
 		"dist": "NODE_ENV=production webpack && electron-builder --mac --linux --win",
 		"release": "np --no-publish"
@@ -19,12 +20,13 @@
 		"copy-webpack-plugin": "^4.2.3",
 		"electron": "^1.7.10",
 		"electron-builder": "^19.51.0",
+		"electron-reloader": "^0.1.0",
 		"eslint-config-xo-react": "^0.15.0",
 		"eslint-plugin-react": "^7.5.1",
 		"node-env-webpack-plugin": "^1.0.0",
 		"np": "^2.18.2",
+		"npm-run-all": "^4.1.2",
 		"webpack": "^3.10.0",
-		"webpack-dev-server": "^2.9.7",
 		"xo": "^0.18.2"
 	},
 	"xo": {

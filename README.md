@@ -27,13 +27,19 @@
 
 ## Dev
 
+### Install
+
+```
+$ yarn
+```
+
 ### Run
 
 ```
-$ yarn && yarn run start
+$ yarn run dev
 ```
 
-### Build
+### Package
 
 ```
 $ yarn run pack
