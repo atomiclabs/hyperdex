@@ -1,14 +1,20 @@
-class Api {
+export default class Api {
 	constructor({endpoint, passphrase}) {
+		if (!(endpoint && passphrase)) {
+			throw new Error('The `endpoint` and `passphrase` options are required');
+		}
+
 		this.endpoint = endpoint;
 		this.passphrase = passphrase;
 	}
 
-	_request(data) {
-		return fetch(this.endpoint, {
+	async _request(data) {
+		const response = await fetch(this.endpoint, {
 			method: 'post',
 			body: JSON.stringify(data)
-		}).then(res => res.json());
+		});
+
+		return response.json();
 	}
 
 	async _userpass() {
@@ -48,5 +54,3 @@ class Api {
 		return this.request({method: 'ticker'});
 	}
 }
-
-export default Api;

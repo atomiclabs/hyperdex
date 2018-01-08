@@ -20,8 +20,7 @@
 		"electron-unhandled": "^1.0.0",
 		"electron-updater": "^2.18.2",
 		"electron-util": "^0.3.0",
-		"get-port": "^3.2.0",
-		"got": "^8.0.1"
+		"get-port": "^3.2.0"
 	},
 	"xo": false
 }

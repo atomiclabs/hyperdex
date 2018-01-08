@@ -39,9 +39,10 @@ function initMarketmaker() {
 
 	electron.ipcRenderer.send('start-marketmaker', {passphrase: PASSPHRASE});
 
-	electron.ipcRenderer.on('marketmaker-started', async (event, port) => {
+	electron.ipcRenderer.on('marketmaker-started', async (event, port) => { // eslint-disable-line no-unused-vars
 		const api = new Api({
-			endpoint: `http://localhost:${port}`,
+			endpoint: `http://localhost:7783`,
+			// - endpoint: `http://localhost:${port}`,
 			passphrase: PASSPHRASE
 		});
 
