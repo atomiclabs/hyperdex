@@ -1,6 +1,7 @@
 import electron from 'electron';
 import React from 'react';
 import {render} from 'react-dom';
+import Api from './api';
 
 require('electron-unhandled')();
 
@@ -32,12 +33,13 @@ render(<App/>, document.querySelector('#root'));
 
 function initMarketmaker() {
 	// TODO: This is only temporary for testing
-	const PASSPHRASE = 'test';
+	// Make sure BarterDEX is running first:
+	// docker run -e PASSPHRASE="secure passphrase" -p 127.0.0.1:7783:7783 lukechilds/barterdex-api
+	const PASSPHRASE = 'secure passphrase';
 
 	electron.ipcRenderer.send('start-marketmaker', {passphrase: PASSPHRASE});
 
 	electron.ipcRenderer.on('marketmaker-started', async (event, port) => {
-		const Api = electron.remote.require('./api');
 		const api = new Api({
 			endpoint: `http://localhost:${port}`,
 			passphrase: PASSPHRASE
