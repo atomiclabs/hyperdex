@@ -1,3 +1,10 @@
 node_modules
-/app/renderer-dist
 /dist
+/app/renderer-dist
+/app/marketmaker/bin/**/*
+!/app/marketmaker/bin/darwin
+!/app/marketmaker/bin/linux
+!/app/marketmaker/bin/win32
+!/app/marketmaker/bin/darwin/marketmaker
+!/app/marketmaker/bin/linux/marketmaker
+!/app/marketmaker/bin/win32/marketmaker.exe

@@ -28,4 +28,24 @@ class App extends React.Component {
 	}
 }
 
-render(<App/>, document.querySelector('#app'));
+render(<App/>, document.querySelector('#root'));
+
+function initMarketmaker() {
+	// TODO: This is only temporary for testing
+	const PASSPHRASE = 'test';
+
+	electron.ipcRenderer.send('start-marketmaker', {passphrase: PASSPHRASE});
+
+	electron.ipcRenderer.on('marketmaker-started', async (event, port) => {
+		const Api = electron.remote.require('./api');
+		const api = new Api({
+			endpoint: `http://localhost:${port}`,
+			passphrase: PASSPHRASE
+		});
+
+		console.log('Portfolio:', await api.portfolio());
+		console.log('Coins:', (await api.coins())[0]);
+	});
+}
+
+initMarketmaker();
