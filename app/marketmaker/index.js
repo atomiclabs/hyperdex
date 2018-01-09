@@ -10,17 +10,17 @@ const getPort = require('get-port');
 let binPath = path.join(__dirname, 'bin', process.platform, `marketmaker${util.is.windows ? '.exe' : ''}`);
 binPath = util.fixPathForAsarUnpack(binPath);
 
-const parseCoinsFile = string => {
-	const json = string
-		.trim()
-		.replace('export coins="', '')
-		.replace(/"$/, '')
-		.replace(/\\/g, '')
-		.replace(/\${HOME#}/g, os.homedir().replace(/"/g, '\\"'));
-	return JSON.parse(json);
-};
-
 class Marketmaker {
+	_getCoins() {
+		// `coins.json` from below with the commented parts removed:
+		// https://github.com/jl777/SuperNET/blob/f8418476d7bb96ac567c2cf3a03c74766b1a78b2/iguana/exchanges/coins.json
+		const json = fs.readFileSync(path.join(__dirname, 'coins.json'), 'utf8')
+			.replace(/\\/g, '')
+			.replace(/\${HOME#}/g, os.homedir().replace(/"/g, '\\"'));
+
+		return JSON.parse(json);
+	}
+
 	_isReady() {
 		return new Promise((resolve, reject) => {
 			const interval = setInterval(() => {
@@ -44,14 +44,12 @@ class Marketmaker {
 	}
 
 	async start(options) {
-		const coins = parseCoinsFile(fs.readFileSync(path.join(__dirname, 'coins'), 'utf8'));
-
 		options = Object.assign({}, options, {
 			client: 1,
 			gui: 'nogui',
 			userHome: os.homedir(),
 			rpcport: await getPort(),
-			coins
+			coins: this._getCoins()
 		});
 
 		this.port = options.rpcport;
