@@ -8,8 +8,3 @@ jobs:
       - run: yarn
       - run: yarn test
       - run: yarn run dist
-workflows:
-  version: 2
-  build:
-    jobs:
-      - build
