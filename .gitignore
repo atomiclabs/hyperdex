@@ -6,5 +6,7 @@ node_modules
 !/app/marketmaker/bin/linux
 !/app/marketmaker/bin/win32
 !/app/marketmaker/bin/darwin/marketmaker
+!/app/marketmaker/bin/darwin/libnanomsg.5.0.0.dylib
+!/app/marketmaker/bin/darwin/libnanomsg.5.1.0.dylib
 !/app/marketmaker/bin/linux/marketmaker
 !/app/marketmaker/bin/win32/marketmaker.exe

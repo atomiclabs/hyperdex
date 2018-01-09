@@ -40,10 +40,9 @@ function initMarketmaker() {
 
 	electron.ipcRenderer.send('start-marketmaker', {seedPhrase: SEED_PHRASE});
 
-	electron.ipcRenderer.on('marketmaker-started', async (event, port) => { // eslint-disable-line no-unused-vars
+	electron.ipcRenderer.on('marketmaker-started', async (event, port) => {
 		const api = new Api({
-			endpoint: `http://localhost:7783`,
-			// - endpoint: `http://localhost:${port}`,
+			endpoint: `http://localhost:${port}`,
 			seedPhrase: SEED_PHRASE
 		});
 

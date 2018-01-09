@@ -21,6 +21,28 @@ const parseCoinsFile = string => {
 };
 
 class Marketmaker {
+	_isReady() {
+		return new Promise((resolve, reject) => {
+			const interval = setInterval(() => {
+				const request = electron.net.request(`http://localhost:${this.port}`);
+
+				request.on('response', response => {
+					if (response.statusCode === 200) {
+						clearInterval(interval);
+						resolve();
+					}
+				});
+				request.on('error', () => {});
+				request.end();
+			}, 100);
+
+			setTimeout(() => {
+				clearInterval(interval);
+				reject(new Error('Giving up trying to connect to marketmaker'));
+			}, 5000);
+		});
+	}
+
 	async start(options) {
 		const coins = parseCoinsFile(fs.readFileSync(path.join(__dirname, 'coins'), 'utf8'));
 
@@ -61,6 +83,9 @@ class Marketmaker {
 				this.cp.kill();
 			}
 		});
+
+		// `marketmaker` takes ~500ms to get ready to accepts requests
+		await this._isReady();
 	}
 
 	stop() {
