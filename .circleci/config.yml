@@ -1,10 +1,15 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: circleci/node
+    macos:
+      xcode: '9.2.0'
     steps:
       - checkout
       - run: yarn
       - run: yarn test
-      - run: yarn run pack
+      - run: yarn run dist
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
