@@ -92,7 +92,7 @@ app.on('before-quit', () => {
 	}
 });
 
-electron.ipcMain.on('start-marketmaker', async (event, {passphrase}) => {
-	await marketmaker.start({passphrase});
+electron.ipcMain.on('start-marketmaker', async (event, {seedPhrase}) => {
+	await marketmaker.start({seedPhrase});
 	mainWindow.send('marketmaker-started', marketmaker.port);
 });

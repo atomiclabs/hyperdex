@@ -1,11 +1,11 @@
 export default class Api {
-	constructor({endpoint, passphrase}) {
-		if (!(endpoint && passphrase)) {
-			throw new Error('The `endpoint` and `passphrase` options are required');
+	constructor({endpoint, seedPhrase}) {
+		if (!(endpoint && seedPhrase)) {
+			throw new Error('The `endpoint` and `seedPhrase` options are required');
 		}
 
 		this.endpoint = endpoint;
-		this.passphrase = passphrase;
+		this.seedPhrase = seedPhrase;
 	}
 
 	async _request(data) {
@@ -17,21 +17,21 @@ export default class Api {
 		return response.json();
 	}
 
-	async _userpass() {
-		const {userpass} = await this._request({
+	async _token() {
+		const {userpass: token} = await this._request({
 			method: 'passphrase',
-			passphrase: this.passphrase
+			passphrase: this.seedPhrase
 		});
 
-		return userpass;
+		return token;
 	}
 
 	async request(data) {
-		if (!this.userpass) {
-			this.userpass = await this._userpass();
+		if (!this.token) {
+			this.token = await this._token();
 		}
 
-		return this._request(Object.assign({}, data, {userpass: this.userpass}));
+		return this._request(Object.assign({}, data, {userpass: this.token}));
 	}
 
 	botList() {

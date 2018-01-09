@@ -38,8 +38,11 @@ class Marketmaker {
 			console.log('Marketmaker running on port:', this.port);
 		}
 
-		if (!options.passphrase) {
-			throw new Error('The `passphrase` option is required');
+		if (options.seedPhrase) {
+			options.passphrase = options.seedPhrase;
+			delete options.seedPhrase;
+		} else {
+			throw new Error('The `seedPhrase` option is required');
 		}
 
 		this.cp = childProcess.spawn(binPath, [JSON.stringify(options)], {

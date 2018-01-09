@@ -35,15 +35,16 @@ function initMarketmaker() {
 	// TODO: This is only temporary for testing
 	// Make sure BarterDEX is running first:
 	// docker run -e PASSPHRASE="secure passphrase" -p 127.0.0.1:7783:7783 lukechilds/barterdex-api
-	const PASSPHRASE = 'secure passphrase';
+	// We call `PASSPHRASE` for `SEED_PHRASE` for clarity of what it actually is
+	const SEED_PHRASE = 'secure passphrase';
 
-	electron.ipcRenderer.send('start-marketmaker', {passphrase: PASSPHRASE});
+	electron.ipcRenderer.send('start-marketmaker', {seedPhrase: SEED_PHRASE});
 
 	electron.ipcRenderer.on('marketmaker-started', async (event, port) => { // eslint-disable-line no-unused-vars
 		const api = new Api({
 			endpoint: `http://localhost:7783`,
 			// - endpoint: `http://localhost:${port}`,
-			passphrase: PASSPHRASE
+			seedPhrase: SEED_PHRASE
 		});
 
 		console.log('Portfolio:', await api.portfolio());
