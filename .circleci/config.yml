@@ -1,8 +1,8 @@
 version: 2
 jobs:
   build:
-    macos:
-      xcode: '9.2.0'
+    docker:
+      - image: circleci/node
     steps:
       - checkout
       - run: yarn
