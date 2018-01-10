@@ -2,7 +2,8 @@
 const electron = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require('electron-updater');
-const {is, loadFile} = require('electron-util');
+const {is} = require('electron-util');
+const serve = require('electron-serve');
 const appMenu = require('./menu');
 const config = require('./config');
 const marketmaker = require('./marketmaker');
@@ -46,6 +47,8 @@ if (isAlreadyRunning) {
 	app.quit();
 }
 
+const loadUrl = serve({directory: 'renderer-dist'});
+
 function createMainWindow() {
 	const windowState = config.get('windowState');
 	const isDarkMode = config.get('darkMode');
@@ -62,11 +65,11 @@ function createMainWindow() {
 		darkTheme: isDarkMode // GTK+3
 	});
 
-	loadFile(win, 'renderer-dist/index.html');
-
 	win.on('ready-to-show', () => {
 		win.show();
 	});
+
+	loadUrl(win);
 
 	return win;
 }
@@ -92,7 +95,7 @@ app.on('before-quit', () => {
 	}
 });
 
-electron.ipcMain.on('start-marketmaker', async (event, {seedPhrase}) => {
+electron.ipcMain.once('start-marketmaker', async (event, {seedPhrase}) => {
 	await marketmaker.start({seedPhrase});
 	mainWindow.send('marketmaker-started', marketmaker.port);
 });

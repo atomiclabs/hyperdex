@@ -4,7 +4,7 @@ const Store = require('electron-store');
 module.exports = new Store({
 	defaults: {
 		windowState: {
-			width: 800,
+			width: 900,
 			height: 600
 		},
 		darkMode: false

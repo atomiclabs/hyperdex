@@ -2,6 +2,7 @@ import electron from 'electron';
 import React from 'react';
 import {render} from 'react-dom';
 import Api from './api';
+import App from './app';
 
 require('electron-unhandled')();
 
@@ -18,16 +19,6 @@ ipc.on('toggle-dark-mode', () => {
 });
 
 applyDarkMode();
-
-class App extends React.Component {
-	render() {
-		return (
-			<h1>
-				{'⚡️ HyperDEX'}
-			</h1>
-		);
-	}
-}
 
 render(<App/>, document.querySelector('#root'));
 

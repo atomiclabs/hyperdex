@@ -11,7 +11,8 @@
 	},
 	"dependencies": {
 		"react": "^16.2.0",
-		"react-dom": "^16.2.0"
+		"react-dom": "^16.2.0",
+		"react-router-dom": "^4.2.2"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.0",
@@ -36,7 +37,8 @@
 		],
 		"extends": "xo-react",
 		"rules": {
-			"import/no-extraneous-dependencies": "off"
+			"import/no-extraneous-dependencies": "off",
+			"unicorn/no-abusive-eslint-disable": "off"
 		}
 	},
 	"build": {
