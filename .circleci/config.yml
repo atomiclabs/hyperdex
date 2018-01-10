@@ -7,4 +7,4 @@ jobs:
       - checkout
       - run: yarn
       - run: yarn test
-      - run: yarn run dist
+      - run: yarn run pack
