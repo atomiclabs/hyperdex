@@ -5,15 +5,17 @@ const {autoUpdater} = require('electron-updater');
 const {is, loadFile} = require('electron-util');
 const appMenu = require('./menu');
 const config = require('./config');
+const marketmaker = require('./marketmaker');
 
 require('electron-unhandled')();
-require('electron-debug')({enabled: true});
+require('electron-debug')({enabled: true, showDevTools: true});
 require('electron-context-menu')();
 
 try {
 	require('electron-reloader')(module, {
 		ignore: [
-			'renderer'
+			'renderer',
+			'marketmaker/bin'
 		]
 	});
 } catch (err) {}
@@ -88,4 +90,9 @@ app.on('before-quit', () => {
 	if (!mainWindow.isFullScreen()) {
 		config.set('windowState', mainWindow.getBounds());
 	}
+});
+
+electron.ipcMain.on('start-marketmaker', async (event, {seedPhrase}) => {
+	await marketmaker.start({seedPhrase});
+	mainWindow.send('marketmaker-started', marketmaker.port);
 });

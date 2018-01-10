@@ -44,6 +44,9 @@
 			"**/*",
 			"!renderer${/*}"
 		],
+		"asarUnpack": [
+			"marketmaker/bin"
+		],
 		"appId": "com.lukechilds.hyperdex",
 		"mac": {
 			"category": "public.app-category.finance",

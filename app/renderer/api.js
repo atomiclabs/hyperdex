@@ -1,31 +1,37 @@
-class Api {
-	constructor({endpoint, passphrase}) {
+export default class Api {
+	constructor({endpoint, seedPhrase}) {
+		if (!(endpoint && seedPhrase)) {
+			throw new Error('The `endpoint` and `seedPhrase` options are required');
+		}
+
 		this.endpoint = endpoint;
-		this.passphrase = passphrase;
+		this.seedPhrase = seedPhrase;
 	}
 
-	_request(data) {
-		return fetch(this.endpoint, {
+	async _request(data) {
+		const response = await fetch(this.endpoint, {
 			method: 'post',
 			body: JSON.stringify(data)
-		}).then(res => res.json());
-	}
-
-	async _userpass() {
-		const {userpass} = await this._request({
-			method: 'passphrase',
-			passphrase: this.passphrase
 		});
 
-		return userpass;
+		return response.json();
+	}
+
+	async _token() {
+		const {userpass: token} = await this._request({
+			method: 'passphrase',
+			passphrase: this.seedPhrase
+		});
+
+		return token;
 	}
 
 	async request(data) {
-		if (!this.userpass) {
-			this.userpass = await this._userpass();
+		if (!this.token) {
+			this.token = await this._token();
 		}
 
-		return this._request(Object.assign({}, data, {userpass: this.userpass}));
+		return this._request(Object.assign({}, data, {userpass: this.token}));
 	}
 
 	botList() {
@@ -48,5 +54,3 @@ class Api {
 		return this.request({method: 'ticker'});
 	}
 }
-
-export default Api;
