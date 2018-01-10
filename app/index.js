@@ -27,6 +27,21 @@ app.setAppUserModelId('com.lukechilds.hyperdex');
 if (!is.development) {
 	autoUpdater.logger = log;
 	autoUpdater.logger.transports.file.level = 'info';
+
+	autoUpdater.on('update-available', () => {
+		const notification = new electron.Notification({
+			title: 'Update available!',
+			body: 'Click to view the release notes. The update must be downloaded manually.'
+		});
+
+		notification.on('click', () => {
+			electron.shell.openExternal('https://github.com/lukechilds/hyperdex/releases/latest');
+		});
+
+		notification.show();
+	});
+
+	autoUpdater.autoDownload = false;
 	autoUpdater.checkForUpdates();
 }
 
