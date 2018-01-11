@@ -72,8 +72,9 @@ class Marketmaker {
 		this.isRunning = true;
 
 		if (util.is.development) {
-			this.cp.stdout.pipe(process.stdout);
-			this.cp.stderr.pipe(process.stderr);
+			// Turn these on manually if wanted. They're super noisy.
+			// - this.cp.stdout.pipe(process.stdout);
+			// - this.cp.stderr.pipe(process.stderr);
 		}
 
 		electron.app.on('quit', () => {

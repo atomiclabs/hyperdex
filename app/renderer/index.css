@@ -13,6 +13,11 @@ html {
 	padding: 0;
 }
 
+html,
+body {
+	height: 100%;
+}
+
 body {
 	font-family: -apple-system,
 		BlinkMacSystemFont,
@@ -26,6 +31,20 @@ body {
 }
 
 .dark-mode body {
-	background: #000;
+	background: #22252c;
 	color: #fff;
+}
+
+#root {
+	height: 100%;
+}
+
+nav ul a {
+	display: block;
+	padding: 5px 0;
+	color: #0084ff;
+}
+
+.dark-mode nav {
+	background-color: #1e2127 !important;
 }
