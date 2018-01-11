@@ -95,7 +95,7 @@ app.on('before-quit', () => {
 	}
 });
 
-electron.ipcMain.once('start-marketmaker', async (event, {seedPhrase}) => {
+electron.ipcMain.on('start-marketmaker', async (event, {seedPhrase}) => {
 	await marketmaker.start({seedPhrase});
 	mainWindow.send('marketmaker-started', marketmaker.port);
 });
