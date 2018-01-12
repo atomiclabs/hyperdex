@@ -43,6 +43,11 @@ nav ul a {
 	display: block;
 	padding: 5px 0;
 	color: #0084ff;
+	text-decoration: none;
+}
+
+nav ul a.active {
+	text-decoration: underline;
 }
 
 .dark-mode nav {

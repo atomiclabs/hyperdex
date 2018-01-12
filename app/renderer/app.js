@@ -1,6 +1,6 @@
 import electron from 'electron';
 import React from 'react';
-import {Route, Link, Redirect} from 'react-router-dom';
+import {Route, Redirect, NavLink} from 'react-router-dom';
 import {history, BrowserRouter as Router, Debug} from 'react-router-util';
 
 /* eslint-disable */
@@ -80,16 +80,16 @@ export default class App extends React.Component {
 						background: '#f0f0f0'
 					}}>
 						<ul>
-							<li><Link to="/dashboard">Dashboard</Link></li>
-							<li><Link to="/swap">Swap</Link></li>
-							<li><Link to="/exchange">Exchange</Link></li>
-							<li><Link to="/trades">Trades</Link></li>
-							<li><Link to="/funds">Funds</Link></li>
-							<li><Link to="/preferences">Preferences</Link></li>
+							<li><NavLink to="/dashboard">Dashboard</NavLink></li>
+							<li><NavLink to="/swap">Swap</NavLink></li>
+							<li><NavLink to="/exchange">Exchange</NavLink></li>
+							<li><NavLink to="/trades">Trades</NavLink></li>
+							<li><NavLink to="/funds">Funds</NavLink></li>
+							<li><NavLink to="/preferences">Preferences</NavLink></li>
 						</ul>
 					</nav>
 
-					<div style={{ flex: 1, padding: '10px' }}>
+					<main style={{ flex: 1, padding: '10px' }}>
 						<Route exact path="/" render={() => (
 							isLoggedIn ? (
 								<Redirect to="/dashboard"/>
@@ -105,7 +105,7 @@ export default class App extends React.Component {
 						<Route path="/trades" component={Trades}/>
 						<Route path="/funds" component={Funds}/>
 						<Route path="/preferences" component={Preferences}/>
-					</div>
+					</main>
 				</div>
 			</Router>
 		);
