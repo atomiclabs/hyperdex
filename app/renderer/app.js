@@ -1,11 +1,7 @@
+import electron from 'electron';
 import React from 'react';
-import {
-	BrowserRouter as Router,
-	Route,
-	Link,
-	Redirect
-} from 'react-router-dom';
-import Navigator from './components/navigator';
+import {Route, Link, Redirect} from 'react-router-dom';
+import {history, BrowserRouter as Router, Debug} from 'react-router-util';
 
 /* eslint-disable */
 
@@ -75,7 +71,7 @@ export default class App extends React.Component {
 		return (
 			<Router>
 				<div style={{ display: 'flex', height: '100%' }}>
-					<Navigator/>
+					<Debug/>
 
 					<nav style={{
 						flex: 0,
@@ -115,3 +111,7 @@ export default class App extends React.Component {
 		);
 	}
 }
+
+electron.ipcRenderer.on('show-preferences', () => {
+	history.push('/preferences');
+});
