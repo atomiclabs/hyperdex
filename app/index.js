@@ -30,8 +30,8 @@ if (!is.development) {
 
 	autoUpdater.on('update-available', () => {
 		const notification = new electron.Notification({
-			title: 'Update available!',
-			body: 'Click to view the release notes. The update must be downloaded manually.'
+			title: `${app.getName()} Update Available!`,
+			body: 'Click to view the latest version.'
 		});
 
 		notification.on('click', () => {
