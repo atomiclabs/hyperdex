@@ -16,8 +16,8 @@ try {
 	require('electron-reloader')(module, {
 		ignore: [
 			'renderer',
-			'marketmaker/bin'
-		]
+			'marketmaker/bin',
+		],
 	});
 } catch (err) {}
 
@@ -32,7 +32,7 @@ if (!is.development) {
 	autoUpdater.on('update-available', () => {
 		const notification = new electron.Notification({
 			title: `${app.getName()} Update Available!`,
-			body: 'Click to view the latest version.'
+			body: 'Click to view the latest version.',
 		});
 
 		notification.on('click', () => {
@@ -77,7 +77,7 @@ function createMainWindow() {
 		height: windowState.height,
 		minWidth: 400,
 		minHeight: 200,
-		darkTheme: isDarkMode // GTK+3
+		darkTheme: isDarkMode, // GTK+3
 	});
 
 	win.on('ready-to-show', () => {

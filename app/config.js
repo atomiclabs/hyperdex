@@ -5,8 +5,8 @@ module.exports = new Store({
 	defaults: {
 		windowState: {
 			width: 900,
-			height: 600
+			height: 600,
 		},
-		darkMode: false
-	}
+		darkMode: false,
+	},
 });

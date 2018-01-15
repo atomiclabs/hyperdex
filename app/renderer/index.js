@@ -34,7 +34,7 @@ function initMarketmaker() {
 	electron.ipcRenderer.on('marketmaker-started', async (event, port) => {
 		const api = new Api({
 			endpoint: `http://localhost:${port}`,
-			seedPhrase: SEED_PHRASE
+			seedPhrase: SEED_PHRASE,
 		});
 
 		console.log('Portfolio:', await api.portfolio());
