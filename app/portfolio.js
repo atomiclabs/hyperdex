@@ -30,7 +30,13 @@ const getAll = async () => {
 	return Promise.all(portfolios.map(loadJsonFile));
 };
 
+const unlock = async (portfolio, password) => Object.assign(
+	{seed: await decrypt(portfolio.encryptedSeed, password)},
+	portfolio,
+);
+
 module.exports = {
 	create,
-	getAll
+	getAll,
+	unlock,
 };
