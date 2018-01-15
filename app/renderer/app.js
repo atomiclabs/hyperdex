@@ -2,6 +2,7 @@ import electron from 'electron';
 import React from 'react';
 import {Route, Redirect, NavLink} from 'react-router-dom';
 import {history, BrowserRouter as Router, Debug} from 'react-router-util';
+import Preferences from './components/preferences';
 
 /* eslint-disable */
 
@@ -51,14 +52,6 @@ const Funds = () => (
 	<div>
 		<h1>
 			Funds
-		</h1>
-	</div>
-);
-
-const Preferences = () => (
-	<div>
-		<h1>
-			Preferences
 		</h1>
 	</div>
 );
