@@ -18,7 +18,7 @@ const create = async ({name, seedPhrase, password}) => {
 	const path = `${portfolioPath}/${filename}`;
 	const data = {
 		name,
-		encryptedSeed: await encrypt(seedPhrase, password),
+		encryptedSeedPhrase: await encrypt(seedPhrase, password),
 		appVersion: app.getVersion(),
 	};
 
@@ -32,7 +32,7 @@ const getAll = async () => {
 };
 
 const unlock = async (portfolio, password) => Object.assign(
-	{seed: await decrypt(portfolio.encryptedSeed, password)},
+	{seedPhrase: await decrypt(portfolio.encryptedSeedPhrase, password)},
 	portfolio,
 );
 
