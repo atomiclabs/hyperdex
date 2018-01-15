@@ -1,5 +1,6 @@
 import electron from 'electron';
 import React from 'react';
+import _ from 'lodash';
 
 /* eslint-disable */
 
@@ -12,12 +13,16 @@ class Form extends React.Component {
 		this.state = {
 			marketmakerUrl: config.get('marketmakerUrl')
 		};
+
+		this.persistState = _.debounce((name, value) => {
+			config.set(name, value);
+		}, 500);
 	}
 
 	handleChange(event) {
 		const {name, value} = event.target;
 		this.setState({[name]: value});
-		config.set(name, value);
+		this.persistState(name, value);
 	}
 
 	render() {
