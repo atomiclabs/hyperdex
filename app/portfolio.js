@@ -5,6 +5,8 @@ const iocane = require('iocane');
 const slug = require('slug');
 const filenamify = require('filenamify');
 const writeJsonFile = require('write-json-file');
+const dir = require('node-dir');
+const loadJsonFile = require('load-json-file');
 
 const {encryptWithPassword: encrypt, decryptWithPassword: decrypt} = iocane.crypto;
 const portfolioPath = app.getPath('userData') + '/portfolios';
@@ -22,6 +24,13 @@ const create = async ({name, seedPhrase, password}) => {
 	return writeJsonFile(path, data).then(() => path);
 };
 
+const getAll = async () => {
+	const portfolios = await dir.promiseFiles(portfolioPath);
+
+	return Promise.all(portfolios.map(loadJsonFile));
+};
+
 module.exports = {
-	create
+	create,
+	getAll
 };
