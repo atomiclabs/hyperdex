@@ -31,7 +31,7 @@ const SEED_PHRASE = 'secure passphrase';
 async function initApi(endpoint) {
 	const api = new Api({
 		endpoint,
-		seedPhrase: SEED_PHRASE
+		seedPhrase: SEED_PHRASE,
 	});
 
 	console.log('Portfolio:', await api.portfolio());
