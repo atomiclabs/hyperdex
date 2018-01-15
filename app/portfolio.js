@@ -1,5 +1,4 @@
 'use strict';
-const {randomBytes} = require('crypto');
 const {app} = require('electron');
 const iocane = require('iocane');
 const slug = require('slug');
