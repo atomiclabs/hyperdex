@@ -1,0 +1,93 @@
+// Underline nav
+//
+// Extends `.nav` like other Bootstrap navs.
+
+.nav-bordered {
+  > .nav-item {
+    float: left;
+
+    // Links rendered as pills
+    > .nav-link {
+      display: inline-block;
+      padding: ($spacer-y / 2) 0;
+      font-weight: $nav-bordered-font-weight;
+      color: $nav-bordered-color;
+      border-bottom: 4px solid transparent;
+
+      &:hover,
+      &:focus {
+        color: theme-color("primary");
+        background-color: transparent;
+      }
+
+      // Active state
+      &.active {
+        &,
+        &:hover,
+        &:focus {
+          font-weight: $nav-bordered-font-weight-active;
+          color: $nav-bordered-color-active;
+          border-bottom-color: theme-color("primary");
+        }
+      }
+
+    }
+
+    + .nav-item {
+      margin-left: ($spacer-x * 1.5);
+    }
+  }
+
+  &.nav-justified {
+    > .nav-item + .nav-item {
+      margin-left: 0;
+    }
+    > .nav-item > .nav-link {
+      margin-bottom: 0;
+    }
+  }
+
+  &.nav-stacked {
+    > .nav-item {
+      float: none;
+      margin-left: 0;
+
+      + .nav-item {
+        margin-top: 0;
+      }
+    }
+
+    > .nav-item > .nav-link {
+      display: block;
+      padding: 5px 10px 5px ($spacer-x * 1.5);
+      border-bottom: 0;
+      border-left: 4px solid transparent;
+
+      &:hover,
+      &:focus {
+        border-left: 4px solid;
+        text-decoration: none;
+      }
+
+      &.active {
+        &,
+        &:hover,
+        &:focus {
+          border-left-color: theme-color("primary");
+        }
+      }
+
+    }
+
+    .nav-header {
+      padding-left: (($spacer-x * 1.5) + 4px);
+    }
+
+    .nav-divider {
+      @include nav-divider(rgba(255,255,255,.2));
+      margin-left: (($spacer-x * 1.5) + 4px);
+      margin-top: 20px;
+      margin-bottom: 25px;
+    }
+  }
+}

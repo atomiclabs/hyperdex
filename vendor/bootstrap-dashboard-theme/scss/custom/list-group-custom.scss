@@ -1,0 +1,35 @@
+//
+// List group exentions
+//
+
+// Header (like panels)
+.list-group-header {
+  display: block;
+  padding: 1rem 1.25rem;
+  margin-bottom: -1px;
+  font-weight: 400;
+  color: $list-group-header-color; // inherit;
+  background-color: transparent;
+  border: 1px solid $list-group-border-color;
+
+  // Round the first and last items
+  &:first-child {
+    @include border-top-radius($list-group-border-radius);
+  }
+  &:last-child {
+    margin-bottom: 0;
+    @include border-bottom-radius($list-group-border-radius);
+  }
+}
+
+
+// Background progress bar
+.list-group-progress {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
+  background-color: darken($body-bg, 3%);
+}

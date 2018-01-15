@@ -1,0 +1,246 @@
+
+// Colors
+//
+$body-color:             #000;
+
+// special light gray for flourishes like hr's
+$gray-subtle:            #eee;
+
+// Brand Scale
+$theme-colors: (
+  primary: #1997c6,
+  success: #1BC98E,
+  info: #9F86FF,
+  warning: #E4D836,
+  danger: #E64759,
+  dark: darken(#252830, 5%)
+);
+
+@import "./bootstrap/_functions.scss";
+@import "./bootstrap/_variables.scss";
+
+// deleted bs.4 vars
+$font-family-serif: Georgia, "Times New Roman", Times, serif !default;
+$font-size-xs:      .75rem !default;
+$nav-tabs-active-link-hover-bg: $body-bg !default;
+
+// Local variables
+//
+// Custom and override variables for this toolkit.
+
+// icons
+$icon-font-path: "../fonts/";
+$icon-font-name: "toolkit-entypo";
+
+
+// States
+//
+// Overrides Bootstrap defaults.
+
+$state-success-text:             theme-color("success");
+$state-info-text:                theme-color("info");
+$state-warning-text:             theme-color("warning");
+$state-danger-text:              theme-color("danger");
+
+
+// Spacing
+//
+// Custom variables. Utilities for quickly spacing items consistently.
+
+$spacer:            20px;
+$spacer-x:          $spacer;
+$spacer-y:          $spacer;
+$grid-gutter-width: $spacer;
+
+
+// Typography
+//
+// Overrides Bootstrap defaults.
+
+// Fonts
+$font-family-sans-serif:  "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-base:        $font-family-sans-serif;
+
+// Body
+$font-size-base:          0.9rem;
+$font-weight-base:        300;
+$letter-spacing-base:     0;
+$line-height-base:        1.5;
+$text-color:              $gray-700;
+
+// Lead
+$lead-font-size:      $font-size-base * 1.15;
+$lead-font-size-sm:   $font-size-base * 1.5;
+$lead-font-weight:    inherit;
+$lead-line-height:    1.4;
+$lead-letter-spacing: 0;
+
+// Headings
+$headings-font-weight:    300;
+$headings-color:          inherit;
+
+$text-muted:              #999;
+$hr-border:               $gray-subtle;
+
+
+// Forms
+//
+// Overrides Bootstrap defaults.
+
+$input-border:                   #d5d5d5;
+$input-border-focus:             theme-color("primary");
+$input-weight:                   300;
+
+
+// Buttons
+//
+// Overrides and custom.
+
+// Custom
+$btn-font-size:      $font-size-base;
+$btn-text-transform: none;
+$btn-letter-spacing: normal;
+
+// Overrides
+$btn-font-weight:                normal;
+$btn-secondary-color:            $gray-900;
+$btn-secondary-bg:               $gray-100;
+$btn-secondary-border:           darken($btn-secondary-bg, 10%);
+$btn-toolbar-divider-bg:         #eee;
+
+
+// Badges
+//
+// Overrides Bootstrap defaults.
+
+$badge-color:                 #fff;
+
+
+// Alerts
+//
+// Overrides Bootstrap defaults.
+
+$alert-success-bg:            theme-color("success");
+$alert-success-text:          lighten(theme-color("success"), 50%);
+$alert-success-border:        $alert-success-bg;
+
+$alert-info-bg:               theme-color("info");
+$alert-info-text:             lighten(theme-color("info"), 50%);
+$alert-info-border:           $alert-info-bg;
+
+$alert-warning-bg:            theme-color("warning");
+$alert-warning-text:          lighten(theme-color("warning"), 50%);
+$alert-warning-border:        $alert-warning-bg;
+
+$alert-danger-bg:             theme-color("danger");
+$alert-danger-text:           lighten(theme-color("danger"), 45%);
+$alert-danger-border:         $alert-danger-bg;
+
+
+// Panels
+//
+// Overrides Bootstrap defaults.
+
+// $panel-success-text:          #fff;
+// $panel-success-border:        $state-success-text;
+// $panel-success-heading-bg:    $state-success-text;
+//
+// $panel-info-text:             #fff;
+// $panel-info-border:           $state-info-text;
+// $panel-info-heading-bg:       $state-info-text;
+//
+// $panel-warning-text:          #fff;
+// $panel-warning-border:        $state-warning-text;
+// $panel-warning-heading-bg:    $state-warning-text;
+//
+// $panel-danger-text:           #fff;
+// $panel-danger-border:         $state-danger-text;
+// $panel-danger-heading-bg:     $state-danger-text;
+
+
+// Navs
+//
+// Overrides Bootstrap defaults.
+
+$nav-link-padding:               7px 15px;
+
+$nav-bordered-color:              #777;
+$nav-bordered-color-active:       #777;
+$nav-bordered-font-weight:        300;
+$nav-bordered-font-weight-active: 500;
+
+$nav-link-hover-bg: lighten(theme-color("primary"), 45%);
+
+$nav-pills-active-weight: 500;
+$nav-header-color: lighten($gray-700, 35%);
+
+// Navbar
+//
+// Overrides Bootstrap defaults.
+
+$navbar-border:     transparent;
+$navbar-inverse-bg: $gray-900;
+$navbar-inverse-border: $gray-900;
+$navbar-brand-padding-y: .125rem;
+
+
+// Thumbnail
+//
+// Overrides Bootstrap defaults.
+
+// $thumbnail-caption-padding:   15px 11px;
+
+
+// Icon nav
+//
+// Custom variables. Built for the icon nav example.
+
+$iconav-bg:                  $gray-subtle;
+$iconav-border:              #fff;
+$iconav-width:               70px;
+$iconav-brand-color:         $gray-subtle;
+$iconav-brand-hover-color:   inherit;
+$iconav-brand-bg:            theme-color("primary");
+$iconav-brand-border:        $iconav-border;
+$iconav-link-color:          inherit;
+$iconav-link-border:         $iconav-border;
+$iconav-link-active-color:   $gray-700;
+$iconav-link-active-bg:      $iconav-border;
+
+$list-group-bg: transparent;
+$list-group-header-color: inherit;
+
+$statlist-border-color: #e5e5e5;
+$statlist-link-color:   inherit;
+$statlist-progress-bg:  #f5f5f5;
+
+$hr-divider-content-color:  $gray-700;
+$hr-divider-content-bg:     $body-bg;
+$hr-divider-before-bg:      $gray-subtle;
+
+$custom-select-color:       $input-color;
+$custom-select-bg:          $input-bg;
+$custom-select-disabled-bg: $input-disabled-bg;
+
+$custom-control-indicator-bg:     $input-bg;
+$custom-control-indicator-box-shadow: rgba(0,0,0,.15);
+
+$sidebar-brand-color:          $gray-700;
+$sidebar-brand-hover-color:    $gray-800;
+$sidebar-toggler-color:        #ccc;
+$sidebar-toggler-hover-color:  #fff;
+
+$dashhead-toolbar-divider-bg: #eee;
+$dashhead-subtitle-color: $nav-header-color;
+
+// $well-border: rgba(0,0,0,.1);
+
+$navbar-nav-active-font-weight: 500;
+
+// Container
+$container-max-widths: (
+  md: 880px,
+  lg: 950px,
+  xl: 1100px
+);
+@include _assert-ascending($container-max-widths, "$container-max-widths");

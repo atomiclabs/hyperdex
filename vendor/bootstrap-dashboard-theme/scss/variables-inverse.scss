@@ -1,0 +1,158 @@
+@import "./variables.scss";
+
+// Gray scale
+$gray-900: #252830; //#111
+$gray-100: lighten($gray-900, 93.5%); // f5f5f5
+$gray-200: lighten($gray-900, 80%);
+$gray-300: lighten($gray-900, 66.7%);
+$gray-400: lighten($gray-900, 45.5%);
+$gray-500: lighten($gray-900, 33.5%); // #aaa
+$gray-600: lighten($gray-900, 28.7%);
+$gray-700: lighten($gray-900, 20%); //#555
+$gray-800: lighten($gray-900, 13.5%); //#222
+
+// reset gray subtle
+$gray-subtle: $gray-300;
+
+// Scaffolding
+$body-bg:             $gray-900;
+$body-color:          $gray-300;
+$text-color:          $gray-300;
+$btn-secondary-color: $gray-700;
+
+// Typography
+$headings-color:                 $gray-100;
+$code-bg:                        darken($body-bg, 5%);
+$blockquote-border-color:        $gray-800;
+$hr-border-color:                $gray-800;
+
+// Tables
+$table-bg-accent:                $gray-800;
+$table-border-color:             $gray-800;
+$table-bg-hover:                 $gray-800;
+
+// Forms
+$input-bg:                       $gray-800;
+$input-border-color:             $gray-800;
+$input-disabled-bg:              lighten($gray-900, 5%);
+$input-color:                    #fff;
+$input-border:                   $gray-800;
+$input-border-focus:             #fff;
+$input-group-addon-bg:           lighten($gray-900, 18%);
+$input-group-addon-border-color: transparent;
+$input-color-placeholder:        $gray-300;
+
+// Thumbnails
+$thumbnail-bg:                   transparent;
+$thumbnail-border:               lighten($gray-900, 5%);
+
+// Jumbotron
+$jumbotron-bg:                   darken($gray-900, 5%);
+
+// Badges
+$badge-color:                    $gray-900;
+
+// Progress bars
+$progress-bg:                    $gray-800;
+
+// Navs
+$nav-link-hover-bg:                         $gray-800;
+$nav-pills-active-link-color:               $gray-900;
+$nav-pills-active-link-bg:                  theme-color("primary");
+$nav-tabs-border-color:                     $gray-800;
+$nav-tabs-active-link-hover-color:          $component-active-color;
+$nav-tabs-active-link-hover-bg:             transparent;
+$nav-tabs-active-link-hover-border-color:   $nav-tabs-border-color;
+
+// Inverted navbar
+$navbar-inverse-color:                      $gray-300;
+$navbar-inverse-bg:                         darken($gray-900, 5%);
+$navbar-inverse-border:                     darken($gray-900, 5%);
+
+// Pagination
+$pagination-color:                     $gray-700;
+$pagination-bg:                        $gray-900;
+$pagination-border-color:              $gray-800;
+$pagination-hover-border-color:        $gray-800;
+
+$pagination-hover-color:               #fff;
+$pagination-hover-bg:                  $gray-800;
+$pagination-hover-border:              $pagination-hover-bg;
+
+$pagination-active-color:              $component-active-color;
+$pagination-active-bg:                 $gray-700;
+$pagination-active-border:             $gray-700;
+
+$pagination-disabled-color:            $gray-700;
+$pagination-disabled-bg:               transparent;
+$pagination-disabled-border:           $gray-800;
+
+// Breadcrumbs
+$breadcrumb-bg:                        lighten($gray-900, 5%);
+$breadcrumb-active-color:              $component-active-color;
+
+// List groups
+$list-group-bg:                        transparent;
+$list-group-border:                    $gray-800;
+$list-group-hover-bg:                  $gray-800;
+$list-group-action-color:              $gray-300;
+$list-group-action-hover-color:        $gray-300;
+$list-group-action-heading-color:      $gray-300;
+$list-group-active-color:              $component-active-color;
+$list-group-active-bg:                 $gray-700;
+$list-group-active-border:             $gray-700;
+$list-group-active-text-color:         lighten($list-group-active-bg, 40%);
+$list-group-disabled-color:            $gray-700;
+$list-group-disabled-bg:               transparent;
+$list-group-disabled-text-color:       inherit;
+$list-group-border-color:              #434857;
+
+// Tooltips
+$tooltip-arrow-color: #fff;
+
+$thumbnail-bg:           transparent;
+$thumbnail-border-color: lighten($gray-900, 5%);
+
+$badge-color: $body-bg;
+$badge-bg: #fff;
+
+$btn-toolbar-divider-bg:      $gray-800;
+
+$custom-select-color:         $text-color;
+$custom-select-bg:            $gray-800;
+$custom-select-disabled-bg:   darken($gray-800, 10%);
+
+$custom-control-indicator-bg: $gray-800;
+$hr-divider-content-color:   $gray-500;
+$hr-divider-content-bg:      $gray-900;
+$hr-divider-before-bg:       $gray-800;
+
+$nav-header-color:                $gray-700;
+$nav-tabs-border-color:           $gray-900;
+$nav-bordered-color-active:       theme-color("primary");
+$nav-bordered-color:              #fff;
+
+$list-group-header-color:  #fff;
+$list-group-border:        $gray-800;
+
+$tooltip-bg: #fff;
+$tooltip-color: $body-bg;
+
+$statlist-border-color: $gray-800;
+$statlist-link-color:   #fff;
+$statlist-progress-bg:  lighten($body-bg, 5%);
+
+$sidebar-toggler-color: $gray-800;
+
+$dashhead-toolbar-divider-bg: $gray-800;
+$dashhead-subtitle-color: $gray-800;
+
+$iconav-bg:                 lighten($gray-900, 5%);
+$iconav-brand-bg:           darken($gray-900, 10%);
+$iconav-brand-color:        $gray-500;
+$iconav-brand-hover-color:  $gray-300;
+$iconav-link-border:        $gray-900;
+$iconav-link-active-bg:     $gray-900;
+
+$sidebar-brand-color:       $gray-700;
+$sidebar-brand-hover-color: $gray-500;

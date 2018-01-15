@@ -1,0 +1,72 @@
+@import 'bootstrap-overrides';
+@import 'toolkit-inverse';
+
+body {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	font-family: -apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Ubuntu,
+		'Helvetica Neue',
+		sans-serif,
+		'Apple Color Emoji',
+		'Segoe UI Emoji',
+		'Segoe UI Symbol';
+}
+
+@media (max-width: 768px) {
+	body {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	/* Don't show navbar tooltips in mobile view */
+	.tooltip.show {
+		display: none !important;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	margin-top: 0;
+}
+
+hr {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.navbar-fixed-top,
+.navbar-static-top {
+	border-bottom: 0;
+}
+
+.iconav {
+	-webkit-app-region: drag;
+	padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+	/* Increasing the padding as we increased the `.iconav` width */
+	.with-iconav > .container,
+	.with-iconav > .container-fluid {
+		padding-left: 90px;
+		padding-right: 15px;
+	}
+
+	.iconav {
+		width: 75px;
+		padding-top: 50px;
+	}
+}

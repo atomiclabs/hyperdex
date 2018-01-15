@@ -1,0 +1,37 @@
+.table .header {
+  padding-right: 20px;
+  font-weight: 700;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.headerSortUp,
+.headerSortDown {
+  white-space: nowrap;
+  cursor: pointer;
+  font-weight: 700 !important;
+  color: theme-color("primary") !important;
+  border-bottom-color: theme-color("primary") !important;
+
+  &:after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    content: "";
+    margin-right: -10px;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    border-right: $tooltip-arrow-width solid transparent;
+    border-left:  $tooltip-arrow-width solid transparent;
+  }
+}
+
+.headerSortUp:after {
+  border-top: $tooltip-arrow-width solid;
+}
+
+.headerSortDown:after {
+  border-bottom: $tooltip-arrow-width solid;
+}

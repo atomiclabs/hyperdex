@@ -11,7 +11,7 @@ class Form extends React.Component {
 		super(props);
 
 		this.state = {
-			marketmakerUrl: config.get('marketmakerUrl')
+			marketmakerUrl: config.get('marketmakerUrl'),
 		};
 
 		this.persistState = _.debounce((name, value) => {
@@ -28,16 +28,18 @@ class Form extends React.Component {
 	render() {
 		return (
 			<div>
-				<label>
-					<div>Custom Marketmaker URL: <small>(Requires app restart)</small></div>
+				<div className="form-group">
+					<label htmlFor="marketmakerUrl">
+						Custom Marketmaker URL: <small>(Requires app restart)</small>
+					</label>
 					<input
+						className="form-control"
 						name="marketmakerUrl"
 						value={this.state.marketmakerUrl}
 						onChange={this.handleChange.bind(this)}
 						placeholder="Example: http://localhost:7783"
-						style={{width:'400px'}}
 					/>
-				</label>
+				</div>
 			</div>
 		);
 	}
@@ -45,11 +47,14 @@ class Form extends React.Component {
 
 const Preferences = () => (
 	<div>
-		<h1>
-			Preferences
-		</h1>
-		<br/>
-		<Form/>
+		<header className="dashhead">
+			<div className="dashhead-titles">
+				<h3 className="dashhead-title">Preferences</h3>
+			</div>
+		</header>
+		<main>
+			<Form/>
+		</main>
 	</div>
 );
 

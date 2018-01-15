@@ -1,0 +1,21 @@
+// Icon inputs
+//
+// Overlay an icon on the top of a form control. Similar to the input groups
+// and their appended add-ons, except these sit on top of the inputs.
+
+.input-with-icon {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  > .form-control {
+    padding-left: 30px;
+  }
+
+  > .icon {
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    color: #ccc;
+  }
+}

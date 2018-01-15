@@ -7,6 +7,6 @@ module.exports = new Store({
 			width: 900,
 			height: 600,
 		},
-		darkMode: false,
+		darkMode: true,
 	},
 });
