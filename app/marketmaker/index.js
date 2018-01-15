@@ -49,7 +49,7 @@ class Marketmaker {
 			gui: 'nogui',
 			userHome: os.homedir(),
 			rpcport: await getPort(),
-			coins: this._getCoins()
+			coins: this._getCoins(),
 		});
 
 		this.port = options.rpcport;
@@ -66,7 +66,7 @@ class Marketmaker {
 		}
 
 		this.cp = childProcess.spawn(binPath, [JSON.stringify(options)], {
-			cwd: path.dirname(binPath)
+			cwd: path.dirname(binPath),
 		});
 
 		this.isRunning = true;

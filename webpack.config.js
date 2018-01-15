@@ -7,14 +7,14 @@ module.exports = {
 	entry: './app/renderer',
 	output: {
 		path: path.join(__dirname, 'app/renderer-dist'),
-		filename: 'bundle.js'
+		filename: 'bundle.js',
 	},
 	target: 'electron',
 	resolve: {
 		extensions: [
 			'.js',
-			'.jsx'
-		]
+			'.jsx',
+		],
 	},
 	devtool: NodeEnvPlugin.devtool,
 	module: {
@@ -25,11 +25,11 @@ module.exports = {
 				loader: 'babel-loader',
 				options: {
 					presets: [
-						'react'
-					]
-				}
-			}
-		]
+						'react',
+					],
+				},
+			},
+		],
 	},
 	plugins: [
 		new NodeEnvPlugin(),
@@ -37,8 +37,8 @@ module.exports = {
 			{
 				context: 'app/renderer',
 				from: '*',
-				ignore: '*.js'
-			}
-		])
-	]
+				ignore: '*.js',
+			},
+		]),
+	],
 };

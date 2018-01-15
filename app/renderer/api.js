@@ -11,7 +11,7 @@ export default class Api {
 	async _request(data) {
 		const response = await fetch(this.endpoint, {
 			method: 'post',
-			body: JSON.stringify(data)
+			body: JSON.stringify(data),
 		});
 
 		return response.json();
@@ -20,7 +20,7 @@ export default class Api {
 	async _token() {
 		const {userpass: token} = await this._request({
 			method: 'passphrase',
-			passphrase: this.seedPhrase
+			passphrase: this.seedPhrase,
 		});
 
 		return token;

@@ -23,8 +23,8 @@ const viewSubmenu = [
 		accelerator: 'CmdOrCtrl+D',
 		click() {
 			sendAction('toggle-dark-mode');
-		}
-	}
+		},
+	},
 ];
 
 const helpSubmenu = [
@@ -33,13 +33,13 @@ const helpSubmenu = [
 		click() {
 			// TODO: Put website URL here
 			shell.openExternal(githubRepo);
-		}
+		},
 	},
 	{
 		label: `Source Code`,
 		click() {
 			shell.openExternal(githubRepo);
-		}
+		},
 	},
 	{
 		label: 'Report an Issue…',
@@ -55,13 +55,13 @@ Electron ${process.versions.electron}
 ${process.platform} ${process.arch} ${os.release()}`;
 
 			shell.openExternal(`${githubRepo}/issues/new?body=${encodeURIComponent(body)}`);
-		}
-	}
+		},
+	},
 ];
 
 if (process.platform !== 'darwin') {
 	helpSubmenu.push({
-		type: 'separator'
+		type: 'separator',
 	}, {
 		role: 'about',
 		click() {
@@ -69,9 +69,9 @@ if (process.platform !== 'darwin') {
 				title: `About ${appName}`,
 				message: `${appName} ${app.getVersion()}`,
 				detail: 'Copyright © Luke Childs',
-				icon: path.join(__dirname, 'static/icon.png')
+				icon: path.join(__dirname, 'static/icon.png'),
 			});
-		}
+		},
 	});
 }
 
@@ -80,53 +80,53 @@ const macosTpl = [
 		label: appName,
 		submenu: [
 			{
-				role: 'about'
+				role: 'about',
 			},
 			{
-				type: 'separator'
+				type: 'separator',
 			},
 			{
 				label: 'Preferences…',
 				accelerator: 'Cmd+,',
 				click() {
 					sendAction('show-preferences');
-				}
+				},
 			},
 			{
-				type: 'separator'
+				type: 'separator',
 			},
 			{
 				label: 'Log Out',
 				click() {
 					sendAction('log-out');
-				}
+				},
 			},
 			{
-				type: 'separator'
+				type: 'separator',
 			},
 			{
 				role: 'services',
-				submenu: []
+				submenu: [],
 			},
 			{
-				type: 'separator'
+				type: 'separator',
 			},
 			{
-				role: 'hide'
+				role: 'hide',
 			},
 			{
-				role: 'hideothers'
+				role: 'hideothers',
 			},
 			{
-				role: 'unhide'
+				role: 'unhide',
 			},
 			{
-				type: 'separator'
+				type: 'separator',
 			},
 			{
-				role: 'quit'
-			}
-		]
+				role: 'quit',
+			},
+		],
 	},
 	{
 		label: 'File',
@@ -136,41 +136,41 @@ const macosTpl = [
 				accelerator: 'Cmd+N',
 				click() {
 					// - sendAction('something');
-				}
-			}
-		]
+				},
+			},
+		],
 	},
 	{
-		role: 'editMenu'
+		role: 'editMenu',
 	},
 	{
 		label: 'View',
-		submenu: viewSubmenu
+		submenu: viewSubmenu,
 	},
 	{
 		role: 'window',
 		submenu: [
 			{
-				role: 'minimize'
+				role: 'minimize',
 			},
 			{
-				role: 'close'
+				role: 'close',
 			},
 			{
-				type: 'separator'
+				type: 'separator',
 			},
 			{
-				role: 'front'
+				role: 'front',
 			},
 			{
-				role: 'togglefullscreen'
-			}
-		]
+				role: 'togglefullscreen',
+			},
+		],
 	},
 	{
 		role: 'help',
-		submenu: helpSubmenu
-	}
+		submenu: helpSubmenu,
+	},
 ];
 
 const otherTpl = [
@@ -185,77 +185,77 @@ const otherTpl = [
 						accelerator: 'Cmd+N',
 						click() {
 							// - sendAction('something');
-						}
-					}
-				]
+						},
+					},
+				],
 			},
 			{
-				type: 'separator'
+				type: 'separator',
 			},
 			{
 				label: 'Log Out',
 				click() {
 					sendAction('log-out');
-				}
+				},
 			},
 			{
-				type: 'separator'
+				type: 'separator',
 			},
 			{
-				role: 'quit'
-			}
-		]
+				role: 'quit',
+			},
+		],
 	},
 	{
 		label: 'Edit',
 		submenu: [
 			{
-				role: 'undo'
+				role: 'undo',
 			},
 			{
-				role: 'redo'
+				role: 'redo',
 			},
 			{
-				type: 'separator'
+				type: 'separator',
 			},
 			{
-				role: 'cut'
+				role: 'cut',
 			},
 			{
-				role: 'copy'
+				role: 'copy',
 			},
 			{
-				role: 'paste'
+				role: 'paste',
 			},
 			{
-				role: 'delete'
+				role: 'delete',
 			},
 			{
-				type: 'separator'
+				type: 'separator',
 			},
 			{
-				role: 'selectall'
+				role: 'selectall',
 			},
 			{
-				type: 'separator'
+				type: 'separator',
 			},
 			{
 				label: 'Preferences',
 				accelerator: 'Ctrl+,',
 				click() {
 					sendAction('show-preferences');
-				}
-			}
-		]
+				},
+			},
+		],
 	},
 	{
 		label: 'View',
-		submenu: viewSubmenu
+		submenu: viewSubmenu,
 	},
 	{
 		role: 'help',
-		submenu: helpSubmenu
-	}
+		submenu: helpSubmenu,
+	},
 ];
 
 const tpl = process.platform === 'darwin' ? macosTpl : otherTpl;

@@ -16,8 +16,8 @@ try {
 	require('electron-reloader')(module, {
 		ignore: [
 			'renderer',
-			'marketmaker/bin'
-		]
+			'marketmaker/bin',
+		],
 	});
 } catch (err) {}
 
@@ -28,6 +28,21 @@ app.setAppUserModelId('com.lukechilds.hyperdex');
 if (!is.development) {
 	autoUpdater.logger = log;
 	autoUpdater.logger.transports.file.level = 'info';
+
+	autoUpdater.on('update-available', () => {
+		const notification = new electron.Notification({
+			title: `${app.getName()} Update Available!`,
+			body: 'Click to view the latest version.',
+		});
+
+		notification.on('click', () => {
+			electron.shell.openExternal('https://github.com/lukechilds/hyperdex/releases/latest');
+		});
+
+		notification.show();
+	});
+
+	autoUpdater.autoDownload = false;
 	autoUpdater.checkForUpdates();
 }
 
@@ -62,7 +77,7 @@ function createMainWindow() {
 		height: windowState.height,
 		minWidth: 400,
 		minHeight: 200,
-		darkTheme: isDarkMode // GTK+3
+		darkTheme: isDarkMode, // GTK+3
 	});
 
 	win.on('ready-to-show', () => {

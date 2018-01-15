@@ -39,7 +39,8 @@
 		"extends": "xo-react",
 		"rules": {
 			"import/no-extraneous-dependencies": "off",
-			"unicorn/no-abusive-eslint-disable": "off"
+			"unicorn/no-abusive-eslint-disable": "off",
+			"comma-dangle": ["error", "always-multiline"]
 		}
 	},
 	"build": {
