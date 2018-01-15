@@ -21,7 +21,9 @@ const create = async ({name, seedPhrase, password}) => {
 		appVersion: app.getVersion(),
 	};
 
-	return writeJsonFile(path, data).then(() => path);
+	await writeJsonFile(path, data);
+
+	return path;
 };
 
 const getAll = async () => {
