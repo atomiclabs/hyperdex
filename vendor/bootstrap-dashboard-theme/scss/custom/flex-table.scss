@@ -1,0 +1,23 @@
+//
+// flex table
+//
+
+.flextable {
+  dislay: table;
+  width: 100%;
+}
+
+.flextable-item {
+  display: table-cell;
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+
+  .btn-group {
+    margin-left: 10px;
+  }
+}
+
+.flextable-primary {
+  width: 99%;
+}

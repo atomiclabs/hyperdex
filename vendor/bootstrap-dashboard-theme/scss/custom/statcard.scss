@@ -1,0 +1,88 @@
+.statcard-number {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  .badge {
+    font-size: 45%;
+    vertical-align: middle;
+  }
+}
+
+.statcard-desc {
+  font-size: 85%;
+  letter-spacing: .15em;
+  color: lighten($gray-700, 20%);
+  text-transform: uppercase;
+}
+
+
+.delta-indicator {
+  display: inline-block;
+  padding: .4em;
+  font-size: 12px;
+  vertical-align: middle;
+
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+  }
+
+}
+
+.delta-positive {
+  color: theme-color("success");
+
+  &:after {
+    border-top: 0;
+    border-bottom: 4px solid;
+  }
+}
+
+.delta-negative {
+  color: theme-color("danger");
+
+  &:after {
+    border-bottom: 0;
+    border-top: 4px solid;
+  }
+}
+
+.statcard-primary,
+.statcard-success,
+.statcard-info,
+.statcard-warning,
+.statcard-danger {
+  color: #fff;
+  border-radius: 3px;
+
+  .delta-negative,
+  .delta-positive,
+  .statcard-number {
+    font-weight: normal;
+    color: inherit;
+  }
+
+  .statcard-desc {
+    font-weight: normal;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .statcard-hr {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    border-top-color: rgba(255,255,255,.2);
+  }
+}
+
+.statcard-primary { background-color: theme-color("primary"); }
+.statcard-success { background-color: theme-color("success"); }
+.statcard-info    { background-color: theme-color("info"); }
+.statcard-warning { background-color: theme-color("warning"); }
+.statcard-danger  { background-color: theme-color("danger"); }

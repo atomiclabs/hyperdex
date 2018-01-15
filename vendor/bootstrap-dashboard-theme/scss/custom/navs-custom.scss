@@ -1,0 +1,11 @@
+.nav-pills {
+  > li {
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        font-weight: $nav-pills-active-weight;
+      }
+    }
+  }
+}

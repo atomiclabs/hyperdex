@@ -1,7 +1,10 @@
 'use strict';
 const path = require('path');
+const webpack = require('webpack');
 const NodeEnvPlugin = require('node-env-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+
+const bootstrapPath = path.join(__dirname, 'vendor/bootstrap-dashboard-theme');
 
 module.exports = {
 	entry: './app/renderer',
@@ -10,13 +13,16 @@ module.exports = {
 		filename: 'bundle.js',
 	},
 	target: 'electron',
+	devtool: NodeEnvPlugin.devtool,
 	resolve: {
 		extensions: [
 			'.js',
 			'.jsx',
 		],
+		alias: {
+			bootstrap: path.resolve(bootstrapPath, 'js/bootstrap'),
+		},
 	},
-	devtool: NodeEnvPlugin.devtool,
 	module: {
 		rules: [
 			{
@@ -29,6 +35,30 @@ module.exports = {
 					],
 				},
 			},
+			{
+				test: /\.scss$/,
+				use: [{
+					loader: 'style-loader',
+				}, {
+					loader: 'css-loader',
+					options: {
+						alias: {
+							'../fonts': path.join(bootstrapPath, 'fonts'),
+						},
+					},
+				}, {
+					loader: 'sass-loader',
+					options: {
+						includePaths: [
+							path.join(bootstrapPath, 'scss'),
+						],
+					},
+				}],
+			},
+			{
+				test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
+				loader: 'file-loader',
+			},
 		],
 	},
 	plugins: [
@@ -40,5 +70,10 @@ module.exports = {
 				ignore: '*.js',
 			},
 		]),
+		new webpack.ProvidePlugin({
+			$: 'jquery',
+			jQuery: 'jquery',
+			Popper: 'popper.js/dist/umd/popper.js',
+		}),
 	],
 };

@@ -77,6 +77,7 @@ function createMainWindow() {
 		height: windowState.height,
 		minWidth: 400,
 		minHeight: 200,
+		titleBarStyle: 'hidden-inset',
 		darkTheme: isDarkMode, // GTK+3
 	});
 

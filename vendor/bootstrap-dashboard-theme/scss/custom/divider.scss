@@ -1,0 +1,56 @@
+//
+// Divided heading
+//
+
+.hr-divider {
+  position: relative;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  text-transform: uppercase;
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: $hr-divider-before-bg; // #eee;
+  }
+}
+
+.hr-divider-content {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  padding-left: 1em;
+  padding-right: 1em;
+  color: $hr-divider-content-color;
+  vertical-align: middle;
+  background-color: $hr-divider-content-bg;
+
+  .nav-item {
+    float: left;
+  }
+}
+
+.hr-divider-heading {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 100%;
+  color: inherit;
+}
+
+.hr-divider-nav {
+  > li > a {
+    padding-top:    4px;
+    padding-bottom: 4px;
+    font-size: 100%;
+  }
+
+  > .active > a {
+    font-weight: 300;
+    background: transparent;
+  }
+}

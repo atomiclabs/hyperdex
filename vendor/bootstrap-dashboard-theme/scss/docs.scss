@@ -1,0 +1,47 @@
+// generate docs css
+
+@import "./variables-inverse.scss";
+@import "./bootstrap/_mixins.scss";
+@import "./custom/syntax.scss";
+@import "./custom/docs.scss";
+
+// Link colors in the table of contents and back to top button
+.docs-top,
+#markdown-toc a {
+  color: lighten($body-bg, 45%);
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.docs-example {
+  background-color: transparent;
+  border-color: $gray-800;
+
+  &.docs-example-modal,
+  &.bs-example-popover {
+    background-color: rgba(0,0,0,.1);
+  }
+}
+
+.highlight {
+  background-color: darken($body-bg, 5%);
+  border: 0;
+
+  pre code {
+    color: #999;
+  }
+}
+
+.docs-example .iconav {
+  position: relative !important;
+}
+
+.docs-content > h2,
+.docs-content > h1 {
+  margin-top: 50px;
+}
+.docs-content > h1 + h2 {
+  margin-top: 10px;
+}
