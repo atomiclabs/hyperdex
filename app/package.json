@@ -11,6 +11,7 @@
 		"url": "http://lukechilds.co.uk"
 	},
 	"dependencies": {
+		"crypto-random-string": "^1.0.0",
 		"devtron": "^1.4.0",
 		"electron-context-menu": "^0.9.1",
 		"electron-debug": "^1.5.0",
@@ -21,7 +22,13 @@
 		"electron-unhandled": "^1.0.0",
 		"electron-updater": "^2.18.2",
 		"electron-util": "^0.3.0",
-		"get-port": "^3.2.0"
+		"filenamify": "^2.0.0",
+		"get-port": "^3.2.0",
+		"iocane": "^0.10.1",
+		"load-json-file": "^4.0.0",
+		"node-dir": "^0.1.17",
+		"slug": "^0.9.1",
+		"write-json-file": "^2.3.0"
 	},
 	"xo": false
 }
