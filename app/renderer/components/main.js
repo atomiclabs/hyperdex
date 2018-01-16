@@ -101,5 +101,5 @@ export default class Main extends React.Component {
 }
 
 electron.ipcRenderer.on('show-preferences', () => {
-	history.push('/preferences');
+	history.push('/main/preferences');
 });
