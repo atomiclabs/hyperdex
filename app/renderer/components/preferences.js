@@ -47,7 +47,7 @@ class Form extends React.Component {
 }
 
 const Preferences = props => (
-	<TabView title="Preferences" subtitle={props.portfolio.name}>
+	<TabView {...props} title="Preferences">
 	 <Form/>
 	</TabView>
 );

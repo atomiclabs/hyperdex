@@ -14,31 +14,31 @@ import TabView from './tab-view';
 // TODO: All these components will be moved into separate files when we actually have something for them. Keeping them here for now for simplicity and to reduce churn.
 
 const Dashboard = props => (
-	<TabView title="Dashboard" subtitle={props.portfolio.name}>
+	<TabView {...props} title="Dashboard">
 			<p>Content</p>
 	</TabView>
 );
 
 const Swap = props => (
-	<TabView title="Swap" subtitle={props.portfolio.name}>
+	<TabView {...props} title="Swap">
 			<p>Content</p>
 	</TabView>
 );
 
 const Exchange = props => (
-	<TabView title="Exchange" subtitle={props.portfolio.name}>
+	<TabView {...props} title="Exchange">
 			<p>Content</p>
 	</TabView>
 );
 
 const Trades = props => (
-	<TabView title="Trades" subtitle={props.portfolio.name}>
+	<TabView {...props} title="Trades">
 			<p>Content</p>
 	</TabView>
 );
 
 const Funds = props => (
-	<TabView title="Funds" subtitle={props.portfolio.name}>
+	<TabView {...props} title="Funds">
 			<p>Content</p>
 	</TabView>
 );
@@ -84,15 +84,15 @@ export default class Main extends React.Component {
 		return (
 			<div>
 				<div className="with-iconav">
-					<Nav match={match}/>
+					<Nav {...this.props}/>
 					<div className="container">
 						<Route exact path={match.url} render={() => <Redirect to={match.url + '/dashboard'}/>}/>
-						<Route path={match.url + '/dashboard'} render={() => <Dashboard portfolio={portfolio} />} />
-						<Route path={match.url + '/swap'} render={() => <Swap portfolio={portfolio} />} />
-						<Route path={match.url + '/exchange'} render={() => <Exchange portfolio={portfolio} />} />
-						<Route path={match.url + '/trades'} render={() => <Trades portfolio={portfolio} />} />
-						<Route path={match.url + '/funds'} render={() => <Funds portfolio={portfolio} />} />
-						<Route path={match.url + '/preferences'} render={() => <Preferences portfolio={portfolio} />} />
+						<Route path={match.url + '/dashboard'} render={() => <Dashboard {...this.props} />} />
+						<Route path={match.url + '/swap'} render={() => <Swap {...this.props} />} />
+						<Route path={match.url + '/exchange'} render={() => <Exchange {...this.props} />} />
+						<Route path={match.url + '/trades'} render={() => <Trades {...this.props} />} />
+						<Route path={match.url + '/funds'} render={() => <Funds {...this.props} />} />
+						<Route path={match.url + '/preferences'} render={() => <Preferences {...this.props} />} />
 					</div>
 				</div>
 			</div>

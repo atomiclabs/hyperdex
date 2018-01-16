@@ -25,8 +25,8 @@ export default class App extends React.Component {
 						)
 					)}/>
 
-					<Route path="/main" render={props => <Main portfolio={{ name: 'Luke\'s Portfolio' }} match={props.match} />} />
-					<Route path="/login" render={props => <Login match={props.match} />} />
+					<Route path="/main" render={props => <Main {...props} portfolio={{ name: 'Luke\'s Portfolio' }} />} />
+					<Route path="/login" render={props => <Login {...props} />} />
 				</div>
 			</Router>
 		);
