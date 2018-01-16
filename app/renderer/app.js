@@ -14,7 +14,7 @@ import './index.scss';
 // TODO: All these components will be moved into separate files when we actually have something for them. Keeping them here for now for simplicity and to reduce churn.
 
 const Login = () => (
-	<div>
+	<div className="container">
 		<header className="dashhead">
 			<div className="dashhead-titles">
 				<h3 className="dashhead-title">Login</h3>
@@ -116,6 +116,24 @@ const Nav = () => (
 	</nav>
 );
 
+const Main = props => (
+	<div>
+		<div className="with-iconav">
+			<Nav/>
+
+			<div className="container">
+				<Route path="/" exact render={() => <Redirect to="/dashboard"/>}/>
+				<Route path="/dashboard" component={Dashboard}/>
+				<Route path="/swap" component={Swap}/>
+				<Route path="/exchange" component={Exchange}/>
+				<Route path="/trades" component={Trades}/>
+				<Route path="/funds" component={Funds}/>
+				<Route path="/preferences" component={Preferences}/>
+			</div>
+		</div>
+	</div>
+);
+
 // TODO: This will be used when we implement a login page
 const isLoggedIn = true;
 
@@ -136,27 +154,11 @@ export default class App extends React.Component {
 				<div>
 					<Debug/>
 
-					<div className="with-iconav">
-						<Nav/>
+					<Route path="/" render={() => (
+						isLoggedIn ? <Main/> : <Redirect to="/login"/>
+					)}/>
 
-						<div className="container">
-							<Route exact path="/" render={() => (
-								isLoggedIn ? (
-									<Redirect to="/dashboard"/>
-								) : (
-									<Redirect to="/login"/>
-								)
-							)}/>
-
-							<Route path="/login" component={Login}/>
-							<Route path="/dashboard" component={Dashboard}/>
-							<Route path="/swap" component={Swap}/>
-							<Route path="/exchange" component={Exchange}/>
-							<Route path="/trades" component={Trades}/>
-							<Route path="/funds" component={Funds}/>
-							<Route path="/preferences" component={Preferences}/>
-						</div>
-					</div>
+					<Route path="/login" component={Login}/>
 				</div>
 			</Router>
 		);
