@@ -17,6 +17,8 @@ export default class App extends React.Component {
 				<div>
 					<Debug/>
 
+					<div className="window-draggable-area"></div>
+
 					<Route exact path="/" render={() => (
 						isLoggedIn ? (
 							<Redirect to="/main"/>

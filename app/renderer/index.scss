@@ -52,6 +52,15 @@ hr {
 	border-bottom: 0;
 }
 
+.window-draggable-area {
+	position: absolute;
+	height: 50px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	-webkit-app-region: drag;
+}
+
 .iconav {
 	-webkit-app-region: drag;
 	padding-top: 20px;
