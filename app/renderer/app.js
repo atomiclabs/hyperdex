@@ -8,93 +8,46 @@ import 'bootstrap/util';
 import 'bootstrap/tooltip';
 import Preferences from './components/preferences';
 import './index.scss';
+import TabView from './components/tab-view';
 
 /* eslint-disable */
 
 // TODO: All these components will be moved into separate files when we actually have something for them. Keeping them here for now for simplicity and to reduce churn.
 
-const Login = () => (
-	<div>
-		<header className="dashhead">
-			<div className="dashhead-titles">
-				<h6 className="dashhead-subtitle">Luke's portfolio</h6>
-				<h3 className="dashhead-title">Login</h3>
-			</div>
-		</header>
-		<main>
+const Login = props => (
+	<TabView title="Login" subtitle={props.portfolio.name}>
 			<p>TODO: Login form</p>
-		</main>
-	</div>
+	</TabView>
 );
 
-const Dashboard = () => (
-	<div>
-		<header className="dashhead">
-			<div className="dashhead-titles">
-				<h6 className="dashhead-subtitle">Luke's portfolio</h6>
-				<h3 className="dashhead-title">Dashboard</h3>
-			</div>
-		</header>
-		<main>
+const Dashboard = props => (
+	<TabView title="Dashboard" subtitle={props.portfolio.name}>
 			<p>Content</p>
-		</main>
-	</div>
+	</TabView>
 );
 
-const Swap = () => (
-	<div>
-		<header className="dashhead">
-			<div className="dashhead-titles">
-				<h6 className="dashhead-subtitle">Luke's portfolio</h6>
-				<h3 className="dashhead-title">Swap</h3>
-			</div>
-		</header>
-		<main>
+const Swap = props => (
+	<TabView title="Swap" subtitle={props.portfolio.name}>
 			<p>Content</p>
-		</main>
-	</div>
+	</TabView>
 );
 
-const Exchange = () => (
-	<div>
-		<header className="dashhead">
-			<div className="dashhead-titles">
-				<h6 className="dashhead-subtitle">Luke's portfolio</h6>
-				<h3 className="dashhead-title">Exchange</h3>
-			</div>
-		</header>
-		<main>
+const Exchange = props => (
+	<TabView title="Exchange" subtitle={props.portfolio.name}>
 			<p>Content</p>
-		</main>
-	</div>
+	</TabView>
 );
 
-const Trades = () => (
-	<div>
-		<header className="dashhead">
-			<div className="dashhead-titles">
-				<h6 className="dashhead-subtitle">Luke's portfolio</h6>
-				<h3 className="dashhead-title">Trades</h3>
-			</div>
-		</header>
-		<main>
+const Trades = props => (
+	<TabView title="Trades" subtitle={props.portfolio.name}>
 			<p>Content</p>
-		</main>
-	</div>
+	</TabView>
 );
 
-const Funds = () => (
-	<div>
-		<header className="dashhead">
-			<div className="dashhead-titles">
-				<h6 className="dashhead-subtitle">Luke's portfolio</h6>
-				<h3 className="dashhead-title">Funds</h3>
-			</div>
-		</header>
-		<main>
+const Funds = props => (
+	<TabView title="Funds" subtitle={props.portfolio.name}>
 			<p>Content</p>
-		</main>
-	</div>
+	</TabView>
 );
 
 const IconNavItem = props => (
@@ -153,13 +106,13 @@ export default class App extends React.Component {
 								)
 							)}/>
 
-							<Route path="/login" component={Login}/>
-							<Route path="/dashboard" component={Dashboard}/>
-							<Route path="/swap" component={Swap}/>
-							<Route path="/exchange" component={Exchange}/>
-							<Route path="/trades" component={Trades}/>
-							<Route path="/funds" component={Funds}/>
-							<Route path="/preferences" component={Preferences}/>
+							<Route path="/login" render={() => <Login portfolio={{ name: 'Luke\'s Portfolio' }} />} />
+							<Route path="/dashboard" render={() => <Dashboard portfolio={{ name: 'Luke\'s Portfolio' }} />} />
+							<Route path="/swap" render={() => <Swap portfolio={{ name: 'Luke\'s Portfolio' }} />} />
+							<Route path="/exchange" render={() => <Exchange portfolio={{ name: 'Luke\'s Portfolio' }} />} />
+							<Route path="/trades" render={() => <Trades portfolio={{ name: 'Luke\'s Portfolio' }} />} />
+							<Route path="/funds" render={() => <Funds portfolio={{ name: 'Luke\'s Portfolio' }} />} />
+							<Route path="/preferences" render={() => <Preferences portfolio={{ name: 'Luke\'s Portfolio' }} />} />
 						</div>
 					</div>
 				</div>

@@ -1,6 +1,8 @@
 import electron from 'electron';
 import React from 'react';
 import _ from 'lodash';
+import TabView from './tab-view';
+
 
 /* eslint-disable */
 
@@ -45,18 +47,10 @@ class Form extends React.Component {
 	}
 }
 
-const Preferences = () => (
-	<div>
-		<header className="dashhead">
-			<div className="dashhead-titles">
-				<h6 className="dashhead-subtitle">Luke's portfolio</h6>
-				<h3 className="dashhead-title">Preferences</h3>
-			</div>
-		</header>
-		<main>
-			<Form/>
-		</main>
-	</div>
+const Preferences = props => (
+	<TabView title="Preferences" subtitle={props.portfolio.name}>
+	 <Form/>
+	</TabView>
 );
 
 export default Preferences;
