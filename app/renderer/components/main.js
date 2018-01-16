@@ -82,7 +82,7 @@ export default class Main extends React.Component {
 		const {portfolio, match} = this.props;
 
 		return (
-			<div>
+			<div className="Main">
 				<div className="with-iconav">
 					<Nav {...this.props}/>
 					<div className="container">
