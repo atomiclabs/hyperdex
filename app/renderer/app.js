@@ -17,6 +17,7 @@ const Login = () => (
 	<div>
 		<header className="dashhead">
 			<div className="dashhead-titles">
+				<h6 className="dashhead-subtitle">Luke's portfolio</h6>
 				<h3 className="dashhead-title">Login</h3>
 			</div>
 		</header>
@@ -44,6 +45,7 @@ const Swap = () => (
 	<div>
 		<header className="dashhead">
 			<div className="dashhead-titles">
+				<h6 className="dashhead-subtitle">Luke's portfolio</h6>
 				<h3 className="dashhead-title">Swap</h3>
 			</div>
 		</header>
@@ -57,6 +59,7 @@ const Exchange = () => (
 	<div>
 		<header className="dashhead">
 			<div className="dashhead-titles">
+				<h6 className="dashhead-subtitle">Luke's portfolio</h6>
 				<h3 className="dashhead-title">Exchange</h3>
 			</div>
 		</header>
@@ -70,6 +73,7 @@ const Trades = () => (
 	<div>
 		<header className="dashhead">
 			<div className="dashhead-titles">
+				<h6 className="dashhead-subtitle">Luke's portfolio</h6>
 				<h3 className="dashhead-title">Trades</h3>
 			</div>
 		</header>
@@ -83,6 +87,7 @@ const Funds = () => (
 	<div>
 		<header className="dashhead">
 			<div className="dashhead-titles">
+				<h6 className="dashhead-subtitle">Luke's portfolio</h6>
 				<h3 className="dashhead-title">Funds</h3>
 			</div>
 		</header>

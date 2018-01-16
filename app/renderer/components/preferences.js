@@ -49,6 +49,7 @@ const Preferences = () => (
 	<div>
 		<header className="dashhead">
 			<div className="dashhead-titles">
+				<h6 className="dashhead-subtitle">Luke's portfolio</h6>
 				<h3 className="dashhead-title">Preferences</h3>
 			</div>
 		</header>
