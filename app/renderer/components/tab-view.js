@@ -1,4 +1,3 @@
-import electron from 'electron';
 import React from 'react';
 
 /* eslint-disable */
