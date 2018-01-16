@@ -3,6 +3,7 @@ import {Route, Redirect} from 'react-router-dom';
 import {BrowserRouter as Router, Debug} from 'react-router-util';
 import './index.scss';
 import Main from './components/main';
+import Login from './components/login';
 
 /* eslint-disable */
 
@@ -25,6 +26,7 @@ export default class App extends React.Component {
 					)}/>
 
 					<Route path="/main" render={props => <Main portfolio={{ name: 'Luke\'s Portfolio' }} match={props.match} />} />
+					<Route path="/login" render={props => <Login match={props.match} />} />
 				</div>
 			</Router>
 		);
