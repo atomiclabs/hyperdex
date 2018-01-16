@@ -1,7 +1,7 @@
 import electron from 'electron';
 import $ from 'jquery';
 import React from 'react';
-import {Route, Redirect, NavLink} from 'react-router-dom';
+import {Route, Redirect, NavLink, Switch} from 'react-router-dom';
 import {history, BrowserRouter as Router, Debug} from 'react-router-util';
 import 'popper.js/dist/umd/popper';
 import 'bootstrap/util';
@@ -122,7 +122,6 @@ const Main = props => (
 			<Nav/>
 
 			<div className="container">
-				<Route path="/" exact render={() => <Redirect to="/dashboard"/>}/>
 				<Route path="/dashboard" component={Dashboard}/>
 				<Route path="/swap" component={Swap}/>
 				<Route path="/exchange" component={Exchange}/>
@@ -154,11 +153,13 @@ export default class App extends React.Component {
 				<div>
 					<Debug/>
 
-					<Route path="/" render={() => (
-						isLoggedIn ? <Main/> : <Redirect to="/login"/>
-					)}/>
-
-					<Route path="/login" component={Login}/>
+					<Switch>
+						<Route path="/" exact render={() => (
+							isLoggedIn ? <Redirect to="/dashboard"/> : <Redirect to="/login"/>
+						)}/>
+						<Route path="/login" component={Login}/>
+						<Route component={Main}/>
+					</Switch>
 				</div>
 			</Router>
 		);
