@@ -8,7 +8,7 @@ import Login from './components/login';
 /* eslint-disable */
 
 // TODO: This will be used when we implement a login page
-const isLoggedIn = true;
+const isLoggedIn = false;
 
 export default class App extends React.Component {
 	render() {
