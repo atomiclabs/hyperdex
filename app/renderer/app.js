@@ -1,8 +1,8 @@
 import electron from 'electron';
 import $ from 'jquery';
 import React from 'react';
-import {Route, Redirect, NavLink, Switch} from 'react-router-dom';
-import {history, BrowserRouter as Router, Debug} from 'react-router-util';
+import {Route, NavLink, Switch} from 'react-router-dom';
+import {history, BrowserRouter as Router, Debug, AuthenticatedRoute} from 'react-router-util';
 import 'popper.js/dist/umd/popper';
 import 'bootstrap/util';
 import 'bootstrap/tooltip';
@@ -154,9 +154,7 @@ export default class App extends React.Component {
 					<Debug/>
 
 					<Switch>
-						<Route path="/" exact render={() => (
-							isLoggedIn ? <Redirect to="/dashboard"/> : <Redirect to="/login"/>
-						)}/>
+						<AuthenticatedRoute path="/" exact isAuthenticated={isLoggedIn} redirectTo="/dashboard"/>
 						<Route path="/login" component={Login}/>
 						<Route component={Main}/>
 					</Switch>
