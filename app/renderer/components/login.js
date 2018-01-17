@@ -11,7 +11,7 @@ const Portfolio = props => (
 
 const Login = props => {
 	const portfolios = props.portfolios.map(portfolio => (
-		<Portfolio portfolio={portfolio} />
+		<Portfolio key={portfolio.fileName} portfolio={portfolio} />
 	));
 
 	const portfolioContainer = portfolios ? (
