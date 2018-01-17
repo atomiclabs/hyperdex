@@ -28,7 +28,16 @@ const create = async ({name, seedPhrase, password}) => {
 };
 
 const getAll = async () => {
-	const portfolios = await dir.promiseFiles(portfolioPath);
+	let portfolios;
+	try {
+		portfolios = await dir.promiseFiles(portfolioPath);
+	} catch (err) {
+		if (err.code === 'ENOENT') {
+			return [];
+		} else {
+			throw err;
+		}
+	}
 
 	return Promise.all(portfolios.map(async filePath => {
 		const portfolio = await loadJsonFile(filePath);
