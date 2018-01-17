@@ -83,8 +83,26 @@ hr {
 }
 
 .Login {
-	.buttons {
+	h1,
+	h4 {
+		font-weight: 500;
+		color: hsla(224, 13%, 40%, 1);
+	}
+
+	.new-portfolio {
 		max-width: 400px;
 		margin: 0 auto;
+		margin-bottom: 80px;
+	}
+
+	.portfolios {
+		text-align: center;
+	}
+
+	.Portfolio {
+		width: 33%;
+		display: inline-block;
+		padding: 1em;
+		text-align: center;
 	}
 }

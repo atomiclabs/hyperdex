@@ -1,3 +1,4 @@
+import {ipcRenderer as ipc} from 'electron';
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import {BrowserRouter as Router, Debug, AuthenticatedRoute} from 'react-router-util';
@@ -11,6 +12,18 @@ import Login from './components/login';
 const isLoggedIn = false;
 
 export default class App extends React.Component {
+	constructor() {
+		super();
+
+		this.state = {
+			portfolios: [],
+		};
+
+		ipc.send('get-portfolios');
+		ipc.on('portfolios', (event, portfolios) => {
+			this.setState({portfolios});
+		});
+	}
 	render() {
 		return (
 			<Router>
@@ -21,8 +34,8 @@ export default class App extends React.Component {
 
 					<Switch>
 						<AuthenticatedRoute path="/" exact isAuthenticated={isLoggedIn} redirectTo="/dashboard"/>
-						<Route path="/login" component={Login}/>
-						<Route render={() => <Main portfolio={{ name: 'Luke\'s Portfolio' }} />}/>
+						<Route path="/login" render={() => <Login {...this.state} />}/>
+						<Route render={() => <Main {...this.state} portfolio={{ name: 'Luke\'s Portfolio' }} />}/>
 					</Switch>
 				</div>
 			</Router>

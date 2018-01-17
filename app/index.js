@@ -7,6 +7,7 @@ const serve = require('electron-serve');
 const appMenu = require('./menu');
 const config = require('./config');
 const marketmaker = require('./marketmaker');
+const portfolio = require('./portfolio');
 
 require('electron-unhandled')();
 require('electron-debug')({enabled: true, showDevTools: true});
@@ -114,4 +115,8 @@ app.on('before-quit', () => {
 electron.ipcMain.on('start-marketmaker', async (event, {seedPhrase}) => {
 	await marketmaker.start({seedPhrase});
 	mainWindow.send('marketmaker-started', marketmaker.port);
+});
+
+electron.ipcMain.on('get-portfolios', async () => {
+	mainWindow.send('portfolios', await portfolio.getAll());
 });
