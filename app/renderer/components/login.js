@@ -3,11 +3,10 @@ import {Link} from 'react-router-dom';
 
 /* eslint-disable */
 
-const Login = ({match}) => (
+const Login = () => (
 	<div className="Login container">
 		<div className="buttons">
-			<Link to={match.url + '/add-new'} className="btn btn-lg btn-primary btn-block">Create new portfolio</Link>
-			<Link to={match.url + '/add-existing'} className="btn btn-lg btn-primary btn-block">Add existing portfolio</Link>
+			<Link to="/new-portfolio" className="btn btn-lg btn-primary btn-block">Create new portfolio</Link>
 		</div>
   </div>
 );

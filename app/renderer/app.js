@@ -1,6 +1,6 @@
 import React from 'react';
-import {Route, Redirect} from 'react-router-dom';
-import {BrowserRouter as Router, Debug} from 'react-router-util';
+import {Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Debug, AuthenticatedRoute} from 'react-router-util';
 import './index.scss';
 import Main from './components/main';
 import Login from './components/login';
@@ -19,16 +19,11 @@ export default class App extends React.Component {
 
 					<div className="window-draggable-area"></div>
 
-					<Route exact path="/" render={() => (
-						isLoggedIn ? (
-							<Redirect to="/main"/>
-						) : (
-							<Redirect to="/login"/>
-						)
-					)}/>
-
-					<Route path="/main" render={props => <Main {...props} portfolio={{ name: 'Luke\'s Portfolio' }} />} />
-					<Route path="/login" render={props => <Login {...props} />} />
+					<Switch>
+						<AuthenticatedRoute path="/" exact isAuthenticated={isLoggedIn} redirectTo="/dashboard"/>
+						<Route path="/login" component={Login}/>
+						<Route render={() => <Main portfolio={{ name: 'Luke\'s Portfolio' }} />}/>
+					</Switch>
 				</div>
 			</Router>
 		);

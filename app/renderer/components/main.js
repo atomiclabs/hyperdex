@@ -1,7 +1,7 @@
 import electron from 'electron';
 import $ from 'jquery';
 import React from 'react';
-import {Route, Redirect, NavLink} from 'react-router-dom';
+import {Route, NavLink} from 'react-router-dom';
 import {history} from 'react-router-util';
 import 'popper.js/dist/umd/popper';
 import 'bootstrap/util';
@@ -52,16 +52,16 @@ const IconNavItem = props => (
 	</li>
 );
 
-const Nav = ({match}) => (
+const Nav = () => (
 	<nav className="iconav">
 		<div className="iconav-slider">
 			<ul className="nav nav-pills iconav-nav flex-md-column">
-				<IconNavItem title="Dashboard" icon="home" to={match.url + '/dashboard'}/>
-				<IconNavItem title="Swap" icon="cycle" to={match.url + '/swap'}/>
-				<IconNavItem title="Exchange" icon="area-graph" to={match.url + '/exchange'}/>
-				<IconNavItem title="Trades" icon="list" to={match.url + '/trades'}/>
-				<IconNavItem title="Funds" icon="credit" to={match.url + '/funds'}/>
-				<IconNavItem title="Preferences" icon="cog" to={match.url + '/preferences'}/>
+				<IconNavItem title="Dashboard" icon="home" to="/dashboard"/>
+				<IconNavItem title="Swap" icon="cycle" to="/swap"/>
+				<IconNavItem title="Exchange" icon="area-graph" to="/exchange"/>
+				<IconNavItem title="Trades" icon="list" to="/trades"/>
+				<IconNavItem title="Funds" icon="credit" to="/funds"/>
+				<IconNavItem title="Preferences" icon="cog" to="/preferences"/>
 			</ul>
 		</div>
 	</nav>
@@ -79,20 +79,18 @@ export default class Main extends React.Component {
 	}
 
 	render() {
-		const {portfolio, match} = this.props;
-
 		return (
 			<div className="Main">
 				<div className="with-iconav">
-					<Nav {...this.props}/>
+					<Nav/>
+
 					<div className="container">
-						<Route exact path={match.url} render={() => <Redirect to={match.url + '/dashboard'}/>}/>
-						<Route path={match.url + '/dashboard'} render={() => <Dashboard {...this.props} />} />
-						<Route path={match.url + '/swap'} render={() => <Swap {...this.props} />} />
-						<Route path={match.url + '/exchange'} render={() => <Exchange {...this.props} />} />
-						<Route path={match.url + '/trades'} render={() => <Trades {...this.props} />} />
-						<Route path={match.url + '/funds'} render={() => <Funds {...this.props} />} />
-						<Route path={match.url + '/preferences'} render={() => <Preferences {...this.props} />} />
+						<Route path="/dashboard" render={() => <Dashboard {...this.props} />} />
+						<Route path="/swap" render={() => <Swap {...this.props} />} />
+						<Route path="/exchange" render={() => <Exchange {...this.props} />} />
+						<Route path="/trades" render={() => <Trades {...this.props} />} />
+						<Route path="/funds" render={() => <Funds {...this.props} />} />
+						<Route path="/preferences" render={() => <Preferences {...this.props} />} />
 					</div>
 				</div>
 			</div>
@@ -101,5 +99,5 @@ export default class Main extends React.Component {
 }
 
 electron.ipcRenderer.on('show-preferences', () => {
-	history.push('/main/preferences');
+	history.push('/preferences');
 });
