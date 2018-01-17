@@ -1,11 +1,26 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Blockies from 'react-blockies';
 
 /* eslint-disable */
 
-const Portfolio = props => (
+const PortfolioImage = props => (
+	<div className="PortfolioImage">
+		<Blockies
+			{...props}
+			size={10}
+			scale={6}
+			bgColor="transparent"
+			color="rgba(255,255,255,0.15)"
+			spotColor="rgba(255,255,255,0.25)"
+		/>
+	</div>
+);
+
+const Portfolio = ({portfolio}) => (
 	<div className="Portfolio">
-		<h4>{props.portfolio.name}</h4>
+		<PortfolioImage seed={portfolio.fileName} bgColor="transparent" />
+		<h4>{portfolio.name}</h4>
 	</div>
 );
 

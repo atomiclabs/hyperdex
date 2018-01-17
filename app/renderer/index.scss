@@ -104,5 +104,9 @@ hr {
 		display: inline-block;
 		padding: 1em;
 		text-align: center;
+
+		.PortfolioImage canvas {
+			display: inline-block;
+		}
 	}
 }
