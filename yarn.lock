@@ -5074,6 +5074,10 @@ react-dom@^16.2.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+react-extras@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-extras/-/react-extras-0.1.0.tgz#741de3dfb361fd900d4a0396a71c5392b51a406e"
+
 react-router-dom@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-4.2.2.tgz#c8a81df3adc58bba8a76782e946cbd4eae649b8d"

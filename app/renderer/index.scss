@@ -13,6 +13,7 @@ body {
 		'Apple Color Emoji',
 		'Segoe UI Emoji',
 		'Segoe UI Symbol';
+	overflow: hidden;
 }
 
 h1,
@@ -91,21 +92,29 @@ hr {
 	.new-portfolio {
 		max-width: 400px;
 		margin: 0 auto;
-		margin-bottom: 80px;
+		margin-bottom: 50px;
 	}
 
 	.portfolios {
 		text-align: center;
 	}
 
+	.portfolio-item-container {
+		display: flex;
+		justify-content: center;
+	}
+
 	.Portfolio {
 		width: 33%;
-		display: inline-block;
 		padding: 1em;
 		text-align: center;
 
 		.PortfolioImage canvas {
 			display: inline-block;
+		}
+
+		.login-form {
+			margin-top: 20px;
 		}
 	}
 }

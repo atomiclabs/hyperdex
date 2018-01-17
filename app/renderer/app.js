@@ -1,29 +1,41 @@
 import {ipcRenderer as ipc} from 'electron';
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
-import {BrowserRouter as Router, Debug, AuthenticatedRoute} from 'react-router-util';
+import {Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Debug, AuthenticatedRoute, RouteWithProps} from 'react-router-util';
 import './index.scss';
 import Main from './components/main';
 import Login from './components/login';
 
 /* eslint-disable */
 
-// TODO: This will be used when we implement a login page
-const isLoggedIn = false;
-
 export default class App extends React.Component {
 	constructor() {
 		super();
 
 		this.state = {
-			portfolios: [],
+			isLoggedIn: false
 		};
+	}
 
-		ipc.send('get-portfolios');
-		ipc.on('portfolios', (event, portfolios) => {
-			this.setState({portfolios});
+	componentDidMount() {
+		// TODO: The "Log Out" button should be disabled when logged out
+		ipc.on('log-out', () => {
+			ipc.send('stop-marketmaker');
+
+			this.setState({
+				isLoggedIn: false,
+				portfolio: null
+			});
 		});
 	}
+
+	setPortfolio(portfolio) {
+		this.setState({
+			isLoggedIn: true,
+			portfolio
+		});
+	}
+
 	render() {
 		return (
 			<Router>
@@ -33,9 +45,8 @@ export default class App extends React.Component {
 					<div className="window-draggable-area"></div>
 
 					<Switch>
-						<AuthenticatedRoute path="/" exact isAuthenticated={isLoggedIn} redirectTo="/dashboard"/>
-						<Route path="/login" render={() => <Login {...this.state} />}/>
-						<Route render={() => <Main {...this.state} portfolio={{ name: 'Luke\'s Portfolio' }} />}/>
+						<RouteWithProps path="/login" component={Login} setPortfolio={this.setPortfolio.bind(this)}/>
+						<AuthenticatedRoute isAuthenticated={this.state.isLoggedIn} component={Main} {...this.state}/>
 					</Switch>
 				</div>
 			</Router>
