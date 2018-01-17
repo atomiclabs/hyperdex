@@ -29,7 +29,7 @@ const Login = props => {
 		<Portfolio key={portfolio.fileName} portfolio={portfolio} />
 	));
 
-	const portfolioContainer = portfolios ? (
+	const portfolioContainer = portfolios.length ? (
 		<div className="portfolios">
 			<h1>Select Portfolio to Manage</h1>
 			{portfolios}
