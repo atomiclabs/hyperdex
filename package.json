@@ -26,7 +26,7 @@
 		"copy-webpack-plugin": "^4.2.3",
 		"css-loader": "^0.28.8",
 		"electron": "^1.7.10",
-		"electron-builder": "^19.51.0",
+		"electron-builder": "^19.54.0",
 		"electron-reloader": "^0.1.0",
 		"eslint-config-xo-react": "^0.15.0",
 		"eslint-plugin-react": "^7.5.1",
