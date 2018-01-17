@@ -31,7 +31,10 @@ export default class Api {
 			this.token = await this._token();
 		}
 
-		return this._request(Object.assign({}, data, {userpass: this.token}));
+		return this._request({
+			...data,
+			...{userpass: this.token},
+		});
 	}
 
 	botList() {

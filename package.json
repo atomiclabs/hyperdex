@@ -22,6 +22,7 @@
 		"babel-core": "^6.26.0",
 		"babel-loader": "^7.1.2",
 		"babel-preset-react": "^6.24.1",
+		"babel-preset-stage-3": "^6.24.1",
 		"copy-webpack-plugin": "^4.2.3",
 		"css-loader": "^0.28.8",
 		"electron": "^1.7.10",

@@ -32,6 +32,7 @@ module.exports = {
 				options: {
 					presets: [
 						'react',
+						'stage-3',
 					],
 				},
 			},
