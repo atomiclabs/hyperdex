@@ -28,9 +28,9 @@ const create = async ({name, seedPhrase, password}) => {
 };
 
 const getAll = async () => {
-	let portfolios;
+	let portfolioFiles;
 	try {
-		portfolios = await dir.promiseFiles(portfolioPath);
+		portfolioFiles = await dir.promiseFiles(portfolioPath);
 	} catch (err) {
 		if (err.code === 'ENOENT') {
 			return [];
@@ -39,12 +39,14 @@ const getAll = async () => {
 		throw err;
 	}
 
-	return Promise.all(portfolios.map(async filePath => {
+	const portfolios = await Promise.all(portfolioFiles.map(async filePath => {
 		const portfolio = await loadJsonFile(filePath);
 		portfolio.fileName = path.basename(filePath);
 
 		return portfolio;
 	}));
+
+	return portfolios.sort((a, b) => a.fileName.localeCompare(b.fileName));
 };
 
 module.exports = {
