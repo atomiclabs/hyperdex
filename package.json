@@ -14,9 +14,10 @@
 		"lodash": "^4.17.4",
 		"popper.js": "1.12.6",
 		"react": "^16.2.0",
+		"react-blockies": "^1.2.2",
 		"react-dom": "^16.2.0",
 		"react-router-dom": "^4.2.2",
-		"react-router-util": "^0.2.0"
+		"react-router-util": "^0.3.0"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.0",

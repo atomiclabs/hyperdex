@@ -4936,7 +4936,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.4, prop-types@^15.6.0:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:
@@ -5059,6 +5059,12 @@ rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@^1.1.7, rc@^1.2.1:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-blockies@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-blockies/-/react-blockies-1.2.2.tgz#36f2a1aa8b1e43012d0007396b3d0ac83e21807f"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-dom@^16.2.0:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.2.0.tgz#69003178601c0ca19b709b33a83369fe6124c044"
@@ -5079,9 +5085,9 @@ react-router-dom@^4.2.2:
     react-router "^4.2.0"
     warning "^3.0.0"
 
-react-router-util@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/react-router-util/-/react-router-util-0.2.0.tgz#d84cf1d32fe718521f4ef5381ef86c6d0331e2aa"
+react-router-util@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-router-util/-/react-router-util-0.3.0.tgz#f5fac49e5d64f9f400e2f784f7aff53b1ed06645"
 
 react-router@^4.2.0:
   version "4.2.0"
