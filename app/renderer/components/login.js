@@ -71,14 +71,16 @@ class Portfolio extends React.Component {
 			passwordError: null,
 		});
 
+		const {encryptedSeedPhrase} = this.props.portfolio;
 		const password = this.input.value;
 
 		try {
 			// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker
-
-			const portfolioData = await portfolio.unlock(this.props.portfolio, password);
-			portfolioData.api = await initApi(portfolioData.seedPhrase);
-			this.props.setPortfolio(portfolioData);
+			const seedPhrase = await portfolio.decryptSeedPhrase(encryptedSeedPhrase, password);
+			this.props.setPortfolio({
+				...this.props.portfolio,
+				api: await initApi(seedPhrase),
+			});
 
 			// TODO: Fix the routing so this can be removed
 			history.push('/');

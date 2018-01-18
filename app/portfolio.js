@@ -47,13 +47,8 @@ const getAll = async () => {
 	}));
 };
 
-const unlock = async (portfolio, password) => Object.assign(
-	{seedPhrase: await decrypt(portfolio.encryptedSeedPhrase, password)},
-	portfolio,
-);
-
 module.exports = {
 	create,
 	getAll,
-	unlock,
+	decryptSeedPhrase: decrypt,
 };
