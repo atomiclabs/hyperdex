@@ -1,7 +1,6 @@
 import electron from 'electron';
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {history} from 'react-router-util';
 import Blockies from 'react-blockies';
 import {If} from 'react-extras';
 import Api from '../api';
@@ -81,9 +80,6 @@ class Portfolio extends React.Component {
 				...this.props.portfolio,
 				api: await initApi(seedPhrase),
 			});
-
-			// TODO: Fix the routing so this can be removed
-			history.push('/');
 		} catch (err) {
 			console.error(err);
 
