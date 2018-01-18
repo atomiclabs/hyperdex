@@ -1,13 +1,19 @@
+import electron from 'electron';
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {history} from 'react-router-util';
 import Blockies from 'react-blockies';
+import {If} from 'react-extras';
+import Api from '../api';
 
 /* eslint-disable */
 
-const PortfolioImage = props => (
-	<div className="PortfolioImage">
+const portfolio = electron.remote.require('./portfolio');
+
+const PortfolioImage = ({onClick, ...rest}) => (
+	<div className="PortfolioImage" onClick={onClick}>
 		<Blockies
-			{...props}
+			{...rest}
 			size={10}
 			scale={6}
 			bgColor="transparent"
@@ -17,31 +23,150 @@ const PortfolioImage = props => (
 	</div>
 );
 
-const Portfolio = ({portfolio}) => (
-	<div className="Portfolio">
-		<PortfolioImage seed={portfolio.fileName} bgColor="transparent" />
-		<h4>{portfolio.name}</h4>
-	</div>
-);
+const initMarketmaker = seedPhrase => new Promise(resolve => {
+	electron.ipcRenderer.send('start-marketmaker', {seedPhrase});
 
-const Login = props => {
-	const portfolios = props.portfolios.map(portfolio => (
-		<Portfolio key={portfolio.fileName} portfolio={portfolio} />
-	));
+	electron.ipcRenderer.on('marketmaker-started', async (event, port) => {
+		resolve(`http://localhost:${port}`);
+	});
+});
 
-	const portfolioContainer = portfolios.length ? (
-		<div className="portfolios">
-			<h1>Select Portfolio to Manage</h1>
-			{portfolios}
-		</div>
-	) : null;
+const initApi = async seedPhrase => {
+	const config = electron.remote.require('./config');
 
-	return (
-		<div className="Login container">
-			<Link to="/new-portfolio" className="new-portfolio btn btn-lg btn-primary btn-block">Create new portfolio</Link>
-			{portfolioContainer}
-	  </div>
-	);
+	let url = config.get('marketmakerUrl');
+	if (url) {
+		console.log('Using custom marketmaker URL:', url);
+	} else {
+		url = await initMarketmaker(seedPhrase);
+	}
+
+	return new Api({
+		endpoint: url,
+		seedPhrase,
+	});
 };
 
-export default Login;
+class Portfolio extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			isLoginInputVisible: false,
+			isCheckingPassword: false,
+		};
+	}
+
+	showLoginInput() {
+		this.setState({
+			isLoginInputVisible: true,
+		});
+	}
+
+	async onSubmit(event) {
+		event.preventDefault();
+
+		this.setState({
+			isCheckingPassword: true,
+			passwordError: null,
+		});
+
+		const password = this.input.value;
+
+		try {
+			// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker
+
+			const portfolioData = await portfolio.unlock(this.props.portfolio, password);
+			portfolioData.api = await initApi(portfolioData.seedPhrase);
+			this.props.setPortfolio(portfolioData);
+
+			// TODO: Fix the routing so this can be removed
+			history.push('/');
+		} catch (err) {
+			console.error(err);
+
+			this.input.value = '';
+
+			const passwordError = /Authentication failed/.test(err.message) ? "Incorrect password" : err.message;
+			this.setState({
+				isCheckingPassword: false,
+				passwordError,
+			});
+		}
+	}
+
+	render() {
+		const {portfolio} = this.props;
+
+		return (
+			<div className="Portfolio">
+				<PortfolioImage seed={portfolio.fileName} bgColor="transparent" onClick={this.showLoginInput.bind(this)} />
+				<h4>{portfolio.name}</h4>
+				<If condition={this.state.isLoginInputVisible}>
+					<form className="login-form" onSubmit={this.onSubmit.bind(this)}>
+						<div className="form-group">
+							<input
+								type="password"
+								className="form-control"
+								placeholder="Enter Your Password"
+								ref={input => this.input = input}
+								disabled={this.isCheckingPassword}
+								autoFocus
+							/>
+						</div>
+						<div className="form-group" disabled={this.isCheckingPassword}>
+							<button type="submit" className="btn btn-primary btn-sm btn-block">Login</button>
+						</div>
+						<If condition={this.state.passwordError} className="form-group">
+							<div className="alert alert-danger" role="alert">
+								{this.state.passwordError}
+							</div>
+						</If>
+					</form>
+				</If>
+			</div>
+		);
+	}
+}
+
+export default class Login extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			portfolios: [],
+		};
+
+		(async () => {
+			this.setState({
+				portfolios: await portfolio.getAll(),
+			});
+		})();
+	}
+
+	render() {
+		if (this.state.portfolios.length === 0) {
+			return null;
+		}
+
+		const portfolios = this.state.portfolios.map(portfolio => (
+			<Portfolio key={portfolio.fileName} portfolio={portfolio} {...this.props} />
+		));
+
+		const portfolioContainer = portfolios.length ? (
+			<div className="portfolios">
+				<h1>Select Portfolio to Manage</h1>
+				<div className="portfolio-item-container">
+					{portfolios}
+				</div>
+			</div>
+		) : null;
+
+		return (
+			<div className="Login container">
+				<Link to="/new-portfolio" className="new-portfolio btn btn-lg btn-primary btn-block">Create new portfolio</Link>
+				{portfolioContainer}
+			</div>
+		);
+	}
+}

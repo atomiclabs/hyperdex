@@ -1,23 +1,18 @@
 import electron from 'electron';
 import $ from 'jquery';
 import React from 'react';
-import {Route, NavLink} from 'react-router-dom';
+import {Route, NavLink, Redirect} from 'react-router-dom';
 import {history} from 'react-router-util';
 import 'popper.js/dist/umd/popper';
 import 'bootstrap/util';
 import 'bootstrap/tooltip';
-import Preferences from './preferences';
 import TabView from './tab-view';
+import Dashboard from './dashboard';
+import Preferences from './preferences';
 
 /* eslint-disable */
 
 // TODO: All these components will be moved into separate files when we actually have something for them. Keeping them here for now for simplicity and to reduce churn.
-
-const Dashboard = props => (
-	<TabView {...props} title="Dashboard">
-			<p>Content</p>
-	</TabView>
-);
 
 const Swap = props => (
 	<TabView {...props} title="Swap">
@@ -81,6 +76,8 @@ export default class Main extends React.Component {
 	render() {
 		return (
 			<div className="Main">
+				<Redirect from="/" to="/dashboard" />
+
 				<div className="with-iconav">
 					<Nav/>
 

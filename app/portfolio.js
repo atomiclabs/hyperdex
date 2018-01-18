@@ -34,9 +34,9 @@ const getAll = async () => {
 	} catch (err) {
 		if (err.code === 'ENOENT') {
 			return [];
-		} else {
-			throw err;
 		}
+
+		throw err;
 	}
 
 	return Promise.all(portfolios.map(async filePath => {
