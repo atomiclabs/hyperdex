@@ -28,7 +28,7 @@ class Form extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<React.Fragment>
 				<div className="form-group">
 					<label htmlFor="marketmakerUrl">
 						Custom Marketmaker URL: <small>(Requires app restart)</small>
@@ -41,14 +41,14 @@ class Form extends React.Component {
 						placeholder="Example: http://localhost:7783"
 					/>
 				</div>
-			</div>
+			</React.Fragment>
 		);
 	}
 }
 
 const Preferences = props => (
 	<TabView {...props} title="Preferences">
-	 <Form/>
+		<Form/>
 	</TabView>
 );
 

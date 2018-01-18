@@ -3,7 +3,7 @@ import React from 'react';
 /* eslint-disable */
 
 const TabView = props => (
-	<div>
+	<React.Fragment>
 		<header className="dashhead">
 			<div className="dashhead-titles">
 				<h6 className="dashhead-subtitle">{props.subtitle || props.portfolio.name}</h6>
@@ -13,7 +13,7 @@ const TabView = props => (
 		<main>
 			{props.children}
 		</main>
-	</div>
+	</React.Fragment>
 );
 
 export default TabView;
