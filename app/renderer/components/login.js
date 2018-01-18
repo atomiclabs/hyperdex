@@ -47,55 +47,121 @@ const initApi = async seedPhrase => {
 	});
 };
 
-class Portfolio extends React.Component {
+class CreatePortfolio extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			isLoginInputVisible: false,
-			isCheckingPassword: false,
+			showPortfolioForm: false,
 		};
 	}
 
 	showLoginInput() {
 		this.setState({
-			isLoginInputVisible: true,
+			showPortfolioForm: true,
 		});
 	}
 
-	async onSubmit(event) {
-		event.preventDefault();
+	async onSubmit(e) {
+		e.preventDefault();
 
-		this.setState({
-			isCheckingPassword: true,
-			passwordError: null,
-		});
+		await portfolio.create(this.state);
 
-		const {encryptedSeedPhrase} = this.props.portfolio;
-		const password = this.input.value;
+		// TODO: Fix the routing so this can be removed
+		history.push('/');
+	}
 
-		try {
-			// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker
-			const seedPhrase = await portfolio.decryptSeedPhrase(encryptedSeedPhrase, password);
-			this.props.setPortfolio({
-				...this.props.portfolio,
-				api: await initApi(seedPhrase),
-			});
+	render() {
 
-			// TODO: Fix the routing so this can be removed
-			history.push('/');
-		} catch (err) {
-			console.error(err);
+		return (
+			<div>
+				<button className="add-portfolio btn btn-lg btn-primary btn-block" onClick={this.showLoginInput.bind(this)}>Add portfolio</button>
+				<If condition={this.state.showPortfolioForm}>
+					<form className="portfolio-form" onSubmit={this.onSubmit.bind(this)}>
+						<div className="form-group">
+							<input
+								type="text"
+								className="form-control"
+								placeholder="Portfolio Name"
+								onChange={e => this.setState({ name: e.target.value })}
+								autoFocus
+							/>
+						</div>
+						<div className="form-group">
+							<input
+								type="text"
+								className="form-control"
+								placeholder="Seed Phrase"
+								onChange={e => this.setState({ seedPhrase: e.target.value })}
+							/>
+						</div>
+						<div className="form-group">
+							<input
+								type="password"
+								className="form-control"
+								placeholder="Password"
+								onChange={e => this.setState({ password: e.target.value })}
+							/>
+						</div>
+						<div className="form-group" disabled={this.isCheckingPassword}>
+							<button type="submit" className="btn btn-primary btn-sm btn-block">Create</button>
+						</div>
+					</form>
+				</If>
+			</div>
+		);
+	}
+}
 
-			this.input.value = '';
+	class Portfolio extends React.Component {
+		constructor(props) {
+			super(props);
 
-			const passwordError = /Authentication failed/.test(err.message) ? "Incorrect password" : err.message;
-			this.setState({
+			this.state = {
+				isLoginInputVisible: false,
 				isCheckingPassword: false,
-				passwordError,
+			};
+		}
+
+		showLoginInput() {
+			this.setState({
+				isLoginInputVisible: true,
 			});
 		}
-	}
+
+		async onSubmit(event) {
+			event.preventDefault();
+
+			this.setState({
+				isCheckingPassword: true,
+				passwordError: null,
+			});
+
+			const {encryptedSeedPhrase} = this.props.portfolio;
+			const password = this.input.value;
+
+			try {
+				// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker
+				const seedPhrase = await portfolio.decryptSeedPhrase(encryptedSeedPhrase, password);
+				this.props.setPortfolio({
+					...this.props.portfolio,
+					api: await initApi(seedPhrase),
+				});
+
+				// TODO: Fix the routing so this can be removed
+				history.push('/');
+			} catch (err) {
+				console.error(err);
+
+				this.input.value = '';
+
+				const passwordError = /Authentication failed/.test(err.message) ? "Incorrect password" : err.message;
+				this.setState({
+					isCheckingPassword: false,
+					passwordError,
+				});
+			}
+		}
 
 	render() {
 		const {portfolio} = this.props;
@@ -162,7 +228,7 @@ export default class Login extends React.Component {
 
 		return (
 			<div className="Login container">
-				<Link to="/new-portfolio" className="new-portfolio btn btn-lg btn-primary btn-block">Create new portfolio</Link>
+				<CreatePortfolio />
 				{portfolioContainer}
 			</div>
 		);
