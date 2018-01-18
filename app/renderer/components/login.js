@@ -145,10 +145,6 @@ export default class Login extends React.Component {
 	}
 
 	render() {
-		if (this.state.portfolios.length === 0) {
-			return null;
-		}
-
 		const portfolios = this.state.portfolios.map(portfolio => (
 			<Portfolio key={portfolio.fileName} portfolio={portfolio} {...this.props} />
 		));
