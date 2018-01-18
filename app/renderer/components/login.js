@@ -1,27 +1,11 @@
 import electron from 'electron';
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {history} from 'react-router-util';
 import Blockies from 'react-blockies';
 import {If} from 'react-extras';
 import Api from '../api';
 
 /* eslint-disable */
-
-const portfolio = electron.remote.require('./portfolio');
-
-const PortfolioImage = ({onClick, ...rest}) => (
-	<div className="PortfolioImage" onClick={onClick}>
-		<Blockies
-			{...rest}
-			size={10}
-			scale={6}
-			bgColor="transparent"
-			color="rgba(255,255,255,0.15)"
-			spotColor="rgba(255,255,255,0.25)"
-		/>
-	</div>
-);
 
 const initMarketmaker = seedPhrase => new Promise(resolve => {
 	electron.ipcRenderer.send('start-marketmaker', {seedPhrase});
@@ -46,6 +30,21 @@ const initApi = async seedPhrase => {
 		seedPhrase,
 	});
 };
+
+const portfolio = electron.remote.require('./portfolio');
+
+const PortfolioImage = ({onClick, ...rest}) => (
+	<div className="PortfolioImage" onClick={onClick}>
+		<Blockies
+			{...rest}
+			size={10}
+			scale={6}
+			bgColor="transparent"
+			color="rgba(255,255,255,0.15)"
+			spotColor="rgba(255,255,255,0.25)"
+		/>
+	</div>
+);
 
 class CreatePortfolio extends React.Component {
 	constructor(props) {
@@ -72,11 +71,10 @@ class CreatePortfolio extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<div>
-				<button className="add-portfolio btn btn-lg btn-primary btn-block" onClick={this.showLoginInput.bind(this)}>Add portfolio</button>
-				<If condition={this.state.showPortfolioForm}>
+				<button className="add-portfolio btn btn-sm btn-primary btn-block" onClick={this.showLoginInput.bind(this)} disabled={this.state.showPortfolioForm}>Add portfolio</button>
+				<If condition={this.state.showPortfolioForm} render={() => (
 					<form className="portfolio-form" onSubmit={this.onSubmit.bind(this)}>
 						<div className="form-group">
 							<input
@@ -104,64 +102,61 @@ class CreatePortfolio extends React.Component {
 							/>
 						</div>
 						<div className="form-group" disabled={this.isCheckingPassword}>
-							<button type="submit" className="btn btn-primary btn-sm btn-block">Create</button>
+							<button type="submit" className="btn btn-primary btn-sm btn-block">Create Portfolio</button>
 						</div>
 					</form>
-				</If>
+				)}/>
 			</div>
 		);
 	}
 }
 
-	class Portfolio extends React.Component {
-		constructor(props) {
-			super(props);
+class Portfolio extends React.Component {
+	constructor(props) {
+		super(props);
 
-			this.state = {
-				isLoginInputVisible: false,
+		this.state = {
+			isLoginInputVisible: false,
+			isCheckingPassword: false,
+		};
+	}
+
+	showLoginInput() {
+		this.setState({
+			isLoginInputVisible: true,
+		});
+	}
+
+	async onSubmit(event) {
+		event.preventDefault();
+
+		this.setState({isCheckingPassword: true});
+
+		const {encryptedSeedPhrase} = this.props.portfolio;
+		const password = this.input.value;
+
+		try {
+			// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker
+			const seedPhrase = await portfolio.decryptSeedPhrase(encryptedSeedPhrase, password);
+			this.props.setPortfolio({
+				...this.props.portfolio,
+				api: await initApi(seedPhrase),
+			});
+
+			// TODO: Fix the routing so this can be removed
+			history.push('/');
+		} catch (err) {
+			console.error(err);
+
+			this.input.value = '';
+
+			const passwordError = /Authentication failed/.test(err.message) ? "Incorrect password" : err.message;
+			this.setState({
 				isCheckingPassword: false,
-			};
-		}
-
-		showLoginInput() {
-			this.setState({
-				isLoginInputVisible: true,
+				passwordError,
 			});
 		}
-
-		async onSubmit(event) {
-			event.preventDefault();
-
-			this.setState({
-				isCheckingPassword: true,
-				passwordError: null,
-			});
-
-			const {encryptedSeedPhrase} = this.props.portfolio;
-			const password = this.input.value;
-
-			try {
-				// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker
-				const seedPhrase = await portfolio.decryptSeedPhrase(encryptedSeedPhrase, password);
-				this.props.setPortfolio({
-					...this.props.portfolio,
-					api: await initApi(seedPhrase),
-				});
-
-				// TODO: Fix the routing so this can be removed
-				history.push('/');
-			} catch (err) {
-				console.error(err);
-
-				this.input.value = '';
-
-				const passwordError = /Authentication failed/.test(err.message) ? "Incorrect password" : err.message;
-				this.setState({
-					isCheckingPassword: false,
-					passwordError,
-				});
-			}
-		}
+	}
 
 	render() {
 		const {portfolio} = this.props;
@@ -170,7 +165,7 @@ class CreatePortfolio extends React.Component {
 			<div className="Portfolio">
 				<PortfolioImage seed={portfolio.fileName} bgColor="transparent" onClick={this.showLoginInput.bind(this)} />
 				<h4>{portfolio.name}</h4>
-				<If condition={this.state.isLoginInputVisible}>
+				<If condition={this.state.isLoginInputVisible} render={() => (
 					<form className="login-form" onSubmit={this.onSubmit.bind(this)}>
 						<div className="form-group">
 							<input
@@ -185,13 +180,15 @@ class CreatePortfolio extends React.Component {
 						<div className="form-group" disabled={this.isCheckingPassword}>
 							<button type="submit" className="btn btn-primary btn-sm btn-block">Login</button>
 						</div>
-						<If condition={this.state.passwordError} className="form-group">
-							<div className="alert alert-danger" role="alert">
-								{this.state.passwordError}
+						<If condition={Boolean(this.state.passwordError)} render={() => (
+							<div className="form-group">
+								<div className="alert alert-danger" role="alert">
+									{this.state.passwordError}
+								</div>
 							</div>
-						</If>
+						)}/>
 					</form>
-				</If>
+				)}/>
 			</div>
 		);
 	}
