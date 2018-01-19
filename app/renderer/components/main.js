@@ -1,8 +1,8 @@
 import electron from 'electron';
 import $ from 'jquery';
 import React from 'react';
-import {Route, NavLink} from 'react-router-dom';
-import {history} from 'react-router-util';
+import {NavLink} from 'react-router-dom';
+import {history, RouteWithProps} from 'react-router-util';
 import 'popper.js/dist/umd/popper';
 import 'bootstrap/util';
 import 'bootstrap/tooltip';
@@ -57,12 +57,12 @@ export default class Main extends React.Component {
 					<Nav/>
 
 					<div className="container">
-						<Route path="/dashboard" render={() => <Dashboard {...this.props} />} />
-						<Route path="/swap" render={() => <Swap {...this.props} />} />
-						<Route path="/exchange" render={() => <Exchange {...this.props} />} />
-						<Route path="/trades" render={() => <Trades {...this.props} />} />
-						<Route path="/funds" render={() => <Funds {...this.props} />} />
-						<Route path="/preferences" render={() => <Preferences {...this.props} />} />
+						<RouteWithProps path="/dashboard" component={Dashboard} {...this.props}/>
+						<RouteWithProps path="/swap" component={Swap} {...this.props}/>
+						<RouteWithProps path="/exchange" component={Exchange} {...this.props}/>
+						<RouteWithProps path="/trades" component={Trades} {...this.props}/>
+						<RouteWithProps path="/funds" component={Funds} {...this.props}/>
+						<RouteWithProps path="/preferences" component={Preferences} {...this.props}/>
 					</div>
 				</div>
 			</div>
