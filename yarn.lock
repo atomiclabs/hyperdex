@@ -5091,9 +5091,9 @@ react-router-dom@^4.2.2:
     react-router "^4.2.0"
     warning "^3.0.0"
 
-react-router-util@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/react-router-util/-/react-router-util-0.4.0.tgz#b49149a44f97c474b5edb63a166d2068b762e068"
+react-router-util@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-router-util/-/react-router-util-0.5.0.tgz#bd2999fe416dece9c600159a6e20d5be0edbfc9f"
   dependencies:
     prop-types "^15.6.0"
 

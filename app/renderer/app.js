@@ -44,7 +44,7 @@ export default class App extends React.Component {
 
 					<div className="window-draggable-area"></div>
 
-					<AuthenticatedRoute isAuthenticated={this.state.isLoggedIn} redirectTo="/dashboard">
+					<AuthenticatedRoute isAuthenticated={this.state.isLoggedIn} redirectFromLoginTo="/dashboard">
 						<Switch>
 							<RouteWithProps path="/login" component={Login} setPortfolio={this.setPortfolio.bind(this)}/>
 							<RouteWithProps component={Main} {...this.state}/>
