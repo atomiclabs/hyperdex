@@ -9,6 +9,7 @@ import 'bootstrap/tooltip';
 import TabView from './tab-view';
 import Dashboard from './dashboard';
 import Preferences from './preferences';
+import Funds from './funds';
 
 /* eslint-disable */
 
@@ -28,12 +29,6 @@ const Exchange = props => (
 
 const Trades = props => (
 	<TabView {...props} title="Trades">
-			<p>Content</p>
-	</TabView>
-);
-
-const Funds = props => (
-	<TabView {...props} title="Funds">
 			<p>Content</p>
 	</TabView>
 );
