@@ -1,7 +1,7 @@
 import electron from 'electron';
 import $ from 'jquery';
 import React from 'react';
-import {Route, NavLink, Redirect} from 'react-router-dom';
+import {Route, NavLink} from 'react-router-dom';
 import {history} from 'react-router-util';
 import 'popper.js/dist/umd/popper';
 import 'bootstrap/util';
@@ -76,8 +76,6 @@ export default class Main extends React.Component {
 	render() {
 		return (
 			<div className="Main">
-				<Redirect from="/" to="/dashboard" />
-
 				<div className="with-iconav">
 					<Nav/>
 

@@ -155,9 +155,6 @@ class Portfolio extends React.Component {
 				...this.props.portfolio,
 				api: await initApi(seedPhrase),
 			});
-
-			// TODO: Fix the routing so this can be removed
-			history.push('/');
 		} catch (err) {
 			console.error(err);
 
