@@ -1,6 +1,5 @@
 import electron from 'electron';
 import React from 'react';
-import {history} from 'react-router-util';
 import Blockies from 'react-blockies';
 import {If} from 'react-extras';
 import Api from '../api';
@@ -65,9 +64,6 @@ class CreatePortfolio extends React.Component {
 		e.preventDefault();
 
 		await portfolio.create(this.state);
-
-		// TODO: Fix the routing so this can be removed
-		history.push('/');
 	}
 
 	render() {
@@ -76,15 +72,15 @@ class CreatePortfolio extends React.Component {
 				<button className="add-portfolio btn btn-sm btn-primary btn-block" onClick={this.showPortfolioForm.bind(this)} disabled={this.state.showPortfolioForm}>Add portfolio</button>
 				<If condition={this.state.showPortfolioForm} render={() => (
 					<div className="add-portfolio-modal modal-dialog">
-				    <div className="modal-content">
+						<div className="modal-content">
 							<form className="portfolio-form" onSubmit={this.onSubmit.bind(this)}>
-					      <div className="modal-header">
-					        <h5 className="modal-title">Add portfolio</h5>
-					        <button type="button" className="close" onClick={this.hidePortfolioForm.bind(this)}>
-					          <span>&times;</span>
-					        </button>
-					      </div>
-					      <div className="modal-body">
+								<div className="modal-header">
+									<h5 className="modal-title">Add portfolio</h5>
+									<button type="button" className="close" onClick={this.hidePortfolioForm.bind(this)}>
+										<span>&times;</span>
+									</button>
+								</div>
+								<div className="modal-body">
 									<div className="form-group">
 										<input
 											type="text"
@@ -110,14 +106,14 @@ class CreatePortfolio extends React.Component {
 											onChange={e => this.setState({ password: e.target.value })}
 										/>
 									</div>
-					      </div>
-					      <div className="modal-footer">
-					        <button type="submit" className="btn btn-primary">Add</button>
-					        <button type="button" className="btn btn-secondary" onClick={this.hidePortfolioForm.bind(this)}>Close</button>
-					      </div>
+								</div>
+								<div className="modal-footer">
+									<button type="submit" className="btn btn-primary">Add</button>
+									<button type="button" className="btn btn-secondary" onClick={this.hidePortfolioForm.bind(this)}>Close</button>
+								</div>
 							</form>
-				    </div>
-				  </div>
+						</div>
+					</div>
 				)}/>
 			</div>
 		);
