@@ -89,10 +89,23 @@ hr {
 		color: hsla(224, 13%, 40%, 1);
 	}
 
-	.new-portfolio {
-		max-width: 400px;
+	.add-portfolio {
+		width: initial;
+		position: absolute;
+		top: 10px;
+		right: 12px;
+	}
+
+	.add-portfolio-modal {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.portfolio-form {
+		width: 400px;
 		margin: 0 auto;
-		margin-bottom: 50px;
 	}
 
 	.portfolios {
@@ -101,6 +114,7 @@ hr {
 
 	.portfolio-item-container {
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: center;
 	}
 

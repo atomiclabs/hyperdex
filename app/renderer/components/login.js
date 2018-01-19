@@ -1,26 +1,10 @@
 import electron from 'electron';
 import React from 'react';
-import {Link} from 'react-router-dom';
 import Blockies from 'react-blockies';
 import {If} from 'react-extras';
 import Api from '../api';
 
 /* eslint-disable */
-
-const portfolio = electron.remote.require('./portfolio');
-
-const PortfolioImage = ({onClick, ...rest}) => (
-	<div className="PortfolioImage" onClick={onClick}>
-		<Blockies
-			{...rest}
-			size={10}
-			scale={6}
-			bgColor="transparent"
-			color="rgba(255,255,255,0.15)"
-			spotColor="rgba(255,255,255,0.25)"
-		/>
-	</div>
-);
 
 const initMarketmaker = seedPhrase => new Promise(resolve => {
 	electron.ipcRenderer.send('start-marketmaker', {seedPhrase});
@@ -46,6 +30,96 @@ const initApi = async seedPhrase => {
 	});
 };
 
+const portfolio = electron.remote.require('./portfolio');
+
+const PortfolioImage = ({onClick, ...rest}) => (
+	<div className="PortfolioImage" onClick={onClick}>
+		<Blockies
+			{...rest}
+			size={10}
+			scale={6}
+			bgColor="transparent"
+			color="rgba(255,255,255,0.15)"
+			spotColor="rgba(255,255,255,0.25)"
+		/>
+	</div>
+);
+
+class CreatePortfolio extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {showPortfolioForm: false};
+	}
+
+	showPortfolioForm() {
+		this.setState({showPortfolioForm: true});
+	}
+
+	hidePortfolioForm() {
+		this.setState({showPortfolioForm: false});
+	}
+
+	async onSubmit(e) {
+		e.preventDefault();
+
+		await portfolio.create(this.state);
+	}
+
+	render() {
+		return (
+			<div>
+				<button className="add-portfolio btn btn-sm btn-primary btn-block" onClick={this.showPortfolioForm.bind(this)} disabled={this.state.showPortfolioForm}>Add portfolio</button>
+				<If condition={this.state.showPortfolioForm} render={() => (
+					<div className="add-portfolio-modal modal-dialog">
+						<div className="modal-content">
+							<form className="portfolio-form" onSubmit={this.onSubmit.bind(this)}>
+								<div className="modal-header">
+									<h5 className="modal-title">Add portfolio</h5>
+									<button type="button" className="close" onClick={this.hidePortfolioForm.bind(this)}>
+										<span>&times;</span>
+									</button>
+								</div>
+								<div className="modal-body">
+									<div className="form-group">
+										<input
+											type="text"
+											className="form-control"
+											placeholder="Portfolio Name"
+											onChange={e => this.setState({ name: e.target.value })}
+											autoFocus
+										/>
+									</div>
+									<div className="form-group">
+										<input
+											type="text"
+											className="form-control"
+											placeholder="Seed Phrase"
+											onChange={e => this.setState({ seedPhrase: e.target.value })}
+										/>
+									</div>
+									<div className="form-group">
+										<input
+											type="password"
+											className="form-control"
+											placeholder="Password"
+											onChange={e => this.setState({ password: e.target.value })}
+										/>
+									</div>
+								</div>
+								<div className="modal-footer">
+									<button type="submit" className="btn btn-primary">Add</button>
+									<button type="button" className="btn btn-secondary" onClick={this.hidePortfolioForm.bind(this)}>Close</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				)}/>
+			</div>
+		);
+	}
+}
+
 class Portfolio extends React.Component {
 	constructor(props) {
 		super(props);
@@ -65,10 +139,7 @@ class Portfolio extends React.Component {
 	async onSubmit(event) {
 		event.preventDefault();
 
-		this.setState({
-			isCheckingPassword: true,
-			passwordError: null,
-		});
+		this.setState({isCheckingPassword: true});
 
 		const {encryptedSeedPhrase} = this.props.portfolio;
 		const password = this.input.value;
@@ -100,7 +171,7 @@ class Portfolio extends React.Component {
 			<div className="Portfolio">
 				<PortfolioImage seed={portfolio.fileName} bgColor="transparent" onClick={this.showLoginInput.bind(this)} />
 				<h4>{portfolio.name}</h4>
-				<If condition={this.state.isLoginInputVisible}>
+				<If condition={this.state.isLoginInputVisible} render={() => (
 					<form className="login-form" onSubmit={this.onSubmit.bind(this)}>
 						<div className="form-group">
 							<input
@@ -115,13 +186,15 @@ class Portfolio extends React.Component {
 						<div className="form-group" disabled={this.isCheckingPassword}>
 							<button type="submit" className="btn btn-primary btn-sm btn-block">Login</button>
 						</div>
-						<If condition={this.state.passwordError} className="form-group">
-							<div className="alert alert-danger" role="alert">
-								{this.state.passwordError}
+						<If condition={Boolean(this.state.passwordError)} render={() => (
+							<div className="form-group">
+								<div className="alert alert-danger" role="alert">
+									{this.state.passwordError}
+								</div>
 							</div>
-						</If>
+						)}/>
 					</form>
-				</If>
+				)}/>
 			</div>
 		);
 	}
@@ -158,7 +231,7 @@ export default class Login extends React.Component {
 
 		return (
 			<div className="Login container">
-				<Link to="/new-portfolio" className="new-portfolio btn btn-lg btn-primary btn-block">Create new portfolio</Link>
+				<CreatePortfolio />
 				{portfolioContainer}
 			</div>
 		);
