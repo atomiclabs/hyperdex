@@ -33,7 +33,7 @@ export default class Funds extends React.Component {
 		return (
 			<TabView {...this.props} title="Funds">
 				<div style={{overflow: 'auto', maxHeight: 400}}>
-					<table class="table">
+					<table className="table">
 						<thead>
 							<tr>
 								<th>Coin</th>
