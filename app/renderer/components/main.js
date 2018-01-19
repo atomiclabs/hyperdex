@@ -6,32 +6,14 @@ import {history} from 'react-router-util';
 import 'popper.js/dist/umd/popper';
 import 'bootstrap/util';
 import 'bootstrap/tooltip';
-import TabView from './tab-view';
 import Dashboard from './dashboard';
-import Preferences from './preferences';
+import Swap from './swap';
+import Exchange from './exchange';
+import Trades from './trades';
 import Funds from './funds';
+import Preferences from './preferences';
 
 /* eslint-disable */
-
-// TODO: All these components will be moved into separate files when we actually have something for them. Keeping them here for now for simplicity and to reduce churn.
-
-const Swap = props => (
-	<TabView {...props} title="Swap">
-			<p>Content</p>
-	</TabView>
-);
-
-const Exchange = props => (
-	<TabView {...props} title="Exchange">
-			<p>Content</p>
-	</TabView>
-);
-
-const Trades = props => (
-	<TabView {...props} title="Trades">
-			<p>Content</p>
-	</TabView>
-);
 
 const IconNavItem = props => (
 	<li className="nav-item">
