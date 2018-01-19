@@ -1,6 +1,7 @@
 import electron from 'electron';
 import React from 'react';
 import _ from 'lodash';
+import {autoBind} from 'react-extras';
 import TabView from './tab-view';
 
 /* eslint-disable */
@@ -10,6 +11,7 @@ const config = electron.remote.require('./config');
 class Form extends React.Component {
 	constructor(props) {
 		super(props);
+		autoBind(this);
 
 		this.state = {
 			marketmakerUrl: config.get('marketmakerUrl'),
@@ -37,7 +39,7 @@ class Form extends React.Component {
 						className="form-control"
 						name="marketmakerUrl"
 						value={this.state.marketmakerUrl}
-						onChange={this.handleChange.bind(this)}
+						onChange={this.handleChange}
 						placeholder="Example: http://localhost:7783"
 					/>
 				</div>

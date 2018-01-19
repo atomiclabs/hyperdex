@@ -1,7 +1,7 @@
 import electron from 'electron';
 import React from 'react';
 import Blockies from 'react-blockies';
-import {If} from 'react-extras';
+import {If, autoBind} from 'react-extras';
 import Api from '../api';
 
 /* eslint-disable */
@@ -48,6 +48,7 @@ const PortfolioImage = ({onClick, ...rest}) => (
 class CreatePortfolio extends React.Component {
 	constructor(props) {
 		super(props);
+		autoBind(this);
 
 		this.state = {showPortfolioForm: false};
 	}
@@ -69,14 +70,14 @@ class CreatePortfolio extends React.Component {
 	render() {
 		return (
 			<div>
-				<button className="add-portfolio btn btn-sm btn-primary btn-block" onClick={this.showPortfolioForm.bind(this)} disabled={this.state.showPortfolioForm}>Add portfolio</button>
+				<button className="add-portfolio btn btn-sm btn-primary btn-block" onClick={this.showPortfolioForm} disabled={this.state.showPortfolioForm}>Add portfolio</button>
 				<If condition={this.state.showPortfolioForm} render={() => (
 					<div className="add-portfolio-modal modal-dialog">
 						<div className="modal-content">
-							<form className="portfolio-form" onSubmit={this.onSubmit.bind(this)}>
+							<form className="portfolio-form" onSubmit={this.onSubmit}>
 								<div className="modal-header">
 									<h5 className="modal-title">Add portfolio</h5>
-									<button type="button" className="close" onClick={this.hidePortfolioForm.bind(this)}>
+									<button type="button" className="close" onClick={this.hidePortfolioForm}>
 										<span>&times;</span>
 									</button>
 								</div>
@@ -109,7 +110,7 @@ class CreatePortfolio extends React.Component {
 								</div>
 								<div className="modal-footer">
 									<button type="submit" className="btn btn-primary">Add</button>
-									<button type="button" className="btn btn-secondary" onClick={this.hidePortfolioForm.bind(this)}>Close</button>
+									<button type="button" className="btn btn-secondary" onClick={this.hidePortfolioForm}>Close</button>
 								</div>
 							</form>
 						</div>
@@ -123,6 +124,7 @@ class CreatePortfolio extends React.Component {
 class Portfolio extends React.Component {
 	constructor(props) {
 		super(props);
+		autoBind(this);
 
 		this.state = {
 			isLoginInputVisible: false,
@@ -169,10 +171,10 @@ class Portfolio extends React.Component {
 
 		return (
 			<div className="Portfolio">
-				<PortfolioImage seed={portfolio.fileName} bgColor="transparent" onClick={this.showLoginInput.bind(this)} />
+				<PortfolioImage seed={portfolio.fileName} bgColor="transparent" onClick={this.showLoginInput} />
 				<h4>{portfolio.name}</h4>
 				<If condition={this.state.isLoginInputVisible} render={() => (
-					<form className="login-form" onSubmit={this.onSubmit.bind(this)}>
+					<form className="login-form" onSubmit={this.onSubmit}>
 						<div className="form-group">
 							<input
 								type="password"

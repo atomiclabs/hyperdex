@@ -299,6 +299,10 @@ atob@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.0.3.tgz#19c7a760473774468f20b2d2d03372ad7d4cbf5d"
 
+auto-bind@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/auto-bind/-/auto-bind-1.2.0.tgz#8b7e318aad53d43ba8a8ecaf0066d85d5f798cd6"
+
 autoprefixer@^6.3.1:
   version "6.7.7"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-6.7.7.tgz#1dbd1c835658e35ce3f9984099db00585c782014"
@@ -5074,10 +5078,11 @@ react-dom@^16.2.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-extras@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/react-extras/-/react-extras-0.2.0.tgz#2f4a08055ace997664d66a938bbb85777b7731ca"
+react-extras@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-extras/-/react-extras-0.3.0.tgz#355bda163183aad38db542a1db3d452dc02b10e8"
   dependencies:
+    auto-bind "^1.2.0"
     prop-types "^15.6.0"
 
 react-router-dom@^4.2.2:

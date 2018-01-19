@@ -1,5 +1,6 @@
 import {ipcRenderer as ipc} from 'electron';
 import React from 'react';
+import {autoBind} from 'react-extras';
 import {Switch} from 'react-router-dom';
 import {BrowserRouter as Router, Debug, AuthenticatedRoute, RouteWithProps} from 'react-router-util';
 import './index.scss';
@@ -11,6 +12,7 @@ import Login from './components/login';
 export default class App extends React.Component {
 	constructor() {
 		super();
+		autoBind(this);
 
 		this.state = {
 			isLoggedIn: false
@@ -46,7 +48,7 @@ export default class App extends React.Component {
 
 					<AuthenticatedRoute isAuthenticated={this.state.isLoggedIn} redirectFromLoginTo="/dashboard">
 						<Switch>
-							<RouteWithProps path="/login" component={Login} setPortfolio={this.setPortfolio.bind(this)}/>
+							<RouteWithProps path="/login" component={Login} setPortfolio={this.setPortfolio}/>
 							<RouteWithProps component={Main} {...this.state}/>
 						</Switch>
 					</AuthenticatedRoute>
