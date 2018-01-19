@@ -29,7 +29,9 @@ class Marketmaker {
 				request.on('response', response => {
 					if (response.statusCode === 200) {
 						clearInterval(interval);
-						resolve();
+
+						// Give it a little more time to avoid issues
+						setTimeout(resolve, 500);
 					}
 				});
 				request.on('error', () => {});
