@@ -10,7 +10,7 @@ const initMarketmaker = seedPhrase => new Promise(resolve => {
 	electron.ipcRenderer.send('start-marketmaker', {seedPhrase});
 
 	electron.ipcRenderer.on('marketmaker-started', async (event, port) => {
-		resolve(`http://localhost:${port}`);
+		resolve(`http://127.0.0.1:${port}`);
 	});
 });
 

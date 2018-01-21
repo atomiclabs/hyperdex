@@ -24,7 +24,7 @@ class Marketmaker {
 	_isReady() {
 		return new Promise((resolve, reject) => {
 			const interval = setInterval(() => {
-				const request = electron.net.request(`http://localhost:${this.port}`);
+				const request = electron.net.request(`http://127.0.0.1:${this.port}`);
 
 				request.on('response', response => {
 					if (response.statusCode === 200) {
