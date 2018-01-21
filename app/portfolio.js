@@ -39,6 +39,8 @@ const getAll = async () => {
 		throw err;
 	}
 
+	portfolioFiles = portfolioFiles.filter(x => x.endsWith('.json'));
+
 	const portfolios = await Promise.all(portfolioFiles.map(async filePath => {
 		const portfolio = await loadJsonFile(filePath);
 		portfolio.fileName = path.basename(filePath);
