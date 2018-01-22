@@ -21,17 +21,7 @@ export default class App extends React.Component {
 		};
 	}
 
-	componentDidMount() {
-		// TODO: The "Log Out" button should be disabled when logged out
-		ipc.on('log-out', () => {
-			this.stopMarketmaker();
-
-			this.setState({
-				isLoggedIn: false,
-				portfolio: null
-			});
-		});
-
+	componentWillMount() {
 		if (electronUtil.is.development) {
 			const state = ipc.sendSync('get-state');
 			if (state) {
@@ -42,6 +32,18 @@ export default class App extends React.Component {
 				this.setState(state);
 			}
 		}
+	}
+
+	componentDidMount() {
+		// TODO: The "Log Out" button should be disabled when logged out
+		ipc.on('log-out', () => {
+			this.stopMarketmaker();
+
+			this.setState({
+				isLoggedIn: false,
+				portfolio: null
+			});
+		});
 	}
 
 	async stopMarketmaker() {
