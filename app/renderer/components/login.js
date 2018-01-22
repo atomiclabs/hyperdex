@@ -127,7 +127,7 @@ class Portfolio extends React.Component {
 		autoBind(this);
 
 		this.state = {
-			isLoginInputVisible: false,
+			isLoginInputVisible: this.props.showLoginForm,
 			isCheckingPassword: false,
 		};
 	}
@@ -219,7 +219,12 @@ export default class Login extends React.Component {
 
 	render() {
 		const portfolios = this.state.portfolios.map(portfolio => (
-			<Portfolio key={portfolio.fileName} portfolio={portfolio} {...this.props} />
+			<Portfolio
+				key={portfolio.fileName}
+				portfolio={portfolio}
+				showLoginForm={this.state.portfolios.length === 1}
+				{...this.props}
+			/>
 		));
 
 		const portfolioContainer = portfolios.length ? (
