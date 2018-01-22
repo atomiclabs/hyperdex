@@ -24,7 +24,7 @@ export default class App extends React.Component {
 	componentDidMount() {
 		// TODO: The "Log Out" button should be disabled when logged out
 		ipc.on('log-out', () => {
-			ipc.send('stop-marketmaker');
+			this.stopMarketmaker();
 
 			this.setState({
 				isLoggedIn: false,
@@ -42,6 +42,11 @@ export default class App extends React.Component {
 				this.setState(state);
 			}
 		}
+	}
+
+	async stopMarketmaker() {
+		await this.state.portfolio.api.stop();
+		ipc.send('stop-marketmaker');
 	}
 
 	setPortfolio(portfolio) {

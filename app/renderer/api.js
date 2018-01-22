@@ -56,4 +56,10 @@ export default class Api {
 	ticker() {
 		return this.request({method: 'ticker'});
 	}
+
+	async stop() {
+		try {
+			await this.request({method: 'stop'});
+		} catch (err) {} // Ignoring the error as `marketmaker` doesn't return a response
+	}
 }
