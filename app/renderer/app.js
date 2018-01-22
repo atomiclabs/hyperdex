@@ -58,11 +58,12 @@ export default class App extends React.Component {
 		this.setState(state);
 
 		if (electronUtil.is.development) {
-			state.portfolio.api = {
-				endpoint: state.portfolio.api.endpoint,
-				seedPhrase: state.portfolio.api.seedPhrase
+			const state2 = _.merge({}, state);
+			state2.portfolio.api = {
+				endpoint: state2.portfolio.api.endpoint,
+				seedPhrase: state2.portfolio.api.seedPhrase
 			};
-			ipc.sendSync('set-state', state);
+			ipc.sendSync('set-state', state2);
 		}
 	}
 
