@@ -119,3 +119,13 @@ electron.ipcMain.on('start-marketmaker', async (event, {seedPhrase}) => {
 electron.ipcMain.on('stop-marketmaker', () => {
 	marketmaker.stop();
 });
+
+// Preserve the state of `<App/>` so we can reload it to the same state
+let appState = '';
+electron.ipcMain.on('set-state', (event, state) => {
+	appState = state;
+	event.returnValue = null;
+});
+electron.ipcMain.on('get-state', event => {
+	event.returnValue = appState;
+});
