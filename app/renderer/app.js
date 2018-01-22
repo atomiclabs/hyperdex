@@ -1,8 +1,10 @@
 import {ipcRenderer as ipc} from 'electron';
+import electronUtil from 'electron-util';
 import React from 'react';
 import {autoBind} from 'react-extras';
 import {Switch} from 'react-router-dom';
 import {BrowserRouter as Router, Debug, AuthenticatedRoute, RouteWithProps} from 'react-router-util';
+import Api from './api';
 import './index.scss';
 import Main from './components/main';
 import Login from './components/login';
@@ -29,13 +31,34 @@ export default class App extends React.Component {
 				portfolio: null
 			});
 		});
+
+		if (electronUtil.is.development) {
+			const state = ipc.sendSync('get-state');
+			if (state) {
+				state.portfolio.api = new Api({
+					endpoint: state.portfolio.api.endpoint,
+					seedPhrase: state.portfolio.api.seedPhrase
+				})
+				this.setState(state);
+			}
+		}
 	}
 
 	setPortfolio(portfolio) {
-		this.setState({
+		const state = {
 			isLoggedIn: true,
 			portfolio
-		});
+		};
+
+		this.setState(state);
+
+		if (electronUtil.is.development) {
+			state.portfolio.api = {
+				endpoint: state.portfolio.api.endpoint,
+				seedPhrase: state.portfolio.api.seedPhrase
+			};
+			ipc.sendSync('set-state', state);
+		}
 	}
 
 	render() {
