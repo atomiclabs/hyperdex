@@ -61,10 +61,11 @@ class CreatePortfolio extends React.Component {
 		this.setState({showPortfolioForm: false});
 	}
 
-	async onSubmit(e) {
-		e.preventDefault();
-
+	async onSubmit(event) {
+		event.preventDefault();
+		this.hidePortfolioForm();
 		await portfolio.create(this.state);
+		this.props.loadPortfolios();
 	}
 
 	render() {
@@ -205,16 +206,19 @@ class Portfolio extends React.Component {
 export default class Login extends React.Component {
 	constructor(props) {
 		super(props);
+		autoBind(this);
 
 		this.state = {
 			portfolios: [],
 		};
 
-		(async () => {
-			this.setState({
-				portfolios: await portfolio.getAll(),
-			});
-		})();
+		this.loadPortfolios();
+	}
+
+	async loadPortfolios() {
+		this.setState({
+			portfolios: await portfolio.getAll(),
+		});
 	}
 
 	render() {
@@ -238,7 +242,7 @@ export default class Login extends React.Component {
 
 		return (
 			<div className="Login container">
-				<CreatePortfolio />
+				<CreatePortfolio loadPortfolios={this.loadPortfolios} />
 				{portfolioContainer}
 			</div>
 		);
