@@ -15,9 +15,8 @@ export default class Funds extends React.Component {
 		};
 
 		(async () => {
-			this.setState({
-				coins: await this.props.portfolio.api.coins(),
-			});
+			const funds = await this.props.portfolio.api.funds();
+			this.setState({coins: funds});
 		})();
 	}
 
@@ -25,7 +24,7 @@ export default class Funds extends React.Component {
 		const coins = this.state.coins.map(coin => (
 			<tr key={coin.coin}>
 				<th>{coin.coin}</th>
-				<td>{coin.smartaddress}</td>
+				<td>{coin.address}</td>
 				<td>{coin.balance}</td>
 			</tr>
 		));

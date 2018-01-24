@@ -1,3 +1,5 @@
+import electrumServers from './electrum-servers';
+
 export default class Api {
 	constructor({endpoint, seedPhrase}) {
 		if (!(endpoint && seedPhrase)) {
@@ -41,16 +43,45 @@ export default class Api {
 		return this.request({method: 'bot_list'});
 	}
 
-	enableCoin(coin) {
-		return this.request({method: 'enable', coin});
+	async enableCoin(coin, opts = {}) {
+		if (opts.isFullNode) {
+			const res = await this.request({method: 'enable', coin});
+			return res.status === 'active';
+		}
+
+		const server = electrumServers[coin];
+
+		if (!server) {
+			throw new Error('Electrum mode not supported for this coin');
+		}
+
+		const res = await this.request({
+			method: 'electrum',
+			coin,
+			...server,
+		});
+		return res.result === 'success';
 	}
 
 	portfolio() {
 		return this.request({method: 'portfolio'});
 	}
 
+	balance(coin, address) {
+		return this.request({
+			method: 'balance',
+			coin,
+			address,
+		});
+	}
+
 	coins() {
 		return this.request({method: 'getcoins'});
+	}
+
+	async funds() {
+		const coins = (await this.coins()).filter(coin => coin.status === 'active');
+		return Promise.all(coins.map(coin => this.balance(coin.coin, coin.smartaddress)));
 	}
 
 	ticker() {

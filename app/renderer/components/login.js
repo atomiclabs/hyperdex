@@ -150,9 +150,18 @@ class Portfolio extends React.Component {
 		try {
 			// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker
 			const seedPhrase = await portfolio.decryptSeedPhrase(encryptedSeedPhrase, password);
+			const api = await initApi(seedPhrase);
+
+			// TODO: These should be defaults saved in the config and changeable by the user
+			await Promise.all([
+				api.enableCoin('KMD'),
+				api.enableCoin('VTC'),
+				api.enableCoin('LTC'),
+			]);
+
 			this.props.setPortfolio({
 				...this.props.portfolio,
-				api: await initApi(seedPhrase),
+				api
 			});
 		} catch (err) {
 			console.error(err);
