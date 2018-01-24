@@ -4,6 +4,7 @@ const log = require('electron-log');
 const {autoUpdater} = require('electron-updater');
 const {is} = require('electron-util');
 const serve = require('electron-serve');
+const logger = require('electron-timber');
 const appMenu = require('./menu');
 const config = require('./config');
 const marketmaker = require('./marketmaker');
@@ -93,6 +94,8 @@ function createMainWindow() {
 app.on('ready', () => {
 	electron.Menu.setApplicationMenu(appMenu);
 	mainWindow = createMainWindow();
+
+	logger.log(`HyperDEX ${app.getVersion()}`);
 });
 
 app.on('activate', () => {

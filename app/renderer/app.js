@@ -4,6 +4,7 @@ import React from 'react';
 import {autoBind} from 'react-extras';
 import {Switch} from 'react-router-dom';
 import {BrowserRouter as Router, Debug, AuthenticatedRoute, RouteWithProps} from 'react-router-util';
+import logger from 'electron-timber';
 import Api from './api';
 import './index.scss';
 import Main from './components/main';
@@ -52,6 +53,8 @@ export default class App extends React.Component {
 	}
 
 	setPortfolio(portfolio) {
+		logger.log('Portfolio:', portfolio.name);
+
 		const state = {
 			isLoggedIn: true,
 			portfolio
