@@ -3,29 +3,11 @@ import TabView from './tab-view';
 
 /* eslint-disable */
 
-export default class Dashboard extends React.Component {
-	constructor(props) {
-		super(props);
+const Dashboard = props => (
+	<TabView {...props}  title="Dashboard">
+			<p>Portfolio:</p>
+			<pre style={{color: '#ccc', overflow: 'scroll', height: '600px'}}>{JSON.stringify(props.currencies, null, '\t')}</pre>
+	</TabView>
+);
 
-		this.state = {
-			mmPortfolio: null,
-		};
-
-		const {portfolio, api} = this.props;
-
-		(async () => {
-			this.setState({
-				mmPortfolio: await api.portfolio(),
-			});
-		})();
-	}
-
-	render() {
-		return (
-			<TabView {...this.props}  title="Dashboard">
-					<p>Portfolio:</p>
-					<pre style={{color: '#ccc', overflow: 'scroll', height: '600px'}}>{JSON.stringify(this.state.mmPortfolio, null, '\t')}</pre>
-			</TabView>
-		);
-	}
-}
+export default Dashboard;

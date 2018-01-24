@@ -1,52 +1,35 @@
-import electron from 'electron';
 import React from 'react';
 import TabView from './tab-view';
 
 /* eslint-disable */
 
-const portfolio = electron.remote.require('./portfolio');
+const Funds = props => {
+	const coins = props.currencies.map(coin => (
+		<tr key={coin.coin}>
+			<th>{coin.coin}</th>
+			<td>{coin.address}</td>
+			<td>{coin.balance}</td>
+		</tr>
+	));
 
-export default class Funds extends React.Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			coins: [],
-		};
-
-		(async () => {
-			console.log(this.props)
-			const funds = await this.props.api.funds();
-			this.setState({coins: funds});
-		})();
-	}
-
-	render() {
-		const coins = this.state.coins.map(coin => (
-			<tr key={coin.coin}>
-				<th>{coin.coin}</th>
-				<td>{coin.address}</td>
-				<td>{coin.balance}</td>
-			</tr>
-		));
-
-		return (
-			<TabView {...this.props} title="Funds">
-				<div style={{overflow: 'auto', maxHeight: 400}}>
-					<table className="table">
-						<thead>
-							<tr>
-								<th>Coin</th>
-								<th>Smartaddress</th>
-								<th>Balance</th>
-							</tr>
-						</thead>
-						<tbody>
-							{coins}
-						</tbody>
-					</table>
-				</div>
-			</TabView>
-		);
-	}
+	return (
+		<TabView {...props} title="Funds">
+			<div style={{overflow: 'auto', maxHeight: 400}}>
+				<table className="table">
+					<thead>
+						<tr>
+							<th>Coin</th>
+							<th>Smartaddress</th>
+							<th>Balance</th>
+						</tr>
+					</thead>
+					<tbody>
+						{coins}
+					</tbody>
+				</table>
+			</div>
+		</TabView>
+	);
 }
+
+export default Funds;
