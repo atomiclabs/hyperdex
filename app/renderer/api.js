@@ -71,8 +71,21 @@ export default class Api {
 		return this.request({method: 'portfolio'});
 	}
 
+	balance(coin, address) {
+		return this.request({
+			method: 'balance',
+			coin,
+			address,
+		});
+	}
+
 	coins() {
 		return this.request({method: 'getcoins'});
+	}
+
+	async funds() {
+		const coins = (await this.coins()).filter(coin => coin.status === 'active');
+		return Promise.all(coins.map(coin => this.balance(coin.coin, coin.smartaddress)));
 	}
 
 	ticker() {
