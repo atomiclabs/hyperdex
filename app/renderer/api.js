@@ -1,20 +1,23 @@
+import PQueue from 'p-queue';
 import electrumServers from './electrum-servers';
 
 export default class Api {
-	constructor({endpoint, seedPhrase}) {
+	constructor({endpoint, seedPhrase, concurrency = 1}) {
 		if (!(endpoint && seedPhrase)) {
 			throw new Error('The `endpoint` and `seedPhrase` options are required');
 		}
 
 		this.endpoint = endpoint;
 		this.seedPhrase = seedPhrase;
+
+		this.queue = new PQueue({concurrency});
 	}
 
 	async _request(data) {
-		const response = await fetch(this.endpoint, {
+		const response = await this.queue.add(() => fetch(this.endpoint, {
 			method: 'post',
 			body: JSON.stringify(data),
-		});
+		}));
 
 		return response.json();
 	}
