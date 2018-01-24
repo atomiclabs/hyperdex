@@ -43,8 +43,8 @@ export default class Api {
 		return this.request({method: 'bot_list'});
 	}
 
-	async enableCoin(coin, isFullNode) {
-		if (isFullNode) {
+	async enableCoin(coin, opts = {}) {
+		if (opts.isFullNode) {
 			const res = await this.request({method: 'enable', coin});
 			return res.status === 'active';
 		}
