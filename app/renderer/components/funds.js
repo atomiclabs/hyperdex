@@ -15,7 +15,8 @@ export default class Funds extends React.Component {
 		};
 
 		(async () => {
-			const funds = await this.props.portfolio.api.funds();
+			console.log(this.props)
+			const funds = await this.props.api.funds();
 			this.setState({coins: funds});
 		})();
 	}
