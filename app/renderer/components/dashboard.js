@@ -24,7 +24,8 @@ export default class Dashboard extends React.Component {
 	render() {
 		return (
 			<TabView {...this.props}  title="Dashboard">
-					<p>Portfolio: {JSON.stringify(this.state.mmPortfolio, null, '\t')}</p>
+					<p>Portfolio:</p>
+					<pre style={{color: '#ccc', overflow: 'scroll', height: '600px'}}>{JSON.stringify(this.state.mmPortfolio, null, '\t')}</pre>
 			</TabView>
 		);
 	}
