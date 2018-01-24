@@ -12,7 +12,7 @@ const loadJsonFile = require('load-json-file');
 const {encryptWithPassword: encrypt, decryptWithPassword: decrypt} = iocane.crypto;
 const portfolioPath = path.join(app.getPath('userData'), 'portfolios');
 
-const create = async ({name, seedPhrase, password}) => {
+const createPortfolio = async ({name, seedPhrase, password}) => {
 	const safeName = filenamify(slug(name, {lower: true, symbols: false}));
 	const filename = `hyperdex-portfolio-${safeName}-${randomString(6)}.json`;
 	const filePath = path.join(portfolioPath, filename);
@@ -27,7 +27,7 @@ const create = async ({name, seedPhrase, password}) => {
 	return filePath;
 };
 
-const getAll = async () => {
+const getPortfolios = async () => {
 	let portfolioFiles;
 	try {
 		portfolioFiles = await dir.promiseFiles(portfolioPath);
@@ -52,7 +52,7 @@ const getAll = async () => {
 };
 
 module.exports = {
-	create,
-	getAll,
+	createPortfolio,
+	getPortfolios,
 	decryptSeedPhrase: decrypt,
 };
