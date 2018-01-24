@@ -39,6 +39,10 @@ export default class Api {
 		});
 	}
 
+	async debug(data) {
+		console.log(await this.request(data));
+	}
+
 	botList() {
 		return this.request({method: 'bot_list'});
 	}

@@ -31,6 +31,8 @@ export default class App extends React.Component {
 					seedPhrase: state.portfolio.api.seedPhrase
 				})
 				this.setState(state);
+
+				window.api = state.portfolio.api;
 			}
 		}
 	}
@@ -63,6 +65,10 @@ export default class App extends React.Component {
 		this.setState(state);
 
 		if (electronUtil.is.development) {
+			// Expose the API for debugging in DevTools
+			// Example: `api.debug({method: 'portfolio'})`
+			window.api = state.portfolio.api;
+
 			const state2 = _.merge({}, state);
 			state2.portfolio.api = {
 				endpoint: state2.portfolio.api.endpoint,
