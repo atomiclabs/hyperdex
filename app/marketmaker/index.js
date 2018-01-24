@@ -6,12 +6,12 @@ const childProcess = require('child_process');
 const electron = require('electron');
 const util = require('electron-util');
 const getPort = require('get-port');
-const timber = require('electron-timber');
+const logger = require('electron-timber');
 
 let binPath = path.join(__dirname, 'bin', process.platform, `marketmaker${util.is.windows ? '.exe' : ''}`);
 binPath = util.fixPathForAsarUnpack(binPath);
 
-const logger = timber.create({
+const mmLogger = logger.create({
 	prefix: 'mm',
 	ignore: /cant open\.\(|connected to push\.\(/,
 });
@@ -63,7 +63,7 @@ class Marketmaker {
 		this.port = options.rpcport;
 
 		if (util.is.development) {
-			logger.log('Marketmaker running on port:', this.port);
+			logger.log('Marketmaker running on port', this.port);
 		}
 
 		if (options.seedPhrase) {
@@ -80,8 +80,8 @@ class Marketmaker {
 		this.isRunning = true;
 
 		if (util.is.development) {
-			logger.streamLog(this.cp.stdout);
-			logger.streamError(this.cp.stderr);
+			mmLogger.streamLog(this.cp.stdout);
+			mmLogger.streamError(this.cp.stderr);
 		}
 
 		electron.app.on('quit', () => {
