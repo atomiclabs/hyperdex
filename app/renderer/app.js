@@ -18,7 +18,7 @@ export default class App extends React.Component {
 		autoBind(this);
 
 		this.state = {
-			isLoggedIn: false
+			portfolio: null
 		};
 	}
 
@@ -43,7 +43,6 @@ export default class App extends React.Component {
 			this.stopMarketmaker();
 
 			this.setState({
-				isLoggedIn: false,
 				portfolio: null
 			});
 		});
@@ -58,7 +57,6 @@ export default class App extends React.Component {
 		logger.log('Portfolio:', portfolio.name);
 
 		const state = {
-			isLoggedIn: true,
 			portfolio
 		};
 
@@ -86,7 +84,7 @@ export default class App extends React.Component {
 
 					<div className="window-draggable-area"></div>
 
-					<AuthenticatedRoute isAuthenticated={this.state.isLoggedIn} redirectFromLoginTo="/dashboard">
+					<AuthenticatedRoute isAuthenticated={!!this.state.portfolio} redirectFromLoginTo="/dashboard">
 						<Switch>
 							<RouteWithProps path="/login" component={Login} setPortfolio={this.setPortfolio}/>
 							<RouteWithProps component={Main} {...this.state}/>
