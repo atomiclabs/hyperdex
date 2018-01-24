@@ -11,8 +11,7 @@ export default class Dashboard extends React.Component {
 			mmPortfolio: null,
 		};
 
-		const {portfolio} = this.props;
-		const {api} = portfolio;
+		const {portfolio, api} = this.props;
 
 		(async () => {
 			this.setState({

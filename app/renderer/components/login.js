@@ -159,8 +159,8 @@ class Portfolio extends React.Component {
 				api.enableCoin('LTC'),
 			]);
 
-			this.props.setPortfolio({
-				...this.props.portfolio,
+			this.props.setAppState({
+				portfolio: this.props.portfolio,
 				api
 			});
 		} catch (err) {

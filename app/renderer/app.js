@@ -26,10 +26,7 @@ export default class App extends React.Component {
 		if (electronUtil.is.development) {
 			const state = ipc.sendSync('get-state');
 			if (state) {
-				state.portfolio.api = new Api({
-					endpoint: state.portfolio.api.endpoint,
-					seedPhrase: state.portfolio.api.seedPhrase
-				})
+				state.api = new Api(state.api)
 				this.setState(state);
 
 				window.api = state.portfolio.api;
@@ -49,30 +46,19 @@ export default class App extends React.Component {
 	}
 
 	async stopMarketmaker() {
-		await this.state.portfolio.api.stop();
+		await this.state.api.stop();
 		ipc.send('stop-marketmaker');
 	}
 
-	setPortfolio(portfolio) {
-		logger.log('Portfolio:', portfolio.name);
-
-		const state = {
-			portfolio
-		};
-
+	setAppState(state) {
 		this.setState(state);
 
 		if (electronUtil.is.development) {
 			// Expose the API for debugging in DevTools
 			// Example: `api.debug({method: 'portfolio'})`
-			window.api = state.portfolio.api;
+			window.api = state.api;
 
-			const state2 = _.merge({}, state);
-			state2.portfolio.api = {
-				endpoint: state2.portfolio.api.endpoint,
-				seedPhrase: state2.portfolio.api.seedPhrase
-			};
-			ipc.sendSync('set-state', state2);
+			ipc.sendSync('set-state', state);
 		}
 	}
 
@@ -86,7 +72,7 @@ export default class App extends React.Component {
 
 					<AuthenticatedRoute isAuthenticated={!!this.state.portfolio} redirectFromLoginTo="/dashboard">
 						<Switch>
-							<RouteWithProps path="/login" component={Login} setPortfolio={this.setPortfolio}/>
+							<RouteWithProps path="/login" component={Login} setAppState={this.setAppState}/>
 							<RouteWithProps component={Main} {...this.state}/>
 						</Switch>
 					</AuthenticatedRoute>
