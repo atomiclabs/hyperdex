@@ -1,6 +1,7 @@
 import electron from 'electron';
 import React from 'react';
 import {autoBind} from 'react-extras';
+import {Redirect} from 'react-router-dom';
 import Api from '../api';
 import CreatePortfolioButton from './create-portfolio-button';
 import PortfolioItem from './portfolio-item';
@@ -39,7 +40,7 @@ export default class Login extends React.Component {
 		autoBind(this);
 
 		this.state = {
-			portfolios: [],
+			portfolios: null,
 		};
 
 		this.loadPortfolios();
@@ -73,6 +74,14 @@ export default class Login extends React.Component {
 	}
 
 	render() {
+		if (this.state.portfolios === null) {
+			return null; // Not loaded yet
+		}
+
+		if (this.state.portfolios.length === 0) {
+			return <Redirect to="/login/welcome"/>;
+		}
+
 		const portfolios = this.state.portfolios.map(portfolio => (
 			<PortfolioItem
 				key={portfolio.fileName}

@@ -4,10 +4,11 @@ import React from 'react';
 import {autoBind} from 'react-extras';
 import {Switch} from 'react-router-dom';
 import {BrowserRouter as Router, Debug, AuthenticatedRoute, RouteWithProps} from 'react-router-util';
+import './styles/index.scss';
 import Api from './api';
-import './index.scss';
 import Main from './components/main';
 import Login from './components/login';
+import Welcome from './components/welcome';
 
 /* eslint-disable */
 
@@ -71,7 +72,8 @@ export default class App extends React.Component {
 
 					<AuthenticatedRoute isAuthenticated={!!this.state.portfolio} redirectFromLoginTo="/dashboard">
 						<Switch>
-							<RouteWithProps path="/login" component={Login} setAppState={this.setAppState}/>
+							<RouteWithProps path="/login" exact component={Login} setAppState={this.setAppState}/>
+							<RouteWithProps path="/login/welcome" exact component={Welcome} setAppState={this.setAppState}/>
 							<RouteWithProps component={Main} {...this.state}/>
 						</Switch>
 					</AuthenticatedRoute>
