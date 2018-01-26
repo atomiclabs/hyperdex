@@ -3,14 +3,18 @@ const path = require('path');
 const webpack = require('webpack');
 const NodeEnvPlugin = require('node-env-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const bootstrapPath = path.join(__dirname, 'vendor/bootstrap-dashboard-theme');
-const reactSymbolsPath = path.join(__dirname, 'vendor/reactsymbols-kit');
+const PATHS = {
+	dist: path.join(__dirname, 'app/renderer-dist'),
+	bootstrap: path.join(__dirname, 'vendor/bootstrap-dashboard-theme'),
+	reactSymbols: path.join(__dirname, 'vendor/reactsymbols-kit'),
+};
 
 module.exports = {
 	entry: './app/renderer',
 	output: {
-		path: path.join(__dirname, 'app/renderer-dist'),
+		path: PATHS.dist,
 		filename: 'bundle.js',
 	},
 	target: 'electron',
@@ -21,7 +25,7 @@ module.exports = {
 			'.jsx',
 		],
 		alias: {
-			bootstrap: path.resolve(bootstrapPath, 'js/bootstrap'),
+			bootstrap: path.resolve(PATHS.bootstrap, 'js/bootstrap'),
 		},
 	},
 	module: {
@@ -46,15 +50,15 @@ module.exports = {
 					loader: 'css-loader',
 					options: {
 						alias: {
-							'../fonts': path.join(bootstrapPath, 'fonts'),
+							'../fonts': path.join(PATHS.bootstrap, 'fonts'),
 						},
 					},
 				}, {
 					loader: 'sass-loader',
 					options: {
 						includePaths: [
-							path.join(bootstrapPath, 'scss'),
-							path.join(reactSymbolsPath, 'sass'),
+							path.join(PATHS.bootstrap, 'scss'),
+							path.join(PATHS.reactSymbols, 'sass'),
 						],
 					},
 				}],
@@ -68,6 +72,7 @@ module.exports = {
 	},
 	plugins: [
 		new NodeEnvPlugin(),
+		new CleanWebpackPlugin([PATHS.dist]),
 		new CopyPlugin([
 			{
 				context: 'app/renderer',
