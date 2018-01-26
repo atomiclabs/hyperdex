@@ -18,7 +18,8 @@
 		"react-dom": "^16.2.0",
 		"react-extras": "^0.3.0",
 		"react-router-dom": "^4.2.2",
-		"react-router-util": "^0.5.0"
+		"react-router-util": "^0.5.1",
+		"reactsymbols-kit": "file:vendor/reactsymbols-kit"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.0",

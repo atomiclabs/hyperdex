@@ -1,19 +1,19 @@
 @import 'bootstrap-overrides';
 @import 'toolkit-inverse';
+@import 'ReactSymbolsKit';
+@import './fonts';
 
 body {
+	background-color: #222C3B;
 	padding-top: 50px;
 	padding-bottom: 50px;
-	font-family: -apple-system,
-		BlinkMacSystemFont,
-		'Segoe UI',
-		Ubuntu,
-		'Helvetica Neue',
-		sans-serif,
-		'Apple Color Emoji',
-		'Segoe UI Emoji',
-		'Segoe UI Symbol';
+	font-family: 'Source Sans Pro';
+	font-weight: normal;
 	overflow: hidden;
+}
+
+p {
+	font-weight: normal;
 }
 
 h1,
@@ -43,6 +43,36 @@ hr {
 	top: 0;
 	left: 0;
 	-webkit-app-region: drag;
+}
+
+.button-gradient {
+	background: linear-gradient(-152deg, #7C5EEB 6%, #8E41E5 100%);
+}
+
+.Welcome {
+	text-align: center;
+	color: #7F8FA3;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 75vh;
+
+	.body {
+		padding: 40px;
+		max-width: 100%;
+		flex: none;
+		align-self: center;
+	}
+
+	h1 {
+		font-size: 30px;
+		font-weight: bold;
+	}
+
+	h2 {
+		font-size: 16px;
+		font-weight: 400;
+	}
 }
 
 .Main {

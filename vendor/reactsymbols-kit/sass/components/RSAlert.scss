@@ -1,0 +1,85 @@
+@import '../utils/RSMixins.scss';
+@import '../RSDefaults.scss';
+
+.rs-alert {
+  display: none;
+  width: auto;
+  min-width: 86px;
+  position: relative;
+  padding: 4px 50px 4px 16px;
+  background: $primaryColor;
+  @include rounded($borderRadius);
+  text-align: left;
+
+  &--visible {
+    display: block;
+  }
+
+  &__text {
+    display: inline-block;
+
+    p {
+      padding: 0;
+      margin: 5px 0;
+      padding-left: 31px;
+      font-size: 14px;
+      line-height: 21px;
+      font-weight: 500;
+      color: $primaryTextColor;
+    }
+  }
+
+  &__icon {
+    display: inline-block;
+    position: absolute;
+    top: 7px;
+    line-height: 0;
+    margin-top: 2px;
+
+    .rs-icon {
+      color: $primaryTextColor;
+    }
+  }
+
+  &__close {
+    display: inline-block;
+    padding: 5px;
+    position: absolute;
+    top: 6px;
+    right: 11px;
+    line-height: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    outline: none;
+    @include transition(transform .2s ease);
+
+    .rs-icon {
+      color: $primaryTextColor;
+    }
+
+    &:hover {
+      @include scale(1.2);
+    }
+    &:active {
+      @include scale(0.9);
+    }
+  }
+
+
+  /* COLOR VARIANTS */
+
+  &--success {
+    background: $successColor;
+  }
+  &--danger {
+    background: $dangerColor;
+  }
+  &--warning {
+    background: $warningColor;
+  }
+  &--info {
+    background: $infoColor;
+  }
+
+}

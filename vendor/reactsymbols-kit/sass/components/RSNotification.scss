@@ -1,0 +1,32 @@
+@import '../utils/RSMixins.scss';
+@import '../RSDefaults.scss';
+
+.rs-notification {
+  display: inline-block;
+  position: relative;
+  color: $iconColor;
+  margin: 10px 0;
+  margin-right: 20px;
+  padding-top: 10px;
+
+  &__value {
+    display: inline-block;
+    width: auto;
+    min-width: 20px;
+    min-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: -8.5px;
+    padding: 0 6.5px;
+    background: $primaryColor;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+    color: $primaryTextColor;
+    @include rounded(20px);
+    z-index: 10;
+  }
+}
+

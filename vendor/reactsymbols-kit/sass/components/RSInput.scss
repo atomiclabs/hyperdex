@@ -1,0 +1,229 @@
+@import '../utils/RSMixins.scss';
+@import '../RSDefaults.scss';
+
+.rs-input {
+  display: inline-block;
+  position: relative;
+  margin: 5px 0;
+
+  &-wrap {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+  }
+
+  input,
+  textarea {
+    display: inline-block;
+    @include size(100%, 36px);
+    min-width: 160px;
+    position: relative;
+    padding: 7px 10px 7px;
+    font-family: $fontFamily;
+    font-size: 14px;
+    font-weight: 400;
+    color: $darkTextColor;
+    line-height: 21px;
+    background: $whiteColor;
+    @include rounded($borderRadius);
+    border: 1px solid #DFE3E9;
+    text-align: left;
+    outline: none !important;
+    @include transition(all .2s ease);
+
+    &::-webkit-input-placeholder {
+      color: $labelTextColor;
+    }
+    &::-moz-placeholder {
+      color: $labelTextColor;
+    }
+    &:-ms-input-placeholder {
+      color: $labelTextColor;
+    }
+    &:-moz-placeholder {
+      color: $labelTextColor;
+    }
+
+    &:hover {
+      border: 1px solid #CED0DA;
+    }
+    &:focus {
+      border: 1px solid;
+      @include set(border-color, $primaryColor, 1);
+    }
+  }
+
+  &--icon {
+    input,
+    textarea {
+      padding-left: 40px;
+    }
+  }
+  &--icon-right {
+    input,
+    textarea {
+      padding-left: 10px;
+      padding-right: 40px;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    left: 16px;
+    top: 7px;
+  }
+  &__icon--right {
+    left: auto;
+    right: 10px;
+
+    .rs-input__valid-icon {
+      display: none;
+    }
+  }
+  &__valid-icon {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+  }
+
+  &__text {
+    display: block;
+    overflow: hidden;
+    margin-top: 4px;
+
+    .rs-input__text-icon {
+      display: inline-block;
+      float: left;
+      position: relative;
+      top: 1px;
+      @include square(16px);
+      margin-right: 6px;
+    }
+
+    .rs-icon {
+      position: absolute;
+      color: $iconColor;
+    }
+
+    p {
+      float: left;
+      margin: 0;
+      font-size: 12px;
+      font-weight: 400;
+      color: $grayTextColor;
+      line-height: 18px;
+    }
+  }
+
+
+  /* COLOR VARIANTS */
+
+  &--success,
+  &--danger,
+  &--warning,
+  &--info {
+    input,
+    textarea {
+      padding-right: 30px;
+    }
+  }
+  
+  &--success {
+    input,
+    input:hover,
+    input:active,
+    input:focus,
+    textarea,
+    textarea:hover,
+    textarea:active,
+    textarea:focus {
+      @include set(border-color, $successColor, 1);
+    }
+
+    .rs-input__text p,
+    .rs-icon {
+      color: $successColor;
+    }
+  }
+
+  &--danger,
+  &--danger:hover,
+  &--danger:focus {
+    input,
+    input:hover,
+    input:active,
+    input:focus,
+    textarea,
+    textarea:hover,
+    textarea:active,
+    textarea:focus {
+      @include set(border-color, $dangerColor, 1);
+    }
+    
+    .rs-input__text p,
+    .rs-icon {
+      color: $dangerColor;
+    }
+  }
+
+  &--warning,
+  &--warning:hover,
+  &--warning:focus {
+    input,
+    input:hover,
+    input:active,
+    input:focus,
+    textarea,
+    textarea:hover,
+    textarea:active,
+    textarea:focus {
+      @include set(border-color, $warningColor, 1);
+    }
+    
+    .rs-input__text p,
+    .rs-icon {
+      color: $warningColor;
+    }
+  }
+
+  &--info,
+  &--info:hover,
+  &--info:focus {
+    input,
+    input:hover,
+    input:active,
+    input:focus,
+    textarea,
+    textarea:hover,
+    textarea:active,
+    textarea:focus {
+      @include set(border-color, $infoColor, 1);
+    }
+
+    .rs-input__text p,
+    .rs-icon {
+      color: $infoColor;
+    }
+  }
+  
+
+  &--disabled {
+    input,
+    input:hover,
+    input:active,
+    input:focus,
+    textarea,
+    textarea:hover,
+    textarea:active,
+    textarea:focus {
+      background: $disabledColor !important;
+      border-color: $disabledBorderColor;
+      pointer-events: none;
+      cursor: default;
+      @include user-select(none);
+    }
+    .rs-icon {
+      color: $disabledTextColor;
+    }
+  }
+}

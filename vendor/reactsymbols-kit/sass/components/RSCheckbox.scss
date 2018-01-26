@@ -1,0 +1,101 @@
+@import '../utils/RSMixins.scss';
+@import '../RSDefaults.scss';
+
+.rs-checkbox {
+  display: inline-block;
+
+  label {
+    display: inline-block;
+    cursor: pointer;
+
+    input[type='checkbox'] {
+      display: none !important;
+    }
+  }
+
+  &__bullet {
+    display: inline-block;
+    @include square(16px);
+    position: relative;
+    margin-right: 14px;
+    background: $primaryColor;
+    @include rounded($borderRadius);
+    @include box-shadow(inset 0 0 0 1px rgba(0,0,0,.1));
+    @include user-select(none);
+
+    .rs-checkbox__icon {
+      display: inline-block;
+      @include square(8px);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -4px;
+      margin-left: -4px;
+
+      .rs-icon {
+        position: absolute;
+        color: $whiteColor;
+      }
+    }
+  }
+
+  &__label {
+    display: inline-block;    
+    color: $labelTextColor;
+    position: relative;
+    top: -3px;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    @include user-select(none);
+    @include transition(color .2s linear);
+  }
+
+  &:hover {
+    .rs-checkbox__bullet {
+      @include box-shadow(inset 0 0 0 1px rgba(0,0,0,.16));
+    }
+  }
+
+  &--checked {
+    .rs-checkbox__bullet {
+      background: $primaryColor;
+      @include box-shadow(inset 0 0 0 1px rgba(0,0,0,.16));
+    }
+    .rs-checkbox__label {
+      color: $labelTextSelectedColor;
+    }
+  }
+
+  &--checked:hover {
+    .rs-checkbox__bullet {
+      &:before {
+        display: block;
+        content: '';
+        @include square(100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(255,255,255,.06);
+      }
+    }
+  }
+
+
+  &--disabled,
+  &--disabled:hover {
+    label {
+      cursor: default;
+    }
+    .rs-checkbox__bullet {
+      background: $disabledColor !important;
+      @include box-shadow(inset 0 0 0 1px $disabledBorderColor);
+      cursor: default;
+    }
+    .rs-checkbox__label,
+    .rs-checkbox__icon .rs-icon {
+      color: $disabledTextColor;
+      cursor: default;
+    }
+  }
+}
