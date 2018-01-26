@@ -12,7 +12,7 @@ let binPath = path.join(__dirname, 'bin', process.platform, `marketmaker${util.i
 binPath = util.fixPathForAsarUnpack(binPath);
 
 const mmLogger = logger.create({
-	prefix: 'mm',
+	name: 'mm',
 	ignore: /cant open\.\(|connected to push\.\(/,
 });
 
