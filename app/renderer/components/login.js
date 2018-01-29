@@ -1,6 +1,5 @@
 import electron from 'electron';
 import React from 'react';
-import {autoBind} from 'react-extras';
 import {Redirect} from 'react-router-dom';
 import Api from '../api';
 import CreatePortfolioButton from './create-portfolio-button';
@@ -35,24 +34,17 @@ const initApi = async seedPhrase => {
 };
 
 export default class Login extends React.Component {
-	constructor(props) {
-		super(props);
-		autoBind(this);
+	state = {
+		portfolios: null,
+	};
 
-		this.state = {
-			portfolios: null,
-		};
-
-		this.loadPortfolios();
-	}
-
-	async loadPortfolios() {
+	loadPortfolios = async () => {
 		this.setState({
 			portfolios: await getPortfolios(),
 		});
 	}
 
-	async handleLogin(portfolio, password) {
+	handleLogin = async (portfolio, password) => {
 		// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker
 		const seedPhrase = await decryptSeedPhrase(portfolio.encryptedSeedPhrase, password);
 		const api = await initApi(seedPhrase);
@@ -71,6 +63,12 @@ export default class Login extends React.Component {
 			currencies,
 			api
 		});
+	};
+
+	constructor(props) {
+		super(props);
+
+		this.loadPortfolios();
 	}
 
 	render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Blockies from 'react-blockies';
-import {If, autoBind} from 'react-extras';
+import {If} from 'react-extras';
 
 /* eslint-disable */
 
@@ -18,23 +18,18 @@ const PortfolioImage = ({onClick, ...rest}) => (
 );
 
 class PortfolioItem extends React.Component {
-	constructor(props) {
-		super(props);
-		autoBind(this);
+	state = {
+		isLoginInputVisible: this.props.showLoginForm,
+		isCheckingPassword: false,
+	};
 
-		this.state = {
-			isLoginInputVisible: this.props.showLoginForm,
-			isCheckingPassword: false,
-		};
-	}
-
-	showLoginInput() {
+	showLoginInput = () => {
 		this.setState({
 			isLoginInputVisible: true,
 		});
-	}
+	};
 
-	async onSubmit(event) {
+	onSubmit = async event => {
 		event.preventDefault();
 
 		this.setState({isCheckingPassword: true});
@@ -55,7 +50,7 @@ class PortfolioItem extends React.Component {
 				passwordError,
 			});
 		}
-	}
+	};
 
 	render() {
 		const {portfolio} = this.props;
