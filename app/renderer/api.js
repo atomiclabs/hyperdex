@@ -64,7 +64,7 @@ export default class Api {
 	async enableCoinElectrum(coin) {
 		const servers = electrumServers[coin];
 
-		if (!servers || servers.length < 1) {
+		if (!servers) {
 			throw new Error('Electrum mode not supported for this coin');
 		}
 
