@@ -3,17 +3,72 @@
 @import 'ReactSymbolsKit';
 @import './fonts';
 
+$primary-color: #687BF7;
+$secondary-color: #8050EF;
+$background-color: gray;
+$gray-color: #7F8FA4;
+$red-color: #F80759;
+$primary-gradient: linear-gradient(180deg, #973AF5 0%, #4CA6FE 100%);
+
+$dark-mode-background-color: #222C3C;
+
+button:focus {
+	outline: 0;
+}
+
 body {
-	background-color: #222C3B;
 	padding-top: 50px;
 	padding-bottom: 50px;
+	background-color: $background-color;
 	font-family: 'Source Sans Pro';
 	font-weight: normal;
 	overflow: hidden;
 }
 
-p {
+.dark-mode body {
+	background-color: $dark-mode-background-color;
+}
+
+h1 {
+	font-size: 26px;
+	font-weight: 600;
+	line-height: 33px;
+}
+
+h2 {
+	font-size: 20px;
 	font-weight: normal;
+	line-height: 28px;
+}
+
+h3 {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 20px;
+	color: #9BA3A9;
+}
+
+p {
+	font-size: 16px;
+	line-height: 24px;
+	color: #7F8FA4;
+}
+
+p.secondary {
+	font-size: 14px;
+	line-height: 22px;
+	color: #FFFFFF;
+}
+
+a {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 24px;
+	color: $primary-color;
+}
+
+a:hover {
+	color: #5362C4;
 }
 
 h1,
@@ -45,10 +100,6 @@ hr {
 	-webkit-app-region: drag;
 }
 
-.button-gradient {
-	background: linear-gradient(180deg, #687BF7 0%, #8050EF 100%);
-}
-
 .Welcome {
 	text-align: center;
 	color: #7F8FA3;
@@ -62,11 +113,6 @@ hr {
 		max-width: 100%;
 		flex: none;
 		align-self: center;
-	}
-
-	h1 {
-		font-size: 30px;
-		font-weight: bold;
 	}
 
 	h2 {
@@ -113,7 +159,6 @@ hr {
 }
 
 .Login {
-	h1,
 	h4 {
 		font-weight: 500;
 		color: hsla(224, 13%, 40%, 1);

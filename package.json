@@ -19,7 +19,8 @@
 		"react-blockies": "^1.2.2",
 		"react-dom": "^16.2.0",
 		"react-extras": "^0.3.0",
-		"reactsymbols-kit": "file:vendor/reactsymbols-kit"
+		"reactsymbols-kit": "file:vendor/reactsymbols-kit",
+		"styled-components": "^3.1.4"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.0",
