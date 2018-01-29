@@ -1,33 +1,30 @@
 import electron from 'electron';
 import React from 'react';
-import {If, autoBind} from 'react-extras';
+import {If} from 'react-extras';
 
 /* eslint-disable */
 
 const {createPortfolio} = electron.remote.require('./portfolio-util');
 
 class CreatePortfolioButton extends React.Component {
-	constructor(props) {
-		super(props);
-		autoBind(this);
+	state = {
+		showPortfolioForm: false
+	};
 
-		this.state = {showPortfolioForm: false};
-	}
-
-	showPortfolioForm() {
+	showPortfolioForm = () => {
 		this.setState({showPortfolioForm: true});
-	}
+	};
 
-	hidePortfolioForm() {
+	hidePortfolioForm = () => {
 		this.setState({showPortfolioForm: false});
-	}
+	};
 
-	async onSubmit(event) {
+	onSubmit = async event => {
 		event.preventDefault();
 		this.hidePortfolioForm();
 		await createPortfolio(this.state);
 		this.props.loadPortfolios();
-	}
+	};
 
 	render() {
 		return (

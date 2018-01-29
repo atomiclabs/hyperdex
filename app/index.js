@@ -14,12 +14,7 @@ require('electron-debug')({enabled: true, showDevTools: true});
 require('electron-context-menu')();
 
 try {
-	require('electron-reloader')(module, {
-		ignore: [
-			'renderer',
-			'marketmaker/bin',
-		],
-	});
+	require('electron-reloader')(module, {watchRenderer: false});
 } catch (err) {}
 
 const {app} = electron;
@@ -86,7 +81,11 @@ function createMainWindow() {
 		win.show();
 	});
 
-	loadUrl(win);
+	if (is.development) {
+		win.loadURL('http://localhost:8080');
+	} else {
+		loadUrl(win);
+	}
 
 	return win;
 }
@@ -121,14 +120,4 @@ electron.ipcMain.on('start-marketmaker', async (event, {seedPhrase}) => {
 
 electron.ipcMain.on('stop-marketmaker', () => {
 	marketmaker.stop();
-});
-
-// Preserve the state of `<App/>` so we can reload it to the same state
-let appState = '';
-electron.ipcMain.on('set-state', (event, state) => {
-	appState = state;
-	event.returnValue = null;
-});
-electron.ipcMain.on('get-state', event => {
-	event.returnValue = appState;
 });

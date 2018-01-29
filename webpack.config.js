@@ -17,8 +17,15 @@ module.exports = {
 		path: PATHS.dist,
 		filename: 'bundle.js',
 	},
-	target: 'electron',
+	target: 'electron-renderer',
 	devtool: NodeEnvPlugin.devtool,
+	devServer: {
+		contentBase: PATHS.dist,
+		hot: true,
+		historyApiFallback: true,
+		overlay: true,
+		noInfo: true,
+	},
 	resolve: {
 		extensions: [
 			'.js',
@@ -38,6 +45,10 @@ module.exports = {
 					presets: [
 						'react',
 						'stage-3',
+					],
+					plugins: [
+						['transform-class-properties', {spec: true}],
+						'react-hot-loader/babel',
 					],
 				},
 			},
@@ -85,5 +96,6 @@ module.exports = {
 			jQuery: 'jquery',
 			Popper: 'popper.js/dist/umd/popper.js',
 		}),
+		new webpack.NamedModulesPlugin(),
 	],
 };

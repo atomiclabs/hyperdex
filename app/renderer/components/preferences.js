@@ -1,7 +1,6 @@
 import electron from 'electron';
 import React from 'react';
 import _ from 'lodash';
-import {autoBind} from 'react-extras';
 import TabView from './tab-view';
 
 /* eslint-disable */
@@ -9,24 +8,19 @@ import TabView from './tab-view';
 const config = electron.remote.require('./config');
 
 class Form extends React.Component {
-	constructor(props) {
-		super(props);
-		autoBind(this);
+	state = {
+		marketmakerUrl: config.get('marketmakerUrl'),
+	};
 
-		this.state = {
-			marketmakerUrl: config.get('marketmakerUrl'),
-		};
+	persistState = _.debounce((name, value) => {
+		config.set(name, value);
+	}, 500);
 
-		this.persistState = _.debounce((name, value) => {
-			config.set(name, value);
-		}, 500);
-	}
-
-	handleChange(event) {
+	handleChange = event => {
 		const {name, value} = event.target;
 		this.setState({[name]: value});
 		this.persistState(name, value);
-	}
+	};
 
 	render() {
 		return (

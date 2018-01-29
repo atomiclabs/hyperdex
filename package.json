@@ -3,8 +3,9 @@
 		"postinstall": "electron-builder install-app-deps",
 		"test": "xo",
 		"start": "webpack && electron app",
-		"watch": "webpack --watch --display=errors-only",
-		"dev": "run-p start watch",
+		"dev:watch": "webpack-dev-server --hot",
+		"dev:start": "electron app",
+		"dev": "run-p dev:*",
 		"pack": "webpack && electron-builder --dir",
 		"dist": "NODE_ENV=production webpack && electron-builder --mac --linux --win",
 		"release": "np --no-publish"
@@ -24,7 +25,9 @@
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.0",
+		"babel-eslint": "^8.2.1",
 		"babel-loader": "^7.1.2",
+		"babel-plugin-transform-class-properties": "^6.24.1",
 		"babel-preset-react": "^6.24.1",
 		"babel-preset-stage-3": "^6.24.1",
 		"clean-webpack-plugin": "^0.1.17",
@@ -33,8 +36,7 @@
 		"devtron": "^1.4.0",
 		"electron": "^1.7.10",
 		"electron-builder": "^19.54.0",
-		"electron-react-devtools": "^0.5.3",
-		"electron-reloader": "^0.1.0",
+		"electron-reloader": "^0.2.0",
 		"eslint-config-xo-react": "^0.15.0",
 		"eslint-plugin-react": "^7.5.1",
 		"file-loader": "^1.1.6",
@@ -42,12 +44,15 @@
 		"node-sass": "^4.7.2",
 		"np": "^2.18.2",
 		"npm-run-all": "^4.1.2",
+		"react-hot-loader": "^4.0.0-beta.18",
 		"sass-loader": "^6.0.6",
 		"style-loader": "^0.19.1",
 		"webpack": "^3.10.0",
+		"webpack-dev-server": "^2.11.1",
 		"xo": "^0.18.2"
 	},
 	"xo": {
+		"parser": "babel-eslint",
 		"envs": [
 			"node",
 			"browser"
