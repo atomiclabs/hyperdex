@@ -13,6 +13,7 @@
 	"dependencies": {
 		"jquery": "^3.2.1",
 		"lodash": "^4.17.4",
+		"p-queue": "^2.3.0",
 		"popper.js": "1.12.6",
 		"react": "^16.2.0",
 		"react-blockies": "^1.2.2",
@@ -32,6 +33,7 @@
 		"clean-webpack-plugin": "^0.1.17",
 		"copy-webpack-plugin": "^4.2.3",
 		"css-loader": "^0.28.8",
+		"devtron": "^1.4.0",
 		"electron": "^1.7.10",
 		"electron-builder": "^19.54.0",
 		"electron-reloader": "^0.2.0",
