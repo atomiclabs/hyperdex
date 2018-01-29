@@ -52,22 +52,32 @@ export default class Api {
 
 	async enableCoin(coin, opts = {}) {
 		if (opts.isFullNode) {
-			const res = await this.request({method: 'enable', coin});
-			return res.status === 'active';
+			const response = await this.enableCoinFullNode(coin);
+			return response.status === 'active';
 		}
 
-		const server = electrumServers[coin];
+		const responses = await this.enableCoinElectrum(coin);
+		return responses.filter(response => response.result === 'success') > 0;
+	}
 
-		if (!server) {
+	enableCoinFullNode(coin) {
+		return this.request({method: 'enable', coin});
+	}
+
+	async enableCoinElectrum(coin) {
+		const servers = electrumServers[coin];
+
+		if (!servers) {
 			throw new Error('Electrum mode not supported for this coin');
 		}
 
-		const res = await this.request({
+		const requests = servers.map(server => this.request({
 			method: 'electrum',
 			coin,
 			...server,
-		});
-		return res.result === 'success';
+		}));
+
+		return Promise.all(requests);
 	}
 
 	portfolio() {
