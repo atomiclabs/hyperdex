@@ -29,7 +29,7 @@ $SourceSansProFontsPath: '/styles/fonts' !default;
 	font-weight: 600;
 	font-style: normal;
 	font-stretch: normal;
-	src: url('#{$SourceSansProFontsPath}/SourceSansPro-Semibold.ttf') format('truetype');
+	src: url('#{$SourceSansProFontsPath}/SourceSansPro-SemiBold.ttf') format('truetype');
 }
 
 @font-face {
@@ -77,7 +77,7 @@ $SourceSansProFontsPath: '/styles/fonts' !default;
 	font-weight: 600;
 	font-style: italic;
 	font-stretch: normal;
-	src: url('#{$SourceSansProFontsPath}/SourceSansPro-SemiboldItalic.ttf') format('truetype');
+	src: url('#{$SourceSansProFontsPath}/SourceSansPro-SemiBoldItalic.ttf') format('truetype');
 }
 
 @font-face {
