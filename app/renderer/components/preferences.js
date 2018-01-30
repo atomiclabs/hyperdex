@@ -3,8 +3,6 @@ import React from 'react';
 import _ from 'lodash';
 import TabView from './tab-view';
 
-/* eslint-disable */
-
 const config = electron.remote.require('./config');
 
 class Form extends React.Component {

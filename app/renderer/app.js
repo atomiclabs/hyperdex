@@ -8,15 +8,13 @@ import Main from './components/main';
 import Login from './components/login';
 import Welcome from './components/welcome';
 
-/* eslint-disable */
-
 class App extends React.Component {
 	setAppState = state => {
 		this.setState(state);
 	}
 
 	state = {
-		portfolio: null
+		portfolio: null,
 	};
 
 	componentDidMount() {
@@ -25,7 +23,7 @@ class App extends React.Component {
 			this.stopMarketmaker();
 
 			this.setState({
-				portfolio: null
+				portfolio: null,
 			});
 		});
 	}
@@ -41,9 +39,9 @@ class App extends React.Component {
 				<div>
 					<Debug/>
 
-					<div className="window-draggable-area"></div>
+					<div className="window-draggable-area"/>
 
-					<AuthenticatedRoute isAuthenticated={!!this.state.portfolio} redirectFromLoginTo="/dashboard">
+					<AuthenticatedRoute isAuthenticated={Boolean(this.state.portfolio)} redirectFromLoginTo="/dashboard">
 						<Switch>
 							<RouteWithProps path="/login" exact component={Login} setAppState={this.setAppState}/>
 							<RouteWithProps path="/login/welcome" exact component={Welcome} setAppState={this.setAppState}/>

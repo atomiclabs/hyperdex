@@ -155,14 +155,6 @@ detect-indent@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/detect-indent/-/detect-indent-5.0.0.tgz#3871cc0a6a002e8c3e5b3cf7f336264675f06b9d"
 
-devtron@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/devtron/-/devtron-1.4.0.tgz#b5e748bd6e95bbe70bfcc68aae6fe696119441e1"
-  dependencies:
-    accessibility-developer-tools "^2.11.0"
-    highlight.js "^9.3.0"
-    humanize-plus "^1.8.1"
-
 dom-walk@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/dom-walk/-/dom-walk-0.1.1.tgz#672226dc74c8f799ad35307df936aba11acd6018"
@@ -376,17 +368,9 @@ hash_file@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/hash_file/-/hash_file-0.1.1.tgz#3210e85dfb4ed6eb640351e02a48b0d0db327878"
 
-highlight.js@^9.3.0:
-  version "9.12.0"
-  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.12.0.tgz#e6d9dbe57cbefe60751f02af336195870c90c01e"
-
 hoist-non-react-statics@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.3.1.tgz#343db84c6018c650778898240135a1420ee22ce0"
-
-humanize-plus@^1.8.1:
-  version "1.8.2"
-  resolved "https://registry.yarnpkg.com/humanize-plus/-/humanize-plus-1.8.2.tgz#a65b34459ad6367adbb3707a82a3c9f916167030"
 
 imurmurhash@^0.1.4:
   version "0.1.4"

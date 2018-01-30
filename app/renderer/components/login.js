@@ -5,8 +5,6 @@ import Api from '../api';
 import CreatePortfolioButton from './create-portfolio-button';
 import PortfolioItem from './portfolio-item';
 
-/* eslint-disable */
-
 const {getPortfolios, decryptSeedPhrase} = electron.remote.require('./portfolio-util');
 
 const initMarketmaker = seedPhrase => new Promise(resolve => {
@@ -61,7 +59,7 @@ export default class Login extends React.Component {
 		this.props.setAppState({
 			portfolio,
 			currencies,
-			api
+			api,
 		});
 	};
 
@@ -101,7 +99,7 @@ export default class Login extends React.Component {
 
 		return (
 			<div className="Login container">
-				<CreatePortfolioButton loadPortfolios={this.loadPortfolios} />
+				<CreatePortfolioButton loadPortfolios={this.loadPortfolios}/>
 				{portfolioContainer}
 			</div>
 		);
