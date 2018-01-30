@@ -1,9 +1,9 @@
 import electron from 'electron';
 import React from 'react';
-import {Redirect} from 'react-router-dom';
 import Api from '../api';
 import CreatePortfolioButton from './create-portfolio-button';
 import PortfolioItem from './portfolio-item';
+import Welcome from './welcome';
 
 const {getPortfolios, decryptSeedPhrase} = electron.remote.require('./portfolio-util');
 
@@ -57,6 +57,7 @@ export default class Login extends React.Component {
 		const {portfolio: currencies} = await api.portfolio();
 
 		this.props.setAppState({
+			activeView: 'dashboard',
 			portfolio,
 			currencies,
 			api,
@@ -75,7 +76,7 @@ export default class Login extends React.Component {
 		}
 
 		if (this.state.portfolios.length === 0) {
-			return <Redirect to="/login/welcome"/>;
+			return <Welcome {...this.props}/>;
 		}
 
 		const portfolios = this.state.portfolios.map(portfolio => (

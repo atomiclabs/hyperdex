@@ -1,12 +1,15 @@
 import {ipcRenderer as ipc} from 'electron';
 import React from 'react';
 import {hot} from 'react-hot-loader';
-import {Switch} from 'react-router-dom';
-import {BrowserRouter as Router, Debug, AuthenticatedRoute, RouteWithProps} from 'react-router-util';
 import './styles/index.scss';
-import Main from './components/main';
+import View from './components/view';
 import Login from './components/login';
-import Welcome from './components/welcome';
+import Dashboard from './components/dashboard';
+import Swap from './components/swap';
+import Exchange from './components/exchange';
+import Trades from './components/trades';
+import Funds from './components/funds';
+import Preferences from './components/preferences';
 
 class App extends React.Component {
 	setAppState = state => {
@@ -14,6 +17,7 @@ class App extends React.Component {
 	}
 
 	state = {
+		activeView: 'login',
 		portfolio: null,
 	};
 
@@ -34,22 +38,21 @@ class App extends React.Component {
 	}
 
 	render() {
+		const {activeView} = this.state;
+
 		return (
-			<Router>
-				<div>
-					<Debug/>
+			<React.Fragment>
+				<div className="window-draggable-area"/>
 
-					<div className="window-draggable-area"/>
+				<View isActive={activeView === 'login'} component={Login} setAppState={this.setAppState}/>
 
-					<AuthenticatedRoute isAuthenticated={Boolean(this.state.portfolio)} redirectFromLoginTo="/dashboard">
-						<Switch>
-							<RouteWithProps path="/login" exact component={Login} setAppState={this.setAppState}/>
-							<RouteWithProps path="/login/welcome" exact component={Welcome} setAppState={this.setAppState}/>
-							<RouteWithProps component={Main} {...this.state}/>
-						</Switch>
-					</AuthenticatedRoute>
-				</div>
-			</Router>
+				<View isActive={activeView === 'dashboard'} component={Dashboard} setAppState={this.setAppState} {...this.state}/>
+				<View isActive={activeView === 'swap'} component={Swap} setAppState={this.setAppState} {...this.state}/>
+				<View isActive={activeView === 'exchange'} component={Exchange} setAppState={this.setAppState} {...this.state}/>
+				<View isActive={activeView === 'trades'} component={Trades} setAppState={this.setAppState} {...this.state}/>
+				<View isActive={activeView === 'funds'} component={Funds} setAppState={this.setAppState} {...this.state}/>
+				<View isActive={activeView === 'preferences'} component={Preferences} setAppState={this.setAppState} {...this.state}/>
+			</React.Fragment>
 		);
 	}
 }
