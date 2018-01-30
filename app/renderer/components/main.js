@@ -13,13 +13,13 @@ import Trades from './trades';
 import Funds from './funds';
 import Preferences from './preferences';
 
-/* eslint-disable */
-
 const IconNavItem = props => (
 	<li className="nav-item">
 		<NavLink to={props.to} className="nav-link" title={props.title} data-toggle="tooltip" data-placement="right">
-			<span className={`icon icon-${props.icon}`}></span>
-			<small className="iconav-nav-label d-md-none">{props.title}</small>
+			<span className={`icon icon-${props.icon}`}/>
+			<small className="iconav-nav-label d-md-none">
+				{props.title}
+			</small>
 		</NavLink>
 	</li>
 );
@@ -39,7 +39,7 @@ const Nav = () => (
 	</nav>
 );
 
-export default class Main extends React.Component {
+class Main extends React.Component {
 	componentDidMount() {
 		$('[data-toggle="tooltip"]')
 			.on('click', () => {
@@ -73,3 +73,5 @@ export default class Main extends React.Component {
 electron.ipcRenderer.on('show-preferences', () => {
 	history.push('/preferences');
 });
+
+export default Main;

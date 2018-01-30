@@ -1,14 +1,18 @@
 import React from 'react';
 import TabView from './tab-view';
 
-/* eslint-disable */
-
 const Funds = props => {
 	const coins = props.currencies.map(coin => (
 		<tr key={coin.coin}>
-			<th>{coin.coin}</th>
-			<td>{coin.address}</td>
-			<td>{coin.balance}</td>
+			<th>
+				{coin.coin}
+			</th>
+			<td>
+				{coin.address}
+			</td>
+			<td>
+				{coin.balance}
+			</td>
 		</tr>
 	));
 
@@ -18,9 +22,15 @@ const Funds = props => {
 				<table className="table">
 					<thead>
 						<tr>
-							<th>Coin</th>
-							<th>Smartaddress</th>
-							<th>Balance</th>
+							<th>
+								Coin
+							</th>
+							<th>
+								Smartaddress
+							</th>
+							<th>
+								Balance
+							</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -30,6 +40,6 @@ const Funds = props => {
 			</div>
 		</TabView>
 	);
-}
+};
 
 export default Funds;

@@ -2,8 +2,6 @@ import React from 'react';
 import Blockies from 'react-blockies';
 import {If} from 'react-extras';
 
-/* eslint-disable */
-
 const PortfolioImage = ({onClick, ...rest}) => (
 	<div className="PortfolioImage" onClick={onClick}>
 		<Blockies
@@ -44,7 +42,7 @@ class PortfolioItem extends React.Component {
 
 			this.input.value = '';
 
-			const passwordError = /Authentication failed/.test(err.message) ? "Incorrect password" : err.message;
+			const passwordError = /Authentication failed/.test(err.message) ? 'Incorrect password' : err.message;
 			this.setState({
 				isCheckingPassword: false,
 				passwordError,
@@ -57,22 +55,28 @@ class PortfolioItem extends React.Component {
 
 		return (
 			<div className="Portfolio">
-				<PortfolioImage seed={portfolio.fileName} bgColor="transparent" onClick={this.showLoginInput} />
-				<h4>{portfolio.name}</h4>
+				<PortfolioImage seed={portfolio.fileName} bgColor="transparent" onClick={this.showLoginInput}/>
+				<h4>
+					{portfolio.name}
+				</h4>
 				<If condition={this.state.isLoginInputVisible} render={() => (
 					<form className="login-form" onSubmit={this.onSubmit}>
 						<div className="form-group">
 							<input
+								ref={input => {
+									this.input = input;
+								}}
 								type="password"
 								className="form-control"
 								placeholder="Enter Your Password"
-								ref={input => this.input = input}
 								disabled={this.isCheckingPassword}
 								autoFocus
 							/>
 						</div>
 						<div className="form-group" disabled={this.isCheckingPassword}>
-							<button type="submit" className="btn btn-primary btn-sm btn-block">Login</button>
+							<button type="submit" className="btn btn-primary btn-sm btn-block">
+								Login
+							</button>
 						</div>
 						<If condition={Boolean(this.state.passwordError)} render={() => (
 							<div className="form-group">
