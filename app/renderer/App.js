@@ -3,6 +3,7 @@ import {is} from 'electron-util';
 import React from 'react';
 import {hot} from 'react-hot-loader';
 import './styles/index.scss';
+import globalState from './global-state';
 import View from './components/View';
 import Login from './views/Login';
 import Dashboard from './views/Dashboard';
@@ -56,25 +57,20 @@ class App extends React.Component {
 
 	render() {
 		const is = view => view === this.state.activeView;
-		const sharedProps = {
-			...this.state,
-			setAppState: this.setAppState,
-		};
-
 		return (
 			<React.Fragment>
 				<div className="window-draggable-area"/>
 
-				<View isActive={is('Login')} component={Login} setAppState={this.setAppState}/>
-				<View isActive={is('Dashboard')} component={Dashboard} {...sharedProps}/>
-				<View isActive={is('Swap')} component={Swap} {...sharedProps}/>
-				<View isActive={is('Exchange')} component={Exchange} {...sharedProps}/>
-				<View isActive={is('Trades')} component={Trades} {...sharedProps}/>
-				<View isActive={is('Funds')} component={Funds} {...sharedProps}/>
-				<View isActive={is('Preferences')} component={Preferences} {...sharedProps}/>
+				<View isActive={is('Login')} component={Login}/>
+				<View isActive={is('Dashboard')} component={Dashboard}/>
+				<View isActive={is('Swap')} component={Swap}/>
+				<View isActive={is('Exchange')} component={Exchange}/>
+				<View isActive={is('Trades')} component={Trades}/>
+				<View isActive={is('Funds')} component={Funds}/>
+				<View isActive={is('Preferences')} component={Preferences}/>
 			</React.Fragment>
 		);
 	}
 }
 
-export default hot(module)(App);
+export default hot(module)(globalState.capture(App));

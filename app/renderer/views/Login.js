@@ -1,5 +1,6 @@
 import electron from 'electron';
 import React from 'react';
+import globalState from '../global-state';
 import Api from '../api';
 import CreatePortfolioButton from './CreatePortfolioButton';
 import PortfolioItem from './PortfolioItem';
@@ -56,7 +57,7 @@ export default class Login extends React.Component {
 
 		const {portfolio: currencies} = await api.portfolio();
 
-		this.props.setAppState({
+		globalState.set({
 			activeView: 'Dashboard',
 			portfolio,
 			currencies,

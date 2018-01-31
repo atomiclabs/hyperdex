@@ -1,8 +1,9 @@
 import React from 'react';
+import globalState from '../global-state';
 
 const IconNavItem = props => {
-	const setView = () => props.setAppState({activeView: props.to});
-	const active = props.activeView === props.to;
+	const setView = () => globalState.set({activeView: props.to});
+	const active = globalState.get().activeView === props.to;
 
 	return (
 		<li className="nav-item">

@@ -1,4 +1,5 @@
 import React from 'react';
+import globalState from '../global-state';
 import TabView from './TabView';
 
 const Dashboard = props => (
@@ -7,7 +8,7 @@ const Dashboard = props => (
 			Portfolio:
 		</p>
 		<pre style={{color: '#ccc', overflow: 'scroll', height: '600px'}}>
-			{JSON.stringify(props.currencies, null, '\t')}
+			{JSON.stringify(globalState.get().currencies, null, '\t')}
 		</pre>
 	</TabView>
 );

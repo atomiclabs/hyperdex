@@ -1,8 +1,9 @@
 import React from 'react';
+import globalState from '../global-state';
 import TabView from './TabView';
 
 const Funds = props => {
-	const coins = props.currencies.map(coin => (
+	const coins = globalState.get().currencies.map(coin => (
 		<tr key={coin.coin}>
 			<th>
 				{coin.coin}
