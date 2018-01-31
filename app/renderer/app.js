@@ -1,4 +1,5 @@
 import {ipcRenderer as ipc} from 'electron';
+import {is} from 'electron-util';
 import React from 'react';
 import {hot} from 'react-hot-loader';
 import './styles/index.scss';
@@ -13,6 +14,10 @@ import Preferences from './views/preferences';
 
 class App extends React.Component {
 	setAppState = state => {
+		if (is.development) {
+			console.log('State:', state);
+		}
+
 		this.setState(state);
 	}
 
@@ -35,6 +40,13 @@ class App extends React.Component {
 		ipc.on('show-preferences', () => {
 			this.setState({activeView: 'preferences'});
 		});
+
+		if (is.development) {
+			// Expose the API and setState for debugging in DevTools
+			// Example: `api.debug({method: 'portfolio'})`
+			window.api = this.state.api;
+			window.setState = this.setState.bind(this);
+		}
 	}
 
 	async stopMarketmaker() {
