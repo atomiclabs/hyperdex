@@ -2041,6 +2041,10 @@ electron-publish@19.54.0:
     fs-extra-p "^4.5.0"
     mime "^2.2.0"
 
+electron-react-devtools@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/electron-react-devtools/-/electron-react-devtools-0.5.3.tgz#c74edb1245dc1cfe1380b93016cd4eb588ed00b7"
+
 electron-releases@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/electron-releases/-/electron-releases-2.1.0.tgz#c5614bf811f176ce3c836e368a0625782341fd4e"
