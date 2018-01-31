@@ -27,6 +27,7 @@ class App extends React.Component {
 			this.stopMarketmaker();
 
 			this.setState({
+				activeView: 'login',
 				portfolio: null,
 			});
 		});
