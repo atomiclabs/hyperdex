@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from './nav';
+import Nav from './Nav';
 
 const TabView = props => (
 	<div className="Main">

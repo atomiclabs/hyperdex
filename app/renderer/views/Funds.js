@@ -1,5 +1,5 @@
 import React from 'react';
-import TabView from './tab-view';
+import TabView from './TabView';
 
 const Funds = props => {
 	const coins = props.currencies.map(coin => (

@@ -64,6 +64,7 @@
 				"error",
 				"always-multiline"
 			],
+			"unicorn/filename-case": "off",
 			"react/prop-types": "off",
 			"import/exports-last": "error",
 			"no-undef": "off",

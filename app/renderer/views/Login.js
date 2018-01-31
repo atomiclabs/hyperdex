@@ -1,9 +1,9 @@
 import electron from 'electron';
 import React from 'react';
 import Api from '../api';
-import CreatePortfolioButton from './create-portfolio-button';
-import PortfolioItem from './portfolio-item';
-import Welcome from './welcome';
+import CreatePortfolioButton from './CreatePortfolioButton';
+import PortfolioItem from './PortfolioItem';
+import Welcome from './Welcome';
 
 const {getPortfolios, decryptSeedPhrase} = electron.remote.require('./portfolio-util');
 

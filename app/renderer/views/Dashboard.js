@@ -1,5 +1,5 @@
 import React from 'react';
-import TabView from './tab-view';
+import TabView from './TabView';
 
 const Dashboard = props => (
 	<TabView title="Dashboard" {...props}>

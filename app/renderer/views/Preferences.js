@@ -1,7 +1,7 @@
 import electron from 'electron';
 import React from 'react';
 import _ from 'lodash';
-import TabView from './tab-view';
+import TabView from './TabView';
 
 const config = electron.remote.require('./config');
 
