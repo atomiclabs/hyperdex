@@ -68,7 +68,8 @@
 			"import/exports-last": "error",
 			"no-undef": "off",
 			"react/no-unused-state": "off",
-			"node/no-unpublished-require": "off"
+			"node/no-unpublished-require": "off",
+			"unicorn/no-fn-reference-in-iterator": "off"
 		}
 	},
 	"build": {

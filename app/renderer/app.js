@@ -2,6 +2,7 @@ import {ipcRenderer as ipc} from 'electron';
 import React from 'react';
 import {hot} from 'react-hot-loader';
 import './styles/index.scss';
+import ViewContainer from './components/view-container';
 import View from './components/view';
 import Login from './views/login';
 import Dashboard from './views/dashboard';
@@ -49,14 +50,15 @@ class App extends React.Component {
 			<React.Fragment>
 				<div className="window-draggable-area"/>
 
-				<View isActive={activeView === 'login'} component={Login} setAppState={this.setAppState}/>
-
-				<View isActive={activeView === 'dashboard'} component={Dashboard} setAppState={this.setAppState} {...this.state}/>
-				<View isActive={activeView === 'swap'} component={Swap} setAppState={this.setAppState} {...this.state}/>
-				<View isActive={activeView === 'exchange'} component={Exchange} setAppState={this.setAppState} {...this.state}/>
-				<View isActive={activeView === 'trades'} component={Trades} setAppState={this.setAppState} {...this.state}/>
-				<View isActive={activeView === 'funds'} component={Funds} setAppState={this.setAppState} {...this.state}/>
-				<View isActive={activeView === 'preferences'} component={Preferences} setAppState={this.setAppState} {...this.state}/>
+				<ViewContainer activeView={activeView}>
+					<View name="login" component={Login} setAppState={this.setAppState}/>
+					<View name="dashboard" component={Dashboard} setAppState={this.setAppState} {...this.state}/>
+					<View name="swap" component={Swap} setAppState={this.setAppState} {...this.state}/>
+					<View name="exchange" component={Exchange} setAppState={this.setAppState} {...this.state}/>
+					<View name="trades" component={Trades} setAppState={this.setAppState} {...this.state}/>
+					<View name="funds" component={Funds} setAppState={this.setAppState} {...this.state}/>
+					<View name="preferences" component={Preferences} setAppState={this.setAppState} {...this.state}/>
+				</ViewContainer>
 			</React.Fragment>
 		);
 	}
