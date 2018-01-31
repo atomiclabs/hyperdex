@@ -31,6 +31,10 @@ class App extends React.Component {
 				portfolio: null,
 			});
 		});
+
+		ipc.on('show-preferences', () => {
+			this.setState({activeView: 'preferences'});
+		});
 	}
 
 	async stopMarketmaker() {
