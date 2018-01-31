@@ -20,12 +20,12 @@ const Nav = props => (
 	<nav className="iconav">
 		<div className="iconav-slider">
 			<ul className="nav nav-pills iconav-nav flex-md-column">
-				<IconNavItem to="Dashboard" title="Dashboard" icon="home" {...props}/>
-				<IconNavItem to="Swap" title="Swap" icon="cycle" {...props}/>
-				<IconNavItem to="Exchange" title="Exchange" icon="area-graph" {...props}/>
-				<IconNavItem to="Trades" title="Trades" icon="list" {...props}/>
-				<IconNavItem to="Funds" title="Funds" icon="credit" {...props}/>
-				<IconNavItem to="Preferences" title="Preferences" icon="cog" {...props}/>
+				<IconNavItem {...props} to="Dashboard" title="Dashboard" icon="home"/>
+				<IconNavItem {...props} to="Swap" title="Swap" icon="cycle"/>
+				<IconNavItem {...props} to="Exchange" title="Exchange" icon="area-graph"/>
+				<IconNavItem {...props} to="Trades" title="Trades" icon="list"/>
+				<IconNavItem {...props} to="Funds" title="Funds" icon="credit"/>
+				<IconNavItem {...props} to="Preferences" title="Preferences" icon="cog"/>
 			</ul>
 		</div>
 	</nav>

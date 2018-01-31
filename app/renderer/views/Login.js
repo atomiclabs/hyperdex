@@ -81,11 +81,11 @@ export default class Login extends React.Component {
 
 		const portfolios = this.state.portfolios.map(portfolio => (
 			<PortfolioItem
+				{...this.props}
 				key={portfolio.fileName}
 				portfolio={portfolio}
 				showLoginForm={this.state.portfolios.length === 1}
 				handleLogin={this.handleLogin}
-				{...this.props}
 			/>
 		));
 
