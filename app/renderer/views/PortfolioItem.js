@@ -53,6 +53,10 @@ class PortfolioItem extends React.Component {
 	render() {
 		const {portfolio} = this.props;
 
+		if (portfolio === null) {
+			return null; // Not loaded yet
+		}
+
 		return (
 			<div className="Portfolio">
 				<PortfolioImage seed={portfolio.fileName} bgColor="transparent" onClick={this.showLoginInput}/>
