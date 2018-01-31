@@ -55,20 +55,23 @@ class App extends React.Component {
 	}
 
 	render() {
-		const {activeView} = this.state;
-		const is = view => view === activeView;
+		const is = view => view === this.state.activeView;
+		const sharedProps = {
+			...this.state,
+			setAppState: this.setAppState,
+		};
 
 		return (
 			<React.Fragment>
 				<div className="window-draggable-area"/>
 
-				<View isActive={is('login')} component={Login} setAppState={this.setAppState}/>
-				<View isActive={is('dashboard')} component={Dashboard} setAppState={this.setAppState} {...this.state}/>
-				<View isActive={is('swap')} component={Swap} setAppState={this.setAppState} {...this.state}/>
-				<View isActive={is('exchange')} component={Exchange} setAppState={this.setAppState} {...this.state}/>
-				<View isActive={is('trades')} component={Trades} setAppState={this.setAppState} {...this.state}/>
-				<View isActive={is('funds')} component={Funds} setAppState={this.setAppState} {...this.state}/>
-				<View isActive={is('preferences')} component={Preferences} setAppState={this.setAppState} {...this.state}/>
+				<View isActive={is('login')} component={Login} {...sharedProps}/>
+				<View isActive={is('dashboard')} component={Dashboard} {...sharedProps}/>
+				<View isActive={is('swap')} component={Swap} {...sharedProps}/>
+				<View isActive={is('exchange')} component={Exchange} {...sharedProps}/>
+				<View isActive={is('trades')} component={Trades} {...sharedProps}/>
+				<View isActive={is('funds')} component={Funds} {...sharedProps}/>
+				<View isActive={is('preferences')} component={Preferences} {...sharedProps}/>
 			</React.Fragment>
 		);
 	}
