@@ -3,13 +3,13 @@ import React from 'react';
 import {hot} from 'react-hot-loader';
 import './styles/index.scss';
 import View from './components/view';
-import Login from './components/login';
-import Dashboard from './components/dashboard';
-import Swap from './components/swap';
-import Exchange from './components/exchange';
-import Trades from './components/trades';
-import Funds from './components/funds';
-import Preferences from './components/preferences';
+import Login from './views/login';
+import Dashboard from './views/dashboard';
+import Swap from './views/swap';
+import Exchange from './views/exchange';
+import Trades from './views/trades';
+import Funds from './views/funds';
+import Preferences from './views/preferences';
 
 class App extends React.Component {
 	setAppState = state => {
