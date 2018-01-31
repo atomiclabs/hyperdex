@@ -57,7 +57,7 @@ export default class Login extends React.Component {
 		const {portfolio: currencies} = await api.portfolio();
 
 		this.props.setAppState({
-			activeView: 'dashboard',
+			activeView: 'Dashboard',
 			portfolio,
 			currencies,
 			api,

@@ -22,7 +22,7 @@ class App extends React.Component {
 	}
 
 	state = {
-		activeView: 'login',
+		activeView: 'Login',
 		portfolio: null,
 	};
 
@@ -32,13 +32,13 @@ class App extends React.Component {
 			this.stopMarketmaker();
 
 			this.setState({
-				activeView: 'login',
+				activeView: 'Login',
 				portfolio: null,
 			});
 		});
 
 		ipc.on('show-preferences', () => {
-			this.setState({activeView: 'preferences'});
+			this.setState({activeView: 'Preferences'});
 		});
 
 		if (is.development) {
@@ -65,13 +65,13 @@ class App extends React.Component {
 			<React.Fragment>
 				<div className="window-draggable-area"/>
 
-				<View isActive={is('login')} component={Login} {...sharedProps}/>
-				<View isActive={is('dashboard')} component={Dashboard} {...sharedProps}/>
-				<View isActive={is('swap')} component={Swap} {...sharedProps}/>
-				<View isActive={is('exchange')} component={Exchange} {...sharedProps}/>
-				<View isActive={is('trades')} component={Trades} {...sharedProps}/>
-				<View isActive={is('funds')} component={Funds} {...sharedProps}/>
-				<View isActive={is('preferences')} component={Preferences} {...sharedProps}/>
+				<View isActive={is('Login')} component={Login} setAppState={this.setAppState}/>
+				<View isActive={is('Dashboard')} component={Dashboard} {...sharedProps}/>
+				<View isActive={is('Swap')} component={Swap} {...sharedProps}/>
+				<View isActive={is('Exchange')} component={Exchange} {...sharedProps}/>
+				<View isActive={is('Trades')} component={Trades} {...sharedProps}/>
+				<View isActive={is('Funds')} component={Funds} {...sharedProps}/>
+				<View isActive={is('Preferences')} component={Preferences} {...sharedProps}/>
 			</React.Fragment>
 		);
 	}
