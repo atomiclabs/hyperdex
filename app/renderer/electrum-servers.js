@@ -4,11 +4,8 @@ const electrumServers = {
 		{ipaddr: 'electrum2.cipig.net', port: 10001},
 	],
 	VTC: [
-		{ipaddr: 'fr1.vtconline.org', port: 55001},
-		{ipaddr: 'uk1.vtconline.org', port: 55001},
-		{ipaddr: 'vtc.horriblecoders.com', port: 55001},
-		{ipaddr: 'electrum.catpool.io', port: 55001},
-		{ipaddr: 'electrum2.catpool.io', port: 55001},
+		{ipaddr: '173.212.225.176', port: 50088},
+		{ipaddr: '136.243.45.140', port: 50088},
 	],
 	LTC: [
 		{ipaddr: '173.212.225.176', port: 50012},
