@@ -44,19 +44,19 @@ class App extends React.Component {
 
 	render() {
 		const {activeView} = this.state;
+		const is = view => view === activeView;
 
 		return (
 			<React.Fragment>
 				<div className="window-draggable-area"/>
 
-				<View isActive={activeView === 'login'} component={Login} setAppState={this.setAppState}/>
-
-				<View isActive={activeView === 'dashboard'} component={Dashboard} setAppState={this.setAppState} {...this.state}/>
-				<View isActive={activeView === 'swap'} component={Swap} setAppState={this.setAppState} {...this.state}/>
-				<View isActive={activeView === 'exchange'} component={Exchange} setAppState={this.setAppState} {...this.state}/>
-				<View isActive={activeView === 'trades'} component={Trades} setAppState={this.setAppState} {...this.state}/>
-				<View isActive={activeView === 'funds'} component={Funds} setAppState={this.setAppState} {...this.state}/>
-				<View isActive={activeView === 'preferences'} component={Preferences} setAppState={this.setAppState} {...this.state}/>
+				<View isActive={is('login')} component={Login} setAppState={this.setAppState}/>
+				<View isActive={is('dashboard')} component={Dashboard} setAppState={this.setAppState} {...this.state}/>
+				<View isActive={is('swap')} component={Swap} setAppState={this.setAppState} {...this.state}/>
+				<View isActive={is('exchange')} component={Exchange} setAppState={this.setAppState} {...this.state}/>
+				<View isActive={is('trades')} component={Trades} setAppState={this.setAppState} {...this.state}/>
+				<View isActive={is('funds')} component={Funds} setAppState={this.setAppState} {...this.state}/>
+				<View isActive={is('preferences')} component={Preferences} setAppState={this.setAppState} {...this.state}/>
 			</React.Fragment>
 		);
 	}
