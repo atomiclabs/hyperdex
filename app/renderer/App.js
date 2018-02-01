@@ -55,7 +55,6 @@ class App extends React.Component {
 	}
 
 	render() {
-		const is = view => view === this.state.activeView;
 		const sharedProps = {
 			...this.state,
 			setAppState: this.setAppState,
@@ -65,13 +64,13 @@ class App extends React.Component {
 			<React.Fragment>
 				<div className="window-draggable-area"/>
 
-				<View {...sharedProps} isActive={is('Login')} component={Login}/>
-				<View {...sharedProps} isActive={is('Dashboard')} component={Dashboard}/>
-				<View {...sharedProps} isActive={is('Swap')} component={Swap}/>
-				<View {...sharedProps} isActive={is('Exchange')} component={Exchange}/>
-				<View {...sharedProps} isActive={is('Trades')} component={Trades}/>
-				<View {...sharedProps} isActive={is('Funds')} component={Funds}/>
-				<View {...sharedProps} isActive={is('Preferences')} component={Preferences}/>
+				<View {...sharedProps} component={Login}/>
+				<View {...sharedProps} component={Dashboard}/>
+				<View {...sharedProps} component={Swap}/>
+				<View {...sharedProps} component={Exchange}/>
+				<View {...sharedProps} component={Trades}/>
+				<View {...sharedProps} component={Funds}/>
+				<View {...sharedProps} component={Preferences}/>
 			</React.Fragment>
 		);
 	}
