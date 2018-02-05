@@ -1,6 +1,7 @@
 import React from 'react';
 import Blockies from 'react-blockies';
 import {If} from 'react-extras';
+import Button from '../components/Button';
 
 const PortfolioImage = ({onClick, ...rest}) => (
 	<div className="PortfolioImage" onClick={onClick}>
@@ -78,9 +79,7 @@ class PortfolioItem extends React.Component {
 							/>
 						</div>
 						<div className="form-group" disabled={this.isCheckingPassword}>
-							<button type="submit" className="btn btn-primary btn-sm btn-block">
-								Login
-							</button>
+							<Button primary type="submit" value="Login"/>
 						</div>
 						<If condition={Boolean(this.state.passwordError)} render={() => (
 							<div className="form-group">

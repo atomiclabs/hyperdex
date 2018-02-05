@@ -1,6 +1,7 @@
 import electron from 'electron';
 import React from 'react';
 import {If} from 'react-extras';
+import Button from '../components/Button';
 
 const {createPortfolio} = electron.remote.require('./portfolio-util');
 
@@ -27,9 +28,7 @@ class CreatePortfolioButton extends React.Component {
 	render() {
 		return (
 			<div>
-				<button type="button" className="add-portfolio btn btn-sm btn-primary btn-block" onClick={this.showPortfolioForm} disabled={this.state.showPortfolioForm}>
-					Add portfolio
-				</button>
+				<Button value="Add portfolio" className="add-portfolio" onClick={this.showPortfolioForm} disabled={this.state.showPortfolioForm}/>
 				<If condition={this.state.showPortfolioForm} render={() => (
 					<div className="add-portfolio-modal modal-dialog">
 						<div className="modal-content">
