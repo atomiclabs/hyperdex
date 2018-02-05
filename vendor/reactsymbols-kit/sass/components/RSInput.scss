@@ -22,11 +22,11 @@
     font-family: $fontFamily;
     font-size: 14px;
     font-weight: 400;
-    color: $darkTextColor;
+    color: #90959D;
     line-height: 21px;
-    background: $whiteColor;
+    background: #222C3C;
     @include rounded($borderRadius);
-    border: 1px solid #DFE3E9;
+    border: 1px solid #313D4F;
     text-align: left;
     outline: none !important;
     @include transition(all .2s ease);
@@ -45,11 +45,11 @@
     }
 
     &:hover {
-      border: 1px solid #CED0DA;
+      border-color: #3F4D61;
     }
     &:focus {
-      border: 1px solid;
-      @include set(border-color, $primaryColor, 1);
+      color: #fff;
+      border: 1px solid #687BF7;
     }
   }
 
@@ -69,8 +69,8 @@
 
   &__icon {
     position: absolute;
-    left: 16px;
-    top: 7px;
+    left: 14px;
+    top: 6px;
   }
   &__icon--right {
     left: auto;
@@ -127,7 +127,7 @@
       padding-right: 30px;
     }
   }
-  
+
   &--success {
     input,
     input:hover,
@@ -159,7 +159,7 @@
     textarea:focus {
       @include set(border-color, $dangerColor, 1);
     }
-    
+
     .rs-input__text p,
     .rs-icon {
       color: $dangerColor;
@@ -179,7 +179,7 @@
     textarea:focus {
       @include set(border-color, $warningColor, 1);
     }
-    
+
     .rs-input__text p,
     .rs-icon {
       color: $warningColor;
@@ -205,7 +205,7 @@
       color: $infoColor;
     }
   }
-  
+
 
   &--disabled {
     input,
