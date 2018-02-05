@@ -1,28 +1,40 @@
-@import 'bootstrap-overrides';
 @import 'toolkit-inverse';
-@import 'ReactSymbolsKit';
+@import '~sass-extras/index';
 @import './fonts';
 
-$primary-color: #687BF7;
-$secondary-color: #8050EF;
-$background-color: gray;
-$gray-color: #7F8FA4;
-$red-color: #F80759;
-$primary-gradient: linear-gradient(180deg, #973AF5 0%, #4CA6FE 100%);
+$primary-color: #687bf7;
+$secondary-color: #8050ef;
+$background-color: #808080;
+$text-color: #7f8fa4;
+$gray-color: #7f8fa4;
+$red-color: #f80759;
+$primary-gradient: linear-gradient(180deg, #687bf7 0%, #8050ef 100%);
+$button-gradient: linear-gradient(180deg, #516173 0%, #3b4857 100%);
+$label-text-color: $gray-color;
 
-$dark-mode-background-color: #222C3C;
+$success-color: #39b54a;
+$error-color: $red-color;
+$warning-color: #f7981c;
+$info-color: #1991eb;
+
+$dark-mode-background-color: #222c3c;
+
+@import './Button';
+@import './BackButton';
+@import './ReloadButton';
+@import './Input';
 
 button:focus {
 	outline: 0;
 }
 
 body {
+	overflow: hidden;
 	padding-top: 50px;
 	padding-bottom: 50px;
 	background-color: $background-color;
 	font-family: 'Source Sans Pro';
 	font-weight: normal;
-	overflow: hidden;
 }
 
 .dark-mode body {
@@ -42,33 +54,33 @@ h2 {
 }
 
 h3 {
+	color: #9ba3a9;
 	font-size: 16px;
 	font-weight: 600;
 	line-height: 20px;
-	color: #9BA3A9;
 }
 
 p {
+	color: #7f8fa4;
 	font-size: 16px;
 	line-height: 24px;
-	color: #7F8FA4;
 }
 
 p.secondary {
+	color: #fff;
 	font-size: 14px;
 	line-height: 22px;
-	color: #FFFFFF;
 }
 
 a {
+	color: $primary-color;
 	font-size: 16px;
 	font-weight: 600;
 	line-height: 24px;
-	color: $primary-color;
 }
 
 a:hover {
-	color: #5362C4;
+	color: #5362c4;
 }
 
 h1,
@@ -92,25 +104,25 @@ hr {
 }
 
 .window-draggable-area {
-	position: absolute;
-	height: 50px;
 	width: 100%;
+	height: 50px;
+	position: absolute;
 	top: 0;
 	left: 0;
 	-webkit-app-region: drag;
 }
 
 .Welcome {
-	text-align: center;
-	color: #7F8FA3;
 	display: flex;
+	min-height: 75vh;
 	align-items: center;
 	justify-content: center;
-	min-height: 75vh;
+	color: #7f8fa3;
+	text-align: center;
 
 	.body {
-		padding: 40px;
 		max-width: 100%;
+		padding: 40px;
 		flex: none;
 		align-self: center;
 	}
@@ -147,8 +159,8 @@ hr {
 		/* Increasing the padding as we increased the `.iconav` width */
 		.with-iconav > .container,
 		.with-iconav > .container-fluid {
-			padding-left: 90px;
 			padding-right: 15px;
+			padding-left: 90px;
 		}
 
 		.iconav {
@@ -160,8 +172,8 @@ hr {
 
 .Login {
 	h4 {
-		font-weight: 500;
 		color: hsla(224, 13%, 40%, 1);
+		font-weight: 500;
 	}
 
 	.add-portfolio {
@@ -205,5 +217,16 @@ hr {
 		.login-form {
 			margin-top: 20px;
 		}
+	}
+}
+
+.ComponentsPreview {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 50px;
+
+	> * {
+		margin: 20px;
 	}
 }

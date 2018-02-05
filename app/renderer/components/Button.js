@@ -1,10 +1,21 @@
-import styled from 'styled-components';
-import {RSButton} from 'reactsymbols-kit';
+import React from 'react';
+import {classNames} from 'react-extras';
 
-// See http://docs.reactsymbols.com/#/?id=rsbutton
+const Button = ({primary, fullwidth, ...props}) => {
+	const className = classNames('Button', {
+		'Button--primary': primary,
+		'Button--fullwidth': fullwidth,
+		'Button--disabled': props.disabled,
+	});
 
-const Button = styled(RSButton)`
-	background: ${props => props.primary ? props.theme.primaryGradient : props.theme.buttonGradient}
-`;
+	return (
+		<button {...props} type="button" className={className}>
+			<div className="Button__helper"/>
+			<span className="Button__value">
+				{props.value}
+			</span>
+		</button>
+	);
+};
 
 export default Button;

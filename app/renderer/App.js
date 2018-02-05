@@ -2,9 +2,7 @@ import electron, {ipcRenderer as ipc} from 'electron';
 import {is} from 'electron-util';
 import React from 'react';
 import {hot} from 'react-hot-loader';
-import {ThemeProvider} from 'styled-components';
 import './styles/index.scss';
-import theme from './theme';
 import View from './components/View';
 import Login from './views/Login';
 import Dashboard from './views/Dashboard';
@@ -84,20 +82,18 @@ class App extends React.Component {
 		};
 
 		return (
-			<ThemeProvider theme={this.state.darkMode ? theme.dark : theme.light}>
-				<React.Fragment>
-					<div className="window-draggable-area"/>
+			<React.Fragment>
+				<div className="window-draggable-area"/>
 
-					<View {...sharedProps} component={Login}/>
-					<View {...sharedProps} component={Dashboard}/>
-					<View {...sharedProps} component={Swap}/>
-					<View {...sharedProps} component={Exchange}/>
-					<View {...sharedProps} component={Trades}/>
-					<View {...sharedProps} component={Funds}/>
-					<View {...sharedProps} component={Preferences}/>
-					<View {...sharedProps} component={ComponentsPreview}/>
-				</React.Fragment>
-			</ThemeProvider>
+				<View {...sharedProps} component={Login}/>
+				<View {...sharedProps} component={Dashboard}/>
+				<View {...sharedProps} component={Swap}/>
+				<View {...sharedProps} component={Exchange}/>
+				<View {...sharedProps} component={Trades}/>
+				<View {...sharedProps} component={Funds}/>
+				<View {...sharedProps} component={Preferences}/>
+				<View {...sharedProps} component={ComponentsPreview}/>
+			</React.Fragment>
 		);
 	}
 }

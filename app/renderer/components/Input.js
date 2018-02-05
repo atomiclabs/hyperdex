@@ -1,14 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import {RSInput} from 'reactsymbols-kit';
 
-// See http://docs.reactsymbols.com/#/?id=rsinput
+// See: http://docs.reactsymbols.com/#/?id=rsinput
 
-const Input = styled(props => (
-	<RSInput {...props} iconSize="16"/>
-))`
-	background: #222C3C !important;
-	color: pink;
-`;
+const Input = props => <RSInput {...props} iconSize={16} className="Input"/>;
 
 export default Input;
