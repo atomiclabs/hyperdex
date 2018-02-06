@@ -1,19 +1,65 @@
-@import 'bootstrap-overrides';
 @import 'toolkit-inverse';
-@import 'ReactSymbolsKit';
+@import '~sass-extras/index';
 @import './fonts';
+@import './variables';
+
+button:focus {
+	outline: 0;
+}
 
 body {
-	background-color: #222C3B;
+	overflow: hidden;
 	padding-top: 50px;
 	padding-bottom: 50px;
+	background-color: $background-color;
 	font-family: 'Source Sans Pro';
 	font-weight: normal;
-	overflow: hidden;
+}
+
+.dark-mode body {
+	background-color: $dark-mode-background-color;
+}
+
+h1 {
+	font-size: 26px;
+	font-weight: 600;
+	line-height: 33px;
+}
+
+h2 {
+	font-size: 20px;
+	font-weight: normal;
+	line-height: 28px;
+}
+
+h3 {
+	color: #9ba3a9;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 20px;
 }
 
 p {
-	font-weight: normal;
+	color: #7f8fa4;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+p.secondary {
+	color: #fff;
+	font-size: 14px;
+	line-height: 22px;
+}
+
+a {
+	color: $primary-color;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+a:hover {
+	color: #5362c4;
 }
 
 h1,
@@ -37,36 +83,27 @@ hr {
 }
 
 .window-draggable-area {
-	position: absolute;
-	height: 50px;
 	width: 100%;
+	height: 50px;
+	position: absolute;
 	top: 0;
 	left: 0;
 	-webkit-app-region: drag;
 }
 
-.button-gradient {
-	background: linear-gradient(180deg, #687BF7 0%, #8050EF 100%);
-}
-
 .Welcome {
-	text-align: center;
-	color: #7F8FA3;
 	display: flex;
+	min-height: 75vh;
 	align-items: center;
 	justify-content: center;
-	min-height: 75vh;
+	color: #7f8fa3;
+	text-align: center;
 
 	.body {
-		padding: 40px;
 		max-width: 100%;
+		padding: 40px;
 		flex: none;
 		align-self: center;
-	}
-
-	h1 {
-		font-size: 30px;
-		font-weight: bold;
 	}
 
 	h2 {
@@ -101,8 +138,8 @@ hr {
 		/* Increasing the padding as we increased the `.iconav` width */
 		.with-iconav > .container,
 		.with-iconav > .container-fluid {
-			padding-left: 90px;
 			padding-right: 15px;
+			padding-left: 90px;
 		}
 
 		.iconav {
@@ -113,10 +150,9 @@ hr {
 }
 
 .Login {
-	h1,
 	h4 {
-		font-weight: 500;
 		color: hsla(224, 13%, 40%, 1);
+		font-weight: 500;
 	}
 
 	.add-portfolio {
@@ -160,5 +196,16 @@ hr {
 		.login-form {
 			margin-top: 20px;
 		}
+	}
+}
+
+.ComponentsPreview {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 50px;
+
+	> * {
+		margin: 20px;
 	}
 }

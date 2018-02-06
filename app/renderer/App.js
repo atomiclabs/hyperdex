@@ -1,4 +1,4 @@
-import {ipcRenderer as ipc} from 'electron';
+import electron, {ipcRenderer as ipc} from 'electron';
 import {is} from 'electron-util';
 import React from 'react';
 import {hot} from 'react-hot-loader';
@@ -11,6 +11,7 @@ import Exchange from './views/Exchange';
 import Trades from './views/Trades';
 import Funds from './views/Funds';
 import Preferences from './views/Preferences';
+import ComponentsPreview from './views/ComponentsPreview';
 
 class App extends React.Component {
 	setAppState = state => {
@@ -27,6 +28,8 @@ class App extends React.Component {
 	};
 
 	componentDidMount() {
+		this.handleDarkMode();
+
 		// TODO: The "Log Out" button should be disabled when logged out
 		ipc.on('log-out', () => {
 			this.stopMarketmaker();
@@ -46,7 +49,25 @@ class App extends React.Component {
 			// Example: `api.debug({method: 'portfolio'})`
 			window.api = this.state.api;
 			window.setState = this.setState.bind(this);
+			window.getState = () => this.state;
 		}
+	}
+
+	handleDarkMode() {
+		const config = electron.remote.require('./config');
+
+		const applyDarkMode = () => {
+			const darkMode = config.get('darkMode');
+			this.setState({darkMode});
+			document.documentElement.classList.toggle('dark-mode', darkMode);
+		};
+
+		ipc.on('toggle-dark-mode', () => {
+			config.set('darkMode', !config.get('darkMode'));
+			applyDarkMode();
+		});
+
+		applyDarkMode();
 	}
 
 	async stopMarketmaker() {
@@ -71,6 +92,7 @@ class App extends React.Component {
 				<View {...sharedProps} component={Trades}/>
 				<View {...sharedProps} component={Funds}/>
 				<View {...sharedProps} component={Preferences}/>
+				<View {...sharedProps} component={ComponentsPreview}/>
 			</React.Fragment>
 		);
 	}

@@ -8,7 +8,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const PATHS = {
 	dist: path.join(__dirname, 'app/renderer-dist'),
 	bootstrap: path.join(__dirname, 'vendor/bootstrap-dashboard-theme'),
-	reactSymbols: path.join(__dirname, 'vendor/reactsymbols-kit'),
 };
 
 module.exports = {
@@ -69,7 +68,6 @@ module.exports = {
 					options: {
 						includePaths: [
 							path.join(PATHS.bootstrap, 'scss'),
-							path.join(PATHS.reactSymbols, 'sass'),
 						],
 					},
 				}],

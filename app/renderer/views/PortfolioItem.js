@@ -1,6 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Blockies from 'react-blockies';
 import {If} from 'react-extras';
+import Button from '../components/Button';
+import Input from '../components/Input';
 
 const PortfolioImage = ({onClick, ...rest}) => (
 	<div className="PortfolioImage" onClick={onClick}>
@@ -66,29 +69,29 @@ class PortfolioItem extends React.Component {
 				<If condition={this.state.isLoginInputVisible} render={() => (
 					<form className="login-form" onSubmit={this.onSubmit}>
 						<div className="form-group">
-							<input
-								ref={input => {
-									this.input = input;
+							<Input
+								ref={el => {
+									// TODO: Rewrite this to be a controlled component
+
+									if (!el) {
+										return;
+									}
+
+									// eslint-disable-next-line react/no-find-dom-node
+									this.input = ReactDOM.findDOMNode(el).querySelector('input');
 								}}
 								type="password"
 								className="form-control"
 								placeholder="Enter Your Password"
 								disabled={this.isCheckingPassword}
 								autoFocus
+								text={this.state.passwordError && this.state.passwordError}
+								level={this.state.passwordError && 'danger'}
 							/>
 						</div>
 						<div className="form-group" disabled={this.isCheckingPassword}>
-							<button type="submit" className="btn btn-primary btn-sm btn-block">
-								Login
-							</button>
+							<Button primary type="submit" value="Login"/>
 						</div>
-						<If condition={Boolean(this.state.passwordError)} render={() => (
-							<div className="form-group">
-								<div className="alert alert-danger" role="alert">
-									{this.state.passwordError}
-								</div>
-							</div>
-						)}/>
 					</form>
 				)}/>
 			</div>

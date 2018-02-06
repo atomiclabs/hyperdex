@@ -1,6 +1,6 @@
 import {api} from 'electron-util';
 import React from 'react';
-import {RSButton} from 'reactsymbols-kit';
+import Button from '../components/Button';
 
 const Welcome = () => (
 	<div className="container Welcome">
@@ -14,7 +14,7 @@ const Welcome = () => (
 			<p style={{fontSize: '16px', marginBottom: '40px'}}>
 				HyperDEX is built on BarterDEX, the best cryptocurrency trading platform allowing the decentralized exchange  of a variety of altcoins and digital currency.
 			</p>
-			<RSButton value="Add New Portfolio" className="button-gradient"/>
+			<Button primary value="Add New Portfolio"/>
 		</div>
 	</div>
 );
