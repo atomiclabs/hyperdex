@@ -1,5 +1,6 @@
 import React from 'react';
 import {classNames} from 'react-extras';
+import '../styles/Button.scss';
 
 const Button = ({primary, fullwidth, ...props}) => {
 	const className = classNames('Button', {
