@@ -9,7 +9,6 @@
 	position: relative;
 	background: $button-gradient;
 	outline: 0;
-	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
 	text-align: center;
 	text-decoration: none;
 	line-height: 34px;
@@ -45,8 +44,6 @@
 	}
 
 	&:hover {
-		box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.16);
-
 		.Button__helper {
 			opacity: 1;
 		}
@@ -55,7 +52,7 @@
 	&:active {
 		.Button__helper {
 			opacity: 1;
-			background: rgba(0, 0, 0, 0.04);
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.06) 100%);
 		}
 	}
 
@@ -112,6 +109,13 @@
 
 	&--primary {
 		background: $primary-gradient;
+
+		&:active {
+			.Button__helper {
+				opacity: 1;
+				background: rgba(0, 0, 0, 0.10);
+			}
+		}
 	}
 
 	&--fullwidth {
