@@ -1,7 +1,20 @@
 .Login {
-	h4 {
-		color: hsla(224, 13%, 40%, 1);
-		font-weight: 500;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+
+	.is-centered > * {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	h1 {
+		margin-bottom: 20px;
+	}
+
+	.hyperdex-icon {
+		display: block;
+		margin-bottom: 30px;
 	}
 
 	.add-portfolio {
@@ -16,34 +29,11 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		z-index: 10;
 	}
 
 	.portfolio-form {
 		width: 400px;
 		margin: 0 auto;
-	}
-
-	.portfolios {
-		text-align: center;
-	}
-
-	.portfolio-item-container {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-
-	.Portfolio {
-		width: 33%;
-		padding: 1em;
-		text-align: center;
-
-		.PortfolioImage canvas {
-			display: inline-block;
-		}
-
-		.login-form {
-			margin-top: 20px;
-		}
 	}
 }

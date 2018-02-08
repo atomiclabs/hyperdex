@@ -10,7 +10,7 @@ const Button = ({primary, fullwidth, ...props}) => {
 	});
 
 	return (
-		<button {...props} type="button" className={className}>
+		<button type="button" {...props} className={className}>
 			<div className="Button__helper"/>
 			<span className="Button__value">
 				{props.value}
