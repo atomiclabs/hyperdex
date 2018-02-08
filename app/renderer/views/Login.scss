@@ -1,0 +1,49 @@
+.Login {
+	h4 {
+		color: hsla(224, 13%, 40%, 1);
+		font-weight: 500;
+	}
+
+	.add-portfolio {
+		width: initial;
+		position: absolute;
+		top: 10px;
+		right: 12px;
+	}
+
+	.add-portfolio-modal {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.portfolio-form {
+		width: 400px;
+		margin: 0 auto;
+	}
+
+	.portfolios {
+		text-align: center;
+	}
+
+	.portfolio-item-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.Portfolio {
+		width: 33%;
+		padding: 1em;
+		text-align: center;
+
+		.PortfolioImage canvas {
+			display: inline-block;
+		}
+
+		.login-form {
+			margin-top: 20px;
+		}
+	}
+}

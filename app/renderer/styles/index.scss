@@ -3,10 +3,6 @@
 @import './fonts';
 @import './variables';
 
-button:focus {
-	outline: 0;
-}
-
 body {
 	overflow: hidden;
 	padding-top: 50px;
@@ -82,6 +78,10 @@ hr {
 	margin-bottom: 30px;
 }
 
+button:focus {
+	outline: 0;
+}
+
 .window-draggable-area {
 	width: 100%;
 	height: 50px;
@@ -89,123 +89,4 @@ hr {
 	top: 0;
 	left: 0;
 	-webkit-app-region: drag;
-}
-
-.Welcome {
-	display: flex;
-	min-height: 75vh;
-	align-items: center;
-	justify-content: center;
-	color: #7f8fa3;
-	text-align: center;
-
-	.body {
-		max-width: 100%;
-		padding: 40px;
-		flex: none;
-		align-self: center;
-	}
-
-	h2 {
-		font-size: 16px;
-		font-weight: 400;
-	}
-}
-
-.Main {
-	@media (max-width: 768px) {
-		body {
-			padding-top: 20px;
-			padding-bottom: 20px;
-		}
-
-		/* Don't show navbar tooltips in mobile view */
-		.tooltip.show {
-			display: none !important;
-		}
-	}
-
-	.navbar-fixed-top,
-	.navbar-static-top {
-		border-bottom: 0;
-	}
-
-	.iconav {
-		padding-top: 20px;
-	}
-
-	@media (min-width: 768px) {
-		/* Increasing the padding as we increased the `.iconav` width */
-		.with-iconav > .container,
-		.with-iconav > .container-fluid {
-			padding-right: 15px;
-			padding-left: 90px;
-		}
-
-		.iconav {
-			width: 75px;
-			padding-top: 50px;
-		}
-	}
-}
-
-.Login {
-	h4 {
-		color: hsla(224, 13%, 40%, 1);
-		font-weight: 500;
-	}
-
-	.add-portfolio {
-		width: initial;
-		position: absolute;
-		top: 10px;
-		right: 12px;
-	}
-
-	.add-portfolio-modal {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-	}
-
-	.portfolio-form {
-		width: 400px;
-		margin: 0 auto;
-	}
-
-	.portfolios {
-		text-align: center;
-	}
-
-	.portfolio-item-container {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-
-	.Portfolio {
-		width: 33%;
-		padding: 1em;
-		text-align: center;
-
-		.PortfolioImage canvas {
-			display: inline-block;
-		}
-
-		.login-form {
-			margin-top: 20px;
-		}
-	}
-}
-
-.ComponentsPreview {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	padding: 50px;
-
-	> * {
-		margin: 20px;
-	}
 }

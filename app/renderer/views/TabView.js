@@ -1,8 +1,9 @@
 import React from 'react';
 import Nav from './Nav';
+import './TabView.scss';
 
 const TabView = props => (
-	<div className="Main">
+	<div className="TabView">
 		<div className="with-iconav">
 			<Nav {...props}/>
 

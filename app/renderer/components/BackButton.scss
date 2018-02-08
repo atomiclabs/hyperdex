@@ -1,5 +1,5 @@
 @import '~sass-extras/index';
-@import './variables';
+@import '../styles/variables';
 
 @mixin colored-icon($icon, $color) {
 	display: block;

@@ -1,0 +1,20 @@
+.Welcome {
+	display: flex;
+	min-height: 75vh;
+	align-items: center;
+	justify-content: center;
+	color: #7f8fa3;
+	text-align: center;
+
+	.body {
+		max-width: 100%;
+		padding: 40px;
+		flex: none;
+		align-self: center;
+	}
+
+	h2 {
+		font-size: 16px;
+		font-weight: 400;
+	}
+}

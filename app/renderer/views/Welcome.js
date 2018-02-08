@@ -1,6 +1,7 @@
 import {api} from 'electron-util';
 import React from 'react';
 import Button from '../components/Button';
+import './Welcome.scss';
 
 const Welcome = () => (
 	<div className="container Welcome">

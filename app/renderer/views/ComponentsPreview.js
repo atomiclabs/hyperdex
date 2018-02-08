@@ -3,6 +3,7 @@ import Button from '../components/Button';
 import BackButton from '../components/BackButton';
 import ReloadButton from '../components/ReloadButton';
 import Input from '../components/Input';
+import './ComponentsPreview.scss';
 
 const ComponentsPreview = () => (
 	<div className="ComponentsPreview">

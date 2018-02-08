@@ -4,6 +4,7 @@ import Api from '../api';
 import CreatePortfolioButton from './CreatePortfolioButton';
 import PortfolioItem from './PortfolioItem';
 import Welcome from './Welcome';
+import './Login.scss';
 
 const {getPortfolios, decryptSeedPhrase} = electron.remote.require('./portfolio-util');
 
