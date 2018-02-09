@@ -105,9 +105,7 @@ class LoginBox extends React.Component {
 							optionRenderer={this.selectOptionRenderer}
 							placeholder="Select Portfolio…"
 						/>
-						<CreatePortfolioButton
-							loadPortfolios={this.loadPortfolios}
-						/>
+						<CreatePortfolioButton {...this.props}/>
 					</div>
 					<div className="form-group">
 						<Input

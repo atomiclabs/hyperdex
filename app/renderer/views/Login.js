@@ -99,6 +99,7 @@ export default class Login extends React.Component {
 						{...this.props}
 						portfolios={portfolios}
 						handleLogin={this.handleLogin}
+						loadPortfolios={this.loadPortfolios}
 					/>
 				</div>
 			</div>
