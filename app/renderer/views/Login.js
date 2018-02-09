@@ -1,4 +1,5 @@
 import electron from 'electron';
+import {is} from 'electron-util';
 import React from 'react';
 import Api from '../api';
 import CreatePortfolioButton from './CreatePortfolioButton';
@@ -47,6 +48,12 @@ export default class Login extends React.Component {
 		// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker
 		const seedPhrase = await decryptSeedPhrase(portfolio.encryptedSeedPhrase, password);
 		const api = await initApi(seedPhrase);
+
+		if (is.development) {
+			// Expose the API for debugging in DevTools
+			// Example: `api.debug({method: 'portfolio'})`
+			window.api = api;
+		}
 
 		// TODO: These should be defaults saved in the config and changeable by the user
 		await Promise.all([

@@ -45,9 +45,7 @@ class App extends React.Component {
 		});
 
 		if (is.development) {
-			// Expose the API and setState for debugging in DevTools
-			// Example: `api.debug({method: 'portfolio'})`
-			window.api = this.state.api;
+			// Expose setState for debugging in DevTools
 			window.setState = this.setState.bind(this);
 			window.getState = () => this.state;
 		}
