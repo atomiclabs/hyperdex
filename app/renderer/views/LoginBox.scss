@@ -1,0 +1,11 @@
+.LoginBox {
+	.form-group-1 {
+		display: flex;
+		width: 100%;
+
+		.portfolio-selector {
+			flex: 1;
+			margin-right: 4px;
+		}
+	}
+}

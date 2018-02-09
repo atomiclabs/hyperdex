@@ -1,7 +1,7 @@
 import electron from 'electron';
 import React from 'react';
 import {If} from 'react-extras';
-import Button from '../components/Button';
+import PlusButton from '../components/PlusButton';
 
 const {createPortfolio} = electron.remote.require('./portfolio-util');
 
@@ -27,8 +27,8 @@ class CreatePortfolioButton extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<Button value="Add portfolio" className="add-portfolio" onClick={this.showPortfolioForm} disabled={this.state.showPortfolioForm}/>
+			<React.Fragment>
+				<PlusButton className="add-portfolio-button" onClick={this.showPortfolioForm} disabled={this.state.showPortfolioForm}/>
 				<If condition={this.state.showPortfolioForm} render={() => (
 					<div className="add-portfolio-modal modal-dialog">
 						<div className="modal-content">
@@ -82,7 +82,7 @@ class CreatePortfolioButton extends React.Component {
 						</div>
 					</div>
 				)}/>
-			</div>
+			</React.Fragment>
 		);
 	}
 }

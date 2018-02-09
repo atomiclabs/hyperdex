@@ -1,0 +1,12 @@
+@import '~sass-extras/index';
+@import '../styles/variables';
+
+$icon: '<svg width="8" height="7" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#path0_fill" transform="translate(-4.79 -6)"/><defs><path id="path0_fill" d="M8.184 12.614h1.218V9.968h2.506V8.792H9.402V6.146H8.184v2.646H5.678v1.176h2.506v2.646z"/></defs></svg>';
+
+.PlusButton {
+	@include icon-button;
+
+	&::after {
+		@include colored-icon($icon, #fff);
+	}
+}

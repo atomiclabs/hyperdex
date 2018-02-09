@@ -1,8 +1,6 @@
 import React from 'react';
 import './BackButton.scss';
 
-const BackButton = props => (
-	<button {...props} type="button" className="BackButton"/>
-);
+const BackButton = ({className, ...props}) => <button {...props} type="button" className={`${className} BackButton`}/>;
 
 export default BackButton;

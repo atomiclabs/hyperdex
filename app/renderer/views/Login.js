@@ -1,24 +1,23 @@
-import electron from 'electron';
+import {remote, ipcRenderer as ipc} from 'electron';
 import {is} from 'electron-util';
 import React from 'react';
 import Api from '../api';
-import CreatePortfolioButton from './CreatePortfolioButton';
-import PortfolioItem from './PortfolioItem';
+import LoginBox from './LoginBox';
 import Welcome from './Welcome';
 import './Login.scss';
 
-const {getPortfolios, decryptSeedPhrase} = electron.remote.require('./portfolio-util');
+const {getPortfolios, decryptSeedPhrase} = remote.require('./portfolio-util');
 
 const initMarketmaker = seedPhrase => new Promise(resolve => {
-	electron.ipcRenderer.send('start-marketmaker', {seedPhrase});
+	ipc.send('start-marketmaker', {seedPhrase});
 
-	electron.ipcRenderer.on('marketmaker-started', async (event, port) => {
+	ipc.on('marketmaker-started', async (event, port) => {
 		resolve(`http://127.0.0.1:${port}`);
 	});
 });
 
 const initApi = async seedPhrase => {
-	const config = electron.remote.require('./config');
+	const config = remote.require('./config');
 
 	let url = config.get('marketmakerUrl');
 	if (url) {
@@ -64,6 +63,8 @@ export default class Login extends React.Component {
 
 		const {portfolio: currencies} = await api.portfolio();
 
+		remote.require('./config').set('lastActivePortfolio', portfolio.fileName);
+
 		this.props.setAppState({
 			activeView: 'Dashboard',
 			portfolio,
@@ -79,37 +80,28 @@ export default class Login extends React.Component {
 	}
 
 	render() {
-		if (this.state.portfolios === null) {
+		const {portfolios} = this.state;
+
+		if (portfolios === null) {
 			return null; // Not loaded yet
 		}
 
-		if (this.state.portfolios.length === 0) {
+		if (portfolios.length === 0) {
 			return <Welcome {...this.props}/>;
 		}
 
-		const portfolios = this.state.portfolios.map(portfolio => (
-			<PortfolioItem
-				{...this.props}
-				key={portfolio.fileName}
-				portfolio={portfolio}
-				showLoginForm={this.state.portfolios.length === 1}
-				handleLogin={this.handleLogin}
-			/>
-		));
-
-		const portfolioContainer = portfolios.length ? (
-			<div className="portfolios">
-				<h1>Select Portfolio to Manage</h1>
-				<div className="portfolio-item-container">
-					{portfolios}
-				</div>
-			</div>
-		) : null;
-
 		return (
 			<div className="Login container">
-				<CreatePortfolioButton loadPortfolios={this.loadPortfolios}/>
-				{portfolioContainer}
+				<div className="is-centered">
+					<img className="hyperdex-icon" src="/assets/hyperdex-icon.svg" width="75" height="75"/>
+					<h1>Welcome to HyperDEX!</h1>
+					<LoginBox
+						{...this.props}
+						portfolios={portfolios}
+						handleLogin={this.handleLogin}
+						loadPortfolios={this.loadPortfolios}
+					/>
+				</div>
 			</div>
 		);
 	}

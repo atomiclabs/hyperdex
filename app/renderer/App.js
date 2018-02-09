@@ -48,6 +48,7 @@ class App extends React.Component {
 			// Expose setState for debugging in DevTools
 			window.setState = this.setState.bind(this);
 			window.getState = () => this.state;
+			window.config = electron.remote.require('./config');
 		}
 	}
 
