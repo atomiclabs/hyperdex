@@ -57,9 +57,8 @@ $select-border-color: #313d4f;
 .Select-placeholder,
 .Select--single > .Select-control .Select-value {
 	bottom: 0;
-	color: $gray-color;
 	font-size: 14px;
-	font-weight: 400;
+	font-weight: 600;
 	left: 0;
 	line-height: 34px;
 	padding-left: 16px;
@@ -110,9 +109,8 @@ $select-border-color: #313d4f;
 	box-shadow: none;
 	cursor: default;
 	display: inline-block;
-	color: $gray-color;
 	font-size: 14px;
-	font-weight: 400;
+	font-weight: 600;
 	margin: 0;
 	outline: none;
 	padding: 8px 0 12px;
@@ -248,8 +246,7 @@ $select-border-color: #313d4f;
 	clear: both;
 	box-sizing: border-box;
 	font-size: 14px;
-	font-weight: 400;
-	color: $gray-color;
+	font-weight: 600;
 	cursor: default;
 	display: block;
 	padding: 9px 16px 9px;
@@ -266,6 +263,7 @@ $select-border-color: #313d4f;
 }
 .Select-option:hover {
 	background: $select-border-color;
+	color: $primary-color;
 }
 .Select-option.is-disabled {
 	color: #cccccc;

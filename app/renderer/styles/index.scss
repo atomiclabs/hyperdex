@@ -17,41 +17,37 @@ body {
 }
 
 h1 {
-	font-size: 26px;
+	font-size: 1.625rem;
 	font-weight: 600;
-	line-height: 33px;
+	line-height: 2rem;
 }
 
 h2 {
-	font-size: 20px;
+	font-size: 1.25rem;
 	font-weight: normal;
-	line-height: 28px;
+	line-height: 1.75rem;
 }
 
 h3 {
-	color: #9ba3a9;
-	font-size: 16px;
+	font-size: 1rem;
 	font-weight: 600;
-	line-height: 20px;
+	line-height: 1.25rem;
 }
 
 p {
 	color: #7f8fa4;
-	font-size: 16px;
-	line-height: 24px;
+	font-size: 1rem;
+	line-height: 1.5rem;
 }
 
 p.secondary {
 	color: #fff;
-	font-size: 14px;
-	line-height: 22px;
+	font-size: 0.875rem;
+	line-height: 1.375rem;
 }
 
 a {
 	color: $primary-color;
-	font-size: 16px;
-	font-weight: 600;
-	line-height: 24px;
 
 	&:hover {
 		color: #5362c4;

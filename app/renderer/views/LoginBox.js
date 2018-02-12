@@ -117,11 +117,10 @@ class LoginBox extends React.Component {
 							autoFocus
 							text={this.state.passwordError && this.state.passwordError}
 							level={this.state.passwordError && 'danger'}
-							style={{width: '100%'}}
 							required
 						/>
 					</div>
-					<div className="form-group" style={{marginTop: '25px'}}>
+					<div className="form-group form-group-2">
 						<Button primary fullwidth type="submit" value="Login" disabled={!this.state.passwordInputValue || this.state.isCheckingPassword}/>
 						<Link style={{fontSize: '13px', lineHeight: 1.5, marginTop: '13px'}}>Forgot password</Link>
 					</div>
