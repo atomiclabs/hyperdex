@@ -4,7 +4,7 @@ $background-color: #808080;
 $text-color: #7f8fa4;
 $gray-color: #7f8fa4;
 $red-color: #f80759;
-$primary-gradient: linear-gradient(180deg, #687bf7 0%, #8050ef 100%);
+$primary-gradient: linear-gradient(180deg, $primary-color 0%, $secondary-color 100%);
 $button-gradient: linear-gradient(180deg, #516173 0%, #3b4857 100%);
 $label-text-color: $gray-color;
 $disabled-text-color: $gray-color;

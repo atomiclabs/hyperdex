@@ -8,10 +8,6 @@
 		margin-right: auto;
 	}
 
-	h1 {
-		margin-bottom: 20px;
-	}
-
 	.hyperdex-icon {
 		display: block;
 		margin-bottom: 30px;
@@ -35,5 +31,17 @@
 	.portfolio-form {
 		width: 400px;
 		margin: 0 auto;
+	}
+
+	.login-progress {
+		position: absolute;
+		top: 0;
+		z-index: 1;
+	}
+
+	.form-group {
+		width: 245px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }

@@ -12,19 +12,30 @@ const loadJsonFile = require('load-json-file');
 const {encryptWithPassword: encrypt, decryptWithPassword: decrypt} = iocane.crypto;
 const portfolioPath = path.join(app.getPath('userData'), 'portfolios');
 
+const idToFileName = id => `hyperdex-portfolio-${id}.json`;
+const fileNameToId = fileName => fileName.replace(/^hyperdex-portfolio-/, '').replace(/\.json$/, '');
+
 const createPortfolio = async ({name, seedPhrase, password}) => {
 	const safeName = filenamify(slug(name, {lower: true, symbols: false}));
-	const filename = `hyperdex-portfolio-${safeName}-${randomString(6)}.json`;
-	const filePath = path.join(portfolioPath, filename);
-	const data = {
+	const id = `${safeName}-${randomString(6)}`;
+	const filePath = path.join(portfolioPath, idToFileName(id));
+
+	const portfolio = {
 		name,
 		encryptedSeedPhrase: await encrypt(seedPhrase, password),
 		appVersion: app.getVersion(),
 	};
 
-	await writeJsonFile(filePath, data);
+	await writeJsonFile(filePath, portfolio);
 
-	return filePath;
+	return id;
+};
+
+const changePortfolioPassword = async ({id, seedPhrase, newPassword}) => {
+	const filePath = path.join(portfolioPath, idToFileName(id));
+	const portfolio = await loadJsonFile(filePath);
+	portfolio.encryptedSeedPhrase = await encrypt(seedPhrase, newPassword);
+	await writeJsonFile(filePath, portfolio);
 };
 
 const getPortfolios = async () => {
@@ -44,6 +55,7 @@ const getPortfolios = async () => {
 	const portfolios = await Promise.all(portfolioFiles.map(async filePath => {
 		const portfolio = await loadJsonFile(filePath);
 		portfolio.fileName = path.basename(filePath);
+		portfolio.id = fileNameToId(portfolio.fileName);
 
 		return portfolio;
 	}));
@@ -53,6 +65,7 @@ const getPortfolios = async () => {
 
 module.exports = {
 	createPortfolio,
+	changePortfolioPassword,
 	getPortfolios,
 	decryptSeedPhrase: decrypt,
 };

@@ -1,0 +1,18 @@
+@import '../styles/variables';
+
+.Success {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: $dark-mode-background-color;
+
+	img {
+		margin-top: 160px;
+	}
+
+	h1 {
+		margin-top: 14px;
+	}
+}

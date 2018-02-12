@@ -69,11 +69,15 @@ function createMainWindow() {
 		title: app.getName(),
 		x: windowState.x,
 		y: windowState.y,
-		width: windowState.width,
-		height: windowState.height,
+		// ` width: windowState.width,
+		// height: windowState.height,
+		width: 660,
+		height: 450,
 		minWidth: 400,
 		minHeight: 200,
-		titleBarStyle: 'hidden-inset',
+		maximizable: false,
+		resizable: false,
+		titleBarStyle: 'hiddenInset',
 		darkTheme: isDarkMode, // GTK+3
 	});
 
