@@ -74,9 +74,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@types/node@^7.0.18":
-  version "7.0.51"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.51.tgz#1fb9bd2c7d28b1e8b1fe438f01494d0da8e451af"
+"@types/node@^8.0.24":
+  version "8.9.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.9.3.tgz#47d00392c5834dd5a095346d72df7ff8995f7365"
 
 abbrev@1:
   version "1.1.1"
@@ -2062,11 +2062,11 @@ electron-to-chromium@^1.2.7:
   dependencies:
     electron-releases "^2.1.0"
 
-electron@^1.7.10:
-  version "1.7.10"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-1.7.10.tgz#3a3e83d965fd7fafe473be8ddf8f472561b6253d"
+electron@^1.8.2:
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-1.8.2.tgz#a817cd733c2972b3c7cc4f777caf6e424b88014d"
   dependencies:
-    "@types/node" "^7.0.18"
+    "@types/node" "^8.0.24"
     electron-download "^3.0.1"
     extract-zip "^1.0.3"
 
