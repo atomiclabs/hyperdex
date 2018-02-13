@@ -7,7 +7,7 @@ const Button = ({primary, fullwidth, ...props}) => {
 		'Button--primary': primary,
 		'Button--fullwidth': fullwidth,
 		'Button--disabled': props.disabled,
-	});
+	}, props.className);
 
 	return (
 		<button type="button" {...props} className={className}>

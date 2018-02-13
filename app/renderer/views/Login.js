@@ -2,10 +2,13 @@ import {remote, ipcRenderer as ipc} from 'electron';
 import {is} from 'electron-util';
 import React from 'react';
 import Api from '../api';
+import Progress from '../components/Progress';
 import LoginBox from './LoginBox';
 import Welcome from './Welcome';
+import ForgotPasswordController from './ForgotPassword';
 import './Login.scss';
 
+const config = remote.require('./config');
 const {getPortfolios, decryptSeedPhrase} = remote.require('./portfolio-util');
 
 const initMarketmaker = seedPhrase => new Promise(resolve => {
@@ -35,6 +38,21 @@ const initApi = async seedPhrase => {
 export default class Login extends React.Component {
 	state = {
 		portfolios: null,
+		selectedPortfolioId: remote.require('./config').get('lastActivePortfolioId'),
+		activeView: 'LoginBox',
+		progress: 0,
+	};
+
+	setLoginView = view => {
+		this.setState({activeView: view});
+	};
+
+	setLoginProgress = progress => {
+		this.setState({progress});
+	};
+
+	setSelectedPortfolioId = id => {
+		this.setState({selectedPortfolioId: id});
 	};
 
 	loadPortfolios = async () => {
@@ -63,7 +81,13 @@ export default class Login extends React.Component {
 
 		const {portfolio: currencies} = await api.portfolio();
 
-		remote.require('./config').set('lastActivePortfolio', portfolio.fileName);
+		config.set('lastActivePortfolioId', portfolio.id);
+
+		// Restore user-preferred window size
+		const win = remote.getCurrentWindow();
+		const {width, height} = config.get('windowState');
+		win.setResizable(true);
+		win.setSize(width, height, true);
 
 		this.props.setAppState({
 			activeView: 'Dashboard',
@@ -79,6 +103,42 @@ export default class Login extends React.Component {
 		this.loadPortfolios();
 	}
 
+	renderSubview() {
+		if (this.state.activeView === 'LoginBox') {
+			return (
+				<LoginBox
+					{...this.props}
+					{...this.state}
+					loadPortfolios={this.loadPortfolios}
+					handleLogin={this.handleLogin}
+					setSelectedPortfolioId={this.setSelectedPortfolioId}
+					setLoginView={this.setLoginView}
+					setLoginProgress={this.setLoginProgress}
+				/>
+			);
+		}
+
+		if (this.state.activeView.startsWith('ForgotPassword')) {
+			return (
+				<ForgotPasswordController
+					{...this.props}
+					{...this.state}
+					loadPortfolios={this.loadPortfolios}
+					setLoginView={this.setLoginView}
+					setLoginProgress={this.setLoginProgress}
+					activeLoginView={this.state.activeView}
+				/>
+			);
+		}
+	}
+
+	componentWillMount() {
+		// Enforce window size
+		const win = remote.getCurrentWindow();
+		win.setResizable(false);
+		win.setSize(660, 450, true);
+	}
+
 	render() {
 		const {portfolios} = this.state;
 
@@ -92,15 +152,10 @@ export default class Login extends React.Component {
 
 		return (
 			<div className="Login container">
+				<Progress className="login-progress" value={this.state.progress}/>
 				<div className="is-centered">
 					<img className="hyperdex-icon" src="/assets/hyperdex-icon.svg" width="75" height="75"/>
-					<h1>Welcome to HyperDEX!</h1>
-					<LoginBox
-						{...this.props}
-						portfolios={portfolios}
-						handleLogin={this.handleLogin}
-						loadPortfolios={this.loadPortfolios}
-					/>
+					{this.renderSubview()}
 				</div>
 			</div>
 		);

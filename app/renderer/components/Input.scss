@@ -28,13 +28,14 @@
 		outline: none !important;
 		font-family: inherit;
 		font-size: 14px;
-		font-weight: 400;
+		font-weight: 600;
 		text-align: left;
 		line-height: 21px;
 		transition: all 0.2s ease;
 
 		&::-webkit-input-placeholder {
 			color: $gray-color;
+			font-weight: normal;
 		}
 
 		&:hover {

@@ -6,7 +6,7 @@
   margin-top: -20px; // offset the min body padding
   margin-bottom: 30px;
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(xl) {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -27,7 +27,7 @@
 // Account for the width of the iconav
 .with-iconav > .container,
 .with-iconav > .container-fluid {
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(xl) {
     padding-left: 85px;
   }
 }
@@ -43,7 +43,7 @@
   border-bottom: 0;
   background-color: $iconav-brand-bg;
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(xl) {
     padding-top:    20px;
     padding-bottom: 20px;
   }
@@ -79,7 +79,7 @@
     float: none;
     display: inline-block;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xl) {
       display: block;
     }
 
@@ -91,7 +91,7 @@
       text-align: center;
       border-radius: 0;
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(xl) {
         padding: 15px;
       }
     }
@@ -118,7 +118,7 @@
 
       }
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(xl) {
         margin-left: 0;
 
         > .nav-link {

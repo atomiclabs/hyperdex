@@ -1,4 +1,3 @@
-import electron from 'electron';
 import React from 'react';
 import Button from '../components/Button';
 import Input from '../components/Input';
@@ -10,16 +9,13 @@ import './LoginBox.scss';
 
 class LoginBox extends React.Component {
 	state = {
-		selectedOption: null,
 		passwordInputValue: '',
 		isCheckingPassword: false,
 	};
 
 	handleSelectChange = selectedOption => {
-		this.setState({
-			selectedOption,
-			passwordError: null,
-		});
+		this.setState({passwordError: null});
+		this.props.setSelectedPortfolioId(selectedOption.value);
 	};
 
 	handleSelectClose = () => {
@@ -39,13 +35,18 @@ class LoginBox extends React.Component {
 		this.setState({passwordInputValue: value});
 	};
 
+	portfolioFromId = id => this.props.portfolios.find(portfolio => portfolio.id === id);
+
 	handleSubmit = async event => {
 		event.preventDefault();
 
-		this.setState({isCheckingPassword: true});
+		this.setState({
+			isCheckingPassword: true,
+			passwordError: null,
+		});
 
-		const {portfolios, handleLogin} = this.props;
-		const portfolio = portfolios.find(portfolio => portfolio.fileName === this.state.selectedOption.value);
+		const {selectedPortfolioId, handleLogin} = this.props;
+		const portfolio = this.portfolioFromId(selectedPortfolioId);
 		const {passwordInputValue} = this.state;
 
 		try {
@@ -63,41 +64,24 @@ class LoginBox extends React.Component {
 		}
 	};
 
-	setLastActivePortfolio() {
-		const lastActivePortfolio = electron.remote.require('./config').get('lastActivePortfolio');
-		const portfolio = this.props.portfolios.find(portfolio => portfolio.fileName === lastActivePortfolio);
-
-		if (portfolio) {
-			this.setState({
-				selectedOption: {
-					label: portfolio.name,
-					value: portfolio.fileName,
-				},
-			});
-		}
-	}
-
-	componentWillMount() {
-		this.setLastActivePortfolio();
-	}
-
 	render() {
-		const {portfolios} = this.props;
+		const {portfolios, selectedPortfolioId} = this.props;
 
 		const selectData = portfolios.map(portfolio => {
 			return {
 				label: portfolio.name,
-				value: portfolio.fileName,
+				value: portfolio.id,
 			};
 		});
 
 		return (
-			<div className="LoginBox" style={{width: '245px'}}>
+			<div className="LoginBox">
+				<h1>Welcome to HyperDEX!</h1>
 				<form onSubmit={this.handleSubmit}>
 					<div className="form-group form-group-1">
 						<Select
 							className="portfolio-selector"
-							value={this.state.selectedOption && this.state.selectedOption.value}
+							value={selectedPortfolioId}
 							options={selectData}
 							onChange={this.handleSelectChange}
 							onClose={this.handleSelectClose}
@@ -113,7 +97,7 @@ class LoginBox extends React.Component {
 							type="password"
 							placeholder="Password"
 							value={this.state.passwordInputValue}
-							disabled={!this.state.selectedOption || this.state.isCheckingPassword}
+							disabled={!selectedPortfolioId || this.state.isCheckingPassword}
 							autoFocus
 							text={this.state.passwordError && this.state.passwordError}
 							level={this.state.passwordError && 'danger'}
@@ -122,7 +106,19 @@ class LoginBox extends React.Component {
 					</div>
 					<div className="form-group form-group-2">
 						<Button primary fullwidth type="submit" value="Login" disabled={!this.state.passwordInputValue || this.state.isCheckingPassword}/>
-						<Link style={{fontSize: '13px', lineHeight: 1.5, marginTop: '13px'}}>Forgot password</Link>
+						<Link
+							onClick={() => {
+								this.props.setLoginView('ForgotPassword');
+								this.props.setLoginProgress(0.33);
+							}}
+							style={{
+								fontSize: '13px',
+								lineHeight: 1.5,
+								marginTop: '13px',
+							}}
+						>
+							Forgot password
+						</Link>
 					</div>
 				</form>
 			</div>

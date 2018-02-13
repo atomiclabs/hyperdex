@@ -69,11 +69,15 @@ function createMainWindow() {
 		title: app.getName(),
 		x: windowState.x,
 		y: windowState.y,
-		width: windowState.width,
-		height: windowState.height,
+		// ` width: windowState.width,
+		// height: windowState.height,
+		width: 660,
+		height: 450,
 		minWidth: 400,
 		minHeight: 200,
-		titleBarStyle: 'hidden-inset',
+		maximizable: false,
+		resizable: false,
+		titleBarStyle: 'hiddenInset',
 		darkTheme: isDarkMode, // GTK+3
 	});
 
@@ -108,9 +112,8 @@ app.on('window-all-closed', () => {
 });
 
 app.on('before-quit', () => {
-	if (!mainWindow.isFullScreen()) {
-		config.set('windowState', mainWindow.getBounds());
-	}
+	// TODO: Only save this when logged in.
+	// config.set('windowState', mainWindow.getBounds());
 });
 
 electron.ipcMain.on('start-marketmaker', async (event, {seedPhrase}) => {
