@@ -112,9 +112,8 @@ app.on('window-all-closed', () => {
 });
 
 app.on('before-quit', () => {
-	if (!mainWindow.isFullScreen()) {
-		config.set('windowState', mainWindow.getBounds());
-	}
+	// TODO: Only save this when logged in.
+	// config.set('windowState', mainWindow.getBounds());
 });
 
 electron.ipcMain.on('start-marketmaker', async (event, {seedPhrase}) => {

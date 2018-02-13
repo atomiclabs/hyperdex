@@ -8,6 +8,7 @@ import Welcome from './Welcome';
 import ForgotPassword from './ForgotPassword';
 import './Login.scss';
 
+const config = remote.require('./config');
 const {getPortfolios, decryptSeedPhrase} = remote.require('./portfolio-util');
 
 const initMarketmaker = seedPhrase => new Promise(resolve => {
@@ -76,7 +77,13 @@ export default class Login extends React.Component {
 
 		const {portfolio: currencies} = await api.portfolio();
 
-		remote.require('./config').set('lastActivePortfolioId', portfolio.id);
+		config.set('lastActivePortfolioId', portfolio.id);
+
+		// Restore user-preferred window size
+		const win = remote.getCurrentWindow();
+		const {width, height} = config.get('windowState');
+		win.setResizable(true);
+		win.setSize(width, height, true);
 
 		this.props.setAppState({
 			activeView: 'Dashboard',
@@ -119,6 +126,13 @@ export default class Login extends React.Component {
 				/>
 			);
 		}
+	}
+
+	componentWillMount() {
+		// Enforce window size
+		const win = remote.getCurrentWindow();
+		win.setResizable(false);
+		win.setSize(660, 450, true);
 	}
 
 	render() {

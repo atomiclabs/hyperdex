@@ -1,4 +1,4 @@
-import electron, {ipcRenderer as ipc} from 'electron';
+import electron, {remote, ipcRenderer as ipc} from 'electron';
 import {is} from 'electron-util';
 import React from 'react';
 import {hot} from 'react-hot-loader';
@@ -12,6 +12,8 @@ import Trades from './views/Trades';
 import Funds from './views/Funds';
 import Preferences from './views/Preferences';
 import ComponentsPreview from './views/ComponentsPreview';
+
+const config = remote.require('./config');
 
 class App extends React.Component {
 	setAppState = state => {
@@ -34,6 +36,8 @@ class App extends React.Component {
 		ipc.on('log-out', () => {
 			this.stopMarketmaker();
 
+			config.set('windowState', remote.getCurrentWindow().getBounds());
+
 			this.setState({
 				activeView: 'Login',
 				portfolio: null,
@@ -53,8 +57,6 @@ class App extends React.Component {
 	}
 
 	handleDarkMode() {
-		const config = electron.remote.require('./config');
-
 		const applyDarkMode = () => {
 			const darkMode = config.get('darkMode');
 			this.setState({darkMode});
