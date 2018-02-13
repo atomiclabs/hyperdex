@@ -43,13 +43,17 @@ export default class Login extends React.Component {
 		progress: 0,
 	};
 
-	setLoginState = state => {
-		if (is.development) {
-			console.log('Login state:', state);
-		}
+	setLoginView = view => {
+		this.setState({activeView: view});
+	};
 
-		this.setState(state);
-	}
+	setLoginProgress = progress => {
+		this.setState({progress});
+	};
+
+	setSelectedPortfolioId = id => {
+		this.setState({selectedPortfolioId: id});
+	};
 
 	loadPortfolios = async () => {
 		this.setState({
@@ -100,17 +104,16 @@ export default class Login extends React.Component {
 	}
 
 	renderSubview() {
-		const {portfolios} = this.state;
-
 		if (this.state.activeView === 'LoginBox') {
 			return (
 				<LoginBox
 					{...this.props}
-					portfolios={portfolios}
+					{...this.state}
 					loadPortfolios={this.loadPortfolios}
 					handleLogin={this.handleLogin}
-					loginState={this.state}
-					setLoginState={this.setLoginState}
+					setSelectedPortfolioId={this.setSelectedPortfolioId}
+					setLoginView={this.setLoginView}
+					setLoginProgress={this.setLoginProgress}
 				/>
 			);
 		}
@@ -119,10 +122,11 @@ export default class Login extends React.Component {
 			return (
 				<ForgotPassword
 					{...this.props}
-					portfolios={portfolios}
+					{...this.state}
 					loadPortfolios={this.loadPortfolios}
-					loginState={this.state}
-					setLoginState={this.setLoginState}
+					setLoginView={this.setLoginView}
+					setLoginProgress={this.setLoginProgress}
+					activeLoginView={this.state.activeView}
 				/>
 			);
 		}

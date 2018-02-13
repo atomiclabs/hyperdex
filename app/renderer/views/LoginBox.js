@@ -15,7 +15,7 @@ class LoginBox extends React.Component {
 
 	handleSelectChange = selectedOption => {
 		this.setState({passwordError: null});
-		this.props.setLoginState({selectedPortfolioId: selectedOption.value});
+		this.props.setSelectedPortfolioId(selectedOption.value);
 	};
 
 	handleSelectClose = () => {
@@ -45,8 +45,8 @@ class LoginBox extends React.Component {
 			passwordError: null,
 		});
 
-		const {loginState, handleLogin} = this.props;
-		const portfolio = this.portfolioFromId(loginState.selectedPortfolioId);
+		const {selectedPortfolioId, handleLogin} = this.props;
+		const portfolio = this.portfolioFromId(selectedPortfolioId);
 		const {passwordInputValue} = this.state;
 
 		try {
@@ -65,7 +65,7 @@ class LoginBox extends React.Component {
 	};
 
 	render() {
-		const {portfolios, loginState} = this.props;
+		const {portfolios, selectedPortfolioId} = this.props;
 
 		const selectData = portfolios.map(portfolio => {
 			return {
@@ -81,7 +81,7 @@ class LoginBox extends React.Component {
 					<div className="form-group form-group-1">
 						<Select
 							className="portfolio-selector"
-							value={loginState.selectedPortfolioId}
+							value={selectedPortfolioId}
 							options={selectData}
 							onChange={this.handleSelectChange}
 							onClose={this.handleSelectClose}
@@ -97,7 +97,7 @@ class LoginBox extends React.Component {
 							type="password"
 							placeholder="Password"
 							value={this.state.passwordInputValue}
-							disabled={!loginState.selectedPortfolioId || this.state.isCheckingPassword}
+							disabled={!selectedPortfolioId || this.state.isCheckingPassword}
 							autoFocus
 							text={this.state.passwordError && this.state.passwordError}
 							level={this.state.passwordError && 'danger'}
@@ -108,10 +108,8 @@ class LoginBox extends React.Component {
 						<Button primary fullwidth type="submit" value="Login" disabled={!this.state.passwordInputValue || this.state.isCheckingPassword}/>
 						<Link
 							onClick={() => {
-								this.props.setLoginState({
-									activeView: 'ForgotPassword',
-									progress: 0.33,
-								});
+								this.props.setLoginView('ForgotPassword');
+								this.props.setLoginProgress(0.33);
 							}}
 							style={{
 								fontSize: '13px',

@@ -30,10 +30,8 @@ class ForgotPassword extends React.Component {
 	};
 
 	handleClickConfirmSeedPhrase = () => {
-		this.props.setLoginState({
-			activeView: 'ForgotPassword2',
-			progress: 0.66,
-		});
+		this.props.setLoginView('ForgotPassword2');
+		this.props.setLoginProgress(0.66);
 	};
 
 	handlePasswordInputChange = value => {
@@ -44,23 +42,21 @@ class ForgotPassword extends React.Component {
 		event.preventDefault();
 
 		await changePortfolioPassword({
-			id: this.props.loginState.selectedPortfolioId,
+			id: this.props.selectedPortfolioId,
 			seedPhrase: this.state.seedPhraseInputValue,
 			newPassword: this.state.passwordInputValue,
 		});
 
-		this.props.setLoginState({
-			activeView: 'ForgotPassword3',
-			progress: 1,
-		});
+		this.props.setLoginView('ForgotPassword3');
+		this.props.setLoginProgress(1);
 
 		await this.props.loadPortfolios();
 		await delay(2000);
 
-		this.props.setLoginState({
-			activeView: 'LoginBox',
-			progress: 0,
-		});
+		// TODO(sindresorhus): Fade out the progress bar instead of having it animate to `0`
+
+		this.props.setLoginView('LoginBox');
+		this.props.setLoginProgress(0);
 	};
 
 	renderSeedPhraseView() {
@@ -92,7 +88,7 @@ class ForgotPassword extends React.Component {
 	}
 
 	renderSetPasswordView() {
-		const portfolio = this.props.portfolios.find(portfolio => portfolio.id === this.props.loginState.selectedPortfolioId);
+		const portfolio = this.props.portfolios.find(portfolio => portfolio.id === this.props.selectedPortfolioId);
 
 		// TODO(sindresorhus): Add the identicon to the portfolio field
 		// TODO(sindresorhus): Add the lock icon to the input
@@ -142,7 +138,7 @@ class ForgotPassword extends React.Component {
 	}
 
 	render() {
-		switch (this.props.loginState.activeView) {
+		switch (this.props.activeLoginView) {
 			case 'ForgotPassword':
 				return this.renderSeedPhraseView();
 			case 'ForgotPassword2':
