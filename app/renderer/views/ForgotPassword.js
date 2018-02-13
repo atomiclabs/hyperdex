@@ -6,11 +6,84 @@ import Input from '../components/Input';
 import TextArea from '../components/TextArea';
 import LoginBackButton from '../components/LoginBackButton';
 import Success from '../components/Success';
+import View from '../components/View';
 import './ForgotPassword.scss';
 
 const {changePortfolioPassword} = remote.require('./portfolio-util');
 
-class ForgotPassword extends React.Component {
+const ForgotPassword = props => {
+	return (
+		<div className="ForgotPassword">
+			<LoginBackButton {...props} view="LoginBox" progress={0}/>
+			<h1>Enter Your Seed Phrase</h1>
+			<p>TODO: Put some explanation here on what to do.</p>
+			<div className="form-group" style={{width: '460px'}}>
+				<TextArea
+					value={props.seedPhraseInputValue}
+					onChange={props.handleSeedPhraseInputChange}
+					placeholder="Example: advanced generous profound …"
+					autoFocus
+					required
+				/>
+			</div>
+			<div className="form-group">
+				<Button
+					primary
+					value="Confirm"
+					disabled={!props.seedPhraseInputValue}
+					onClick={props.handleClickConfirmSeedPhrase}
+					style={{width: '172px', marginTop: '18px'}}
+				/>
+			</div>
+		</div>
+	);
+};
+
+const ForgotPassword2 = props => {
+	const portfolio = props.portfolios.find(portfolio => portfolio.id === props.selectedPortfolioId);
+
+	// TODO(sindresorhus): Add the identicon to the portfolio field
+	// TODO(sindresorhus): Add the lock icon to the input
+
+	return (
+		<div className="ForgotPassword">
+			<LoginBackButton {...props} view="ForgotPassword" progress={0.33}/>
+			<h1>Set New Password</h1>
+			<form onSubmit={props.handleSubmit} style={{marginTop: '20px'}}>
+				<div className="form-group">
+					<Input
+						className="portfolio-name"
+						value={portfolio.name}
+						disabled
+					/>
+				</div>
+				<div className="form-group">
+					<Input
+						onChange={props.handlePasswordInputChange}
+						type="password"
+						placeholder="Password"
+						value={props.passwordInputValue}
+						autoFocus
+						required
+					/>
+				</div>
+				<div className="form-group">
+					<Button
+						primary
+						type="submit"
+						value="Confirm"
+						disabled={!props.passwordInputValue}
+						style={{width: '170px', marginTop: '18px'}}
+					/>
+				</div>
+			</form>
+		</div>
+	);
+};
+
+const ForgotPassword3 = () => <Success>Your new password is set!</Success>;
+
+class ForgotPasswordController extends React.Component {
 	state = {
 		seedPhraseInputValue: '',
 		passwordInputValue: '',
@@ -59,96 +132,31 @@ class ForgotPassword extends React.Component {
 		this.props.setLoginProgress(0);
 	};
 
-	renderSeedPhraseView() {
-		return (
-			<div className="ForgotPassword">
-				<LoginBackButton {...this.props} view="LoginBox" progress={0}/>
-				<h1>Enter Your Seed Phrase</h1>
-				<p>TODO: Put some explanation here on what to do.</p>
-				<div className="form-group" style={{width: '460px'}}>
-					<TextArea
-						value={this.state.seedPhraseInputValue}
-						onChange={this.handleSeedPhraseInputChange}
-						placeholder="Example: advanced generous profound …"
-						autoFocus
-						required
-					/>
-				</div>
-				<div className="form-group">
-					<Button
-						primary
-						value="Confirm"
-						disabled={!this.state.seedPhraseInputValue}
-						onClick={this.handleClickConfirmSeedPhrase}
-						style={{width: '172px', marginTop: '18px'}}
-					/>
-				</div>
-			</div>
-		);
-	}
-
-	renderSetPasswordView() {
-		const portfolio = this.props.portfolios.find(portfolio => portfolio.id === this.props.selectedPortfolioId);
-
-		// TODO(sindresorhus): Add the identicon to the portfolio field
-		// TODO(sindresorhus): Add the lock icon to the input
-
-		return (
-			<div className="ForgotPassword">
-				<LoginBackButton {...this.props} view="ForgotPassword" progress={0.33}/>
-				<h1>Set New Password</h1>
-				<form onSubmit={this.handleSubmit} style={{marginTop: '20px'}}>
-					<div className="form-group">
-						<Input
-							className="portfolio-name"
-							value={portfolio.name}
-							disabled
-						/>
-					</div>
-					<div className="form-group">
-						<Input
-							onChange={this.handlePasswordInputChange}
-							type="password"
-							placeholder="Password"
-							value={this.state.passwordInputValue}
-							autoFocus
-							required
-						/>
-					</div>
-					<div className="form-group">
-						<Button
-							primary
-							type="submit"
-							value="Confirm"
-							disabled={!this.state.passwordInputValue}
-							style={{width: '170px', marginTop: '18px'}}
-						/>
-					</div>
-				</form>
-			</div>
-		);
-	}
-
-	renderSuccessView() {
-		return (
-			<Success>
-				Your new password is set!
-			</Success>
-		);
-	}
-
 	render() {
-		switch (this.props.activeLoginView) {
-			case 'ForgotPassword':
-				return this.renderSeedPhraseView();
-			case 'ForgotPassword2':
-				return this.renderSetPasswordView();
-			case 'ForgotPassword3':
-				return this.renderSuccessView();
-			default:
-				// ignore
-		}
+		const activeView = this.props.activeLoginView;
+
+		return (
+			<React.Fragment>
+				<View
+					{...this.props}
+					{...this.state}
+					activeView={activeView}
+					component={ForgotPassword}
+					handleSeedPhraseInputChange={this.handleSeedPhraseInputChange}
+					handleClickConfirmSeedPhrase={this.handleClickConfirmSeedPhrase}
+				/>
+				<View
+					{...this.props}
+					{...this.state}
+					activeView={activeView}
+					component={ForgotPassword2}
+					handlePasswordInputChange={this.handlePasswordInputChange}
+					handleSubmit={this.handleSubmit}
+				/>
+				<View activeView={activeView} component={ForgotPassword3}/>
+			</React.Fragment>
+		);
 	}
 }
 
-export default ForgotPassword;
+export default ForgotPasswordController;

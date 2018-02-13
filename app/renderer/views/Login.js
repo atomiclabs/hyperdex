@@ -5,7 +5,7 @@ import Api from '../api';
 import Progress from '../components/Progress';
 import LoginBox from './LoginBox';
 import Welcome from './Welcome';
-import ForgotPassword from './ForgotPassword';
+import ForgotPasswordController from './ForgotPassword';
 import './Login.scss';
 
 const config = remote.require('./config');
@@ -120,7 +120,7 @@ export default class Login extends React.Component {
 
 		if (this.state.activeView.startsWith('ForgotPassword')) {
 			return (
-				<ForgotPassword
+				<ForgotPasswordController
 					{...this.props}
 					{...this.state}
 					loadPortfolios={this.loadPortfolios}
