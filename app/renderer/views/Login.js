@@ -97,7 +97,7 @@ export default class Login extends React.Component {
 
 		if (this.state.activeView === 'LoginBox') {
 			return (
-				<LoginBox key="LoginBox"
+				<LoginBox
 					{...this.props}
 					portfolios={portfolios}
 					loadPortfolios={this.loadPortfolios}
@@ -110,7 +110,7 @@ export default class Login extends React.Component {
 
 		if (this.state.activeView.startsWith('ForgotPassword')) {
 			return (
-				<ForgotPassword key="ForgotPassword"
+				<ForgotPassword
 					{...this.props}
 					portfolios={portfolios}
 					loadPortfolios={this.loadPortfolios}
