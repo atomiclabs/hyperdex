@@ -1,6 +1,7 @@
 @import '../styles/variables';
 
 .Button {
+	--line-height: 34px;
 	display: inline-block;
 	min-width: 86px;
 	padding: 0 20px;
@@ -11,7 +12,7 @@
 	outline: 0;
 	text-align: center;
 	text-decoration: none;
-	line-height: 34px;
+	line-height: var(--line-height);
 	cursor: default;
 	user-select: none;
 
@@ -134,8 +135,14 @@
 	}
 
 	&--disabled {
-		opacity: 0.7;
 		pointer-events: none;
 		cursor: default;
+		background: transparent;
+		border: 1px solid #313d4f;
+		line-height: calc(var(--line-height) - 2px /* border * 2 */);
+
+		.Button__value {
+			color: #354052;
+		}
 	}
 }
