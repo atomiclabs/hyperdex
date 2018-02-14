@@ -43,3 +43,8 @@ $dark-mode-background-color: #222c3c;
 		transition: none;
 	}
 }
+
+@mixin center-vertically {
+	top: 50%;
+	transform: translateY(-50%);
+}

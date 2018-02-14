@@ -3,9 +3,10 @@ import {is} from 'electron-util';
 import React from 'react';
 import Api from '../api';
 import Progress from '../components/Progress';
+import Button from '../components/Button';
 import LoginBox from './LoginBox';
-import Welcome from './Welcome';
-import ForgotPasswordController from './ForgotPassword';
+import CreatePortfolio from './CreatePortfolio';
+import ForgotPassword from './ForgotPassword';
 import './Login.scss';
 
 const config = remote.require('./config');
@@ -118,9 +119,22 @@ export default class Login extends React.Component {
 			);
 		}
 
+		if (this.state.activeView.startsWith('CreatePortfolio')) {
+			return (
+				<CreatePortfolio
+					{...this.props}
+					{...this.state}
+					loadPortfolios={this.loadPortfolios}
+					setLoginView={this.setLoginView}
+					setLoginProgress={this.setLoginProgress}
+					activeLoginView={this.state.activeView}
+				/>
+			);
+		}
+
 		if (this.state.activeView.startsWith('ForgotPassword')) {
 			return (
-				<ForgotPasswordController
+				<ForgotPassword
 					{...this.props}
 					{...this.state}
 					loadPortfolios={this.loadPortfolios}
@@ -146,8 +160,28 @@ export default class Login extends React.Component {
 			return null; // Not loaded yet
 		}
 
-		if (portfolios.length === 0) {
-			return <Welcome {...this.props}/>;
+		// TODO(sindresorhus): Just had to get it working. Will clean it up later.
+		if (portfolios.length === 0 && this.state.activeView === 'LoginBox') {
+			return (
+				<div className="Login container">
+					<div className="is-centered">
+						<img className="hyperdex-icon" src="/assets/hyperdex-icon.svg" width="75" height="75"/>
+						<h1 style={{marginBottom: '24px'}}>Welcome to HyperDEX!</h1>
+						<h2>Would you like to create a new portfolio<br/>or restore an existing one?</h2>
+						<p style={{marginTop: '5px'}}>
+							{'Create a new one if you don\'t have a seed phrase yet.'}
+						</p>
+						<Button
+							primary
+							value="Create New Portfolio"
+							onClick={() => {
+								this.setLoginView('CreatePortfolio');
+							}}
+							style={{marginTop: '20px'}}
+						/>
+					</div>
+				</div>
+			);
 		}
 
 		return (

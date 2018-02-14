@@ -54,6 +54,7 @@ p.secondary {
 
 a {
 	color: $primary-color;
+	transition: all 0.1s ease-in-out;
 
 	&:hover {
 		color: #5362c4;
@@ -81,7 +82,9 @@ h3,
 h4,
 h5,
 h6,
-img {
+img,
+a,
+button {
 	user-select: none;
 	cursor: default;
 }

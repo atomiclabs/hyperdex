@@ -1,6 +1,7 @@
 import {remote} from 'electron';
 import React from 'react';
 import delay from 'delay';
+import bip39 from 'bip39';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import TextArea from '../components/TextArea';
@@ -11,7 +12,7 @@ import './ForgotPassword.scss';
 
 const {changePortfolioPassword} = remote.require('./portfolio-util');
 
-const ForgotPassword = props => {
+const ForgotPasswordStep1 = props => {
 	return (
 		<div className="ForgotPassword">
 			<LoginBackButton {...props} view="LoginBox" progress={0}/>
@@ -24,13 +25,17 @@ const ForgotPassword = props => {
 					placeholder="Example: advanced generous profound …"
 					autoFocus
 					required
+					preventNewlines
+					level={props.seedPhraseError && 'danger'}
+					text={props.seedPhraseError}
+					style={{padding: '15px'}}
 				/>
 			</div>
 			<div className="form-group">
 				<Button
 					primary
 					value="Confirm"
-					disabled={!props.seedPhraseInputValue}
+					disabled={!props.seedPhraseInputValue || props.seedPhraseError}
 					onClick={props.handleClickConfirmSeedPhrase}
 					style={{width: '172px', marginTop: '18px'}}
 				/>
@@ -39,7 +44,7 @@ const ForgotPassword = props => {
 	);
 };
 
-const ForgotPassword2 = props => {
+const ForgotPasswordStep2 = props => {
 	const portfolio = props.portfolios.find(portfolio => portfolio.id === props.selectedPortfolioId);
 
 	// TODO(sindresorhus): Add the identicon to the portfolio field
@@ -47,7 +52,7 @@ const ForgotPassword2 = props => {
 
 	return (
 		<div className="ForgotPassword">
-			<LoginBackButton {...props} view="ForgotPassword" progress={0.33}/>
+			<LoginBackButton {...props} view="ForgotPasswordStep1" progress={0.33}/>
 			<h1>Set New Password</h1>
 			<form onSubmit={props.handleSubmit} style={{marginTop: '20px'}}>
 				<div className="form-group">
@@ -81,29 +86,31 @@ const ForgotPassword2 = props => {
 	);
 };
 
-const ForgotPassword3 = () => <Success>Your new password is set!</Success>;
+const ForgotPasswordStep3 = () => <Success>Your new password is set!</Success>;
 
-class ForgotPasswordController extends React.Component {
+class ForgotPassword extends React.Component {
 	state = {
 		seedPhraseInputValue: '',
 		passwordInputValue: '',
+		seedPhraseError: null,
 	};
 
 	handleSeedPhraseInputChange = value => {
-		// Prevent newlines
-		if (/\r?\n/.test(value)) {
-			if (this.state.seedPhraseInputValue.trim().length > 0) {
-				this.handleClickConfirmSeedPhrase();
-			}
-
-			return;
-		}
-
-		this.setState({seedPhraseInputValue: value});
+		this.setState({
+			seedPhraseInputValue: value,
+			seedPhraseError: null,
+		});
 	};
 
 	handleClickConfirmSeedPhrase = () => {
-		this.props.setLoginView('ForgotPassword2');
+		if (!bip39.validateMnemonic(this.state.seedPhraseInputValue)) {
+			this.setState({
+				seedPhraseError: 'The seed phrase you entered is invalid',
+			});
+			return;
+		}
+
+		this.props.setLoginView('ForgotPasswordStep2');
 		this.props.setLoginProgress(0.66);
 	};
 
@@ -120,7 +127,7 @@ class ForgotPasswordController extends React.Component {
 			newPassword: this.state.passwordInputValue,
 		});
 
-		this.props.setLoginView('ForgotPassword3');
+		this.props.setLoginView('ForgotPasswordStep3');
 		this.props.setLoginProgress(1);
 
 		await this.props.loadPortfolios();
@@ -132,6 +139,10 @@ class ForgotPasswordController extends React.Component {
 		this.props.setLoginProgress(0);
 	};
 
+	componentWillMount() {
+		this.props.setLoginView('ForgotPasswordStep1');
+	}
+
 	render() {
 		const activeView = this.props.activeLoginView;
 
@@ -141,7 +152,7 @@ class ForgotPasswordController extends React.Component {
 					{...this.props}
 					{...this.state}
 					activeView={activeView}
-					component={ForgotPassword}
+					component={ForgotPasswordStep1}
 					handleSeedPhraseInputChange={this.handleSeedPhraseInputChange}
 					handleClickConfirmSeedPhrase={this.handleClickConfirmSeedPhrase}
 				/>
@@ -149,14 +160,14 @@ class ForgotPasswordController extends React.Component {
 					{...this.props}
 					{...this.state}
 					activeView={activeView}
-					component={ForgotPassword2}
+					component={ForgotPasswordStep2}
 					handlePasswordInputChange={this.handlePasswordInputChange}
 					handleSubmit={this.handleSubmit}
 				/>
-				<View activeView={activeView} component={ForgotPassword3}/>
+				<View activeView={activeView} component={ForgotPasswordStep3}/>
 			</React.Fragment>
 		);
 	}
 }
 
-export default ForgotPasswordController;
+export default ForgotPassword;

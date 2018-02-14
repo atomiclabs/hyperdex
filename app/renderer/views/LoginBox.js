@@ -4,7 +4,7 @@ import Input from '../components/Input';
 import Select from '../components/Select';
 import SelectOption from '../components/SelectOption';
 import Link from '../components/Link';
-import CreatePortfolioButton from './CreatePortfolioButton';
+import PlusButton from '../components/PlusButton';
 import './LoginBox.scss';
 
 class LoginBox extends React.Component {
@@ -89,7 +89,12 @@ class LoginBox extends React.Component {
 							optionRenderer={this.selectOptionRenderer}
 							placeholder="Select Portfolio…"
 						/>
-						<CreatePortfolioButton {...this.props}/>
+						<PlusButton
+							onClick={() => {
+								this.props.setLoginView('CreatePortfolio');
+								this.props.setLoginProgress(0.25);
+							}}
+						/>
 					</div>
 					<div className="form-group">
 						<Input
