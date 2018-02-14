@@ -50,7 +50,7 @@
 		"style-loader": "^0.19.1",
 		"webpack": "^3.10.0",
 		"webpack-dev-server": "^2.11.1",
-		"xo": "sindresorhus/xo#61a85cfe1dce4607db667085d53afc209d3eb5e0"
+		"xo": "^0.20.0"
 	},
 	"xo": {
 		"parser": "babel-eslint",
