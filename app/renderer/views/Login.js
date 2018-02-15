@@ -62,7 +62,11 @@ export default class Login extends React.Component {
 		});
 	}
 
-	handleLogin = async (portfolio, password) => {
+	portfolioFromId = id => this.state.portfolios.find(portfolio => portfolio.id === id);
+
+	handleLogin = async (portfolioId, password) => {
+		const portfolio = this.portfolioFromId(portfolioId);
+
 		// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker
 		const seedPhrase = await decryptSeedPhrase(portfolio.encryptedSeedPhrase, password);
 		const api = await initApi(seedPhrase);
@@ -125,6 +129,7 @@ export default class Login extends React.Component {
 					{...this.props}
 					{...this.state}
 					loadPortfolios={this.loadPortfolios}
+					handleLogin={this.handleLogin}
 					setLoginView={this.setLoginView}
 					setLoginProgress={this.setLoginProgress}
 					activeLoginView={this.state.activeView}

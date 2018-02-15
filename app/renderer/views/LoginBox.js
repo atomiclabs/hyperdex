@@ -35,8 +35,6 @@ class LoginBox extends React.Component {
 		this.setState({passwordInputValue: value});
 	};
 
-	portfolioFromId = id => this.props.portfolios.find(portfolio => portfolio.id === id);
-
 	handleSubmit = async event => {
 		event.preventDefault();
 
@@ -46,11 +44,10 @@ class LoginBox extends React.Component {
 		});
 
 		const {selectedPortfolioId, handleLogin} = this.props;
-		const portfolio = this.portfolioFromId(selectedPortfolioId);
 		const {passwordInputValue} = this.state;
 
 		try {
-			await handleLogin(portfolio, passwordInputValue);
+			await handleLogin(selectedPortfolioId, passwordInputValue);
 		} catch (err) {
 			console.error(err);
 
