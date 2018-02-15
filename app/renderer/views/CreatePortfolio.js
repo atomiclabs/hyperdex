@@ -176,7 +176,7 @@ class CreatePortfolio extends React.Component {
 
 		await createPortfolio({
 			name: this.state.portfolioName,
-			password: this.state.portfolioName,
+			password: this.state.portfolioPassword,
 			seedPhrase: this.state.generatedSeedPhrase,
 		});
 
