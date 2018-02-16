@@ -1,6 +1,5 @@
 import {remote} from 'electron';
 import React from 'react';
-import delay from 'delay';
 import bip39 from 'bip39';
 import Button from '../components/Button';
 import Input from '../components/Input';
@@ -131,12 +130,9 @@ class ForgotPassword extends React.Component {
 		this.props.setLoginProgress(1);
 
 		await this.props.loadPortfolios();
-		await delay(2000);
+		await this.props.handleLogin(this.props.selectedPortfolioId, this.state.passwordInputValue);
 
-		// TODO(sindresorhus): Fade out the progress bar instead of having it animate to `0`
-
-		this.props.setLoginView('LoginBox');
-		this.props.setLoginProgress(0);
+		// TODO: Need a progress indicator here as login takes a while
 	};
 
 	componentWillMount() {

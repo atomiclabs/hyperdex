@@ -143,6 +143,7 @@ export default class Login extends React.Component {
 					{...this.props}
 					{...this.state}
 					loadPortfolios={this.loadPortfolios}
+					handleLogin={this.handleLogin}
 					setLoginView={this.setLoginView}
 					setLoginProgress={this.setLoginProgress}
 					activeLoginView={this.state.activeView}
