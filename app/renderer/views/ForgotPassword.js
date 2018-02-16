@@ -1,6 +1,5 @@
 import {remote} from 'electron';
 import React from 'react';
-import bip39 from 'bip39';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import TextArea from '../components/TextArea';
