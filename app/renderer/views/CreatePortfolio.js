@@ -9,6 +9,7 @@ import Success from '../components/Success';
 import ReloadButton from '../components/ReloadButton';
 import CopyButton from '../components/CopyButton';
 import View from '../components/View';
+import WrapWidth from '../components/WrapWidth';
 import './CreatePortfolio.scss';
 
 const {createPortfolio} = remote.require('./portfolio-util');
@@ -62,9 +63,11 @@ const CreatePortfolioStep2 = props => {
 			<LoginBackButton {...props} view="CreatePortfolioStep1" progress={0.25}/>
 			<h1>Seed Phrase for Your Portfolio</h1>
 			<div className="form-group" style={{width: '460px', marginTop: '20px'}}>
-				<div className="generated-seed-phrase">
+				<div className="generated-seed-phrase-container">
 					<ReloadButton onClick={props.generateSeedPhrase}/>
-					{props.generatedSeedPhrase}
+					<WrapWidth wordsPerLine={6} className="seed-phrase">
+						{props.generatedSeedPhrase}
+					</WrapWidth>
 					<CopyButton value={props.generatedSeedPhrase}/>
 				</div>
 				<div className="warning-box">

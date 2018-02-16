@@ -1,7 +1,7 @@
 @import '../styles/variables';
 
 .CreatePortfolio {
-	.generated-seed-phrase {
+	.generated-seed-phrase-container {
 		background-color: rgba(248, 7, 89, 0.05);
 		border: 1px solid $red-color;
 		color: $red-color;
@@ -19,6 +19,10 @@
 			@include center-vertically;
 			position: absolute;
 			right: 10px;
+		}
+
+		.seed-phrase {
+			margin: 0 auto;
 		}
 	}
 
