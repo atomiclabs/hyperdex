@@ -1,7 +1,7 @@
 @import '../styles/variables';
 
 .CreatePortfolio {
-	.generated-seed-phrase {
+	.generated-seed-phrase-container {
 		background-color: rgba(248, 7, 89, 0.05);
 		border: 1px solid $red-color;
 		color: $red-color;
@@ -12,13 +12,18 @@
 		.ReloadButton {
 			@include center-vertically;
 			position: absolute;
-			left: 10px;
+			left: 12px;
 		}
 
 		.CopyButton {
 			@include center-vertically;
 			position: absolute;
-			right: 10px;
+			right: 12px;
+		}
+
+		.seed-phrase {
+			margin: 0 auto;
+			font-size: 17px;
 		}
 	}
 
