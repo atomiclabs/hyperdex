@@ -4,7 +4,7 @@
 		"test": "xo",
 		"start": "webpack && electron app",
 		"dev:watch": "webpack-dev-server --hot",
-		"dev:start": "electron app",
+		"dev:start": "sleep 1 && electron app",
 		"dev": "run-p dev:*",
 		"pack": "webpack && electron-builder --dir",
 		"dist": "NODE_ENV=production webpack && electron-builder --mac --linux --win",
