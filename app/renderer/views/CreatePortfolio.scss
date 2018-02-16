@@ -12,17 +12,18 @@
 		.ReloadButton {
 			@include center-vertically;
 			position: absolute;
-			left: 10px;
+			left: 12px;
 		}
 
 		.CopyButton {
 			@include center-vertically;
 			position: absolute;
-			right: 10px;
+			right: 12px;
 		}
 
 		.seed-phrase {
 			margin: 0 auto;
+			font-size: 17px;
 		}
 	}
 
