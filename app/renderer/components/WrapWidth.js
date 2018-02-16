@@ -50,8 +50,8 @@ class WrapWidth extends React.Component {
 	}
 
 	render() {
-		const THRESHOLD = 1; // Just to be safe
-		const style = this.state.width ? {width: this.state.width + THRESHOLD} : {};
+		const WIGGLE_ROOM = 1; // Just to be safe
+		const style = this.state.width ? {width: this.state.width + WIGGLE_ROOM} : {};
 
 		return (
 			<div ref="container" className={this.props.className} style={style}>
