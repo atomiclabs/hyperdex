@@ -34,7 +34,7 @@ const ForgotPasswordStep1 = props => {
 				<Button
 					primary
 					value="Confirm"
-					disabled={!props.seedPhraseInputValue || props.seedPhraseError}
+					disabled={!props.seedPhraseInputValue}
 					onClick={props.handleClickConfirmSeedPhrase}
 					style={{width: '172px', marginTop: '18px'}}
 				/>
@@ -95,20 +95,14 @@ class ForgotPassword extends React.Component {
 	};
 
 	handleSeedPhraseInputChange = value => {
+		const seedPhraseError = (value.length > 0 && value.length < 10) ? 'The seed phrase you entered is not very secure.' : null;
 		this.setState({
 			seedPhraseInputValue: value,
-			seedPhraseError: null,
+			seedPhraseError,
 		});
 	};
 
 	handleClickConfirmSeedPhrase = () => {
-		if (!bip39.validateMnemonic(this.state.seedPhraseInputValue)) {
-			this.setState({
-				seedPhraseError: 'The seed phrase you entered is invalid',
-			});
-			return;
-		}
-
 		this.props.setLoginView('ForgotPasswordStep2');
 		this.props.setLoginProgress(0.66);
 	};
