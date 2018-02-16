@@ -161,7 +161,7 @@ class CreatePortfolio extends React.Component {
 
 	checkSeedPhrase = () => {
 		const isMatch = this.state.generatedSeedPhrase === this.state.confirmedSeedPhrase;
-		const seedPhraseError = !isMatch && 'The seed phrase you entered is not the same as the generated one';
+		const seedPhraseError = isMatch ? null : 'The seed phrase you entered is not the same as the generated one';
 		this.setState({seedPhraseError});
 		return isMatch;
 	};
@@ -178,6 +178,7 @@ class CreatePortfolio extends React.Component {
 		this.step3confirmButtonClicked = true;
 
 		if (!this.checkSeedPhrase()) {
+			// TODO(sindresorhus): Focus the textarea on failure
 			return;
 		}
 
