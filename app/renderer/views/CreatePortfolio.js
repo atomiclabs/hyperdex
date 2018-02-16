@@ -159,18 +159,26 @@ class CreatePortfolio extends React.Component {
 		this.props.setLoginProgress(0.75);
 	};
 
+	checkSeedPhrase = () => {
+		const isMatch = this.state.generatedSeedPhrase === this.state.confirmedSeedPhrase;
+		const seedPhraseError = isMatch ? null : 'The seed phrase you entered is not the same as the generated one';
+		this.setState({seedPhraseError});
+		return isMatch;
+	};
+
 	handleConfirmSeedPhraseInputChange = value => {
-		this.setState({
-			confirmedSeedPhrase: value,
-			seedPhraseError: null,
+		this.setState({confirmedSeedPhrase: value}, () => {
+			if (this.step3confirmButtonClicked) {
+				this.checkSeedPhrase();
+			}
 		});
 	};
 
 	handleStep3ClickConfirm = async () => {
-		if (this.state.generatedSeedPhrase !== this.state.confirmedSeedPhrase) {
-			this.setState({
-				seedPhraseError: 'The seed phrase you entered is not the same as the generated one',
-			});
+		this.step3confirmButtonClicked = true;
+
+		if (!this.checkSeedPhrase()) {
+			// TODO(sindresorhus): Focus the textarea on failure
 			return;
 		}
 
