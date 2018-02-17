@@ -11,6 +11,7 @@ export default class Api {
 		this.seedPhrase = seedPhrase;
 
 		this.queue = new PQueue({concurrency});
+		this.token = this._token();
 	}
 
 	async _request(data) {
@@ -23,22 +24,20 @@ export default class Api {
 	}
 
 	async _token() {
+		const {userpass: defaultToken} = await this._request({method: 'passphrase'});
 		const {userpass: token} = await this._request({
 			method: 'passphrase',
 			passphrase: this.seedPhrase,
+			userpass: defaultToken,
 		});
 
 		return token;
 	}
 
 	async request(data) {
-		if (!this.token) {
-			this.token = await this._token();
-		}
-
 		return this._request({
 			...data,
-			...{userpass: this.token},
+			...{userpass: await this.token},
 		});
 	}
 
