@@ -2,16 +2,15 @@ import PQueue from 'p-queue';
 import electrumServers from './electrum-servers';
 
 export default class Api {
-	constructor({endpoint, seedPhrase, concurrency = 1}) {
-		if (!(endpoint && seedPhrase)) {
-			throw new Error('The `endpoint` and `seedPhrase` options are required');
+	constructor({endpoint, concurrency = 1}) {
+		if (!endpoint) {
+			throw new Error('The `endpoint` option is required');
 		}
 
 		this.endpoint = endpoint;
-		this.seedPhrase = seedPhrase;
+		this.token = '1d8b27b21efabcd96571cd56f91a40fb9aa4cc623d273c63bf9223dc6f8cd81f';
 
 		this.queue = new PQueue({concurrency});
-		this.token = this._token();
 	}
 
 	async _request(data) {
@@ -23,26 +22,26 @@ export default class Api {
 		return response.json();
 	}
 
-	async _token() {
-		const {userpass: defaultToken} = await this._request({method: 'passphrase'});
-		const {userpass: token} = await this._request({
-			method: 'passphrase',
-			passphrase: this.seedPhrase,
-			userpass: defaultToken,
-		});
-
-		return token;
-	}
-
 	async request(data) {
 		return this._request({
 			...data,
-			...{userpass: await this.token},
+			...{userpass: this.token},
 		});
 	}
 
 	async debug(data) {
 		console.log(await this.request(data));
+	}
+
+	async loadSeed(seedPhrase) {
+		const {userpass: token} = await this.request({
+			method: 'passphrase',
+			passphrase: seedPhrase,
+		});
+
+		this.token = token;
+
+		return token;
 	}
 
 	botList() {
