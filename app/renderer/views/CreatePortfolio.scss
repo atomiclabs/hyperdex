@@ -11,13 +11,11 @@
 
 		.ReloadButton {
 			@include center-vertically;
-			position: absolute;
 			left: 12px;
 		}
 
 		.CopyButton {
 			@include center-vertically;
-			position: absolute;
 			right: 12px;
 		}
 

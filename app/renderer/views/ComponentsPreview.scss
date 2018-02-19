@@ -2,9 +2,13 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	padding: 50px;
+	padding: 30px;
 
 	> * {
-		margin: 20px;
+		margin: 10px;
+	}
+
+	.Input {
+		width: auto;
 	}
 }

@@ -1,9 +1,7 @@
 import React from 'react';
-import {RSSelect} from 'reactsymbols-kit';
+import ReactSelect from 'react-select';
 import './Select.scss';
 
-// See: http://docs.reactsymbols.com/#/?id=rsselect
-
-const Select = props => <RSSelect {...props} searchable={false} clearable={false}/>;
+const Select = props => <ReactSelect {...props} searchable={false} clearable={false}/>;
 
 export default Select;

@@ -1,5 +1,6 @@
-.TextArea,
-.rs-textarea {
+@import './Input';
+
+.TextArea {
 	textarea {
 		min-width: 245px;
 		min-height: 72px;

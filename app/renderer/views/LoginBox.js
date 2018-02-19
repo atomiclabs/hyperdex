@@ -19,8 +19,7 @@ class LoginBox extends React.Component {
 	};
 
 	handleSelectClose = () => {
-		// TODO: Make this more React'y. Focusing inputs with React is a pain...
-		document.querySelector('input[type="password"]').focus();
+		this.passwordInput.focus();
 	};
 
 	selectOptionRenderer = option => {
@@ -57,6 +56,8 @@ class LoginBox extends React.Component {
 			this.setState({
 				isCheckingPassword: false,
 				passwordError,
+			}, () => {
+				this.passwordInput.focus();
 			});
 		}
 	};
@@ -95,15 +96,17 @@ class LoginBox extends React.Component {
 					</div>
 					<div className="form-group">
 						<Input
+							innerRef={input => {
+								this.passwordInput = input;
+							}}
 							onChange={this.handlePasswordInputChange}
 							type="password"
 							placeholder="Password"
 							value={this.state.passwordInputValue}
 							disabled={!selectedPortfolioId || this.state.isCheckingPassword}
 							autoFocus
-							text={this.state.passwordError && this.state.passwordError}
-							level={this.state.passwordError && 'danger'}
 							required
+							errorMessage={this.state.passwordError}
 						/>
 					</div>
 					<div className="form-group form-group-2">

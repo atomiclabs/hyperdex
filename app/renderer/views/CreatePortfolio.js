@@ -15,9 +15,6 @@ import './CreatePortfolio.scss';
 const {createPortfolio} = remote.require('./portfolio-util');
 
 const CreatePortfolioStep1 = props => {
-	// TODO(sindresorhus): Add icon to the input fields
-	// TODO(sindresorhus): Should we have some minimum requirements for the password?
-
 	return (
 		<div className="CreatePortfolio">
 			<LoginBackButton {...props} view="LoginBox" progress={0}/>
@@ -31,6 +28,7 @@ const CreatePortfolioStep1 = props => {
 						autoFocus
 						required
 						maxLength="50"
+						iconName="person"
 					/>
 				</div>
 				<div className="form-group">
@@ -97,14 +95,14 @@ const CreatePortfolioStep3 = props => {
 			<p>TODO: Put some explanation here on what to do.</p>
 			<div className="form-group" style={{width: '460px'}}>
 				<TextArea
+					innerRef={props.setConfirmSeedPhraseTextArea}
 					value={props.confirmedSeedPhrase}
 					onChange={props.handleConfirmSeedPhraseInputChange}
 					placeholder="Example: advanced generous profound …"
+					errorMessage={props.seedPhraseError}
 					autoFocus
 					required
 					preventNewlines
-					level={props.seedPhraseError && 'danger'}
-					text={props.seedPhraseError}
 					style={{padding: '15px'}}
 				/>
 			</div>
@@ -166,6 +164,10 @@ class CreatePortfolio extends React.Component {
 		return isMatch;
 	};
 
+	setConfirmSeedPhraseTextArea = textarea => {
+		this.confirmSeedPhraseTextArea = textarea;
+	}
+
 	handleConfirmSeedPhraseInputChange = value => {
 		this.setState({confirmedSeedPhrase: value}, () => {
 			if (this.step3confirmButtonClicked) {
@@ -178,11 +180,9 @@ class CreatePortfolio extends React.Component {
 		this.step3confirmButtonClicked = true;
 
 		if (!this.checkSeedPhrase()) {
-			// TODO(sindresorhus): Focus the textarea on failure
+			this.confirmSeedPhraseTextArea.focus();
 			return;
 		}
-
-		// TODO: Validate that the generated seedphrase matches the user typed seedphrase
 
 		const portfolioId = await createPortfolio({
 			name: this.state.portfolioName,
@@ -231,6 +231,7 @@ class CreatePortfolio extends React.Component {
 					{...this.state}
 					activeView={activeView}
 					component={CreatePortfolioStep3}
+					setConfirmSeedPhraseTextArea={this.setConfirmSeedPhraseTextArea}
 					handleConfirmSeedPhraseInputChange={this.handleConfirmSeedPhraseInputChange}
 					handleStep3ClickConfirm={this.handleStep3ClickConfirm}
 				/>
