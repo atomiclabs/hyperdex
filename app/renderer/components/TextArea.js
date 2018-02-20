@@ -1,21 +1,59 @@
 import React from 'react';
-import {RSTextarea} from 'reactsymbols-kit';
 import {classNames} from 'react-extras';
 import './TextArea.scss';
 
-const TextArea = ({preventNewlines, onChange, ...props}) => {
-	const className = classNames('TextArea', props.className);
+const TextArea = ({
+	className,
+	level,
+	message,
+	errorMessage,
+	disabled,
+	innerRef,
+	onChange,
+	preventNewlines,
+	...props
+}) => {
+	if (errorMessage) {
+		level = 'error';
+		message = errorMessage;
+	}
+
+	const containerClassName = classNames(
+		'TextArea',
+		'Input',
+		{
+			[`Input--${level}`]: level,
+			'Input--disabled': disabled,
+		},
+		className
+	);
 
 	return (
-		<RSTextarea {...props} className={className} onChange={value => {
-			if (preventNewlines && /\r?\n/.test(value)) {
-				return;
-			}
+		<div className={containerClassName}>
+			<div className="Input-wrap">
+				<textarea
+					{...props}
+					ref={innerRef}
+					disabled={disabled}
+					onChange={event => {
+						const value = event.target.value;
 
-			if (onChange) {
-				onChange(value);
+						if (preventNewlines && /\r?\n/.test(value)) {
+							return;
+						}
+
+						if (onChange) {
+							onChange(value);
+						}
+					}}
+				/>
+			</div>
+			{((level && message) || message) &&
+				<span className="Input__text">
+					<p>{message}</p>
+				</span>
 			}
-		}}/>
+		</div>
 	);
 };
 

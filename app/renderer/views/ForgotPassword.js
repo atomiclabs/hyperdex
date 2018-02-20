@@ -46,7 +46,6 @@ const ForgotPasswordStep2 = props => {
 	const portfolio = props.portfolios.find(portfolio => portfolio.id === props.selectedPortfolioId);
 
 	// TODO(sindresorhus): Add the identicon to the portfolio field
-	// TODO(sindresorhus): Add the lock icon to the input
 
 	return (
 		<div className="ForgotPassword">

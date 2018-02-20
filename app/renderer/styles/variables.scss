@@ -45,6 +45,7 @@ $dark-mode-background-color: #222c3c;
 }
 
 @mixin center-vertically {
+	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 }

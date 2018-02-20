@@ -1,0 +1,33 @@
+.SelectOption {
+	--image-size: 24px;
+
+	display: inline-block;
+	position: relative;
+
+	&__label {
+		display: inline-block;
+		margin-left: 0;
+	}
+
+	&__image-wrap {
+		display: inline-block;
+		margin-right: 14px;
+		margin-left: -11px;
+		position: absolute;
+		top: 50%;
+		margin-top: -12px;
+	}
+
+	&__image {
+		overflow: hidden;
+		width: var(--image-size);
+		height: var(--image-size);
+		border-radius: 4px;
+	}
+
+	&--image {
+		.SelectOption__label {
+			margin-left: var(--image-size);
+		}
+	}
+}

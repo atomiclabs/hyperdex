@@ -21,7 +21,7 @@
 		"react-blockies": "^1.2.2",
 		"react-dom": "^16.2.0",
 		"react-extras": "^0.5.0",
-		"reactsymbols-kit": "file:vendor/reactsymbols-kit",
+		"react-select": "^1.2.1",
 		"sass-extras": "^0.2.0"
 	},
 	"devDependencies": {

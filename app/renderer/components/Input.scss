@@ -1,7 +1,6 @@
 @import '../styles/variables';
 
-.Input,
-.rs-input {
+.Input {
 	display: inline-block;
 	margin: 5px 0;
 	position: relative;
@@ -48,61 +47,30 @@
 		}
 	}
 
+	--icon-container-width: 36px;
+
 	&--icon {
 		input,
 		textarea {
-			padding-left: 40px;
-		}
-	}
-
-	&--icon-right {
-		input,
-		textarea {
-			padding-right: 40px;
-			padding-left: 10px;
+			padding-left: calc(var(--icon-container-width) - 2px);
 		}
 	}
 
 	&__icon {
-		position: absolute;
-		top: 6px;
-		left: 14px;
-	}
+		@include center-vertically;
+		left: 0;
+		width: var(--icon-container-width);
 
-	&__icon--right {
-		right: 10px;
-		left: auto;
-
-		.rs-input__valid-icon {
-			display: none;
+		img {
+			display: block;
+			margin: 0 auto;
 		}
-	}
-
-	&__valid-icon {
-		position: absolute;
-		top: 7px;
-		right: 10px;
 	}
 
 	&__text {
 		display: block;
 		position: absolute;
 		overflow: hidden;
-
-		.rs-input__text-icon {
-			display: inline-block;
-			width: 16px;
-			height: 16px;
-			margin-right: 6px;
-			position: relative;
-			top: 1px;
-			float: left;
-		}
-
-		.rs-icon {
-			position: absolute;
-			color: #fff;
-		}
 
 		p {
 			margin: 0;
@@ -111,19 +79,6 @@
 			font-size: 12px;
 			font-weight: 400;
 			line-height: 18px;
-		}
-	}
-
-
-	/* Color variants */
-
-	&--success,
-	&--danger,
-	&--warning,
-	&--info {
-		input,
-		textarea {
-			padding-right: 30px;
 		}
 	}
 
@@ -139,15 +94,14 @@
 			border-color: $success-color;
 		}
 
-		.rs-input__text p,
-		.rs-icon {
+		.Input__text p {
 			color: $success-color;
 		}
 	}
 
-	&--danger,
-	&--danger:hover,
-	&--danger:focus {
+	&--error,
+	&--error:hover,
+	&--error:focus {
 		input,
 		input:hover,
 		input:active,
@@ -159,8 +113,7 @@
 			border-color: $error-color;
 		}
 
-		.rs-input__text p,
-		.rs-icon {
+		.Input__text p {
 			color: $error-color;
 		}
 	}
@@ -179,8 +132,7 @@
 			border-color: $warning-color;
 		}
 
-		.rs-input__text p,
-		.rs-icon {
+		.Input__text p {
 			color: $warning-color;
 		}
 	}
@@ -199,8 +151,7 @@
 			border-color: $info-color;
 		}
 
-		.rs-input__text p,
-		.rs-icon {
+		.Input__text p {
 			color: $info-color;
 		}
 	}
@@ -213,7 +164,8 @@
 		textarea,
 		textarea:hover,
 		textarea:active,
-		textarea:focus {
+		textarea:focus,
+		.Input__icon {
 			opacity: 0.7;
 			pointer-events: none;
 			cursor: default;
