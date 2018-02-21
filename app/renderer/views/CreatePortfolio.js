@@ -83,7 +83,9 @@ class CreatePortfolio extends React.Component {
 		});
 	};
 
-	handleStep3ClickConfirm = async () => {
+	handleStep3Submit = async event => {
+		event.preventDefault();
+
 		this.step3confirmButtonClicked = true;
 
 		if (!this.checkSeedPhrase()) {
@@ -142,7 +144,7 @@ class CreatePortfolio extends React.Component {
 					component={CreatePortfolioStep3}
 					setConfirmSeedPhraseTextArea={this.setConfirmSeedPhraseTextArea}
 					handleConfirmSeedPhraseInputChange={this.handleConfirmSeedPhraseInputChange}
-					handleStep3ClickConfirm={this.handleStep3ClickConfirm}
+					handleStep3Submit={this.handleStep3Submit}
 				/>
 				<View
 					activeView={activeView}

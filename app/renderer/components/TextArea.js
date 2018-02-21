@@ -36,9 +36,15 @@ const TextArea = ({
 					ref={innerRef}
 					disabled={disabled}
 					onChange={event => {
-						const value = event.target.value;
+						const target = event.target;
+						const value = target.value;
 
 						if (preventNewlines && /\r?\n/.test(value)) {
+							const form = target.closest('form');
+							if (form) {
+								form.dispatchEvent(new Event('submit'));
+							}
+
 							return;
 						}
 
