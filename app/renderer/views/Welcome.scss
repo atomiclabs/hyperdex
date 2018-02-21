@@ -1,20 +1,13 @@
 .Welcome {
-	display: flex;
-	min-height: 75vh;
-	align-items: center;
-	justify-content: center;
-	color: #7f8fa3;
-	text-align: center;
+	.action-buttons {
+		margin-top: 30px;
 
-	.body {
-		max-width: 100%;
-		padding: 40px;
-		flex: none;
-		align-self: center;
-	}
+		.Button {
+			width: 172px;
+		}
 
-	h2 {
-		font-size: 16px;
-		font-weight: 400;
+		.Button:first-of-type {
+			margin-right: 10px;
+		}
 	}
 }

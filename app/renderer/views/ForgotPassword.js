@@ -1,100 +1,12 @@
 import {remote} from 'electron';
 import React from 'react';
-import Button from '../components/Button';
-import Input from '../components/Input';
-import TextArea from '../components/TextArea';
-import LoginBackButton from '../components/LoginBackButton';
-import Success from '../components/Success';
 import View from '../components/View';
+import ForgotPasswordStep1 from './ForgotPasswordStep1';
+import ForgotPasswordStep2 from './ForgotPasswordStep2';
+import ForgotPasswordStep3 from './ForgotPasswordStep3';
 import './ForgotPassword.scss';
 
 const {changePortfolioPassword} = remote.require('./portfolio-util');
-
-const ForgotPasswordStep1 = props => {
-	return (
-		<div className="ForgotPassword">
-			<LoginBackButton {...props} view="LoginBox" progress={0}/>
-			<h1>Enter Your Seed Phrase</h1>
-			<p>TODO: Put some explanation here on what to do.</p>
-			<div className="form-group" style={{width: '460px'}}>
-				<TextArea
-					value={props.seedPhrase}
-					onChange={props.handleSeedPhraseInputChange}
-					placeholder="Example: advanced generous profound …"
-					autoFocus
-					required
-					preventNewlines
-					level={props.seedPhraseError && 'danger'}
-					text={props.seedPhraseError}
-					style={{padding: '15px'}}
-				/>
-			</div>
-			<div className="form-group">
-				<Button
-					primary
-					value="Confirm"
-					disabled={!props.seedPhrase}
-					onClick={props.handleClickConfirmSeedPhrase}
-					style={{width: '172px', marginTop: '18px'}}
-				/>
-			</div>
-		</div>
-	);
-};
-
-const ForgotPasswordStep2 = props => {
-	const portfolio = props.portfolios.find(portfolio => portfolio.id === props.selectedPortfolioId);
-
-	// TODO(sindresorhus): Add the identicon to the portfolio field
-
-	return (
-		<div className="ForgotPassword">
-			<LoginBackButton {...props} view="ForgotPasswordStep1" progress={0.33}/>
-			<h1>Set New Password</h1>
-			<form onSubmit={props.handleSubmit} style={{marginTop: '20px'}}>
-				<div className="form-group">
-					<Input
-						className="portfolio-name"
-						value={portfolio.name}
-						disabled
-					/>
-				</div>
-				<div className="form-group">
-					<Input
-						onChange={props.handlePasswordInputChange}
-						type="password"
-						placeholder="Password"
-						value={props.password}
-						autoFocus
-						required
-					/>
-				</div>
-				<div className="form-group">
-					<Input
-						innerRef={props.setConfirmPasswordInput}
-						onChange={props.handleConfirmPasswordInputChange}
-						type="password"
-						placeholder="Confirm Password"
-						value={props.confirmedPassword}
-						required
-						errorMessage={props.confirmedPasswordError}
-					/>
-				</div>
-				<div className="form-group">
-					<Button
-						primary
-						type="submit"
-						value="Confirm"
-						disabled={!(props.password && props.confirmedPassword)}
-						style={{width: '170px', marginTop: '15px'}}
-					/>
-				</div>
-			</form>
-		</div>
-	);
-};
-
-const ForgotPasswordStep3 = () => <Success>Your new password is set!</Success>;
 
 class ForgotPassword extends React.Component {
 	state = {
