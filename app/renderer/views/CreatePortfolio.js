@@ -41,11 +41,22 @@ const CreatePortfolioStep1 = props => {
 					/>
 				</div>
 				<div className="form-group">
+					<Input
+						innerRef={props.setConfirmPasswordInput}
+						onChange={props.handleConfirmPasswordInputChange}
+						type="password"
+						placeholder="Confirm Password"
+						value={props.confirmedPassword}
+						required
+						errorMessage={props.confirmedPasswordError}
+					/>
+				</div>
+				<div className="form-group">
 					<Button
 						type="submit"
 						value="Next"
-						disabled={!(props.portfolioName && props.portfolioPassword)}
-						style={{width: '170px', marginTop: '18px'}}
+						disabled={!(props.portfolioName && props.portfolioPassword && props.confirmedPassword)}
+						style={{width: '170px', marginTop: '15px'}}
 					/>
 				</div>
 			</form>
@@ -128,6 +139,8 @@ class CreatePortfolio extends React.Component {
 	state = {
 		portfolioName: '',
 		portfolioPassword: '',
+		confirmedPassword: '',
+		confirmedPasswordError: null,
 		generatedSeedPhrase: '',
 		confirmedSeedPhrase: '',
 		seedPhraseError: null,
@@ -145,8 +158,27 @@ class CreatePortfolio extends React.Component {
 		this.setState({portfolioPassword: value});
 	};
 
+	handleConfirmPasswordInputChange = value => {
+		this.setState({confirmedPassword: value});
+	};
+
+	setConfirmPasswordInput = input => {
+		this.confirmPasswordInput = input;
+	}
+
 	handleStep1Submit = async event => {
 		event.preventDefault();
+
+		if (this.state.portfolioPassword !== this.state.confirmedPassword) {
+			this.setState({
+				confirmedPassword: '',
+				confirmedPasswordError: 'Confirmed password doesn\'t match password',
+			});
+			this.confirmPasswordInput.focus();
+			return;
+		}
+
+		this.setState({confirmedPasswordError: null});
 
 		this.props.setLoginView('CreatePortfolioStep2');
 		this.props.setLoginProgress(0.50);
@@ -214,8 +246,10 @@ class CreatePortfolio extends React.Component {
 					{...this.state}
 					activeView={activeView}
 					component={CreatePortfolioStep1}
+					setConfirmPasswordInput={this.setConfirmPasswordInput}
 					handlePortfolioNameInputChange={this.handlePortfolioNameInputChange}
 					handlePortfolioPasswordInputChange={this.handlePortfolioPasswordInputChange}
+					handleConfirmPasswordInputChange={this.handleConfirmPasswordInputChange}
 					handleStep1Submit={this.handleStep1Submit}
 				/>
 				<View
