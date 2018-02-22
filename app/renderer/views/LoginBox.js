@@ -65,6 +65,11 @@ class LoginBox extends React.Component {
 	render() {
 		const {portfolios, selectedPortfolioId} = this.props;
 
+		if (portfolios.length === 0) {
+			this.props.setLoginView('NewPortfolio');
+			return null;
+		}
+
 		const selectData = portfolios.map(portfolio => {
 			return {
 				label: portfolio.name,
@@ -89,8 +94,7 @@ class LoginBox extends React.Component {
 						/>
 						<PlusButton
 							onClick={() => {
-								this.props.setLoginView('CreatePortfolio');
-								this.props.setLoginProgress(0.25);
+								this.props.setLoginView('NewPortfolio');
 							}}
 						/>
 					</div>

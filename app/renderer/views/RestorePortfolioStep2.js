@@ -3,12 +3,12 @@ import Button from '../components/Button';
 import Input from '../components/Input';
 import LoginBackButton from '../components/LoginBackButton';
 
-const CreatePortfolioStep1 = props => {
+const RestorePortfolioStep2 = props => {
 	return (
-		<div className="CreatePortfolio">
-			<LoginBackButton {...props} view="NewPortfolio" progress={0}/>
+		<div className="RestorePortfolio">
+			<LoginBackButton {...props} view="RestorePortfolioStep1" progress={0.33}/>
 			<h1>Create New Portfolio</h1>
-			<form onSubmit={props.handleStep1Submit} style={{marginTop: '20px'}}>
+			<form onSubmit={props.handleStep2Submit} style={{marginTop: '20px'}}>
 				<div className="form-group">
 					<Input
 						onChange={props.handlePortfolioNameInputChange}
@@ -53,4 +53,4 @@ const CreatePortfolioStep1 = props => {
 	);
 };
 
-export default CreatePortfolioStep1;
+export default RestorePortfolioStep2;
