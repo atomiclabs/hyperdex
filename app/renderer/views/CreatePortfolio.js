@@ -25,6 +25,10 @@ class CreatePortfolio extends React.Component {
 		this.setState({generatedSeedPhrase: bip39.generateMnemonic()});
 	};
 
+	setConfirmPasswordInput = input => {
+		this.confirmPasswordInput = input;
+	};
+
 	handlePortfolioNameInputChange = value => {
 		this.setState({portfolioName: value});
 	};
@@ -36,10 +40,6 @@ class CreatePortfolio extends React.Component {
 	handleConfirmPasswordInputChange = value => {
 		this.setState({confirmedPassword: value});
 	};
-
-	setConfirmPasswordInput = input => {
-		this.confirmPasswordInput = input;
-	}
 
 	handleStep1Submit = async event => {
 		event.preventDefault();

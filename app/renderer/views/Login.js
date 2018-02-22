@@ -3,8 +3,9 @@ import {is} from 'electron-util';
 import React from 'react';
 import Api from '../api';
 import Progress from '../components/Progress';
-import Welcome from './Welcome';
+import NewPortfolio from './NewPortfolio';
 import LoginBox from './LoginBox';
+import RestorePortfolio from './RestorePortfolio';
 import CreatePortfolio from './CreatePortfolio';
 import ForgotPassword from './ForgotPassword';
 import './Login.scss';
@@ -109,6 +110,17 @@ export default class Login extends React.Component {
 	}
 
 	renderSubview() {
+		if (this.state.activeView === 'NewPortfolio') {
+			return (
+				<NewPortfolio
+					{...this.props}
+					{...this.state}
+					setLoginView={this.setLoginView}
+					setLoginProgress={this.setLoginProgress}
+				/>
+			);
+		}
+
 		if (this.state.activeView === 'LoginBox') {
 			return (
 				<LoginBox
@@ -119,6 +131,20 @@ export default class Login extends React.Component {
 					setSelectedPortfolioId={this.setSelectedPortfolioId}
 					setLoginView={this.setLoginView}
 					setLoginProgress={this.setLoginProgress}
+				/>
+			);
+		}
+
+		if (this.state.activeView.startsWith('RestorePortfolio')) {
+			return (
+				<RestorePortfolio
+					{...this.props}
+					{...this.state}
+					loadPortfolios={this.loadPortfolios}
+					handleLogin={this.handleLogin}
+					setLoginView={this.setLoginView}
+					setLoginProgress={this.setLoginProgress}
+					activeLoginView={this.state.activeView}
 				/>
 			);
 		}
@@ -164,10 +190,6 @@ export default class Login extends React.Component {
 
 		if (portfolios === null) {
 			return null; // Not loaded yet
-		}
-
-		if (portfolios.length === 0 && this.state.activeView === 'LoginBox') {
-			return <Welcome setLoginView={this.setLoginView}/>;
 		}
 
 		return (
