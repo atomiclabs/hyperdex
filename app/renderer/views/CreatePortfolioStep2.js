@@ -10,7 +10,7 @@ const CreatePortfolioStep2 = props => {
 
 	return (
 		<div className="CreatePortfolio">
-			<LoginBackButton {...props} view="CreatePortfolioStep1" progress={0.25}/>
+			<LoginBackButton view="CreatePortfolioStep1" progress={0.25}/>
 			<h1>Seed Phrase for Your Portfolio</h1>
 			<div className="form-group" style={{width: '460px', marginTop: '20px'}}>
 				<div className="generated-seed-phrase-container">

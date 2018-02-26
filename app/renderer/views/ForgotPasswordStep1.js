@@ -6,7 +6,7 @@ import LoginBackButton from '../components/LoginBackButton';
 const ForgotPasswordStep1 = props => {
 	return (
 		<div className="ForgotPassword">
-			<LoginBackButton {...props} view="LoginBox" progress={0}/>
+			<LoginBackButton view="LoginBox" progress={0}/>
 			<h1>Enter Your Seed Phrase</h1>
 			<p>TODO: Put some explanation here on what to do.</p>
 			<div className="form-group" style={{width: '460px'}}>

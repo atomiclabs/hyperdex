@@ -1,6 +1,7 @@
 import {remote} from 'electron';
 import React from 'react';
 import View from '../components/View';
+import {sharedLoginContainer} from '../LoginContainer';
 import ForgotPasswordStep1 from './ForgotPasswordStep1';
 import ForgotPasswordStep2 from './ForgotPasswordStep2';
 import ForgotPasswordStep3 from './ForgotPasswordStep3';
@@ -26,8 +27,8 @@ class ForgotPassword extends React.Component {
 	};
 
 	handleClickConfirmSeedPhrase = () => {
-		this.props.setLoginView('ForgotPasswordStep2');
-		this.props.setLoginProgress(0.66);
+		sharedLoginContainer.setActiveView('ForgotPasswordStep2');
+		sharedLoginContainer.setProgress(0.66);
 	};
 
 	handlePasswordInputChange = value => {
@@ -57,31 +58,30 @@ class ForgotPassword extends React.Component {
 		this.setState({confirmedPasswordError: null});
 
 		await changePortfolioPassword({
-			id: this.props.selectedPortfolioId,
+			id: sharedLoginContainer.state.selectedPortfolioId,
 			seedPhrase: this.state.seedPhrase,
 			newPassword: this.state.password,
 		});
 
-		this.props.setLoginView('ForgotPasswordStep3');
-		this.props.setLoginProgress(1);
+		sharedLoginContainer.setActiveView('ForgotPasswordStep3');
+		sharedLoginContainer.setProgress(1);
 
-		await this.props.loadPortfolios();
-		await this.props.handleLogin(this.props.selectedPortfolioId, this.state.password);
+		await sharedLoginContainer.loadPortfolios();
+		await sharedLoginContainer.handleLogin(sharedLoginContainer.state.selectedPortfolioId, this.state.password);
 
 		// TODO: Need a progress indicator here as login takes a while
 	};
 
 	componentWillMount() {
-		this.props.setLoginView('ForgotPasswordStep1');
+		sharedLoginContainer.setActiveView('ForgotPasswordStep1');
 	}
 
 	render() {
-		const activeView = this.props.activeLoginView;
+		const activeView = sharedLoginContainer.state.activeView;
 
 		return (
 			<React.Fragment>
 				<View
-					{...this.props}
 					{...this.state}
 					activeView={activeView}
 					component={ForgotPasswordStep1}
@@ -89,7 +89,6 @@ class ForgotPassword extends React.Component {
 					handleClickConfirmSeedPhrase={this.handleClickConfirmSeedPhrase}
 				/>
 				<View
-					{...this.props}
 					{...this.state}
 					activeView={activeView}
 					component={ForgotPasswordStep2}
@@ -98,7 +97,10 @@ class ForgotPassword extends React.Component {
 					handleConfirmPasswordInputChange={this.handleConfirmPasswordInputChange}
 					handleSubmit={this.handleSubmit}
 				/>
-				<View activeView={activeView} component={ForgotPasswordStep3}/>
+				<View
+					activeView={activeView}
+					component={ForgotPasswordStep3}
+				/>
 			</React.Fragment>
 		);
 	}

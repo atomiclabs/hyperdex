@@ -6,7 +6,7 @@ import LoginBackButton from '../components/LoginBackButton';
 const CreatePortfolioStep3 = props => {
 	return (
 		<div className="CreatePortfolio">
-			<LoginBackButton {...props} view="CreatePortfolioStep2" progress={0.50}/>
+			<LoginBackButton view="CreatePortfolioStep2" progress={0.50}/>
 			<h1>Confirm Your Seed Phrase</h1>
 			<p>TODO: Put some explanation here on what to do.</p>
 			<form onSubmit={props.handleStep3Submit} style={{marginTop: '20px'}}>
