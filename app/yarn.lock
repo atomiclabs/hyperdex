@@ -19,10 +19,14 @@ ansi-styles@^3.1.0:
     color-convert "^1.9.0"
 
 argparse@^1.0.7:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.9.tgz#73d83bc263f86e97f8cc4f6bae1b0e90a7d22c86"
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
   dependencies:
     sprintf-js "~1.0.2"
+
+asap@~2.0.3:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
 
 balanced-match@^1.0.0:
   version "1.0.0"
@@ -45,9 +49,9 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
-builder-util-runtime@~4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/builder-util-runtime/-/builder-util-runtime-4.0.0.tgz#783a4148164e8f9e2ffd4ffa4c2e0a0886e19496"
+builder-util-runtime@~4.0.3:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/builder-util-runtime/-/builder-util-runtime-4.0.5.tgz#5340cf9886b9283ea6e5b20dc09b5e3e461aef62"
   dependencies:
     bluebird-lst "^1.0.5"
     debug "^3.1.0"
@@ -110,6 +114,10 @@ conf@^1.3.0:
     make-dir "^1.0.0"
     pkg-up "^2.0.0"
     write-file-atomic "^2.3.0"
+
+core-js@^1.0.0:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
 
 core-util-is@~1.0.0:
   version "1.0.2"
@@ -209,8 +217,8 @@ electron-localshortcut@^3.0.0:
     keyboardevents-areequal "^0.2.1"
 
 electron-log@^2.2.13:
-  version "2.2.13"
-  resolved "https://registry.yarnpkg.com/electron-log/-/electron-log-2.2.13.tgz#15571ca695484fec39ddb9b3a9ff6e83e2a0d980"
+  version "2.2.14"
+  resolved "https://registry.yarnpkg.com/electron-log/-/electron-log-2.2.14.tgz#2123319ccb8d70b0db07f0eda57d5823cb42b4b0"
 
 electron-serve@^0.1.0:
   version "0.1.0"
@@ -241,18 +249,18 @@ electron-unhandled@^1.0.0:
     ensure-error "^1.0.0"
 
 electron-updater@^2.18.2:
-  version "2.18.2"
-  resolved "https://registry.yarnpkg.com/electron-updater/-/electron-updater-2.18.2.tgz#776b50389b849535425e9e2893d7943ee61e8e3f"
+  version "2.20.1"
+  resolved "https://registry.yarnpkg.com/electron-updater/-/electron-updater-2.20.1.tgz#3d2714a3e472fbf198f6053daf8fd12209101aa2"
   dependencies:
     bluebird-lst "^1.0.5"
-    builder-util-runtime "~4.0.0"
+    builder-util-runtime "~4.0.3"
     electron-is-dev "^0.3.0"
     fs-extra-p "^4.5.0"
     js-yaml "^3.10.0"
     lazy-val "^1.0.3"
     lodash.isequal "^4.5.0"
-    semver "^5.4.1"
-    source-map-support "^0.5.0"
+    semver "^5.5.0"
+    source-map-support "^0.5.2"
 
 electron-util@^0.3.0:
   version "0.3.0"
@@ -266,6 +274,12 @@ electron-util@^0.5.0:
   resolved "https://registry.yarnpkg.com/electron-util/-/electron-util-0.5.0.tgz#4f3029c3b51a840277f32ab8757bd45aa1e75c23"
   dependencies:
     electron-is-dev "^0.3.0"
+
+encoding@^0.1.11:
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/encoding/-/encoding-0.1.12.tgz#538b66f3ee62cd1ab51ec323829d1f9480c74beb"
+  dependencies:
+    iconv-lite "~0.4.13"
 
 ensure-error@^1.0.0:
   version "1.0.0"
@@ -306,6 +320,18 @@ fast-levenshtein@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
 
+fbjs@^0.8.16:
+  version "0.8.16"
+  resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.16.tgz#5e67432f550dc41b572bf55847b8aca64e5337db"
+  dependencies:
+    core-js "^1.0.0"
+    isomorphic-fetch "^2.1.1"
+    loose-envify "^1.0.0"
+    object-assign "^4.1.0"
+    promise "^7.1.1"
+    setimmediate "^1.0.5"
+    ua-parser-js "^0.7.9"
+
 filename-reserved-regex@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/filename-reserved-regex/-/filename-reserved-regex-2.0.0.tgz#abf73dfab735d045440abfea2d91f389ebbfa229"
@@ -325,8 +351,8 @@ find-up@^2.1.0:
     locate-path "^2.0.0"
 
 fs-extra-p@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/fs-extra-p/-/fs-extra-p-4.5.0.tgz#b79f3f3fcc0b5e57b7e7caeb06159f958ef15fe8"
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/fs-extra-p/-/fs-extra-p-4.5.2.tgz#0a22aba489284d17f375d5dc5139aa777fe2df51"
   dependencies:
     bluebird-lst "^1.0.5"
     fs-extra "^5.0.0"
@@ -368,9 +394,13 @@ hash_file@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/hash_file/-/hash_file-0.1.1.tgz#3210e85dfb4ed6eb640351e02a48b0d0db327878"
 
-hoist-non-react-statics@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.3.1.tgz#343db84c6018c650778898240135a1420ee22ce0"
+hoist-non-react-statics@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.0.tgz#d2ca2dfc19c5a91c5a6615ce8e564ef0347e2a40"
+
+iconv-lite@~0.4.13:
+  version "0.4.19"
+  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.19.tgz#f7468f60135f5e5dad3399c0a81be9a1603a082b"
 
 imurmurhash@^0.1.4:
   version "0.1.4"
@@ -404,9 +434,24 @@ is-plain-obj@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-1.1.0.tgz#71a50c8429dfca773c92a390a4a03b39fcd51d3e"
 
+is-stream@^1.0.1:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/is-stream/-/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
+
 isarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
+
+isomorphic-fetch@^2.1.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz#611ae1acf14f5e81f729507472819fe9733558a9"
+  dependencies:
+    node-fetch "^1.0.1"
+    whatwg-fetch ">=0.10.0"
+
+js-tokens@^3.0.0:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
 js-yaml@^3.10.0:
   version "3.10.0"
@@ -457,6 +502,12 @@ lodash.isequal@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
 
+loose-envify@^1.0.0, loose-envify@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.3.1.tgz#d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848"
+  dependencies:
+    js-tokens "^3.0.0"
+
 make-dir@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-1.1.0.tgz#19b4369fe48c116f53c2af95ad102c0e39e85d51"
@@ -492,6 +543,17 @@ node-dir@^0.1.17:
   resolved "https://registry.yarnpkg.com/node-dir/-/node-dir-0.1.17.tgz#5f5665d93351335caabef8f1c554516cf5f1e4e5"
   dependencies:
     minimatch "^3.0.2"
+
+node-fetch@^1.0.1:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.7.3.tgz#980f6f72d85211a5347c6b2bc18c5b84c3eb47ef"
+  dependencies:
+    encoding "^0.1.11"
+    is-stream "^1.0.1"
+
+object-assign@^4.1.0, object-assign@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
 p-limit@^1.1.0:
   version "1.1.0"
@@ -552,6 +614,20 @@ process@~0.5.1:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/process/-/process-0.5.2.tgz#1638d8a8e34c2f440a91db95ab9aeb677fc185cf"
 
+promise@^7.1.1:
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/promise/-/promise-7.3.1.tgz#064b72602b18f90f29192b8b1bc418ffd1ebd3bf"
+  dependencies:
+    asap "~2.0.3"
+
+prop-types@^15.6.0:
+  version "15.6.0"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
+  dependencies:
+    fbjs "^0.8.16"
+    loose-envify "^1.3.1"
+    object-assign "^4.1.1"
+
 pupa@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/pupa/-/pupa-1.0.0.tgz#9a9568a5af7e657b8462a6e9d5328743560ceff6"
@@ -564,19 +640,14 @@ randoma@^1.1.0:
     color "^2.0.1"
     park-miller "^1.0.0"
 
-react-hot-loader@^4.0.0-beta.18:
-  version "4.0.0-beta.18"
-  resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.0.0-beta.18.tgz#5a3d1b5bd813633380b88c0c660019dbf638975d"
+react-hot-loader@^4.0.0-rc.0:
+  version "4.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.0.0-rc.0.tgz#54d931dafeface5119c741d44ccc3e75fbb432e8"
   dependencies:
     fast-levenshtein "^2.0.6"
     global "^4.3.0"
-    hoist-non-react-statics "^2.3.1"
-    react-stand-in "^4.0.0-beta.18"
-
-react-stand-in@^4.0.0-beta.18:
-  version "4.0.0-beta.18"
-  resolved "https://registry.yarnpkg.com/react-stand-in/-/react-stand-in-4.0.0-beta.18.tgz#67d83309ae5d95526a2d1124beaa7ab093085cb2"
-  dependencies:
+    hoist-non-react-statics "^2.5.0"
+    prop-types "^15.6.0"
     shallowequal "^1.0.2"
 
 readable-stream@^2.1.5:
@@ -606,9 +677,13 @@ sax@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
-semver@^5.4.1:
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
+semver@^5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
+
+setimmediate@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/setimmediate/-/setimmediate-1.0.5.tgz#290cbb232e306942d7d7ea9b83732ab7856f8285"
 
 sha.js@^2.4.0, sha.js@^2.4.8:
   version "2.4.9"
@@ -655,9 +730,9 @@ sort-keys@^2.0.0:
   dependencies:
     is-plain-obj "^1.0.0"
 
-source-map-support@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.0.tgz#2018a7ad2bdf8faf2691e5fddab26bed5a2bacab"
+source-map-support@^0.5.2:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.3.tgz#2b3d5fff298cfa4d1afd7d4352d569e9a0158e76"
   dependencies:
     source-map "^0.6.0"
 
@@ -710,6 +785,10 @@ trim-repeated@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.2"
 
+ua-parser-js@^0.7.9:
+  version "0.7.17"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.17.tgz#e9ec5f9498b9ec910e7ae3ac626a805c4d09ecac"
+
 "unicode@>= 0.3.1":
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/unicode/-/unicode-10.0.0.tgz#e5d51c1db93b6c71a0b879e0b0c4af7e6fdf688e"
@@ -728,6 +807,10 @@ unused-filename@^1.0.0:
 util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
+
+whatwg-fetch@>=0.10.0:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.3.tgz#9c84ec2dcf68187ff00bc64e1274b442176e1c84"
 
 write-file-atomic@^2.0.0, write-file-atomic@^2.3.0:
   version "2.3.0"

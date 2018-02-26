@@ -1,7 +1,6 @@
 'use strict';
 const path = require('path');
 const webpack = require('webpack');
-const NodeEnvPlugin = require('node-env-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
@@ -11,19 +10,20 @@ const PATHS = {
 };
 
 module.exports = {
+	mode: 'development',
 	entry: './app/renderer',
 	output: {
 		path: PATHS.dist,
 		filename: 'bundle.js',
 	},
 	target: 'electron-renderer',
-	devtool: NodeEnvPlugin.devtool,
 	devServer: {
-		contentBase: PATHS.dist,
-		hot: true,
 		historyApiFallback: true,
 		overlay: true,
 		noInfo: true,
+	},
+	optimization: {
+		minimize: false,
 	},
 	resolve: {
 		extensions: [
@@ -80,7 +80,6 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new NodeEnvPlugin(),
 		new CleanWebpackPlugin([PATHS.dist]),
 		new CopyPlugin([
 			{
@@ -92,8 +91,6 @@ module.exports = {
 		new webpack.ProvidePlugin({
 			$: 'jquery',
 			jQuery: 'jquery',
-			Popper: 'popper.js/dist/umd/popper.js',
 		}),
-		new webpack.NamedModulesPlugin(),
 	],
 };

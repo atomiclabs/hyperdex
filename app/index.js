@@ -10,7 +10,10 @@ const config = require('./config');
 const marketmaker = require('./marketmaker');
 
 require('electron-unhandled')();
-require('electron-debug')({enabled: true, showDevTools: true});
+require('electron-debug')({
+	enabled: true, // TODO: Remove this when we ship the app
+	showDevTools: true,
+});
 require('electron-context-menu')();
 
 try {
