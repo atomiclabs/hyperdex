@@ -66,6 +66,14 @@ export default class Login extends React.Component {
 	portfolioFromId = id => this.state.portfolios.find(portfolio => portfolio.id === id);
 
 	handleLogin = async (portfolioId, password) => {
+		// TODO: Windows can't login yet. Need to find out why.
+		if (is.windows) {
+			setTimeout(() => {
+				location.reload();
+			}, 1000);
+			return;
+		}
+
 		const portfolio = this.portfolioFromId(portfolioId);
 
 		// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker
@@ -182,7 +190,7 @@ export default class Login extends React.Component {
 		// Enforce window size
 		const win = remote.getCurrentWindow();
 		win.setResizable(false);
-		win.setSize(660, 450, true);
+		win.setSize(660, is.windows ? 500 : 450, true);
 	}
 
 	render() {

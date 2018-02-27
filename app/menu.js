@@ -18,13 +18,13 @@ function sendAction(action) {
 }
 
 const viewSubmenu = [
-	{
-		label: 'Toggle Dark Mode',
-		accelerator: 'CmdOrCtrl+D',
-		click() {
-			sendAction('toggle-dark-mode');
-		},
-	},
+	// {
+	// 	label: 'Toggle Dark Mode',
+	// 	accelerator: 'CmdOrCtrl+D',
+	// 	click() {
+	// 		sendAction('toggle-dark-mode');
+	// 	},
+	// },
 ];
 
 const helpSubmenu = [
@@ -128,18 +128,18 @@ const macosTpl = [
 			},
 		],
 	},
-	{
-		label: 'File',
-		submenu: [
-			{
-				label: 'New Transaction', // TODO
-				accelerator: 'Cmd+N',
-				click() {
-					// - sendAction('something');
-				},
-			},
-		],
-	},
+	// {
+	// 	label: 'File',
+	// 	submenu: [
+	// 		{
+	// 			label: 'New Transaction', // TODO
+	// 			accelerator: 'Cmd+N',
+	// 			click() {
+	// 				// - sendAction('something');
+	// 			},
+	// 		},
+	// 	],
+	// },
 	{
 		role: 'editMenu',
 	},
@@ -177,21 +177,16 @@ const otherTpl = [
 	{
 		label: 'File',
 		submenu: [
-			{
-				label: 'File',
-				submenu: [
-					{
-						label: 'New Transaction', // TODO
-						accelerator: 'Cmd+N',
-						click() {
-							// - sendAction('something');
-						},
-					},
-				],
-			},
-			{
-				type: 'separator',
-			},
+			// {
+			// 	label: 'New Transaction', // TODO
+			// 	accelerator: 'Cmd+N',
+			// 	click() {
+			// 		// - sendAction('something');
+			// 	},
+			// },
+			// {
+			// 	type: 'separator',
+			// },
 			{
 				label: 'Log Out',
 				click() {

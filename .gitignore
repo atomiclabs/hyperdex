@@ -8,3 +8,5 @@ node_modules
 !/app/marketmaker/bin/darwin/marketmaker
 !/app/marketmaker/bin/linux/marketmaker
 !/app/marketmaker/bin/win32/marketmaker.exe
+!/app/marketmaker/bin/win32/libcurl.dll
+!/app/marketmaker/bin/win32/nanomsg.dll
