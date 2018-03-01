@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../components/Button';
-import {sharedLoginContainer} from '../LoginContainer';
+import {sharedLoginContainer} from '../containers/Login';
 import LoginBackButton from '../components/LoginBackButton';
 import './NewPortfolio.scss';
 

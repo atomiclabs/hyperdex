@@ -1,9 +1,9 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'unstated';
-import App from './App';
-import {sharedAppContainer} from './AppContainer';
-import {sharedLoginContainer} from './LoginContainer';
+import App from './views/App';
+import {sharedAppContainer} from './containers/App';
+import {sharedLoginContainer} from './containers/Login';
 
 require('electron-unhandled')();
 

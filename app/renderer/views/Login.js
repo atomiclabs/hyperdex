@@ -2,7 +2,7 @@ import {remote} from 'electron';
 import React from 'react';
 import {Subscribe} from 'unstated';
 import Progress from '../components/Progress';
-import LoginContainer, {sharedLoginContainer} from '../LoginContainer';
+import LoginContainer, {sharedLoginContainer} from '../containers/Login';
 import NewPortfolio from './NewPortfolio';
 import LoginBox from './LoginBox';
 import RestorePortfolio from './RestorePortfolio';

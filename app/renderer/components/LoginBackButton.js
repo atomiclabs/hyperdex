@@ -1,5 +1,5 @@
 import React from 'react';
-import {sharedLoginContainer} from '../LoginContainer';
+import {sharedLoginContainer} from '../containers/Login';
 import BackButton from './BackButton';
 import './LoginBackButton.scss';
 

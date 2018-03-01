@@ -5,7 +5,7 @@ import Select from '../components/Select';
 import SelectOption from '../components/SelectOption';
 import Link from '../components/Link';
 import PlusButton from '../components/PlusButton';
-import {sharedLoginContainer} from '../LoginContainer';
+import {sharedLoginContainer} from '../containers/Login';
 import './LoginBox.scss';
 
 class LoginBox extends React.Component {

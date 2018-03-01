@@ -2,7 +2,7 @@ import {remote} from 'electron';
 import React from 'react';
 import bip39 from 'bip39';
 import View from '../components/View';
-import {sharedLoginContainer} from '../LoginContainer';
+import {sharedLoginContainer} from '../containers/Login';
 import CreatePortfolioStep1 from './CreatePortfolioStep1';
 import CreatePortfolioStep2 from './CreatePortfolioStep2';
 import CreatePortfolioStep3 from './CreatePortfolioStep3';

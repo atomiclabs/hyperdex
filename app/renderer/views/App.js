@@ -1,17 +1,17 @@
 import React from 'react';
 import {hot} from 'react-hot-loader';
 import {Subscribe} from 'unstated';
-import './styles/index.scss';
-import View from './components/View';
-import Login from './views/Login';
-import Dashboard from './views/Dashboard';
-import Swap from './views/Swap';
-import Exchange from './views/Exchange';
-import Trades from './views/Trades';
-import Funds from './views/Funds';
-import Preferences from './views/Preferences';
-import ComponentsPreview from './views/ComponentsPreview';
-import AppContainer from './AppContainer';
+import '../styles/index.scss'; // eslint-disable-line import/extensions
+import View from '../components/View';
+import AppContainer from '../containers/App';
+import Login from './Login';
+import Dashboard from './Dashboard';
+import Swap from './Swap';
+import Exchange from './Exchange';
+import Trades from './Trades';
+import Funds from './Funds';
+import Preferences from './Preferences';
+import ComponentsPreview from './ComponentsPreview';
 
 const App = () => (
 	<Subscribe to={[AppContainer]}>

@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import LoginBackButton from '../components/LoginBackButton';
-import {sharedLoginContainer} from '../LoginContainer';
+import {sharedLoginContainer} from '../containers/Login';
 
 const ForgotPasswordStep2 = props => {
 	const portfolio = sharedLoginContainer.selectedPortfolio;

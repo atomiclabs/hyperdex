@@ -1,6 +1,6 @@
 import React from 'react';
 import {Subscribe} from 'unstated';
-import AppContainer from '../AppContainer';
+import AppContainer from '../containers/App';
 import TabView from './TabView';
 
 const Funds = () => (

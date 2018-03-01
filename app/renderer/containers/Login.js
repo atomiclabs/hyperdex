@@ -1,8 +1,8 @@
 import {remote, ipcRenderer as ipc} from 'electron';
 import {is} from 'electron-util';
 import {Container} from 'unstated';
-import Api from './api';
-import {sharedAppContainer} from './AppContainer';
+import Api from '../api';
+import {sharedAppContainer} from './App';
 
 const config = remote.require('./config');
 const {getPortfolios, decryptSeedPhrase} = remote.require('./portfolio-util');
