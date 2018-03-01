@@ -1,7 +1,7 @@
 import {remote} from 'electron';
 import React from 'react';
 import View from '../components/View';
-import {sharedLoginContainer} from '../containers/Login';
+import {loginContainer} from '../containers/Login';
 import RestorePortfolioStep1 from './RestorePortfolioStep1';
 import RestorePortfolioStep2 from './RestorePortfolioStep2';
 import RestorePortfolioStep3 from './RestorePortfolioStep3';
@@ -24,8 +24,8 @@ class RestorePortfolio extends React.Component {
 	handleStep1Submit = async event => {
 		event.preventDefault();
 
-		sharedLoginContainer.setActiveView('RestorePortfolioStep2');
-		sharedLoginContainer.setProgress(0.66);
+		loginContainer.setActiveView('RestorePortfolioStep2');
+		loginContainer.setProgress(0.66);
 	};
 
 	setConfirmPasswordInput = input => {
@@ -64,19 +64,19 @@ class RestorePortfolio extends React.Component {
 			seedPhrase: this.state.seedPhrase,
 		});
 
-		sharedLoginContainer.setActiveView('RestorePortfolioStep3');
-		sharedLoginContainer.setProgress(1);
+		loginContainer.setActiveView('RestorePortfolioStep3');
+		loginContainer.setProgress(1);
 
-		await sharedLoginContainer.loadPortfolios();
-		await sharedLoginContainer.handleLogin(portfolioId, this.state.portfolioPassword);
+		await loginContainer.loadPortfolios();
+		await loginContainer.handleLogin(portfolioId, this.state.portfolioPassword);
 	};
 
 	componentWillMount() {
-		sharedLoginContainer.setActiveView('RestorePortfolioStep1');
+		loginContainer.setActiveView('RestorePortfolioStep1');
 	}
 
 	render() {
-		const activeView = sharedLoginContainer.state.activeView;
+		const activeView = loginContainer.state.activeView;
 
 		return (
 			<React.Fragment>

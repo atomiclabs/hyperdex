@@ -1,8 +1,8 @@
 import {remote, ipcRenderer as ipc} from 'electron';
 import {is} from 'electron-util';
 import {Container} from 'unstated';
-import Api from '../api';
-import {appContainer} from './App';
+import Api from './api';
+import {appContainer} from './AppContainer';
 
 const config = remote.require('./config');
 const {getPortfolios, decryptSeedPhrase} = remote.require('./portfolio-util');
@@ -112,7 +112,7 @@ class LoginContainer extends Container {
 	}
 }
 
-const loginContainer = new LoginContainer();
+const sharedLoginContainer = new LoginContainer();
 
 export default LoginContainer;
-export {loginContainer};
+export {sharedLoginContainer};

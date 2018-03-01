@@ -1,12 +1,12 @@
 import React from 'react';
-import {sharedLoginContainer} from '../containers/Login';
+import {loginContainer} from '../containers/Login';
 import BackButton from './BackButton';
 import './LoginBackButton.scss';
 
 const LoginBackButton = props => (
 	<BackButton className={`${props.className} LoginBackButton`} onClick={() => {
-		sharedLoginContainer.setActiveView(props.view);
-		sharedLoginContainer.setProgress(props.progress);
+		loginContainer.setActiveView(props.view);
+		loginContainer.setProgress(props.progress);
 	}}/>
 );
 

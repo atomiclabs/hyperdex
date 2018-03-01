@@ -2,7 +2,7 @@ import {remote} from 'electron';
 import React from 'react';
 import bip39 from 'bip39';
 import View from '../components/View';
-import {sharedLoginContainer} from '../containers/Login';
+import {loginContainer} from '../containers/Login';
 import CreatePortfolioStep1 from './CreatePortfolioStep1';
 import CreatePortfolioStep2 from './CreatePortfolioStep2';
 import CreatePortfolioStep3 from './CreatePortfolioStep3';
@@ -56,13 +56,13 @@ class CreatePortfolio extends React.Component {
 
 		this.setState({confirmedPasswordError: null});
 
-		sharedLoginContainer.setActiveView('CreatePortfolioStep2');
-		sharedLoginContainer.setProgress(0.50);
+		loginContainer.setActiveView('CreatePortfolioStep2');
+		loginContainer.setProgress(0.50);
 	};
 
 	handleStep2ClickNext = () => {
-		sharedLoginContainer.setActiveView('CreatePortfolioStep3');
-		sharedLoginContainer.setProgress(0.75);
+		loginContainer.setActiveView('CreatePortfolioStep3');
+		loginContainer.setProgress(0.75);
 	};
 
 	checkSeedPhrase = () => {
@@ -100,22 +100,22 @@ class CreatePortfolio extends React.Component {
 			seedPhrase: this.state.generatedSeedPhrase,
 		});
 
-		sharedLoginContainer.setActiveView('CreatePortfolioStep4');
-		sharedLoginContainer.setProgress(1);
+		loginContainer.setActiveView('CreatePortfolioStep4');
+		loginContainer.setProgress(1);
 
-		await sharedLoginContainer.loadPortfolios();
-		await sharedLoginContainer.handleLogin(portfolioId, this.state.portfolioPassword);
+		await loginContainer.loadPortfolios();
+		await loginContainer.handleLogin(portfolioId, this.state.portfolioPassword);
 
 		// TODO: Need a progress indicator here as login takes a while
 	};
 
 	componentWillMount() {
 		this.generateSeedPhrase();
-		sharedLoginContainer.setActiveView('CreatePortfolioStep1');
+		loginContainer.setActiveView('CreatePortfolioStep1');
 	}
 
 	render() {
-		const activeView = sharedLoginContainer.state.activeView;
+		const activeView = loginContainer.state.activeView;
 
 		// TODO: Clean this up
 		return (

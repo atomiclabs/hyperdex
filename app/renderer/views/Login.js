@@ -2,7 +2,7 @@ import {remote} from 'electron';
 import React from 'react';
 import {Subscribe} from 'unstated';
 import Progress from '../components/Progress';
-import LoginContainer, {sharedLoginContainer} from '../containers/Login';
+import LoginContainer, {loginContainer} from '../containers/Login';
 import NewPortfolio from './NewPortfolio';
 import LoginBox from './LoginBox';
 import RestorePortfolio from './RestorePortfolio';
@@ -12,7 +12,7 @@ import './Login.scss';
 
 class Login extends React.Component {
 	renderSubview() {
-		const view = sharedLoginContainer.state.activeView;
+		const view = loginContainer.state.activeView;
 
 		if (view === 'NewPortfolio') {
 			return <NewPortfolio/>;

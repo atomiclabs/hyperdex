@@ -2,10 +2,10 @@ import React from 'react';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import LoginBackButton from '../components/LoginBackButton';
-import {sharedLoginContainer} from '../containers/Login';
+import {loginContainer} from '../containers/Login';
 
 const ForgotPasswordStep2 = props => {
-	const portfolio = sharedLoginContainer.selectedPortfolio;
+	const portfolio = loginContainer.selectedPortfolio;
 
 	// TODO(sindresorhus): Add the identicon to the portfolio field
 

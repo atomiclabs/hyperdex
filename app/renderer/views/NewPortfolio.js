@@ -1,12 +1,12 @@
 import React from 'react';
 import Button from '../components/Button';
-import {sharedLoginContainer} from '../containers/Login';
+import {loginContainer} from '../containers/Login';
 import LoginBackButton from '../components/LoginBackButton';
 import './NewPortfolio.scss';
 
 const NewPortfolio = () => (
 	<div className="NewPortfolio">
-		{sharedLoginContainer.state.portfolios.length > 0 &&
+		{loginContainer.state.portfolios.length > 0 &&
 			<LoginBackButton view="LoginBox" progress={0}/>
 		}
 		<h1 style={{marginBottom: '24px'}}>Welcome to HyperDEX!</h1>
@@ -18,16 +18,16 @@ const NewPortfolio = () => (
 			<Button
 				value="Restore Portfolio"
 				onClick={() => {
-					sharedLoginContainer.setActiveView('RestorePortfolio');
-					sharedLoginContainer.setProgress(0.33);
+					loginContainer.setActiveView('RestorePortfolio');
+					loginContainer.setProgress(0.33);
 				}}
 			/>
 			<Button
 				primary
 				value="Create New Portfolio"
 				onClick={() => {
-					sharedLoginContainer.setActiveView('CreatePortfolio');
-					sharedLoginContainer.setProgress(0.25);
+					loginContainer.setActiveView('CreatePortfolio');
+					loginContainer.setProgress(0.25);
 				}}
 			/>
 		</div>

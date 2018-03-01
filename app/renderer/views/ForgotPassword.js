@@ -1,7 +1,7 @@
 import {remote} from 'electron';
 import React from 'react';
 import View from '../components/View';
-import {sharedLoginContainer} from '../containers/Login';
+import {loginContainer} from '../containers/Login';
 import ForgotPasswordStep1 from './ForgotPasswordStep1';
 import ForgotPasswordStep2 from './ForgotPasswordStep2';
 import ForgotPasswordStep3 from './ForgotPasswordStep3';
@@ -27,8 +27,8 @@ class ForgotPassword extends React.Component {
 	};
 
 	handleClickConfirmSeedPhrase = () => {
-		sharedLoginContainer.setActiveView('ForgotPasswordStep2');
-		sharedLoginContainer.setProgress(0.66);
+		loginContainer.setActiveView('ForgotPasswordStep2');
+		loginContainer.setProgress(0.66);
 	};
 
 	handlePasswordInputChange = value => {
@@ -58,26 +58,26 @@ class ForgotPassword extends React.Component {
 		this.setState({confirmedPasswordError: null});
 
 		await changePortfolioPassword({
-			id: sharedLoginContainer.state.selectedPortfolioId,
+			id: loginContainer.state.selectedPortfolioId,
 			seedPhrase: this.state.seedPhrase,
 			newPassword: this.state.password,
 		});
 
-		sharedLoginContainer.setActiveView('ForgotPasswordStep3');
-		sharedLoginContainer.setProgress(1);
+		loginContainer.setActiveView('ForgotPasswordStep3');
+		loginContainer.setProgress(1);
 
-		await sharedLoginContainer.loadPortfolios();
-		await sharedLoginContainer.handleLogin(sharedLoginContainer.state.selectedPortfolioId, this.state.password);
+		await loginContainer.loadPortfolios();
+		await loginContainer.handleLogin(loginContainer.state.selectedPortfolioId, this.state.password);
 
 		// TODO: Need a progress indicator here as login takes a while
 	};
 
 	componentWillMount() {
-		sharedLoginContainer.setActiveView('ForgotPasswordStep1');
+		loginContainer.setActiveView('ForgotPasswordStep1');
 	}
 
 	render() {
-		const activeView = sharedLoginContainer.state.activeView;
+		const activeView = loginContainer.state.activeView;
 
 		return (
 			<React.Fragment>

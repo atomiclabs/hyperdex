@@ -5,7 +5,7 @@ import Select from '../components/Select';
 import SelectOption from '../components/SelectOption';
 import Link from '../components/Link';
 import PlusButton from '../components/PlusButton';
-import {sharedLoginContainer} from '../containers/Login';
+import {loginContainer} from '../containers/Login';
 import './LoginBox.scss';
 
 class LoginBox extends React.Component {
@@ -16,7 +16,7 @@ class LoginBox extends React.Component {
 
 	handleSelectChange = selectedOption => {
 		this.setState({passwordError: null});
-		sharedLoginContainer.setSelectedPortfolioId(selectedOption.value);
+		loginContainer.setSelectedPortfolioId(selectedOption.value);
 	};
 
 	handleSelectClose = () => {
@@ -43,11 +43,11 @@ class LoginBox extends React.Component {
 			passwordError: null,
 		});
 
-		const {selectedPortfolioId} = sharedLoginContainer.state;
+		const {selectedPortfolioId} = loginContainer.state;
 		const {passwordInputValue} = this.state;
 
 		try {
-			await sharedLoginContainer.handleLogin(selectedPortfolioId, passwordInputValue);
+			await loginContainer.handleLogin(selectedPortfolioId, passwordInputValue);
 		} catch (err) {
 			console.error(err);
 
@@ -64,10 +64,10 @@ class LoginBox extends React.Component {
 	};
 
 	render() {
-		const {portfolios, selectedPortfolioId} = sharedLoginContainer.state;
+		const {portfolios, selectedPortfolioId} = loginContainer.state;
 
 		if (portfolios.length === 0) {
-			sharedLoginContainer.setActiveView('NewPortfolio');
+			loginContainer.setActiveView('NewPortfolio');
 			return null;
 		}
 
@@ -95,7 +95,7 @@ class LoginBox extends React.Component {
 						/>
 						<PlusButton
 							onClick={() => {
-								sharedLoginContainer.setActiveView('NewPortfolio');
+								loginContainer.setActiveView('NewPortfolio');
 							}}
 						/>
 					</div>
@@ -118,8 +118,8 @@ class LoginBox extends React.Component {
 						<Button primary fullwidth type="submit" value="Login" disabled={!this.state.passwordInputValue || this.state.isCheckingPassword}/>
 						<Link
 							onClick={() => {
-								sharedLoginContainer.setActiveView('ForgotPassword');
-								sharedLoginContainer.setProgress(0.33);
+								loginContainer.setActiveView('ForgotPassword');
+								loginContainer.setProgress(0.33);
 							}}
 							style={{
 								fontSize: '13px',

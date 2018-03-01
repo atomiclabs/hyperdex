@@ -39,28 +39,28 @@ class AppContainer extends Container {
 	}
 }
 
-const sharedAppContainer = new AppContainer();
+const appContainer = new AppContainer();
 
 // TODO: The "Log Out" button should be disabled when logged out
 ipc.on('log-out', () => {
-	sharedAppContainer.logOut();
+	appContainer.logOut();
 });
 
 ipc.on('show-preferences', () => {
-	sharedAppContainer.setActiveView('Preferences');
+	appContainer.setActiveView('Preferences');
 });
 
 if (is.development) {
 	// Expose setState for debugging in DevTools
-	window.setState = sharedAppContainer.setState.bind(sharedAppContainer);
-	window.getState = () => sharedAppContainer.state;
+	window.setState = appContainer.setState.bind(appContainer);
+	window.getState = () => appContainer.state;
 	window.config = electron.remote.require('./config');
 }
 
 function handleDarkMode() {
 	const applyDarkMode = () => {
 		const darkMode = config.get('darkMode');
-		sharedAppContainer.setState({darkMode});
+		appContainer.setState({darkMode});
 		document.documentElement.classList.toggle('dark-mode', darkMode);
 	};
 
@@ -75,4 +75,4 @@ function handleDarkMode() {
 handleDarkMode();
 
 export default AppContainer;
-export {sharedAppContainer};
+export {appContainer};

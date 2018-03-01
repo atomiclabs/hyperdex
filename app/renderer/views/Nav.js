@@ -1,9 +1,9 @@
 import React from 'react';
-import {sharedAppContainer} from '../containers/App';
+import {appContainer} from '../containers/App';
 
 const IconNavItem = props => {
-	const setView = () => sharedAppContainer.setActiveView(props.to);
-	const active = sharedAppContainer.state.activeView === props.to;
+	const setView = () => appContainer.setActiveView(props.to);
+	const active = appContainer.state.activeView === props.to;
 
 	return (
 		<li className="nav-item">
