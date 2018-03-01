@@ -40,8 +40,8 @@ class Form extends React.Component {
 	}
 }
 
-const Preferences = props => (
-	<TabView {...props} title="Preferences">
+const Preferences = () => (
+	<TabView title="Preferences">
 		<Form/>
 	</TabView>
 );

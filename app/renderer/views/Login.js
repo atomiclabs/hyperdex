@@ -1,8 +1,8 @@
-import {remote, ipcRenderer as ipc} from 'electron';
-import {is} from 'electron-util';
+import {remote} from 'electron';
 import React from 'react';
-import Api from '../api';
+import {Subscribe} from 'unstated';
 import Progress from '../components/Progress';
+import LoginContainer, {loginContainer} from '../containers/Login';
 import NewPortfolio from './NewPortfolio';
 import LoginBox from './LoginBox';
 import RestorePortfolio from './RestorePortfolio';
@@ -10,179 +10,28 @@ import CreatePortfolio from './CreatePortfolio';
 import ForgotPassword from './ForgotPassword';
 import './Login.scss';
 
-const config = remote.require('./config');
-const {getPortfolios, decryptSeedPhrase} = remote.require('./portfolio-util');
-
-const initMarketmaker = seedPhrase => new Promise(resolve => {
-	ipc.send('start-marketmaker', {seedPhrase});
-
-	ipc.on('marketmaker-started', async (event, port) => {
-		resolve(`http://127.0.0.1:${port}`);
-	});
-});
-
-const initApi = async seedPhrase => {
-	const config = remote.require('./config');
-
-	let url = config.get('marketmakerUrl');
-	if (url) {
-		console.log('Using custom marketmaker URL:', url);
-	} else {
-		url = await initMarketmaker(seedPhrase);
-	}
-
-	return new Api({
-		endpoint: url,
-		seedPhrase,
-	});
-};
-
-export default class Login extends React.Component {
-	state = {
-		portfolios: null,
-		selectedPortfolioId: remote.require('./config').get('lastActivePortfolioId'),
-		activeView: 'LoginBox',
-		progress: 0,
-	};
-
-	setLoginView = view => {
-		this.setState({activeView: view});
-	};
-
-	setLoginProgress = progress => {
-		this.setState({progress});
-	};
-
-	setSelectedPortfolioId = id => {
-		this.setState({selectedPortfolioId: id});
-	};
-
-	loadPortfolios = async () => {
-		this.setState({
-			portfolios: await getPortfolios(),
-		});
-	}
-
-	portfolioFromId = id => this.state.portfolios.find(portfolio => portfolio.id === id);
-
-	handleLogin = async (portfolioId, password) => {
-		// TODO: Windows can't login yet. Need to find out why.
-		if (is.windows) {
-			setTimeout(() => {
-				location.reload();
-			}, 1000);
-			return;
-		}
-
-		const portfolio = this.portfolioFromId(portfolioId);
-
-		// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker
-		const seedPhrase = await decryptSeedPhrase(portfolio.encryptedSeedPhrase, password);
-		const api = await initApi(seedPhrase);
-
-		if (is.development) {
-			// Expose the API for debugging in DevTools
-			// Example: `api.debug({method: 'portfolio'})`
-			window.api = api;
-		}
-
-		// TODO: These should be defaults saved in the config and changeable by the user
-		await Promise.all([
-			api.enableCoin('KMD'),
-			api.enableCoin('VTC'),
-			api.enableCoin('LTC'),
-		]);
-
-		const {portfolio: currencies} = await api.portfolio();
-
-		config.set('lastActivePortfolioId', portfolio.id);
-
-		// Restore user-preferred window size
-		const win = remote.getCurrentWindow();
-		const {width, height} = config.get('windowState');
-		win.setResizable(true);
-		win.setSize(width, height, true);
-
-		this.props.setAppState({
-			activeView: 'Dashboard',
-			portfolio,
-			currencies,
-			api,
-		});
-	};
-
-	constructor(props) {
-		super(props);
-
-		this.loadPortfolios();
-	}
-
+class Login extends React.Component {
 	renderSubview() {
-		if (this.state.activeView === 'NewPortfolio') {
-			return (
-				<NewPortfolio
-					{...this.props}
-					{...this.state}
-					setLoginView={this.setLoginView}
-					setLoginProgress={this.setLoginProgress}
-				/>
-			);
+		const view = loginContainer.state.activeView;
+
+		if (view === 'NewPortfolio') {
+			return <NewPortfolio/>;
 		}
 
-		if (this.state.activeView === 'LoginBox') {
-			return (
-				<LoginBox
-					{...this.props}
-					{...this.state}
-					loadPortfolios={this.loadPortfolios}
-					handleLogin={this.handleLogin}
-					setSelectedPortfolioId={this.setSelectedPortfolioId}
-					setLoginView={this.setLoginView}
-					setLoginProgress={this.setLoginProgress}
-				/>
-			);
+		if (view === 'LoginBox') {
+			return <LoginBox/>;
 		}
 
-		if (this.state.activeView.startsWith('RestorePortfolio')) {
-			return (
-				<RestorePortfolio
-					{...this.props}
-					{...this.state}
-					loadPortfolios={this.loadPortfolios}
-					handleLogin={this.handleLogin}
-					setLoginView={this.setLoginView}
-					setLoginProgress={this.setLoginProgress}
-					activeLoginView={this.state.activeView}
-				/>
-			);
+		if (view.startsWith('RestorePortfolio')) {
+			return <RestorePortfolio/>;
 		}
 
-		if (this.state.activeView.startsWith('CreatePortfolio')) {
-			return (
-				<CreatePortfolio
-					{...this.props}
-					{...this.state}
-					loadPortfolios={this.loadPortfolios}
-					handleLogin={this.handleLogin}
-					setLoginView={this.setLoginView}
-					setLoginProgress={this.setLoginProgress}
-					activeLoginView={this.state.activeView}
-				/>
-			);
+		if (view.startsWith('CreatePortfolio')) {
+			return <CreatePortfolio/>;
 		}
 
-		if (this.state.activeView.startsWith('ForgotPassword')) {
-			return (
-				<ForgotPassword
-					{...this.props}
-					{...this.state}
-					loadPortfolios={this.loadPortfolios}
-					handleLogin={this.handleLogin}
-					setLoginView={this.setLoginView}
-					setLoginProgress={this.setLoginProgress}
-					activeLoginView={this.state.activeView}
-				/>
-			);
+		if (view.startsWith('ForgotPassword')) {
+			return <ForgotPassword/>;
 		}
 	}
 
@@ -190,24 +39,30 @@ export default class Login extends React.Component {
 		// Enforce window size
 		const win = remote.getCurrentWindow();
 		win.setResizable(false);
-		win.setSize(660, is.windows ? 500 : 450, true);
+		win.setSize(660, 450, true);
 	}
 
 	render() {
-		const {portfolios} = this.state;
-
-		if (portfolios === null) {
-			return null; // Not loaded yet
-		}
-
 		return (
-			<div className="Login container">
-				<Progress className="login-progress" value={this.state.progress}/>
-				<div className="is-centered">
-					<img className="hyperdex-icon" src="/assets/hyperdex-icon.svg" width="75" height="75"/>
-					{this.renderSubview()}
-				</div>
-			</div>
+			<Subscribe to={[LoginContainer]}>
+				{login => {
+					if (login.state.portfolios === null) {
+						return null; // Not loaded yet
+					}
+
+					return (
+						<div className="Login container">
+							<Progress className="login-progress" value={login.state.progress}/>
+							<div className="is-centered">
+								<img className="hyperdex-icon" src="/assets/hyperdex-icon.svg" width="75" height="75"/>
+								{this.renderSubview()}
+							</div>
+						</div>
+					);
+				}}
+			</Subscribe>
 		);
 	}
 }
+
+export default Login;

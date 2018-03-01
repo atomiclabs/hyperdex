@@ -2,6 +2,7 @@ import {remote} from 'electron';
 import React from 'react';
 import bip39 from 'bip39';
 import View from '../components/View';
+import {loginContainer} from '../containers/Login';
 import CreatePortfolioStep1 from './CreatePortfolioStep1';
 import CreatePortfolioStep2 from './CreatePortfolioStep2';
 import CreatePortfolioStep3 from './CreatePortfolioStep3';
@@ -55,13 +56,13 @@ class CreatePortfolio extends React.Component {
 
 		this.setState({confirmedPasswordError: null});
 
-		this.props.setLoginView('CreatePortfolioStep2');
-		this.props.setLoginProgress(0.50);
+		loginContainer.setActiveView('CreatePortfolioStep2');
+		loginContainer.setProgress(0.50);
 	};
 
 	handleStep2ClickNext = () => {
-		this.props.setLoginView('CreatePortfolioStep3');
-		this.props.setLoginProgress(0.75);
+		loginContainer.setActiveView('CreatePortfolioStep3');
+		loginContainer.setProgress(0.75);
 	};
 
 	checkSeedPhrase = () => {
@@ -99,27 +100,27 @@ class CreatePortfolio extends React.Component {
 			seedPhrase: this.state.generatedSeedPhrase,
 		});
 
-		this.props.setLoginView('CreatePortfolioStep4');
-		this.props.setLoginProgress(1);
+		loginContainer.setActiveView('CreatePortfolioStep4');
+		loginContainer.setProgress(1);
 
-		await this.props.loadPortfolios();
-		await this.props.handleLogin(portfolioId, this.state.portfolioPassword);
+		await loginContainer.loadPortfolios();
+		await loginContainer.handleLogin(portfolioId, this.state.portfolioPassword);
 
 		// TODO: Need a progress indicator here as login takes a while
 	};
 
 	componentWillMount() {
 		this.generateSeedPhrase();
-		this.props.setLoginView('CreatePortfolioStep1');
+		loginContainer.setActiveView('CreatePortfolioStep1');
 	}
 
 	render() {
-		const activeView = this.props.activeLoginView;
+		const activeView = loginContainer.state.activeView;
 
+		// TODO: Clean this up
 		return (
 			<React.Fragment>
 				<View
-					{...this.props}
 					{...this.state}
 					activeView={activeView}
 					component={CreatePortfolioStep1}
@@ -130,7 +131,6 @@ class CreatePortfolio extends React.Component {
 					handleStep1Submit={this.handleStep1Submit}
 				/>
 				<View
-					{...this.props}
 					{...this.state}
 					activeView={activeView}
 					component={CreatePortfolioStep2}
@@ -138,7 +138,6 @@ class CreatePortfolio extends React.Component {
 					handleStep2ClickNext={this.handleStep2ClickNext}
 				/>
 				<View
-					{...this.props}
 					{...this.state}
 					activeView={activeView}
 					component={CreatePortfolioStep3}

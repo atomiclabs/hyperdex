@@ -2,15 +2,16 @@ import React from 'react';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import LoginBackButton from '../components/LoginBackButton';
+import {loginContainer} from '../containers/Login';
 
 const ForgotPasswordStep2 = props => {
-	const portfolio = props.portfolios.find(portfolio => portfolio.id === props.selectedPortfolioId);
+	const portfolio = loginContainer.selectedPortfolio;
 
 	// TODO(sindresorhus): Add the identicon to the portfolio field
 
 	return (
 		<div className="ForgotPassword">
-			<LoginBackButton {...props} view="ForgotPasswordStep1" progress={0.33}/>
+			<LoginBackButton view="ForgotPasswordStep1" progress={0.33}/>
 			<h1>Set New Password</h1>
 			<form onSubmit={props.handleSubmit} style={{marginTop: '20px'}}>
 				<div className="form-group">

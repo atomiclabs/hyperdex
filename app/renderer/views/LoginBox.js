@@ -5,6 +5,7 @@ import Select from '../components/Select';
 import SelectOption from '../components/SelectOption';
 import Link from '../components/Link';
 import PlusButton from '../components/PlusButton';
+import {loginContainer} from '../containers/Login';
 import './LoginBox.scss';
 
 class LoginBox extends React.Component {
@@ -15,7 +16,7 @@ class LoginBox extends React.Component {
 
 	handleSelectChange = selectedOption => {
 		this.setState({passwordError: null});
-		this.props.setSelectedPortfolioId(selectedOption.value);
+		loginContainer.setSelectedPortfolioId(selectedOption.value);
 	};
 
 	handleSelectClose = () => {
@@ -42,11 +43,11 @@ class LoginBox extends React.Component {
 			passwordError: null,
 		});
 
-		const {selectedPortfolioId, handleLogin} = this.props;
+		const {selectedPortfolioId} = loginContainer.state;
 		const {passwordInputValue} = this.state;
 
 		try {
-			await handleLogin(selectedPortfolioId, passwordInputValue);
+			await loginContainer.handleLogin(selectedPortfolioId, passwordInputValue);
 		} catch (err) {
 			console.error(err);
 
@@ -63,10 +64,10 @@ class LoginBox extends React.Component {
 	};
 
 	render() {
-		const {portfolios, selectedPortfolioId} = this.props;
+		const {portfolios, selectedPortfolioId} = loginContainer.state;
 
 		if (portfolios.length === 0) {
-			this.props.setLoginView('NewPortfolio');
+			loginContainer.setActiveView('NewPortfolio');
 			return null;
 		}
 
@@ -94,7 +95,7 @@ class LoginBox extends React.Component {
 						/>
 						<PlusButton
 							onClick={() => {
-								this.props.setLoginView('NewPortfolio');
+								loginContainer.setActiveView('NewPortfolio');
 							}}
 						/>
 					</div>
@@ -117,8 +118,8 @@ class LoginBox extends React.Component {
 						<Button primary fullwidth type="submit" value="Login" disabled={!this.state.passwordInputValue || this.state.isCheckingPassword}/>
 						<Link
 							onClick={() => {
-								this.props.setLoginView('ForgotPassword');
-								this.props.setLoginProgress(0.33);
+								loginContainer.setActiveView('ForgotPassword');
+								loginContainer.setProgress(0.33);
 							}}
 							style={{
 								fontSize: '13px',

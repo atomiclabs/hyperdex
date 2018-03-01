@@ -4,7 +4,7 @@ import TabView from './TabView';
 export default class Exchange extends React.Component {
 	render() {
 		return (
-			<TabView {...this.props} title="Exchange">
+			<TabView title="Exchange">
 				Content
 			</TabView>
 		);

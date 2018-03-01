@@ -1,13 +1,14 @@
 import React from 'react';
+import {appContainer} from '../containers/App';
 import TabView from './TabView';
 
-const Dashboard = props => (
-	<TabView title="Dashboard" {...props}>
+const Dashboard = () => (
+	<TabView title="Dashboard">
 		<p>
 			Portfolio:
 		</p>
 		<pre style={{color: '#ccc', overflow: 'scroll', height: '600px'}}>
-			{JSON.stringify(props.currencies, null, '\t')}
+			{JSON.stringify(appContainer.state.currencies, null, '\t')}
 		</pre>
 	</TabView>
 );
