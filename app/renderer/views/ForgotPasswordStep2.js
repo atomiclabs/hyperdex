@@ -3,9 +3,12 @@ import Button from '../components/Button';
 import Input from '../components/Input';
 import LoginBackButton from '../components/LoginBackButton';
 import {loginContainer} from '../containers/Login';
+import {forgotPasswordContainer as container} from '../containers/ForgotPassword';
+import './ForgotPassword.scss';
 
-const ForgotPasswordStep2 = props => {
-	const portfolio = loginContainer.selectedPortfolio;
+const ForgotPasswordStep2 = () => {
+	const {selectedPortfolio} = loginContainer;
+	const {state} = container;
 
 	// TODO(sindresorhus): Add the identicon to the portfolio field
 
@@ -13,33 +16,35 @@ const ForgotPasswordStep2 = props => {
 		<div className="ForgotPassword">
 			<LoginBackButton view="ForgotPasswordStep1" progress={0.33}/>
 			<h1>Set New Password</h1>
-			<form onSubmit={props.handleSubmit} style={{marginTop: '20px'}}>
+			<form onSubmit={container.handleSubmit} style={{marginTop: '20px'}}>
 				<div className="form-group">
 					<Input
 						className="portfolio-name"
-						value={portfolio.name}
+						value={selectedPortfolio.name}
 						disabled
 					/>
 				</div>
 				<div className="form-group">
 					<Input
-						onChange={props.handlePasswordInputChange}
+						onChange={container.handlePasswordInputChange}
 						type="password"
 						placeholder="Password"
-						value={props.password}
+						value={state.password}
 						autoFocus
 						required
 					/>
 				</div>
 				<div className="form-group">
 					<Input
-						innerRef={props.setConfirmPasswordInput}
-						onChange={props.handleConfirmPasswordInputChange}
+						innerRef={input => {
+							container.confirmPasswordInput = input;
+						}}
+						onChange={container.handleConfirmPasswordInputChange}
 						type="password"
 						placeholder="Confirm Password"
-						value={props.confirmedPassword}
+						value={state.confirmedPassword}
 						required
-						errorMessage={props.confirmedPasswordError}
+						errorMessage={state.confirmedPasswordError}
 					/>
 				</div>
 				<div className="form-group">
@@ -47,7 +52,7 @@ const ForgotPasswordStep2 = props => {
 						primary
 						type="submit"
 						value="Confirm"
-						disabled={!(props.password && props.confirmedPassword)}
+						disabled={!(state.password && state.confirmedPassword)}
 						style={{width: '170px', marginTop: '15px'}}
 					/>
 				</div>

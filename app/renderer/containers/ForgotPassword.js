@@ -1,15 +1,10 @@
 import {remote} from 'electron';
-import React from 'react';
-import View from '../components/View';
+import {Container} from 'unstated';
 import {loginContainer} from '../containers/Login';
-import ForgotPasswordStep1 from './ForgotPasswordStep1';
-import ForgotPasswordStep2 from './ForgotPasswordStep2';
-import ForgotPasswordStep3 from './ForgotPasswordStep3';
-import './ForgotPassword.scss';
 
 const {changePortfolioPassword} = remote.require('./portfolio-util');
 
-class ForgotPassword extends React.Component {
+class ForgotPasswordContainer extends Container {
 	state = {
 		seedPhrase: '',
 		password: '',
@@ -39,10 +34,6 @@ class ForgotPassword extends React.Component {
 		this.setState({confirmedPassword: value});
 	};
 
-	setConfirmPasswordInput = input => {
-		this.confirmPasswordInput = input;
-	}
-
 	handleSubmit = async event => {
 		event.preventDefault();
 
@@ -71,39 +62,9 @@ class ForgotPassword extends React.Component {
 
 		// TODO: Need a progress indicator here as login takes a while
 	};
-
-	componentWillMount() {
-		loginContainer.setActiveView('ForgotPasswordStep1');
-	}
-
-	render() {
-		const activeView = loginContainer.state.activeView;
-
-		return (
-			<React.Fragment>
-				<View
-					{...this.state}
-					activeView={activeView}
-					component={ForgotPasswordStep1}
-					handleSeedPhraseInputChange={this.handleSeedPhraseInputChange}
-					handleClickConfirmSeedPhrase={this.handleClickConfirmSeedPhrase}
-				/>
-				<View
-					{...this.state}
-					activeView={activeView}
-					component={ForgotPasswordStep2}
-					setConfirmPasswordInput={this.setConfirmPasswordInput}
-					handlePasswordInputChange={this.handlePasswordInputChange}
-					handleConfirmPasswordInputChange={this.handleConfirmPasswordInputChange}
-					handleSubmit={this.handleSubmit}
-				/>
-				<View
-					activeView={activeView}
-					component={ForgotPasswordStep3}
-				/>
-			</React.Fragment>
-		);
-	}
 }
 
-export default ForgotPassword;
+const forgotPasswordContainer = new ForgotPasswordContainer();
+
+export default ForgotPasswordContainer;
+export {forgotPasswordContainer};
