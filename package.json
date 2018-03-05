@@ -1,7 +1,8 @@
 {
 	"scripts": {
 		"postinstall": "electron-builder install-app-deps",
-		"test": "xo",
+		"lint": "xo && stylelint app/renderer/**/*.scss",
+		"test": "npm run lint",
 		"start": "webpack && electron app",
 		"dev:watch": "webpack-dev-server --hot",
 		"dev:start": "sleep 1 && electron app",
@@ -47,6 +48,8 @@
 		"react-hot-loader": "^4.0.0-rc.0",
 		"sass-loader": "^6.0.6",
 		"style-loader": "^0.19.1",
+		"stylelint": "^9.1.1",
+		"stylelint-config-xo-scss": "^0.3.0",
 		"webpack": "^4.0.0",
 		"webpack-cli": "^2.0.9",
 		"webpack-dev-server": "^3.0.0",
@@ -73,6 +76,12 @@
 			"no-undef": "off",
 			"react/no-unused-state": "off",
 			"node/no-unpublished-require": "off"
+		}
+	},
+	"stylelint": {
+		"extends": "stylelint-config-xo-scss",
+		"rules": {
+			"property-blacklist": null
 		}
 	},
 	"build": {

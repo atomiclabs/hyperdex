@@ -8,20 +8,20 @@
 
 	.navbar-fixed-top,
 	.navbar-static-top {
-		border-bottom: 0;
+		border-bottom: none;
 	}
 
 	.iconav {
-		padding-top: 20px;
 		position: fixed;
+		width: 75px;
+		height: 200%;
 		margin-top: -50px;
 		background: #273142;
-		height: 200%;
+		padding-top: 50px;
 	}
 
 	.iconav-nav {
-		flex-wrap: wrap;
-		flex-direction: column !important;
+		flex-flow: column wrap;
 	}
 
 	/* Increasing the padding as we increased the `.iconav` width */
@@ -29,10 +29,5 @@
 	.with-iconav > .container-fluid {
 		padding-right: 15px;
 		padding-left: 90px;
-	}
-
-	.iconav {
-		width: 75px;
-		padding-top: 50px;
 	}
 }

@@ -14,7 +14,7 @@ body {
 	padding-top: 50px;
 	padding-bottom: 50px;
 	background-color: $background-color;
-	font-family: 'Source Sans Pro';
+	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: normal;
 }
 
@@ -54,7 +54,7 @@ p.secondary {
 
 a {
 	color: $primary-color;
-	transition: all 0.1s ease-in-out;
+	transition: color 0.1s ease-in-out;
 
 	&:hover {
 		color: #5362c4;

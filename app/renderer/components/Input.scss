@@ -1,6 +1,7 @@
 @import '../styles/variables';
 
 .Input {
+	--icon-container-width: 36px;
 	display: inline-block;
 	margin: 5px 0;
 	position: relative;
@@ -24,13 +25,13 @@
 		position: relative;
 		color: #90959d;
 		background: #222c3c;
-		outline: none !important;
+		outline: none;
 		font-family: inherit;
 		font-size: 14px;
 		font-weight: 600;
 		text-align: left;
 		line-height: 21px;
-		transition: all 0.2s ease;
+		transition: 0.2s ease;
 
 		&::-webkit-input-placeholder {
 			color: $gray-color;
@@ -46,8 +47,6 @@
 			color: #fff;
 		}
 	}
-
-	--icon-container-width: 36px;
 
 	&--icon {
 		input,
@@ -77,7 +76,7 @@
 			float: left;
 			color: $text-color;
 			font-size: 12px;
-			font-weight: 400;
+			font-weight: normal;
 			line-height: 18px;
 		}
 	}

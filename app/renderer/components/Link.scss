@@ -10,8 +10,9 @@ $link-hover-color: #5362c4;
 	margin: 0;
 	padding: 0;
 	background: none;
-	border: 0;
-	transition: all 0.1s ease-in-out;
+	border: none;
+	transition: 0.1s ease-in-out;
+	transition-property: color, box-shadow;
 	cursor: pointer;
 
 	&:hover {
