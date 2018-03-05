@@ -2,6 +2,8 @@
 const os = require('os');
 const path = require('path');
 const electron = require('electron');
+const {is} = require('electron-util');
+const config = require('./config');
 
 const {app, BrowserWindow, shell} = electron;
 const appName = app.getName();
@@ -74,6 +76,56 @@ if (process.platform !== 'darwin') {
 		},
 	});
 }
+
+const debugMenu = {
+	label: 'Debug',
+	submenu: [
+		{
+			label: 'Show Portfolios',
+			click() {
+				shell.openItem(path.join(app.getPath('userData'), 'portfolios'));
+			},
+		},
+		{
+			label: 'Show Preferences',
+			click() {
+				config.openInEditor();
+			},
+		},
+		{
+			label: 'Show App Data',
+			click() {
+				shell.openItem(app.getPath('userData'));
+			},
+		},
+		{
+			type: 'separator',
+		},
+		{
+			label: 'Delete Portfolios',
+			click() {
+				shell.moveItemToTrash(path.join(app.getPath('userData'), 'portfolios'));
+				BrowserWindow.getAllWindows()[0].webContents.reload();
+			},
+		},
+		{
+			label: 'Delete Preferences',
+			click() {
+				config.clear();
+				app.relaunch();
+				app.quit();
+			},
+		},
+		{
+			label: 'Delete Data App',
+			click() {
+				shell.moveItemToTrash(app.getPath('userData'));
+				app.relaunch();
+				app.quit();
+			},
+		},
+	],
+};
 
 const macosTpl = [
 	{
@@ -254,5 +306,9 @@ const otherTpl = [
 ];
 
 const tpl = process.platform === 'darwin' ? macosTpl : otherTpl;
+
+if (is.development) {
+	tpl.push(debugMenu);
+}
 
 module.exports = electron.Menu.buildFromTemplate(tpl);
