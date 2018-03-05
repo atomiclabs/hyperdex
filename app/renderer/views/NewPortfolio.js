@@ -18,7 +18,7 @@ const NewPortfolio = () => (
 			<Button
 				value="Restore Portfolio"
 				onClick={() => {
-					loginContainer.setActiveView('RestorePortfolio');
+					loginContainer.setActiveView('RestorePortfolioStep1');
 					loginContainer.setProgress(0.33);
 				}}
 			/>
@@ -26,7 +26,7 @@ const NewPortfolio = () => (
 				primary
 				value="Create New Portfolio"
 				onClick={() => {
-					loginContainer.setActiveView('CreatePortfolio');
+					loginContainer.setActiveView('CreatePortfolioStep1');
 					loginContainer.setProgress(0.25);
 				}}
 			/>

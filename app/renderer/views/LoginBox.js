@@ -118,7 +118,7 @@ class LoginBox extends React.Component {
 						<Button primary fullwidth type="submit" value="Login" disabled={!this.state.passwordInputValue || this.state.isCheckingPassword}/>
 						<Link
 							onClick={() => {
-								loginContainer.setActiveView('ForgotPassword');
+								loginContainer.setActiveView('ForgotPasswordStep1');
 								loginContainer.setProgress(0.33);
 							}}
 							style={{

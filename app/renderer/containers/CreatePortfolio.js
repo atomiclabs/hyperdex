@@ -1,17 +1,11 @@
 import {remote} from 'electron';
-import React from 'react';
+import {Container} from 'unstated';
 import bip39 from 'bip39';
-import View from '../components/View';
 import {loginContainer} from '../containers/Login';
-import CreatePortfolioStep1 from './CreatePortfolioStep1';
-import CreatePortfolioStep2 from './CreatePortfolioStep2';
-import CreatePortfolioStep3 from './CreatePortfolioStep3';
-import CreatePortfolioStep4 from './CreatePortfolioStep4';
-import './CreatePortfolio.scss';
 
 const {createPortfolio} = remote.require('./portfolio-util');
 
-class CreatePortfolio extends React.Component {
+class CreatePortfolioContainer extends Container {
 	state = {
 		portfolioName: '',
 		portfolioPassword: '',
@@ -22,12 +16,13 @@ class CreatePortfolio extends React.Component {
 		seedPhraseError: null,
 	};
 
+	constructor() {
+		super();
+		this.generateSeedPhrase();
+	}
+
 	generateSeedPhrase = () => {
 		this.setState({generatedSeedPhrase: bip39.generateMnemonic()});
-	};
-
-	setConfirmPasswordInput = input => {
-		this.confirmPasswordInput = input;
 	};
 
 	handlePortfolioNameInputChange = value => {
@@ -72,10 +67,6 @@ class CreatePortfolio extends React.Component {
 		return isMatch;
 	};
 
-	setConfirmSeedPhraseTextArea = textarea => {
-		this.confirmSeedPhraseTextArea = textarea;
-	}
-
 	handleConfirmSeedPhraseInputChange = value => {
 		this.setState({confirmedSeedPhrase: value}, () => {
 			if (this.step3confirmButtonClicked) {
@@ -108,50 +99,9 @@ class CreatePortfolio extends React.Component {
 
 		// TODO: Need a progress indicator here as login takes a while
 	};
-
-	componentWillMount() {
-		this.generateSeedPhrase();
-		loginContainer.setActiveView('CreatePortfolioStep1');
-	}
-
-	render() {
-		const activeView = loginContainer.state.activeView;
-
-		// TODO: Clean this up
-		return (
-			<React.Fragment>
-				<View
-					{...this.state}
-					activeView={activeView}
-					component={CreatePortfolioStep1}
-					setConfirmPasswordInput={this.setConfirmPasswordInput}
-					handlePortfolioNameInputChange={this.handlePortfolioNameInputChange}
-					handlePortfolioPasswordInputChange={this.handlePortfolioPasswordInputChange}
-					handleConfirmPasswordInputChange={this.handleConfirmPasswordInputChange}
-					handleStep1Submit={this.handleStep1Submit}
-				/>
-				<View
-					{...this.state}
-					activeView={activeView}
-					component={CreatePortfolioStep2}
-					generateSeedPhrase={this.generateSeedPhrase}
-					handleStep2ClickNext={this.handleStep2ClickNext}
-				/>
-				<View
-					{...this.state}
-					activeView={activeView}
-					component={CreatePortfolioStep3}
-					setConfirmSeedPhraseTextArea={this.setConfirmSeedPhraseTextArea}
-					handleConfirmSeedPhraseInputChange={this.handleConfirmSeedPhraseInputChange}
-					handleStep3Submit={this.handleStep3Submit}
-				/>
-				<View
-					activeView={activeView}
-					component={CreatePortfolioStep4}
-				/>
-			</React.Fragment>
-		);
-	}
 }
 
-export default CreatePortfolio;
+const createPortfolioContainer = new CreatePortfolioContainer();
+
+export default CreatePortfolioContainer;
+export {createPortfolioContainer};

@@ -2,18 +2,21 @@ import React from 'react';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import LoginBackButton from '../components/LoginBackButton';
+import {restorePortfolioContainer as container} from '../containers/RestorePortfolio';
 
-const RestorePortfolioStep2 = props => {
+const RestorePortfolioStep2 = () => {
+	const {state} = container;
+
 	return (
 		<div className="RestorePortfolio">
 			<LoginBackButton view="RestorePortfolioStep1" progress={0.33}/>
 			<h1>Create New Portfolio</h1>
-			<form onSubmit={props.handleStep2Submit} style={{marginTop: '20px'}}>
+			<form onSubmit={container.handleStep2Submit} style={{marginTop: '20px'}}>
 				<div className="form-group">
 					<Input
-						onChange={props.handlePortfolioNameInputChange}
+						onChange={container.handlePortfolioNameInputChange}
 						placeholder="Portfolio Name"
-						value={props.portfolioName}
+						value={state.portfolioName}
 						autoFocus
 						required
 						maxLength="50"
@@ -22,29 +25,31 @@ const RestorePortfolioStep2 = props => {
 				</div>
 				<div className="form-group">
 					<Input
-						onChange={props.handlePortfolioPasswordInputChange}
+						onChange={container.handlePortfolioPasswordInputChange}
 						type="password"
 						placeholder="Password"
-						value={props.portfolioPassword}
+						value={state.portfolioPassword}
 						required
 					/>
 				</div>
 				<div className="form-group">
 					<Input
-						innerRef={props.setConfirmPasswordInput}
-						onChange={props.handleConfirmPasswordInputChange}
+						innerRef={input => {
+							container.confirmPasswordInput = input;
+						}}
+						onChange={container.handleConfirmPasswordInputChange}
 						type="password"
 						placeholder="Confirm Password"
-						value={props.confirmedPassword}
+						value={state.confirmedPassword}
 						required
-						errorMessage={props.confirmedPasswordError}
+						errorMessage={state.confirmedPasswordError}
 					/>
 				</div>
 				<div className="form-group">
 					<Button
 						type="submit"
 						value="Next"
-						disabled={!(props.portfolioName && props.portfolioPassword && props.confirmedPassword)}
+						disabled={!(state.portfolioName && state.portfolioPassword && state.confirmedPassword)}
 						style={{width: '170px', marginTop: '15px'}}
 					/>
 				</div>
