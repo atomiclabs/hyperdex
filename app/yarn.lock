@@ -632,9 +632,9 @@ pupa@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/pupa/-/pupa-1.0.0.tgz#9a9568a5af7e657b8462a6e9d5328743560ceff6"
 
-randoma@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/randoma/-/randoma-1.1.0.tgz#bc04b881acef7e35b2c6f1bc00f7c93f476f206a"
+randoma@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/randoma/-/randoma-1.2.0.tgz#a14df5a02b0ddc6bb20ce69358da2f47a768b550"
   dependencies:
     "@sindresorhus/string-hash" "^1.0.0"
     color "^2.0.1"

@@ -1,5 +1,6 @@
 import React from 'react';
 import {classNames} from 'react-extras';
+import './SelectOption.scss';
 
 const SelectOption = ({className, label, image, ...props}) => {
 	if (typeof label !== 'string') {
@@ -16,14 +17,14 @@ const SelectOption = ({className, label, image, ...props}) => {
 
 	return (
 		<div {...props} className={containerClassName}>
+			{image &&
+				<span className="SelectOption__image-wrap">
+					<img className="SelectOption__image" src={image}/>
+				</span>
+			}
 			<span className="SelectOption__label">
 				{label}
 			</span>
-			{image &&
-				<span className="SelectOption__image-wrap">
-					<img src={image}/>
-				</span>
-			}
 		</div>
 	);
 };

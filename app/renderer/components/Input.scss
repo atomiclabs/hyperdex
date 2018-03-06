@@ -155,6 +155,12 @@
 		}
 	}
 
+	&--readonly {
+		pointer-events: none;
+		cursor: default;
+		user-select: none;
+	}
+
 	&--disabled {
 		input,
 		input:hover,

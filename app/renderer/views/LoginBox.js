@@ -7,6 +7,7 @@ import Link from '../components/Link';
 import PlusButton from '../components/PlusButton';
 import {loginContainer} from '../containers/Login';
 import './LoginBox.scss';
+import avatar from '../avatar';
 
 class LoginBox extends React.Component {
 	state = {
@@ -26,6 +27,7 @@ class LoginBox extends React.Component {
 	selectOptionRenderer = option => {
 		return (
 			<SelectOption
+				image={avatar(option.value)}
 				label={option.label}
 			/>
 		);

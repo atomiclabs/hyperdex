@@ -1,0 +1,65 @@
+import identicons from './identicons';
+
+const gradients = [
+	['#00c3ff', '#ffff1c'],
+	['#00d2ff', '#928dab'],
+	['#00f260', '#0575e6'],
+	['#0cebeb', '#29ffc6'],
+	['#11998e', '#38ef7d'],
+	['#1c92d2', '#f2fcfe'],
+	['#22c1c3', '#fdbb2d'],
+	['#30e8bf', '#ff8235'],
+	['#36d1dc', '#5b86e5'],
+	['#43c6ac', '#f8ffae'],
+	['#4568dc', '#b06ab3'],
+	['#4776e6', '#8e54e9'],
+	['#4ac29a', '#bdfff3'],
+	['#56ccf2', '#2f80ed'],
+	['#6d6027', '#d3cbb8'],
+	['#74ebd5', '#acb6e5'],
+	['#800080', '#ffc0cb'],
+	['#973af5', '#e45e5a'],
+	['#a1ffce', '#faffd1'],
+	['#a770ef', '#fdb99b'],
+	['#b24592', '#f15f79'],
+	['#b2fefa', '#0ed2f7'],
+	['#c0c0aa', '#1cefff'],
+	['#cb356b', '#bd3f32'],
+	['#da4453', '#89216b'],
+	['#dce35b', '#45b649'],
+	['#de6161', '#2657eb'],
+	['#e1eec3', '#f05053'],
+	['#e8cbc0', '#636fa4'],
+	['#e96443', '#904e95'],
+	['#eacda3', '#d6ae7b'],
+	['#ee0979', '#ff6a00'],
+	['#ef32d9', '#89fffd'],
+	['#ef3b36', '#ffffff'],
+	['#f2994a', '#f2c94c'],
+	['#f4c4f3', '#fc67fa'],
+	['#f7971e', '#ffd200'],
+	['#f7ff00', '#db36a4'],
+	['#fc466b', '#3f5efb'],
+	['#fc4a1a', '#f7b733'],
+	['#ff5f6d', '#ffc371'],
+	['#ff7e5f', '#feb47b'],
+	['#ff9966', '#ff5e62'],
+	['#ffafbd', '#ffc3a0'],
+	['#fffc00', '#ffffff'],
+];
+
+const generateAvatar = seed => {
+	return identicons({
+		seed,
+		outputFormat: 'dataUrl',
+		size: 7,
+		scale: 3,
+		color: gradients.map(x => ({
+			from: x[0],
+			to: x[1],
+			angle: 90,
+		})),
+	});
+};
+
+export default generateAvatar;
