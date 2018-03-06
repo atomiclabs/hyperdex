@@ -4,13 +4,12 @@ import Input from '../components/Input';
 import LoginBackButton from '../components/LoginBackButton';
 import {loginContainer} from '../containers/Login';
 import {forgotPasswordContainer as container} from '../containers/ForgotPassword';
+import avatar from '../avatar';
 import './ForgotPassword.scss';
 
 const ForgotPasswordStep2 = () => {
 	const {selectedPortfolio} = loginContainer;
 	const {state} = container;
-
-	// TODO(sindresorhus): Add the identicon to the portfolio field
 
 	return (
 		<div className="ForgotPassword">
@@ -21,7 +20,9 @@ const ForgotPasswordStep2 = () => {
 					<Input
 						className="portfolio-name"
 						value={selectedPortfolio.name}
-						disabled
+						icon={avatar(selectedPortfolio.id)}
+						iconSize={18}
+						readOnly
 					/>
 				</div>
 				<div className="form-group">

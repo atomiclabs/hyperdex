@@ -1,5 +1,7 @@
+@import '../styles/variables';
+
 .SelectOption {
-	--image-size: 24px;
+	--image-size: 18px;
 	display: inline-block;
 	position: relative;
 
@@ -9,24 +11,19 @@
 	}
 
 	&__image-wrap {
-		display: inline-block;
-		margin-right: 14px;
-		margin-left: -11px;
-		position: absolute;
-		top: 50%;
-		margin-top: -12px;
+		@include center-vertically;
+		left: -7px;
+		padding-bottom: 4px;
 	}
 
 	&__image {
-		overflow: hidden;
 		width: var(--image-size);
 		height: var(--image-size);
-		border-radius: 4px;
 	}
 
 	&--image {
 		.SelectOption__label {
-			margin-left: var(--image-size);
+			margin-left: calc(var(--image-size) + 5px);
 		}
 	}
 }

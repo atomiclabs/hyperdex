@@ -8,9 +8,12 @@ const Input = ({
 	message,
 	errorMessage,
 	disabled,
+	readOnly,
 	innerRef,
 	onChange,
 	type = 'text',
+	icon,
+	iconSize,
 	iconName,
 	...props
 }) => {
@@ -23,12 +26,17 @@ const Input = ({
 		iconName = 'password';
 	}
 
+	if (iconName) {
+		icon = `/assets/${iconName}-icon.svg`;
+	}
+
 	const containerClassName = classNames(
 		'Input',
 		{
 			[`Input--${level}`]: level,
 			'Input--disabled': disabled,
-			'Input--icon': iconName,
+			'Input--readonly': readOnly,
+			'Input--icon': icon,
 		},
 		className
 	);
@@ -41,15 +49,16 @@ const Input = ({
 					ref={innerRef}
 					type={type}
 					disabled={disabled}
+					readOnly={readOnly}
 					onChange={event => {
 						if (onChange) {
 							onChange(event.target.value);
 						}
 					}}
 				/>
-				{iconName &&
+				{icon &&
 					<span className="Input__icon">
-						<img src={`/assets/${iconName}-icon.svg`}/>
+						<img src={icon} width={iconSize}/>
 					</span>
 				}
 			</div>
