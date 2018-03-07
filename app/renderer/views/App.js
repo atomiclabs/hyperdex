@@ -8,8 +8,7 @@ import Login from './Login';
 import Dashboard from './Dashboard';
 import Swap from './Swap';
 import Exchange from './Exchange';
-import Trades from './Trades';
-import Funds from './Funds';
+import History from './History';
 import Preferences from './Preferences';
 import ComponentsPreview from './ComponentsPreview';
 
@@ -20,14 +19,11 @@ const App = () => (
 
 			return (
 				<React.Fragment>
-					<div className="window-draggable-area"/>
-
 					<AppView component={Login}/>
 					<AppView component={Dashboard}/>
 					<AppView component={Swap}/>
 					<AppView component={Exchange}/>
-					<AppView component={Trades}/>
-					<AppView component={Funds}/>
+					<AppView component={History}/>
 					<AppView component={Preferences}/>
 					<AppView component={ComponentsPreview}/>
 				</React.Fragment>

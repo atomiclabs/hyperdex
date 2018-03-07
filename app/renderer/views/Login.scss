@@ -2,10 +2,21 @@
 	text-align: center;
 	display: flex;
 	justify-content: center;
+	padding-top: 50px;
+	padding-bottom: 50px;
 
 	.is-centered > * {
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	.window-draggable-area {
+		width: 100%;
+		height: 50px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		-webkit-app-region: drag;
 	}
 
 	.hyperdex-icon {

@@ -2,7 +2,7 @@ import React from 'react';
 import {appContainer} from '../containers/App';
 import TabView from './TabView';
 
-const Funds = () => {
+const History = () => {
 	const coins = appContainer.state.currencies.map(coin => (
 		<tr key={coin.coin}>
 			<th>
@@ -18,7 +18,7 @@ const Funds = () => {
 	));
 
 	return (
-		<TabView title="Funds">
+		<TabView title="History">
 			<div style={{overflow: 'auto', maxHeight: 400}}>
 				<table className="table">
 					<thead>
@@ -43,4 +43,4 @@ const Funds = () => {
 	);
 };
 
-export default Funds;
+export default History;

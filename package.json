@@ -22,7 +22,7 @@
 		"react-dom": "^16.2.0",
 		"react-extras": "^0.5.0",
 		"react-select": "^1.2.1",
-		"sass-extras": "^0.2.0",
+		"sass-extras": "^0.3.0",
 		"unstated": "^1.0.3"
 	},
 	"devDependencies": {
@@ -82,7 +82,10 @@
 	"stylelint": {
 		"extends": "stylelint-config-xo-scss",
 		"rules": {
-			"property-blacklist": null
+			"property-blacklist": null,
+			"max-nesting-depth": null,
+			"selector-max-compound-selectors": null,
+			"declaration-block-no-redundant-longhand-properties": null
 		}
 	},
 	"build": {

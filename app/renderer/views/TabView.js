@@ -1,28 +1,25 @@
 import React from 'react';
 import {appContainer} from '../containers/App';
+import avatar from '../avatar';
 import Nav from './Nav';
 import './TabView.scss';
 
 const TabView = props => (
 	<div className="TabView">
-		<div className="with-iconav">
-			<Nav/>
-			<div className="container">
-				<header className="dashhead">
-					<div className="dashhead-titles">
-						<h6 className="dashhead-subtitle">
-							{appContainer.state.portfolio.name}
-						</h6>
-						<h3 className="dashhead-title">
-							{props.title}
-						</h3>
-					</div>
-				</header>
-				<main>
-					{props.children}
-				</main>
+		<header className="toolbar">
+			<h6 className="portfolio-name">
+				HyperDEX
+			</h6>
+			<div className="portfolio-dropdown">
+				<div className="avatar-wrapper">
+					<img src={avatar(appContainer.state.portfolio.name)}/>
+				</div>
 			</div>
-		</div>
+		</header>
+		<Nav/>
+		<main className="content">
+			{props.children}
+		</main>
 	</div>
 );
 
