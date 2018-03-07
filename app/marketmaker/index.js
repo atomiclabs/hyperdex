@@ -54,7 +54,7 @@ class Marketmaker {
 	async start(options) {
 		options = Object.assign({}, options, {
 			client: 1,
-			gui: 'nogui',
+			gui: 'hyperdex',
 			userHome: os.homedir(),
 			rpcport: await getPort(),
 			coins: this._getCoins(),
