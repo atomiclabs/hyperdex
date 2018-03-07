@@ -1,6 +1,7 @@
 import {sha256} from 'hash.js';
 import PQueue from 'p-queue';
 import electrumServers from './electrum-servers';
+import MarketmakerSocket from './marketmaker-socket';
 
 export default class Api {
 	constructor({endpoint, seedPhrase, concurrency = 1}) {
@@ -10,17 +11,30 @@ export default class Api {
 
 		this.endpoint = endpoint;
 		this.token = sha256().update(seedPhrase).digest('hex');
+		this.socket = false;
+		this.currentQueueid = 0;
 
 		this.queue = new PQueue({concurrency});
 	}
 
 	async _request(data) {
+		const queueid = this.socket ? ++this.currentQueueid : 0;
+
 		const response = await this.queue.add(() => fetch(this.endpoint, {
 			method: 'post',
-			body: JSON.stringify(data),
+			body: JSON.stringify({ queueid, ...data}),
 		}));
 
-		return response.json();
+		return this.socket ? this.socket.getResponse(queueid) : response.json();
+	}
+
+	async enableSocket() {
+		const {endpoint} = await this.request({method: 'getendpoint'});
+		const socket = new MarketmakerSocket(endpoint);
+		await this.socket.connected;
+		this.socket = socket;
+
+		return this.socket;
 	}
 
 	async request(data) {
