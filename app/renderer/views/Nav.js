@@ -6,29 +6,22 @@ const IconNavItem = props => {
 	const active = appContainer.state.activeView === props.to;
 
 	return (
-		<li className="nav-item">
-			<a onClick={setView} className={`nav-link ${active && 'active'}`}>
-				<span className={`icon icon-${props.icon}`}/>
-				<small className="iconav-nav-label d-md-none">
-					{props.title}
-				</small>
-			</a>
-		</li>
+		<div onClick={setView} className={`nav--button ${active ? 'active' : ''}`}>
+			<span className={`icon icon--${props.to.toLowerCase()}`}/>
+			<span className="title">
+				{props.to}
+			</span>
+		</div>
 	);
 };
 
 const Nav = () => (
-	<nav className="iconav">
-		<div className="iconav-slider">
-			<ul className="nav nav-pills iconav-nav flex-md-column">
-				<IconNavItem to="Dashboard" title="Dashboard" icon="home"/>
-				<IconNavItem to="Swap" title="Swap" icon="cycle"/>
-				<IconNavItem to="Exchange" title="Exchange" icon="area-graph"/>
-				<IconNavItem to="Trades" title="Trades" icon="list"/>
-				<IconNavItem to="Funds" title="Funds" icon="credit"/>
-				<IconNavItem to="Preferences" title="Preferences" icon="cog"/>
-			</ul>
-		</div>
+	<nav className="nav">
+		<IconNavItem to="Dashboard"/>
+		<IconNavItem to="Swap"/>
+		<IconNavItem to="Exchange"/>
+		<IconNavItem to="History"/>
+		<IconNavItem to="Preferences"/>
 	</nav>
 );
 

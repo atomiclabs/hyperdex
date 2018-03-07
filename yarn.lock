@@ -7408,9 +7408,9 @@ sanitize-filename@^1.6.1:
   dependencies:
     truncate-utf8-bytes "^1.0.0"
 
-sass-extras@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/sass-extras/-/sass-extras-0.2.0.tgz#173c2afdd8289679e665595c1e807dce02438076"
+sass-extras@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/sass-extras/-/sass-extras-0.3.0.tgz#2116089bb4d1eb024b27be3a89e51d50344f5bef"
 
 sass-graph@^2.2.4:
   version "2.2.4"

@@ -1,33 +1,122 @@
+@import '~sass-extras/index';
+@import '../styles/variables';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@extend %headings !optional;
+}
+
 .TabView {
-	@media (max-width: 768px) {
-		body {
-			padding-top: 20px;
-			padding-bottom: 20px;
+	--nav-width: 90px;
+	display: grid;
+	grid-template-areas:
+		'toolbar toolbar'
+		'nav content';
+	grid-template-rows: 38px 1fr;
+	grid-template-columns: var(--nav-width) 1fr;
+	height: 100vh;
+
+	.toolbar {
+		-webkit-app-region: drag;
+		grid-area: toolbar;
+		display: flex;
+		align-items: center;
+		padding-left: calc(var(--nav-width) + 10px);
+		background-color: var(--background-color2);
+
+		.portfolio-name {
+			flex: auto;
+			align-items: start;
+			font-weight: 500; // TODO: Remove this when bootstrap is gone
+		}
+
+		.portfolio-dropdown {
+			align-items: end;
+			width: 40px;
+			margin: 0 10px;
+
+			.avatar-wrapper {
+				width: 30px;
+				height: 30px;
+				padding: 8px;
+				background-color: #1b2430;
+				border-radius: 100%;
+
+				img {
+					display: block;
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+
+		%headings {
+			margin: 0;
 		}
 	}
 
-	.navbar-fixed-top,
-	.navbar-static-top {
-		border-bottom: none;
+	.nav {
+		grid-area: nav;
+		display: flex;
+		flex-direction: column;
+		padding-top: 28px;
+		background-color: var(--background-color2);
+		user-select: none;
+		cursor: default;
+
+		&--button {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			height: 80px;
+			font-size: 13px;
+			font-weight: 600;
+			color: #808fa3;
+
+			.icon {
+				width: 24px;
+				height: 24px;
+				margin-bottom: 8px;
+				background: #8492b4;
+
+				&--dashboard {
+					@include colored-icon-no-size($dashboard-icon);
+				}
+
+				&--swap {
+					@include colored-icon-no-size($swap-icon);
+				}
+
+				&--exchange {
+					@include colored-icon-no-size($exchange-icon);
+				}
+
+				&--history {
+					@include colored-icon-no-size($history-icon);
+				}
+
+				&--preferences {
+					@include colored-icon-no-size($preferences-icon);
+				}
+			}
+
+			&.active {
+				color: #fff;
+
+				.icon {
+					background: $primary-gradient;
+				}
+			}
+		}
 	}
 
-	.iconav {
-		position: fixed;
-		width: 75px;
-		height: 200%;
-		margin-top: -50px;
-		background: #273142;
-		padding-top: 50px;
-	}
-
-	.iconav-nav {
-		flex-flow: column wrap;
-	}
-
-	/* Increasing the padding as we increased the `.iconav` width */
-	.with-iconav > .container,
-	.with-iconav > .container-fluid {
-		padding-right: 15px;
-		padding-left: 90px;
+	.content {
+		grid-area: content;
+		margin: 30px;
+		overflow: hidden;
 	}
 }

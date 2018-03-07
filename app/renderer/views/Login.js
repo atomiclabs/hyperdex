@@ -90,6 +90,7 @@ class Login extends React.Component {
 
 					return (
 						<div className="Login container">
+							<div className="window-draggable-area"/>
 							<Progress className="login-progress" value={login.state.progress}/>
 							<div className="is-centered">
 								<img className="hyperdex-icon" src="/assets/hyperdex-icon.svg" width="75" height="75"/>
