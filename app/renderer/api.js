@@ -1,14 +1,15 @@
+import {sha256} from 'hash.js';
 import PQueue from 'p-queue';
 import electrumServers from './electrum-servers';
 
 export default class Api {
-	constructor({endpoint, concurrency = 1}) {
-		if (!endpoint) {
-			throw new Error('The `endpoint` option is required');
+	constructor({endpoint, seedPhrase, concurrency = 1}) {
+		if (!(endpoint && seedPhrase)) {
+			throw new Error('The `endpoint` and `seedPhrase` options are	 required');
 		}
 
 		this.endpoint = endpoint;
-		this.token = '1d8b27b21efabcd96571cd56f91a40fb9aa4cc623d273c63bf9223dc6f8cd81f';
+		this.token = sha256().update(seedPhrase).digest('hex');
 
 		this.queue = new PQueue({concurrency});
 	}
@@ -92,6 +93,22 @@ export default class Api {
 
 	coins() {
 		return this.request({method: 'getcoins'});
+	}
+
+	orderbook(base, rel) {
+		return this.request({
+			method: 'orderbook',
+			base,
+			rel,
+		});
+	}
+
+	listUnspent(coin, address) {
+		return this.request({
+			method: 'listunspent',
+			coin,
+			address,
+		});
 	}
 
 	async funds() {

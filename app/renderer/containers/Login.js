@@ -23,14 +23,10 @@ const initApi = async seedPhrase => {
 		url = await initMarketmaker(seedPhrase);
 	}
 
-	const api = new Api({
+	return new Api({
 		endpoint: url,
 		seedPhrase,
 	});
-
-	await api.loadSeed(seedPhrase);
-
-	return api;
 };
 
 class LoginContainer extends Container {
