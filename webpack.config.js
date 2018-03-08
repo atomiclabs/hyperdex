@@ -20,7 +20,7 @@ module.exports = {
 	devServer: {
 		historyApiFallback: true,
 		overlay: true,
-		noInfo: true,
+		logLevel: 'warn',
 	},
 	optimization: {
 		minimize: false,
