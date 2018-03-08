@@ -9,7 +9,7 @@ export default class Api {
 		}
 
 		this.endpoint = endpoint;
-		this.seedPhrase = seedPhrase;
+		this.token = sha256(seedPhrase);
 		this.queue = new PQueue({concurrency});
 	}
 
@@ -23,13 +23,9 @@ export default class Api {
 	}
 
 	async request(data) {
-		if (!this.token) {
-			this.token = await sha256(this.seedPhrase);
-		}
-
 		return this._request({
 			...data,
-			...{userpass: this.token},
+			...{userpass: await this.token},
 		});
 	}
 
