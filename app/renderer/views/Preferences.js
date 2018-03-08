@@ -1,21 +1,22 @@
 import electron from 'electron';
 import React from 'react';
 import _ from 'lodash';
+import Input from '../components/Input';
 import TabView from './TabView';
 
 const config = electron.remote.require('./config');
 
 class Form extends React.Component {
 	state = {
-		marketmakerUrl: config.get('marketmakerUrl'),
+		marketmakerUrl: config.get('marketmakerUrl') || '',
 	};
 
 	persistState = _.debounce((name, value) => {
 		config.set(name, value);
 	}, 500);
 
-	handleChange = event => {
-		const {name, value} = event.target;
+	handleChange = (value, event) => {
+		const {name} = event.target;
 		this.setState({[name]: value});
 		this.persistState(name, value);
 	};
@@ -27,8 +28,7 @@ class Form extends React.Component {
 					<label htmlFor="marketmakerUrl">
 						Custom Marketmaker URL: <small>(Requires app restart)</small>
 					</label>
-					<input
-						className="form-control"
+					<Input
 						name="marketmakerUrl"
 						value={this.state.marketmakerUrl}
 						onChange={this.handleChange}

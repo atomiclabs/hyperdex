@@ -19,8 +19,8 @@ const History = () => {
 
 	return (
 		<TabView title="History">
-			<div style={{overflow: 'auto', maxHeight: 400}}>
-				<table className="table">
+			<div>
+				<table style={{maxHeight: 400}}>
 					<thead>
 						<tr>
 							<th>
