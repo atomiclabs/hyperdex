@@ -1,16 +1,15 @@
-import {sha256} from 'hash.js';
+import {sha256} from 'crypto-hash';
 import PQueue from 'p-queue';
 import electrumServers from './electrum-servers';
 
 export default class Api {
 	constructor({endpoint, seedPhrase, concurrency = 1}) {
 		if (!(endpoint && seedPhrase)) {
-			throw new Error('The `endpoint` and `seedPhrase` options are	 required');
+			throw new Error('The `endpoint` and `seedPhrase` options are required');
 		}
 
 		this.endpoint = endpoint;
-		this.token = sha256().update(seedPhrase).digest('hex');
-
+		this.seedPhrase = seedPhrase;
 		this.queue = new PQueue({concurrency});
 	}
 
@@ -24,6 +23,10 @@ export default class Api {
 	}
 
 	async request(data) {
+		if (!this.token) {
+			this.token = await sha256(this.seedPhrase);
+		}
+
 		return this._request({
 			...data,
 			...{userpass: this.token},
@@ -32,17 +35,6 @@ export default class Api {
 
 	async debug(data) {
 		console.log(await this.request(data));
-	}
-
-	async loadSeed(seedPhrase) {
-		const {userpass: token} = await this.request({
-			method: 'passphrase',
-			passphrase: seedPhrase,
-		});
-
-		this.token = token;
-
-		return token;
 	}
 
 	botList() {
