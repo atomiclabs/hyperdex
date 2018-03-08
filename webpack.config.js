@@ -1,12 +1,10 @@
 'use strict';
 const path = require('path');
-const webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const PATHS = {
 	dist: path.join(__dirname, 'app/renderer-dist'),
-	bootstrap: path.join(__dirname, 'vendor/bootstrap-dashboard-theme'),
 };
 
 module.exports = {
@@ -25,19 +23,10 @@ module.exports = {
 	optimization: {
 		minimize: false,
 	},
-	resolve: {
-		extensions: [
-			'.js',
-			'.jsx',
-		],
-		alias: {
-			bootstrap: path.resolve(PATHS.bootstrap, 'js/bootstrap'),
-		},
-	},
 	module: {
 		rules: [
 			{
-				test: /\.(js|jsx)$/,
+				test: /\.js$/,
 				exclude: /node_modules/,
 				loader: 'babel-loader',
 				options: {
@@ -54,23 +43,17 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				exclude: /node_modules/,
-				use: [{
-					loader: 'style-loader',
-				}, {
-					loader: 'css-loader',
-					options: {
-						alias: {
-							'../fonts': path.join(PATHS.bootstrap, 'fonts'),
-						},
+				use: [
+					{
+						loader: 'style-loader',
 					},
-				}, {
-					loader: 'sass-loader',
-					options: {
-						includePaths: [
-							path.join(PATHS.bootstrap, 'scss'),
-						],
+					{
+						loader: 'css-loader',
 					},
-				}],
+					{
+						loader: 'sass-loader',
+					},
+				],
 			},
 			{
 				test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
@@ -85,12 +68,8 @@ module.exports = {
 			{
 				context: 'app/renderer',
 				from: '**/*',
-				ignore: '*.js',
+				ignore: ['*.{js,css,scss}'],
 			},
 		]),
-		new webpack.ProvidePlugin({
-			$: 'jquery',
-			jQuery: 'jquery',
-		}),
 	],
 };

@@ -52,7 +52,7 @@ const Input = ({
 					readOnly={readOnly}
 					onChange={event => {
 						if (onChange) {
-							onChange(event.target.value);
+							onChange(event.target.value, event);
 						}
 					}}
 				/>
