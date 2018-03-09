@@ -7,6 +7,7 @@ import {loginContainer} from './containers/Login';
 import {createPortfolioContainer} from './containers/CreatePortfolio';
 import {restorePortfolioContainer} from './containers/RestorePortfolio';
 import {forgotPasswordContainer} from './containers/ForgotPassword';
+import {exchangeContainer} from './containers/Exchange';
 
 require('electron-unhandled')();
 
@@ -18,6 +19,7 @@ render((
 			createPortfolioContainer,
 			restorePortfolioContainer,
 			forgotPasswordContainer,
+			exchangeContainer,
 		]}
 	>
 		<App/>

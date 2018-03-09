@@ -2,9 +2,11 @@ import React from 'react';
 import {classNames} from 'react-extras';
 import './Button.scss';
 
-const Button = ({primary, fullwidth, ...props}) => {
+const Button = ({primary, fullwidth, green, red, ...props}) => {
 	const className = classNames('Button', {
 		'Button--primary': primary,
+		'Button--green': green,
+		'Button--red': red,
 		'Button--fullwidth': fullwidth,
 		'Button--disabled': props.disabled,
 	}, props.className);
