@@ -64,22 +64,16 @@ if (isAlreadyRunning) {
 const loadUrl = serve({directory: 'renderer-dist'});
 
 function createMainWindow() {
-	const windowState = config.get('windowState');
 	const isDarkMode = config.get('darkMode');
 
 	const win = new electron.BrowserWindow({
 		show: false,
 		title: app.getName(),
-		x: windowState.x,
-		y: windowState.y,
-		// ` width: windowState.width,
-		// height: windowState.height,
 		width: 660,
 		height: 450,
-		minWidth: 400,
-		minHeight: 200,
-		maximizable: false,
 		resizable: false,
+		maximizable: false,
+		fullscreenable: false,
 		titleBarStyle: 'hiddenInset',
 		darkTheme: isDarkMode, // GTK+3
 	});

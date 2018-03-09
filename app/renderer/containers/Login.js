@@ -1,5 +1,5 @@
 import {remote, ipcRenderer as ipc} from 'electron';
-import {is} from 'electron-util';
+import {is, setWindowBounds} from 'electron-util';
 import {Container} from 'unstated';
 import Api from '../api';
 import {appContainer} from './App';
@@ -27,6 +27,15 @@ const initApi = async seedPhrase => {
 		endpoint: url,
 		seedPhrase,
 	});
+};
+
+const setAppWindowBounds = () => {
+	const win = remote.getCurrentWindow();
+	win.setResizable(true);
+	win.setMaximizable(true);
+	win.setFullScreenable(true);
+	win.setMinimumSize(760, 500);
+	setWindowBounds(config.get('windowState'), {animated: true});
 };
 
 class LoginContainer extends Container {
@@ -98,11 +107,7 @@ class LoginContainer extends Container {
 
 		config.set('lastActivePortfolioId', portfolio.id);
 
-		// Restore user-preferred window size
-		const win = remote.getCurrentWindow();
-		const {width, height} = config.get('windowState');
-		win.setResizable(true);
-		win.setSize(width, height, true);
+		setAppWindowBounds();
 
 		appContainer.logIn({
 			portfolio,

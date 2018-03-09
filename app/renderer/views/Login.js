@@ -1,4 +1,5 @@
 import {remote} from 'electron';
+import {centerWindow} from 'electron-util';
 import React from 'react';
 import {Subscribe} from 'unstated';
 import Progress from '../components/Progress';
@@ -21,12 +22,25 @@ import ForgotPasswordStep2 from './ForgotPasswordStep2';
 import ForgotPasswordStep3 from './ForgotPasswordStep3';
 import './Login.scss';
 
+const setLoginWindowBounds = () => {
+	const win = remote.getCurrentWindow();
+	win.setFullScreen(false);
+	win.setFullScreenable(false);
+	win.setResizable(false);
+	win.setMaximizable(false);
+	win.setMinimumSize(660, 450);
+	centerWindow({
+		size: {
+			width: 660,
+			height: 450,
+		},
+		animated: true,
+	});
+};
+
 class Login extends React.Component {
 	componentWillMount() {
-		// Enforce window size
-		const win = remote.getCurrentWindow();
-		win.setResizable(false);
-		win.setSize(660, 450, true);
+		setLoginWindowBounds();
 	}
 
 	render() {
