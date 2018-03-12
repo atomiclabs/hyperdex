@@ -1,5 +1,5 @@
 import React from 'react';
-import Success from '../components/Success';
+import Success from '../../components/Success';
 
 const ForgotPasswordStep3 = () => <Success>Your new password is set!</Success>;
 
