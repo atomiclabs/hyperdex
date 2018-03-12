@@ -24,13 +24,14 @@ class AppContainer extends Container {
 	}
 
 	logOut() {
+		config.set('windowState', remote.getCurrentWindow().getBounds());
+
 		this.setState({
 			activeView: 'Login',
 			portfolio: null,
 		});
 
 		this.stopMarketmaker();
-		config.set('windowState', remote.getCurrentWindow().getBounds());
 	}
 
 	async stopMarketmaker() {
