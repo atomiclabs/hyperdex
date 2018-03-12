@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from '../../components/Button';
-import LoginBackButton from '../../components/LoginBackButton';
-import ReloadButton from '../../components/ReloadButton';
-import CopyButton from '../../components/CopyButton';
-import WrapWidth from '../../components/WrapWidth';
-import {createPortfolioContainer as container} from '../../containers/CreatePortfolio';
+import Button from 'components/Button';
+import LoginBackButton from 'components/LoginBackButton';
+import ReloadButton from 'components/ReloadButton';
+import CopyButton from 'components/CopyButton';
+import WrapWidth from 'components/WrapWidth';
+import {createPortfolioContainer as container} from 'containers/CreatePortfolio';
 import './CreatePortfolio.scss';
 
 const CreatePortfolioStep2 = () => {

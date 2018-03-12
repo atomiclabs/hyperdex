@@ -1,9 +1,9 @@
 import React from 'react';
 import {hot} from 'react-hot-loader';
 import {Subscribe} from 'unstated';
-import '../styles/index.scss'; // eslint-disable-line import/extensions
-import View from '../components/View';
-import AppContainer from '../containers/App';
+import '../styles/index.scss';
+import View from 'components/View';
+import AppContainer from 'containers/App';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import Swap from './Swap';

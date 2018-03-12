@@ -1,5 +1,5 @@
 import React from 'react';
-import {appContainer} from '../containers/App';
+import {appContainer} from 'containers/App';
 import avatar from '../avatar';
 import Nav from './Nav';
 import './TabView.scss';

@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from '../components/Button';
-import BackButton from '../components/BackButton';
-import ReloadButton from '../components/ReloadButton';
-import Input from '../components/Input';
-import TextArea from '../components/TextArea';
-import Progress from '../components/Progress';
+import Button from 'components/Button';
+import BackButton from 'components/BackButton';
+import ReloadButton from 'components/ReloadButton';
+import Input from 'components/Input';
+import TextArea from 'components/TextArea';
+import Progress from 'components/Progress';
 import './ComponentsPreview.scss';
 
 const ComponentsPreview = () => (
