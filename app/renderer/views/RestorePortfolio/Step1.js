@@ -1,8 +1,8 @@
 import React from 'react';
-import Button from '../components/Button';
-import TextArea from '../components/TextArea';
-import LoginBackButton from '../components/LoginBackButton';
-import {restorePortfolioContainer as container} from '../containers/RestorePortfolio';
+import Button from '../../components/Button';
+import TextArea from '../../components/TextArea';
+import LoginBackButton from '../../components/LoginBackButton';
+import {restorePortfolioContainer as container} from '../../containers/RestorePortfolio';
 
 const RestorePortfolioStep1 = () => {
 	const {state} = container;
