@@ -4,6 +4,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const PATHS = {
+	src: path.join(__dirname, 'app/renderer'),
 	dist: path.join(__dirname, 'app/renderer-dist'),
 };
 
@@ -22,6 +23,13 @@ module.exports = {
 	},
 	optimization: {
 		minimize: false,
+	},
+	resolve: {
+		alias: {
+			components: path.join(PATHS.src, 'components'),
+			containers: path.join(PATHS.src, 'containers'),
+			view: path.join(PATHS.src, 'view'),
+		},
 	},
 	module: {
 		rules: [
