@@ -17,7 +17,7 @@ class MarketmakerSocket {
 
 	async _handleMessage(event) {
 		const data = await this._parseData(event.data);
-		const queueid = Number(data.result.queueid);
+		const queueid = data.result.queueid;
 		const message = data.result;
 
 		if (queueid > 0) {
