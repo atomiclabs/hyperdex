@@ -1,9 +1,10 @@
 import Emittery from 'emittery';
+import pEvent from 'p-event';
 
 class MarketmakerSocket {
 	constructor(endpoint) {
 		this._ws = new WebSocket(endpoint, ['pair.sp.nanomsg.org']);
-		this.connected = new Promise(resolve => this._ws.addEventListener('open', resolve));
+		this.connected = pEvent(this._ws, 'open');
 
 		const ee = new Emittery();
 		this._ee = ee;
