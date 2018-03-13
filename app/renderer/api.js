@@ -4,7 +4,7 @@ import electrumServers from './electrum-servers';
 import MarketmakerSocket from './marketmaker-socket';
 
 export default class Api {
-	constructor({endpoint, seedPhrase, concurrency = 1}) {
+	constructor({endpoint, seedPhrase, concurrency = Infinity}) {
 		if (!(endpoint && seedPhrase)) {
 			throw new Error('The `endpoint` and `seedPhrase` options are	 required');
 		}
