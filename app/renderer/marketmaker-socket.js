@@ -1,5 +1,6 @@
 import Emittery from 'emittery';
 import pEvent from 'p-event';
+import readBlob from 'read-blob';
 
 class MarketmakerSocket {
 	constructor(endpoint) {
@@ -16,7 +17,8 @@ class MarketmakerSocket {
 	}
 
 	async _handleMessage(event) {
-		const data = await this._parseData(event.data);
+		const json = await readBlob.text(event.data);
+		const data = JSON.parse(json);
 		const queueId = data.result.queueid;
 		const message = data.result;
 
@@ -25,17 +27,6 @@ class MarketmakerSocket {
 		}
 
 		this._ee.emit('message', message);
-	}
-
-	_parseData(data) {
-		return new Promise(resolve => {
-			const reader = new FileReader();
-			reader.addEventListener('loadend', () => {
-				const parsedData = JSON.parse(reader.result);
-				resolve(parsedData);
-			});
-			reader.readAsText(data);
-		});
 	}
 
 	getResponse(queueId) {
