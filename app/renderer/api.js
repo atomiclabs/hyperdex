@@ -12,20 +12,23 @@ export default class Api {
 		this.endpoint = endpoint;
 		this.token = sha256().update(seedPhrase).digest('hex');
 		this.socket = false;
-		this.currentQueueid = 0;
+		this.currentQueued = 0;
 
 		this.queue = new PQueue({concurrency});
 	}
 
 	async _request(data) {
-		const queueid = this.socket ? ++this.currentQueueid : 0;
+		const queueId = this.socket ? ++this.currentQueued : 0;
 
 		const response = await this.queue.add(() => fetch(this.endpoint, {
 			method: 'post',
-			body: JSON.stringify({queueid, ...data}),
+			body: JSON.stringify({
+				...{queueid: queueId},
+				...data},
+			),
 		}));
 
-		return this.socket ? this.socket.getResponse(queueid) : response.json();
+		return this.socket ? this.socket.getResponse(queueId) : response.json();
 	}
 
 	async enableSocket() {

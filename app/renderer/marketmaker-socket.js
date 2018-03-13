@@ -17,11 +17,11 @@ class MarketmakerSocket {
 
 	async _handleMessage(event) {
 		const data = await this._parseData(event.data);
-		const queueid = data.result.queueid;
+		const queueId = data.result.queueid;
 		const message = data.result;
 
-		if (queueid > 0) {
-			this._ee.emit(`id_${queueid}`, message);
+		if (queueId > 0) {
+			this._ee.emit(`id_${queueId}`, message);
 		}
 
 		this._ee.emit('message', message);
@@ -38,8 +38,8 @@ class MarketmakerSocket {
 		});
 	}
 
-	getResponse(queueid) {
-		return this._ee.once(`id_${queueid}`);
+	getResponse(queueId) {
+		return this._ee.once(`id_${queueId}`);
 	}
 }
 
