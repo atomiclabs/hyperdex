@@ -22,7 +22,7 @@ export default class Api {
 
 		const response = await this.queue.add(() => fetch(this.endpoint, {
 			method: 'post',
-			body: JSON.stringify({ queueid, ...data}),
+			body: JSON.stringify({queueid, ...data}),
 		}));
 
 		return this.socket ? this.socket.getResponse(queueid) : response.json();

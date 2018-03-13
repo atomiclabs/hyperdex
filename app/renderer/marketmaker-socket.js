@@ -19,7 +19,7 @@ class MarketmakerSocket {
 		const queueid = Number(data.result.queueid);
 		const message = data.result;
 
-		if(queueid > 0) {
+		if (queueid > 0) {
 			this._ee.emit(`id_${queueid}`, message);
 		}
 
