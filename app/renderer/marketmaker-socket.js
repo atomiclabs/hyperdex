@@ -13,10 +13,10 @@ class MarketmakerSocket {
 		this.off = ee.off.bind(ee);
 		this.once = ee.once.bind(ee);
 
-		this._ws.addEventListener('message', this._handleMessage.bind(this));
+		this._ws.addEventListener('message', this._handleMessage);
 	}
 
-	async _handleMessage(event) {
+	_handleMessage = async event => {
 		const json = await readBlob.text(event.data);
 		const data = JSON.parse(json);
 		const queueId = data.result.queueid;
@@ -29,9 +29,7 @@ class MarketmakerSocket {
 		this._ee.emit('message', message);
 	}
 
-	getResponse(queueId) {
-		return this._ee.once(`id_${queueId}`);
-	}
+	getResponse = queueId => this._ee.once(`id_${queueId}`);
 }
 
 export default MarketmakerSocket;
