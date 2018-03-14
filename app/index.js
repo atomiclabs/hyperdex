@@ -1,4 +1,5 @@
 'use strict';
+const childProcess = require('child_process');
 const electron = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require('electron-updater');
@@ -84,6 +85,10 @@ function createMainWindow() {
 
 	if (is.development) {
 		win.loadURL('http://localhost:8080');
+
+		win.webContents.on('dom-ready', () => {
+			childProcess.execFile('killall', ['marketmaker']);
+		});
 	} else {
 		loadUrl(win);
 	}
