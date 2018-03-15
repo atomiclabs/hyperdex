@@ -1,7 +1,10 @@
+import electron from 'electron';
 import {sha256} from 'crypto-hash';
 import PQueue from 'p-queue';
 import electrumServers from './electrum-servers';
 import MarketmakerSocket from './marketmaker-socket';
+
+const getPort = electron.remote.require('get-port');
 
 export default class Api {
 	constructor({endpoint, seedPhrase, concurrency = Infinity}) {
@@ -32,7 +35,8 @@ export default class Api {
 	}
 
 	async enableSocket() {
-		const {endpoint} = await this.request({method: 'getendpoint'});
+		const port = await getPort();
+		const {endpoint} = await this.request({method: 'getendpoint', port});
 		const socket = new MarketmakerSocket(endpoint);
 		await this.socket.connected;
 		this.socket = socket;
