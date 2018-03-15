@@ -1,11 +1,11 @@
 import React from 'react';
-import Button from '../components/Button';
-import Input from '../components/Input';
-import Select from '../components/Select';
-import SelectOption from '../components/SelectOption';
-import Link from '../components/Link';
-import PlusButton from '../components/PlusButton';
-import {loginContainer} from '../containers/Login';
+import Button from 'components/Button';
+import Input from 'components/Input';
+import Select from 'components/Select';
+import SelectOption from 'components/SelectOption';
+import Link from 'components/Link';
+import PlusButton from 'components/PlusButton';
+import {loginContainer} from 'containers/Login';
 import './LoginBox.scss';
 import avatar from '../avatar';
 

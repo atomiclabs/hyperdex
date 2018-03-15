@@ -1,4 +1,5 @@
 'use strict';
+const childProcess = require('child_process');
 const electron = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require('electron-updater');
@@ -64,22 +65,16 @@ if (isAlreadyRunning) {
 const loadUrl = serve({directory: 'renderer-dist'});
 
 function createMainWindow() {
-	const windowState = config.get('windowState');
 	const isDarkMode = config.get('darkMode');
 
 	const win = new electron.BrowserWindow({
 		show: false,
 		title: app.getName(),
-		x: windowState.x,
-		y: windowState.y,
-		// ` width: windowState.width,
-		// height: windowState.height,
 		width: 660,
 		height: 450,
-		minWidth: 400,
-		minHeight: 200,
-		maximizable: false,
 		resizable: false,
+		maximizable: false,
+		fullscreenable: false,
 		titleBarStyle: 'hiddenInset',
 		darkTheme: isDarkMode, // GTK+3
 	});
@@ -90,6 +85,10 @@ function createMainWindow() {
 
 	if (is.development) {
 		win.loadURL('http://localhost:8080');
+
+		win.webContents.on('dom-ready', () => {
+			childProcess.execFile('killall', ['marketmaker']);
+		});
 	} else {
 		loadUrl(win);
 	}

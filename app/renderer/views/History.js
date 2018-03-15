@@ -1,5 +1,5 @@
 import React from 'react';
-import {appContainer} from '../containers/App';
+import {appContainer} from 'containers/App';
 import TabView from './TabView';
 
 const History = () => {
@@ -19,8 +19,8 @@ const History = () => {
 
 	return (
 		<TabView title="History">
-			<div style={{overflow: 'auto', maxHeight: 400}}>
-				<table className="table">
+			<div>
+				<table style={{maxHeight: 400}}>
 					<thead>
 						<tr>
 							<th>
