@@ -19,7 +19,7 @@ class MarketmakerSocket {
 	_handleMessage = async event => {
 		const json = await readBlob.text(event.data);
 		const data = JSON.parse(json);
-		const queueId = data.result.queueid;
+		const queueId = data.queueid;
 		const message = data.result;
 
 		if (queueId > 0) {
