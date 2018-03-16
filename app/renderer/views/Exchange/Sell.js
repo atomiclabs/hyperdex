@@ -3,21 +3,13 @@ import Input from 'components/Input';
 import Button from 'components/Button';
 import Select from 'components/Select';
 import TargetPriceButton from 'components/TargetPriceButton';
-import SelectOption from 'components/SelectOption';
+import CurrencySelectOption from 'components/CurrencySelectOption';
 import {exchangeContainer} from 'containers/Exchange';
 import './Sell.scss';
 
 class Top extends React.Component {
 	handleSelectChange = selectedOption => {
 		exchangeContainer.setQuoteCurrency(selectedOption.value);
-	};
-
-	selectOptionRenderer = option => {
-		return (
-			<SelectOption
-				label={option.label}
-			/>
-		);
 	};
 
 	render() {
@@ -46,8 +38,8 @@ class Top extends React.Component {
 					value={state.quoteCurrency}
 					options={selectData}
 					onChange={this.handleSelectChange}
-					valueRenderer={this.selectOptionRenderer}
-					optionRenderer={this.selectOptionRenderer}
+					valueRenderer={CurrencySelectOption}
+					optionRenderer={CurrencySelectOption}
 					placeholder="Select Quote Currency…"
 				/>
 				<h3 className="balance">Balance: 200 {state.quoteCurrency}</h3>
