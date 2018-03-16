@@ -28,7 +28,7 @@ module.exports = {
 		alias: {
 			components: path.join(PATHS.src, 'components'),
 			containers: path.join(PATHS.src, 'containers'),
-			view: path.join(PATHS.src, 'view'),
+			views: path.join(PATHS.src, 'views'),
 		},
 	},
 	module: {

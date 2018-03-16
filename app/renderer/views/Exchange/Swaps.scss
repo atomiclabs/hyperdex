@@ -1,0 +1,61 @@
+@import '~sass-extras/index';
+@import '../../styles/variables';
+
+.Exchange--Swaps {
+	display: flex;
+	flex-direction: column;
+
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		padding: 0 20px;
+		border-bottom: 1px solid var(--section-border-color);
+
+		h3,
+		nav span {
+			padding: 20px 0;
+		}
+
+		h3 {
+			margin: 0;
+		}
+
+		nav {
+			.button {
+				font-size: 15px;
+				user-select: none;
+				cursor: default;
+			}
+
+			.button:first-child {
+				margin-right: 20px;
+			}
+
+			.button.active {
+				color: var(--primary-color);
+				border-bottom: 1px solid var(--primary-color);
+			}
+		}
+	}
+
+	main {
+		display: flex;
+		flex: 1;
+		padding: 20px;
+
+		.empty {
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			p {
+				font-size: 20px;
+				opacity: 0.6;
+			}
+		}
+	}
+}

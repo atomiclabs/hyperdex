@@ -15,6 +15,7 @@ const Input = ({
 	icon,
 	iconSize,
 	iconName,
+	button: Button,
 	...props
 }) => {
 	if (errorMessage) {
@@ -37,6 +38,7 @@ const Input = ({
 			'Input--disabled': disabled,
 			'Input--readonly': readOnly,
 			'Input--icon': icon,
+			'Input--button': Button,
 		},
 		className
 	);
@@ -59,6 +61,11 @@ const Input = ({
 				{icon &&
 					<span className="Input__icon">
 						<img src={icon} width={iconSize}/>
+					</span>
+				}
+				{Button &&
+					<span className="Input__button">
+						<Button/>
 					</span>
 				}
 			</div>

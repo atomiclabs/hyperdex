@@ -18,7 +18,9 @@ const TabView = props => (
 		</header>
 		<Nav/>
 		<main className="content">
-			{props.children}
+			<div className={props.className}>
+				{props.children}
+			</div>
 		</main>
 	</div>
 );

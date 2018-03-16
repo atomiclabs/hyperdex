@@ -119,6 +119,28 @@
 		}
 	}
 
+	&--green {
+		background: linear-gradient(#2fab61, #2d955a);
+
+		&:active {
+			.Button__helper {
+				opacity: 1;
+				background: rgba(0, 0, 0, 0.1);
+			}
+		}
+	}
+
+	&--red {
+		background: linear-gradient(#f3155b, #ca1954);
+
+		&:active {
+			.Button__helper {
+				opacity: 1;
+				background: rgba(0, 0, 0, 0.1);
+			}
+		}
+	}
+
 	&--fullwidth {
 		width: 100%;
 	}

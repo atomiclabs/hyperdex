@@ -1,0 +1,16 @@
+@import '~sass-extras/index';
+@import '../../styles/variables';
+
+.Exchange--Chart {
+	padding: 15px;
+
+	.chart-container {
+		flex: 1;
+		border: 2px solid var(--section-border-color);
+
+		h3 {
+			margin-top: 10px;
+			text-align: center;
+		}
+	}
+}

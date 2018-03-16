@@ -1,6 +1,11 @@
 :root {
+	--primary-color: #687bf7;
+	--secondary-color: #8050ef;
 	--background-color: #222c3c;
 	--background-color2: #273142;
+	--text-color: #7f8fa4;
+	--red-color: #f80759;
+	--green-color: #28af60;
 }
 
 // TODO: We have to duplicate the variables here as Sass doesn't support native CSS variables in color functions
@@ -12,12 +17,13 @@ $background-color2: #273142;
 $text-color: #7f8fa4;
 $gray-color: #7f8fa4;
 $red-color: #f80759;
+$green-color: #28af60;
 $primary-gradient: linear-gradient(180deg, $primary-color 0%, $secondary-color 100%);
 $button-gradient: linear-gradient(180deg, #516173 0%, #3b4857 100%);
 $label-text-color: $gray-color;
 $disabled-text-color: $gray-color;
 
-$success-color: #39b54a;
+$success-color: $green-color;
 $error-color: $red-color;
 $warning-color: #f7981c;
 $info-color: #1991eb;
