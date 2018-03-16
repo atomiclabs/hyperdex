@@ -7,9 +7,9 @@ import './TabView.scss';
 const TabView = props => (
 	<div className="TabView">
 		<header className="toolbar">
-			<h4 className="portfolio-name">
+			<h1 className="app-name">
 				HyperDEX
-			</h4>
+			</h1>
 			<div className="portfolio-dropdown">
 				<div className="avatar-wrapper">
 					<img src={avatar(appContainer.state.portfolio.name)}/>

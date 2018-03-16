@@ -2,6 +2,7 @@ import React from 'react';
 import Input from 'components/Input';
 import Button from 'components/Button';
 import Select from 'components/Select';
+import Checkbox from 'components/Checkbox';
 import TargetPriceButton from 'components/TargetPriceButton';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import {exchangeContainer} from 'containers/Exchange';
@@ -118,7 +119,12 @@ const Center = () => {
 
 class Bottom extends React.Component {
 	state = {
+		shouldAutoSplit: false,
 		statusMessage: '',
+	};
+
+	handleAutoSplitCheckboxChange = checked => {
+		this.setState({shouldAutoSplit: checked});
 	};
 
 	handleSubmit = event => {
@@ -146,7 +152,15 @@ class Bottom extends React.Component {
 		return (
 			<div className="bottom">
 				<form onSubmit={this.handleSubmit}>
-					<h3>Buy {state.baseCurrency}</h3>
+					<h3>
+						<span>Buy {state.baseCurrency}</span>
+						<Checkbox
+							className="auto-split-checkbox"
+							label="Auto-split"
+							checked={this.state.shouldAutoSplit}
+							onChange={this.handleAutoSplitCheckboxChange}
+						/>
+					</h3>
 					<div className="form-section">
 						<label>Price ({state.quoteCurrency}):</label>
 						<Input className="price-input" type="number" min="0" required button={TargetPriceButtonWrapper}/>

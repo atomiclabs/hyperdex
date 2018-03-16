@@ -11,6 +11,16 @@
 	}
 
 	.bottom {
+		h3 {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			.auto-split-checkbox {
+				font-size: var(--text-size);
+			}
+		}
+
 		.status-message {
 			position: absolute;
 			margin: 0;

@@ -5,6 +5,7 @@ import ReloadButton from 'components/ReloadButton';
 import Input from 'components/Input';
 import TextArea from 'components/TextArea';
 import Progress from 'components/Progress';
+import Checkbox from 'components/Checkbox';
 import './ComponentsPreview.scss';
 
 const ComponentsPreview = () => (
@@ -21,6 +22,9 @@ const ComponentsPreview = () => (
 		<Input defaultValue="Error" errorMessage="Seed phrase does not match"/>
 		<TextArea defaultValue="TextArea"/>
 		<Progress value="0.4"/>
+		<Checkbox label="Checkbox"/>
+		<Checkbox checked/>
+		<Checkbox checked disabled label="Disabled"/>
 	</div>
 );
 

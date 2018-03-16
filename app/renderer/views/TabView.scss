@@ -25,17 +25,25 @@ h6 {
 		grid-area: toolbar;
 		display: flex;
 		align-items: center;
+		justify-content: flex-end;
 		padding-left: calc(var(--nav-width) + 10px);
 		background-color: var(--background-color2);
 
-		.portfolio-name {
-			flex: auto;
-			align-items: start;
+		.app-name {
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			display: block;
+			height: 38px;
+			line-height: 36px;
+			text-align: center;
+			font-size: 14px;
 			font-weight: 500;
+			opacity: 0.9;
 		}
 
 		.portfolio-dropdown {
-			align-items: end;
 			width: 40px;
 			margin: 0 10px;
 

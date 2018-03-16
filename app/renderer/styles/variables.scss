@@ -6,6 +6,7 @@
 	--text-color: #7f8fa4;
 	--red-color: #f80759;
 	--green-color: #28af60;
+	--primary-gradient: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
 
 // TODO: We have to duplicate the variables here as Sass doesn't support native CSS variables in color functions
@@ -69,6 +70,13 @@ $dark-mode-background-color: $background-color;
 		background-color: #1e2736;
 		transition: none;
 	}
+}
+
+@mixin absolute-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 @mixin center-vertically {
