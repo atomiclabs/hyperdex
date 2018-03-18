@@ -1,0 +1,25 @@
+/* stylelint-disable selector-class-pattern */
+@import '../styles/variables';
+
+.DepthChart {
+	display: flex;
+
+	/* Hides the first YAxis tick */
+	.recharts-yAxis .recharts-cartesian-axis-tick:first-child {
+		display: none;
+	}
+
+	.recharts-responsive-container:nth-child(1) {
+		.recharts-xAxis .recharts-cartesian-axis-tick:last-child {
+			display: none;
+		}
+	}
+
+	.recharts-responsive-container:nth-child(2) {
+		left: -10px;
+
+		.recharts-xAxis .recharts-cartesian-axis-tick:first-child {
+			display: none;
+		}
+	}
+}

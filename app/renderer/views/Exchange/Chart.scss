@@ -3,14 +3,24 @@
 
 .Exchange--Chart {
 	padding: 15px;
+	padding-bottom: 0;
 
 	.chart-container {
 		flex: 1;
-		border: 2px solid var(--section-border-color);
+		position: relative;
+		border-top: 2px solid var(--section-border-color);
 
 		h3 {
 			margin-top: 10px;
 			text-align: center;
+		}
+
+		.DepthChart {
+			position: absolute;
+			top: -6px;
+			left: -6px;
+			right: -14px;
+			bottom: -6px;
 		}
 	}
 }
