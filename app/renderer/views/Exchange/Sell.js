@@ -1,4 +1,5 @@
 import React from 'react';
+import roundTo from 'round-to';
 import Input from 'components/Input';
 import Button from 'components/Button';
 import Select from 'components/Select';
@@ -61,12 +62,6 @@ const Center = () => {
 			total: 48.1232300,
 		},
 	];
-	function roundTo(val, precision) {
-		const exponent = precision > 0 ? 'e' : 'e-';
-		const exponentNeg = precision > 0 ? 'e-' : 'e';
-		precision = Math.abs(precision);
-		return Number(Math.sign(val) * (Math.round(Math.abs(val) + exponent + precision) + exponentNeg + precision));
-	}
 	// Fake data
 	for (let i = 0; i < 50; i++) {
 		const [row] = data;
