@@ -100,6 +100,10 @@ class LoginContainer extends Container {
 		// TODO: These should be defaults saved in the config and changeable by the user
 		await Promise.all([
 			api.enableCoin('KMD'),
+			api.enableCoin('REVS'),
+			api.enableCoin('SUPERNET'),
+			api.enableCoin('CHIPS'),
+			api.enableCoin('BTC'),
 			api.enableCoin('VTC'),
 			api.enableCoin('LTC'),
 		]);
