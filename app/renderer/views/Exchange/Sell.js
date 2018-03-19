@@ -19,7 +19,7 @@ class Top extends React.Component {
 		const {state} = exchangeContainer;
 
 		const selectData = appContainer.state.currencies.map(currency => ({
-			label: `${cryptocurrencies[currency.coin]} (${currency.coin})`,
+			label: `${cryptocurrencies[currency.coin] || currency.coin} (${currency.coin})`,
 			value: currency.coin,
 		}));
 
