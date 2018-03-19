@@ -7,6 +7,7 @@ import Checkbox from 'components/Checkbox';
 import TargetPriceButton from 'components/TargetPriceButton';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import {exchangeContainer} from 'containers/Exchange';
+import {appContainer} from 'containers/App';
 import './Buy.scss';
 
 class Top extends React.Component {
@@ -17,21 +18,11 @@ class Top extends React.Component {
 	render() {
 		const {state} = exchangeContainer;
 
-		// TODO: Temp data
-		const selectData = [
-			{
-				label: 'Komodo (KMD)',
-				value: 'KMD',
-			},
-			{
-				label: 'Bitcoin (BTC)',
-				value: 'BTC',
-			},
-			{
-				label: 'Litecoin (LTC)',
-				value: 'LTC',
-			},
-		];
+		// TODO: Get a proper labels
+		const selectData = appContainer.state.currencies.map(currency => ({
+			label: currency.coin,
+			value: currency.coin,
+		}));
 
 		return (
 			<div className="top">

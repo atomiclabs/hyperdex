@@ -16,21 +16,11 @@ class Top extends React.Component {
 	render() {
 		const {state} = exchangeContainer;
 
-		// TODO: Temp data
-		const selectData = [
-			{
-				label: 'Komodo (KMD)',
-				value: 'KMD',
-			},
-			{
-				label: 'Bitcoin (BTC)',
-				value: 'BTC',
-			},
-			{
-				label: 'Litecoin (LTC)',
-				value: 'LTC',
-			},
-		];
+		// TODO: Get a proper labels
+		const selectData = appContainer.state.currencies.map(currency => ({
+			label: currency.coin,
+			value: currency.coin,
+		}));
 
 		return (
 			<div className="top">
