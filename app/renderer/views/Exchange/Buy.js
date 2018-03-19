@@ -1,5 +1,6 @@
 import React from 'react';
 import roundTo from 'round-to';
+import cryptocurrencies from 'cryptocurrencies';
 import Input from 'components/Input';
 import Button from 'components/Button';
 import Select from 'components/Select';
@@ -7,6 +8,7 @@ import Checkbox from 'components/Checkbox';
 import TargetPriceButton from 'components/TargetPriceButton';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import {exchangeContainer} from 'containers/Exchange';
+import {appContainer} from 'containers/App';
 import './Buy.scss';
 
 class Top extends React.Component {
@@ -17,21 +19,10 @@ class Top extends React.Component {
 	render() {
 		const {state} = exchangeContainer;
 
-		// TODO: Temp data
-		const selectData = [
-			{
-				label: 'Komodo (KMD)',
-				value: 'KMD',
-			},
-			{
-				label: 'Bitcoin (BTC)',
-				value: 'BTC',
-			},
-			{
-				label: 'Litecoin (LTC)',
-				value: 'LTC',
-			},
-		];
+		const selectData = appContainer.state.currencies.map(currency => ({
+			label: `${cryptocurrencies[currency.coin] || currency.coin} (${currency.coin})`,
+			value: currency.coin,
+		}));
 
 		return (
 			<div className="top">
