@@ -14,6 +14,7 @@
 	"dependencies": {
 		"bip39": "^2.5.0",
 		"crypto-hash": "^0.1.0",
+		"cryptocurrencies": "^2.0.0",
 		"emittery": "^0.3.0",
 		"lodash": "^4.17.4",
 		"modern-normalize": "^0.4.0",
