@@ -19,7 +19,13 @@ const SelectOption = ({className, label, image, ...props}) => {
 		<div {...props} className={containerClassName}>
 			{image &&
 				<span className="SelectOption__image-wrap">
-					<img className="SelectOption__image" src={image}/>
+					<img
+						className="SelectOption__image"
+						src={image}
+						onError={event => {
+							event.currentTarget.style.visibility = 'hidden';
+						}}
+					/>
 				</span>
 			}
 			<span className="SelectOption__label">
