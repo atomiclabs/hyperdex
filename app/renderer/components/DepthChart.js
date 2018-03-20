@@ -31,7 +31,7 @@ const DepthChart = props => {
 				<AreaChart data={bids}>
 					<Area
 						dataKey="depth"
-						type="linear"
+						type="step"
 						stroke="#28af60"
 						fillOpacity={1}
 						fill="#275049"
@@ -79,7 +79,7 @@ const DepthChart = props => {
 				<AreaChart data={asks}>
 					<Area
 						dataKey="depth"
-						type="linear"
+						type="step"
 						stroke="#f80759"
 						fillOpacity={1}
 						fill="#5a2947"
