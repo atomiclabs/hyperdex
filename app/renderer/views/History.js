@@ -1,6 +1,7 @@
 import React from 'react';
 import {appContainer} from 'containers/App';
 import TabView from './TabView';
+import './History.scss';
 
 const History = () => {
 	const coins = appContainer.state.currencies.map(coin => (

@@ -1,0 +1,22 @@
+td,
+th {
+	padding: 1.2rem 1.5rem;
+}
+
+thead tr {
+	border-bottom: 0.1rem solid white(30%);
+}
+
+tbody tr {
+	border-bottom: 0.1rem solid white(10%);
+}
+
+td:first-child,
+th:first-child {
+	padding-left: 0;
+}
+
+td:last-child,
+th:last-child {
+	padding-right: 0;
+}
