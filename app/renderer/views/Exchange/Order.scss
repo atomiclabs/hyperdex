@@ -1,0 +1,137 @@
+@import '~sass-extras/index';
+@import '../../styles/variables';
+
+.Exchange--Buy,
+.Exchange--Sell {
+	flex-direction: column;
+	padding: 24px;
+
+	.top {
+		align-items: start;
+
+		.currency-selector {
+			.SelectOption__label {
+				font-size: 16px;
+				font-weight: 500;
+			}
+
+			.Select-control {
+				background: #2f3948;
+			}
+		}
+
+		.balance {
+			margin: 12px 0;
+		}
+
+		.address {
+			font-size: var(--text-size);
+		}
+	}
+
+	.center {
+		flex: 1;
+		position: relative;
+		min-height: 80px;
+
+		.table-wrapper {
+			position: absolute;
+			top: 30px; // The height of the section header
+			right: 0;
+			bottom: 20px;
+			left: 0;
+			overflow-y: scroll;
+			font-size: 11px;
+			color: var(--text-color);
+			cursor: default;
+
+			// Chrome doesn't yet support making `thead` sticky...
+			// https://bugs.chromium.org/p/chromium/issues/detail?id=702927
+			thead tr:first-child th {
+				background-color: var(--background-color2);
+				position: sticky;
+				top: 0;
+				font-size: 12px;
+				font-weight: 500;
+				border-bottom: 1px solid var(--section-border-color);
+			}
+
+			tbody tr {
+				border: none;
+				transition: background-color 0.4s ease-in;
+
+				&:hover {
+					background-color: #343d4d;
+				}
+			}
+
+
+			td,
+			th {
+				padding: 3px; // TODO: Remove it from the global style
+			}
+		}
+	}
+
+	.bottom {
+		align-items: end;
+
+		h3 {
+			border-bottom: 1px solid var(--section-border-color);
+			padding-bottom: 6px;
+		}
+
+		.form-section {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			label {
+				font-size: var(--text-size);
+				color: var(--text-color);
+			}
+
+			.Input {
+				width: 130px;
+			}
+
+			.Input input {
+				min-width: unset; // TODO: Fix this at the source
+			}
+
+			.max-price-button {
+				color: #fff;
+				font-size: 12px;
+			}
+
+			.status-message {
+				position: absolute;
+				margin: 0;
+			}
+		}
+
+		.Button {
+			margin-top: 28px;
+		}
+	}
+}
+
+.Exchange--Buy {
+	.table-wrapper {
+		tbody {
+			td:first-child {
+				color: var(--red-color);
+			}
+		}
+	}
+}
+
+.Exchange--Sell {
+	.table-wrapper {
+		tbody {
+			td:first-child {
+				color: var(--green-color);
+			}
+		}
+	}
+}

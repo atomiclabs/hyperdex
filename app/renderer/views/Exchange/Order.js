@@ -1,19 +1,23 @@
 import React from 'react';
 import roundTo from 'round-to';
 import cryptocurrencies from 'cryptocurrencies';
+import _ from 'lodash';
 import Input from 'components/Input';
 import Button from 'components/Button';
 import Select from 'components/Select';
-import Checkbox from 'components/Checkbox';
 import TargetPriceButton from 'components/TargetPriceButton';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import {exchangeContainer} from 'containers/Exchange';
 import {appContainer} from 'containers/App';
-import './Buy.scss';
+import './Order.scss';
 
 class Top extends React.Component {
 	handleSelectChange = selectedOption => {
-		exchangeContainer.setBaseCurrency(selectedOption.value);
+		if (this.props.type === 'buy') {
+			exchangeContainer.setBaseCurrency(selectedOption.value);
+		} else {
+			exchangeContainer.setQuoteCurrency(selectedOption.value);
+		}
 	};
 
 	render() {
@@ -28,21 +32,20 @@ class Top extends React.Component {
 			<div className="top">
 				<Select
 					className="currency-selector"
-					value={state.baseCurrency}
+					value={this.props.type === 'buy' ? state.baseCurrency : state.quoteCurrency}
 					options={selectData}
 					onChange={this.handleSelectChange}
 					valueRenderer={CurrencySelectOption}
 					optionRenderer={CurrencySelectOption}
-					placeholder="Select Base Currency…"
 				/>
-				<h3 className="balance">Balance: 500 {state.baseCurrency}</h3>
+				<h3 className="balance">Balance: 200 {state.quoteCurrency}</h3>
 				<p className="address">1EnJHhq8Jq8vDuZA5ahVh6H4t6jh1mB4rq</p>
 			</div>
 		);
 	}
 }
 
-const Center = () => {
+const Center = props => {
 	const {state} = exchangeContainer;
 
 	// FIXME: This is just test data
@@ -68,12 +71,12 @@ const Center = () => {
 
 	const selectRow = row => {
 		// TODO(sindresorhus): Fix this. Just doing it easy for now until I know exactly how it will work
-		document.querySelector('.Exchange--Buy .price-input input').value = row.price;
+		document.querySelector(`.Exchange--${_.upperFirst(props.type)} .price-input input`).value = row.price;
 	};
 
 	return (
 		<div className="center">
-			<h3>{state.baseCurrency} Sell Orders</h3>
+			<h3>{`${state.baseCurrency} ${props.type === 'buy' ? 'Sell' : 'Buy'} Orders`}</h3>
 			<div className="table-wrapper">
 				<table>
 					<thead>
@@ -105,12 +108,7 @@ const Center = () => {
 
 class Bottom extends React.Component {
 	state = {
-		shouldAutoSplit: false,
 		statusMessage: '',
-	};
-
-	handleAutoSplitCheckboxChange = checked => {
-		this.setState({shouldAutoSplit: checked});
 	};
 
 	handleSubmit = event => {
@@ -128,32 +126,33 @@ class Bottom extends React.Component {
 		console.log('target price button click');
 	};
 
+	maxPriceButtonHandler = () => {
+		console.log('max price button click');
+	};
+
 	render() {
 		const {state} = exchangeContainer;
+		const typeTitled = _.upperFirst(this.props.type);
 
 		const TargetPriceButtonWrapper = () => (
 			<TargetPriceButton onClick={this.targetPriceButtonHandler}/>
 		);
 
+		const MaxPriceButton = () => (
+			<div className="max-price-button" onClick={this.maxPriceButtonHandler}>MAX</div>
+		);
+
 		return (
 			<div className="bottom">
 				<form onSubmit={this.handleSubmit}>
-					<h3>
-						<span>Buy {state.baseCurrency}</span>
-						<Checkbox
-							className="auto-split-checkbox"
-							label="Auto-split"
-							checked={this.state.shouldAutoSplit}
-							onChange={this.handleAutoSplitCheckboxChange}
-						/>
-					</h3>
+					<h3>{`${typeTitled} ${state.baseCurrency}`}</h3>
 					<div className="form-section">
 						<label>Price ({state.quoteCurrency}):</label>
 						<Input className="price-input" type="number" min="0" required button={TargetPriceButtonWrapper}/>
 					</div>
 					<div className="form-section">
 						<label>Amount ({state.baseCurrency}):</label>
-						<Input type="number" min="0" required/>
+						<Input type="number" min="0" required button={MaxPriceButton}/>
 					</div>
 					<div className="form-section">
 						<label>Total ({state.quoteCurrency}):</label>
@@ -164,21 +163,23 @@ class Bottom extends React.Component {
 							{this.state.statusMessage}
 						</p>
 					}
-					<Button green fullwidth type="submit" value={`Buy ${state.baseCurrency}`}/>
+					<Button color={this.props.type === 'buy' ? 'green' : 'red'} fullwidth type="submit" value={`${typeTitled} ${state.baseCurrency}`}/>
 				</form>
 			</div>
 		);
 	}
 }
 
-const Buy = () => {
+const Order = props => {
+	const typeTitled = _.upperFirst(props.type);
+
 	return (
-		<div className="Exchange--Buy">
-			<Top/>
-			<Center/>
-			<Bottom/>
+		<div className={`Exchange--${typeTitled}`}>
+			<Top {...props}/>
+			<Center {...props}/>
+			<Bottom {...props}/>
 		</div>
 	);
 };
 
-export default Buy;
+export default Order;
