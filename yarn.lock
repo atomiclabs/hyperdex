@@ -1889,6 +1889,10 @@ codecov@^3.0.0:
     request "2.81.0"
     urlgrey "0.4.4"
 
+coinlist@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/coinlist/-/coinlist-1.1.0.tgz#99c11c713e5ba1039ac2bdb51e7e77aac6e70ee0"
+
 collapse-white-space@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/collapse-white-space/-/collapse-white-space-1.0.3.tgz#4b906f670e5a963a87b76b0e1689643341b6023c"
@@ -2220,10 +2224,6 @@ crypto-hash@^0.1.0:
 crypto-random-string@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-1.0.0.tgz#a230f64f568310e1498009940790ec99545bca7e"
-
-cryptocurrencies@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/cryptocurrencies/-/cryptocurrencies-2.0.0.tgz#738d58a94eda86a0869f4811eed2f04af475757d"
 
 css-color-names@0.0.4:
   version "0.0.4"

@@ -1,6 +1,6 @@
 import React from 'react';
 import roundTo from 'round-to';
-import cryptocurrencies from 'cryptocurrencies';
+import coins from 'coinlist';
 import _ from 'lodash';
 import Input from 'components/Input';
 import Button from 'components/Button';
@@ -24,7 +24,7 @@ class Top extends React.Component {
 		const {state} = exchangeContainer;
 
 		const selectData = appContainer.state.currencies.map(currency => ({
-			label: `${cryptocurrencies[currency.coin] || currency.coin} (${currency.coin})`,
+			label: `${coins.get(currency.coin, 'name') || currency.coin} (${currency.coin})`,
 			value: currency.coin,
 		}));
 
