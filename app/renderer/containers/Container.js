@@ -11,19 +11,19 @@ class CustomContainer extends Container {
 		console.group(name);
 
 		if (diff.added) {
-			console.log('Added:', diff.added);
+			console.log('Added\n', diff.added);
 		}
 
 		if (diff.updated) {
-			console.log('Updated:', diff.updated);
+			console.log('Updated\n', diff.updated);
 		}
 
 		if (diff.deleted) {
-			console.log('Deleted:', diff.deleted);
+			console.log('Deleted\n', diff.deleted);
 		}
 
-		console.log('New state:', state);
-		console.log('Old state:', this.state);
+		console.log('New state\n', state);
+		console.log('Old state\n', this.state);
 
 		console.groupEnd(name);
 	}
