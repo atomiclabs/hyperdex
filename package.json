@@ -16,6 +16,7 @@
 		"coinlist": "^1.1.0",
 		"crypto-hash": "^0.1.0",
 		"date-fns": "^1.29.0",
+		"deep-object-diff": "^1.1.0",
 		"emittery": "^0.3.0",
 		"lodash": "^4.17.4",
 		"modern-normalize": "^0.4.0",

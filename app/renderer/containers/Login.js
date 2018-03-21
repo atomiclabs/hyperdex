@@ -1,7 +1,7 @@
 import {remote, ipcRenderer as ipc} from 'electron';
 import {is, setWindowBounds} from 'electron-util';
-import {Container} from 'unstated';
 import Api from '../api';
+import Container from './Container';
 import {appContainer} from './App';
 
 const config = remote.require('./config');
