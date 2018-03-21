@@ -45,7 +45,7 @@
 		flex: 1;
 		padding: 20px;
 
-		.empty {
+		.Empty {
 			display: flex;
 			flex: 1;
 			flex-direction: column;
@@ -55,6 +55,87 @@
 			p {
 				font-size: 20px;
 				opacity: 0.6;
+			}
+		}
+
+		.SwapList {
+			flex: 1;
+			overflow-y: scroll;
+			margin-bottom: 20px;
+			font-size: 12px;
+
+			table {
+				display: table;
+				width: 100%;
+			}
+
+			tr {
+				white-space: nowrap;
+			}
+
+			td {
+				padding: 8px 5px 8px 0;
+			}
+
+			td:last-child {
+				padding-right: 0;
+				width: 1%; // Forces it to be the width of its contents
+			}
+
+			.timestamp {
+				color: var(--text-color);
+			}
+
+			.sell-amount {
+				color: var(--red-color);
+			}
+
+			.buy-amount {
+				color: var(--green-color);
+			}
+
+			.status {
+				&__icon {
+					width: 72px;
+					padding: 1px 2px;
+					font-size: 11px;
+					text-align: center;
+					text-transform: uppercase;
+					border: 1px solid;
+					border-radius: 3px;
+				}
+
+				&__icon[data-status='started'] {
+					background-color: var(--primary-color);
+					border-color: var(--primary-color);
+				}
+
+				&__icon[data-status='cancelled'] {
+					border-color: #364357;
+				}
+
+				&__icon[data-status='completed'] {
+					border-color: var(--primary-color);
+				}
+			}
+
+			.view {
+				&__button {
+					padding: 4px 6px;
+					color: #fff;
+					background-color: var(--background-color);
+					border: 1px solid #313d4f;
+					transition: 0.2s ease-out;
+
+					&:hover {
+						border-color: rgba(255, 255, 255, 0.2);
+					}
+
+					&:active {
+						color: rgba(255, 255, 255, 0.8);
+						border-color: rgba(255, 255, 255, 0.15);
+					}
+				}
 			}
 		}
 	}
