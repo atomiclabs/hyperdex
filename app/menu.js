@@ -81,9 +81,15 @@ const debugMenu = {
 	label: 'Debug',
 	submenu: [
 		{
-			label: 'Toggle Container Logging',
+			label: 'Log Container State',
 			async click() {
-				await runJS('window.__UNSTATED_LOGGING__ = !window.__UNSTATED_LOGGING__');
+				await runJS('__UNSTATED__.logState()');
+			},
+		},
+		{
+			label: 'Toggle Logging on State Changes',
+			async click() {
+				await runJS('__UNSTATED__.logStateChanges = !__UNSTATED__.logStateChanges');
 			},
 		},
 		{

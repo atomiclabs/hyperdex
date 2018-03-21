@@ -1,40 +1,90 @@
 import {is} from 'electron-util';
-import {Container} from 'unstated';
+import {Container as C} from 'unstated';
 import {detailedDiff} from 'deep-object-diff';
 
 // TODO(sindresorhus): Extract this into a module when it's more mature
-class CustomContainer extends Container {
-	_logStateChange(state) {
-		const {name} = this.constructor;
-		const diff = detailedDiff(this.state, state);
+const unstatedDebug = options => {
+	options = Object.assign({
+		isEnabled: true,
+		logStateChanges: true,
+	}, options);
 
-		console.group(name);
-
-		if (diff.added) {
-			console.log('Added\n', diff.added);
+	return Container => {
+		if (!options.isEnabled) {
+			return Container;
 		}
 
-		if (diff.updated) {
-			console.log('Updated\n', diff.updated);
+		if (!window.__UNSTATED__) {
+			window.__UNSTATED__ = {
+				isEnabled: true,
+				logStateChanges: options.logStateChanges,
+				containers: {},
+
+				get states() {
+					const ret = {};
+					for (const [key, value] of Object.entries(this.containers)) {
+						ret[key] = value.state;
+					}
+					return ret;
+				},
+
+				logState() {
+					for (const [key, value] of Object.entries(this.containers)) {
+						console.log(`%c${key}\n`, 'font-weight:bold', value.state);
+					}
+				},
+			};
 		}
 
-		if (diff.deleted) {
-			console.log('Deleted\n', diff.deleted);
+		const globalInstance = window.__UNSTATED__;
+		const logStateChangeKey = Symbol('log state key');
+
+		class DebuggableContainer extends Container {
+			[logStateChangeKey](state) {
+				const {name} = this.constructor;
+				const diff = detailedDiff(this.state, state);
+
+				console.group(name);
+
+				if (diff.added) {
+					console.log('Added\n', diff.added);
+				}
+
+				if (diff.updated) {
+					console.log('Updated\n', diff.updated);
+				}
+
+				if (diff.deleted) {
+					console.log('Deleted\n', diff.deleted);
+				}
+
+				console.log('New state\n', state);
+				console.log('Old state\n', this.state);
+
+				console.groupEnd(name);
+			}
+
+			constructor(...args) {
+				super(...args);
+				globalInstance.containers[this.constructor.name] = this;
+			}
+
+			setState(state) {
+				if (globalInstance.isEnabled && globalInstance.logStateChanges) {
+					this[logStateChangeKey](state);
+				}
+
+				super.setState(state);
+			}
 		}
 
-		console.log('New state\n', state);
-		console.log('Old state\n', this.state);
+		return DebuggableContainer;
+	};
+};
 
-		console.groupEnd(name);
-	}
+const makeDebuggable = unstatedDebug({
+	isEnabled: is.development,
+	logStateChanges: false,
+});
 
-	setState(state) {
-		if (is.development && window.__UNSTATED_LOGGING__) {
-			this._logStateChange(state);
-		}
-
-		super.setState(state);
-	}
-}
-
-export default CustomContainer;
+export default makeDebuggable(C);
