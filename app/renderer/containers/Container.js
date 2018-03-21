@@ -29,7 +29,7 @@ class CustomContainer extends Container {
 	}
 
 	setState(state) {
-		if (is.development) {
+		if (is.development && window.__UNSTATED_LOGGING__) {
 			this._logStateChange(state);
 		}
 
