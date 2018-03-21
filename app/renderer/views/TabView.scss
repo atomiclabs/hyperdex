@@ -41,23 +41,37 @@ h6 {
 			font-size: 14px;
 			font-weight: 500;
 			opacity: 0.9;
+			pointer-events: none;
 		}
 
-		.portfolio-dropdown {
-			width: 40px;
-			margin: 0 10px;
+		.right-container {
+			display: flex;
 
-			.avatar-wrapper {
-				width: 30px;
-				height: 30px;
-				padding: 8px;
-				background-color: #1b2430;
-				border-radius: 100%;
+			.feedback-button {
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				background: none;
+				font-size: 12px;
+				border-radius: 4px;
+				color: rgba(255, 255, 255, 0.7);
+				margin: 5px;
+			}
 
-				img {
-					display: block;
-					width: 100%;
-					height: 100%;
+			.portfolio-dropdown {
+				width: 40px;
+				margin: 0 10px;
+
+				.avatar-wrapper {
+					width: 30px;
+					height: 30px;
+					padding: 8px;
+					background-color: #1b2430;
+					border-radius: 100%;
+
+					img {
+						display: block;
+						width: 100%;
+						height: 100%;
+					}
 				}
 			}
 		}
