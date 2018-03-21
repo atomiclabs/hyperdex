@@ -25,6 +25,12 @@ module.exports = {
 		minimize: false,
 	},
 	resolve: {
+		// See: https://github.com/webpack/webpack/issues/6811
+		mainFields: [
+			'browser',
+			'module',
+			'main',
+		],
 		alias: {
 			components: path.join(PATHS.src, 'components'),
 			containers: path.join(PATHS.src, 'containers'),
