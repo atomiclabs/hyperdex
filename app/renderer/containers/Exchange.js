@@ -1,5 +1,6 @@
 /* eslint-disable react/no-access-state-in-setstate */
 import {appContainer} from 'containers/App';
+import fireEvery from '../fire-every';
 import Container from './Container';
 
 class ExchangeContainer extends Container {
@@ -14,14 +15,6 @@ class ExchangeContainer extends Container {
 			askdepth: 0,
 		},
 	};
-
-	constructor() {
-		super();
-
-		setInterval(() => {
-			this.fetchOrderbook();
-		}, 1000);
-	}
 
 	setBaseCurrency(baseCurrency) {
 		// Switch if the same as `quoteCurrency`
@@ -46,17 +39,19 @@ class ExchangeContainer extends Container {
 		this.setState({activeSwapsView});
 	}
 
-	async fetchOrderbook() {
-		if (!appContainer.api) {
-			return;
+	watchOrderbook() {
+		if (!this.stopWatchingOrderbook) {
+			this.stopWatchingOrderbook = fireEvery(async () => {
+				const orderbook = await appContainer.api.orderbook(
+					this.state.baseCurrency,
+					this.state.quoteCurrency,
+				);
+
+				this.setState({orderbook});
+			}, 1000);
 		}
 
-		const orderbook = await appContainer.api.orderbook(
-			this.state.baseCurrency,
-			this.state.quoteCurrency,
-		);
-
-		this.setState({orderbook});
+		return this.stopWatchingOrderbook;
 	}
 }
 
