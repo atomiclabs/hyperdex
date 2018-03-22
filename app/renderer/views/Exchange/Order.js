@@ -36,7 +36,7 @@ class Top extends React.Component {
 			<div className="top">
 				<Select
 					className="currency-selector"
-					value={selectedCurrencySymbol}
+					value={selectedCurrency.coin}
 					options={selectData}
 					onChange={this.handleSelectChange}
 					valueRenderer={CurrencySelectOption}
