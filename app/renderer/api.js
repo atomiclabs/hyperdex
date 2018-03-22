@@ -105,7 +105,7 @@ export default class Api {
 		return this.request({method: 'getcoins'});
 	}
 
-	orderbook(base, rel) {
+	orderBook(base, rel) {
 		return this.request({
 			method: 'orderbook',
 			base,

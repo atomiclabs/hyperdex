@@ -48,7 +48,7 @@ class Top extends React.Component {
 const Center = props => {
 	const {state} = exchangeContainer;
 
-	const data = state.orderbook[props.type === 'buy' ? 'asks' : 'bids'];
+	const data = state.orderBook[props.type === 'buy' ? 'asks' : 'bids'];
 
 	const selectRow = row => {
 		// TODO(sindresorhus): Fix this. Just doing it easy for now until I know exactly how it will work

@@ -5,17 +5,17 @@ import './Chart.scss';
 
 const Chart = () => {
 	const {state} = exchangeContainer;
-	const {orderbook} = state;
+	const {orderBook} = state;
 
 	return (
 		<div className="Exchange--Chart">
 			<div className="chart-container">
 				<h3>{state.baseCurrency}/{state.quoteCurrency} Depth Chart</h3>
 				<DepthChart
-					bids={orderbook.bids}
-					asks={orderbook.asks}
-					bidDepth={orderbook.biddepth}
-					askDepth={orderbook.askdepth}
+					bids={orderBook.bids}
+					asks={orderBook.asks}
+					bidDepth={orderBook.biddepth}
+					askDepth={orderBook.askdepth}
 				/>
 			</div>
 		</div>

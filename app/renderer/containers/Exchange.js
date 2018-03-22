@@ -8,7 +8,7 @@ class ExchangeContainer extends Container {
 		baseCurrency: 'CHIPS',
 		quoteCurrency: 'KMD',
 		activeSwapsView: 'All',
-		orderbook: {
+		orderBook: {
 			bids: [],
 			asks: [],
 			biddepth: 0,
@@ -23,7 +23,7 @@ class ExchangeContainer extends Container {
 		}
 
 		this.setState({baseCurrency});
-		this.fetchOrderbook();
+		this.fetchOrderBook();
 	}
 
 	setQuoteCurrency(quoteCurrency) {
@@ -32,26 +32,26 @@ class ExchangeContainer extends Container {
 		}
 
 		this.setState({quoteCurrency});
-		this.fetchOrderbook();
+		this.fetchOrderBook();
 	}
 
 	setActiveSwapsView(activeSwapsView) {
 		this.setState({activeSwapsView});
 	}
 
-	watchOrderbook() {
-		if (!this.stopWatchingOrderbook) {
-			this.stopWatchingOrderbook = fireEvery(async () => {
-				const orderbook = await appContainer.api.orderbook(
+	watchOrderBook() {
+		if (!this.stopWatchingOrderBook) {
+			this.stopWatchingOrderBook = fireEvery(async () => {
+				const orderBook = await appContainer.api.orderBook(
 					this.state.baseCurrency,
 					this.state.quoteCurrency,
 				);
 
-				this.setState({orderbook});
+				this.setState({orderBook});
 			}, 1000);
 		}
 
-		return this.stopWatchingOrderbook;
+		return this.stopWatchingOrderBook;
 	}
 }
 

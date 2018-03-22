@@ -8,7 +8,7 @@ import Swaps from './Swaps';
 import './Exchange.scss';
 
 const Exchange = () => {
-	exchangeContainer.watchOrderbook();
+	exchangeContainer.watchOrderBook();
 
 	return (
 		<Subscribe to={[ExchangeContainer]}>
