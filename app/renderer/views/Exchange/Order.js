@@ -48,26 +48,7 @@ class Top extends React.Component {
 const Center = props => {
 	const {state} = exchangeContainer;
 
-	// FIXME: This is just test data
-	const data = [
-		{
-			price: 0.03512,
-			amount: 400.8763,
-			max: 200.3432,
-			total: 48.1232300,
-		},
-	];
-	// Fake data
-	for (let i = 0; i < 50; i++) {
-		const [row] = data;
-		data.push({
-			price: roundTo(row.price * Math.random(), 3),
-			amount: roundTo(row.amount * Math.random(), 3),
-			max: roundTo(row.max * Math.random(), 3),
-			total: roundTo(row.total * Math.random(), 3),
-		});
-	}
-	data.unshift();
+	const data = state.orderbook[props.type === 'buy' ? 'asks' : 'bids'];
 
 	const selectRow = row => {
 		// TODO(sindresorhus): Fix this. Just doing it easy for now until I know exactly how it will work
@@ -82,9 +63,8 @@ const Center = props => {
 					<thead>
 						<tr>
 							<th>Price ({state.quoteCurrency})</th>
-							<th>Amount</th>
-							<th>Max</th>
-							<th>Total ({state.quoteCurrency})</th>
+							<th>Avg Vol</th>
+							<th>Max Vol</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -93,9 +73,8 @@ const Center = props => {
 							return data.map((row, i) => (
 								<tr key={i} onClick={() => selectRow(row)}>
 									<td>{row.price}</td>
-									<td>{row.amount}</td>
-									<td>{row.max}</td>
-									<td>{row.total}</td>
+									<td>{roundTo(row.avevolume, 6)}</td>
+									<td>{roundTo(row.maxvolume, 6)}</td>
 								</tr>
 							));
 						})()}

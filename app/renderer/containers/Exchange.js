@@ -1,4 +1,5 @@
 /* eslint-disable react/no-access-state-in-setstate */
+import {appContainer} from 'containers/App';
 import Container from './Container';
 
 class ExchangeContainer extends Container {
@@ -6,7 +7,21 @@ class ExchangeContainer extends Container {
 		baseCurrency: 'KMD',
 		quoteCurrency: 'LTC',
 		activeSwapsView: 'All',
+		orderbook: {
+			bids: [],
+			asks: [],
+			biddepth: 0,
+			askdepth: 0,
+		},
 	};
+
+	constructor() {
+		super();
+
+		setInterval(() => {
+			this.fetchOrderbook();
+		}, 1000);
+	}
 
 	setBaseCurrency(baseCurrency) {
 		// Switch if the same as `quoteCurrency`
@@ -31,13 +46,12 @@ class ExchangeContainer extends Container {
 		this.setState({activeSwapsView});
 	}
 
-	// TODO: Temp
 	async fetchOrderbook() {
-		if (!window.api) {
+		if (!appContainer.api) {
 			return;
 		}
 
-		const orderbook = await window.api.orderbook(
+		const orderbook = await appContainer.api.orderbook(
 			this.state.baseCurrency,
 			this.state.quoteCurrency,
 		);
