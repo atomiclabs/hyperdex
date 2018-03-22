@@ -4,8 +4,8 @@ import Container from './Container';
 
 class ExchangeContainer extends Container {
 	state = {
-		baseCurrency: 'KMD',
-		quoteCurrency: 'LTC',
+		baseCurrency: 'CHIPS',
+		quoteCurrency: 'KMD',
 		activeSwapsView: 'All',
 		orderbook: {
 			bids: [],
