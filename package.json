@@ -94,7 +94,8 @@
 			"property-blacklist": null,
 			"max-nesting-depth": null,
 			"selector-max-compound-selectors": null,
-			"declaration-block-no-redundant-longhand-properties": null
+			"declaration-block-no-redundant-longhand-properties": null,
+			"selector-max-class": null
 		}
 	},
 	"build": {

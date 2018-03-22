@@ -1,13 +1,13 @@
 'use strict';
-const os = require('os');
 const path = require('path');
 const electron = require('electron');
 const {is, runJS} = require('electron-util');
 const config = require('./config');
+const {openGitHubIssue} = require('./util');
+const {repoUrl} = require('./constants');
 
 const {app, BrowserWindow, shell} = electron;
 const appName = app.getName();
-const githubRepo = 'https://github.com/lukechilds/hyperdex';
 
 function sendAction(action) {
 	const [win] = BrowserWindow.getAllWindows();
@@ -19,44 +19,25 @@ function sendAction(action) {
 	win.webContents.send(action);
 }
 
-const viewSubmenu = [
-	// {
-	// 	label: 'Toggle Dark Mode',
-	// 	accelerator: 'CmdOrCtrl+D',
-	// 	click() {
-	// 		sendAction('toggle-dark-mode');
-	// 	},
-	// },
-];
+const viewSubmenu = [];
 
 const helpSubmenu = [
 	{
 		label: `Website`,
 		click() {
-			// TODO: Put website URL here
-			shell.openExternal(githubRepo);
+			shell.openExternal(websiteUrl);
 		},
 	},
 	{
 		label: `Source Code`,
 		click() {
-			shell.openExternal(githubRepo);
+			shell.openExternal(repoUrl);
 		},
 	},
 	{
 		label: 'Report an Issue…',
 		click() {
-			const body = `
-<!-- Please succinctly describe your issue and steps to reproduce it -->
-
-
----
-
-${app.getName()} ${app.getVersion()}
-Electron ${process.versions.electron}
-${process.platform} ${process.arch} ${os.release()}`;
-
-			shell.openExternal(`${githubRepo}/issues/new?body=${encodeURIComponent(body)}`);
+			openGitHubIssue('<!-- Please succinctly describe your issue and steps to reproduce it -->');
 		},
 	},
 ];

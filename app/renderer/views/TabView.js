@@ -1,8 +1,12 @@
+import {remote} from 'electron';
 import React from 'react';
 import {appContainer} from 'containers/App';
+import Button from 'components/Button';
 import avatar from '../avatar';
 import Nav from './Nav';
 import './TabView.scss';
+
+const {openGitHubIssue} = remote.require('./util');
 
 const TabView = props => (
 	<div className="TabView">
@@ -10,9 +14,18 @@ const TabView = props => (
 			<h1 className="app-name">
 				HyperDEX
 			</h1>
-			<div className="portfolio-dropdown">
-				<div className="avatar-wrapper">
-					<img src={avatar(appContainer.state.portfolio.name)}/>
+			<div className="right-container">
+				<Button
+					className="feedback-button"
+					value="Feedback"
+					onClick={() => {
+						openGitHubIssue('<!--\n\nWe appreciate your feedback!\nTry to include as much relevant info as possible.\n\n-->');
+					}}
+				/>
+				<div className="portfolio-dropdown">
+					<div className="avatar-wrapper">
+						<img src={avatar(appContainer.state.portfolio.name)}/>
+					</div>
 				</div>
 			</div>
 		</header>
