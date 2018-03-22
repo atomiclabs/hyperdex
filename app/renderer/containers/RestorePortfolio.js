@@ -1,6 +1,6 @@
 import {remote} from 'electron';
-import {Container} from 'unstated';
 import {loginContainer} from '../containers/Login';
+import Container from './Container';
 
 const {createPortfolio} = remote.require('./portfolio-util');
 

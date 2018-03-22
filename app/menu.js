@@ -2,7 +2,7 @@
 const os = require('os');
 const path = require('path');
 const electron = require('electron');
-const {is} = require('electron-util');
+const {is, runJS} = require('electron-util');
 const config = require('./config');
 
 const {app, BrowserWindow, shell} = electron;
@@ -80,6 +80,21 @@ if (process.platform !== 'darwin') {
 const debugMenu = {
 	label: 'Debug',
 	submenu: [
+		{
+			label: 'Log Container State',
+			async click() {
+				await runJS('__UNSTATED__.logState()');
+			},
+		},
+		{
+			label: 'Toggle Logging on State Changes',
+			async click() {
+				await runJS('__UNSTATED__.logStateChanges = !__UNSTATED__.logStateChanges');
+			},
+		},
+		{
+			type: 'separator',
+		},
 		{
 			label: 'Show Portfolios',
 			click() {

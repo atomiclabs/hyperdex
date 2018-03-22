@@ -1,5 +1,5 @@
 /* eslint-disable react/no-access-state-in-setstate */
-import {Container} from 'unstated';
+import Container from './Container';
 
 class ExchangeContainer extends Container {
 	state = {

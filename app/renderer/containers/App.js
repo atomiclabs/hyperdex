@@ -1,6 +1,6 @@
 import electron, {remote, ipcRenderer as ipc} from 'electron';
 import {is} from 'electron-util';
-import {Container} from 'unstated';
+import Container from './Container';
 
 const config = remote.require('./config');
 
