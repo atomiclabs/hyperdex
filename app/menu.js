@@ -64,13 +64,15 @@ const debugMenu = {
 		{
 			label: 'Log Container State',
 			async click() {
-				await runJS('__UNSTATED__.logState()');
+				const [win] = BrowserWindow.getAllWindows();
+				await runJS('__UNSTATED__.logState()', win);
 			},
 		},
 		{
 			label: 'Toggle Logging on State Changes',
 			async click() {
-				await runJS('__UNSTATED__.logStateChanges = !__UNSTATED__.logStateChanges');
+				const [win] = BrowserWindow.getAllWindows();
+				await runJS('__UNSTATED__.logStateChanges = !__UNSTATED__.logStateChanges', win);
 			},
 		},
 		{
