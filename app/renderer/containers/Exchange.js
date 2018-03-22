@@ -15,7 +15,7 @@ class ExchangeContainer extends Container {
 		}
 
 		this.setState({baseCurrency});
-		this.fetchOrderBook();
+		this.fetchOrderbook();
 	}
 
 	setQuoteCurrency(quoteCurrency) {
@@ -24,7 +24,7 @@ class ExchangeContainer extends Container {
 		}
 
 		this.setState({quoteCurrency});
-		this.fetchOrderBook();
+		this.fetchOrderbook();
 	}
 
 	setActiveSwapsView(activeSwapsView) {
@@ -32,17 +32,17 @@ class ExchangeContainer extends Container {
 	}
 
 	// TODO: Temp
-	async fetchOrderBook() {
+	async fetchOrderbook() {
 		if (!window.api) {
 			return;
 		}
 
-		const orderBook = await window.api.orderbook(
+		const orderbook = await window.api.orderbook(
 			this.state.baseCurrency,
 			this.state.quoteCurrency,
 		);
 
-		this.setState({orderBook});
+		this.setState({orderbook});
 	}
 }
 

@@ -67,10 +67,10 @@ const asks = [
 
 const Chart = () => {
 	const {state} = exchangeContainer;
-	const {orderBook} = state;
+	const {orderbook} = state;
 
-	if (!orderBook) {
-		exchangeContainer.fetchOrderBook();
+	if (!orderbook) {
+		exchangeContainer.fetchOrderbook();
 		return null;
 	}
 
@@ -80,10 +80,10 @@ const Chart = () => {
 				<h3>{state.baseCurrency}/{state.quoteCurrency} Depth Chart</h3>
 				{/*
 				<DepthChart
-					bids={orderBook.bids}
-					asks={orderBook.asks}
-					bidDepth={orderBook.biddepth}
-					askDepth={orderBook.askdepth}
+					bids={orderbook.bids}
+					asks={orderbook.asks}
+					bidDepth={orderbook.biddepth}
+					askDepth={orderbook.askdepth}
 				/>
 				*/}
 				<DepthChart
