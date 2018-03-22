@@ -1,11 +1,19 @@
 /* eslint-disable react/no-access-state-in-setstate */
+import {appContainer} from 'containers/App';
+import fireEvery from '../fire-every';
 import Container from './Container';
 
 class ExchangeContainer extends Container {
 	state = {
-		baseCurrency: 'KMD',
-		quoteCurrency: 'LTC',
+		baseCurrency: 'CHIPS',
+		quoteCurrency: 'KMD',
 		activeSwapsView: 'All',
+		orderbook: {
+			bids: [],
+			asks: [],
+			biddepth: 0,
+			askdepth: 0,
+		},
 	};
 
 	setBaseCurrency(baseCurrency) {
@@ -31,18 +39,19 @@ class ExchangeContainer extends Container {
 		this.setState({activeSwapsView});
 	}
 
-	// TODO: Temp
-	async fetchOrderbook() {
-		if (!window.api) {
-			return;
+	watchOrderbook() {
+		if (!this.stopWatchingOrderbook) {
+			this.stopWatchingOrderbook = fireEvery(async () => {
+				const orderbook = await appContainer.api.orderbook(
+					this.state.baseCurrency,
+					this.state.quoteCurrency,
+				);
+
+				this.setState({orderbook});
+			}, 1000);
 		}
 
-		const orderbook = await window.api.orderbook(
-			this.state.baseCurrency,
-			this.state.quoteCurrency,
-		);
-
-		this.setState({orderbook});
+		return this.stopWatchingOrderbook;
 	}
 }
 
