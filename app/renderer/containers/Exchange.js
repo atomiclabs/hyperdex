@@ -39,15 +39,19 @@ class ExchangeContainer extends Container {
 		this.setState({activeSwapsView});
 	}
 
+	async fetchOrderBook() {
+		const orderBook = await appContainer.api.orderBook(
+			this.state.baseCurrency,
+			this.state.quoteCurrency,
+		);
+
+		this.setState({orderBook});
+	}
+
 	watchOrderBook() {
 		if (!this.stopWatchingOrderBook) {
 			this.stopWatchingOrderBook = fireEvery(async () => {
-				const orderBook = await appContainer.api.orderBook(
-					this.state.baseCurrency,
-					this.state.quoteCurrency,
-				);
-
-				this.setState({orderBook});
+				await this.fetchOrderBook();
 			}, 1000);
 		}
 
