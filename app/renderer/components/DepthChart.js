@@ -4,10 +4,10 @@ import roundTo from 'round-to';
 import _ from 'lodash';
 import './DepthChart.scss';
 
-const roundPrice = array => array.map(x => {
-	x.price = roundTo(x.price, 2);
-	return x;
-});
+const roundPrice = array => array.map(x => ({
+	...x,
+	price: roundTo(x.price, 2),
+}));
 
 const DepthChart = props => {
 	let {bids, asks, bidDepth, askDepth} = props;
