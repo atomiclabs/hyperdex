@@ -48,12 +48,26 @@ h6 {
 			display: flex;
 
 			.feedback-button {
-				border: 1px solid rgba(255, 255, 255, 0.1);
-				background: none;
-				font-size: 12px;
-				border-radius: 4px;
-				color: rgba(255, 255, 255, 0.7);
-				margin: 5px;
+				display: flex;
+				margin: 4px 10px;
+				padding: 0;
+				background:
+					linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)),
+					linear-gradient(180deg, #18202b 0%, #313d4f 0.01%, #293342 100%);
+				box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.2), 0 0 0 rgba(0, 0, 0, 0.1);
+				line-height: 1;
+				min-width: unset;
+
+				.Button__value {
+					padding: 4px 8px;
+					font-size: 12px;
+					color: rgba(255, 255, 255, 0.7);
+					transition: color 0.3s ease-in-out;
+				}
+
+				&:hover .Button__value {
+					color: rgba(255, 255, 255, 0.9);
+				}
 			}
 
 			.portfolio-dropdown {

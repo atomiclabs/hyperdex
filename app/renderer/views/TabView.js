@@ -1,6 +1,7 @@
 import {remote} from 'electron';
 import React from 'react';
 import {appContainer} from 'containers/App';
+import Button from 'components/Button';
 import avatar from '../avatar';
 import Nav from './Nav';
 import './TabView.scss';
@@ -14,15 +15,13 @@ const TabView = props => (
 				HyperDEX
 			</h1>
 			<div className="right-container">
-				<button
-					type="button"
+				<Button
 					className="feedback-button"
+					value="Feedback"
 					onClick={() => {
 						openGitHubIssue('<!--\n\nWe appreciate your feedback!\nTry to include as much relevant info as possible.\n\n-->');
 					}}
-				>
-					Feedback
-				</button>
+				/>
 				<div className="portfolio-dropdown">
 					<div className="avatar-wrapper">
 						<img src={avatar(appContainer.state.portfolio.name)}/>
