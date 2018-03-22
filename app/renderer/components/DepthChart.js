@@ -6,7 +6,7 @@ import './DepthChart.scss';
 
 const roundPrice = array => array.map(x => ({
 	...x,
-	price: roundTo(x.price, 2),
+	price: roundTo(x.price, 6),
 }));
 
 const DepthChart = props => {
