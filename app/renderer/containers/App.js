@@ -1,5 +1,6 @@
 import electron, {remote, ipcRenderer as ipc} from 'electron';
 import {is} from 'electron-util';
+import deepEqual from 'deep-equal';
 import fireEvery from '../fire-every';
 import Container from './Container';
 
@@ -28,7 +29,9 @@ class AppContainer extends Container {
 		if (!this.stopWatchingCurrencies) {
 			this.stopWatchingCurrencies = fireEvery(async () => {
 				const {portfolio: currencies} = await api.portfolio();
-				this.setState({currencies});
+				if (!deepEqual(this.state.currencies, currencies, {strict: true})) {
+					this.setState({currencies});
+				}
 			}, 1000);
 		}
 
