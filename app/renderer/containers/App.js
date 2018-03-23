@@ -23,7 +23,7 @@ class AppContainer extends Container {
 		});
 	}
 
-  // TODO: We should use the portfolio socket event instead once it's implemented
+	// TODO: We should use the portfolio socket event instead once it's implemented
 	watchCurrencies() {
 		if (!this.stopWatchingCurrencies) {
 			this.stopWatchingCurrencies = fireEvery(async () => {
