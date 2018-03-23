@@ -25,9 +25,9 @@ class AppContainer extends Container {
 	}
 
 	// TODO: We should use the portfolio socket event instead once it's implemented
-	watchCurrencies() {
+	async watchCurrencies() {
 		if (!this.stopWatchingCurrencies) {
-			this.stopWatchingCurrencies = fireEvery(async () => {
+			this.stopWatchingCurrencies = await fireEvery(async () => {
 				const {portfolio: currencies} = await api.portfolio();
 				if (!_.isEqual(this.state.currencies, currencies)) {
 					this.setState({currencies});

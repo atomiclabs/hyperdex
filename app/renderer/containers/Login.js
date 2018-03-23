@@ -108,7 +108,7 @@ class LoginContainer extends Container {
 			api.enableCoin('LTC'),
 		]);
 
-		const {portfolio: currencies} = await api.portfolio();
+		await appContainer.watchCurrencies();
 
 		config.set('lastActivePortfolioId', portfolio.id);
 
@@ -116,11 +116,8 @@ class LoginContainer extends Container {
 
 		appContainer.logIn({
 			portfolio,
-			currencies,
 			api,
 		});
-
-		appContainer.watchCurrencies();
 	}
 }
 

@@ -1,13 +1,12 @@
-const fireEvery = (cb, delay) => {
+const fireEvery = async (cb, delay) => {
 	let timeoutId = 0;
 
-	(async function fire() {
+	return (async function fire() {
 		const startTime = Date.now();
 		await cb();
 		timeoutId = setTimeout(fire, delay - (Date.now() - startTime));
+		return () => clearTimeout(timeoutId);
 	})();
-
-	return () => clearTimeout(timeoutId);
 };
 
 export default fireEvery;

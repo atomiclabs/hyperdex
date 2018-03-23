@@ -51,9 +51,9 @@ class ExchangeContainer extends Container {
 		}
 	}
 
-	watchOrderBook() {
+	async watchOrderBook() {
 		if (!this.stopWatchingOrderBook) {
-			this.stopWatchingOrderBook = fireEvery(async () => {
+			this.stopWatchingOrderBook = await fireEvery(async () => {
 				await this.fetchOrderBook();
 			}, 1000);
 		}
