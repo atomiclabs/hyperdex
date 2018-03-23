@@ -1,6 +1,6 @@
 /* eslint-disable react/no-access-state-in-setstate */
 import {appContainer} from 'containers/App';
-import deepEqual from 'deep-equal';
+import _ from 'lodash';
 import fireEvery from '../fire-every';
 import Container from './Container';
 
@@ -46,7 +46,7 @@ class ExchangeContainer extends Container {
 			this.state.quoteCurrency,
 		);
 
-		if (!deepEqual(this.state.orderBook, orderBook, {strict: true})) {
+		if (!_.isEqual(this.state.orderBook, orderBook)) {
 			this.setState({orderBook});
 		}
 	}
