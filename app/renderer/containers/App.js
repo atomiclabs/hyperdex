@@ -1,5 +1,6 @@
 import electron, {remote, ipcRenderer as ipc} from 'electron';
 import {is} from 'electron-util';
+import fireEvery from '../fire-every';
 import Container from './Container';
 
 const config = remote.require('./config');
@@ -13,14 +14,25 @@ class AppContainer extends Container {
 		this.setState({activeView});
 	}
 
-	logIn({portfolio, currencies, api}) {
+	logIn({portfolio, api}) {
 		this.api = api;
 
 		this.setState({
 			activeView: 'Dashboard',
 			portfolio,
-			currencies,
 		});
+	}
+
+	// TODO: We should use the portfolio socket event instead once it's implemented
+	watchCurrencies() {
+		if (!this.stopWatchingCurrencies) {
+			this.stopWatchingCurrencies = fireEvery(async () => {
+				const {portfolio: currencies} = await api.portfolio();
+				this.setState({currencies});
+			}, 1000);
+		}
+
+		return this.stopWatchingCurrencies;
 	}
 
 	logOut() {

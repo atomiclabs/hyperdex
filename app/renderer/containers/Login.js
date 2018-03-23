@@ -119,6 +119,8 @@ class LoginContainer extends Container {
 			currencies,
 			api,
 		});
+
+		appContainer.watchCurrencies();
 	}
 }
 

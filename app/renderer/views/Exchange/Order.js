@@ -23,7 +23,11 @@ class Top extends React.Component {
 	render() {
 		const {state} = exchangeContainer;
 
-		const selectData = appContainer.state.currencies.map(currency => ({
+		const {currencies} = appContainer.state;
+		const selectedCurrencySymbol = this.props.type === 'buy' ? state.baseCurrency : state.quoteCurrency;
+		const selectedCurrency = currencies.find(currency => currency.coin === selectedCurrencySymbol);
+
+		const selectData = currencies.map(currency => ({
 			label: `${coins.get(currency.coin, 'name') || currency.coin} (${currency.coin})`,
 			value: currency.coin,
 		}));
@@ -32,14 +36,14 @@ class Top extends React.Component {
 			<div className="top">
 				<Select
 					className="currency-selector"
-					value={this.props.type === 'buy' ? state.baseCurrency : state.quoteCurrency}
+					value={selectedCurrency.coin}
 					options={selectData}
 					onChange={this.handleSelectChange}
 					valueRenderer={CurrencySelectOption}
 					optionRenderer={CurrencySelectOption}
 				/>
-				<h3 className="balance">Balance: 200 {state.quoteCurrency}</h3>
-				<p className="address">1EnJHhq8Jq8vDuZA5ahVh6H4t6jh1mB4rq</p>
+				<h3 className="balance">Balance: {roundTo(selectedCurrency.balance, 6)} {selectedCurrencySymbol}</h3>
+				<p className="address">{selectedCurrency.address}</p>
 			</div>
 		);
 	}
