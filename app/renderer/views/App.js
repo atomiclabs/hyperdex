@@ -14,21 +14,17 @@ import ComponentsPreview from './ComponentsPreview';
 
 const App = () => (
 	<Subscribe to={[AppContainer]}>
-		{app => {
-			const AppView = ({component}) => <View component={component} activeView={app.state.activeView}/>;
-
-			return (
-				<React.Fragment>
-					<AppView component={Login}/>
-					<AppView component={Dashboard}/>
-					<AppView component={Swap}/>
-					<AppView component={Exchange}/>
-					<AppView component={History}/>
-					<AppView component={Preferences}/>
-					<AppView component={ComponentsPreview}/>
-				</React.Fragment>
-			);
-		}}
+		{app => (
+			<React.Fragment>
+				<View component={Login} activeView={app.state.activeView}/>
+				<View component={Dashboard} activeView={app.state.activeView}/>
+				<View component={Swap} activeView={app.state.activeView}/>
+				<View component={Exchange} activeView={app.state.activeView}/>
+				<View component={History} activeView={app.state.activeView}/>
+				<View component={Preferences} activeView={app.state.activeView}/>
+				<View component={ComponentsPreview} activeView={app.state.activeView}/>
+			</React.Fragment>
+		)}
 	</Subscribe>
 );
 
