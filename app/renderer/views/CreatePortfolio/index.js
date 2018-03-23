@@ -1,13 +1,13 @@
 import React from 'react';
 import {Subscribe} from 'unstated';
 import LoginView from 'components/LoginView';
-import CreatePortfolioContainer from 'containers/CreatePortfolio';
+import createPortfolioContainer from 'containers/CreatePortfolio';
 import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
 
 const CreatePortfolio = () => (
-	<Subscribe to={[CreatePortfolioContainer]}>
+	<Subscribe to={[createPortfolioContainer]}>
 		{() => (
 			<React.Fragment>
 				<LoginView component={Step1}/>

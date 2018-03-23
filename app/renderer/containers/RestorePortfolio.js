@@ -1,5 +1,5 @@
 import {remote} from 'electron';
-import {loginContainer} from '../containers/Login';
+import loginContainer from '../containers/Login';
 import Container from './Container';
 
 const {createPortfolio} = remote.require('./portfolio-util');
@@ -66,5 +66,4 @@ class RestorePortfolioContainer extends Container {
 
 const restorePortfolioContainer = new RestorePortfolioContainer();
 
-export default RestorePortfolioContainer;
-export {restorePortfolioContainer};
+export default restorePortfolioContainer;

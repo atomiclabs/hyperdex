@@ -1,6 +1,6 @@
 import {remote} from 'electron';
 import bip39 from 'bip39';
-import {loginContainer} from '../containers/Login';
+import loginContainer from '../containers/Login';
 import Container from './Container';
 
 const {createPortfolio} = remote.require('./portfolio-util');
@@ -103,5 +103,4 @@ class CreatePortfolioContainer extends Container {
 
 const createPortfolioContainer = new CreatePortfolioContainer();
 
-export default CreatePortfolioContainer;
-export {createPortfolioContainer};
+export default createPortfolioContainer;

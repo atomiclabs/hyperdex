@@ -4,7 +4,7 @@ import React from 'react';
 import {Subscribe} from 'unstated';
 import Progress from 'components/Progress';
 import LoginView from 'components/LoginView';
-import LoginContainer from 'containers/Login';
+import loginContainer from 'containers/Login';
 import NewPortfolio from './NewPortfolio';
 import LoginBox from './LoginBox';
 import CreatePortfolio from './CreatePortfolio';
@@ -35,7 +35,7 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<Subscribe to={[LoginContainer]}>
+			<Subscribe to={[loginContainer]}>
 				{login => {
 					if (login.state.portfolios === null) {
 						return null; // Not loaded yet

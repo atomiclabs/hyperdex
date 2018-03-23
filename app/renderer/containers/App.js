@@ -90,5 +90,4 @@ function handleDarkMode() {
 
 handleDarkMode();
 
-export default AppContainer;
-export {appContainer};
+export default appContainer;

@@ -1,6 +1,6 @@
 /* eslint-disable react/no-access-state-in-setstate */
-import {appContainer} from 'containers/App';
 import _ from 'lodash';
+import appContainer from 'containers/App';
 import fireEvery from '../fire-every';
 import Container from './Container';
 
@@ -64,5 +64,4 @@ class ExchangeContainer extends Container {
 
 const exchangeContainer = new ExchangeContainer();
 
-export default ExchangeContainer;
-export {exchangeContainer};
+export default exchangeContainer;

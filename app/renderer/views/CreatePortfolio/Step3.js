@@ -2,7 +2,7 @@ import React from 'react';
 import Button from 'components/Button';
 import TextArea from 'components/TextArea';
 import LoginBackButton from 'components/LoginBackButton';
-import {createPortfolioContainer as container} from 'containers/CreatePortfolio';
+import container from 'containers/CreatePortfolio';
 import './CreatePortfolio.scss';
 
 const CreatePortfolioStep3 = () => {

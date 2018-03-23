@@ -1,5 +1,5 @@
 import React from 'react';
-import {appContainer} from 'containers/App';
+import appContainer from 'containers/App';
 
 const IconNavItem = props => {
 	const setView = () => appContainer.setActiveView(props.to);

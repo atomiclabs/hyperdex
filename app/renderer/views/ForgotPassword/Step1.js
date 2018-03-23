@@ -2,7 +2,7 @@ import React from 'react';
 import Button from 'components/Button';
 import TextArea from 'components/TextArea';
 import LoginBackButton from 'components/LoginBackButton';
-import {forgotPasswordContainer as container} from 'containers/ForgotPassword';
+import container from 'containers/ForgotPassword';
 import './ForgotPassword.scss';
 
 const ForgotPasswordStep1 = () => {

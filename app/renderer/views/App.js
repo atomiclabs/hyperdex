@@ -3,7 +3,7 @@ import {hot} from 'react-hot-loader';
 import {Subscribe} from 'unstated';
 import '../styles/index.scss';
 import View from 'components/View';
-import AppContainer from 'containers/App';
+import appContainer from 'containers/App';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import Swap from './Swap';
@@ -13,7 +13,7 @@ import Preferences from './Preferences';
 import ComponentsPreview from './ComponentsPreview';
 
 const App = () => (
-	<Subscribe to={[AppContainer]}>
+	<Subscribe to={[appContainer]}>
 		{app => {
 			const AppView = ({component}) => <View component={component} activeView={app.state.activeView}/>;
 

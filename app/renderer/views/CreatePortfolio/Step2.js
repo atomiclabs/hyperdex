@@ -4,7 +4,7 @@ import LoginBackButton from 'components/LoginBackButton';
 import ReloadButton from 'components/ReloadButton';
 import CopyButton from 'components/CopyButton';
 import WrapWidth from 'components/WrapWidth';
-import {createPortfolioContainer as container} from 'containers/CreatePortfolio';
+import container from 'containers/CreatePortfolio';
 import './CreatePortfolio.scss';
 
 const CreatePortfolioStep2 = () => {

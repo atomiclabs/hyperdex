@@ -1,5 +1,5 @@
 import React from 'react';
-import {loginContainer} from 'containers/Login';
+import loginContainer from 'containers/Login';
 import BackButton from './BackButton';
 import './LoginBackButton.scss';
 
