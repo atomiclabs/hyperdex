@@ -1,5 +1,6 @@
 /* eslint-disable react/no-access-state-in-setstate */
 import {appContainer} from 'containers/App';
+import _ from 'lodash';
 import fireEvery from '../fire-every';
 import Container from './Container';
 
@@ -45,7 +46,9 @@ class ExchangeContainer extends Container {
 			this.state.quoteCurrency,
 		);
 
-		this.setState({orderBook});
+		if (!_.isEqual(this.state.orderBook, orderBook)) {
+			this.setState({orderBook});
+		}
 	}
 
 	watchOrderBook() {
