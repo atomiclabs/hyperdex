@@ -2,8 +2,8 @@ import React from 'react';
 import Button from 'components/Button';
 import Input from 'components/Input';
 import LoginBackButton from 'components/LoginBackButton';
-import {loginContainer} from 'containers/Login';
-import {forgotPasswordContainer as container} from 'containers/ForgotPassword';
+import loginContainer from 'containers/Login';
+import container from 'containers/ForgotPassword';
 import avatar from '../../avatar';
 import './ForgotPassword.scss';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import {classNames} from 'react-extras';
 import {format as formatDate} from 'date-fns';
-import {exchangeContainer} from 'containers/Exchange';
+import exchangeContainer from 'containers/Exchange';
 import View from 'components/View';
 import './Swaps.scss';
 

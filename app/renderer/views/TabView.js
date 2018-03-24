@@ -1,6 +1,6 @@
 import {remote} from 'electron';
 import React from 'react';
-import {appContainer} from 'containers/App';
+import appContainer from 'containers/App';
 import Button from 'components/Button';
 import avatar from '../avatar';
 import Nav from './Nav';

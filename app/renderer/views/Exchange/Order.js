@@ -7,8 +7,8 @@ import Button from 'components/Button';
 import Select from 'components/Select';
 import TargetPriceButton from 'components/TargetPriceButton';
 import CurrencySelectOption from 'components/CurrencySelectOption';
-import {exchangeContainer} from 'containers/Exchange';
-import {appContainer} from 'containers/App';
+import exchangeContainer from 'containers/Exchange';
+import appContainer from 'containers/App';
 import './Order.scss';
 
 class Top extends React.Component {

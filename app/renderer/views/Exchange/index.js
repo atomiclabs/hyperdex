@@ -1,6 +1,6 @@
 import React from 'react';
 import {Subscribe} from 'unstated';
-import ExchangeContainer, {exchangeContainer} from 'containers/Exchange';
+import exchangeContainer from 'containers/Exchange';
 import TabView from 'views/TabView';
 import Order from './Order';
 import Chart from './Chart';
@@ -11,7 +11,7 @@ const Exchange = () => {
 	exchangeContainer.watchOrderBook();
 
 	return (
-		<Subscribe to={[ExchangeContainer]}>
+		<Subscribe to={[exchangeContainer]}>
 			{() => (
 				<TabView className="Exchange">
 					<Order type="buy"/>

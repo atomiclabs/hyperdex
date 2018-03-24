@@ -1,5 +1,5 @@
 import React from 'react';
-import {exchangeContainer} from 'containers/Exchange';
+import exchangeContainer from 'containers/Exchange';
 import DepthChart from 'components/DepthChart';
 import './Chart.scss';
 

@@ -1,5 +1,5 @@
 import {remote} from 'electron';
-import {loginContainer} from '../containers/Login';
+import loginContainer from '../containers/Login';
 import Container from './Container';
 
 const {changePortfolioPassword} = remote.require('./portfolio-util');
@@ -66,5 +66,4 @@ class ForgotPasswordContainer extends Container {
 
 const forgotPasswordContainer = new ForgotPasswordContainer();
 
-export default ForgotPasswordContainer;
-export {forgotPasswordContainer};
+export default forgotPasswordContainer;
