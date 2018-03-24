@@ -2,8 +2,8 @@ import React from 'react';
 import {hot} from 'react-hot-loader';
 import {Subscribe} from 'unstated';
 import '../styles/index.scss';
-import View from 'components/View';
 import appContainer from 'containers/App';
+import AppView from 'components/AppView';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import Swap from './Swap';
@@ -14,21 +14,17 @@ import ComponentsPreview from './ComponentsPreview';
 
 const App = () => (
 	<Subscribe to={[appContainer]}>
-		{app => {
-			const AppView = ({component}) => <View component={component} activeView={app.state.activeView}/>;
-
-			return (
-				<React.Fragment>
-					<AppView component={Login}/>
-					<AppView component={Dashboard}/>
-					<AppView component={Swap}/>
-					<AppView component={Exchange}/>
-					<AppView component={History}/>
-					<AppView component={Preferences}/>
-					<AppView component={ComponentsPreview}/>
-				</React.Fragment>
-			);
-		}}
+		{() => (
+			<React.Fragment>
+				<AppView component={Login}/>
+				<AppView component={Dashboard}/>
+				<AppView component={Swap}/>
+				<AppView component={Exchange}/>
+				<AppView component={History}/>
+				<AppView component={Preferences}/>
+				<AppView component={ComponentsPreview}/>
+			</React.Fragment>
+		)}
 	</Subscribe>
 );
 
