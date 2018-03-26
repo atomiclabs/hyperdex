@@ -92,6 +92,9 @@ const Center = props => {
 class Bottom extends React.Component {
 	state = {
 		statusMessage: '',
+		price: 0,
+		amount: 0,
+		total: 0,
 	};
 
 	handleSubmit = event => {
@@ -104,6 +107,27 @@ class Bottom extends React.Component {
 
 		// TODO: Handle submit
 	};
+
+	handlePriceChange = price => {
+		this.setState(prevState => ({
+			price,
+			total: price * prevState.amount,
+		}));
+	}
+
+	handleAmountChange = amount => {
+		this.setState(prevState => ({
+			amount,
+			total: prevState.price * amount,
+		}));
+	}
+
+	handleTotalChange = total => {
+		this.setState(prevState => ({
+			total,
+			amount: total / prevState.price,
+		}));
+	}
 
 	targetPriceButtonHandler = () => {
 		console.log('target price button click');
@@ -131,15 +155,15 @@ class Bottom extends React.Component {
 					<h3>{`${typeTitled} ${state.baseCurrency}`}</h3>
 					<div className="form-section">
 						<label>Price ({state.quoteCurrency}):</label>
-						<Input className="price-input" type="number" min="0" required button={TargetPriceButtonWrapper}/>
+						<Input className="price-input" type="number" min="0" step="any" required value={this.state.price} onChange={this.handlePriceChange} button={TargetPriceButtonWrapper}/>
 					</div>
 					<div className="form-section">
 						<label>Amount ({state.baseCurrency}):</label>
-						<Input type="number" min="0" required button={MaxPriceButton}/>
+						<Input type="number" min="0" step="any" required value={this.state.amount} onChange={this.handleAmountChange} button={MaxPriceButton}/>
 					</div>
 					<div className="form-section">
 						<label>Total ({state.quoteCurrency}):</label>
-						<Input type="number" min="0" required/>
+						<Input type="number" min="0" step="any" required value={this.state.total} onChange={this.handleTotalChange}/>
 					</div>
 					{this.state.statusMessage &&
 						<p className="secondary status-message">
