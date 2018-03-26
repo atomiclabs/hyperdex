@@ -15,9 +15,7 @@ class AppContainer extends Container {
 		this.setState({activeView});
 	}
 
-	logIn({portfolio, api}) {
-		this.api = api;
-
+	logIn(portfolio) {
 		this.setState({
 			activeView: 'Dashboard',
 			portfolio,
@@ -28,7 +26,7 @@ class AppContainer extends Container {
 	async watchCurrencies() {
 		if (!this.stopWatchingCurrencies) {
 			this.stopWatchingCurrencies = await fireEvery(async () => {
-				const {portfolio: currencies} = await api.portfolio();
+				const {portfolio: currencies} = await this.api.portfolio();
 				if (!_.isEqual(this.state.currencies, currencies)) {
 					this.setState({currencies});
 				}
