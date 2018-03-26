@@ -42,7 +42,7 @@ class Top extends React.Component {
 					valueRenderer={CurrencySelectOption}
 					optionRenderer={CurrencySelectOption}
 				/>
-				<h3 className="balance">Balance: {roundTo(selectedCurrency.balance, 6)} {selectedCurrencySymbol}</h3>
+				<h3 className="balance">Balance: {roundTo(selectedCurrency.balance, 8)} {selectedCurrencySymbol}</h3>
 				<p className="address">{selectedCurrency.address}</p>
 			</div>
 		);
@@ -77,8 +77,8 @@ const Center = props => {
 							return data.map((row, i) => (
 								<tr key={i} onClick={() => selectRow(row)}>
 									<td>{row.price}</td>
-									<td>{roundTo(row.avevolume, 6)}</td>
-									<td>{roundTo(row.maxvolume, 6)}</td>
+									<td>{roundTo(row.avevolume, 8)}</td>
+									<td>{roundTo(row.maxvolume, 8)}</td>
 								</tr>
 							));
 						})()}
@@ -109,23 +109,26 @@ class Bottom extends React.Component {
 	};
 
 	handlePriceChange = price => {
+		price = roundTo(Number(price), 8);
 		this.setState(prevState => ({
 			price,
-			total: price * prevState.amount,
+			total: roundTo(price * prevState.amount, 8),
 		}));
 	}
 
 	handleAmountChange = amount => {
+		amount = roundTo(Number(amount), 8);
 		this.setState(prevState => ({
 			amount,
-			total: prevState.price * amount,
+			total: roundTo(prevState.price * amount, 8),
 		}));
 	}
 
 	handleTotalChange = total => {
+		total = roundTo(Number(total), 8);
 		this.setState(prevState => ({
 			total,
-			amount: total / prevState.price,
+			amount: roundTo(total / prevState.price, 8),
 		}));
 	}
 
