@@ -7,32 +7,30 @@ class Modal extends React.Component {
 		animationDuration: 400,
 		closeOnEsc: true,
 		closeOnMaskClick: false,
+		delay: 400,
 	};
 
 	state = {
-		isOpen: this.props.open,
+		isOpen: false,
 		animationType: 'close',
 	};
 
 	componentDidMount() {
-		if (this.state.isOpen) {
-			this.open();
+		if (this.props.open) {
+			setTimeout(() => {
+				this.setState({
+					isOpen: true,
+					animationType: 'open',
+				});
+			}, this.props.delay);
 		}
-	}
-
-	open() {
-		this.setState({animationType: 'open'});
-	}
-
-	close() {
-		this.setState({animationType: 'close'});
 	}
 
 	closeHandler = () => {
 		if (this.props.onClose) {
 			this.props.onClose();
 		} else {
-			this.close();
+			this.setState({animationType: 'close'});
 		}
 	}
 
