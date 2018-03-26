@@ -109,7 +109,7 @@ class Bottom extends React.Component {
 	};
 
 	handlePriceChange = price => {
-		// price, amount and total will will sometimes have leading 0s in the DOM
+		// TODO: The `price`, `amount`, and `total` will will sometimes have leading 0s in the DOM
 		// even though we remove them in React state.
 		// This is a known React bug and should be fixed soon.
 		// https://github.com/facebook/react/issues/9402
