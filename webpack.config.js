@@ -84,6 +84,11 @@ module.exports = {
 				from: '**/*',
 				ignore: ['*.{js,css,scss}'],
 			},
+			{
+				context: 'node_modules/cryptocurrency-icons/svg/color',
+				from: '*.svg',
+				to: 'assets/cryptocurrency-icons',
+			},
 		]),
 	],
 };
