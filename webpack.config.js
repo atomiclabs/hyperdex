@@ -16,6 +16,7 @@ module.exports = {
 		filename: 'bundle.js',
 	},
 	target: 'electron-renderer',
+	devtool: 'cheap-module-source-map',
 	devServer: {
 		historyApiFallback: true,
 		overlay: true,
