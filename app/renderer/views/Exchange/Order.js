@@ -109,7 +109,7 @@ class Bottom extends React.Component {
 	};
 
 	handlePriceChange = price => {
-		price = roundTo(Number(price), 8);
+		price = (price === '') ? '' : roundTo(Number(price), 8);
 		this.setState(prevState => ({
 			price,
 			total: roundTo(price * prevState.amount, 8),
@@ -117,7 +117,7 @@ class Bottom extends React.Component {
 	}
 
 	handleAmountChange = amount => {
-		amount = roundTo(Number(amount), 8);
+		amount = (amount === '') ? '' : roundTo(Number(amount), 8);
 		this.setState(prevState => ({
 			amount,
 			total: roundTo(prevState.price * amount, 8),
@@ -125,7 +125,7 @@ class Bottom extends React.Component {
 	}
 
 	handleTotalChange = total => {
-		total = roundTo(Number(total), 8);
+		total = (total === '') ? '' : roundTo(Number(total), 8);
 		this.setState(prevState => ({
 			total,
 			amount: roundTo(total / prevState.price, 8),
