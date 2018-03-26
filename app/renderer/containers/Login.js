@@ -90,6 +90,7 @@ class LoginContainer extends Container {
 		const seedPhrase = await decryptSeedPhrase(portfolio.encryptedSeedPhrase, password);
 		const api = await initApi(seedPhrase);
 		await api.enableSocket();
+		appContainer.api = api;
 
 		if (is.development) {
 			// Expose the API for debugging in DevTools
@@ -114,10 +115,7 @@ class LoginContainer extends Container {
 
 		setAppWindowBounds();
 
-		appContainer.logIn({
-			portfolio,
-			api,
-		});
+		appContainer.logIn(portfolio);
 	}
 }
 
