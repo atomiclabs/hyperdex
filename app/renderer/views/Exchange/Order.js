@@ -109,6 +109,10 @@ class Bottom extends React.Component {
 	};
 
 	handlePriceChange = price => {
+		// price, amount and total will will sometimes have leading 0s in the DOM
+		// even though we remove them in React state.
+		// This is a known React bug and should be fixed soon.
+		// https://github.com/facebook/react/issues/9402
 		price = (price === '') ? '' : roundTo(Number(price), 8);
 		this.setState(prevState => ({
 			price,
