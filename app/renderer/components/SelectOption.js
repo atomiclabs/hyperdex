@@ -2,7 +2,7 @@ import React from 'react';
 import {classNames} from 'react-extras';
 import './SelectOption.scss';
 
-const SelectOption = ({className, label, image, ...props}) => {
+const SelectOption = ({className, label, image, fallbackImage, ...props}) => {
 	if (typeof label !== 'string') {
 		throw new TypeError('Prop `label` is required');
 	}
@@ -23,7 +23,13 @@ const SelectOption = ({className, label, image, ...props}) => {
 						className="SelectOption__image"
 						src={image}
 						onError={event => {
-							event.currentTarget.style.visibility = 'hidden';
+							const element = event.currentTarget;
+
+							if (fallbackImage) {
+								element.src = fallbackImage;
+							} else {
+								element.style.visibility = 'hidden';
+							}
 						}}
 					/>
 				</span>
