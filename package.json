@@ -44,7 +44,7 @@
 		"copy-webpack-plugin": "^4.5.0",
 		"css-loader": "^0.28.10",
 		"devtron": "^1.4.0",
-		"electron": "^1.8.3",
+		"electron": "2.0.0-beta.5",
 		"electron-builder": "^20.4.0",
 		"electron-react-devtools": "^0.5.3",
 		"electron-reloader": "^0.2.0",

@@ -6,8 +6,8 @@ import SelectOption from 'components/SelectOption';
 import Link from 'components/Link';
 import PlusButton from 'components/PlusButton';
 import loginContainer from 'containers/Login';
-import './LoginBox.scss';
 import avatar from '../avatar';
+import './LoginBox.scss';
 
 class LoginBox extends React.Component {
 	state = {

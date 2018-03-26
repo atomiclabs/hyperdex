@@ -77,6 +77,10 @@ function createMainWindow() {
 		fullscreenable: false,
 		titleBarStyle: 'hiddenInset',
 		darkTheme: isDarkMode, // GTK+3
+		webPreferences: {
+			experimentalFeatures: true,
+			blinkFeatures: 'CSSBackdropFilter',
+		},
 	});
 
 	win.on('ready-to-show', () => {
