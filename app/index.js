@@ -78,7 +78,6 @@ function createMainWindow() {
 		titleBarStyle: 'hiddenInset',
 		darkTheme: isDarkMode, // GTK+3
 		webPreferences: {
-			experimentalFeatures: true,
 			blinkFeatures: 'CSSBackdropFilter',
 		},
 	});
