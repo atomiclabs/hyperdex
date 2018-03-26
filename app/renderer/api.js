@@ -113,6 +113,17 @@ export default class Api {
 		});
 	}
 
+	order(opts) {
+		return this.request({
+			method: opts.type,
+			base: opts.baseCurrency,
+			rel: opts.quoteCurrency,
+			basevolume: opts.amount,
+			relvolume: opts.total,
+			price: opts.price,
+		});
+	}
+
 	listUnspent(coin, address) {
 		return this.request({
 			method: 'listunspent',
