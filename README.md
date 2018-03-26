@@ -15,7 +15,7 @@ You also need to install `nanomsg`: `brew install nanomsg` *(This is only a temp
 
 ### Linux
 
-[**Download**](https://github.com/lukechilds/hyperdex/releases/latest) the `.AppImage` (recommended), `.deb`, or `rpm` file.
+[**Download**](https://github.com/lukechilds/hyperdex/releases/latest) the `.AppImage` (recommended), `.snap`, `.deb`, or `.rpm` file.
 
 *The AppImage needs to be [made executable](http://discourse.appimage.org/t/how-to-make-an-appimage-executable/80) after download.*
 

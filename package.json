@@ -13,7 +13,7 @@
 	},
 	"dependencies": {
 		"bip39": "^2.5.0",
-		"coinlist": "^1.1.0",
+		"coinlist": "^1.1.3",
 		"crypto-hash": "^0.1.0",
 		"date-fns": "^1.29.0",
 		"deep-object-diff": "^1.1.0",
@@ -41,28 +41,28 @@
 		"babel-preset-react": "^6.24.1",
 		"babel-preset-stage-3": "^6.24.1",
 		"clean-webpack-plugin": "^0.1.19",
-		"copy-webpack-plugin": "^4.5.0",
+		"copy-webpack-plugin": "^4.5.1",
 		"cryptocurrency-icons": "cjdowner/cryptocurrency-icons",
-		"css-loader": "^0.28.10",
+		"css-loader": "^0.28.11",
 		"devtron": "^1.4.0",
 		"electron": "2.0.0-beta.5",
-		"electron-builder": "^20.4.0",
+		"electron-builder": "^20.6.2",
 		"electron-react-devtools": "^0.5.3",
 		"electron-reloader": "^0.2.0",
 		"eslint-config-xo-react": "^0.16.0",
 		"eslint-plugin-react": "^7.6.1",
 		"file-loader": "^1.1.11",
-		"node-sass": "^4.7.2",
+		"node-sass": "^4.8.3",
 		"np": "^2.18.2",
 		"npm-run-all": "^4.1.2",
 		"react-hot-loader": "^4.0.0",
 		"sass-loader": "^6.0.7",
-		"style-loader": "^0.20.2",
-		"stylelint": "^9.1.1",
+		"style-loader": "^0.20.3",
+		"stylelint": "^9.1.3",
 		"stylelint-config-xo-scss": "^0.3.0",
-		"webpack": "^4.1.1",
-		"webpack-cli": "^2.0.10",
-		"webpack-dev-server": "^3.1.0",
+		"webpack": "^4.2.0",
+		"webpack-cli": "^2.0.13",
+		"webpack-dev-server": "^3.1.1",
 		"xo": "^0.20.0"
 	},
 	"xo": {
@@ -110,7 +110,7 @@
 		"appId": "com.lukechilds.hyperdex",
 		"mac": {
 			"category": "public.app-category.finance",
-			"electronUpdaterCompatibility": ">=2.18.0"
+			"electronUpdaterCompatibility": ">=2.21.3"
 		},
 		"dmg": {
 			"iconSize": 160,
@@ -130,6 +130,7 @@
 		"linux": {
 			"target": [
 				"AppImage",
+				"snap",
 				"deb",
 				"rpm"
 			]
