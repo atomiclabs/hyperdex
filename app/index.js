@@ -2,7 +2,7 @@
 const childProcess = require('child_process');
 const electron = require('electron');
 const {autoUpdater} = require('electron-updater');
-const {is} = require('electron-util');
+const {is, disableZoom} = require('electron-util');
 const serve = require('electron-serve');
 const logger = require('electron-timber');
 const appMenu = require('./menu');
@@ -95,6 +95,8 @@ function createMainWindow() {
 	} else {
 		loadUrl(win);
 	}
+
+	disableZoom(win);
 
 	return win;
 }

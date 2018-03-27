@@ -270,6 +270,12 @@ electron-util@^0.7.0:
   dependencies:
     electron-is-dev "^0.3.0"
 
+electron-util@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/electron-util/-/electron-util-0.8.0.tgz#37f90c7880f8ae86b9147ed35a3be8fea5a919bc"
+  dependencies:
+    electron-is-dev "^0.3.0"
+
 encoding@^0.1.11:
   version "0.1.12"
   resolved "https://registry.yarnpkg.com/encoding/-/encoding-0.1.12.tgz#538b66f3ee62cd1ab51ec323829d1f9480c74beb"
