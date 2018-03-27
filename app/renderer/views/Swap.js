@@ -4,9 +4,7 @@ import TabView from './TabView';
 export default class Swap extends React.Component {
 	render() {
 		return (
-			<TabView title="Swap">
-				Content
-			</TabView>
+			<TabView title="Swap"/>
 		);
 	}
 }

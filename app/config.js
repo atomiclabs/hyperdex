@@ -9,5 +9,14 @@ module.exports = new Store({
 			height: minWindowSize.height,
 		},
 		darkMode: true,
+		enabledCoins: [
+			'KMD',
+			'REVS',
+			'SUPERNET',
+			'CHIPS',
+			'BTC',
+			'VTC',
+			'LTC',
+		],
 	},
 });

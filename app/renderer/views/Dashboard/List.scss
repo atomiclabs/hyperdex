@@ -1,0 +1,68 @@
+.Dashboard--List {
+	flex-direction: column;
+
+	.top {
+		align-items: start;
+		border-bottom: 1px solid #313d4f;
+
+		.avatar-wrapper {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 32px;
+			height: 32px;
+			background-color: #1b2430;
+			border-radius: 100%;
+
+			img {
+				width: 14px;
+				height: 14px;
+			}
+		}
+	}
+
+	.center {
+		flex: 1;
+		min-height: 80px;
+		overflow-y: scroll;
+	}
+
+	.bottom {
+		align-items: end;
+		height: 88px;
+		display: none; // TODO
+	}
+
+	.coin-button {
+		display: flex;
+		align-items: center;
+		height: 92px;
+		padding: 20px;
+		border-left: 2px solid transparent;
+		user-select: none;
+		cursor: default;
+
+		.right {
+			margin-left: 18px;
+
+			> * {
+				margin: 0;
+				padding: 0;
+			}
+
+			p {
+				font-size: 14px;
+			}
+		}
+
+		&:hover,
+		&.active {
+			background-color: rgba(104, 123, 247, 0.1);
+			border-image: linear-gradient(to bottom, #687bf7, #8050ef) 1 100%;
+		}
+
+		&.active {
+			background-color: rgba(104, 123, 247, 0.05);
+		}
+	}
+}

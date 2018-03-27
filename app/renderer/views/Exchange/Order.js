@@ -104,7 +104,7 @@ class Bottom extends React.Component {
 		const {baseCurrency, quoteCurrency} = exchangeContainer.state;
 		const {price, amount, total} = this.state;
 
-		const result = await api.order({
+		const result = await appContainer.api.order({
 			type,
 			baseCurrency,
 			quoteCurrency,
