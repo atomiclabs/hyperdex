@@ -62,9 +62,7 @@ class Marketmaker {
 
 		this.port = options.rpcport;
 
-		if (util.is.development) {
-			logger.log('Marketmaker running on port', this.port);
-		}
+		logger.log('Marketmaker running on port', this.port);
 
 		if (options.seedPhrase) {
 			options.passphrase = options.seedPhrase;
@@ -79,10 +77,8 @@ class Marketmaker {
 
 		this.isRunning = true;
 
-		if (util.is.development) {
-			mmLogger.streamLog(this.cp.stdout);
-			mmLogger.streamError(this.cp.stderr);
-		}
+		mmLogger.streamLog(this.cp.stdout);
+		mmLogger.streamError(this.cp.stderr);
 
 		electron.app.on('quit', () => {
 			if (this.isRunning) {

@@ -1,7 +1,6 @@
 'use strict';
 const childProcess = require('child_process');
 const electron = require('electron');
-const log = require('electron-log');
 const {autoUpdater} = require('electron-updater');
 const {is} = require('electron-util');
 const serve = require('electron-serve');
@@ -26,8 +25,7 @@ const {app} = electron;
 app.setAppUserModelId('com.lukechilds.hyperdex');
 
 if (!is.development) {
-	autoUpdater.logger = log;
-	autoUpdater.logger.transports.file.level = 'info';
+	autoUpdater.logger = logger.log;
 
 	autoUpdater.on('update-available', () => {
 		const notification = new electron.Notification({
