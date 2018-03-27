@@ -9,7 +9,9 @@ const appMenu = require('./menu');
 const config = require('./config');
 const marketmaker = require('./marketmaker');
 
-require('electron-unhandled')();
+require('electron-unhandled')({
+	showDialog: !is.development,
+});
 require('electron-debug')({
 	enabled: true, // TODO: Remove this when we ship the app
 	showDevTools: true,
