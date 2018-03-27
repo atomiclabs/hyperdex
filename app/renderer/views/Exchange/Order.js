@@ -97,15 +97,39 @@ class Bottom extends React.Component {
 		total: 0,
 	};
 
-	handleSubmit = event => {
+	handleSubmit = async event => {
 		event.preventDefault();
 
-		// TODO: Remove this, it's just to test message
-		this.setState({
-			statusMessage: 'Not enough funds. Deposit required.',
+		const {type} = this.props;
+		const {baseCurrency, quoteCurrency} = exchangeContainer.state;
+		const {price, amount, total} = this.state;
+
+		const result = await api.order({
+			type,
+			baseCurrency,
+			quoteCurrency,
+			price,
+			amount,
+			total,
 		});
 
-		// TODO: Handle submit
+		// TODO: If we get this error we should probably show a more helpful error
+		// and grey out the order form for result.wait seconds.
+		// Or alternatively if we know there is a pending trade, prevent them from
+		// placing an order until it's matched.
+		if (result.error) {
+			let statusMessage = result.error;
+			if (result.error === 'only one pending request at a time') {
+				statusMessage = `Only one pending trade at a time, try again in ${result.wait} seconds.`;
+			}
+			return this.setState({statusMessage});
+		}
+
+		this.setState({statusMessage: ''});
+
+		// TODO: Track this in a local DB
+		const trade = result.pending;
+		console.log(trade);
 	};
 
 	handlePriceChange = price => {
