@@ -1,11 +1,12 @@
 'use strict';
 const Store = require('electron-store');
+const {minWindowSize} = require('./constants');
 
 module.exports = new Store({
 	defaults: {
 		windowState: {
-			width: 760,
-			height: 500,
+			width: minWindowSize.width,
+			height: minWindowSize.height,
 		},
 		darkMode: true,
 	},

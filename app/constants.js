@@ -4,3 +4,13 @@
 exports.websiteUrl = 'https://github.com/lukechilds/hyperdex';
 
 exports.repoUrl = 'https://github.com/lukechilds/hyperdex';
+
+exports.minWindowSize = {
+	width: 1100,
+	height: 600,
+};
+
+exports.loginWindowSize = {
+	width: 660,
+	height: 450,
+};

@@ -5,6 +5,7 @@ import {Subscribe} from 'unstated';
 import Progress from 'components/Progress';
 import LoginView from 'components/LoginView';
 import loginContainer from 'containers/Login';
+import {loginWindowSize} from '../../constants';
 import NewPortfolio from './NewPortfolio';
 import LoginBox from './LoginBox';
 import CreatePortfolio from './CreatePortfolio';
@@ -18,11 +19,11 @@ const setLoginWindowBounds = () => {
 	win.setFullScreenable(false);
 	win.setResizable(false);
 	win.setMaximizable(false);
-	win.setMinimumSize(660, 450);
+	win.setMinimumSize(loginWindowSize.width, loginWindowSize.height);
 	centerWindow({
 		size: {
-			width: 660,
-			height: 450,
+			width: loginWindowSize.width,
+			height: loginWindowSize.height,
 		},
 		animated: true,
 	});

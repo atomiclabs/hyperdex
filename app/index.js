@@ -8,6 +8,7 @@ const logger = require('electron-timber');
 const appMenu = require('./menu');
 const config = require('./config');
 const marketmaker = require('./marketmaker');
+const {loginWindowSize} = require('./constants');
 
 require('electron-unhandled')({
 	showDialog: !is.development,
@@ -70,8 +71,9 @@ function createMainWindow() {
 	const win = new electron.BrowserWindow({
 		show: false,
 		title: app.getName(),
-		width: 660,
-		height: 450,
+		useContentSize: true,
+		width: loginWindowSize.width,
+		height: loginWindowSize.height,
 		resizable: false,
 		maximizable: false,
 		fullscreenable: false,

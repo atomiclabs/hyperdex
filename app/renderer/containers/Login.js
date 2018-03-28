@@ -1,5 +1,6 @@
 import {remote, ipcRenderer as ipc} from 'electron';
 import {is, setWindowBounds} from 'electron-util';
+import {minWindowSize} from '../../constants';
 import Api from '../api';
 import Container from './Container';
 import appContainer from './App';
@@ -34,7 +35,7 @@ const setAppWindowBounds = () => {
 	win.setResizable(true);
 	win.setMaximizable(true);
 	win.setFullScreenable(true);
-	win.setMinimumSize(760, 500);
+	win.setMinimumSize(minWindowSize.width, minWindowSize.height);
 	setWindowBounds(config.get('windowState'), {animated: true});
 };
 
