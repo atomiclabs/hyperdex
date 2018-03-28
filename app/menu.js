@@ -28,7 +28,7 @@ const viewSubmenu = [];
 for (const [i, view] of appViews.entries()) {
 	viewSubmenu.push({
 		label: view,
-		accelerator: `Control+${i + 1}`,
+		accelerator: `CommandOrControl+${i + 1}`,
 		click() {
 			setActiveView(view);
 		},
