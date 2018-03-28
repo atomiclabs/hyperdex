@@ -4,22 +4,36 @@ const electron = require('electron');
 const {is, runJS} = require('electron-util');
 const config = require('./config');
 const {openGitHubIssue} = require('./util');
-const {repoUrl} = require('./constants');
+const {repoUrl, appViews} = require('./constants');
 
 const {app, BrowserWindow, shell} = electron;
 const appName = app.getName();
 
-function sendAction(action) {
+const sendAction = (action, data) => {
 	const [win] = BrowserWindow.getAllWindows();
 
 	if (process.platform === 'darwin') {
 		win.restore();
 	}
 
-	win.webContents.send(action);
-}
+	win.webContents.send(action, data);
+};
+
+const setActiveView = view => {
+	sendAction('set-active-view', view);
+};
 
 const viewSubmenu = [];
+
+for (const [i, view] of appViews.entries()) {
+	viewSubmenu.push({
+		label: view,
+		accelerator: `Control+${i + 1}`,
+		click() {
+			setActiveView(view);
+		},
+	});
+}
 
 const helpSubmenu = [
 	{
@@ -139,7 +153,7 @@ const macosTpl = [
 				label: 'Preferences…',
 				accelerator: 'Cmd+,',
 				click() {
-					sendAction('show-preferences');
+					setActiveView('Preferences');
 				},
 			},
 			{
@@ -205,6 +219,23 @@ const macosTpl = [
 			},
 			{
 				role: 'close',
+			},
+			{
+				type: 'separator',
+			},
+			{
+				label: 'Select Next View',
+				accelerator: 'Control+Tab',
+				click() {
+					sendAction('set-next-view');
+				},
+			},
+			{
+				label: 'Select Previous View',
+				accelerator: 'Control+Shift+Tab',
+				click() {
+					sendAction('set-previous-view');
+				},
 			},
 			{
 				type: 'separator',
@@ -288,7 +319,7 @@ const otherTpl = [
 				label: 'Preferences',
 				accelerator: 'Ctrl+,',
 				click() {
-					sendAction('show-preferences');
+					setActiveView('Preferences');
 				},
 			},
 		],
