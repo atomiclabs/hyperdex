@@ -14,3 +14,11 @@ exports.loginWindowSize = {
 	width: 660,
 	height: 450,
 };
+
+exports.appViews = [
+	'Dashboard',
+	'Swap',
+	'Exchange',
+	'History',
+	'Preferences',
+];

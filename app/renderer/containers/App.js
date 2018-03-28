@@ -1,6 +1,8 @@
 import electron, {remote, ipcRenderer as ipc} from 'electron';
 import {is} from 'electron-util';
 import _ from 'lodash';
+import Cycled from 'cycled';
+import {appViews} from '../../constants';
 import fireEvery from '../fire-every';
 import Container from './Container';
 
@@ -11,8 +13,22 @@ class AppContainer extends Container {
 		activeView: 'Login',
 	};
 
+	constructor() {
+		super();
+		this.views = new Cycled(appViews);
+	}
+
 	setActiveView(activeView) {
 		this.setState({activeView});
+		this.views.index = this.views.indexOf(activeView);
+	}
+
+	setNextView() {
+		this.setActiveView(this.views.next());
+	}
+
+	setPreviousView() {
+		this.setActiveView(this.views.previous());
 	}
 
 	logIn(portfolio) {
@@ -60,8 +76,16 @@ ipc.on('log-out', () => {
 	appContainer.logOut();
 });
 
-ipc.on('show-preferences', () => {
-	appContainer.setActiveView('Preferences');
+ipc.on('set-active-view', (event, view) => {
+	appContainer.setActiveView(view);
+});
+
+ipc.on('set-next-view', () => {
+	appContainer.setNextView();
+});
+
+ipc.on('set-previous-view', () => {
+	appContainer.setPreviousView();
 });
 
 if (is.development) {
