@@ -6,7 +6,7 @@
 		"start": "webpack && electron app",
 		"dev:watch": "webpack-dev-server --hot",
 		"dev:start": "sleep 1 && electron app",
-		"dev": "run-p dev:*",
+		"dev": "yarn && run-p dev:*",
 		"pack": "webpack && electron-builder --dir",
 		"dist": "webpack --mode=production && electron-builder --mac --linux --win",
 		"release": "np --no-publish"
