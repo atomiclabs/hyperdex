@@ -1,8 +1,7 @@
 import {remote} from 'electron';
 import React from 'react';
-import appContainer from 'containers/App';
 import Button from 'components/Button';
-import avatar from '../avatar';
+import Avatar from 'components/Avatar';
 import Nav from './Nav';
 import './TabView.scss';
 
@@ -24,7 +23,7 @@ const TabView = props => (
 				/>
 				<div className="portfolio-dropdown">
 					<div className="avatar-wrapper">
-						<img src={avatar(appContainer.state.portfolio.name)}/>
+						<Avatar/>
 					</div>
 				</div>
 			</div>

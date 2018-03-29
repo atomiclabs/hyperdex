@@ -1,0 +1,59 @@
+@import '~sass-extras/index';
+@import '../../styles/variables';
+
+.Dashboard {
+	--text-size: 13px;
+	--header-text-size: 18px;
+	--section-border-color: #313d4e;
+	display: grid;
+	grid-template-areas:
+		'list chart'
+		'list wallet';
+	grid-template-columns: 280px 1fr;
+	grid-template-rows: 1fr 320px;
+	grid-gap: 20px;
+	height: 100%;
+
+	&--Portfolio {
+		grid-template-areas:
+			'list chart chart'
+			'list activity pie-chart';
+		grid-template-columns: 280px 1fr 320px;
+	}
+
+	h3 {
+		font-size: var(--header-text-size);
+		font-weight: 500;
+	}
+
+	&--List {
+		grid-area: list;
+	}
+
+	&--Chart {
+		grid-area: chart;
+	}
+
+	&--Activity {
+		grid-area: activity;
+	}
+
+	&--PieChart {
+		grid-area: pie-chart;
+	}
+
+	&--Wallet {
+		grid-area: wallet;
+	}
+
+	&--List,
+	&--Chart,
+	&--Activity,
+	&--PieChart,
+	&--Wallet {
+		display: flex;
+		background-color: var(--background-color2);
+		border-radius: 4px;
+		overflow: hidden;
+	}
+}

@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+
+.Dashboard--PieChart {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+
+	.chart-wrapper {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+
+	.label {
+		text-align: center;
+		font-weight: 600;
+
+		.count {
+			color: var(--text-color);
+			font-size: 14px;
+		}
+
+		.total-value {
+			font-size: 25px;
+			line-height: 31px;
+		}
+	}
+}

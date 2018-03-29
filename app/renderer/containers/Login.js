@@ -95,21 +95,14 @@ class LoginContainer extends Container {
 
 		if (is.development) {
 			// Expose the API for debugging in DevTools
-			// Example: `api.debug({method: 'portfolio'})`
-			window.api = api;
+			// Example: `_api.debug({method: 'portfolio'})`
+			window._api = api;
 		}
 
-		// TODO: These should be defaults saved in the config and changeable by the user
-		await Promise.all([
-			api.enableCoin('KMD'),
-			api.enableCoin('REVS'),
-			api.enableCoin('SUPERNET'),
-			api.enableCoin('CHIPS'),
-			api.enableCoin('BTC'),
-			api.enableCoin('VTC'),
-			api.enableCoin('LTC'),
-		]);
+		// TODO: These should be changeable by the user
+		await Promise.all(config.get('enabledCoins').map(x => api.enableCoin(x)));
 
+		await appContainer.watchCMC();
 		await appContainer.watchCurrencies();
 
 		config.set('lastActivePortfolioId', portfolio.id);

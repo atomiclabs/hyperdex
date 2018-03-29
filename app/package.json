@@ -25,6 +25,7 @@
 		"iocane": "^0.10.1",
 		"load-json-file": "^4.0.0",
 		"node-dir": "^0.1.17",
+		"plur": "^2.1.2",
 		"randoma": "^1.2.0",
 		"react-hot-loader": "^4.0.0",
 		"slug": "^0.9.1",

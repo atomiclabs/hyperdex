@@ -87,7 +87,8 @@
 			"import/exports-last": "error",
 			"no-undef": "off",
 			"react/no-unused-state": "off",
-			"node/no-unpublished-require": "off"
+			"node/no-unpublished-require": "off",
+			"import/prefer-default-export": "off"
 		}
 	},
 	"stylelint": {

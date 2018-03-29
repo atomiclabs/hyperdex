@@ -2,11 +2,29 @@ import electron, {remote, ipcRenderer as ipc} from 'electron';
 import {is} from 'electron-util';
 import _ from 'lodash';
 import Cycled from 'cycled';
+import coinlist from 'coinlist';
 import {appViews} from '../../constants';
 import fireEvery from '../fire-every';
 import Container from './Container';
 
 const config = remote.require('./config');
+
+const getTickerData = async symbol => {
+	const id = coinlist.get(symbol, 'id');
+	if (!id) { // For example, SUPERNET
+		return {symbol};
+	}
+
+	// Docs: https://coinmarketcap.com/api/
+	// Example: https://api.coinmarketcap.com/v1/ticker/bitcoin/
+	const response = await fetch(`https://api.coinmarketcap.com/v1/ticker/${id}/`);
+	const json = await response.json();
+	const [data] = json;
+	return {
+		symbol,
+		price: Number.parseFloat(data.price_usd),
+	};
+};
 
 class AppContainer extends Container {
 	state = {
@@ -16,6 +34,7 @@ class AppContainer extends Container {
 	constructor() {
 		super();
 		this.views = new Cycled(appViews);
+		this.enabledCoins = config.get('enabledCoins');
 	}
 
 	setActiveView(activeView) {
@@ -38,11 +57,37 @@ class AppContainer extends Container {
 		});
 	}
 
+	async watchCMC() {
+		const FIVE_MINUTES = 1000 * 60 * 5;
+
+		await fireEvery(async () => {
+			this.coinPrices = await Promise.all(this.enabledCoins.map(symbol => getTickerData(symbol)));
+		}, FIVE_MINUTES);
+	}
+
 	// TODO: We should use the portfolio socket event instead once it's implemented
 	async watchCurrencies() {
 		if (!this.stopWatchingCurrencies) {
 			this.stopWatchingCurrencies = await fireEvery(async () => {
-				const {portfolio: currencies} = await this.api.portfolio();
+				const {price: kmdPriceInUsd} = this.coinPrices.find(x => x.symbol === 'KMD');
+				let {portfolio: currencies} = await this.api.portfolio();
+
+				currencies = currencies.map(currency => {
+					const {price} = this.coinPrices.find(x => x.symbol === currency.coin);
+
+					if (price) {
+						currency.cmcPriceUsd = price;
+						currency.cmcBalanceUsd = currency.balance * price;
+					} else {
+						// We handle coins not on CMC
+						// `currency.price` is the price of the coin in KMD
+						currency.cmcPriceUsd = currency.price * kmdPriceInUsd;
+						currency.cmcBalanceUsd = currency.balance * currency.cmcPriceUsd;
+					}
+
+					return currency;
+				});
+
 				if (!_.isEqual(this.state.currencies, currencies)) {
 					this.setState({currencies});
 				}

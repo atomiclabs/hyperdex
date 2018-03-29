@@ -1,5 +1,6 @@
 import React from 'react';
 import {classNames} from 'react-extras';
+import Image from './Image';
 import './SelectOption.scss';
 
 const SelectOption = ({className, label, image, fallbackImage, ...props}) => {
@@ -19,18 +20,10 @@ const SelectOption = ({className, label, image, fallbackImage, ...props}) => {
 		<div {...props} className={containerClassName}>
 			{image &&
 				<span className="SelectOption__image-wrap">
-					<img
+					<Image
 						className="SelectOption__image"
-						src={image}
-						onError={event => {
-							const element = event.currentTarget;
-
-							if (fallbackImage) {
-								element.src = fallbackImage;
-							} else {
-								element.style.visibility = 'hidden';
-							}
-						}}
+						url={image}
+						fallbackUrl={fallbackImage}
 					/>
 				</span>
 			}
