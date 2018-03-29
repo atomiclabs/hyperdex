@@ -95,7 +95,7 @@ class LoginContainer extends Container {
 
 		if (is.development) {
 			// Expose the API for debugging in DevTools
-			// Example: `api.debug({method: 'portfolio'})`
+			// Example: `_api.debug({method: 'portfolio'})`
 			window._api = api;
 		}
 
