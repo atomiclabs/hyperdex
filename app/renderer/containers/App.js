@@ -69,6 +69,7 @@ class AppContainer extends Container {
 	async watchCurrencies() {
 		if (!this.stopWatchingCurrencies) {
 			this.stopWatchingCurrencies = await fireEvery(async () => {
+				const {price: kmdPriceInUsd} = this.coinPrices.find(x => x.symbol === 'KMD');
 				let {portfolio: currencies} = await this.api.portfolio();
 
 				currencies = currencies.map(currency => {
@@ -80,8 +81,8 @@ class AppContainer extends Container {
 					} else {
 						// We handle coins not on CMC
 						// `currency.price` is the price of the coin in KMD
-						currency.cmcPriceUsd = currency.price;
-						currency.cmcBalanceUsd = currency.balance * currency.price;
+						currency.cmcPriceUsd = currency.price * kmdPriceInUsd;
+						currency.cmcBalanceUsd = currency.balance * currency.cmcPriceUsd;
 					}
 
 					return currency;
