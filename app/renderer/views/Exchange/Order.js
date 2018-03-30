@@ -120,7 +120,7 @@ class Bottom extends React.Component {
 		if (result.error) {
 			let statusMessage = result.error;
 			if (result.error === 'only one pending request at a time') {
-				statusMessage = `Only one pending trade at a time, try again in ${result.wait} seconds.`;
+				statusMessage = `Only one pending swap at a time, try again in ${result.wait} seconds.`;
 			}
 			return this.setState({statusMessage});
 		}
@@ -128,8 +128,10 @@ class Bottom extends React.Component {
 		this.setState({statusMessage: ''});
 
 		// TODO: Track this in a local DB
-		const trade = result.pending;
-		console.log(trade);
+		const swap = result.pending;
+		console.log(swap);
+		const ee = api.subscribeToSwap(swap);
+		ee.on('progress', message => console.log('fire!', message));
 	};
 
 	handlePriceChange = price => {
