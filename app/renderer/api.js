@@ -146,4 +146,12 @@ export default class Api {
 			await this.request({method: 'stop'});
 		} catch (err) {} // Ignoring the error as `marketmaker` doesn't return a response
 	}
+
+	subscribeToSwap(swap) {
+		if (!this.socket) {
+			throw new Error('Swap subscriptions require the socket to be enabled');
+		}
+
+		return this.socket.subscribeToSwap(swap);
+	}
 }
