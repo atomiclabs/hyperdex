@@ -222,13 +222,15 @@ class Order extends React.Component {
 				<Top {...props}/>
 				<Center
 					{...props}
-					handlePriceChange={this.handlePriceChange}/>
+					handlePriceChange={this.handlePriceChange}
+				/>
 				<Bottom
 					{...props}
 					{...state}
 					handlePriceChange={this.handlePriceChange}
 					handleAmountChange={this.handleAmountChange}
-					handleTotalChange={this.handleTotalChange}/>
+					handleTotalChange={this.handleTotalChange}
+				/>
 			</div>
 		);
 	}
