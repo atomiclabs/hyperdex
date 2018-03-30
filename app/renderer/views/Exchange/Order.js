@@ -92,9 +92,6 @@ const Center = props => {
 class Bottom extends React.Component {
 	state = {
 		statusMessage: '',
-		price: 0,
-		amount: 0,
-		total: 0,
 	};
 
 	handleSubmit = async event => {
@@ -104,7 +101,7 @@ class Bottom extends React.Component {
 
 		const {type} = this.props;
 		const {baseCurrency, quoteCurrency} = exchangeContainer.state;
-		const {price, amount, total} = this.state;
+		const {price, amount, total} = this.props;
 
 		const result = await api.order({
 			type,
@@ -136,6 +133,61 @@ class Bottom extends React.Component {
 		ee.on('progress', message => console.log('fire!', message));
 	};
 
+	targetPriceButtonHandler = () => {
+		console.log('target price button click');
+	};
+
+	maxPriceButtonHandler = () => {
+		console.log('max price button click');
+	};
+
+	render() {
+		const {state} = exchangeContainer;
+		const typeTitled = _.upperFirst(this.props.type);
+
+		const TargetPriceButtonWrapper = () => (
+			<TargetPriceButton onClick={this.targetPriceButtonHandler}/>
+		);
+
+		const MaxPriceButton = () => (
+			<div className="max-price-button" onClick={this.maxPriceButtonHandler}>MAX</div>
+		);
+
+		return (
+			<div className="bottom">
+				<form onSubmit={this.handleSubmit}>
+					<h3>{`${typeTitled} ${state.baseCurrency}`}</h3>
+					<div className="form-section">
+						<label>Price ({state.quoteCurrency}):</label>
+						<Input className="price-input" type="number" min="0" step="any" required value={this.props.price} onChange={this.props.handlePriceChange} button={TargetPriceButtonWrapper}/>
+					</div>
+					<div className="form-section">
+						<label>Amount ({state.baseCurrency}):</label>
+						<Input type="number" min="0" step="any" required value={this.props.amount} onChange={this.props.handleAmountChange} button={MaxPriceButton}/>
+					</div>
+					<div className="form-section">
+						<label>Total ({state.quoteCurrency}):</label>
+						<Input type="number" min="0" step="any" required value={this.props.total} onChange={this.props.handleTotalChange}/>
+					</div>
+					{this.state.statusMessage &&
+						<p className="secondary status-message">
+							{this.state.statusMessage}
+						</p>
+					}
+					<Button color={this.props.type === 'buy' ? 'green' : 'red'} fullwidth type="submit" value={`${typeTitled} ${state.baseCurrency}`}/>
+				</form>
+			</div>
+		);
+	}
+}
+
+class Order extends React.Component {
+	state = {
+		price: 0,
+		amount: 0,
+		total: 0,
+	};
+
 	handlePriceChange = price => {
 		// TODO: The `price`, `amount`, and `total` will will sometimes have leading 0s in the DOM
 		// even though we remove them in React state.
@@ -164,64 +216,23 @@ class Bottom extends React.Component {
 		}));
 	}
 
-	targetPriceButtonHandler = () => {
-		console.log('target price button click');
-	};
-
-	maxPriceButtonHandler = () => {
-		console.log('max price button click');
-	};
-
 	render() {
-		const {state} = exchangeContainer;
-		const typeTitled = _.upperFirst(this.props.type);
-
-		const TargetPriceButtonWrapper = () => (
-			<TargetPriceButton onClick={this.targetPriceButtonHandler}/>
-		);
-
-		const MaxPriceButton = () => (
-			<div className="max-price-button" onClick={this.maxPriceButtonHandler}>MAX</div>
-		);
+		const {props, state} = this;
+		const typeTitled = _.upperFirst(props.type);
 
 		return (
-			<div className="bottom">
-				<form onSubmit={this.handleSubmit}>
-					<h3>{`${typeTitled} ${state.baseCurrency}`}</h3>
-					<div className="form-section">
-						<label>Price ({state.quoteCurrency}):</label>
-						<Input className="price-input" type="number" min="0" step="any" required value={this.state.price} onChange={this.handlePriceChange} button={TargetPriceButtonWrapper}/>
-					</div>
-					<div className="form-section">
-						<label>Amount ({state.baseCurrency}):</label>
-						<Input type="number" min="0" step="any" required value={this.state.amount} onChange={this.handleAmountChange} button={MaxPriceButton}/>
-					</div>
-					<div className="form-section">
-						<label>Total ({state.quoteCurrency}):</label>
-						<Input type="number" min="0" step="any" required value={this.state.total} onChange={this.handleTotalChange}/>
-					</div>
-					{this.state.statusMessage &&
-						<p className="secondary status-message">
-							{this.state.statusMessage}
-						</p>
-					}
-					<Button color={this.props.type === 'buy' ? 'green' : 'red'} fullwidth type="submit" value={`${typeTitled} ${state.baseCurrency}`}/>
-				</form>
+			<div className={`Exchange--${typeTitled}`}>
+				<Top {...props}/>
+				<Center {...props}/>
+				<Bottom
+					{...props}
+					{...state}
+					handlePriceChange={this.handlePriceChange}
+					handleAmountChange={this.handleAmountChange}
+					handleTotalChange={this.handleTotalChange}/>
 			</div>
 		);
 	}
 }
-
-const Order = props => {
-	const typeTitled = _.upperFirst(props.type);
-
-	return (
-		<div className={`Exchange--${typeTitled}`}>
-			<Top {...props}/>
-			<Center {...props}/>
-			<Bottom {...props}/>
-		</div>
-	);
-};
 
 export default Order;
