@@ -10,6 +10,9 @@ import CurrencySelectOption from 'components/CurrencySelectOption';
 import exchangeContainer from 'containers/Exchange';
 import appContainer from 'containers/App';
 import './Order.scss';
+import swapDB from '../../swap-db';
+
+window.swapDB = swapDB;
 
 class Top extends React.Component {
 	handleSelectChange = selectedOption => {
@@ -128,6 +131,8 @@ class Bottom extends React.Component {
 		console.log(swap);
 		const ee = api.subscribeToSwap(swap);
 		ee.on('progress', message => console.log('fire!', message));
+
+		swapDB.insertSwap(swap).then(console.log);
 	};
 
 	targetPriceButtonHandler = () => {
