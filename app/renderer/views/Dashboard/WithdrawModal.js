@@ -5,9 +5,9 @@ import Button from 'components/Button';
 import Input from 'components/Input';
 import appContainer from 'containers/App';
 import dashboardContainer from 'containers/Dashboard';
-import './SendModal.scss';
+import './WithdrawModal.scss';
 
-class SendModal extends React.Component {
+class WithdrawModal extends React.Component {
 	state = {
 		isOpen: false,
 		recepientAddress: '',
@@ -29,8 +29,8 @@ class SendModal extends React.Component {
 		return (
 			<div className="modal-wrapper">
 				<Modal
-					className="SendModal"
-					title={`Send ${currencyInfo.name} (${currencySymbol})`}
+					className="WithdrawModal"
+					title={`Withdraw ${currencyInfo.name} (${currencySymbol})`}
 					open={this.state.isOpen}
 					onClose={this.close}
 				>
@@ -70,13 +70,13 @@ class SendModal extends React.Component {
 								}}
 							/>
 						</div>
-						<Button className="send-button" primary value="Send"/>
+						<Button className="withdraw-button" primary value="Withdraw"/>
 					</React.Fragment>
 				</Modal>
-				<Button className="OpenModalButton" value="Send" onClick={this.open}/>
+				<Button className="OpenModalButton" value="Withdraw" onClick={this.open}/>
 			</div>
 		);
 	}
 }
 
-export default SendModal;
+export default WithdrawModal;

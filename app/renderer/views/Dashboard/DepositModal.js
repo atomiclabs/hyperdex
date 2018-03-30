@@ -6,7 +6,7 @@ import Button from 'components/Button';
 import Input from 'components/Input';
 import appContainer from 'containers/App';
 import dashboardContainer from 'containers/Dashboard';
-import './ReceiveModal.scss';
+import './DepositModal.scss';
 
 const CopyButton = props => (
 	<div
@@ -21,7 +21,7 @@ const CopyButton = props => (
 	</div>
 );
 
-class ReceiveModal extends React.Component {
+class DepositModal extends React.Component {
 	state = {
 		isOpen: false,
 	};
@@ -41,7 +41,7 @@ class ReceiveModal extends React.Component {
 		return (
 			<div className="modal-wrapper">
 				<Modal
-					className="ReceiveModal"
+					className="DepositModal"
 					title={`Your ${currencyInfo.name} (${currencySymbol}) Wallet Address`}
 					open={this.state.isOpen}
 					onClose={this.close}
@@ -58,10 +58,10 @@ class ReceiveModal extends React.Component {
 						</div>
 					</React.Fragment>
 				</Modal>
-				<Button className="OpenModalButton" value="Receive" onClick={this.open}/>
+				<Button className="OpenModalButton" value="Deposit" onClick={this.open}/>
 			</div>
 		);
 	}
 }
 
-export default ReceiveModal;
+export default DepositModal;

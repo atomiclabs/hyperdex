@@ -1,14 +1,14 @@
 import React from 'react';
-import SendModal from './SendModal';
-import ReceiveModal from './ReceiveModal';
+import WithdrawModal from './WithdrawModal';
+import DepositModal from './DepositModal';
 import './Wallet.scss';
 
 const Wallet = () => {
 	return (
 		<div className="Dashboard--Wallet">
 			<div className="button-wrapper">
-				<SendModal/>
-				<ReceiveModal/>
+				<WithdrawModal/>
+				<DepositModal/>
 			</div>
 		</div>
 	);
