@@ -100,11 +100,13 @@ class Bottom extends React.Component {
 	handleSubmit = async event => {
 		event.preventDefault();
 
+		const {api} = appContainer;
+
 		const {type} = this.props;
 		const {baseCurrency, quoteCurrency} = exchangeContainer.state;
 		const {price, amount, total} = this.state;
 
-		const result = await appContainer.api.order({
+		const result = await api.order({
 			type,
 			baseCurrency,
 			quoteCurrency,
