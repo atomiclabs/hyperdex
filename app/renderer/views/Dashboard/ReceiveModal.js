@@ -1,3 +1,4 @@
+import {clipboard} from 'electron';
 import React from 'react';
 import QRCode from 'qrcode.react';
 import Modal from 'components/Modal';
@@ -8,7 +9,14 @@ import dashboardContainer from 'containers/Dashboard';
 import './ReceiveModal.scss';
 
 const CopyButton = props => (
-	<div onClick={props.onClick}>
+	<div
+		{...props}
+		onClick={() => {
+			// TODO: DRY this up
+			const currencySymbol = dashboardContainer.state.activeView;
+			clipboard.writeText(appContainer.getCurrency(currencySymbol).address);
+		}}
+	>
 		<img src="/assets/copy-icon.svg"/>
 	</div>
 );
@@ -43,7 +51,7 @@ class ReceiveModal extends React.Component {
 							<QRCode value={currencyInfo.address}/>
 						</div>
 						<div className="section">
-							<Input readonly className="address-input" value={currencyInfo.address} button={CopyButton}/>
+							<Input className="address-input" value={currencyInfo.address} button={CopyButton}/>
 						</div>
 						<div className="section">
 							<p>Make sure you only send {currencySymbol} to this address.</p>
