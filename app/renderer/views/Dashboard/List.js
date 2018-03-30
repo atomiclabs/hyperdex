@@ -1,5 +1,6 @@
 import React from 'react';
 import roundTo from 'round-to';
+import _ from 'lodash';
 import appContainer from 'containers/App';
 import dashboardContainer from 'containers/Dashboard';
 import CurrencyIcon from 'components/CurrencyIcon';
@@ -26,13 +27,13 @@ const List = () => {
 					</div>
 					<div className="right">
 						<h3>{appState.portfolio.name}</h3>
-						<p>{dashboardContainer.assetCount} ≈ {dashboardContainer.totalAssetValue}</p>
+						<p>{dashboardContainer.assetCount} ≈ {dashboardContainer.totalAssetValueFormatted}</p>
 					</div>
 				</div>
 			</div>
 			<div className="center">
 				{(() => (
-					currencies.map(currency => {
+					_.orderBy(currencies, ['cmcBalanceUsd'], ['desc']).map(currency => {
 						let balance = `${roundTo(currency.balance, 8)} ≈ ${formatCurrency(currency.cmcBalanceUsd)}`;
 
 						if (currency.balance === 0) {

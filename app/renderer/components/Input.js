@@ -14,6 +14,7 @@ const Input = ({
 	icon,
 	iconSize,
 	iconName,
+	view: View,
 	button: Button,
 	...props
 }, ref) => {
@@ -62,8 +63,13 @@ const Input = ({
 						<img src={icon} width={iconSize}/>
 					</span>
 				}
+				{View &&
+					<span className="Input__view">
+						<View/>
+					</span>
+				}
 				{Button &&
-					<span className="Input__button">
+					<span className="Input__view Input__button">
 						<Button/>
 					</span>
 				}

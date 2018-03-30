@@ -4,7 +4,6 @@ import QRCode from 'qrcode.react'; // eslint-disable-line import/extensions
 import Modal from 'components/Modal';
 import Button from 'components/Button';
 import Input from 'components/Input';
-import appContainer from 'containers/App';
 import dashboardContainer from 'containers/Dashboard';
 import './DepositModal.scss';
 
@@ -12,9 +11,7 @@ const CopyButton = props => (
 	<div
 		{...props}
 		onClick={() => {
-			// TODO: DRY this up
-			const currencySymbol = dashboardContainer.state.activeView;
-			clipboard.writeText(appContainer.getCurrency(currencySymbol).address);
+			clipboard.writeText(dashboardContainer.activeCurrency.address);
 		}}
 	>
 		<img src="/assets/copy-icon.svg"/>
@@ -52,8 +49,9 @@ class DepositModal extends React.Component {
 						<div className="section">
 							<Input className="address-input" value={currencyInfo.address} button={CopyButton}/>
 						</div>
-						<div className="section">
-							<p>Make sure you only send {currencyInfo.symbol} to this address.</p>
+						<div className="section infobox">
+							<img src="/assets/info-icon.svg" width="26" height="26"/>
+							<p>Make sure you only send {currencyInfo.symbol} to this address</p>
 						</div>
 					</React.Fragment>
 				</Modal>

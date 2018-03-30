@@ -3,9 +3,11 @@ import {is} from 'electron-util';
 import _ from 'lodash';
 import Cycled from 'cycled';
 import coinlist from 'coinlist';
+import roundTo from 'round-to';
 import {appViews} from '../../constants';
 import fireEvery from '../fire-every';
 import swapDB from '../swap-db';
+import {formatCurrency} from '../util';
 import Container from './Container';
 
 const config = remote.require('./config');
@@ -24,6 +26,7 @@ const getTickerData = async symbol => {
 	return {
 		symbol,
 		price: Number.parseFloat(data.price_usd),
+		percentChange24h: data.percent_change_24h,
 	};
 };
 
@@ -77,7 +80,7 @@ class AppContainer extends Container {
 
 				// Mixin useful data for the currencies
 				currencies = currencies.map(currency => {
-					const {price} = this.coinPrices.find(x => x.symbol === currency.coin);
+					const {price, percentChange24h} = this.coinPrices.find(x => x.symbol === currency.coin);
 
 					if (price) {
 						currency.cmcPriceUsd = price;
@@ -91,6 +94,11 @@ class AppContainer extends Container {
 
 					currency.symbol = currency.coin; // For readability
 					currency.name = coinlist.get(currency.symbol, 'name') || currency.symbol;
+					currency.cmcPercentChange24h = percentChange24h;
+
+					currency.balanceFormatted = roundTo(currency.balance, 8);
+					currency.cmcPriceUsdFormatted = formatCurrency(currency.cmcPriceUsd);
+					currency.cmcBalanceUsdFormatted = formatCurrency(currency.cmcBalanceUsd);
 
 					return currency;
 				});

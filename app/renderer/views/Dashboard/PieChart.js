@@ -47,7 +47,7 @@ const PieChart = () => {
 					{dashboardContainer.assetCount}
 				</div>
 				<div className="total-value">
-					{dashboardContainer.totalAssetValue}
+					{dashboardContainer.totalAssetValueFormatted}
 				</div>
 			</div>
 		</div>

@@ -18,7 +18,7 @@ class DashboardContainer extends Container {
 		return `${length} ${plur('asset', length)}`;
 	}
 
-	get totalAssetValue() {
+	get totalAssetValueFormatted() {
 		const total = _.sumBy(appContainer.state.currencies, 'cmcBalanceUsd');
 		return formatCurrency(total);
 	}

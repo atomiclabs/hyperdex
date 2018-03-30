@@ -1,6 +1,7 @@
 import React from 'react';
 import './Modal.scss';
 
+// TODO: Use portals (https://reactjs.org/docs/portals.html) to make it not be affected by local styles
 class Modal extends React.Component {
 	static defaultProps = {
 		animation: 'slide-up', // `fade`, `slide-up`, `slide-down`, `zoom`
@@ -39,8 +40,10 @@ class Modal extends React.Component {
 	}
 
 	animationEnd = event => {
+		const element = this.elementRef.current;
+
 		// Prevent event triggered by the dialog animation
-		if (event.currentTarget !== this.elementRef.current) {
+		if (event.currentTarget !== element) {
 			return;
 		}
 
@@ -51,8 +54,16 @@ class Modal extends React.Component {
 					didClose();
 				}
 			});
-		} else if (this.props.closeOnEsc) {
-			this.elementRef.current.focus();
+		} else {
+			if (this.props.closeOnEsc) {
+				element.focus();
+			}
+
+			// Focus the first input if the modal has any
+			const input = element.querySelector('input');
+			if (input) {
+				input.focus();
+			}
 		}
 	}
 

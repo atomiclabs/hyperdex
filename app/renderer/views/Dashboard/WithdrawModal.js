@@ -54,6 +54,12 @@ class WithdrawModal extends React.Component {
 
 	render() {
 		const currencyInfo = dashboardContainer.activeCurrency;
+		const networkFee = 0; // TODO: Implement getting the network fees
+		const maxAmount = currencyInfo.balance - networkFee;
+		const remainingBalance = roundTo(maxAmount - this.state.amount, 8);
+		const setAmount = amount => {
+			this.setState({amount: Math.min(amount, maxAmount)});
+		};
 
 		return (
 			<div className="modal-wrapper">
@@ -77,30 +83,50 @@ class WithdrawModal extends React.Component {
 							/>
 						</div>
 						<div className="section">
-							<label>Amount {currencyInfo.symbol}:</label>
-							<Input
-								value={roundTo(this.state.amount, 8)}
-								type="number"
-								min="0"
-								step="any"
-								required
-								disabled={this.state.isWithdrawing}
-								onChange={value => {
-									this.setState({amount: Number.parseFloat(value)});
-								}}
-							/>
-							<label>Amount USD:</label>
-							<Input
-								value={roundTo(this.state.amount * currencyInfo.cmcPriceUsd, 8)}
-								type="number"
-								min="0"
-								step="any"
-								required
-								disabled={this.state.isWithdrawing}
-								onChange={value => {
-									this.setState({amount: Number.parseFloat(value) / currencyInfo.cmcPriceUsd});
-								}}
-							/>
+							<label>Amount:</label>
+							<div className="amount-inputs">
+								<Input
+									value={roundTo(this.state.amount, 8)}
+									type="number"
+									min={0}
+									step="any"
+									required
+									disabled={this.state.isWithdrawing}
+									onChange={value => {
+										const amount = Number.parseFloat(value || 0);
+										setAmount(amount);
+									}}
+									view={() => (
+										<span>{currencyInfo.symbol}</span>
+									)}
+								/>
+								<span className="separator">≈</span>
+								<Input
+									value={roundTo(this.state.amount * currencyInfo.cmcPriceUsd, 8)}
+									type="number"
+									min={0}
+									step="any"
+									required
+									disabled={this.state.isWithdrawing}
+									onChange={value => {
+										const amount = Number.parseFloat(value || 0) / currencyInfo.cmcPriceUsd;
+										setAmount(amount);
+									}}
+									view={() => (
+										<span>USD</span>
+									)}
+								/>
+							</div>
+						</div>
+						<div className="section">
+							<div className="info">
+								<span>Network fee:</span>
+								<span>{networkFee} (TODO!)</span>
+							</div>
+							<div className="info">
+								<span>Remaining balance:</span>
+								<span>{remainingBalance}</span>
+							</div>
 						</div>
 						<Button
 							className="withdraw-button"
