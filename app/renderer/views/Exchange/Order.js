@@ -1,6 +1,5 @@
 import React from 'react';
 import roundTo from 'round-to';
-import coins from 'coinlist';
 import _ from 'lodash';
 import Input from 'components/Input';
 import Button from 'components/Button';
@@ -25,10 +24,10 @@ class Top extends React.Component {
 
 		const {currencies} = appContainer.state;
 		const selectedCurrencySymbol = this.props.type === 'buy' ? state.baseCurrency : state.quoteCurrency;
-		const selectedCurrency = currencies.find(currency => currency.coin === selectedCurrencySymbol);
+		const selectedCurrency = appContainer.getCurrency(selectedCurrencySymbol);
 
 		const selectData = currencies.map(currency => ({
-			label: `${coins.get(currency.coin, 'name') || currency.coin} (${currency.coin})`,
+			label: `${currency.name} (${currency.coin})`,
 			value: currency.coin,
 		}));
 

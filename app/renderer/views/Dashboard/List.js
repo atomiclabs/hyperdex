@@ -1,5 +1,4 @@
 import React from 'react';
-import coins from 'coinlist';
 import roundTo from 'round-to';
 import appContainer from 'containers/App';
 import dashboardContainer from 'containers/Dashboard';
@@ -50,7 +49,7 @@ const List = () => {
 									<CurrencyIcon symbol={currency.coin}/>
 								</div>
 								<div className="right">
-									<h2>{coins.get(currency.coin, 'name')} ({currency.coin})</h2>
+									<h2>{currency.name} ({currency.coin})</h2>
 									<p>{balance}</p>
 								</div>
 							</div>

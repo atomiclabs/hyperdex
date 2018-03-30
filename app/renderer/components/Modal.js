@@ -15,24 +15,20 @@ class Modal extends React.Component {
 		animationType: 'close',
 	};
 
-	componentDidMount() {
-		if (this.props.open) {
-			setTimeout(() => {
-				this.setState({
-					isOpen: true,
-					animationType: 'open',
-				});
-			}, this.props.delay);
-		}
-	}
+	openHandler = () => {
+		this.setState({
+			isOpen: true,
+			animationType: 'open',
+		});
+	};
 
 	closeHandler = () => {
 		if (this.props.onClose) {
 			this.props.onClose();
-		} else {
-			this.setState({animationType: 'close'});
 		}
-	}
+
+		this.setState({animationType: 'close'});
+	};
 
 	onKeyUp = event => {
 		if (this.props.closeOnEsc && event.key === 'Escape') {
@@ -55,6 +51,25 @@ class Modal extends React.Component {
 			});
 		} else if (this.props.closeOnEsc) {
 			this.element.focus();
+		}
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if (!this.props.open && nextProps.open) {
+			this.openHandler();
+		} else if (this.props.open && !nextProps.open) {
+			this.closeHandler();
+		}
+	}
+
+	componentDidMount() {
+		if (this.props.open) {
+			setTimeout(() => {
+				this.setState({
+					isOpen: true,
+					animationType: 'open',
+				});
+			}, this.props.delay);
 		}
 	}
 
