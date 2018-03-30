@@ -54,10 +54,7 @@ const Center = props => {
 
 	const data = state.orderBook[props.type === 'buy' ? 'asks' : 'bids'];
 
-	const selectRow = row => {
-		// TODO(sindresorhus): Fix this. Just doing it easy for now until I know exactly how it will work
-		document.querySelector(`.Exchange--${_.upperFirst(props.type)} .price-input input`).value = row.price;
-	};
+	const selectRow = row => props.handlePriceChange(row.price);
 
 	return (
 		<div className="center">
@@ -223,7 +220,9 @@ class Order extends React.Component {
 		return (
 			<div className={`Exchange--${typeTitled}`}>
 				<Top {...props}/>
-				<Center {...props}/>
+				<Center
+					{...props}
+					handlePriceChange={this.handlePriceChange}/>
 				<Bottom
 					{...props}
 					{...state}
