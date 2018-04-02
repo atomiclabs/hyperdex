@@ -7,13 +7,15 @@ import appContainer from 'containers/App';
 import dashboardContainer from 'containers/Dashboard';
 import './WithdrawModal.scss';
 
+const getInitialProps = () => ({
+	isOpen: false,
+	recepientAddress: '',
+	amount: 0,
+	isWithdrawing: false,
+});
+
 class WithdrawModal extends React.Component {
-	state = {
-		isOpen: false,
-		recepientAddress: '',
-		amount: 0,
-		isWithdrawing: false,
-	};
+	state = getInitialProps();
 
 	constructor(props) {
 		super(props);
@@ -25,25 +27,26 @@ class WithdrawModal extends React.Component {
 	};
 
 	close = () => {
-		this.setState(this.initialState);
+		this.setState(getInitialProps());
 	};
 
 	withdrawButtonHandler = async () => {
 		this.setState({isWithdrawing: true});
 
 		const currency = dashboardContainer.activeCurrency.symbol;
-		const {recepientAddress, amount} = this.state;
+		const {recepientAddress: address, amount} = this.state;
 
 		await appContainer.api.withdraw({
 			currency,
-			address: recepientAddress,
+			address,
 			amount,
 		});
 
-		// TODO: Use in-app notifications for this when we've added it
+		// TODO: The notification should be clickable and open a block explorer for the currency.
+		// We'll need to have a list of block explorers for each currency.
 		// eslint-disable-next-line no-new
 		new Notification('Successful withdrawal!', {
-			body: `Transferred ${amount} ${currency}`,
+			body: `${amount} ${currency} sent to ${address}`,
 		});
 
 		this.close();
