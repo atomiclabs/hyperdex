@@ -15,7 +15,7 @@ const PieChart = () => {
 	];
 
 	const data = currencies.map(currency => ({
-		name: currency.coin,
+		name: currency.symbol,
 		value: currency.cmcBalanceUsd,
 	}));
 

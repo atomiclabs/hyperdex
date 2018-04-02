@@ -1,3 +1,4 @@
+import util from 'util';
 import electron from 'electron';
 import {sha256} from 'crypto-hash';
 import PQueue from 'p-queue';
@@ -138,12 +139,18 @@ export default class Api {
 			throw new TypeError(`opts.amount must be a positive number: ${opts.amount}`);
 		}
 
-		return this.request({
+		const result = await this.request({
 			method: 'withdraw',
 			coin: opts.currency,
 			outputs: [{[opts.address]: opts.amount}],
 			broadcast: 1,
 		});
+
+		if (!result.complete) {
+			throw new Error(`Couldn't complete withdrawal:\n${util.format(result)}`);
+		}
+
+		return result;
 	}
 
 	listUnspent(coin, address) {
