@@ -22,6 +22,10 @@ class DashboardContainer extends Container {
 		const total = _.sumBy(appContainer.state.currencies, 'cmcBalanceUsd');
 		return formatCurrency(total);
 	}
+
+	get activeCurrency() {
+		return appContainer.getCurrency(this.state.activeView);
+	}
 }
 
 const dashboardContainer = new DashboardContainer();

@@ -27,15 +27,15 @@ class Top extends React.Component {
 		const selectedCurrency = appContainer.getCurrency(selectedCurrencySymbol);
 
 		const selectData = currencies.map(currency => ({
-			label: `${currency.name} (${currency.coin})`,
-			value: currency.coin,
+			label: `${currency.name} (${currency.symbol})`,
+			value: currency.symbol,
 		}));
 
 		return (
 			<div className="top">
 				<Select
 					className="currency-selector"
-					value={selectedCurrency.coin}
+					value={selectedCurrency.symbol}
 					options={selectData}
 					onChange={this.handleSelectChange}
 					valueRenderer={CurrencySelectOption}

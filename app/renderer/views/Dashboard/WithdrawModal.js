@@ -12,25 +12,51 @@ class WithdrawModal extends React.Component {
 		isOpen: false,
 		recepientAddress: '',
 		amount: 0,
+		isWithdrawing: false,
 	};
+
+	constructor(props) {
+		super(props);
+		this.initialState = this.state;
+	}
 
 	open = () => {
 		this.setState({isOpen: true});
 	};
 
 	close = () => {
-		this.setState({isOpen: false});
+		this.setState(this.initialState);
+	};
+
+	withdrawButtonHandler = async () => {
+		this.setState({isWithdrawing: true});
+
+		const currency = dashboardContainer.activeCurrency.symbol;
+		const {recepientAddress, amount} = this.state;
+
+		await appContainer.api.withdraw({
+			currency,
+			address: recepientAddress,
+			amount,
+		});
+
+		// TODO: Use in-app notifications for this when we've added it
+		// eslint-disable-next-line no-new
+		new Notification('Successful withdrawal!', {
+			body: `Transferred ${amount} ${currency}`,
+		});
+
+		this.close();
 	};
 
 	render() {
-		const currencySymbol = dashboardContainer.state.activeView;
-		const currencyInfo = appContainer.getCurrency(currencySymbol);
+		const currencyInfo = dashboardContainer.activeCurrency;
 
 		return (
 			<div className="modal-wrapper">
 				<Modal
 					className="WithdrawModal"
-					title={`Withdraw ${currencyInfo.name} (${currencySymbol})`}
+					title={`Withdraw ${currencyInfo.name} (${currencyInfo.symbol})`}
 					open={this.state.isOpen}
 					onClose={this.close}
 				>
@@ -40,20 +66,22 @@ class WithdrawModal extends React.Component {
 							<Input
 								required
 								value={this.state.recepientAddress}
-								placeholder={`Enter ${currencySymbol} Address`}
+								placeholder={`Enter ${currencyInfo.symbol} Address`}
+								disabled={this.state.isWithdrawing}
 								onChange={value => {
 									this.setState({recepientAddress: value});
 								}}
 							/>
 						</div>
 						<div className="section">
-							<label>Amount {currencySymbol}:</label>
+							<label>Amount {currencyInfo.symbol}:</label>
 							<Input
 								value={roundTo(this.state.amount, 8)}
 								type="number"
 								min="0"
 								step="any"
 								required
+								disabled={this.state.isWithdrawing}
 								onChange={value => {
 									this.setState({amount: Number.parseFloat(value)});
 								}}
@@ -65,12 +93,19 @@ class WithdrawModal extends React.Component {
 								min="0"
 								step="any"
 								required
+								disabled={this.state.isWithdrawing}
 								onChange={value => {
 									this.setState({amount: Number.parseFloat(value) / currencyInfo.cmcPriceUsd});
 								}}
 							/>
 						</div>
-						<Button className="withdraw-button" primary value="Withdraw"/>
+						<Button
+							className="withdraw-button"
+							primary
+							value="Withdraw"
+							disabled={!this.state.recepientAddress || !this.state.amount || this.state.isWithdrawing}
+							onClick={this.withdrawButtonHandler}
+						/>
 					</React.Fragment>
 				</Modal>
 				<Button className="OpenModalButton" value="Withdraw" onClick={this.open}/>
