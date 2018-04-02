@@ -14,8 +14,8 @@ const unstatedDebug = options => {
 			return Container;
 		}
 
-		if (!window.__UNSTATED__) {
-			window.__UNSTATED__ = {
+		if (!window.UNSTATED) {
+			window.UNSTATED = {
 				isEnabled: true,
 				logStateChanges: options.logStateChanges,
 				containers: {},
@@ -36,7 +36,7 @@ const unstatedDebug = options => {
 			};
 		}
 
-		const globalInstance = window.__UNSTATED__;
+		const globalInstance = window.UNSTATED;
 		const logStateChangeKey = Symbol('log state key');
 
 		class DebuggableContainer extends Container {
