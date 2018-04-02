@@ -124,7 +124,7 @@ export default class Api {
 		});
 	}
 
-	withdraw(opts) {
+	async withdraw(opts) {
 		if (typeof opts.currency !== 'string') {
 			throw new TypeError(`opts.currency must be a string: ${opts.currency}`);
 		}
