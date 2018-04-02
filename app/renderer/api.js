@@ -125,13 +125,10 @@ export default class Api {
 	}
 
 	withdraw(opts) {
-		const output = {};
-		output[opts.address] = opts.amount;
-
 		return this.request({
 			method: 'withdraw',
 			coin: opts.currency,
-			outputs: [output],
+			outputs: [{[opts.address]: opts.amount}],
 			broadcast: 1,
 		});
 	}
