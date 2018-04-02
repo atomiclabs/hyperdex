@@ -14,7 +14,7 @@ class SwapDB {
 		});
 	}
 
-	insertSwap(swap) {
+	insertSwap(swap, requestOpts) {
 		const formattedSwap = {
 			tradeId: swap.tradeid,
 			aliceId: swap.aliceid,
@@ -26,7 +26,11 @@ class SwapDB {
 			baseCurrencyAmount: swap.basevalue,
 			quoteCurrency: swap.rel,
 			quoteCurrencyAmount: swap.relvalue,
-			messages: [JSON.stringify(swap)],
+			debug: {
+				request: JSON.stringify(requestOpts),
+				response: JSON.stringify(swap),
+				messages: [],
+			},
 		};
 
 		return this.db.post(formattedSwap);

@@ -103,14 +103,16 @@ class Bottom extends React.Component {
 		const {baseCurrency, quoteCurrency} = exchangeContainer.state;
 		const {price, amount, total} = this.props;
 
-		const result = await api.order({
+		const requestOpts = {
 			type,
 			baseCurrency,
 			quoteCurrency,
 			price,
 			amount,
 			total,
-		});
+		};
+
+		const result = await api.order(requestOpts);
 
 		// TODO: If we get this error we should probably show a more helpful error
 		// and grey out the order form for result.wait seconds.
@@ -132,7 +134,7 @@ class Bottom extends React.Component {
 		const ee = api.subscribeToSwap(swap);
 		ee.on('progress', message => console.log('fire!', message));
 
-		swapDB.insertSwap(swap).then(console.log);
+		swapDB.insertSwap(swap, requestOpts).then(console.log);
 	};
 
 	targetPriceButtonHandler = () => {
