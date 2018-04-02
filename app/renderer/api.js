@@ -124,6 +124,28 @@ export default class Api {
 		});
 	}
 
+	async withdraw(opts) {
+		if (typeof opts.currency !== 'string') {
+			throw new TypeError(`opts.currency must be a string: ${opts.currency}`);
+		}
+
+		// TODO: Also validate address based on opts.currency
+		if (typeof opts.address !== 'string') {
+			throw new TypeError(`opts.address must be a string: ${opts.address}`);
+		}
+
+		if (!Number.isFinite(opts.amount) || opts.amount <= 0) {
+			throw new TypeError(`opts.amount must be a positive number: ${opts.amount}`);
+		}
+
+		return this.request({
+			method: 'withdraw',
+			coin: opts.currency,
+			outputs: [{[opts.address]: opts.amount}],
+			broadcast: 1,
+		});
+	}
+
 	listUnspent(coin, address) {
 		return this.request({
 			method: 'listunspent',
