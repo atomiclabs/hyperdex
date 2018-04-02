@@ -15,7 +15,7 @@ class Checkbox extends React.Component {
 			label,
 			value,
 			onChange,
-			innerRef,
+			forwardedRef,
 			...props
 		} = this.props;
 
@@ -33,7 +33,7 @@ class Checkbox extends React.Component {
 				<label>
 					<input
 						{...props}
-						ref={innerRef}
+						ref={forwardedRef}
 						type="checkbox"
 						value={value}
 						checked={this.state.checked}
@@ -62,4 +62,6 @@ class Checkbox extends React.Component {
 	}
 }
 
-export default Checkbox;
+export default React.forwardRef((props, ref) => (
+	<Checkbox {...props} forwardedRef={ref}/>
+));

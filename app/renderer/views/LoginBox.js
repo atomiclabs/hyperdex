@@ -15,13 +15,15 @@ class LoginBox extends React.Component {
 		isCheckingPassword: false,
 	};
 
+	passwordInputRef = React.createRef();
+
 	handleSelectChange = selectedOption => {
 		this.setState({passwordError: null});
 		loginContainer.setSelectedPortfolioId(selectedOption.value);
 	};
 
 	handleSelectClose = () => {
-		this.passwordInput.focus();
+		this.passwordInputRef.current.focus();
 	};
 
 	selectOptionRenderer = option => {
@@ -60,7 +62,7 @@ class LoginBox extends React.Component {
 				isCheckingPassword: false,
 				passwordError,
 			}, () => {
-				this.passwordInput.focus();
+				this.passwordInputRef.current.focus();
 			});
 		}
 	};
@@ -103,9 +105,7 @@ class LoginBox extends React.Component {
 					</div>
 					<div className="form-group">
 						<Input
-							innerRef={input => {
-								this.passwordInput = input;
-							}}
+							ref={this.passwordInputRef}
 							onChange={this.handlePasswordInputChange}
 							type="password"
 							placeholder="Password"

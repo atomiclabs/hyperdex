@@ -9,7 +9,6 @@ const Input = ({
 	errorMessage,
 	disabled,
 	readOnly,
-	innerRef,
 	onChange,
 	type = 'text',
 	icon,
@@ -17,7 +16,7 @@ const Input = ({
 	iconName,
 	button: Button,
 	...props
-}) => {
+}, ref) => {
 	if (errorMessage) {
 		level = 'error';
 		message = errorMessage;
@@ -48,7 +47,7 @@ const Input = ({
 			<div className="Input-wrap">
 				<input
 					{...props}
-					ref={innerRef}
+					ref={ref}
 					type={type}
 					disabled={disabled}
 					readOnly={readOnly}
@@ -78,4 +77,4 @@ const Input = ({
 	);
 };
 
-export default Input;
+export default React.forwardRef(Input);
