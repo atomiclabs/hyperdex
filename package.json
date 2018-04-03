@@ -17,7 +17,6 @@
 		"crypto-hash": "^0.1.0",
 		"cycled": "^0.1.0",
 		"date-fns": "^1.29.0",
-		"deep-object-diff": "^1.1.0",
 		"emittery": "^0.3.0",
 		"lodash": "^4.17.4",
 		"modern-normalize": "^0.4.0",
@@ -33,7 +32,8 @@
 		"recharts": "^1.0.0-beta.10",
 		"round-to": "^2.0.0",
 		"sass-extras": "^0.3.0",
-		"unstated": "^1.2.0"
+		"unstated": "^1.2.0",
+		"unstated-debug": "^0.1.0"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.0",
@@ -62,7 +62,7 @@
 		"style-loader": "^0.20.3",
 		"stylelint": "^9.1.3",
 		"stylelint-config-xo-scss": "^0.3.0",
-		"webpack": "^4.3.0",
+		"webpack": "^4.4.1",
 		"webpack-cli": "^2.0.13",
 		"webpack-dev-server": "^3.1.1",
 		"xo": "^0.20.0"

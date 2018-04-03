@@ -10127,6 +10127,12 @@ unset-value@^1.0.0:
     has-value "^0.3.1"
     isobject "^3.0.0"
 
+unstated-debug@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/unstated-debug/-/unstated-debug-0.1.0.tgz#eed5f110c80a4cbf655f97919fbc31b706022d63"
+  dependencies:
+    deep-object-diff "^1.1.0"
+
 unstated@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/unstated/-/unstated-1.2.0.tgz#5c57cc077473d2cce411ec0930da285cef3df306"
@@ -10520,9 +10526,9 @@ webpack-sources@^1.0.1, webpack-sources@^1.1.0:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.3.0.tgz#0b0c1e211311b3995dd25aed47ab46ea658be070"
+webpack@^4.4.1:
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.4.1.tgz#b0105789890c28bfce9f392623ef5850254328a4"
   dependencies:
     acorn "^5.0.0"
     acorn-dynamic-import "^3.0.0"
