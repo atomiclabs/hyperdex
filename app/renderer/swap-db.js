@@ -1,5 +1,6 @@
 import PouchDB from 'pouchdb-browser';
 import pouchDBFind from 'pouchdb-find';
+import PQueue from 'p-queue';
 
 PouchDB.plugin(pouchDBFind);
 
@@ -18,29 +19,37 @@ class SwapDB {
 			this.db.createIndex({index: {fields: ['timeStarted', 'tradeId', 'aliceId']}}),
 			this.db.createIndex({index: {fields: ['timeStarted', 'requestId', 'quoteId']}}),
 		]);
+
+		this.pQueue = new PQueue({concurrency: 1});
+	}
+
+	queue(fn) {
+		this.pQueue.add(() => this.ready.then(fn));
 	}
 
 	insertSwap(swap, requestOpts) {
-		const formattedSwap = {
-			tradeId: swap.tradeid,
-			aliceId: swap.aliceid,
-			requestId: swap.requestid,
-			quoteId: swap.quoteid,
-			timeStarted: Date.now(),
-			status: 'open',
-			flags: [],
-			baseCurrency: swap.base,
-			baseCurrencyAmount: swap.basevalue,
-			quoteCurrency: swap.rel,
-			quoteCurrencyAmount: swap.relvalue,
-			debug: {
-				request: JSON.stringify(requestOpts),
-				response: JSON.stringify(swap),
-				messages: [],
-			},
-		};
+		return this.queue(() => {
+			const formattedSwap = {
+				tradeId: swap.tradeid,
+				aliceId: swap.aliceid,
+				requestId: swap.requestid,
+				quoteId: swap.quoteid,
+				timeStarted: Date.now(),
+				status: 'open',
+				flags: [],
+				baseCurrency: swap.base,
+				baseCurrencyAmount: swap.basevalue,
+				quoteCurrency: swap.rel,
+				quoteCurrencyAmount: swap.relvalue,
+				debug: {
+					request: JSON.stringify(requestOpts),
+					response: JSON.stringify(swap),
+					messages: [],
+				},
+			};
 
-		return this.db.post(formattedSwap);
+			return this.db.post(formattedSwap);
+		});
 	}
 
 	async getSwap(ids) {
@@ -72,41 +81,43 @@ class SwapDB {
 		return docs[0];
 	}
 
-	updateSwap = async message => {
-		const {
-			tradeid: tradeId,
-			aliceid: aliceId,
-			requestid: requestId,
-			quoteid: quoteId,
-		} = message;
+	updateSwap = message => {
+		return this.queue(async () => {
+			const {
+				tradeid: tradeId,
+				aliceid: aliceId,
+				requestid: requestId,
+				quoteid: quoteId,
+			} = message;
 
-		const swap = await this.getSwap({tradeId, aliceId, requestId, quoteId});
+			const swap = await this.getSwap({tradeId, aliceId, requestId, quoteId});
 
-		if (requestId && quoteId) {
-			swap.requestId = requestId;
-			swap.quoteId = quoteId;
-		}
+			if (requestId && quoteId) {
+				swap.requestId = requestId;
+				swap.quoteId = quoteId;
+			}
 
-		if (message.method === 'connected') {
-			swap.status = 'matched';
-		}
+			if (message.method === 'connected') {
+				swap.status = 'matched';
+			}
 
-		if (message.method === 'update') {
-			swap.status = 'swapping';
-			swap.flags.push(message.name);
-		}
+			if (message.method === 'update') {
+				swap.status = 'swapping';
+				swap.flags.push(message.name);
+			}
 
-		if (message.method === 'tradestatus' && message.status === 'finished') {
-			swap.status = 'complete';
-		}
+			if (message.method === 'tradestatus' && message.status === 'finished') {
+				swap.status = 'complete';
+			}
 
-		if (message.method === 'failed') {
-			swap.status = 'failed';
-		}
+			if (message.method === 'failed') {
+				swap.status = 'failed';
+			}
 
-		swap.debug.messages.push(JSON.stringify(message));
+			swap.debug.messages.push(JSON.stringify(message));
 
-		return this.db.put(swap);
+			return this.db.put(swap);
+		});
 	}
 }
 
