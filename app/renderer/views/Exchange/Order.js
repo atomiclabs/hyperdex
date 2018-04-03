@@ -128,13 +128,10 @@ class Bottom extends React.Component {
 
 		this.setState({statusMessage: ''});
 
-		// TODO: Track this in a local DB
 		const swap = result.pending;
-		console.log(swap);
-		const ee = api.subscribeToSwap(swap);
-		ee.on('progress', message => console.log('fire!', message));
 
-		swapDB.insertSwap(swap, requestOpts).then(console.log);
+		swapDB.insertSwap(swap, requestOpts);
+		api.subscribeToSwap(swap).on('progress', swapDB.updateSwap);
 	};
 
 	targetPriceButtonHandler = () => {

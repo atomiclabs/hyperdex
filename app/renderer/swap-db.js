@@ -7,14 +7,17 @@ class SwapDB {
 	constructor() {
 		this.db = new PouchDB('swaps', {adapter: 'idb'});
 
-		// This is a bug in PouchDB but to be able to sort via timeStarted it MUST
-		// be the fist item in the index.
-		// https://github.com/pouchdb/pouchdb/issues/6399#issuecomment-361938113
-		this.ready = this.db.createIndex({
-			index: {
-				fields: ['timeStarted', 'tradeId', 'aliceId', 'requestId', 'quoteId'],
-			},
-		});
+		// To be able to sort via timeStarted it MUST be the fist item in the index.
+		// https://github.com/pouchdb/pouchdb/issues/7207
+		//
+		// Also, we need both indexes, we can't just have a single index of:
+		// ['timeStarted', 'tradeId', 'aliceId', 'requestId', 'quoteId']
+		// because then querying by requestId/quoteId and sorting by timeStarted throws.
+		// https://github.com/pouchdb/pouchdb/issues/7205
+		this.ready = Promise.all([
+			this.db.createIndex({index: {fields: ['timeStarted', 'tradeId', 'aliceId']}}),
+			this.db.createIndex({index: {fields: ['timeStarted', 'requestId', 'quoteId']}}),
+		]);
 	}
 
 	insertSwap(swap, requestOpts) {
@@ -24,7 +27,8 @@ class SwapDB {
 			requestId: swap.requestid,
 			quoteId: swap.quoteid,
 			timeStarted: Date.now(),
-			swapStatus: 'open',
+			status: 'open',
+			flags: [],
 			baseCurrency: swap.base,
 			baseCurrencyAmount: swap.basevalue,
 			quoteCurrency: swap.rel,
@@ -43,10 +47,10 @@ class SwapDB {
 		const {tradeId, aliceId, requestId, quoteId} = ids;
 
 		const query = {};
-		if (requestId && quoteId) {
-			query.selector = {requestId, quoteId};
-		} else if (tradeId && aliceId) {
+		if (tradeId && aliceId) {
 			query.selector = {tradeId, aliceId};
+		} else if (requestId && quoteId) {
+			query.selector = {requestId, quoteId};
 		}
 
 		if (!query.selector) {
@@ -54,7 +58,7 @@ class SwapDB {
 		}
 
 		// We need `{$gt: true}` so PouchDB can sort.
-		// https://github.com/pouchdb/pouchdb/issues/6399#issuecomment-295858705
+		// https://github.com/pouchdb/pouchdb/issues/7206
 		query.selector.timeStarted = {$gt: true};
 		query.sort = [{timeStarted: 'desc'}];
 
@@ -66,6 +70,43 @@ class SwapDB {
 		}
 
 		return docs[0];
+	}
+
+	updateSwap = async message => {
+		const {
+			tradeid: tradeId,
+			aliceid: aliceId,
+			requestid: requestId,
+			quoteid: quoteId,
+		} = message;
+
+		const swap = await this.getSwap({tradeId, aliceId, requestId, quoteId});
+
+		if (requestId && quoteId) {
+			swap.requestId = requestId;
+			swap.quoteId = quoteId;
+		}
+
+		if (message.method === 'connected') {
+			swap.status = 'matched';
+		}
+
+		if (message.method === 'update') {
+			swap.status = 'swapping';
+			swap.flags.push(message.name);
+		}
+
+		if (message.method === 'tradestatus' && message.status === 'finished') {
+			swap.status = 'complete';
+		}
+
+		if (message.method === 'failed') {
+			swap.status = 'failed';
+		}
+
+		swap.debug.messages.push(JSON.stringify(message));
+
+		return this.db.put(swap);
 	}
 }
 
