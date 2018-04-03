@@ -54,7 +54,7 @@ class SwapDB {
 		}
 
 		if (!query.selector) {
-			throw new Error(`Swap must have tradeId/aliceId or requestId/quoteId: ${JSON.stringify(ids)}`);
+			throw new Error(`You must specify either tradeId & aliceId or requestId & quoteId: ${JSON.stringify(ids)}`);
 		}
 
 		// We need `{$gt: true}` so PouchDB can sort.
