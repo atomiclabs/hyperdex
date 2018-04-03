@@ -12,7 +12,7 @@ import appContainer from 'containers/App';
 import './Order.scss';
 import swapDB from '../../swap-db';
 
-window.swapDB = swapDB;
+window._swapDB = swapDB;
 
 class Top extends React.Component {
 	handleSelectChange = selectedOption => {
