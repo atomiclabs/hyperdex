@@ -19,7 +19,6 @@ const Dashboard = () => {
 					return (
 						<TabView className="Dashboard Dashboard--Portfolio">
 							<List/>
-							<Chart/>
 							<Activity/>
 							<PieChart/>
 						</TabView>

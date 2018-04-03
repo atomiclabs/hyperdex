@@ -1,3 +1,72 @@
-.Dashboard--Chart {
+@import '../../styles/variables';
 
+@keyframes fade-in-0-6 {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 0.6;
+	}
+}
+
+.Dashboard--Chart {
+	display: flex;
+	position: relative;
+
+	.TimeSeriesChart {
+		position: absolute;
+		top: 50px;
+		right: 22px;
+		bottom: 0;
+		left: 22px;
+
+		&::before {
+			content: '';
+			border: 2px solid var(--section-border-color);
+			position: absolute;
+			top: 3px;
+			right: 3px;
+			bottom: 33px;
+			left: 3px;
+		}
+	}
+
+	.overlay {
+		width: 100%;
+		height: 0;
+		display: flex;
+		margin: 20px 24px 0 24px;
+		z-index: 1;
+		justify-content: space-between;
+
+		.resolution-buttons {
+			button {
+				background: #363b65;
+				border: 0.5px solid transparent;
+				font-size: 11px;
+				font-weight: 600;
+				color: #687bf7;
+				text-transform: uppercase;;
+
+				&.active {
+					border-color: #687bf7;
+				}
+			}
+		}
+	}
+
+	&.Empty {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		p {
+			display: block;
+			font-size: 20px;
+			opacity: 0.6;
+			animation: fade-in-0-6 1s;
+		}
+	}
 }

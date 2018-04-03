@@ -4,6 +4,7 @@ import {minWindowSize} from '../../constants';
 import Api from '../api';
 import Container from './Container';
 import appContainer from './App';
+import dashboardContainer from './Dashboard';
 
 const config = remote.require('./config');
 const {getPortfolios, decryptSeedPhrase} = remote.require('./portfolio-util');
@@ -97,6 +98,7 @@ class LoginContainer extends Container {
 
 		await appContainer.watchCMC();
 		await appContainer.watchCurrencies();
+		await dashboardContainer.watchCoinCap();
 
 		config.set('lastActivePortfolioId', portfolio.id);
 
