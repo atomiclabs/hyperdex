@@ -8,11 +8,10 @@ const TextArea = ({
 	message,
 	errorMessage,
 	disabled,
-	innerRef,
 	onChange,
 	preventNewlines,
 	...props
-}) => {
+}, ref) => {
 	if (errorMessage) {
 		level = 'error';
 		message = errorMessage;
@@ -33,7 +32,7 @@ const TextArea = ({
 			<div className="Input-wrap">
 				<textarea
 					{...props}
-					ref={innerRef}
+					ref={ref}
 					disabled={disabled}
 					onChange={event => {
 						const target = event.target;
@@ -63,4 +62,4 @@ const TextArea = ({
 	);
 };
 
-export default TextArea;
+export default React.forwardRef(TextArea);

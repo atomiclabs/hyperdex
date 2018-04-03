@@ -15,6 +15,8 @@ class Modal extends React.Component {
 		animationType: 'close',
 	};
 
+	elementRef = React.createRef();
+
 	openHandler = () => {
 		this.setState({
 			isOpen: true,
@@ -38,7 +40,7 @@ class Modal extends React.Component {
 
 	animationEnd = event => {
 		// Prevent event triggered by the dialog animation
-		if (event.currentTarget !== this.element) {
+		if (event.currentTarget !== this.elementRef.current) {
 			return;
 		}
 
@@ -50,7 +52,7 @@ class Modal extends React.Component {
 				}
 			});
 		} else if (this.props.closeOnEsc) {
-			this.element.focus();
+			this.elementRef.current.focus();
 		}
 	}
 
@@ -90,9 +92,7 @@ class Modal extends React.Component {
 
 		return (
 			<div
-				ref={element => {
-					this.element = element;
-				}}
+				ref={this.elementRef}
 				className={`Modal Modal-fade-${state.animationType} ${className}`}
 				style={{
 					display: state.isOpen ? '' : 'none',
