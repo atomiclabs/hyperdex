@@ -4,16 +4,16 @@ import TabView from './TabView';
 import './History.scss';
 
 const History = () => {
-	const coins = appContainer.state.currencies.map(coin => (
-		<tr key={coin.coin}>
+	const currencies = appContainer.state.currencies.map(currency => (
+		<tr key={currency.symbol}>
 			<th>
-				{coin.coin}
+				{currency.symbol}
 			</th>
 			<td>
-				{coin.address}
+				{currency.address}
 			</td>
 			<td>
-				{coin.balance}
+				{currency.balance}
 			</td>
 		</tr>
 	));
@@ -25,7 +25,7 @@ const History = () => {
 					<thead>
 						<tr>
 							<th>
-								Coin
+								Currency
 							</th>
 							<th>
 								Smartaddress
@@ -36,7 +36,7 @@ const History = () => {
 						</tr>
 					</thead>
 					<tbody>
-						{coins}
+						{currencies}
 					</tbody>
 				</table>
 			</div>

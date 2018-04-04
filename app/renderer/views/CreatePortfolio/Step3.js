@@ -16,7 +16,7 @@ const CreatePortfolioStep3 = () => {
 			<form onSubmit={container.handleStep3Submit} style={{marginTop: '20px'}}>
 				<div className="form-group" style={{width: '460px'}}>
 					<TextArea
-						innerRef={textarea => {
+						ref={textarea => {
 							container.confirmSeedPhraseTextArea = textarea;
 						}}
 						value={state.confirmedSeedPhrase}

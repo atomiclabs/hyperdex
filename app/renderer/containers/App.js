@@ -72,6 +72,9 @@ class AppContainer extends Container {
 				const {price: kmdPriceInUsd} = this.coinPrices.find(x => x.symbol === 'KMD');
 				let {portfolio: currencies} = await this.api.portfolio();
 
+				// TODO(sindresorhus): Move the returned `mm` currency info to a sub-property and only have cleaned-up top-level properties. For example, `mm` has too many properties for just the balance.
+
+				// Mixin useful data for the currencies
 				currencies = currencies.map(currency => {
 					const {price} = this.coinPrices.find(x => x.symbol === currency.coin);
 
@@ -85,6 +88,9 @@ class AppContainer extends Container {
 						currency.cmcBalanceUsd = currency.balance * currency.cmcPriceUsd;
 					}
 
+					currency.symbol = currency.coin; // For readability
+					currency.name = coinlist.get(currency.symbol, 'name') || currency.symbol;
+
 					return currency;
 				});
 
@@ -95,6 +101,10 @@ class AppContainer extends Container {
 		}
 
 		return this.stopWatchingCurrencies;
+	}
+
+	getCurrency(symbol) {
+		return this.state.currencies.find(x => x.coin === symbol);
 	}
 
 	logOut() {

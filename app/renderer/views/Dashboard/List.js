@@ -1,5 +1,4 @@
 import React from 'react';
-import coins from 'coinlist';
 import roundTo from 'round-to';
 import appContainer from 'containers/App';
 import dashboardContainer from 'containers/Dashboard';
@@ -42,15 +41,15 @@ const List = () => {
 
 						return (
 							<div
-								key={currency.coin}
-								className={`coin-button ${state.activeView === currency.coin ? 'active' : ''}`}
-								onClick={() => dashboardContainer.setActiveView(currency.coin)}
+								key={currency.symbol}
+								className={`coin-button ${state.activeView === currency.symbol ? 'active' : ''}`}
+								onClick={() => dashboardContainer.setActiveView(currency.symbol)}
 							>
 								<div className="left">
-									<CurrencyIcon symbol={currency.coin}/>
+									<CurrencyIcon symbol={currency.symbol}/>
 								</div>
 								<div className="right">
-									<h2>{coins.get(currency.coin, 'name')} ({currency.coin})</h2>
+									<h2>{currency.name} ({currency.symbol})</h2>
 									<p>{balance}</p>
 								</div>
 							</div>

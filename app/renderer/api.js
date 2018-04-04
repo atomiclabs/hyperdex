@@ -1,3 +1,4 @@
+import util from 'util';
 import electron from 'electron';
 import {sha256} from 'crypto-hash';
 import PQueue from 'p-queue';
@@ -122,6 +123,34 @@ export default class Api {
 			relvolume: opts.total,
 			price: opts.price,
 		});
+	}
+
+	async withdraw(opts) {
+		if (typeof opts.currency !== 'string') {
+			throw new TypeError(`opts.currency must be a string: ${opts.currency}`);
+		}
+
+		// TODO: Also validate address based on opts.currency
+		if (typeof opts.address !== 'string') {
+			throw new TypeError(`opts.address must be a string: ${opts.address}`);
+		}
+
+		if (!Number.isFinite(opts.amount) || opts.amount <= 0) {
+			throw new TypeError(`opts.amount must be a positive number: ${opts.amount}`);
+		}
+
+		const result = await this.request({
+			method: 'withdraw',
+			coin: opts.currency,
+			outputs: [{[opts.address]: opts.amount}],
+			broadcast: 1,
+		});
+
+		if (!result.complete) {
+			throw new Error(`Couldn't complete withdrawal:\n${util.format(result)}`);
+		}
+
+		return result;
 	}
 
 	listUnspent(coin, address) {

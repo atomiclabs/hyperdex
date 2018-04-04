@@ -34,7 +34,7 @@ const RestorePortfolioStep2 = () => {
 				</div>
 				<div className="form-group">
 					<Input
-						innerRef={input => {
+						ref={input => {
 							container.confirmPasswordInput = input;
 						}}
 						onChange={container.handleConfirmPasswordInputChange}

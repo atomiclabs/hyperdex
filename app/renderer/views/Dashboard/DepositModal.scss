@@ -1,0 +1,24 @@
+.DepositModal main {
+	display: flex;
+	flex-direction: column;
+
+	.section {
+		margin: 10px 0;
+	}
+
+	.qrcode {
+		align-self: center;
+		background: #fff;
+		padding: 20px;
+	}
+
+	.address-input {
+		input {
+			color: #fff;
+			font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+			font-size: 13px;
+			font-weight: 400;
+			caret-color: transparent;
+		}
+	}
+}
