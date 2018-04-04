@@ -1,5 +1,6 @@
 import PouchDB from 'pouchdb-browser';
 import pouchDBFind from 'pouchdb-find';
+import Emittery from 'emittery';
 import PQueue from 'p-queue';
 
 PouchDB.plugin(pouchDBFind);
@@ -7,6 +8,17 @@ PouchDB.plugin(pouchDBFind);
 class SwapDB {
 	constructor() {
 		this.db = new PouchDB('swaps', {adapter: 'idb'});
+
+		const ee = new Emittery();
+		this.on = ee.on.bind(ee);
+		this.off = ee.off.bind(ee);
+		this.once = ee.once.bind(ee);
+
+		this.db.changes({
+			since: 'now',
+			live: true,
+			include_docs: true, // eslint-disable-line camelcase
+		}).on('change', ({doc: swap}) => ee.emit('change', swap));
 
 		// To be able to sort via timeStarted it MUST be the fist item in the index.
 		// https://github.com/pouchdb/pouchdb/issues/7207
