@@ -11,8 +11,6 @@ import appContainer from 'containers/App';
 import './Order.scss';
 import swapDB from '../../swap-db';
 
-window._swapDB = swapDB;
-
 class Top extends React.Component {
 	handleSelectChange = selectedOption => {
 		if (this.props.type === 'buy') {
