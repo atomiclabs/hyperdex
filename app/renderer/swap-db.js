@@ -131,6 +131,15 @@ class SwapDB {
 			return this.db.put(swap);
 		});
 	}
+
+	async getSwaps() {
+		const {docs} = await this.db.find({
+			selector: {timeStarted: {$gt: true}},
+			sort: [{timeStarted: 'desc'}],
+		});
+
+		return docs;
+	}
 }
 
 const swapDB = new SwapDB();
