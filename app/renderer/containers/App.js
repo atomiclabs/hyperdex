@@ -5,6 +5,7 @@ import Cycled from 'cycled';
 import coinlist from 'coinlist';
 import {appViews} from '../../constants';
 import fireEvery from '../fire-every';
+import swapDB from '../swap-db';
 import Container from './Container';
 
 const config = remote.require('./config');
@@ -148,6 +149,7 @@ if (is.development) {
 	window.setState = appContainer.setState.bind(appContainer);
 	window.getState = () => appContainer.state;
 	window.config = electron.remote.require('./config');
+	window._swapDB = swapDB;
 }
 
 function handleDarkMode() {

@@ -9,6 +9,7 @@ import CurrencySelectOption from 'components/CurrencySelectOption';
 import exchangeContainer from 'containers/Exchange';
 import appContainer from 'containers/App';
 import './Order.scss';
+import swapDB from '../../swap-db';
 
 class Top extends React.Component {
 	handleSelectChange = selectedOption => {
@@ -99,14 +100,16 @@ class Bottom extends React.Component {
 		const {baseCurrency, quoteCurrency} = exchangeContainer.state;
 		const {price, amount, total} = this.props;
 
-		const result = await api.order({
+		const requestOpts = {
 			type,
 			baseCurrency,
 			quoteCurrency,
 			price,
 			amount,
 			total,
-		});
+		};
+
+		const result = await api.order(requestOpts);
 
 		// TODO: If we get this error we should probably show a more helpful error
 		// and grey out the order form for result.wait seconds.
@@ -122,11 +125,10 @@ class Bottom extends React.Component {
 
 		this.setState({statusMessage: ''});
 
-		// TODO: Track this in a local DB
 		const swap = result.pending;
-		console.log(swap);
-		const ee = api.subscribeToSwap(swap);
-		ee.on('progress', message => console.log('fire!', message));
+
+		swapDB.insertSwap(swap, requestOpts);
+		api.subscribeToSwap(swap).on('progress', swapDB.updateSwap);
 	};
 
 	targetPriceButtonHandler = () => {
