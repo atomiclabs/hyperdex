@@ -6,7 +6,7 @@ class Modal extends React.Component {
 		animation: 'slide-up', // `fade`, `slide-up`, `slide-down`, `zoom`
 		animationDuration: 400,
 		closeOnEsc: true,
-		closeOnMaskClick: false,
+		closeOnMaskClick: true,
 		delay: 400,
 	};
 
