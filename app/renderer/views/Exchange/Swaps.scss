@@ -44,6 +44,8 @@
 		display: flex;
 		flex: 1;
 		padding: 20px;
+		height: 0;
+		overflow: scroll;
 
 		.Empty {
 			display: flex;
