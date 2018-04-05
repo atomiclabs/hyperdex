@@ -105,12 +105,12 @@
 					border-radius: 3px;
 				}
 
-				&__icon[data-status='started'] {
+				&__icon[data-status='pending'] {
 					background-color: var(--primary-color);
 					border-color: var(--primary-color);
 				}
 
-				&__icon[data-status='cancelled'] {
+				&__icon[data-status='failed'] {
 					border-color: #364357;
 				}
 
