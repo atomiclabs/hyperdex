@@ -2,8 +2,8 @@
 import _ from 'lodash';
 import appContainer from 'containers/App';
 import fireEvery from '../fire-every';
-import Container from './Container';
 import swapDB from '../swap-db';
+import Container from './Container';
 
 class ExchangeContainer extends Container {
 	state = {
