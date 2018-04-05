@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .WithdrawModal main {
 	display: flex;
 	flex-direction: column;
@@ -10,6 +12,31 @@
 		font-size: 12px;
 		font-weight: 600;
 		color: var(--text-color);
+	}
+
+	.amount-inputs {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.separator {
+			margin: 0 20px;
+			color: var(--text-color);
+		}
+	}
+
+	.info {
+		display: flex;
+		justify-content: space-between;
+
+		span {
+			font-size: 14px;
+			color: var(--text-color);
+		}
+
+		&:first-child {
+			margin-bottom: 20px;
+		}
 	}
 
 	.withdraw-button {

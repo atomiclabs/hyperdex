@@ -11,8 +11,10 @@
 		border-top: 2px solid var(--section-border-color);
 
 		h3 {
+			position: relative;
 			margin-top: 10px;
 			text-align: center;
+			z-index: 10;
 		}
 
 		.DepthChart {

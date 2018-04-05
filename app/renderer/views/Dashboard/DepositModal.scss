@@ -6,6 +6,10 @@
 		margin: 10px 0;
 	}
 
+	.section:last-of-type {
+		margin-bottom: 0;
+	}
+
 	.qrcode {
 		align-self: center;
 		background: #fff;
@@ -19,6 +23,25 @@
 			font-size: 13px;
 			font-weight: 400;
 			caret-color: transparent;
+		}
+	}
+
+	.infobox {
+		display: flex;
+		align-items: center;
+		padding: 12px 14px;
+		background-color: #313d4f;
+		border-radius: 4px;
+
+		img {
+			display: block;
+			margin-right: 14px;
+		}
+
+		p {
+			color: #fff;
+			margin: 0;
+			font-size: 14px;
 		}
 	}
 }
