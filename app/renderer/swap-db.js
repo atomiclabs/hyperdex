@@ -83,6 +83,7 @@ class SwapDB {
 		query.selector.timeStarted = {$gt: true};
 		query.sort = [{timeStarted: 'desc'}];
 
+		await this.ready;
 		const {docs} = await this.db.find(query);
 
 		if (docs.length > 1) {
@@ -133,6 +134,7 @@ class SwapDB {
 	}
 
 	async getSwaps() {
+		await this.ready;
 		const {docs} = await this.db.find({
 			selector: {timeStarted: {$gt: true}},
 			sort: [{timeStarted: 'desc'}],
