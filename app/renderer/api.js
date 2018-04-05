@@ -39,7 +39,7 @@ export default class Api {
 		const port = await getPort();
 		const {endpoint} = await this.request({method: 'getendpoint', port});
 		const socket = new MarketmakerSocket(endpoint);
-		await this.socket.connected;
+		await socket.connected;
 		this.socket = socket;
 
 		return this.socket;
