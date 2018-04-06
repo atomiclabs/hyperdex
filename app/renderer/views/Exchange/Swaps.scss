@@ -44,8 +44,6 @@
 		display: flex;
 		flex: 1;
 		padding: 20px;
-		height: 0;
-		overflow: scroll;
 
 		.Empty {
 			display: flex;
@@ -65,6 +63,8 @@
 			overflow-y: scroll;
 			margin-bottom: 20px;
 			font-size: 12px;
+			height: 0;
+			min-height: 100%;
 
 			table {
 				display: table;
