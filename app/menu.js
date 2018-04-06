@@ -129,7 +129,7 @@ const debugMenu = {
 			},
 		},
 		{
-			label: 'Delete Data App',
+			label: 'Delete App Data',
 			click() {
 				shell.moveItemToTrash(app.getPath('userData'));
 				app.relaunch();
