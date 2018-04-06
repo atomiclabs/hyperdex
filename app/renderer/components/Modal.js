@@ -1,7 +1,7 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './Modal.scss';
 
-// TODO: Use portals (https://reactjs.org/docs/portals.html) to make it not be affected by local styles
 class Modal extends React.Component {
 	static defaultProps = {
 		animation: 'slide-up', // `fade`, `slide-up`, `slide-down`, `zoom`
@@ -101,7 +101,7 @@ class Modal extends React.Component {
 			...props
 		} = this.props;
 
-		return (
+		const modal = (
 			<div
 				ref={this.elementRef}
 				className={`Modal Modal-fade-${state.animationType} ${className}`}
@@ -131,6 +131,8 @@ class Modal extends React.Component {
 				</div>
 			</div>
 		);
+
+		return ReactDOM.createPortal(modal, document.body);
 	}
 }
 
