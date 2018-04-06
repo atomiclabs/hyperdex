@@ -33,20 +33,35 @@ const Empty = () => (
 	</div>
 );
 
-const SwapItem = ({swap}) => (
-	<tr>
-		<td className="timestamp">{formatDate(swap.timestamp, 'HH:m DD.MM')}</td>
-		<td className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</td>
-		<td className="sell-amount">-{swap.sellAmount}</td>
-		<td className="buy-amount">+{swap.buyAmount}</td>
-		<td className="status">
-			<div className="status__icon" data-status={swap.status}>{swap.status}</div>
-		</td>
-		<td className="view">
-			<button type="button" className="view__button">View</button>
-		</td>
-	</tr>
-);
+const SwapItem = ({swap}) => {
+	let statusString = swap.status;
+
+	if (swap.status === 'swapping') {
+		const flags = ['myfee', 'bobdeposit', 'alicepayment', 'bobpayment'];
+		const swapProgress = swap.flags.reduce((prevFlagLevel, flag) => {
+			const newFlagLevel = flags.indexOf(flag) + 1;
+
+			return Math.max(prevFlagLevel, newFlagLevel);
+		}, 0);
+
+		statusString = `swap ${swapProgress}/${flags.length}`;
+	}
+
+	return (
+		<tr>
+			<td className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD.MM')}</td>
+			<td className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</td>
+			<td className="sell-amount">+{swap.quoteCurrencyAmount} {swap.quoteCurrency}</td>
+			<td className="buy-amount">-{swap.baseCurrencyAmount} {swap.baseCurrency}</td>
+			<td className="status">
+				<div className="status__icon" data-status={swap.status}>{statusString}</div>
+			</td>
+			<td className="view">
+				<button type="button" className="view__button">View</button>
+			</td>
+		</tr>
+	);
+};
 
 const SwapList = ({swaps}) => {
 	if (swaps.length === 0) {
@@ -68,42 +83,14 @@ const SwapList = ({swaps}) => {
 	);
 };
 
-/// TODO: Temp data
-const data = [
-	{
-		timestamp: new Date('16:10 28 Feb 2018'),
-		baseCurrency: 'KMD',
-		quoteCurrency: 'BTC',
-		sellAmount: 1000.03,
-		buyAmount: 243434.55,
-		status: 'started',
-	},
-	{
-		timestamp: new Date('11:10 28 Feb 2018'),
-		baseCurrency: 'LTC',
-		quoteCurrency: 'BTC',
-		sellAmount: 2.03,
-		buyAmount: 234.55,
-		status: 'cancelled',
-	},
-	{
-		timestamp: new Date('09:10 28 Feb 2018'),
-		baseCurrency: 'KMD',
-		quoteCurrency: 'LTC',
-		sellAmount: 3.03,
-		buyAmount: 534.45,
-		status: 'completed',
-	},
-];
-
 const All = () => (
-	<SwapList swaps={data}/>
+	<SwapList swaps={exchangeContainer.state.swapHistory}/>
 );
 
 const Split = () => {
 	const {state} = exchangeContainer;
 
-	const filteredData = data.filter(x =>
+	const filteredData = state.swapHistory.filter(x =>
 		x.baseCurrency === state.baseCurrency &&
 		x.quoteCurrency === state.quoteCurrency
 	);

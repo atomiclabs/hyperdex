@@ -47,7 +47,7 @@ class SwapDB {
 				requestId: swap.requestid,
 				quoteId: swap.quoteid,
 				timeStarted: Date.now(),
-				status: 'open',
+				status: 'pending',
 				flags: [],
 				baseCurrency: swap.base,
 				baseCurrencyAmount: swap.basevalue,
@@ -120,7 +120,7 @@ class SwapDB {
 			}
 
 			if (message.method === 'tradestatus' && message.status === 'finished') {
-				swap.status = 'complete';
+				swap.status = 'completed';
 			}
 
 			if (message.method === 'failed') {

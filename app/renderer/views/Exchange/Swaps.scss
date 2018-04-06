@@ -44,6 +44,8 @@
 		display: flex;
 		flex: 1;
 		padding: 20px;
+		height: 0;
+		overflow: scroll;
 
 		.Empty {
 			display: flex;
@@ -96,21 +98,23 @@
 
 			.status {
 				&__icon {
-					width: 70px;
+					width: 60px;
 					padding: 1px 2px;
-					font-size: 11px;
+					font-size: 10px;
 					text-align: center;
 					text-transform: uppercase;
 					border: 1px solid;
 					border-radius: 3px;
 				}
 
-				&__icon[data-status='started'] {
+				&__icon[data-status='pending'],
+				&__icon[data-status='matched'],
+				&__icon[data-status='swapping'] {
 					background-color: var(--primary-color);
 					border-color: var(--primary-color);
 				}
 
-				&__icon[data-status='cancelled'] {
+				&__icon[data-status='failed'] {
 					border-color: #364357;
 				}
 
@@ -121,11 +125,12 @@
 
 			.view {
 				&__button {
-					padding: 4px 6px;
+					padding: 2px 4px;
 					color: #fff;
 					background-color: var(--background-color);
 					border: 1px solid #313d4f;
 					transition: 0.2s ease-out;
+					font-size: 11px;
 
 					&:hover {
 						border-color: rgba(255, 255, 255, 0.2);

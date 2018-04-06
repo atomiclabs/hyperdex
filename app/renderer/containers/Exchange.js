@@ -2,6 +2,7 @@
 import _ from 'lodash';
 import appContainer from 'containers/App';
 import fireEvery from '../fire-every';
+import swapDB from '../swap-db';
 import Container from './Container';
 
 class ExchangeContainer extends Container {
@@ -9,6 +10,7 @@ class ExchangeContainer extends Container {
 		baseCurrency: 'CHIPS',
 		quoteCurrency: 'KMD',
 		activeSwapsView: 'All',
+		swapHistory: [],
 		orderBook: {
 			bids: [],
 			asks: [],
@@ -16,6 +18,14 @@ class ExchangeContainer extends Container {
 			askdepth: 0,
 		},
 	};
+
+	constructor() {
+		super();
+		this.setSwapHistory();
+		swapDB.on('change', this.setSwapHistory);
+	}
+
+	setSwapHistory = async () => this.setState({swapHistory: await swapDB.getSwaps()});
 
 	setBaseCurrency(baseCurrency) {
 		// Switch if the same as `quoteCurrency`
