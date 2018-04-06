@@ -93,6 +93,16 @@ const debugMenu = {
 			type: 'separator',
 		},
 		{
+			label: 'Log Swaps',
+			async click() {
+				const [win] = BrowserWindow.getAllWindows();
+				await runJS('_swapDB.getSwaps().then(console.log)', win);
+			},
+		},
+		{
+			type: 'separator',
+		},
+		{
 			label: 'Show Portfolios',
 			click() {
 				shell.openItem(path.join(app.getPath('userData'), 'portfolios'));
