@@ -11,7 +11,7 @@ class Intro extends React.Component {
 
 	closedHandler = () => {
 		config.set('hasShownExchangeIntro', true);
-		setState({shouldOpen: false});
+		this.setState({shouldOpen: false});
 	};
 
 	render() {
