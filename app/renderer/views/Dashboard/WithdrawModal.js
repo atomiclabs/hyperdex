@@ -137,7 +137,12 @@ class WithdrawModal extends React.Component {
 						/>
 					</React.Fragment>
 				</Modal>
-				<Button className="OpenModalButton" value="Withdraw" onClick={this.open}/>
+				<Button
+					className="OpenModalButton"
+					value="Withdraw"
+					disabled={!currencyInfo.balance}
+					onClick={this.open}
+				/>
 			</div>
 		);
 	}
