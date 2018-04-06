@@ -1,5 +1,4 @@
 import electron, {remote, ipcRenderer as ipc} from 'electron';
-import {is} from 'electron-util';
 import _ from 'lodash';
 import Cycled from 'cycled';
 import coinlist from 'coinlist';
@@ -152,13 +151,11 @@ ipc.on('set-previous-view', () => {
 	appContainer.setPreviousView();
 });
 
-if (is.development) {
-	// Expose setState for debugging in DevTools
-	window.setState = appContainer.setState.bind(appContainer);
-	window.getState = () => appContainer.state;
-	window.config = electron.remote.require('./config');
-	window._swapDB = swapDB;
-}
+// TODO: Uncomment this before we do the public release
+/// if (is.development) {
+window._config = electron.remote.require('./config');
+window._swapDB = swapDB;
+/// }
 
 function handleDarkMode() {
 	const applyDarkMode = () => {

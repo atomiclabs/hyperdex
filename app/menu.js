@@ -1,7 +1,7 @@
 'use strict';
 const path = require('path');
 const electron = require('electron');
-const {is, runJS} = require('electron-util');
+const {runJS} = require('electron-util');
 const config = require('./config');
 const {openGitHubIssue} = require('./util');
 const {repoUrl, appViews} = require('./constants');
@@ -336,8 +336,9 @@ const otherTpl = [
 
 const tpl = process.platform === 'darwin' ? macosTpl : otherTpl;
 
-if (is.development) {
-	tpl.push(debugMenu);
-}
+// TODO: Uncomment this before doing the public release
+/// if (is.development) {
+tpl.push(debugMenu);
+/// }
 
 module.exports = electron.Menu.buildFromTemplate(tpl);
