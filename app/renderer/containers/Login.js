@@ -77,14 +77,6 @@ class LoginContainer extends Container {
 	}
 
 	async handleLogin(portfolioId, password) {
-		// TODO: Windows can't login yet. Need to find out why.
-		if (is.windows) {
-			setTimeout(() => {
-				location.reload();
-			}, 1000);
-			return;
-		}
-
 		const portfolio = this.portfolioFromId(portfolioId);
 
 		// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker

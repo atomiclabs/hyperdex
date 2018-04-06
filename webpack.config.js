@@ -37,7 +37,7 @@ module.exports = {
 			// Works around lack of object spread support in Webpack…
 			{
 				test: /\.js$/,
-				include: /node_modules\/unstated-debug/,
+				include: /node_modules[/\\]unstated-debug/,
 				loader: 'babel-loader',
 				options: {
 					presets: [
