@@ -15,7 +15,7 @@ require('electron-unhandled')({
 });
 require('electron-debug')({
 	enabled: true, // TODO: Remove this when we ship the app
-	showDevTools: true,
+	showDevTools: 'undocked',
 });
 require('electron-context-menu')();
 
