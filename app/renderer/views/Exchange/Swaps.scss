@@ -107,7 +107,9 @@
 					border-radius: 3px;
 				}
 
-				&__icon[data-status='pending'] {
+				&__icon[data-status='pending'],
+				&__icon[data-status='matched'],
+				&__icon[data-status='swapping'] {
 					background-color: var(--primary-color);
 					border-color: var(--primary-color);
 				}
