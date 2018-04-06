@@ -4,6 +4,10 @@
 .DepthChart {
 	display: flex;
 
+	.custom-tooltip {
+		font-size: 12px;
+	}
+
 	/* Hides the first YAxis tick */
 	.recharts-yAxis .recharts-cartesian-axis-tick:first-child {
 		display: none;

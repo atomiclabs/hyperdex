@@ -2,12 +2,27 @@ import React from 'react';
 import {ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip} from 'recharts';
 import roundTo from 'round-to';
 import _ from 'lodash';
+import {formatCurrency} from '../util';
 import './DepthChart.scss';
 
 const roundPrice = array => array.map(x => ({
 	...x,
 	price: roundTo(x.price, 8),
 }));
+
+// TODO(sindresorhus): The default behavior of tooltips is to follow the mouse.
+// We should make it static: https://github.com/recharts/recharts/issues/488
+
+const CustomTooltipContent = ({payload}) => {
+	// No idea why it's sometimes empty
+	if (payload.length === 0) {
+		return null;
+	}
+
+	return (
+		<div className="custom-tooltip">{formatCurrency(payload[0].payload.price)}</div>
+	);
+};
 
 const DepthChart = props => {
 	let {bids, asks, bidDepth, askDepth} = props;
@@ -72,7 +87,11 @@ const DepthChart = props => {
 							fill: '#7f8fa4',
 						}}
 					/>
-					<Tooltip/>
+					<Tooltip
+						content={<CustomTooltipContent/>}
+						isAnimationActive={false}
+						animationDuration={0}
+					/>
 				</AreaChart>
 			</ResponsiveContainer>
 			<ResponsiveContainer width="50%" minHeight={100} style={{left: '-10px'}}>
@@ -120,7 +139,11 @@ const DepthChart = props => {
 							fill: '#7f8fa4',
 						}}
 					/>
-					<Tooltip/>
+					<Tooltip
+						content={<CustomTooltipContent/>}
+						isAnimationActive={false}
+						animationDuration={0}
+					/>
 				</AreaChart>
 			</ResponsiveContainer>
 		</div>
