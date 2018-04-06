@@ -49,7 +49,7 @@ const SwapItem = ({swap}) => {
 
 	return (
 		<tr>
-			<td className="timestamp">{formatDate(swap.timeStarted, 'HH:m DD.MM')}</td>
+			<td className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD.MM')}</td>
 			<td className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</td>
 			<td className="sell-amount">+{swap.quoteCurrencyAmount} {swap.quoteCurrency}</td>
 			<td className="buy-amount">-{swap.baseCurrencyAmount} {swap.baseCurrency}</td>
