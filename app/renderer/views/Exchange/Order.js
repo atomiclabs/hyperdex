@@ -120,7 +120,14 @@ class Bottom extends React.Component {
 			if (result.error === 'only one pending request at a time') {
 				statusMessage = `Only one pending swap at a time, try again in ${result.wait} seconds.`;
 			}
-			return this.setState({statusMessage});
+			this.setState({statusMessage});
+			return;
+		}
+
+		// TODO: Temp workaround for marketmaker issue
+		if (!result.pending) {
+			this.setState({statusMessage: 'Something unexpected happened. Are you sure you have enough UTXO?'});
+			return;
 		}
 
 		this.setState({statusMessage: ''});
@@ -167,12 +174,16 @@ class Bottom extends React.Component {
 						<label>Total ({state.quoteCurrency}):</label>
 						<Input type="number" min="0" step="any" required value={this.props.total} onChange={this.props.handleTotalChange}/>
 					</div>
-					{this.state.statusMessage &&
-						<p className="secondary status-message">
-							{this.state.statusMessage}
-						</p>
-					}
-					<Button color={this.props.type === 'buy' ? 'green' : 'red'} fullwidth type="submit" value={`${typeTitled} ${state.baseCurrency}`}/>
+					<div className="form-section">
+						{this.state.statusMessage &&
+							<p className="secondary status-message">
+								{this.state.statusMessage}
+							</p>
+						}
+					</div>
+					<div className="form-section">
+						<Button color={this.props.type === 'buy' ? 'green' : 'red'} fullwidth type="submit" value={`${typeTitled} ${state.baseCurrency}`}/>
+					</div>
 				</form>
 			</div>
 		);
