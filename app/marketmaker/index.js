@@ -47,7 +47,7 @@ class Marketmaker {
 			setTimeout(() => {
 				clearInterval(interval);
 				reject(new Error('Giving up trying to connect to marketmaker'));
-			}, 5000);
+			}, 10000);
 		});
 	}
 
