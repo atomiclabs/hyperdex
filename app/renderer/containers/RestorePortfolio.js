@@ -20,6 +20,10 @@ class RestorePortfolioContainer extends Container {
 	handleStep1Submit = async event => {
 		event.preventDefault();
 
+		if (!this.state.seedPhrase) {
+			return;
+		}
+
 		loginContainer.setActiveView('RestorePortfolioStep2');
 		loginContainer.setProgress(0.66);
 	};
