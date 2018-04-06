@@ -17,13 +17,13 @@ export default class Api {
 		this.token = sha256(seedPhrase);
 		this.socket = false;
 		this.useQueue = false;
-		this.currentQueued = 0;
+		this.currentQueueId = 0;
 
 		this.queue = new PQueue({concurrency});
 	}
 
 	async _request(data) {
-		const queueId = (this.useQueue && this.socket) ? ++this.currentQueued : 0;
+		const queueId = (this.useQueue && this.socket) ? ++this.currentQueueId : 0;
 
 		const response = await this.queue.add(() => fetch(this.endpoint, {
 			method: 'post',
