@@ -132,8 +132,8 @@ h6 {
 					@include colored-icon-no-size($exchange-icon);
 				}
 
-				&--history {
-					@include colored-icon-no-size($history-icon);
+				&--trades {
+					@include colored-icon-no-size($trades-icon);
 				}
 
 				&--preferences {

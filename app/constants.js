@@ -19,6 +19,6 @@ exports.appViews = [
 	'Dashboard',
 	'Swap',
 	'Exchange',
-	'History',
+	'Trades',
 	'Preferences',
 ];

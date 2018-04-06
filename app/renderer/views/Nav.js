@@ -20,7 +20,7 @@ const Nav = () => (
 		<IconNavItem to="Dashboard"/>
 		<IconNavItem to="Swap"/>
 		<IconNavItem to="Exchange"/>
-		<IconNavItem to="History"/>
+		<IconNavItem to="Trades"/>
 		<IconNavItem to="Preferences"/>
 	</nav>
 );
