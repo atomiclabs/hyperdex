@@ -3,6 +3,7 @@ import {classNames} from 'react-extras';
 import {format as formatDate} from 'date-fns';
 import exchangeContainer from 'containers/Exchange';
 import View from 'components/View';
+import SwapDetails from './SwapDetails';
 import './Swaps.scss';
 
 const TabButton = props => (
@@ -57,7 +58,7 @@ const SwapItem = ({swap}) => {
 				<div className="status__icon" data-status={swap.status}>{statusString}</div>
 			</td>
 			<td className="view">
-				<button type="button" className="view__button">View</button>
+				<SwapDetails/>
 			</td>
 		</tr>
 	);
