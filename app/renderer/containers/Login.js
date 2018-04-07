@@ -1,5 +1,5 @@
 import {remote, ipcRenderer as ipc} from 'electron';
-import {is, setWindowBounds} from 'electron-util';
+import {setWindowBounds} from 'electron-util';
 import {minWindowSize} from '../../constants';
 import Api from '../api';
 import Container from './Container';
@@ -88,7 +88,7 @@ class LoginContainer extends Container {
 		// if (is.development) {
 		// 	// Expose the API for debugging in DevTools
 		// 	// Example: `_api.debug({method: 'portfolio'})`
-		// 	window._api = api;
+		window._api = api;
 		// }
 
 		// TODO: These should be changeable by the user
