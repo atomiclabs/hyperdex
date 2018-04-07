@@ -6,7 +6,7 @@ const config = require('./config');
 const {openGitHubIssue} = require('./util');
 const {repoUrl, appViews} = require('./constants');
 
-const {app, BrowserWindow, shell} = electron;
+const {app, BrowserWindow, shell, clipboard} = electron;
 const appName = app.getName();
 
 const sendAction = (action, data) => {
@@ -100,10 +100,11 @@ const debugMenu = {
 			},
 		},
 		{
-			label: 'Dump Swap DB',
+			label: 'Copy Swaps',
 			async click() {
 				const [win] = BrowserWindow.getAllWindows();
-				await runJS('_swapDB.getSwaps().then(swaps => console.log(JSON.stringify(swaps)))', win);
+				const swaps = await runJS('_swapDB.getSwaps()', win);
+				clipboard.writeText(JSON.stringify(swaps, null, '\t'));
 			},
 		},
 		{
