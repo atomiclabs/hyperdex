@@ -25,7 +25,6 @@ const setLoginWindowBounds = () => {
 			width: loginWindowSize.width,
 			height: loginWindowSize.height,
 		},
-		animated: true,
 	});
 };
 

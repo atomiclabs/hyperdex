@@ -36,7 +36,8 @@ const setAppWindowBounds = () => {
 	win.setMaximizable(true);
 	win.setFullScreenable(true);
 	win.setMinimumSize(minWindowSize.width, minWindowSize.height);
-	setWindowBounds(config.get('windowState'), {animated: true});
+	setWindowBounds(config.get('windowState'));
+	win.center(); // TODO: Remove this when `setWindowBounds` handles positioning the window inside the window bounds
 };
 
 class LoginContainer extends Container {
