@@ -92,12 +92,12 @@ class LoginContainer extends Container {
 		const api = await initApi(seedPhrase);
 		await api.enableSocket();
 		appContainer.api = api;
-
-		if (is.development) {
-			// Expose the API for debugging in DevTools
-			// Example: `_api.debug({method: 'portfolio'})`
-			window._api = api;
-		}
+		// TODO: Uncomment this before we do the public release
+		// if (is.development) {
+		// 	// Expose the API for debugging in DevTools
+		// 	// Example: `_api.debug({method: 'portfolio'})`
+		// 	window._api = api;
+		// }
 
 		// TODO: These should be changeable by the user
 		await Promise.all(config.get('enabledCoins').map(x => api.enableCoin(x)));
