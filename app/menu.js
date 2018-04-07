@@ -100,6 +100,13 @@ const debugMenu = {
 			},
 		},
 		{
+			label: 'Dump Swap DB',
+			async click() {
+				const [win] = BrowserWindow.getAllWindows();
+				await runJS('_swapDB.getSwaps().then(swaps => console.log(JSON.stringify(swaps)))', win);
+			},
+		},
+		{
 			type: 'separator',
 		},
 		{
