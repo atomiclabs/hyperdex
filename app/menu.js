@@ -4,7 +4,7 @@ const electron = require('electron');
 const {runJS} = require('electron-util');
 const config = require('./config');
 const {openGitHubIssue} = require('./util');
-const {repoUrl, appViews} = require('./constants');
+const {websiteUrl, repoUrl, appViews} = require('./constants');
 
 const {app, BrowserWindow, shell, clipboard} = electron;
 const appName = app.getName();
@@ -329,16 +329,6 @@ const otherTpl = [
 			},
 			{
 				role: 'selectall',
-			},
-			{
-				type: 'separator',
-			},
-			{
-				label: 'Preferences',
-				accelerator: 'Ctrl+,',
-				click() {
-					setActiveView('Preferences');
-				},
 			},
 		],
 	},

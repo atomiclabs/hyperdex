@@ -1,4 +1,5 @@
 'use strict';
+const nodeUtil = require('util');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -10,6 +11,8 @@ const logger = require('electron-timber');
 
 let binPath = path.join(__dirname, 'bin', process.platform, `marketmaker${util.is.windows ? '.exe' : ''}`);
 binPath = util.fixPathForAsarUnpack(binPath);
+
+const execFile = nodeUtil.promisify(childProcess.execFile);
 
 const mmLogger = logger.create({
 	name: 'mm',
@@ -54,7 +57,19 @@ class Marketmaker {
 		});
 	}
 
+	async _killProcess() {
+		try {
+			if (process.platform === 'win32') {
+				await execFile('taskkill', ['/f', '/im', 'marketmaker.exe']);
+			} else {
+				await execFile('killall', ['-9', 'marketmaker']);
+			}
+		} catch (_) {}
+	}
+
 	async start(options) {
+		await this._killProcess();
+
 		options = Object.assign({}, options, {
 			client: 1,
 			gui: 'hyperdex',
@@ -64,8 +79,6 @@ class Marketmaker {
 		});
 
 		this.port = options.rpcport;
-
-		logger.log('Marketmaker running on port', this.port);
 
 		if (options.seedPhrase) {
 			options.passphrase = options.seedPhrase;
@@ -79,23 +92,23 @@ class Marketmaker {
 		});
 
 		this.isRunning = true;
+		logger.log('Marketmaker running on port', this.port);
 
 		mmLogger.streamLog(this.cp.stdout);
 		mmLogger.streamError(this.cp.stderr);
 
-		electron.app.on('quit', () => {
-			if (this.isRunning) {
-				this.cp.kill();
-			}
+		electron.app.on('quit', async () => {
+			await this._killProcess();
 		});
 
 		// `marketmaker` takes ~500ms to get ready to accepts requests
 		await this._isReady();
 	}
 
-	stop() {
+	async stop() {
 		this.cp.kill();
 		this.cp = null;
+		await this._killProcess();
 		this.isRunning = false;
 	}
 }
