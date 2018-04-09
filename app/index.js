@@ -1,5 +1,4 @@
 'use strict';
-const childProcess = require('child_process');
 const electron = require('electron');
 const {autoUpdater} = require('electron-updater');
 const {is, disableZoom} = require('electron-util');
@@ -90,10 +89,6 @@ function createMainWindow() {
 
 	if (is.development) {
 		win.loadURL('http://localhost:8080');
-
-		win.webContents.on('dom-ready', () => {
-			childProcess.execFile('killall', ['marketmaker']);
-		});
 	} else {
 		loadUrl(win);
 	}
@@ -130,6 +125,6 @@ electron.ipcMain.on('start-marketmaker', async (event, {seedPhrase}) => {
 	mainWindow.send('marketmaker-started', marketmaker.port);
 });
 
-electron.ipcMain.on('stop-marketmaker', () => {
-	marketmaker.stop();
+electron.ipcMain.on('stop-marketmaker', async () => {
+	await marketmaker.stop();
 });

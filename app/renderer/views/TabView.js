@@ -1,4 +1,5 @@
 import {remote} from 'electron';
+import {is} from 'electron-util';
 import React from 'react';
 import Button from 'components/Button';
 import Avatar from 'components/Avatar';
@@ -11,7 +12,7 @@ const TabView = props => (
 	<div className="TabView">
 		<header className="toolbar">
 			<h1 className="app-name">
-				HyperDEX
+				{is.macos ? 'HyperDEX' : ''}
 			</h1>
 			<div className="right-container">
 				<Button
