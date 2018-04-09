@@ -18,13 +18,16 @@ const mmLogger = logger.create({
 
 class Marketmaker {
 	_getCoins() {
-		// `coins.json` from below with the commented parts removed:
-		// https://github.com/jl777/SuperNET/blob/f8418476d7bb96ac567c2cf3a03c74766b1a78b2/iguana/exchanges/coins.json
-		const json = fs.readFileSync(path.join(__dirname, 'coins.json'), 'utf8')
-			.replace(/\\/g, '')
-			.replace(/\${HOME#}/g, os.homedir().replace(/"/g, '\\"'));
+		// `coins.json` from:
+		// https://github.com/jl777/SuperNET/blob/c5227cd60248dd9b36274152161b13cc5cf9c0ea/iguana/exchanges/coins.json
+		const json = fs.readFileSync(path.join(__dirname, 'coins.json'), 'utf8').replace(/\\/g, '');
+		const coins = JSON.parse(json);
 
-		return JSON.parse(json);
+		for (const coin of coins) {
+			delete coin.confpath;
+		}
+
+		return coins;
 	}
 
 	_isReady() {
@@ -55,7 +58,7 @@ class Marketmaker {
 		options = Object.assign({}, options, {
 			client: 1,
 			gui: 'hyperdex',
-			userHome: os.homedir(),
+			userhome: os.homedir(),
 			rpcport: await getPort(),
 			coins: this._getCoins(),
 		});
