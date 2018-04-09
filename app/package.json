@@ -24,6 +24,7 @@
 		"get-port": "^3.2.0",
 		"iocane": "^0.10.1",
 		"load-json-file": "^4.0.0",
+		"make-dir": "^1.2.0",
 		"node-dir": "^0.1.17",
 		"plur": "^2.1.2",
 		"randoma": "^1.2.0",

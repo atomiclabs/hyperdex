@@ -8,6 +8,7 @@ const electron = require('electron');
 const util = require('electron-util');
 const getPort = require('get-port');
 const logger = require('electron-timber');
+const makeDir = require('make-dir');
 
 let binPath = path.join(__dirname, 'bin', process.platform, `marketmaker${util.is.windows ? '.exe' : ''}`);
 binPath = util.fixPathForAsarUnpack(binPath);
@@ -87,9 +88,10 @@ class Marketmaker {
 			throw new Error('The `seedPhrase` option is required');
 		}
 
-		this.cp = childProcess.spawn(binPath, [JSON.stringify(options)], {
-			cwd: path.dirname(binPath),
-		});
+		// Marketmaker writes a lot of files directly to CWD, so we make CWD the data directory
+		const cwd = await makeDir(path.join(electron.app.getPath('userData'), 'marketmaker'));
+
+		this.cp = childProcess.spawn(binPath, [JSON.stringify(options)], {cwd});
 
 		this.isRunning = true;
 		logger.log('Marketmaker running on port', this.port);
