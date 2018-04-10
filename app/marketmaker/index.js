@@ -93,6 +93,22 @@ class Marketmaker {
 
 		this.cp = childProcess.spawn(binPath, [JSON.stringify(options)], {cwd});
 
+		this.cp.on('error', error => {
+			this.isRunning = false;
+			throw error;
+		});
+
+		this.cp.on('exit', () => {
+			if (!this.isRunning) {
+				return;
+			}
+
+			this.isRunning = false;
+			electron.dialog.showErrorBox('Marketmaker crashed', 'HyperDEX will now relaunch.');
+			electron.app.relaunch();
+			electron.app.quit();
+		});
+
 		this.isRunning = true;
 		logger.log('Marketmaker running on port', this.port);
 
@@ -100,7 +116,7 @@ class Marketmaker {
 		mmLogger.streamError(this.cp.stderr);
 
 		electron.app.on('quit', async () => {
-			await this._killProcess();
+			await this.stop();
 		});
 
 		// `marketmaker` takes ~500ms to get ready to accepts requests
@@ -108,10 +124,10 @@ class Marketmaker {
 	}
 
 	async stop() {
+		this.isRunning = false;
 		this.cp.kill();
 		this.cp = null;
 		await this._killProcess();
-		this.isRunning = false;
 	}
 }
 
