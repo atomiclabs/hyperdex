@@ -42,7 +42,7 @@ class MarketmakerSocket {
 	// Any other message with a `method` property will also be emitted via en event of the same name.
 	subscribeToSwap(uuid) {
 		if (typeof uuid === 'undefined') {
-			throw new Error(`uuid is required`);
+			throw new TypeError(`uuid is required`);
 		}
 
 		const swapEmitter = new Emittery();
