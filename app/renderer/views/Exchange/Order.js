@@ -135,7 +135,7 @@ class Bottom extends React.Component {
 		const swap = result.pending;
 
 		swapDB.insertSwap(swap, requestOpts);
-		api.subscribeToSwap(swap).on('progress', swapDB.updateSwap);
+		api.subscribeToSwap(swap.uuid).on('progress', swapDB.updateSwap);
 	};
 
 	targetPriceButtonHandler = () => {

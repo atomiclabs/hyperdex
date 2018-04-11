@@ -22,15 +22,7 @@ class SwapDB {
 
 		// To be able to sort via timeStarted it MUST be the fist item in the index.
 		// https://github.com/pouchdb/pouchdb/issues/7207
-		//
-		// Also, we need both indexes, we can't just have a single index of:
-		// ['timeStarted', 'tradeId', 'aliceId', 'requestId', 'quoteId']
-		// because then querying by requestId/quoteId and sorting by timeStarted throws.
-		// https://github.com/pouchdb/pouchdb/issues/7205
-		this.ready = Promise.all([
-			this.db.createIndex({index: {fields: ['timeStarted', 'tradeId', 'aliceId']}}),
-			this.db.createIndex({index: {fields: ['timeStarted', 'requestId', 'quoteId']}}),
-		]);
+		this.ready = this.db.createIndex({index: {fields: ['timeStarted', 'uuid']}});
 
 		this.pQueue = new PQueue({concurrency: 1});
 	}
@@ -42,10 +34,7 @@ class SwapDB {
 	insertSwap(swap, requestOpts) {
 		return this.queue(() => {
 			const formattedSwap = {
-				tradeId: swap.tradeid,
-				aliceId: swap.aliceid,
-				requestId: swap.requestid,
-				quoteId: swap.quoteid,
+				uuid: swap.uuid,
 				timeStarted: Date.now(),
 				status: 'pending',
 				flags: [],
@@ -64,51 +53,19 @@ class SwapDB {
 		});
 	}
 
-	async getSwap(ids) {
-		const {tradeId, aliceId, requestId, quoteId} = ids;
-
-		const query = {};
-		if (tradeId && aliceId) {
-			query.selector = {tradeId, aliceId};
-		} else if (requestId && quoteId) {
-			query.selector = {requestId, quoteId};
-		}
-
-		if (!query.selector) {
-			throw new Error(`You must specify either tradeId & aliceId or requestId & quoteId: ${JSON.stringify(ids)}`);
-		}
-
-		// We need `{$gt: true}` so PouchDB can sort.
-		// https://github.com/pouchdb/pouchdb/issues/7206
-		query.selector.timeStarted = {$gt: true};
-		query.sort = [{timeStarted: 'desc'}];
-
+	async getSwap(uuid) {
 		await this.ready;
-		const {docs} = await this.db.find(query);
 
-		if (docs.length > 1) {
-			const collisionProps = Object.keys(query.selector).filter(p => p !== 'timeStarted').join('/');
-			console.warn(`swapDB ${collisionProps} collision detected!`, {query, docs});
-		}
+		const {docs} = await this.db.find({selector: {uuid}});
 
 		return docs[0];
 	}
 
 	updateSwap = message => {
 		return this.queue(async () => {
-			const {
-				tradeid: tradeId,
-				aliceid: aliceId,
-				requestid: requestId,
-				quoteid: quoteId,
-			} = message;
+			const {uuid} = message;
 
-			const swap = await this.getSwap({tradeId, aliceId, requestId, quoteId});
-
-			if (requestId && quoteId) {
-				swap.requestId = requestId;
-				swap.quoteId = quoteId;
-			}
+			const swap = await this.getSwap(uuid);
 
 			if (message.method === 'connected') {
 				swap.status = 'matched';
@@ -135,6 +92,9 @@ class SwapDB {
 
 	async getSwaps() {
 		await this.ready;
+
+		// We need `timeStarted: {$gt: true}` so PouchDB can sort.
+		// https://github.com/pouchdb/pouchdb/issues/7206
 		const {docs} = await this.db.find({
 			selector: {timeStarted: {$gt: true}},
 			sort: [{timeStarted: 'desc'}],
