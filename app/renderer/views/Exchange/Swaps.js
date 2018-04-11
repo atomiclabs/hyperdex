@@ -75,7 +75,7 @@ const SwapList = ({swaps}) => {
 				<tbody>
 					{
 						swaps.map(swap => (
-							<SwapItem key={JSON.stringify(swap)} swap={swap}/>
+							<SwapItem key={swap.uuid} swap={swap}/>
 						))
 					}
 				</tbody>
