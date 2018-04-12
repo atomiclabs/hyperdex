@@ -38,7 +38,7 @@ const Input = ({
 			'Input--disabled': disabled,
 			'Input--readonly': readOnly,
 			'Input--icon': icon,
-			'Input--button': Button,
+			'Input--view': View || Button,
 		},
 		className
 	);

@@ -58,7 +58,7 @@ class WithdrawModal extends React.Component {
 		const maxAmount = currencyInfo.balance - networkFee;
 		const remainingBalance = roundTo(maxAmount - this.state.amount, 8);
 		const setAmount = amount => {
-			this.setState({amount: Math.min(amount, maxAmount)});
+			this.setState({amount});
 		};
 
 		return (
@@ -125,14 +125,19 @@ class WithdrawModal extends React.Component {
 							</div>
 							<div className="info">
 								<span>Remaining balance:</span>
-								<span>{remainingBalance}</span>
+								<span className={remainingBalance < 0 ? 'negative-balance' : ''}>{remainingBalance}</span>
 							</div>
 						</div>
 						<Button
 							className="withdraw-button"
 							primary
 							value="Withdraw"
-							disabled={!this.state.recepientAddress || !this.state.amount || this.state.isWithdrawing}
+							disabled={
+								!this.state.recepientAddress ||
+								!this.state.amount ||
+								remainingBalance < 0 ||
+								this.state.isWithdrawing
+							}
 							onClick={this.withdrawButtonHandler}
 						/>
 					</React.Fragment>

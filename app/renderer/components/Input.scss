@@ -73,11 +73,11 @@
 		}
 	}
 
-	--button-width: 38px;
+	--view-width: 38px;
 
-	&--button {
+	&--view {
 		input {
-			padding-right: calc(var(--button-width) + 4px);
+			padding-right: calc(var(--view-width) + 4px);
 		}
 	}
 
@@ -87,7 +87,7 @@
 		top: 0;
 		right: 0;
 		bottom: 0;
-		width: var(--button-width);
+		width: var(--view-width);
 		user-select: none;
 		cursor: default;
 
