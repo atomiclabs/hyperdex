@@ -219,10 +219,14 @@ class Order extends React.Component {
 
 	handleTotalChange = total => {
 		total = (total === '') ? '' : roundTo(Number(total), 8);
-		this.setState(prevState => ({
-			total,
-			amount: roundTo(total / prevState.price, 8),
-		}));
+		this.setState(prevState => {
+			const newState = {total};
+			if (prevState.price > 0) {
+				newState.amount = roundTo(total / prevState.price, 8);
+			}
+
+			return newState;
+		});
 	}
 
 	render() {
