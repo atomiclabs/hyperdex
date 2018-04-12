@@ -11,8 +11,6 @@
 
 [**Download**](https://github.com/lukechilds/hyperdex/releases/latest) the `.dmg` file.
 
-You also need to install `nanomsg`: `brew install nanomsg` *(This is only a temporary requirement)•
-
 ### Linux
 
 [**Download**](https://github.com/lukechilds/hyperdex/releases/latest) the `.AppImage` (recommended), `.snap`, `.deb`, or `.rpm` file.
