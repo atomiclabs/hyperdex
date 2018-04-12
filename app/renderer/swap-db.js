@@ -56,7 +56,10 @@ class SwapDB {
 	async getSwap(uuid) {
 		await this.ready;
 
-		const {docs} = await this.db.find({selector: {uuid}});
+		const {docs} = await this.db.find({
+			selector: {uuid},
+			limit: 1,
+		});
 
 		return docs[0];
 	}
