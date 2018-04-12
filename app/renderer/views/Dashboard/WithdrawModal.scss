@@ -37,6 +37,10 @@
 		&:first-child {
 			margin-bottom: 20px;
 		}
+
+		.negative-balance {
+			color: var(--red-color);
+		}
 	}
 
 	.withdraw-button {
