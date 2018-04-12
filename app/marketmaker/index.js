@@ -69,6 +69,7 @@ class Marketmaker {
 	}
 
 	async start(options) {
+		this.isStarting = true;
 		await this._killProcess();
 
 		options = Object.assign({}, options, {
@@ -99,7 +100,7 @@ class Marketmaker {
 		});
 
 		this.cp.on('exit', () => {
-			if (!this.isRunning) {
+			if (this.isStarting || !this.isRunning) {
 				return;
 			}
 
@@ -121,6 +122,7 @@ class Marketmaker {
 
 		// `marketmaker` takes ~500ms to get ready to accepts requests
 		await this._isReady();
+		this.isStarting = false;
 	}
 
 	async stop() {
