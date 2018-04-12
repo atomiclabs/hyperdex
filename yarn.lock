@@ -9244,9 +9244,9 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^2.0.0"
     inherits "^2.0.1"
 
-round-to@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/round-to/-/round-to-2.0.0.tgz#bcef4f2bcafd9480902c2142150b28c897f03e37"
+round-to@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/round-to/-/round-to-3.0.0.tgz#f457177d68e5a1d9d55796528cd03daea0bb4fb9"
 
 run-async@^2.0.0, run-async@^2.2.0:
   version "2.3.0"
