@@ -10,3 +10,5 @@ node_modules
 !/app/marketmaker/bin/win32/marketmaker.exe
 !/app/marketmaker/bin/win32/libcurl.dll
 !/app/marketmaker/bin/win32/nanomsg.dll
+!/app/marketmaker/bin/win32/msvcp140.dll
+!/app/marketmaker/bin/win32/vcruntime140.dll
