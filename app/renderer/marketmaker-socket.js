@@ -40,34 +40,28 @@ class MarketmakerSocket {
 	//  - 'failed': The atomic swap has failed, the error code is in the property `error`.
 	//
 	// Any other message with a `method` property will also be emitted via en event of the same name.
-	subscribeToSwap(swap) {
+	subscribeToSwap(uuid) {
+		if (typeof uuid === 'undefined') {
+			throw new TypeError(`uuid is required`);
+		}
+
 		const swapEmitter = new Emittery();
 
-		const generateListener = props => message => {
-			const match = Object.entries(props).every(([prop, value]) => message[prop] === value);
-			if (!match) {
+		const removeListener = this.on('message', message => {
+			if (message.uuid !== uuid) {
 				return;
 			}
+
 			swapEmitter.emit('progress', message);
 			if (message.method) {
 				swapEmitter.emit(message.method, message);
 			}
 			if (message.method === 'tradestatus' && message.status === 'finished') {
-				swapEmitter.emit('finished', message);
+				swapEmitter.emit('completed', message);
 			}
-		};
+		});
 
-		(async () => {
-			const {tradeid, aliceid} = swap;
-			const stopLocalListener = this.on('message', generateListener({tradeid, aliceid}));
-
-			const {requestid, quoteid} = await swapEmitter.once('connected');
-			stopLocalListener();
-			const stopNetworkListener = this.on('message', generateListener({requestid, quoteid}));
-
-			await swapEmitter.once('finished');
-			stopNetworkListener();
-		})();
+		swapEmitter.once('completed').then(removeListener);
 
 		return swapEmitter;
 	}
