@@ -3,11 +3,11 @@ import _ from 'lodash';
 import Cycled from 'cycled';
 import coinlist from 'coinlist';
 import roundTo from 'round-to';
+import {Container} from 'unstated';
 import {appViews} from '../../constants';
 import fireEvery from '../fire-every';
 import swapDB from '../swap-db';
 import {formatCurrency} from '../util';
-import Container from './Container';
 
 const config = remote.require('./config');
 

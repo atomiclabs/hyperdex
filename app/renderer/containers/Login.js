@@ -1,8 +1,8 @@
 import {remote, ipcRenderer as ipc} from 'electron';
 import {setWindowBounds} from 'electron-util';
+import {Container} from 'unstated';
 import {minWindowSize} from '../../constants';
 import Api from '../api';
-import Container from './Container';
 import appContainer from './App';
 import dashboardContainer from './Dashboard';
 
@@ -66,8 +66,12 @@ class LoginContainer extends Container {
 		this.setState({selectedPortfolioId: id});
 	}
 
-	async loadPortfolios() {
-		this.setState({portfolios: await getPortfolios()});
+	loadPortfolios() {
+		return new Promise(async resolve => {
+			this.setState({portfolios: await getPortfolios()}, () => {
+				resolve();
+			});
+		});
 	}
 
 	portfolioFromId(id) {

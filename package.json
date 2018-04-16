@@ -34,8 +34,8 @@
 		"recharts": "^1.0.0-beta.10",
 		"round-to": "^3.0.0",
 		"sass-extras": "^0.3.0",
-		"unstated": "^1.2.0",
-		"unstated-debug": "^0.1.1"
+		"unstated": "^2.0.2",
+		"unstated-debug": "^0.2.0"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.0",

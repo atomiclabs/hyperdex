@@ -1,10 +1,10 @@
 /* eslint-disable react/no-access-state-in-setstate */
 import _ from 'lodash';
+import {Container} from 'unstated';
 import appContainer from 'containers/App';
 import fireEvery from '../fire-every';
 import removeOrderBookTimes from '../remove-order-book-times';
 import swapDB from '../swap-db';
-import Container from './Container';
 
 class ExchangeContainer extends Container {
 	state = {

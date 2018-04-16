@@ -1,9 +1,9 @@
 import _ from 'lodash';
 import plur from 'plur';
+import {Container} from 'unstated';
 import appContainer from 'containers/App';
 import {formatCurrency} from '../util';
 import fireEvery from '../fire-every';
-import Container from './Container';
 
 const noPriceHistory = new Set([
 	'REVS',
@@ -22,13 +22,15 @@ class DashboardContainer extends Container {
 	}
 
 	setActiveView = activeView => {
-		this.setState({activeView});
-		this.updateCurrencyHistory(); // TODO: Set it in the callback to `setState` when Unstated is fixed
+		this.setState({activeView}, () => {
+			this.updateCurrencyHistory();
+		});
 	};
 
 	setCurrencyHistoryResolution = currencyHistoryResolution => {
-		this.setState({currencyHistoryResolution});
-		this.updateCurrencyHistory(); // TODO: Set it in the callback to `setState` when Unstated is fixed
+		this.setState({currencyHistoryResolution}, () => {
+			this.updateCurrencyHistory();
+		});
 	};
 
 	get assetCount() {

@@ -10337,6 +10337,10 @@ thunky@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/thunky/-/thunky-0.1.0.tgz#bf30146824e2b6e67b0f2d7a4ac8beb26908684e"
 
+tickedoff@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/tickedoff/-/tickedoff-1.0.1.tgz#277c463b5b275dc3c7e7473f8eef804254b9002d"
+
 time-stamp@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/time-stamp/-/time-stamp-1.1.0.tgz#764a5a11af50561921b133f3b44e618687e0f5c3"
@@ -10734,17 +10738,18 @@ unset-value@^1.0.0:
     has-value "^0.3.1"
     isobject "^3.0.0"
 
-unstated-debug@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/unstated-debug/-/unstated-debug-0.1.1.tgz#781a313e204c4a7064570ad462a0d94bb4c69860"
+unstated-debug@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/unstated-debug/-/unstated-debug-0.2.0.tgz#12015d6836ed43e1dbbb7cc6160481a65d2f688e"
   dependencies:
     deep-object-diff "^1.1.0"
 
-unstated@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/unstated/-/unstated-1.2.0.tgz#5c57cc077473d2cce411ec0930da285cef3df306"
+unstated@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/unstated/-/unstated-2.0.2.tgz#a2f65f2e3694e3a8a8d7c983d2c8d655cdf6acef"
   dependencies:
     create-react-context "^0.1.5"
+    tickedoff "^1.0.1"
 
 untildify@^3.0.2:
   version "3.0.2"
