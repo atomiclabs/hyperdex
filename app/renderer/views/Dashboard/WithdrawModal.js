@@ -9,7 +9,7 @@ import './WithdrawModal.scss';
 
 const getInitialProps = () => ({
 	isOpen: false,
-	recepientAddress: '',
+	recipientAddress: '',
 	amount: 0,
 	isWithdrawing: false,
 });
@@ -34,7 +34,7 @@ class WithdrawModal extends React.Component {
 		this.setState({isWithdrawing: true});
 
 		const currency = dashboardContainer.activeCurrency.symbol;
-		const {recepientAddress: address, amount} = this.state;
+		const {recipientAddress: address, amount} = this.state;
 
 		await appContainer.api.withdraw({
 			currency,
@@ -71,14 +71,14 @@ class WithdrawModal extends React.Component {
 				>
 					<React.Fragment>
 						<div className="section">
-							<label>Recepient:</label>
+							<label>Recipient:</label>
 							<Input
 								required
-								value={this.state.recepientAddress}
+								value={this.state.recipientAddress}
 								placeholder={`Enter ${currencyInfo.symbol} Address`}
 								disabled={this.state.isWithdrawing}
 								onChange={value => {
-									this.setState({recepientAddress: value});
+									this.setState({recipientAddress: value});
 								}}
 							/>
 						</div>
@@ -133,7 +133,7 @@ class WithdrawModal extends React.Component {
 							primary
 							value="Withdraw"
 							disabled={
-								!this.state.recepientAddress ||
+								!this.state.recipientAddress ||
 								!this.state.amount ||
 								remainingBalance < 0 ||
 								this.state.isWithdrawing
