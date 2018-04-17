@@ -99,7 +99,7 @@ function createMainWindow() {
 }
 
 app.on('ready', () => {
-	electron.Menu.setApplicationMenu(appMenu);
+	appMenu();
 	mainWindow = createMainWindow();
 
 	logger.log(`HyperDEX ${app.getVersion()}`);

@@ -174,4 +174,8 @@ function handleDarkMode() {
 
 handleDarkMode();
 
+appContainer.subscribe(() => {
+	ipc.send('app-container-state-updated', appContainer.state);
+});
+
 export default appContainer;
