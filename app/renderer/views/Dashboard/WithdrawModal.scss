@@ -18,10 +18,19 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		position: relative;
 
 		.separator {
 			margin: 0 20px;
 			color: var(--text-color);
+		}
+
+		.Link {
+			position: absolute;
+			top: -13px;
+			left: 112px;
+			line-height: unset;
+			font-size: 12px;
 		}
 	}
 

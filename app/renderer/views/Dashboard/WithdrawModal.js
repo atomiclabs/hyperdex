@@ -3,6 +3,7 @@ import roundTo from 'round-to';
 import Modal from 'components/Modal';
 import Button from 'components/Button';
 import Input from 'components/Input';
+import Link from 'components/Link';
 import appContainer from 'containers/App';
 import dashboardContainer from 'containers/Dashboard';
 import './WithdrawModal.scss';
@@ -116,6 +117,13 @@ class WithdrawModal extends React.Component {
 										<span>USD</span>
 									)}
 								/>
+								<Link
+									onClick={() => {
+										setAmount(maxAmount);
+									}}
+								>
+									(Max)
+								</Link>
 							</div>
 						</div>
 						<div className="section">
