@@ -174,4 +174,17 @@ function handleDarkMode() {
 
 handleDarkMode();
 
+let prevState = appContainer.state;
+appContainer.subscribe(() => {
+	// TODO: This can be removed when the update issue is fixed in Electron:
+	// https://github.com/electron/electron/issues/12636
+	if (appContainer.state.activeView === prevState.activeView) {
+		return;
+	}
+
+	prevState = appContainer.state;
+
+	ipc.send('app-container-state-updated', appContainer.state);
+});
+
 export default appContainer;
