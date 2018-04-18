@@ -54,6 +54,7 @@ const PieChart = () => {
 				<Chart>
 					<Pie
 						data={[{value: 1}]}
+						dataKey="value"
 						isAnimationActive={false}
 						innerRadius={90}
 						outerRadius={124}
