@@ -10,7 +10,14 @@ const getPort = require('get-port');
 const logger = require('electron-timber');
 const makeDir = require('make-dir');
 
-let binPath = path.join(__dirname, 'bin', process.platform, `marketmaker${util.is.windows ? '.exe' : ''}`);
+// `electron-builder` uses different names
+const platformMapping = new Map([
+	['darwin', 'mac'],
+	['linux', 'linux'],
+	['win32', 'win'],
+]);
+
+let binPath = path.join(__dirname, 'bin', platformMapping.get(process.platform), `marketmaker${util.is.windows ? '.exe' : ''}`);
 binPath = util.fixPathForAsarUnpack(binPath);
 
 const execFile = nodeUtil.promisify(childProcess.execFile);

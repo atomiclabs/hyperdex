@@ -108,7 +108,9 @@
 	"build": {
 		"files": [
 			"**/*",
-			"!renderer${/*}"
+			"!renderer${/*}",
+			"!marketmaker/bin/*",
+			"marketmaker/bin/${os}"
 		],
 		"asarUnpack": [
 			"marketmaker/bin"
