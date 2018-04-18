@@ -1,14 +1,3 @@
 node_modules
 /dist
 /app/renderer-dist
-/app/marketmaker/bin/**/*
-!/app/marketmaker/bin/darwin
-!/app/marketmaker/bin/linux
-!/app/marketmaker/bin/win32
-!/app/marketmaker/bin/darwin/marketmaker
-!/app/marketmaker/bin/linux/marketmaker
-!/app/marketmaker/bin/win32/marketmaker.exe
-!/app/marketmaker/bin/win32/libcurl.dll
-!/app/marketmaker/bin/win32/nanomsg.dll
-!/app/marketmaker/bin/win32/msvcp140.dll
-!/app/marketmaker/bin/win32/vcruntime140.dll
