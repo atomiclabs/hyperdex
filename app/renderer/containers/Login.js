@@ -3,6 +3,7 @@ import {setWindowBounds} from 'electron-util';
 import {Container} from 'unstated';
 import {minWindowSize} from '../../constants';
 import Api from '../api';
+import SwapDB from '../swap-db';
 import appContainer from './App';
 import dashboardContainer from './Dashboard';
 
@@ -85,6 +86,9 @@ class LoginContainer extends Container {
 	async handleLogin(portfolioId, password) {
 		const portfolio = this.portfolioFromId(portfolioId);
 
+		const swapDB = new SwapDB(portfolioId);
+		appContainer.setSwapDB(swapDB);
+
 		// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker
 		const seedPhrase = await decryptSeedPhrase(portfolio.encryptedSeedPhrase, password);
 		const api = await initApi(seedPhrase);
@@ -95,6 +99,7 @@ class LoginContainer extends Container {
 		// 	// Expose the API for debugging in DevTools
 		// 	// Example: `_api.debug({method: 'portfolio'})`
 		window._api = api;
+		window._swapDB = swapDB;
 		// }
 
 		// TODO: These should be changeable by the user

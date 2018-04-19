@@ -6,8 +6,8 @@ import PQueue from 'p-queue';
 PouchDB.plugin(pouchDBFind);
 
 class SwapDB {
-	constructor() {
-		this.db = new PouchDB('swaps', {adapter: 'idb'});
+	constructor(portfolioId) {
+		this.db = new PouchDB(`swaps-${portfolioId}`, {adapter: 'idb'});
 
 		const ee = new Emittery();
 		this.on = ee.on.bind(ee);
@@ -107,6 +107,4 @@ class SwapDB {
 	}
 }
 
-const swapDB = new SwapDB();
-
-export default swapDB;
+export default SwapDB;
