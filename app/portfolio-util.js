@@ -2,8 +2,7 @@
 const path = require('path');
 const {app} = require('electron');
 const iocane = require('iocane');
-const slug = require('slug');
-const filenamify = require('filenamify');
+const slugify = require('@sindresorhus/slugify');
 const randomString = require('crypto-random-string');
 const writeJsonFile = require('write-json-file');
 const dir = require('node-dir');
@@ -16,7 +15,7 @@ const idToFileName = id => `hyperdex-portfolio-${id}.json`;
 const fileNameToId = fileName => fileName.replace(/^hyperdex-portfolio-/, '').replace(/\.json$/, '');
 
 const createPortfolio = async ({name, seedPhrase, password}) => {
-	const safeName = filenamify(slug(name, {lower: true, symbols: false}));
+	const safeName = slugify(name).slice(0, 40);
 	const id = `${safeName}-${randomString(6)}`;
 	const filePath = path.join(portfolioPath, idToFileName(id));
 
