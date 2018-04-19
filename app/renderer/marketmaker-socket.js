@@ -1,6 +1,8 @@
 import Emittery from 'emittery';
 import pEvent from 'p-event';
 import readBlob from 'read-blob';
+import pAny from 'p-any';
+import delay from 'delay';
 
 class MarketmakerSocket {
 	constructor(endpoint) {
@@ -61,7 +63,18 @@ class MarketmakerSocket {
 			}
 		});
 
-		swapEmitter.once('completed').then(removeListener);
+		// We should wait for 10 minutes before removing the listener
+		// to handle edge cases where swaps can breifly have an incorrect
+		// status due to communication issues:
+		// https://github.com/jl777/SuperNET/issues/756
+		const TEN_MINUTES = 1000 * 60 * 10;
+		pAny([
+			swapEmitter.once('failed'),
+			swapEmitter.once('completed'),
+		]).then(async () => {
+			await delay(TEN_MINUTES);
+			removeListener();
+		});
 
 		return swapEmitter;
 	}
