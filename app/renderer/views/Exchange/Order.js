@@ -156,7 +156,8 @@ class Bottom extends React.Component {
 		const {state} = exchangeContainer;
 		if (this.props.type === 'buy') {
 			const {balance} = appContainer.getCurrency(state.quoteCurrency);
-			return this.props.handleTotalChange(balance - txfee);
+			this.props.handleTotalChange(balance - txfee);
+			return;
 		}
 
 		const {balance} = appContainer.getCurrency(state.baseCurrency);
