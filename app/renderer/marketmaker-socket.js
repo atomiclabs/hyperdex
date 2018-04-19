@@ -71,7 +71,10 @@ class MarketmakerSocket {
 		pAny([
 			swapEmitter.once('failed'),
 			swapEmitter.once('completed'),
-		]).then(() => delay(TEN_MINUTES)).then(removeListener);
+		]).then(async () => {
+			await delay(TEN_MINUTES);
+			removeListener();
+		});
 
 		return swapEmitter;
 	}
