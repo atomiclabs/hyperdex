@@ -4,7 +4,6 @@ import _ from 'lodash';
 import Input from 'components/Input';
 import Button from 'components/Button';
 import Select from 'components/Select';
-import TargetPriceButton from 'components/TargetPriceButton';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import exchangeContainer from 'containers/Exchange';
 import appContainer from 'containers/App';
@@ -21,11 +20,8 @@ class Top extends React.Component {
 	};
 
 	render() {
-		const {state} = exchangeContainer;
-
 		const {currencies} = appContainer.state;
-		const selectedCurrencySymbol = this.props.type === 'buy' ? state.baseCurrency : state.quoteCurrency;
-		const selectedCurrency = appContainer.getCurrency(selectedCurrencySymbol);
+		const selectedCurrency = this.props.getSelectedCurrency();
 
 		const selectData = currencies.map(currency => ({
 			label: `${currency.name} (${currency.symbol})`,
@@ -42,7 +38,7 @@ class Top extends React.Component {
 					valueRenderer={CurrencySelectOption}
 					optionRenderer={CurrencySelectOption}
 				/>
-				<h3 className="balance">Balance: {roundTo(selectedCurrency.balance, 8)} {selectedCurrencySymbol}</h3>
+				<h3 className="balance">Balance: {roundTo(selectedCurrency.balance, 8)} {selectedCurrency.symbol}</h3>
 				<p className="address">{selectedCurrency.address}</p>
 			</div>
 		);
@@ -51,9 +47,6 @@ class Top extends React.Component {
 
 const Center = props => {
 	const {state} = exchangeContainer;
-
-	const data = state.orderBook[props.type === 'buy' ? 'asks' : 'bids'];
-
 	const selectRow = row => props.handlePriceChange(row.price);
 
 	return (
@@ -71,7 +64,7 @@ const Center = props => {
 					<tbody>
 						{(() => {
 							/* eslint-disable react/no-array-index-key */
-							return data.map((row, i) => (
+							return props.getOrderBook().map((row, i) => (
 								<tr key={i} onClick={() => selectRow(row)}>
 									<td>{row.price}</td>
 									<td>{roundTo(row.avevolume, 8)}</td>
@@ -139,23 +132,61 @@ class Bottom extends React.Component {
 	};
 
 	targetPriceButtonHandler = () => {
-		console.log('target price button click');
+		// TODO: Find a better way to calculate the optimal target price
+		const sortOrder = this.props.type === 'buy' ? 'asc' : 'desc';
+		const order = _.orderBy(this.props.getOrderBook(), ['price'], [sortOrder])[0];
+
+		if (!order) {
+			return;
+		}
+
+		this.props.handlePriceChange(order.price);
 	};
 
 	maxPriceButtonHandler = () => {
-		console.log('max price button click');
+		// This button doesn't make sense without a price set
+		if (!this.props.price) {
+			this.targetPriceButtonHandler();
+		}
+
+		// TODO: Get the txfee: https://github.com/lukechilds/hyperdex/issues/104
+		// Make sure to convert it to the current base currency.
+		const txfee = 0;
+
+		const {state} = exchangeContainer;
+		if (this.props.type === 'buy') {
+			const {balance} = appContainer.getCurrency(state.quoteCurrency);
+			this.props.handleTotalChange(balance - txfee);
+			return;
+		}
+
+		const {balance} = appContainer.getCurrency(state.baseCurrency);
+		this.props.handleAmountChange(balance - txfee);
 	};
 
 	render() {
 		const {state} = exchangeContainer;
 		const typeTitled = _.upperFirst(this.props.type);
+		const orderBook = this.props.getOrderBook();
 
-		const TargetPriceButtonWrapper = () => (
-			<TargetPriceButton onClick={this.targetPriceButtonHandler}/>
+		const TargetPriceButton = () => (
+			<div
+				className="target-price-button"
+				onClick={this.targetPriceButtonHandler}
+				disabled={orderBook.length === 0}
+			>
+				<img src="/assets/crosshair-icon.svg"/>
+			</div>
 		);
 
 		const MaxPriceButton = () => (
-			<div className="max-price-button" onClick={this.maxPriceButtonHandler}>MAX</div>
+			<div
+				className="max-price-button"
+				onClick={this.maxPriceButtonHandler}
+				disabled={orderBook.length === 0}
+			>
+				MAX
+			</div>
 		);
 
 		return (
@@ -164,7 +195,7 @@ class Bottom extends React.Component {
 					<h3>{`${typeTitled} ${state.baseCurrency}`}</h3>
 					<div className="form-section">
 						<label>Price ({state.quoteCurrency}):</label>
-						<Input className="price-input" type="number" min="0" step="any" required value={this.props.price} onChange={this.props.handlePriceChange} button={TargetPriceButtonWrapper}/>
+						<Input className="price-input" type="number" min="0" step="any" required value={this.props.price} onChange={this.props.handlePriceChange} button={TargetPriceButton}/>
 					</div>
 					<div className="form-section">
 						<label>Amount ({state.baseCurrency}):</label>
@@ -236,16 +267,31 @@ class Order extends React.Component {
 		});
 	}
 
+	getSelectedCurrency = () => {
+		const {state} = exchangeContainer;
+		const selectedCurrencySymbol = this.props.type === 'buy' ? state.baseCurrency : state.quoteCurrency;
+		return appContainer.getCurrency(selectedCurrencySymbol);
+	};
+
+	getOrderBook = () => {
+		const {state} = exchangeContainer;
+		return state.orderBook[this.props.type === 'buy' ? 'asks' : 'bids'];
+	};
+
 	render() {
 		const {props, state} = this;
 		const typeTitled = _.upperFirst(props.type);
 
 		return (
 			<div className={`Exchange--${typeTitled}`}>
-				<Top {...props}/>
+				<Top
+					{...props}
+					getSelectedCurrency={this.getSelectedCurrency}
+				/>
 				<Center
 					{...props}
 					handlePriceChange={this.handlePriceChange}
+					getOrderBook={this.getOrderBook}
 				/>
 				<Bottom
 					{...props}
@@ -253,6 +299,7 @@ class Order extends React.Component {
 					handlePriceChange={this.handlePriceChange}
 					handleAmountChange={this.handleAmountChange}
 					handleTotalChange={this.handleTotalChange}
+					getOrderBook={this.getOrderBook}
 				/>
 			</div>
 		);
