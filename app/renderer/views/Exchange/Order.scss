@@ -105,6 +105,14 @@
 				font-size: 12px;
 			}
 
+			.target-price-button,
+			.max-price-button {
+				&[disabled] {
+					opacity: 0.2;
+					pointer-events: none;
+				}
+			}
+
 			.status-message {
 				position: relative;
 				bottom: -10px;
