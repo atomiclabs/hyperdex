@@ -30,7 +30,16 @@
 	.bottom {
 		align-items: end;
 		height: 88px;
-		display: none; // TODO
+		border-top: 1px solid #313d4f;
+		padding: 20px;
+
+		input {
+			border: none;
+		}
+
+		.Input__view::after {
+			display: none;
+		}
 	}
 
 	.coin-button {
