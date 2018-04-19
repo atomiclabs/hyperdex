@@ -14,6 +14,7 @@ class DashboardContainer extends Container {
 	state = {
 		activeView: 'Portfolio',
 		currencyHistoryResolution: 'month',
+		listSearchQuery: '',
 	};
 
 	constructor() {
@@ -31,6 +32,10 @@ class DashboardContainer extends Container {
 		this.setState({currencyHistoryResolution}, () => {
 			this.updateCurrencyHistory();
 		});
+	};
+
+	setListSearchQuery = listSearchQuery => {
+		this.setState({listSearchQuery});
 	};
 
 	get assetCount() {

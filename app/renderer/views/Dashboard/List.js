@@ -5,13 +5,29 @@ import appContainer from 'containers/App';
 import dashboardContainer from 'containers/Dashboard';
 import CurrencyIcon from 'components/CurrencyIcon';
 import Avatar from 'components/Avatar';
+import Input from 'components/Input';
 import {formatCurrency} from '../../util';
 import './List.scss';
+
+const handleCurrencies = currencies => {
+	const {state} = dashboardContainer;
+
+	if (state.listSearchQuery) {
+		currencies = currencies.filter(currency => {
+			return `${currency.name} ${currency.symbol}`
+				.toLowerCase()
+				.includes(state.listSearchQuery.toLowerCase());
+		});
+	}
+
+	return _.orderBy(currencies, ['cmcBalanceUsd'], ['desc']);
+};
 
 const List = () => {
 	const {state: appState} = appContainer;
 	const {state} = dashboardContainer;
 	const {currencies} = appState;
+	const filteredCurrencies = handleCurrencies(currencies);
 
 	return (
 		<div className="Dashboard--List">
@@ -33,7 +49,7 @@ const List = () => {
 			</div>
 			<div className="center">
 				{(() => (
-					_.orderBy(currencies, ['cmcBalanceUsd'], ['desc']).map(currency => {
+					filteredCurrencies.map(currency => {
 						let balance = `${roundTo(currency.balance, 8)} ≈ ${formatCurrency(currency.cmcBalanceUsd)}`;
 
 						if (currency.balance === 0) {
@@ -58,7 +74,26 @@ const List = () => {
 					})
 				))()}
 			</div>
-			<div className="bottom"/>
+			<div className="bottom">
+				<Input
+					placeholder="Search…"
+					value={state.listSearchQuery}
+					onChange={dashboardContainer.setListSearchQuery}
+					onBlur={() => {
+						if (filteredCurrencies.length === 0) {
+							dashboardContainer.setListSearchQuery('');
+						}
+					}}
+					onKeyDown={event => {
+						if (event.key === 'Escape') {
+							dashboardContainer.setListSearchQuery('');
+						}
+					}}
+					view={() => (
+						<img src="/assets/search-icon.svg" width="12" height="12"/>
+					)}
+				/>
+			</div>
 		</div>
 	);
 };
