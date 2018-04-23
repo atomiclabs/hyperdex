@@ -7,7 +7,6 @@ import roundTo from 'round-to';
 import {Container} from 'unstated';
 import {appViews} from '../../constants';
 import fireEvery from '../fire-every';
-import swapDB from '../swap-db';
 import {formatCurrency} from '../util';
 
 const config = remote.require('./config');
@@ -39,6 +38,10 @@ class AppContainer extends Container {
 		super();
 		this.views = new Cycled(appViews);
 		this.enabledCoins = config.get('enabledCoins');
+
+		this.getSwapDB = new Promise(resolve => {
+			this.setSwapDB = resolve;
+		});
 	}
 
 	setActiveView(activeView) {
@@ -154,7 +157,6 @@ ipc.on('set-previous-view', () => {
 // TODO: Uncomment this before we do the public release
 /// if (is.development) {
 window._config = electron.remote.require('./config');
-window._swapDB = swapDB;
 /// }
 
 function handleDarkMode() {

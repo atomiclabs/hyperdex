@@ -4,7 +4,6 @@ import {Container} from 'unstated';
 import appContainer from 'containers/App';
 import fireEvery from '../fire-every';
 import removeOrderBookTimes from '../remove-order-book-times';
-import swapDB from '../swap-db';
 
 class ExchangeContainer extends Container {
 	state = {
@@ -23,10 +22,15 @@ class ExchangeContainer extends Container {
 	constructor() {
 		super();
 		this.setSwapHistory();
-		swapDB.on('change', this.setSwapHistory);
+		appContainer.getSwapDB.then(swapDB => {
+			swapDB.on('change', this.setSwapHistory);
+		});
 	}
 
-	setSwapHistory = async () => this.setState({swapHistory: await swapDB.getSwaps()});
+	setSwapHistory = async () => {
+		const swapDB = await appContainer.getSwapDB;
+		this.setState({swapHistory: await swapDB.getSwaps()});
+	};
 
 	setBaseCurrency(baseCurrency) {
 		// Switch if the same as `quoteCurrency`
