@@ -19,4 +19,15 @@ $link-hover-color: #5362c4;
 		color: $link-hover-color;
 		box-shadow: inset 0 -1px 0 0 $link-hover-color;
 	}
+
+	&[disabled] {
+		color: var(--text-color);
+		opacity: 0.3;
+
+		&:hover {
+			color: var(--text-color);
+			box-shadow: unset;
+			cursor: default;
+		}
+	}
 }

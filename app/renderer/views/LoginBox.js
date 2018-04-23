@@ -12,7 +12,7 @@ import './LoginBox.scss';
 class LoginBox extends React.Component {
 	state = {
 		passwordInputValue: '',
-		isCheckingPassword: false,
+		isLoggingIn: false,
 	};
 
 	passwordInputRef = React.createRef();
@@ -43,7 +43,7 @@ class LoginBox extends React.Component {
 		event.preventDefault();
 
 		this.setState({
-			isCheckingPassword: true,
+			isLoggingIn: true,
 			passwordError: null,
 		});
 
@@ -59,7 +59,7 @@ class LoginBox extends React.Component {
 
 			const passwordError = /Authentication failed/.test(err.message) ? 'Incorrect password' : err.message;
 			this.setState({
-				isCheckingPassword: false,
+				isLoggingIn: false,
 				passwordError,
 			}, () => {
 				this.passwordInputRef.current.focus();
@@ -96,8 +96,10 @@ class LoginBox extends React.Component {
 							valueRenderer={this.selectOptionRenderer}
 							optionRenderer={this.selectOptionRenderer}
 							placeholder="Select Portfolio…"
+							disabled={this.state.isLoggingIn}
 						/>
 						<PlusButton
+							disabled={this.state.isLoggingIn}
 							onClick={() => {
 								loginContainer.setActiveView('NewPortfolio');
 							}}
@@ -110,15 +112,16 @@ class LoginBox extends React.Component {
 							type="password"
 							placeholder="Password"
 							value={this.state.passwordInputValue}
-							disabled={!selectedPortfolioId || this.state.isCheckingPassword}
+							disabled={!selectedPortfolioId || this.state.isLoggingIn}
 							autoFocus
 							required
 							errorMessage={this.state.passwordError}
 						/>
 					</div>
 					<div className="form-group form-group-2">
-						<Button primary fullwidth type="submit" value="Login" disabled={!this.state.passwordInputValue || this.state.isCheckingPassword}/>
+						<Button primary fullwidth type="submit" value="Login" disabled={!this.state.passwordInputValue || this.state.isLoggingIn}/>
 						<Link
+							disabled={this.state.isLoggingIn}
 							onClick={() => {
 								loginContainer.setActiveView('ForgotPasswordStep1');
 								loginContainer.setProgress(0.33);

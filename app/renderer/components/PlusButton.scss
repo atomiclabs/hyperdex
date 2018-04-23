@@ -9,4 +9,16 @@ $icon: '<svg width="8" height="7" xmlns:xlink="http://www.w3.org/1999/xlink"><us
 	&::after {
 		@include colored-icon($icon, #fff);
 	}
+
+	&[disabled] {
+		&::after {
+			@include colored-icon($icon, #354052);
+		}
+
+		&:hover {
+			color: var(--text-color);
+			background: none;
+			cursor: default;
+		}
+	}
 }
