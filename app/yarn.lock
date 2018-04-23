@@ -155,7 +155,7 @@ debug@^2.6.8:
   dependencies:
     ms "2.0.0"
 
-debug@^3.1.0, debug@~3.1.0:
+debug@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
   dependencies:
@@ -344,10 +344,6 @@ hash-base@^2.0.0:
   dependencies:
     inherits "^2.0.1"
 
-hash_file@~0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/hash_file/-/hash_file-0.1.1.tgz#3210e85dfb4ed6eb640351e02a48b0d0db327878"
-
 imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
@@ -356,12 +352,10 @@ inherits@^2.0.1, inherits@~2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
 
-iocane@^0.10.1:
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/iocane/-/iocane-0.10.1.tgz#d0265e702ea18cbc36b3ac509276349257623430"
+iocane@1.0.0-rc2:
+  version "1.0.0-rc2"
+  resolved "https://registry.yarnpkg.com/iocane/-/iocane-1.0.0-rc2.tgz#04ece911c631e648be4a76baa916a11e3d1d91b1"
   dependencies:
-    debug "~3.1.0"
-    hash_file "~0.1.1"
     pbkdf2 "~3.0.4"
 
 irregular-plurals@^1.0.0:
