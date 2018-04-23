@@ -1,14 +1,13 @@
 'use strict';
 const path = require('path');
 const {app} = require('electron');
-const iocane = require('iocane');
 const slugify = require('@sindresorhus/slugify');
 const randomString = require('crypto-random-string');
 const writeJsonFile = require('write-json-file');
 const dir = require('node-dir');
 const loadJsonFile = require('load-json-file');
+const {encrypt, decrypt} = require('./encryption');
 
-const {encryptWithPassword: encrypt, decryptWithPassword: decrypt} = iocane.crypto;
 const portfolioPath = path.join(app.getPath('userData'), 'portfolios');
 
 const idToFileName = id => `hyperdex-portfolio-${id}.json`;
