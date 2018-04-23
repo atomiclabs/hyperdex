@@ -93,6 +93,22 @@ class SwapDB {
 		});
 	}
 
+	_addFormattedSwapStatus(swap) {
+		swap.statusFormatted = swap.status;
+
+		if (swap.status === 'swapping') {
+			const flags = ['myfee', 'bobdeposit', 'alicepayment', 'bobpayment'];
+			const swapProgress = swap.flags.reduce((prevFlagLevel, flag) => {
+				const newFlagLevel = flags.indexOf(flag) + 1;
+				return Math.max(prevFlagLevel, newFlagLevel);
+			}, 0);
+
+			swap.statusFormatted = `swap ${swapProgress}/${flags.length}`;
+		}
+
+		return swap;
+	}
+
 	async getSwaps() {
 		await this.ready;
 
@@ -103,7 +119,7 @@ class SwapDB {
 			sort: [{timeStarted: 'desc'}],
 		});
 
-		return docs;
+		return docs.map(swap => this._addFormattedSwapStatus(swap));
 	}
 }
 
