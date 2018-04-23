@@ -126,11 +126,17 @@ export default class Api {
 		});
 	}
 
-	getFee(coin) {
-		return this.request({
+	async getFee(coin) {
+		const response = await this.request({
 			method: 'getfee',
 			coin,
 		});
+
+		if (response.result !== 'success') {
+			throw new Error(`Encountered an error:\n${util.format(response)}`);
+		}
+
+		return response.txfee;
 	}
 
 	async withdraw(opts) {
