@@ -85,6 +85,9 @@ class LoginContainer extends Container {
 
 		// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker
 		const seedPhrase = await decryptSeedPhrase(portfolio.encryptedSeedPhrase, password);
+
+		this.setActiveView('LoggingIn');
+
 		const api = await initApi(seedPhrase);
 		await api.enableSocket();
 		appContainer.api = api;
