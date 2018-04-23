@@ -126,6 +126,19 @@ export default class Api {
 		});
 	}
 
+	async getFee(coin) {
+		const response = await this.request({
+			method: 'getfee',
+			coin,
+		});
+
+		if (response.result !== 'success') {
+			throw new Error(`Encountered an error:\n${util.format(response)}`);
+		}
+
+		return response.txfee;
+	}
+
 	async withdraw(opts) {
 		if (typeof opts.currency !== 'string') {
 			throw new TypeError(`opts.currency must be a string: ${opts.currency}`);
