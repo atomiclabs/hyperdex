@@ -171,6 +171,10 @@ dot-prop@^4.1.0:
   dependencies:
     is-obj "^1.0.0"
 
+electron-better-ipc@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/electron-better-ipc/-/electron-better-ipc-0.1.0.tgz#0692f062169f52ca0014948fca0f4f5358e53e4b"
+
 electron-context-menu@^0.9.1:
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/electron-context-menu/-/electron-context-menu-0.9.1.tgz#ed4df20c080491c3c996abfcb363159946a38058"
