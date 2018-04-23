@@ -126,6 +126,13 @@ export default class Api {
 		});
 	}
 
+	getFee(coin) {
+		return this.request({
+			method: 'getfee',
+			coin,
+		});
+	}
+
 	async withdraw(opts) {
 		if (typeof opts.currency !== 'string') {
 			throw new TypeError(`opts.currency must be a string: ${opts.currency}`);
