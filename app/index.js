@@ -4,6 +4,7 @@ const {autoUpdater} = require('electron-updater');
 const {is, disableZoom} = require('electron-util');
 const serve = require('electron-serve');
 const logger = require('electron-timber');
+const ipc = require('electron-better-ipc');
 const appMenu = require('./menu');
 const config = require('./config');
 const marketmaker = require('./marketmaker');
@@ -120,11 +121,11 @@ app.on('before-quit', () => {
 	// config.set('windowState', mainWindow.getBounds());
 });
 
-electron.ipcMain.on('start-marketmaker', async (event, {seedPhrase}) => {
+ipc.answerRenderer('start-marketmaker', async seedPhrase => {
 	await marketmaker.start({seedPhrase});
-	mainWindow.send('marketmaker-started', marketmaker.port);
+	return marketmaker.port;
 });
 
-electron.ipcMain.on('stop-marketmaker', async () => {
+ipc.answerRenderer('stop-marketmaker', async () => {
 	await marketmaker.stop();
 });

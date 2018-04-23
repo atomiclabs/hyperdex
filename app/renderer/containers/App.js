@@ -1,4 +1,5 @@
-import electron, {remote, ipcRenderer as ipc} from 'electron';
+import electron, {remote} from 'electron';
+import ipc from 'electron-better-ipc';
 import _ from 'lodash';
 import Cycled from 'cycled';
 import coinlist from 'coinlist';
@@ -128,13 +129,12 @@ class AppContainer extends Container {
 
 	async stopMarketmaker() {
 		await this.api.stop();
-		ipc.send('stop-marketmaker');
+		await ipc.callMain('stop-marketmaker');
 	}
 }
 
 const appContainer = new AppContainer();
 
-// TODO: The "Log Out" button should be disabled when logged out
 ipc.on('log-out', () => {
 	appContainer.logOut();
 });

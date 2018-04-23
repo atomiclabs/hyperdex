@@ -1,5 +1,6 @@
-import {remote, ipcRenderer as ipc} from 'electron';
+import {remote} from 'electron';
 import {setWindowBounds} from 'electron-util';
+import ipc from 'electron-better-ipc';
 import {Container} from 'unstated';
 import {minWindowSize} from '../../constants';
 import Api from '../api';
@@ -9,20 +10,13 @@ import dashboardContainer from './Dashboard';
 const config = remote.require('./config');
 const {getPortfolios, decryptSeedPhrase} = remote.require('./portfolio-util');
 
-const initMarketmaker = seedPhrase => new Promise(resolve => {
-	ipc.send('start-marketmaker', {seedPhrase});
-
-	ipc.on('marketmaker-started', async (event, port) => {
-		resolve(`http://127.0.0.1:${port}`);
-	});
-});
-
 const initApi = async seedPhrase => {
 	let url = config.get('marketmakerUrl');
 	if (url) {
 		console.log('Using custom marketmaker URL:', url);
 	} else {
-		url = await initMarketmaker(seedPhrase);
+		const port = await ipc.callMain('start-marketmaker', seedPhrase);
+		url = `http://127.0.0.1:${port}`;
 	}
 
 	return new Api({
