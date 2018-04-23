@@ -11,6 +11,7 @@ import LoginBox from './LoginBox';
 import CreatePortfolio from './CreatePortfolio';
 import RestorePortfolio from './RestorePortfolio';
 import ForgotPassword from './ForgotPassword';
+import LoggingIn from './LoggingIn';
 import './Login.scss';
 
 const setLoginWindowBounds = () => {
@@ -45,6 +46,7 @@ class Login extends React.Component {
 						<React.Fragment>
 							<LoginView component={NewPortfolio}/>
 							<LoginView component={LoginBox}/>
+							<LoginView component={LoggingIn}/>
 							<CreatePortfolio/>
 							<RestorePortfolio/>
 							<ForgotPassword/>
