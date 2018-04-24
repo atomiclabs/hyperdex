@@ -126,6 +126,19 @@ export default class Api {
 		});
 	}
 
+	async cancelOrder(uuid) {
+		const response = await this.request({
+			method: 'cancel',
+			uuid,
+		});
+
+		if (response.result !== 'success') {
+			throw new Error(`Encountered an error:\n${util.format(response)}`);
+		}
+
+		return response.status;
+	}
+
 	async getFee(coin) {
 		const response = await this.request({
 			method: 'getfee',
