@@ -2,7 +2,7 @@ import React from 'react';
 import {classNames} from 'react-extras';
 import {Subscribe} from 'unstated';
 import {format as formatDate} from 'date-fns';
-import exchangeContainer from 'containers/Exchange';
+import exchangeContainer from 'containers/Exchange'; // TODO(sindresorhus): Find a better place to have the SwapDB data, since both the Exchange and Trades view uses it
 import tradesContainer from 'containers/Trades';
 import View from 'components/View';
 import AppTabView from './TabView';
@@ -38,6 +38,7 @@ const Empty = () => (
 	</div>
 );
 
+// TODO(sindresorhus): Consider DRYing this up with the code in `Exchange.js`
 const SwapItem = ({swap}) => (
 	<tr>
 		<td className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD.MM.YY')}</td>
