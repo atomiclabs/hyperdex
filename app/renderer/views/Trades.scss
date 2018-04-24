@@ -1,22 +1,40 @@
-td,
-th {
-	padding: 1.2rem 1.5rem;
-}
+.Trades {
+	display: flex;
+	height: 100%;
+	background-color: var(--background-color2);
 
-thead tr {
-	border-bottom: 0.1rem solid white(30%);
-}
+	header nav .button {
+		padding-bottom: 19px;
+		font-size: 17px;
+	}
 
-tbody tr {
-	border-bottom: 0.1rem solid white(10%);
-}
+	header {
+		padding: 20px;
+	}
 
-td:first-child,
-th:first-child {
-	padding-left: 0;
-}
+	main {
+		.SwapList {
+			tr {
+				border-bottom: 1px solid hsla(215, 23%, 22%, 1);
+				padding: 50px 0;
 
-td:last-child,
-th:last-child {
-	padding-right: 0;
+				&:last-child {
+					border: none;
+				}
+			}
+
+			td {
+				padding: 12px 5px 12px 0;
+				font-size: 13px;
+			}
+
+			.view,
+			.cancel {
+				&__button {
+					padding: 4px 8px;
+					border-radius: 3px;
+				}
+			}
+		}
+	}
 }

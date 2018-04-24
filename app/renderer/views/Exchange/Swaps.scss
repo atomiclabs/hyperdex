@@ -1,7 +1,8 @@
 @import '~sass-extras/index';
 @import '../../styles/variables';
 
-.Exchange--Swaps {
+.Exchange--Swaps,
+.Trades {
 	display: flex;
 	flex-direction: column;
 
@@ -105,6 +106,8 @@
 					text-transform: uppercase;
 					border: 1px solid;
 					border-radius: 3px;
+					user-select: none;
+					cursor: default;
 				}
 
 				&__icon[data-status='pending'],
@@ -123,7 +126,8 @@
 				}
 			}
 
-			.view {
+			.view,
+			.cancel {
 				&__button {
 					padding: 2px 4px;
 					color: #fff;

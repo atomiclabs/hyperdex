@@ -34,35 +34,20 @@ const Empty = () => (
 	</div>
 );
 
-const SwapItem = ({swap}) => {
-	let statusString = swap.status;
-
-	if (swap.status === 'swapping') {
-		const flags = ['myfee', 'bobdeposit', 'alicepayment', 'bobpayment'];
-		const swapProgress = swap.flags.reduce((prevFlagLevel, flag) => {
-			const newFlagLevel = flags.indexOf(flag) + 1;
-
-			return Math.max(prevFlagLevel, newFlagLevel);
-		}, 0);
-
-		statusString = `swap ${swapProgress}/${flags.length}`;
-	}
-
-	return (
-		<tr>
-			<td className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD.MM')}</td>
-			<td className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</td>
-			<td className="sell-amount">-{swap.quoteCurrencyAmount} {swap.quoteCurrency}</td>
-			<td className="buy-amount">+{swap.baseCurrencyAmount} {swap.baseCurrency}</td>
-			<td className="status">
-				<div className="status__icon" data-status={swap.status}>{statusString}</div>
-			</td>
-			<td className="view">
-				<SwapDetails/>
-			</td>
-		</tr>
-	);
-};
+const SwapItem = ({swap}) => (
+	<tr>
+		<td className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD.MM')}</td>
+		<td className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</td>
+		<td className="sell-amount">-{swap.quoteCurrencyAmount} {swap.quoteCurrency}</td>
+		<td className="buy-amount">+{swap.baseCurrencyAmount} {swap.baseCurrency}</td>
+		<td className="status">
+			<div className="status__icon" data-status={swap.status}>{swap.statusFormatted}</div>
+		</td>
+		<td className="view">
+			<SwapDetails/>
+		</td>
+	</tr>
+);
 
 const SwapList = ({swaps}) => {
 	if (swaps.length === 0) {
@@ -109,8 +94,14 @@ const Swaps = () => {
 			<header>
 				<h3>Swaps</h3>
 				<nav>
-					<TabButton title="All" component={All}/>
-					<TabButton title={`${state.baseCurrency}/${state.quoteCurrency}`} component={Split}/>
+					<TabButton
+						title="All"
+						component={All}
+					/>
+					<TabButton
+						title={`${state.baseCurrency}/${state.quoteCurrency}`}
+						component={Split}
+					/>
 				</nav>
 			</header>
 			<main>
