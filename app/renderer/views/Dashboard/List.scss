@@ -45,7 +45,7 @@
 	.coin-button {
 		display: flex;
 		align-items: center;
-		height: 92px;
+		height: 96px;
 		padding: 20px;
 		border-left: 2px solid transparent;
 		user-select: none;
@@ -61,6 +61,22 @@
 
 			p {
 				font-size: 14px;
+			}
+
+			.Progress {
+				margin-top: 6px;
+				margin-bottom: 6px;
+				width: 120px;
+
+				&__bar {
+					background: #687bf7;
+					border-radius: 10px;
+				}
+
+				&__label {
+					width: 30px;
+					text-align: left;
+				}
 			}
 		}
 
