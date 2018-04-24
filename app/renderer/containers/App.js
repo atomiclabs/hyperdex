@@ -5,6 +5,7 @@ import Cycled from 'cycled';
 import coinlist from 'coinlist';
 import roundTo from 'round-to';
 import {Container} from 'unstated';
+import loginContainer from 'containers/Login';
 import {appViews} from '../../constants';
 import fireEvery from '../fire-every';
 import {formatCurrency} from '../util';
@@ -121,6 +122,9 @@ class AppContainer extends Container {
 
 	logOut() {
 		config.set('windowState', remote.getCurrentWindow().getBounds());
+
+		// TODO(sindresorhus): Temp fix until we support resetting the containers
+		loginContainer.setActiveView('LoginBox');
 
 		this.setState({
 			activeView: 'Login',
