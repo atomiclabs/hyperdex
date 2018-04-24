@@ -16,14 +16,6 @@
 }
 
 /**
- * Break up words and URLs so they don't break your layout.
- */
-
-html {
-	word-break: break-word;
-}
-
-/**
  * Remove default spacing.
  */
 

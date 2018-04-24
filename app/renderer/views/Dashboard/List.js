@@ -6,6 +6,7 @@ import dashboardContainer from 'containers/Dashboard';
 import CurrencyIcon from 'components/CurrencyIcon';
 import Avatar from 'components/Avatar';
 import Input from 'components/Input';
+import Progress from 'components/Progress';
 import {formatCurrency} from '../../util';
 import './List.scss';
 
@@ -56,6 +57,8 @@ const List = () => {
 							balance = 'Empty wallet';
 						}
 
+						const percentageOfTotalBalance = currency.cmcBalanceUsd / dashboardContainer.totalAssetValue;
+
 						return (
 							<div
 								key={currency.symbol}
@@ -68,6 +71,7 @@ const List = () => {
 								<div className="right">
 									<h2>{currency.name} ({currency.symbol})</h2>
 									<p>{balance}</p>
+									<Progress value={percentageOfTotalBalance} showLabel hideWhenZero/>
 								</div>
 							</div>
 						);
