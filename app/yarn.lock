@@ -356,9 +356,9 @@ inherits@^2.0.1, inherits@~2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
 
-iocane@1.0.0-rc2:
-  version "1.0.0-rc2"
-  resolved "https://registry.yarnpkg.com/iocane/-/iocane-1.0.0-rc2.tgz#04ece911c631e648be4a76baa916a11e3d1d91b1"
+iocane@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/iocane/-/iocane-1.0.0.tgz#6eec548bdca8488ef87f495cb3bfd296028b3e20"
   dependencies:
     pbkdf2 "~3.0.4"
 
