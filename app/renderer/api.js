@@ -7,6 +7,9 @@ import MarketmakerSocket from './marketmaker-socket';
 
 const getPort = electron.remote.require('get-port');
 
+const errorWithObject = (message, object) => new Error(`${message}:\n${util.format(object)}`);
+const genericError = object => errorWithObject('Encountered an error', object);
+
 export default class Api {
 	constructor({endpoint, seedPhrase, concurrency = Infinity}) {
 		if (!(endpoint && seedPhrase)) {
@@ -132,8 +135,16 @@ export default class Api {
 			uuid,
 		});
 
+		if (response.error) {
+			if (/uuid not cancellable/.test(response.error)) {
+				throw new Error('Order cannot be cancelled');
+			}
+
+			throw new Error(response.error);
+		}
+
 		if (response.result !== 'success') {
-			throw new Error(`Encountered an error:\n${util.format(response)}`);
+			throw genericError(response);
 		}
 
 		return response.status;
@@ -146,7 +157,7 @@ export default class Api {
 		});
 
 		if (response.result !== 'success') {
-			throw new Error(`Encountered an error:\n${util.format(response)}`);
+			throw genericError(response);
 		}
 
 		return response.txfee;
@@ -174,7 +185,7 @@ export default class Api {
 		});
 
 		if (!result.complete) {
-			throw new Error(`Couldn't complete withdrawal:\n${util.format(result)}`);
+			throw errorWithObject('Couldn\'t complete withdrawal', result);
 		}
 
 		return result;
