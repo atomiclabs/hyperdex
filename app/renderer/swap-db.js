@@ -43,8 +43,8 @@ class SwapDB {
 				quoteCurrency: swap.rel,
 				quoteCurrencyAmount: swap.relvalue,
 				debug: {
-					request: JSON.stringify(requestOpts),
-					response: JSON.stringify(swap),
+					request: requestOpts,
+					response: swap,
 					messages: [],
 				},
 			};
@@ -87,7 +87,7 @@ class SwapDB {
 				swap.status = 'failed';
 			}
 
-			swap.debug.messages.push(JSON.stringify(message));
+			swap.debug.messages.push(message);
 
 			return this.db.put(swap);
 		});
