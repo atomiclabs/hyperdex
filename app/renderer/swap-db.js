@@ -74,6 +74,7 @@ class SwapDB {
 			uuid,
 			timeStarted,
 			status: 'pending',
+			statusFormatted: 'pending',
 			baseCurrency: response.base,
 			baseCurrencyAmount: response.basevalue,
 			quoteCurrency: response.rel,
