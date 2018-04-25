@@ -125,6 +125,7 @@ class AppContainer extends Container {
 
 		// TODO(sindresorhus): Temp fix until we support resetting the containers
 		loginContainer.setActiveView('LoginBox');
+		loginContainer.setProgress(0);
 
 		this.setState({
 			activeView: 'Login',
