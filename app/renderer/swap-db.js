@@ -31,29 +31,17 @@ class SwapDB {
 		this.pQueue.add(() => this.ready.then(fn));
 	}
 
-	insertSwap(swap, requestOpts) {
-		return this.queue(() => {
-			const formattedSwap = {
-				uuid: swap.uuid,
-				timeStarted: Date.now(),
-				status: 'pending',
-				baseCurrency: swap.base,
-				baseCurrencyAmount: swap.basevalue,
-				quoteCurrency: swap.rel,
-				quoteCurrencyAmount: swap.relvalue,
-				transactions: [],
-				debug: {
-					request: requestOpts,
-					response: swap,
-					messages: [],
-				},
-			};
-
-			return this.db.post(formattedSwap);
-		});
+	insertSwapData(swap, requestOpts) {
+		return this.queue(() => this.db.post({
+			uuid: swap.uuid,
+			timeStarted: Date.now(),
+			request: requestOpts,
+			response: swap,
+			messages: [],
+		}));
 	}
 
-	async getSwap(uuid) {
+	async _getSwapData(uuid) {
 		await this.ready;
 
 		const {docs} = await this.db.find({
@@ -64,12 +52,36 @@ class SwapDB {
 		return docs[0];
 	}
 
-	updateSwap = message => {
+	updateSwapData = message => {
 		return this.queue(async () => {
-			const {uuid} = message;
+			const swap = await this._getSwapData(message.uuid);
+			swap.messages.push(message);
 
-			const swap = await this.getSwap(uuid);
+			return this.db.put(swap);
+		});
+	}
 
+	_formatSwap(data) {
+		const {uuid, timeStarted, response, messages} = data;
+
+		// Just to supress errors from the old swap schema
+		// This should be removed
+		if (!response) {
+			return {uuid: Math.random()};
+		}
+
+		const swap = {
+			uuid,
+			timeStarted,
+			status: 'pending',
+			baseCurrency: response.base,
+			baseCurrencyAmount: response.basevalue,
+			quoteCurrency: response.rel,
+			quoteCurrencyAmount: response.relvalue,
+			transactions: [],
+		};
+
+		messages.forEach(message => {
 			if (message.method === 'connected') {
 				swap.status = 'matched';
 			}
@@ -92,31 +104,24 @@ class SwapDB {
 				swap.status = 'failed';
 			}
 
-			swap.debug.messages.push(message);
+			swap.statusFormatted = swap.status;
+			if (swap.status === 'swapping') {
+				const stages = ['myfee', 'bobdeposit', 'alicepayment', 'bobpayment'];
+				const swapProgress = swap.transactions
+					.map(tx => tx.stage)
+					.reduce((prevStageLevel, stage) => {
+						const newStageLevel = stages.indexOf(stage) + 1;
+						return Math.max(prevStageLevel, newStageLevel);
+					}, 0);
 
-			return this.db.put(swap);
+				swap.statusFormatted = `swap ${swapProgress}/${stages.length}`;
+			}
 		});
-	}
-
-	_addFormattedSwapStatus(swap) {
-		swap.statusFormatted = swap.status;
-
-		if (swap.status === 'swapping') {
-			const stages = ['myfee', 'bobdeposit', 'alicepayment', 'bobpayment'];
-			const swapProgress = swap.transactions
-				.map(tx => tx.stage)
-				.reduce((prevStageLevel, stage) => {
-					const newStageLevel = stages.indexOf(stage) + 1;
-					return Math.max(prevStageLevel, newStageLevel);
-				}, 0);
-
-			swap.statusFormatted = `swap ${swapProgress}/${stages.length}`;
-		}
 
 		return swap;
 	}
 
-	async getSwaps() {
+	async _getAllSwapData() {
 		await this.ready;
 
 		// We need `timeStarted: {$gt: true}` so PouchDB can sort.
@@ -126,7 +131,13 @@ class SwapDB {
 			sort: [{timeStarted: 'desc'}],
 		});
 
-		return docs.map(swap => this._addFormattedSwapStatus(swap));
+		return docs;
+	}
+
+	async getSwaps() {
+		const swapData = await this._getAllSwapData();
+
+		return swapData.map(this._formatSwap);
 	}
 }
 
