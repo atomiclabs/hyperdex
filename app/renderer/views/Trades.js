@@ -124,7 +124,7 @@ const SwapHistory = () => {
 };
 
 const Trades = () => (
-	<Subscribe to={[tradesContainer]}>
+	<Subscribe to={[tradesContainer, /* Temp => */exchangeContainer]}>
 		{() => (
 			<AppTabView title="Trades" className="Trades">
 				<header>
