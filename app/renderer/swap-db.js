@@ -37,7 +37,6 @@ class SwapDB {
 				uuid: swap.uuid,
 				timeStarted: Date.now(),
 				status: 'pending',
-				flags: [],
 				baseCurrency: swap.base,
 				baseCurrencyAmount: swap.basevalue,
 				quoteCurrency: swap.rel,
@@ -77,7 +76,6 @@ class SwapDB {
 
 			if (message.method === 'update') {
 				swap.status = 'swapping';
-				swap.flags.push(message.name);
 				swap.transactions.push({
 					stage: message.name,
 					coin: message.coin,
@@ -104,13 +102,15 @@ class SwapDB {
 		swap.statusFormatted = swap.status;
 
 		if (swap.status === 'swapping') {
-			const flags = ['myfee', 'bobdeposit', 'alicepayment', 'bobpayment'];
-			const swapProgress = swap.flags.reduce((prevFlagLevel, flag) => {
-				const newFlagLevel = flags.indexOf(flag) + 1;
-				return Math.max(prevFlagLevel, newFlagLevel);
-			}, 0);
+			const stages = ['myfee', 'bobdeposit', 'alicepayment', 'bobpayment'];
+			const swapProgress = swap.transactions
+				.map(tx => tx.stage)
+				.reduce((prevStageLevel, stage) => {
+					const newStageLevel = stages.indexOf(stage) + 1;
+					return Math.max(prevStageLevel, newStageLevel);
+				}, 0);
 
-			swap.statusFormatted = `swap ${swapProgress}/${flags.length}`;
+			swap.statusFormatted = `swap ${swapProgress}/${stages.length}`;
 		}
 
 		return swap;
