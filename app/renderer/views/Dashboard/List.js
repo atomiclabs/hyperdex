@@ -57,7 +57,10 @@ const List = () => {
 							balance = 'Empty wallet';
 						}
 
-						const percentageOfTotalBalance = currency.cmcBalanceUsd / dashboardContainer.totalAssetValue;
+						let percentageOfTotalBalance = currency.cmcBalanceUsd / dashboardContainer.totalAssetValue;
+						if (Number.isNaN(percentageOfTotalBalance)) {
+							percentageOfTotalBalance = 0;
+						}
 
 						return (
 							<div
