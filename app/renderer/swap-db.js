@@ -42,6 +42,7 @@ class SwapDB {
 				baseCurrencyAmount: swap.basevalue,
 				quoteCurrency: swap.rel,
 				quoteCurrencyAmount: swap.relvalue,
+				transactions: [],
 				debug: {
 					request: requestOpts,
 					response: swap,
@@ -77,6 +78,12 @@ class SwapDB {
 			if (message.method === 'update') {
 				swap.status = 'swapping';
 				swap.flags.push(message.name);
+				swap.transactions.push({
+					stage: message.name,
+					coin: message.coin,
+					txid: message.txid,
+					amount: message.amount,
+				});
 			}
 
 			if (message.method === 'tradestatus' && message.status === 'finished') {
