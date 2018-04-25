@@ -144,6 +144,17 @@
 						color: rgba(255, 255, 255, 0.8);
 						border-color: rgba(255, 255, 255, 0.15);
 					}
+
+					&[disabled] {
+						user-select: none;
+						cursor: default;
+						color: var(--text-color);
+						opacity: 0.8;
+
+						&:hover {
+							border: 1px solid #313d4f;
+						}
+					}
 				}
 			}
 		}

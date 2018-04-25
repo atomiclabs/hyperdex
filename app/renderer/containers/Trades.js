@@ -8,13 +8,6 @@ class TradesContainer extends Container {
 	setActiveView = activeView => {
 		this.setState({activeView});
 	};
-
-	/* eslint-disable no-unused-vars, no-alert */
-	cancelSwap = swapUuid => {
-		// TODO
-		alert('Not yet implemented');
-	};
-	/* eslint-enable no-unused-vars, no-alert */
 }
 
 const tradesContainer = new TradesContainer();

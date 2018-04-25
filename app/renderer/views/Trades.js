@@ -1,7 +1,9 @@
+import {api} from 'electron-util';
 import React from 'react';
 import {classNames} from 'react-extras';
 import {Subscribe} from 'unstated';
 import {format as formatDate} from 'date-fns';
+import appContainer from 'containers/App';
 import exchangeContainer from 'containers/Exchange'; // TODO(sindresorhus): Find a better place to have the SwapDB data, since both the Exchange and Trades view uses it
 import tradesContainer from 'containers/Trades';
 import View from 'components/View';
@@ -38,6 +40,38 @@ const Empty = () => (
 	</div>
 );
 
+class CancelButton extends React.Component {
+	state = {
+		isCancelling: false,
+	}
+
+	cancelSwap = async swapUuid => {
+		this.setState({isCancelling: true});
+
+		try {
+			await appContainer.api.cancelOrder(swapUuid);
+		} catch (error) {
+			console.error(error);
+			api.dialog.showErrorBox('Error', error.message);
+		}
+	};
+
+	render() {
+		const {swap} = this.props;
+
+		return (
+			<button
+				type="button"
+				className="cancel__button"
+				disabled={swap.status !== 'pending' || this.state.isCancelling}
+				onClick={() => this.cancelSwap(swap.uuid)}
+			>
+				Cancel
+			</button>
+		);
+	}
+}
+
 // TODO(sindresorhus): Consider DRYing this up with the code in `Exchange.js`
 const SwapItem = ({swap}) => (
 	<tr>
@@ -50,7 +84,7 @@ const SwapItem = ({swap}) => (
 		</td>
 		<td className="view">
 			{tradesContainer.state.activeView === 'OpenOrders' ?
-				<button type="button" className="cancel__button" onClick={() => tradesContainer.cancelSwap(swap.uuid)}>Cancel</button> :
+				<CancelButton swap={swap}/> :
 				<SwapDetails/>
 			}
 		</td>
