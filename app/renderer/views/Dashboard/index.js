@@ -1,6 +1,7 @@
 import React from 'react';
 import {Subscribe} from 'unstated';
 import dashboardContainer from 'containers/Dashboard';
+import exchangeContainer from 'containers/Exchange';
 import TabView from 'views/TabView';
 import List from './List';
 import Chart from './Chart';
@@ -11,7 +12,7 @@ import './Dashboard.scss';
 
 const Dashboard = () => {
 	return (
-		<Subscribe to={[dashboardContainer]}>
+		<Subscribe to={[dashboardContainer, /* Temp => */exchangeContainer]}>
 			{container => {
 				const {state} = container;
 
