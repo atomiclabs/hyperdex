@@ -64,12 +64,6 @@ class SwapDB {
 	_formatSwap(data) {
 		const {uuid, timeStarted, response, messages} = data;
 
-		// Just to supress errors from the old swap schema
-		// This should be removed
-		if (!response) {
-			return {uuid: Math.random()};
-		}
-
 		const swap = {
 			uuid,
 			timeStarted,
