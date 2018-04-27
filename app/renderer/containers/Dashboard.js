@@ -57,22 +57,28 @@ class DashboardContainer extends Container {
 
 	get _currencyHistoryUrl() {
 		const {symbol} = this.activeCurrency;
-		const baseUrl = 'http://coincap.io/history/';
-		const getUrl = type => `${baseUrl}${type}/${symbol}`;
+		const baseUrl = 'https://min-api.cryptocompare.com/data/';
+
+		const getUrl = (type, limit, aggregate = 1) =>
+			`${baseUrl}${type}?fsym=${symbol}&tsym=USD&aggregate=${aggregate}&limit=${limit}&extraParams=HyperDEX`;
+
+		const getUrlForMinutes = (minutes, aggregate) => getUrl('histominute', minutes, aggregate);
+		const getUrlForHours = hours => getUrl('histohour', hours);
+		const getUrlForDays = (days, aggregate) => getUrl('histoday', days, aggregate);
 
 		switch (this.state.currencyHistoryResolution) {
 			case 'hour':
-				return getUrl('1day');
+				return getUrlForMinutes(60);
 			case 'day':
-				return getUrl('1day');
+				return getUrlForMinutes(60 * 24, 10);
 			case 'week':
-				return getUrl('7day');
+				return getUrlForHours(24 * 7);
 			case 'month':
-				return getUrl('30day');
+				return getUrlForDays(30);
 			case 'year':
-				return getUrl('365day');
+				return getUrlForDays(365);
 			case 'all':
-				return `${baseUrl}${symbol}`;
+				return getUrlForDays(100000, 7);
 			default:
 				throw new Error('Unsupported resolution');
 		}
@@ -98,24 +104,30 @@ class DashboardContainer extends Container {
 			this.setState({currencyHistory: this.currencyHistoryCache.get(cacheKey)});
 		}
 
-		const response = await fetch(this._currencyHistoryUrl);
-		const json = await response.json();
+		let json;
+		try {
+			const response = await fetch(this._currencyHistoryUrl);
+			json = await response.json();
+		} catch (error) {
+			console.error('Failed to get price history:', error);
+		}
 
-		if (!json) {
+		if (!json || json.Data.length === 0) {
 			noPriceHistory.add(symbol);
 			this.setState({currencyHistory: null});
 			return;
 		}
 
-		// Note: The data gap at the end is a known issue:
-		// https://github.com/CoinCapDev/CoinCap.io/issues/120
+		const prices = json.Data.map(({time, close}) => ({
+			time: time * 1000,
+			value: close,
+		}));
 
-		const prices = json.price.map(([time, value]) => ({time, value}));
 		this.currencyHistoryCache.set(cacheKey, prices);
 		this.setState({currencyHistory: prices});
 	}
 
-	async watchCoinCap() {
+	async watchCurrencyHistory() {
 		const FIVE_MINUTES = 1000 * 60 * 5;
 
 		await fireEvery(async () => {

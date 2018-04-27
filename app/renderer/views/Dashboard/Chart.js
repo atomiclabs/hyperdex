@@ -45,9 +45,7 @@ const Chart = () => {
 			<div className="overlay">
 				<h3>{dashboardContainer.activeCurrency.symbol} Chart</h3>
 				<div className="resolution-buttons">
-					{/* Disabled because of https://github.com/CoinCapDev/CoinCap.io/issues/120
-						<ResolutionButton title="1h" resolution="hour"/>
-					*/}
+					<ResolutionButton title="1h" resolution="hour"/>
 					<ResolutionButton title="1d" resolution="day"/>
 					<ResolutionButton title="1w" resolution="week"/>
 					<ResolutionButton title="1m" resolution="month"/>
