@@ -1,5 +1,5 @@
-import React from 'react';
 import {hot} from 'react-hot-loader';
+import React from 'react';
 import {Subscribe} from 'unstated';
 import '../styles/index.scss';
 import appContainer from 'containers/App';
