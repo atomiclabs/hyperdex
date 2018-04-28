@@ -1,10 +1,11 @@
-import electron, {remote} from 'electron';
+import {remote} from 'electron';
 import ipc from 'electron-better-ipc';
 import _ from 'lodash';
 import Cycled from 'cycled';
 import coinlist from 'coinlist';
 import roundTo from 'round-to';
 import {Container} from 'unstated';
+import rootContainer from 'containers/Root';
 import loginContainer from 'containers/Login';
 import {appViews} from '../../constants';
 import fireEvery from '../fire-every';
@@ -32,7 +33,7 @@ const getTickerData = async symbol => {
 
 class AppContainer extends Container {
 	state = {
-		activeView: 'Login',
+		activeView: 'Dashboard',
 	};
 
 	constructor() {
@@ -59,10 +60,32 @@ class AppContainer extends Container {
 	}
 
 	logIn(portfolio) {
+		rootContainer.setActiveView('App');
 		this.setState({
 			activeView: 'Dashboard',
 			portfolio,
 		});
+	}
+
+	logOut() {
+		rootContainer.setActiveView('Login');
+		config.set('windowState', remote.getCurrentWindow().getBounds());
+
+		// TODO(sindresorhus): Temp fix until we support resetting the containers
+		loginContainer.setActiveView('LoginBox');
+		loginContainer.setProgress(0);
+
+		this.setState({portfolio: null});
+		this.stopMarketmaker();
+	}
+
+	async stopMarketmaker() {
+		await this.api.stop();
+		await ipc.callMain('stop-marketmaker');
+	}
+
+	getCurrency(symbol) {
+		return this.state.currencies.find(x => x.coin === symbol);
 	}
 
 	async watchCMC() {
@@ -115,30 +138,6 @@ class AppContainer extends Container {
 
 		return this.stopWatchingCurrencies;
 	}
-
-	getCurrency(symbol) {
-		return this.state.currencies.find(x => x.coin === symbol);
-	}
-
-	logOut() {
-		config.set('windowState', remote.getCurrentWindow().getBounds());
-
-		// TODO(sindresorhus): Temp fix until we support resetting the containers
-		loginContainer.setActiveView('LoginBox');
-		loginContainer.setProgress(0);
-
-		this.setState({
-			activeView: 'Login',
-			portfolio: null,
-		});
-
-		this.stopMarketmaker();
-	}
-
-	async stopMarketmaker() {
-		await this.api.stop();
-		await ipc.callMain('stop-marketmaker');
-	}
 }
 
 const appContainer = new AppContainer();
@@ -158,28 +157,6 @@ ipc.on('set-next-view', () => {
 ipc.on('set-previous-view', () => {
 	appContainer.setPreviousView();
 });
-
-// TODO: Uncomment this before we do the public release
-/// if (is.development) {
-window._config = electron.remote.require('./config');
-/// }
-
-function handleDarkMode() {
-	const applyDarkMode = () => {
-		const darkMode = config.get('darkMode');
-		appContainer.setState({darkMode});
-		document.documentElement.classList.toggle('dark-mode', darkMode);
-	};
-
-	ipc.on('toggle-dark-mode', () => {
-		config.set('darkMode', !config.get('darkMode'));
-		applyDarkMode();
-	});
-
-	applyDarkMode();
-}
-
-handleDarkMode();
 
 let prevState = appContainer.state;
 appContainer.subscribe(() => {

@@ -38,8 +38,8 @@ const setAppWindowBounds = () => {
 
 class LoginContainer extends Container {
 	state = {
-		portfolios: null,
 		activeView: 'LoginBox',
+		portfolios: null,
 		selectedPortfolioId: config.get('lastActivePortfolioId'),
 		progress: 0,
 	};
