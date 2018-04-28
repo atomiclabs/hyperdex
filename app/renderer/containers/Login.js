@@ -104,7 +104,7 @@ class LoginContainer extends Container {
 
 		await appContainer.watchCMC();
 		await appContainer.watchCurrencies();
-		await dashboardContainer.watchCoinCap();
+		await dashboardContainer.watchCurrencyHistory();
 
 		config.set('lastActivePortfolioId', portfolio.id);
 

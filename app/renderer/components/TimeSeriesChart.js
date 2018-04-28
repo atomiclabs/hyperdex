@@ -1,5 +1,5 @@
 import React from 'react';
-import {ResponsiveContainer, AreaChart, Area, XAxis, Tooltip} from 'recharts';
+import {ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip} from 'recharts';
 import {format as formatDate} from 'date-fns';
 import {formatCurrency} from '../util';
 import './TimeSeriesChart.scss';
@@ -24,13 +24,16 @@ const resolutionToLabelFormat = new Map([
 	['all', 'MMMM YYYY'],
 ]);
 
-const TimeSeriesChart = props => {
-	const labelFormat = resolutionToLabelFormat.get(props.resolution);
+const TimeSeriesChart = ({
+	data,
+	resolution,
+}) => {
+	const labelFormat = resolutionToLabelFormat.get(resolution);
 
 	return (
 		<div className="TimeSeriesChart">
 			<ResponsiveContainer width="100%" minHeight={100}>
-				<AreaChart data={props.data}>
+				<AreaChart data={data}>
 					<Area
 						dataKey="value"
 						name="Value"
@@ -56,6 +59,11 @@ const TimeSeriesChart = props => {
 							fontSize: '12px',
 							fill: '#687bf7',
 						}}
+					/>
+					<YAxis
+						domain={['auto', 'auto']}
+						padding={{top: 5}}
+						hide
 					/>
 					<Tooltip content={<CustomTooltip/>} isAnimationActive={false} animationDuration={0}/>
 				</AreaChart>
