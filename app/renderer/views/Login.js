@@ -30,7 +30,7 @@ const setLoginWindowBounds = () => {
 };
 
 class Login extends React.Component {
-	componentWillMount() {
+	componentDidMount() {
 		setLoginWindowBounds();
 	}
 
