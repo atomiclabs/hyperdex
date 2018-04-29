@@ -6,10 +6,11 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/fnv1a/-/fnv1a-1.0.0.tgz#d419dd111b4d7fc3b87f97d86849bc23316149de"
 
-"@sindresorhus/slugify@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@sindresorhus/slugify/-/slugify-0.1.0.tgz#4a652e2823990147c99097792447c5d6a15e89c3"
+"@sindresorhus/slugify@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@sindresorhus/slugify/-/slugify-0.2.0.tgz#fc293151d5ba76089df18ab17f41d4ddf2eacad7"
   dependencies:
+    escape-string-regexp "^1.0.5"
     lodash.deburr "^4.1.0"
 
 "@sindresorhus/string-hash@^1.0.0":
@@ -248,9 +249,9 @@ electron-unhandled@^1.1.0:
     ensure-error "^1.0.0"
     lodash.debounce "^4.0.8"
 
-electron-updater@^2.21.4:
-  version "2.21.4"
-  resolved "https://registry.yarnpkg.com/electron-updater/-/electron-updater-2.21.4.tgz#56326defc8072e78e339cc656838ac78e708f50c"
+electron-updater@^2.21.8:
+  version "2.21.8"
+  resolved "https://registry.yarnpkg.com/electron-updater/-/electron-updater-2.21.8.tgz#3881fff1fc7c57a66be0665bd7ffe02b7ecb5566"
   dependencies:
     bluebird-lst "^1.0.5"
     builder-util-runtime "~4.2.0"
@@ -268,9 +269,9 @@ electron-util@^0.7.0:
   dependencies:
     electron-is-dev "^0.3.0"
 
-electron-util@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/electron-util/-/electron-util-0.8.0.tgz#37f90c7880f8ae86b9147ed35a3be8fea5a919bc"
+electron-util@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/electron-util/-/electron-util-0.8.1.tgz#a08369740d7347d02c03d8dd493b46169a867e0f"
   dependencies:
     electron-is-dev "^0.3.0"
 
@@ -362,9 +363,9 @@ iocane@^1.0.0:
   dependencies:
     pbkdf2 "~3.0.4"
 
-irregular-plurals@^1.0.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/irregular-plurals/-/irregular-plurals-1.4.0.tgz#2ca9b033651111855412f16be5d77c62a458a766"
+irregular-plurals@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/irregular-plurals/-/irregular-plurals-2.0.0.tgz#39d40f05b00f656d0b7fa471230dd3b714af2872"
 
 is-arrayish@^0.2.1:
   version "0.2.1"
@@ -524,11 +525,11 @@ pkg-up@^2.0.0:
   dependencies:
     find-up "^2.1.0"
 
-plur@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/plur/-/plur-2.1.2.tgz#7482452c1a0f508e3e344eaec312c91c29dc655a"
+plur@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/plur/-/plur-3.0.0.tgz#903627ae14df46911161925d8155d7950a8472b3"
   dependencies:
-    irregular-plurals "^1.0.0"
+    irregular-plurals "^2.0.0"
 
 process-nextick-args@~1.0.6:
   version "1.0.7"
