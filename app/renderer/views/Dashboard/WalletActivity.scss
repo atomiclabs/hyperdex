@@ -1,0 +1,143 @@
+.Wallet--Activity {
+	display: flex;
+	flex: 1;
+	padding: 10px 20px;
+
+	.Empty {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		p {
+			font-size: 20px;
+			opacity: 0.6;
+		}
+	}
+
+	.ActivityList {
+		flex: 1;
+		overflow-y: auto;
+		margin-bottom: 20px;
+		font-size: 12px;
+		height: 0;
+		min-height: 100%;
+		padding: 0 20px;
+
+		table {
+			display: table;
+			width: 100%;
+
+			// Fixes weirdness in how the table cells are horizontally aligned
+			td:nth-child(2) {
+				padding-left: 14px;
+			}
+		}
+
+		tr {
+			white-space: nowrap;
+			border-bottom: 1px solid hsla(215, 23%, 24%, 1);
+
+			&:last-child {
+				border: none;
+			}
+		}
+
+		td {
+			vertical-align: middle;
+			padding: 18px 22px 18px 0;
+			text-align: left;
+
+			> div {
+				display: inline-flex;
+				flex-direction: column;
+			}
+		}
+
+		td:last-child {
+			padding-right: 0;
+			text-align: right;
+		}
+
+		.timestamp {
+			> div {
+				font-size: 14px;
+				color: var(--text-color);
+
+				> div:first-child {
+					margin-bottom: 2px;
+				}
+			}
+		}
+
+		.value {
+			&-description {
+				color: var(--text-color);
+			}
+		}
+
+		.value,
+		.type {
+			&-title {
+				font-size: 16px;
+				font-weight: 600;
+				margin-bottom: 2px;
+			}
+		}
+
+		.status {
+			&__icon {
+				width: 60px;
+				padding: 1px 2px;
+				font-size: 10px;
+				text-align: center;
+				text-transform: uppercase;
+				border: 1px solid;
+				border-radius: 3px;
+				user-select: none;
+				cursor: default;
+			}
+
+			&__icon[data-status='failed'] {
+				border-color: #364357;
+			}
+
+			&__icon[data-status='completed'] {
+				border-color: var(--primary-color);
+			}
+		}
+
+		.view {
+			&__button {
+				padding: 6px 12px;
+				color: #fff;
+				background-color: var(--background-color);
+				border: 1px solid #313d4f;
+				transition: 0.2s ease-out;
+				font-size: 12px;
+				border-radius: 4px;
+
+				&:hover {
+					border-color: rgba(255, 255, 255, 0.2);
+				}
+
+				&:active {
+					color: rgba(255, 255, 255, 0.8);
+					border-color: rgba(255, 255, 255, 0.15);
+				}
+
+				&[disabled] {
+					user-select: none;
+					cursor: default;
+					color: var(--text-color);
+					opacity: 0.8;
+
+					&:hover {
+						border: 1px solid #313d4f;
+					}
+				}
+			}
+		}
+	}
+}

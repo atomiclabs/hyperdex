@@ -1,7 +1,7 @@
 {
 	"scripts": {
 		"postinstall": "electron-builder install-app-deps",
-		"lint": "xo && stylelint app/renderer/**/*.scss",
+		"lint": "xo && stylelint 'app/renderer/**/*.scss'",
 		"test": "npm run lint",
 		"start": "webpack && electron app",
 		"dev:watch": "webpack-dev-server --hot",

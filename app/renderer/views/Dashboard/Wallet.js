@@ -1,41 +1,75 @@
 import React from 'react';
+import {classNames} from 'react-extras';
 import dashboardContainer from 'containers/Dashboard';
-import WithdrawModal from './WithdrawModal';
-import DepositModal from './DepositModal';
+import View from 'components/View';
+import WalletInfo from './WalletInfo';
+import WalletActivity from './WalletActivity';
 import './Wallet.scss';
 
-const Wallet = () => {
-	const {activeCurrency} = dashboardContainer;
-	const priceChangeClass = activeCurrency.cmcPercentChange24h >= 0 ? 'is-positive' : '';
+// TODO(sindresorhus): Refactor all the custom tab components into a shared reusable one
+const TabButton = props => (
+	<span
+		className={
+			classNames(
+				'button',
+				{
+					active: props.activeView === props.component.name,
+				}
+			)
+		}
+		onClick={() => {
+			props.setActiveView(props.component.name);
+		}}
+	>
+		{props.title}
+	</span>
+);
 
-	return (
-		<div className="Dashboard--Wallet">
-			<div className="currency-info">
-				<div className="item">
-					<h6>{activeCurrency.symbol} Holdings</h6>
-					<span>{activeCurrency.balanceFormatted}</span>
-				</div>
-				<div className="item">
-					<h6>{activeCurrency.symbol} Price</h6>
-					<span>{activeCurrency.cmcPriceUsdFormatted}</span>
-					{activeCurrency.cmcPercentChange24h &&
-						<div className={`price-change ${priceChangeClass}`}>
-							<span className="arrow"/>
-							<span className="percentage">{Math.abs(activeCurrency.cmcPercentChange24h)}% (24h)</span>
-						</div>
-					}
-				</div>
-				<div className="item">
-					<h6>{activeCurrency.symbol} Holdings Value</h6>
-					<span>{activeCurrency.cmcBalanceUsdFormatted}</span>
-				</div>
+const TabView = ({component, activeView}) => (
+	<View component={component} activeView={activeView}/>
+);
+
+class Wallet extends React.Component {
+	state = {
+		activeView: 'WalletInfo',
+	};
+
+	setActiveView = activeView => {
+		this.setState({activeView});
+	};
+
+	render() {
+		const {activeCurrency} = dashboardContainer;
+
+		return (
+			<div className="Dashboard--Wallet">
+				<header>
+					<nav>
+						<TabButton
+							title={`${activeCurrency.symbol} Wallet`}
+							component={WalletInfo}
+							activeView={this.state.activeView}
+							setActiveView={this.setActiveView}
+						/>
+						<TabButton
+							title="Recent Activity"
+							component={WalletActivity}
+							activeView={this.state.activeView}
+							setActiveView={this.setActiveView}
+						/>
+					</nav>
+				</header>
+				<TabView
+					component={WalletInfo}
+					activeView={this.state.activeView}
+				/>
+				<TabView
+					component={WalletActivity}
+					activeView={this.state.activeView}
+				/>
 			</div>
-			<div className="button-wrapper">
-				<WithdrawModal/>
-				<DepositModal/>
-			</div>
-		</div>
-	);
-};
+		);
+	}
+}
 
 export default Wallet;
