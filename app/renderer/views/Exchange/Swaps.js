@@ -35,18 +35,18 @@ const Empty = () => (
 );
 
 const SwapItem = ({swap}) => (
-	<tr>
-		<td className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD.MM')}</td>
-		<td className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</td>
-		<td className="sell-amount">-{swap.quoteCurrencyAmount} {swap.quoteCurrency}</td>
-		<td className="buy-amount">+{swap.baseCurrencyAmount} {swap.baseCurrency}</td>
-		<td className="status">
+	<div className="row">
+		<div className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD.MM')}</div>
+		<div className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</div>
+		<div className="sell-amount">-{swap.quoteCurrencyAmount} {swap.quoteCurrency}</div>
+		<div className="buy-amount">+{swap.baseCurrencyAmount} {swap.baseCurrency}</div>
+		<div className="status">
 			<div className="status__icon" data-status={swap.status}>{swap.statusFormatted}</div>
-		</td>
-		<td className="view">
+		</div>
+		<div className="view">
 			<SwapDetails/>
-		</td>
-	</tr>
+		</div>
+	</div>
 );
 
 const SwapList = ({swaps}) => {
@@ -56,15 +56,11 @@ const SwapList = ({swaps}) => {
 
 	return (
 		<div className="SwapList">
-			<table>
-				<tbody>
-					{
-						swaps.map(swap => (
-							<SwapItem key={swap.uuid} swap={swap}/>
-						))
-					}
-				</tbody>
-			</table>
+			{
+				swaps.map(swap => (
+					<SwapItem key={swap.uuid} swap={swap}/>
+				))
+			}
 		</div>
 	);
 };

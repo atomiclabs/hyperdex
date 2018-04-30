@@ -7,8 +7,8 @@ exports.websiteUrl = 'https://github.com/lukechilds/hyperdex-bugtracker';
 exports.repoUrl = 'https://github.com/lukechilds/hyperdex-bugtracker';
 
 exports.minWindowSize = {
-	width: 1100,
-	height: is.windows ? 750 : 700,
+	width: 1060,
+	height: is.windows ? 650 : 600,
 };
 
 exports.loginWindowSize = {

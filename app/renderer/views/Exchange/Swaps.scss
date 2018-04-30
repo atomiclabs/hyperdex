@@ -44,7 +44,7 @@
 	main {
 		display: flex;
 		flex: 1;
-		padding: 20px;
+		padding: 10px 20px;
 
 		.Empty {
 			display: flex;
@@ -62,10 +62,81 @@
 		.SwapList {
 			flex: 1;
 			overflow-y: auto;
-			margin-bottom: 20px;
 			font-size: 12px;
 			height: 0;
 			min-height: 100%;
+
+			.row {
+				display: grid;
+				grid-template-areas:
+					'pairs sell-amount buy-amount'
+					'timestamp status view';
+				grid-template-columns: repeat(3, 1fr);
+				grid-gap: 8px;
+				justify-content: center;
+				align-items: center;
+				white-space: nowrap;
+				border-bottom: 1px solid var(--section-border-color);
+				padding: 10px 0;
+
+				&:last-child {
+					border-bottom: none;
+				}
+
+				.timestamp {
+					grid-area: timestamp;
+					white-space: nowrap;
+				}
+
+				.pairs {
+					grid-area: pairs;
+				}
+
+				.sell-amount {
+					grid-area: sell-amount;
+					justify-self: center;
+				}
+
+				.buy-amount {
+					grid-area: buy-amount;
+					justify-self: end;
+				}
+
+				.status {
+					grid-area: status;
+					justify-self: center;
+				}
+
+				.view {
+					grid-area: view;
+					justify-self: end;
+				}
+			}
+
+			@media only screen and (min-width: 1260px) {
+				.row {
+					grid-template-areas: 'timestamp pairs sell-amount buy-amount status view';
+					grid-template-columns: 11% 18% 22% 22%;
+					justify-content: unset;
+					white-space: unset;
+
+					.sell-amount {
+						justify-self: start;
+					}
+
+					.buy-amount {
+						justify-self: start;
+					}
+
+					.status {
+						justify-self: center;
+					}
+
+					.view {
+						justify-self: end;
+					}
+				}
+			}
 
 			table {
 				display: table;
