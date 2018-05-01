@@ -1,0 +1,113 @@
+@import '../../styles/variables';
+
+.Wallet--Info {
+	display: flex;
+	flex-direction: column;
+
+	.currency-info {
+		display: flex;
+		justify-content: space-evenly;
+		margin-top: 30px;
+		padding: 20px;
+
+		.item {
+			position: relative;
+			text-align: center;
+
+			> h6 {
+				font-size: 15px;
+				color: var(--text-color);
+				font-weight: 600;
+			}
+
+			> span {
+				font-size: 40px;
+				font-weight: 300;
+			}
+
+			.price-change {
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				bottom: -20px;
+				font-size: 12px;
+				font-weight: normal;
+				color: var(--red-color);
+				white-space: nowrap;
+
+				.arrow {
+					position: relative;
+					bottom: -12px;
+					width: 0;
+					height: 0;
+					border-left: 4px solid transparent;
+					border-right: 4px solid transparent;
+					border-top: 8px solid var(--red-color);
+				}
+
+				.percentage {
+					margin-left: 3px;
+				}
+			}
+
+			.price-change.is-positive {
+				color: var(--green-color);
+
+				.arrow {
+					bottom: 11px;
+					width: 0;
+					height: 0;
+					border: unset;
+					border-left: 4px solid transparent;
+					border-right: 4px solid transparent;
+					border-bottom: 8px solid var(--green-color);
+				}
+			}
+		}
+	}
+
+	.button-wrapper {
+		align-self: center;
+		margin-top: 40px;
+
+		.modal-wrapper {
+			display: inline-block;
+		}
+
+		.OpenModalButton {
+			width: 176px;
+			margin: 0 8px;
+			background: var(--background-color);
+			border: 1px solid var(--border-color);
+
+			&__value {
+				color: rgba(255, 255, 255, 0.8);
+				transition: color 0.1s ease-in;
+			}
+
+			&__helper {
+				transition: opacity 0.1s ease-in;
+			}
+
+			&:hover {
+				border: 1px solid hsl(216, 23%, 30%);
+
+				.Button__value {
+					color: rgba(255, 255, 255, 1);
+				}
+
+				.Button__helper {
+					opacity: 0;
+				}
+			}
+
+			&:active {
+				border: 1px solid var(--border-color);
+
+				.Button__value {
+					color: rgba(255, 255, 255, 0.8);
+				}
+			}
+		}
+	}
+}
