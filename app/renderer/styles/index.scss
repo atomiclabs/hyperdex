@@ -11,15 +11,11 @@
 }
 
 body {
-	background-color: $background-color;
+	background-color: var(--background-color);
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: normal;
 	color: #fff;
 	overflow: hidden;
-}
-
-.dark-mode body {
-	background-color: $dark-mode-background-color;
 }
 
 h1 {
@@ -55,7 +51,7 @@ p.secondary {
 }
 
 a {
-	color: $primary-color;
+	color: var(--primary-color);
 	transition: color 0.1s ease-in-out;
 
 	&:hover {

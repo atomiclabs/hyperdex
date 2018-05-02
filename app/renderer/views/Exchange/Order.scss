@@ -16,7 +16,8 @@
 			}
 
 			.Select-control {
-				background: #2f3948;
+				background: var(--input-lighter-background-color);
+				border-color: var(--input-lighter-border-color);
 			}
 		}
 
@@ -49,7 +50,7 @@
 			// Chrome doesn't yet support making `thead` sticky...
 			// https://bugs.chromium.org/p/chromium/issues/detail?id=702927
 			thead tr:first-child th {
-				background-color: var(--background-color2);
+				background-color: var(--widget-background-color);
 				position: sticky;
 				top: 0;
 				font-size: 12px;

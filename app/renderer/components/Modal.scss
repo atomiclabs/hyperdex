@@ -111,7 +111,7 @@
 		z-index: 1001;
 		border-radius: 3px;
 		box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
-		background-color: #232b3a;
+		background-color: var(--widget-background-color);
 		text-align: left;
 
 		header {

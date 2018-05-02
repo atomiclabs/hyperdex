@@ -1,8 +1,4 @@
-/* stylelint-disable selector-max-class */
 @import '../styles/variables';
-
-$select-background-color: #273142;
-$select-border-color: #313d4f;
 
 .Select {
 	position: relative;
@@ -37,9 +33,9 @@ $select-border-color: #313d4f;
 }
 
 .Select-control {
-	background: $select-background-color;
+	background: var(--input-background-color);
 	border-radius: 4px;
-	border: 1px solid $select-border-color;
+	border: 1px solid var(--input-border-color);
 	color: #fff;
 	display: table;
 	border-spacing: 0;
@@ -248,9 +244,8 @@ $select-border-color: #313d4f;
 
 .Select-menu-outer {
 	border-radius: 4px;
-	background-color: $select-background-color;
-	border: 1px solid $select-border-color;
-	border-top-color: lighten($select-border-color, 5%);
+	background-color: var(--input-background-color);
+	border: 1px solid var(--input-border-color);
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
 	box-sizing: border-box;
 	margin-top: 4px;
@@ -290,7 +285,7 @@ $select-border-color: #313d4f;
 }
 
 .Select-option:hover {
-	background: $select-border-color;
+	background: var(--input-border-color);
 	color: $primary-color;
 }
 

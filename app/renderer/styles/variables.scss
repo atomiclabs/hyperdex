@@ -1,28 +1,34 @@
 :root {
 	--primary-color: #687bf7;
 	--secondary-color: #8050ef;
-	--background-color: #222c3c;
-	--background-color2: #273142;
+	--background-color: hsla(216, 27%, 14.5%, 1);
+	--widget-background-color: hsla(216, 27%, 18%, 1);
+	--input-background-color: hsla(216, 27%, 16%, 1);
+	--input-border-color: hsla(216, 27%, 22%, 1);
+	--input-lighter-background-color: hsla(216, 27%, 20%, 1);
+	--input-lighter-border-color: hsla(216, 27%, 24%, 1);
 	--text-color: #7f8fa4;
 	--red-color: #f80759;
 	--green-color: #28af60;
 	--primary-gradient: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+	--button-gradient: linear-gradient(180deg, hsla(216, 27%, 24%, 1) 0%, hsla(216, 27%, 20%, 1) 100%);
 	--border-color: #313d4f;
 	--section-border-color: #313d4e;
+	--pie-border-color: hsla(216, 27%, 16%, 1);
+	--pie-fill-color: #3d4e83;
 }
 
 // TODO: We have to duplicate the variables here as Sass doesn't support native CSS variables in color functions
 // See: https://github.com/sass/node-sass/issues/2237
 $primary-color: #687bf7;
 $secondary-color: #8050ef;
-$background-color: #222c3c;
-$background-color2: #273142;
+$background-color: hsla(216, 27%, 14.5%, 1);
+$widget-background-color: hsla(216, 27%, 18%, 1);
 $text-color: #7f8fa4;
 $gray-color: #7f8fa4;
 $red-color: #f80759;
 $green-color: #28af60;
 $primary-gradient: linear-gradient(180deg, $primary-color 0%, $secondary-color 100%);
-$button-gradient: linear-gradient(180deg, #516173 0%, #3b4857 100%);
 $label-text-color: $gray-color;
 $disabled-text-color: $gray-color;
 
@@ -30,9 +36,6 @@ $success-color: $green-color;
 $error-color: $red-color;
 $warning-color: #f7981c;
 $info-color: #1991eb;
-
-// TODO: Cleanup
-$dark-mode-background-color: $background-color;
 
 @mixin colored-icon-no-size($icon, $color: null) {
 	position: relative;
@@ -59,17 +62,17 @@ $dark-mode-background-color: $background-color;
 @mixin icon-button {
 	width: 36px;
 	height: 36px;
-	border: 1px solid #313d4f;
+	border: 1px solid var(--input-border-color);
 	border-radius: 4px;
-	background-color: #222c3c;
+	background-color: var(--input-background-color);
 	transition: background-color 0.3s ease-in;
 
 	&:hover {
-		background-color: #283447;
+		background-color: var(--widget-background-color);
 	}
 
 	&:active {
-		background-color: #1e2736;
+		background-color: var(--input-background-color);
 		transition: none;
 	}
 }

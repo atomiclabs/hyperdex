@@ -6,7 +6,7 @@
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: $dark-mode-background-color;
+	background: var(--background-color);
 
 	img {
 		margin-top: 160px;
