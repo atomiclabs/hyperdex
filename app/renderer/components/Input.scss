@@ -2,7 +2,6 @@
 
 .Input {
 	--icon-container-width: 36px;
-	--input-border-color: #313d4f;
 	display: inline-block;
 	margin: 5px 0;
 	position: relative;
@@ -31,7 +30,7 @@
 		border-radius: 4px;
 		position: relative;
 		color: #90959d;
-		background: #222c3c;
+		background: var(--input-background-color);
 		outline: none;
 		font-family: inherit;
 		font-size: 14px;

@@ -36,9 +36,9 @@ const PieChart = () => {
 					isAnimationActive={false}
 					innerRadius={90}
 					outerRadius={126}
-					stroke="#273142"
+					stroke="var(--pie-border-color)"
 					strokeWidth={3}
-					fill="#3a4778"
+					fill="var(--pie-fill-color)"
 				/>
 				<Tooltip
 					content={<CustomTooltip/>}
@@ -59,7 +59,7 @@ const PieChart = () => {
 						innerRadius={90}
 						outerRadius={124}
 						strokeWidth={0}
-						fill="#222c3c"
+						fill="var(--input-background-color)"
 					/>
 				</Chart>
 			</ResponsiveContainer>
