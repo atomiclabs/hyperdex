@@ -3,6 +3,7 @@ import React from 'react';
 import _ from 'lodash';
 import Input from 'components/Input';
 import TabView from './TabView';
+import './Preferences.scss';
 
 const config = electron.remote.require('./config');
 
@@ -41,8 +42,13 @@ class Form extends React.Component {
 }
 
 const Preferences = () => (
-	<TabView title="Preferences">
-		<Form/>
+	<TabView title="Preferences" className="Preferences">
+		<header>
+			<h2>Preferences</h2>
+		</header>
+		<main>
+			<Form/>
+		</main>
 	</TabView>
 );
 
