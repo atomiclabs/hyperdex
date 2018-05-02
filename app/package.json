@@ -11,7 +11,7 @@
 		"url": "http://lukechilds.co.uk"
 	},
 	"dependencies": {
-		"@sindresorhus/slugify": "^0.2.0",
+		"@sindresorhus/slugify": "^0.3.0",
 		"crypto-random-string": "^1.0.0",
 		"electron-better-ipc": "^0.1.0",
 		"electron-context-menu": "^0.9.1",
@@ -27,7 +27,7 @@
 		"load-json-file": "^4.0.0",
 		"make-dir": "^1.2.0",
 		"node-dir": "^0.1.17",
-		"plur": "^3.0.0",
+		"plur": "^3.0.1",
 		"randoma": "^1.2.0",
 		"write-json-file": "^2.3.0"
 	},

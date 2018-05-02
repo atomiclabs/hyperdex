@@ -6,9 +6,9 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/fnv1a/-/fnv1a-1.0.0.tgz#d419dd111b4d7fc3b87f97d86849bc23316149de"
 
-"@sindresorhus/slugify@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@sindresorhus/slugify/-/slugify-0.2.0.tgz#fc293151d5ba76089df18ab17f41d4ddf2eacad7"
+"@sindresorhus/slugify@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@sindresorhus/slugify/-/slugify-0.3.0.tgz#39ec81f542b4fcaf7f67fbc8916efa990b65e139"
   dependencies:
     escape-string-regexp "^1.0.5"
     lodash.deburr "^4.1.0"
@@ -525,9 +525,9 @@ pkg-up@^2.0.0:
   dependencies:
     find-up "^2.1.0"
 
-plur@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/plur/-/plur-3.0.0.tgz#903627ae14df46911161925d8155d7950a8472b3"
+plur@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/plur/-/plur-3.0.1.tgz#268652d605f816699b42b86248de73c9acd06a7c"
   dependencies:
     irregular-plurals "^2.0.0"
 
