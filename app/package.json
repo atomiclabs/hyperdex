@@ -13,7 +13,7 @@
 	"dependencies": {
 		"@sindresorhus/slugify": "^0.3.0",
 		"crypto-random-string": "^1.0.0",
-		"electron-better-ipc": "^0.1.0",
+		"electron-better-ipc": "^0.1.1",
 		"electron-context-menu": "^0.9.1",
 		"electron-debug": "^1.5.0",
 		"electron-serve": "^0.1.0",
