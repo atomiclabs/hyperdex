@@ -1,6 +1,6 @@
 import {clipboard} from 'electron';
 import React from 'react';
-import QRCode from 'qrcode.react'; // eslint-disable-line import/extensions
+import QRCode from 'qrcode.react';
 import Modal from 'components/Modal';
 import Button from 'components/Button';
 import Input from 'components/Input';

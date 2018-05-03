@@ -1,4 +1,3 @@
-/* eslint-disable react/no-string-refs */
 import React from 'react';
 import _ from 'lodash';
 
@@ -21,13 +20,15 @@ function getTextWidth(text, options) {
 class WrapWidth extends React.Component {
 	state = {};
 
+	containerRef = React.createRef();
+
 	recalculate() {
 		const words = this.props.children.split(' ');
 		const chunks = _.chunk(words, this.props.wordsPerLine);
 
 		const widths = [];
 		for (const chunk of chunks) {
-			const width = getTextWidth(chunk.join(' '), {element: this.refs.container});
+			const width = getTextWidth(chunk.join(' '), {element: this.containerRef.current});
 			widths.push(width);
 		}
 
@@ -54,7 +55,7 @@ class WrapWidth extends React.Component {
 		const style = this.state.width ? {width: this.state.width + WIGGLE_ROOM} : {};
 
 		return (
-			<div ref="container" className={this.props.className} style={style}>
+			<div ref={this.containerRef} className={this.props.className} style={style}>
 				{this.props.children}
 			</div>
 		);
