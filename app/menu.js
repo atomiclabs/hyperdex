@@ -93,7 +93,7 @@ const createDebugMenu = () => {
 				},
 			},
 			{
-				label: 'Copy Swap Data',
+				label: 'Copy Swaps to Clipboard',
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					const swaps = await runJS('_swapDB.getSwaps()', win);
