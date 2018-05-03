@@ -1,7 +1,8 @@
 import title from 'title';
 import React from 'react';
+import formatDate from 'date-fns/format';
 import Modal from 'components/Modal';
-import Image from 'components/Image';
+import CurrencyIcon from 'components/CurrencyIcon';
 import swapTransactions from './../../swap-transactions';
 import './SwapDetails.scss';
 
@@ -59,34 +60,31 @@ class SwapDetails extends React.Component {
 				<Modal
 					className="SwapDetails"
 					title={`${baseCurrency}/${quoteCurrency} Swap - ${title(swap.statusFormatted)}`}
+					icon="/assets/swap-icon.svg"
 					open={this.state.isOpen}
 					onClose={this.close}
 					width="560px"
 				>
 					<React.Fragment>
-						<div className="section">
-
-							{/* <Troll> */}
-							<center>
-								<Image
-									url={`/assets/cryptocurrency-icons/${quoteCurrency.toLowerCase()}.svg`}
-									fallbackUrl="/assets/cryptocurrency-icons/generic.svg"
-								/>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'=>'}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<Image
-									url={`/assets/cryptocurrency-icons/${baseCurrency.toLowerCase()}.svg`}
-									fallbackUrl="/assets/cryptocurrency-icons/generic.svg"
-								/>
-								<br/>
-								<br/>
-							</center>
-							{/* </Troll> */}
-
+						<div className="section overview">
+							<div className="quote">
+								<CurrencyIcon symbol={quoteCurrency}/>
+								<p>You exchanged:</p>
+								<p className="amount">{swap.broadcast.quoteCurrencyAmount} {quoteCurrency}</p>
+							</div>
+							<div className="arrow">→</div>
+							<div className="base">
+								<CurrencyIcon symbol={baseCurrency}/>
+								<p>You received:</p>
+								<p className="amount">{swap.broadcast.baseCurrencyAmount} {baseCurrency}</p>
+							</div>
+						</div>
+						<div className="section details">
 							<h4>ID:</h4>
 							<p>{swap.uuid}</p>
 
 							<h4>Date:</h4>
-							<p>{swap.timeStarted}</p>
+							<p>{formatDate(swap.timeStarted, 'HH:mm DD.MM.YY')}</p>
 
 							<h4>Your offer:</h4>
 							{prices}

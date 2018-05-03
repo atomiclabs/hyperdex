@@ -91,6 +91,7 @@ class Modal extends React.Component {
 		const {
 			children,
 			title,
+			icon,
 			className,
 			width,
 			animation,
@@ -125,6 +126,9 @@ class Modal extends React.Component {
 				>
 					<header>
 						<span className="Modal__close" onClick={this.closeHandler}/>
+						{icon &&
+							<img className="Modal__icon" src={icon}/>
+						}
 						<h1>{title}</h1>
 					</header>
 					<main>

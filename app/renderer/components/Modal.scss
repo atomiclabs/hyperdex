@@ -117,9 +117,16 @@
 		text-align: left;
 
 		header {
+			display: flex;
+			align-items: center;
 			position: relative;
-			padding: 20px 30px;
+			padding: 22px 30px;
 			border-bottom: 1px solid #364357;
+
+			.Modal__icon {
+				display: block;
+				margin-right: 10px;
+			}
 
 			h1 {
 				font-size: 17px;
@@ -130,9 +137,9 @@
 		}
 
 		main {
+			display: flex;
+			flex-direction: column;
 			margin: 30px;
-			overflow-x: hidden;
-			overflow-y: auto;
 
 			p {
 				font-size: 15px;
