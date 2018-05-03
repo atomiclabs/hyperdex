@@ -85,7 +85,7 @@ const SwapItem = ({swap}) => (
 		<td className="view">
 			{tradesContainer.state.activeView === 'OpenOrders' ?
 				<CancelButton swap={swap}/> :
-				<SwapDetails/>
+				<SwapDetails swap={swap}/>
 			}
 		</td>
 	</tr>
