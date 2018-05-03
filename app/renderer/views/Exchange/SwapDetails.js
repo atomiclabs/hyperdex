@@ -2,8 +2,8 @@ import title from 'title';
 import React from 'react';
 import Modal from 'components/Modal';
 import Image from 'components/Image';
-import './SwapDetails.scss';
 import swapTransactions from './../../swap-transactions';
+import './SwapDetails.scss';
 
 class SwapDetails extends React.Component {
 	state = {
@@ -61,6 +61,7 @@ class SwapDetails extends React.Component {
 					title={`${baseCurrency}/${quoteCurrency} Swap - ${title(swap.statusFormatted)}`}
 					open={this.state.isOpen}
 					onClose={this.close}
+					width="560px"
 				>
 					<React.Fragment>
 						<div className="section">
