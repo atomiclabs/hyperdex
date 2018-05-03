@@ -89,7 +89,7 @@ class SwapDB {
 				price: undefined,
 			},
 			transactions: [],
-			debug: {
+			_debug: {
 				request,
 				response,
 				messages,
