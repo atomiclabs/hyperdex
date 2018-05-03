@@ -119,3 +119,33 @@ td,
 th {
 	text-align: left;
 }
+
+/* Improved scrollbar style on Linux and Windows */
+:-webkit-any(.os-linux, .os-win32) {
+	::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	::-webkit-scrollbar-track {
+		border-radius: 6px;
+		box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 6px;
+		background: rgba(0, 0, 0, 0.16);
+		box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.2);
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		border-radius: 6px;
+		background: rgba(0, 0, 0, 0.2);
+		box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.2);
+	}
+
+	::-webkit-scrollbar-thumb:active {
+		border-radius: 6px; /* This has to be on both :active and :hover too for some weird reason */
+		background: rgba(0, 0, 0, 0.3);
+		box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+	}
+}

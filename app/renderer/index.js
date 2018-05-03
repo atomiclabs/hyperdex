@@ -12,6 +12,9 @@ require('electron-unhandled')({
 	showDialog: !is.development,
 });
 
+// Enable OS specific styles
+document.documentElement.classList.add(`os-${process.platform}`);
+
 render((
 	<Provider>
 		<App/>
