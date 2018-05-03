@@ -36,6 +36,7 @@
 		"recharts": "^1.0.0-beta.10",
 		"round-to": "^3.0.0",
 		"sass-extras": "^0.3.0",
+		"title": "^3.2.0",
 		"unstated": "^2.0.2",
 		"unstated-debug": "^0.2.0"
 	},
