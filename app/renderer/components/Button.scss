@@ -110,7 +110,7 @@
 	}
 
 	&--primary {
-		background: $primary-gradient;
+		background: var(--primary-gradient);
 
 		&:active {
 			.Button__helper {

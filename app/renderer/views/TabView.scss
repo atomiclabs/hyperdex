@@ -145,7 +145,7 @@ h6 {
 				color: hsla(0, 0, 90%, 1);
 
 				.icon {
-					background: $primary-gradient;
+					background: var(--primary-gradient);
 				}
 			}
 		}

@@ -72,11 +72,11 @@
 }
 
 .Select-placeholder {
-	color: $disabled-text-color;
+	color: var(--text-color);
 }
 
 .is-open > .Select-control {
-	border: 1px solid $primary-color;
+	border: 1px solid var(--primary-color);
 }
 
 .has-value.is-clearable.Select--single > .Select-control .Select-value {
@@ -169,7 +169,7 @@
 }
 
 .Select-clear-zone:hover {
-	color: $error-color;
+	color: var(--error-color);
 }
 
 .Select-clear {
@@ -201,8 +201,8 @@
 	transform: rotate(45deg);
 	border-left: none;
 	border-top: none;
-	border-right: 1px $gray-color solid;
-	border-bottom: 1px $gray-color solid;
+	border-right: 1px var(--text-color) solid;
+	border-bottom: 1px var(--text-color) solid;
 }
 
 .is-open .Select-arrow,
@@ -279,7 +279,7 @@
 .Select-option:hover,
 .Select--multi .Select-option.is-focused {
 	background: var(--input-border-color);
-	color: $primary-color;
+	color: var(--primary-color);
 }
 
 .Select-option.is-disabled {
@@ -291,7 +291,7 @@
 	cursor: default;
 	display: block;
 	padding: 12px 16px;
-	color: $label-text-color;
+	color: var(--text-color);
 	font-size: 0.9em;
 	font-weight: normal;
 }

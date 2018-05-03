@@ -3,8 +3,8 @@
 .CreatePortfolio {
 	.generated-seed-phrase-container {
 		background-color: rgba(248, 7, 89, 0.05);
-		border: 1px solid $red-color;
-		color: $red-color;
+		border: 1px solid var(--error-color);
+		color: var(--error-color);
 		border-radius: 4px;
 		position: relative;
 		padding: 10px 60px;

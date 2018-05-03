@@ -7,7 +7,7 @@ $icon: '<svg width="8" height="13" xmlns:xlink="http://www.w3.org/1999/xlink"><u
 	@include icon-button;
 
 	&::after {
-		@include colored-icon($icon, $text-color);
+		@include colored-icon($icon, var(--text-color));
 		top: 1px;
 	}
 }
