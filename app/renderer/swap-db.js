@@ -2,6 +2,8 @@ import PouchDB from 'pouchdb-browser';
 import pouchDBFind from 'pouchdb-find';
 import Emittery from 'emittery';
 import PQueue from 'p-queue';
+import roundTo from 'round-to';
+import swapTransactions from './swap-transactions';
 
 PouchDB.plugin(pouchDBFind);
 
@@ -62,7 +64,7 @@ class SwapDB {
 	}
 
 	_formatSwap(data) {
-		const {uuid, timeStarted, response, messages} = data;
+		const {uuid, timeStarted, request, response, messages} = data;
 
 		const swap = {
 			uuid,
@@ -70,10 +72,28 @@ class SwapDB {
 			status: 'pending',
 			statusFormatted: 'pending',
 			baseCurrency: response.base,
-			baseCurrencyAmount: response.basevalue,
 			quoteCurrency: response.rel,
-			quoteCurrencyAmount: response.relvalue,
+			requested: {
+				baseCurrencyAmount: roundTo(request.amount, 8),
+				quoteCurrencyAmount: roundTo(request.total, 8),
+				price: roundTo(request.price, 8),
+			},
+			broadcast: {
+				baseCurrencyAmount: roundTo(response.basevalue, 8),
+				quoteCurrencyAmount: roundTo(response.relvalue, 8),
+				price: roundTo(response.relvalue / response.basevalue, 8),
+			},
+			executed: {
+				baseCurrencyAmount: undefined,
+				quoteCurrencyAmount: undefined,
+				price: undefined,
+			},
 			transactions: [],
+			_debug: {
+				request,
+				response,
+				messages,
+			},
 		};
 
 		messages.forEach(message => {
@@ -93,6 +113,10 @@ class SwapDB {
 
 			if (message.method === 'tradestatus' && message.status === 'finished') {
 				swap.status = 'completed';
+
+				swap.executed.baseCurrencyAmount = roundTo(message.srcamount, 8);
+				swap.executed.quoteCurrencyAmount = roundTo(message.destamount, 8);
+				swap.executed.price = roundTo(message.destamount / message.srcamount, 8);
 			}
 
 			if (message.method === 'failed') {
@@ -101,15 +125,14 @@ class SwapDB {
 
 			swap.statusFormatted = swap.status;
 			if (swap.status === 'swapping') {
-				const stages = ['myfee', 'bobdeposit', 'alicepayment', 'bobpayment'];
 				const swapProgress = swap.transactions
 					.map(tx => tx.stage)
 					.reduce((prevStageLevel, stage) => {
-						const newStageLevel = stages.indexOf(stage) + 1;
+						const newStageLevel = swapTransactions.indexOf(stage) + 1;
 						return Math.max(prevStageLevel, newStageLevel);
 					}, 0);
 
-				swap.statusFormatted = `swap ${swapProgress}/${stages.length}`;
+				swap.statusFormatted = `swap ${swapProgress}/${swapTransactions.length}`;
 			}
 		});
 

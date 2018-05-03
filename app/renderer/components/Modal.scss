@@ -105,6 +105,8 @@
 	}
 
 	&__dialog {
+		display: flex;
+		flex-direction: column;
 		width: 400px;
 		max-height: 90vh;
 		margin-bottom: 20px;
@@ -129,6 +131,8 @@
 
 		main {
 			margin: 30px;
+			overflow-x: hidden;
+			overflow-y: auto;
 
 			p {
 				font-size: 15px;

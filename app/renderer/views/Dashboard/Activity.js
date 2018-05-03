@@ -13,7 +13,7 @@ const Empty = () => (
 
 const ActivityItem = ({swap}) => {
 	const {cmcPriceUsd} = appContainer.getCurrency(swap.baseCurrency);
-	const totalUsd = swap.baseCurrencyAmount * cmcPriceUsd;
+	const totalUsd = swap.broadcast.baseCurrencyAmount * cmcPriceUsd;
 
 	return (
 		<tr>
@@ -30,7 +30,7 @@ const ActivityItem = ({swap}) => {
 				</div>
 			</td>
 			<td className="value">
-				<div className="value-title">+{swap.baseCurrencyAmount} {swap.baseCurrency}</div>
+				<div className="value-title">+{swap.broadcast.baseCurrencyAmount} {swap.baseCurrency}</div>
 				<div className="value-description">≈ {formatCurrency(totalUsd)}</div>
 			</td>
 		</tr>

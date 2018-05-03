@@ -92,6 +92,7 @@ class Modal extends React.Component {
 			children,
 			title,
 			className,
+			width,
 			animation,
 			animationDuration,
 			closeOnEsc,
@@ -119,6 +120,7 @@ class Modal extends React.Component {
 					className={`Modal__dialog Modal-${animation}-${state.animationType}`}
 					style={{
 						animationDuration: `${animationDuration}ms`,
+						width,
 					}}
 				>
 					<header>

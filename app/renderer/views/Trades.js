@@ -77,15 +77,15 @@ const SwapItem = ({swap}) => (
 	<tr>
 		<td className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD.MM.YY')}</td>
 		<td className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</td>
-		<td className="sell-amount">-{swap.quoteCurrencyAmount} {swap.quoteCurrency}</td>
-		<td className="buy-amount">+{swap.baseCurrencyAmount} {swap.baseCurrency}</td>
+		<td className="sell-amount">-{swap.broadcast.quoteCurrencyAmount} {swap.quoteCurrency}</td>
+		<td className="buy-amount">+{swap.broadcast.baseCurrencyAmount} {swap.baseCurrency}</td>
 		<td className="status">
 			<div className="status__icon" data-status={swap.status}>{swap.statusFormatted}</div>
 		</td>
 		<td className="view">
 			{tradesContainer.state.activeView === 'OpenOrders' ?
 				<CancelButton swap={swap}/> :
-				<SwapDetails/>
+				<SwapDetails swap={swap}/>
 			}
 		</td>
 	</tr>
