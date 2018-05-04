@@ -71,6 +71,7 @@ class SwapDB {
 			timeStarted,
 			status: 'pending',
 			statusFormatted: 'pending',
+			progress: 0,
 			baseCurrency: response.base,
 			quoteCurrency: response.rel,
 			requested: {
@@ -113,6 +114,7 @@ class SwapDB {
 
 			if (message.method === 'tradestatus' && message.status === 'finished') {
 				swap.status = 'completed';
+				swap.progress = 1;
 
 				swap.transactions.push({
 					stage: 'alicespend',
@@ -140,6 +142,7 @@ class SwapDB {
 					}, 0);
 
 				swap.statusFormatted = `swap ${swapProgress}/${swapTransactions.length}`;
+				swap.progress = swapProgress / swapTransactions.length;
 			}
 		});
 

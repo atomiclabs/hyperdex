@@ -114,7 +114,7 @@ class SwapDetails extends React.Component {
 							</div>
 						</div>
 						<div className="section progress">
-							<Progress value={0.8}/>
+							<Progress value={swap.progress}/>
 							<p>{title(swap.statusFormatted)}</p>
 						</div>
 						<div className="section details">
