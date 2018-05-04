@@ -100,6 +100,7 @@ class SwapDB {
 		messages.forEach(message => {
 			if (message.method === 'connected') {
 				swap.status = 'matched';
+				swap.progress = 1 / (swapTransactions.length + 1);
 			}
 
 			if (message.method === 'update') {
@@ -142,7 +143,7 @@ class SwapDB {
 					}, 0);
 
 				swap.statusFormatted = `swap ${swapProgress}/${swapTransactions.length}`;
-				swap.progress = swapProgress / swapTransactions.length;
+				swap.progress = (swapProgress + 1) / (swapTransactions.length + 1);
 			}
 		});
 
