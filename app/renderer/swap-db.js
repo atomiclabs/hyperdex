@@ -114,6 +114,13 @@ class SwapDB {
 			if (message.method === 'tradestatus' && message.status === 'finished') {
 				swap.status = 'completed';
 
+				swap.transactions.push({
+					stage: 'alicespend',
+					coin: message.bob,
+					txid: message.paymentspent,
+					amount: message.srcamount,
+				});
+
 				swap.executed.baseCurrencyAmount = roundTo(message.srcamount, 8);
 				swap.executed.quoteCurrencyAmount = roundTo(message.destamount, 8);
 				swap.executed.price = roundTo(message.destamount / message.srcamount, 8);
