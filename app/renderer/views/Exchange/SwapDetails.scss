@@ -1,3 +1,13 @@
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
 .SwapDetails .Modal__dialog {
 	.section {
 		margin: 10px 0;
@@ -74,7 +84,7 @@
 		.transactions {
 			display: flex;
 			justify-content: space-between;
-			margin-bottom: 20px;
+			margin-bottom: 40px;
 
 			h6 {
 				font-size: 12px;
@@ -84,8 +94,61 @@
 			}
 
 			p {
+				margin: 0;
 				font-size: 14px;
 				color: rgba(255, 255, 255, 0.8);
+			}
+		}
+
+		.offer {
+			justify-content: space-evenly;
+			margin-left: 20px;
+			margin-right: 20px;
+			text-align: left;
+
+			h6 {
+				text-align: center;
+			}
+
+			span {
+				display: inline-block;
+				width: 36px;
+				text-align: right;
+				color: var(--text-color);
+			}
+		}
+
+		.transactions {
+			justify-content: space-evenly;
+
+			.item {
+				display: flex;
+				flex-direction: column;
+				justify-items: center;
+				align-items: center;
+				background: rgba(0, 0, 0, 0.08);
+				border-radius: 4px;
+				padding: 10px;
+				position: relative;
+				animation: fadeIn 0.5s linear;
+
+				h6 {
+					margin-bottom: 6px;
+				}
+
+				p {
+					line-height: 1.4;
+				}
+			}
+
+			.arrow {
+				align-self: center;
+				font-size: 14px;
+				color: rgba(255, 255, 255, 0.25);
+
+				&:first-child {
+					display: none;
+				}
 			}
 		}
 	}

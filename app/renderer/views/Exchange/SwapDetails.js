@@ -5,6 +5,7 @@ import Modal from 'components/Modal';
 import Progress from 'components/Progress';
 import CurrencyIcon from 'components/CurrencyIcon';
 import swapTransactions from './../../swap-transactions';
+import {zeroPadFraction} from './../../util';
 import './SwapDetails.scss';
 
 const stageToTitle = new Map([
@@ -32,33 +33,45 @@ class SwapDetails extends React.Component {
 		const {swap} = this.props;
 		const {baseCurrency, quoteCurrency} = swap;
 
+		let hasTransactions = false;
 		const transactions = swapTransactions.map(stage => {
 			const tx = swap.transactions.find(tx => tx.stage === stage);
 
+			if (!tx) {
+				return null;
+			}
+
+			hasTransactions = true;
+
 			return (
-				<div key={stage}>
-					<h6 title={tx && tx.txid}>{stageToTitle.get(stage)}</h6>
-					{tx ? (
-						<p>{tx.amount} {tx.coin}</p>
-					) : (
-						<p>Incomplete</p>
-					)}
-				</div>
+				<React.Fragment key={stage}>
+					<div className="arrow">→</div>
+					<div className="item" title={tx.txid}>
+						<h6>{stageToTitle.get(stage)}</h6>
+						<p>{tx.amount}<br/>{tx.coin}</p>
+					</div>
+				</React.Fragment>
 			);
 		});
 
-		const prices = ['requested', 'broadcast', 'executed'].map(value => (
-			<div key={value}>
-				<h6>{title(value)}</h6>
-				<p>
-					Buy: {swap[value].baseCurrencyAmount} {baseCurrency}
-					<br/>
-					For: {swap[value].quoteCurrencyAmount} {quoteCurrency}
-					<br/>
-					Price: {swap[value].price} {quoteCurrency}
-				</p>
-			</div>
-		));
+		const prices = ['requested', 'broadcast', 'executed'].map(value => {
+			if (!swap[value].price) {
+				return null;
+			}
+
+			return (
+				<div key={value}>
+					<h6>{title(value)}</h6>
+					<p>
+						<span className="label">Buy:</span> {zeroPadFraction(swap[value].baseCurrencyAmount)} {baseCurrency}
+						<br/>
+						<span className="label">For:</span> {zeroPadFraction(swap[value].quoteCurrencyAmount)} {quoteCurrency}
+						<br/>
+						<span className="label">Price:</span> {zeroPadFraction(swap[value].price)} {quoteCurrency}
+					</p>
+				</div>
+			);
+		});
 
 		const overviewData = (() => {
 			let overview = {
@@ -93,7 +106,7 @@ class SwapDetails extends React.Component {
 			<div className="modal-wrapper">
 				<Modal
 					className="SwapDetails"
-					title={`${baseCurrency}/${quoteCurrency} Swap - ${formatDate(swap.timeStarted, 'HH:mm DD.MM.YY')}`}
+					title={`${baseCurrency}/${quoteCurrency} Swap \u{00A0}• \u{00A0}${formatDate(swap.timeStarted, 'HH:mm DD.MM.YY')}`}
 					icon="/assets/swap-icon.svg"
 					open={this.state.isOpen}
 					onClose={this.close}
@@ -122,12 +135,14 @@ class SwapDetails extends React.Component {
 							<div className="offer">
 								{prices}
 							</div>
-
-							<h4>Transactions</h4>
-							<div className="transactions">
-								{transactions}
-							</div>
-
+							{hasTransactions && (
+								<React.Fragment>
+									<h4>Transactions</h4>
+									<div className="transactions">
+										{transactions}
+									</div>
+								</React.Fragment>
+							)}
 							<p>ID: {swap.uuid}</p>
 						</div>
 					</React.Fragment>
