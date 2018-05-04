@@ -2,9 +2,18 @@ import title from 'title';
 import React from 'react';
 import formatDate from 'date-fns/format';
 import Modal from 'components/Modal';
+import Progress from 'components/Progress';
 import CurrencyIcon from 'components/CurrencyIcon';
 import swapTransactions from './../../swap-transactions';
 import './SwapDetails.scss';
+
+const stageToTitle = new Map([
+	['myfee', 'My Fee'],
+	['bobdeposit', 'Bob Deposit'],
+	['alicepayment', 'Alice Payment'],
+	['bobpayment', 'Bob Payment'],
+	['alicespend', 'Alice Spend'],
+]);
 
 class SwapDetails extends React.Component {
 	state = {
@@ -27,70 +36,103 @@ class SwapDetails extends React.Component {
 			const tx = swap.transactions.find(tx => tx.stage === stage);
 
 			return (
-				<React.Fragment key={stage}>
-					<code style={{fontSize: '12px'}}>{stage}</code>
+				<div key={stage}>
+					<h6 title={tx && tx.txid}>{stageToTitle.get(stage)}</h6>
 					{tx ? (
-						<React.Fragment>
-							<p>
-								{tx.amount} {tx.coin}
-								<br/>
-								{tx.txid}
-							</p>
-						</React.Fragment>
+						<p>{tx.amount} {tx.coin}</p>
 					) : (
 						<p>Incomplete</p>
 					)}
-				</React.Fragment>
+				</div>
 			);
 		});
 
 		const prices = ['requested', 'broadcast', 'executed'].map(value => (
-			<React.Fragment key={value}>
-				<h5>{title(value)}</h5>
+			<div key={value}>
+				<h6>{title(value)}</h6>
 				<p>
-					Buy {swap[value].baseCurrencyAmount} {baseCurrency} for {swap[value].quoteCurrencyAmount} {quoteCurrency}
+					Buy: {swap[value].baseCurrencyAmount} {baseCurrency}
 					<br/>
-					Price in {quoteCurrency}: {swap[value].price}
+					For: {swap[value].quoteCurrencyAmount} {quoteCurrency}
+					<br/>
+					Price: {swap[value].price} {quoteCurrency}
 				</p>
-			</React.Fragment>
+			</div>
 		));
+
+		const overviewData = (() => {
+			let overview = {
+				quoteTitle: 'Requesting:',
+				baseTitle: 'For:',
+				quoteAmount: swap.requested.quoteCurrencyAmount,
+				baseAmount: swap.requested.baseCurrencyAmount,
+			};
+
+			if (swap.broadcast.quoteCurrencyAmount) {
+				overview = {
+					quoteTitle: 'Exchanging:',
+					baseTitle: 'For:',
+					quoteAmount: swap.broadcast.quoteCurrencyAmount,
+					baseAmount: swap.broadcast.baseCurrencyAmount,
+				};
+			}
+
+			if (swap.executed.quoteCurrencyAmount) {
+				overview = {
+					quoteTitle: 'You exchanged:',
+					baseTitle: 'You received:',
+					quoteAmount: swap.executed.quoteCurrencyAmount,
+					baseAmount: swap.executed.baseCurrencyAmount,
+				};
+			}
+
+			return overview;
+		})();
 
 		return (
 			<div className="modal-wrapper">
 				<Modal
 					className="SwapDetails"
-					title={`${baseCurrency}/${quoteCurrency} Swap - ${title(swap.statusFormatted)}`}
+					title={`${baseCurrency}/${quoteCurrency} Swap - ${formatDate(swap.timeStarted, 'HH:mm DD.MM.YY')}`}
 					icon="/assets/swap-icon.svg"
 					open={this.state.isOpen}
 					onClose={this.close}
-					width="560px"
+					width="640px"
 				>
 					<React.Fragment>
 						<div className="section overview">
 							<div className="quote">
 								<CurrencyIcon symbol={quoteCurrency}/>
-								<p>You exchanged:</p>
-								<p className="amount">{swap.broadcast.quoteCurrencyAmount} {quoteCurrency}</p>
+								<p>{overviewData.quoteTitle}</p>
+								<p className="amount">{overviewData.quoteAmount} {quoteCurrency}</p>
 							</div>
 							<div className="arrow">→</div>
 							<div className="base">
 								<CurrencyIcon symbol={baseCurrency}/>
-								<p>You received:</p>
-								<p className="amount">{swap.broadcast.baseCurrencyAmount} {baseCurrency}</p>
+								<p>{overviewData.baseTitle}</p>
+								<p className="amount">{overviewData.baseAmount} {baseCurrency}</p>
 							</div>
 						</div>
+						<div className="section progress">
+							<Progress value={0.8}/>
+							<p>{title(swap.statusFormatted)}</p>
+						</div>
 						<div className="section details">
-							<h4>ID:</h4>
-							<p>{swap.uuid}</p>
+							<h4>Your offer</h4>
+							<div className="offer">
+								{prices}
+							</div>
 
-							<h4>Date:</h4>
-							<p>{formatDate(swap.timeStarted, 'HH:mm DD.MM.YY')}</p>
+							<h4>Transactions</h4>
+							<div className="transactions">
+								{transactions}
+								<div>
+									<h6>Alice Spend</h6>
+									<p>0.00001247 KMD</p>
+								</div>
+							</div>
 
-							<h4>Your offer:</h4>
-							{prices}
-
-							<h4>Transactions:</h4>
-							{transactions}
+							<p>ID: {swap.uuid}</p>
 						</div>
 					</React.Fragment>
 				</Modal>
