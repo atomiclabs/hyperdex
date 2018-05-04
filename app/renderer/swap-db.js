@@ -64,6 +64,9 @@ class SwapDB {
 	}
 
 	_formatSwap(data) {
+		const MATCHED_STEP = 1;
+		const TOTAL_PROGRESS_STEPS = swapTransactions.length + MATCHED_STEP;
+
 		const {uuid, timeStarted, request, response, messages} = data;
 
 		const swap = {
@@ -100,7 +103,7 @@ class SwapDB {
 		messages.forEach(message => {
 			if (message.method === 'connected') {
 				swap.status = 'matched';
-				swap.progress = 1 / (swapTransactions.length + 1);
+				swap.progress = MATCHED_STEP / TOTAL_PROGRESS_STEPS;
 			}
 
 			if (message.method === 'update') {
@@ -143,7 +146,7 @@ class SwapDB {
 					}, 0);
 
 				swap.statusFormatted = `swap ${swapProgress}/${swapTransactions.length}`;
-				swap.progress = (swapProgress + 1) / (swapTransactions.length + 1);
+				swap.progress = (swapProgress + MATCHED_STEP) / TOTAL_PROGRESS_STEPS;
 			}
 		});
 
