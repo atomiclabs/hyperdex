@@ -1,9 +1,13 @@
 .SwapDetails .Modal__dialog {
+	.section {
+		margin: 10px 0;
+	}
+
 	.overview {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 50px 0 80px; /* TODO: Figure out why this has to be set to so much */
+		padding: 0 0 20px; /* TODO: Figure out why this has to be set to so much */
 
 		.arrow {
 			color: var(--text-color);
@@ -19,8 +23,8 @@
 
 			img {
 				display: block;
-				width: 70px;
-				height: 70px;
+				width: 60px;
+				height: 60px;
 				margin-bottom: 8px;
 			}
 
@@ -36,8 +40,53 @@
 		}
 	}
 
+	.progress {
+		text-align: center;
+
+		.Progress {
+			box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.2);
+			margin-bottom: 5px;
+			border-radius: 100px;
+
+			&__bar {
+				border-radius: 100px;
+			}
+		}
+	}
+
 	.details {
 		flex: 1;
 		overflow-y: auto;
+		text-align: center;
+
+		h4 {
+			display: block;
+			width: 100%;
+			border-bottom: 1px solid var(--section-border-color);
+			padding-bottom: 6px;
+			margin-bottom: 16px;
+			text-transform: uppercase;
+			font-weight: normal;
+			color: var(--text-color);
+		}
+
+		.offer,
+		.transactions {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 20px;
+
+			h6 {
+				font-size: 12px;
+				color: var(--text-color);
+				margin: 0;
+				margin-bottom: 3px;
+			}
+
+			p {
+				font-size: 14px;
+				color: rgba(255, 255, 255, 0.8);
+			}
+		}
 	}
 }
