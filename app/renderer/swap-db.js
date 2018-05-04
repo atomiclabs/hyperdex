@@ -64,6 +64,9 @@ class SwapDB {
 	}
 
 	_formatSwap(data) {
+		const MATCHED_STEP = 1;
+		const TOTAL_PROGRESS_STEPS = swapTransactions.length + MATCHED_STEP;
+
 		const {uuid, timeStarted, request, response, messages} = data;
 
 		const swap = {
@@ -71,6 +74,7 @@ class SwapDB {
 			timeStarted,
 			status: 'pending',
 			statusFormatted: 'pending',
+			progress: 0,
 			baseCurrency: response.base,
 			quoteCurrency: response.rel,
 			requested: {
@@ -99,6 +103,7 @@ class SwapDB {
 		messages.forEach(message => {
 			if (message.method === 'connected') {
 				swap.status = 'matched';
+				swap.progress = MATCHED_STEP / TOTAL_PROGRESS_STEPS;
 			}
 
 			if (message.method === 'update') {
@@ -113,6 +118,7 @@ class SwapDB {
 
 			if (message.method === 'tradestatus' && message.status === 'finished') {
 				swap.status = 'completed';
+				swap.progress = 1;
 
 				swap.transactions.push({
 					stage: 'alicespend',
@@ -140,6 +146,7 @@ class SwapDB {
 					}, 0);
 
 				swap.statusFormatted = `swap ${swapProgress}/${swapTransactions.length}`;
+				swap.progress = (swapProgress + MATCHED_STEP) / TOTAL_PROGRESS_STEPS;
 			}
 		});
 
