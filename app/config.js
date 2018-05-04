@@ -17,6 +17,7 @@ module.exports = new Store({
 			'BTC',
 			'VTC',
 			'LTC',
+			'DOGE',
 		],
 	},
 });

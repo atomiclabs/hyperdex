@@ -27,6 +27,10 @@ const electrumServers = {
 		{ipaddr: '173.212.225.176', port: 50012},
 		{ipaddr: '136.243.45.140', port: 50012},
 	],
+	DOGE: [
+		{ipaddr: '173.212.225.176', port: 10060},
+		{ipaddr: '136.243.45.140', port: 10060},
+	],
 };
 
 export default electrumServers;
