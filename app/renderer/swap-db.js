@@ -77,6 +77,9 @@ class SwapDB {
 			progress: 0,
 			baseCurrency: response.base,
 			quoteCurrency: response.rel,
+			baseCurrencyAmount: roundTo(response.basevalue, 8),
+			quoteCurrencyAmount: roundTo(response.relvalue, 8),
+			price: roundTo(response.relvalue / response.basevalue, 8),
 			requested: {
 				baseCurrencyAmount: roundTo(request.amount, 8),
 				quoteCurrencyAmount: roundTo(request.total, 8),
@@ -127,9 +130,12 @@ class SwapDB {
 					amount: message.srcamount,
 				});
 
-				swap.executed.baseCurrencyAmount = roundTo(message.srcamount, 8);
-				swap.executed.quoteCurrencyAmount = roundTo(message.destamount, 8);
-				swap.executed.price = roundTo(message.destamount / message.srcamount, 8);
+				swap.baseCurrencyAmount = roundTo(message.srcamount, 8);
+				swap.quoteCurrencyAmount = roundTo(message.destamount, 8);
+				swap.price = roundTo(message.destamount / message.srcamount, 8);
+				swap.executed.baseCurrencyAmount = swap.baseCurrencyAmount;
+				swap.executed.quoteCurrencyAmount = swap.quoteCurrencyAmount;
+				swap.executed.price = swap.price;
 			}
 
 			if (message.method === 'failed') {

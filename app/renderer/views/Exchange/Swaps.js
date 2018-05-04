@@ -38,8 +38,8 @@ const SwapItem = ({swap}) => (
 	<div className="row">
 		<div className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD.MM')}</div>
 		<div className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</div>
-		<div className="sell-amount">-{swap.broadcast.quoteCurrencyAmount} {swap.quoteCurrency}</div>
-		<div className="buy-amount">+{swap.broadcast.baseCurrencyAmount} {swap.baseCurrency}</div>
+		<div className="sell-amount">-{swap.quoteCurrencyAmount} {swap.quoteCurrency}</div>
+		<div className="buy-amount">+{swap.baseCurrencyAmount} {swap.baseCurrency}</div>
 		<div className="status">
 			<div className="status__icon" data-status={swap.status}>{swap.statusFormatted}</div>
 		</div>
