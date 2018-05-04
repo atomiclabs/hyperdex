@@ -33,12 +33,15 @@ class SwapDetails extends React.Component {
 		const {swap} = this.props;
 		const {baseCurrency, quoteCurrency} = swap;
 
+		let hasTransactions = false;
 		const transactions = swapTransactions.map(stage => {
 			const tx = swap.transactions.find(tx => tx.stage === stage);
 
 			if (!tx) {
 				return null;
 			}
+
+			hasTransactions = true;
 
 			return (
 				<React.Fragment key={stage}>
@@ -132,12 +135,14 @@ class SwapDetails extends React.Component {
 							<div className="offer">
 								{prices}
 							</div>
-
-							<h4>Transactions</h4>
-							<div className="transactions">
-								{transactions}
-							</div>
-
+							{hasTransactions && (
+								<React.Fragment>
+									<h4>Transactions</h4>
+									<div className="transactions">
+										{transactions}
+									</div>
+								</React.Fragment>
+							)}
 							<p>ID: {swap.uuid}</p>
 						</div>
 					</React.Fragment>
