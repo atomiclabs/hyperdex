@@ -126,10 +126,6 @@ class SwapDetails extends React.Component {
 							<h4>Transactions</h4>
 							<div className="transactions">
 								{transactions}
-								<div>
-									<h6>Alice Spend</h6>
-									<p>0.00001247 KMD</p>
-								</div>
 							</div>
 
 							<p>ID: {swap.uuid}</p>
