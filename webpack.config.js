@@ -83,7 +83,7 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new CleanWebpackPlugin([PATHS.dist]),
+		new CleanWebpackPlugin([PATHS.dist], {verbose: false}),
 		new CopyPlugin([
 			{
 				context: 'app/renderer',
