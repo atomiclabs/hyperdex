@@ -2,6 +2,7 @@
 
 > [BarterDEX](https://barterdex.supernet.org) desktop app
 
+**This app is still in private testing phase. The repo has been made public for convenience. Please do not share it.**
 
 ## Install
 
