@@ -5,22 +5,56 @@ import appContainer from 'containers/App';
 import fireEvery from '../fire-every';
 import removeOrderBookTimes from '../remove-order-book-times';
 
-class ExchangeContainer extends Container {
-	state = {
-		baseCurrency: 'CHIPS',
-		quoteCurrency: 'KMD',
-		activeSwapsView: 'All',
-		swapHistory: [],
-		orderBook: {
-			bids: [],
-			asks: [],
-			biddepth: 0,
-			askdepth: 0,
-		},
-	};
+class SuperDuperContainer extends Container {
+	state = {};
 
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
+		this.resetState();
+	}
+
+	resetState() {
+		if (this.getInitialState) {
+			this.state = this.getInitialState();
+		}
+	}
+
+	connect(component) {
+		const originalComponentDidMount = component.componentDidMount.bind(component);
+		component.componentDidMount = (...args) => {
+			originalComponentDidMount(...args);
+			if (this.componentDidMount) {
+				this.componentDidMount();
+			}
+		};
+
+		const originalComponentWillUnmount = component.componentWillUnmount.bind(component);
+		component.componentWillUnmount = (...args) => {
+			originalComponentWillUnmount(...args);
+			if (this.componentWillUnmount) {
+				this.componentWillUnmount();
+			}
+		};
+	}
+}
+
+class ExchangeContainer extends SuperDuperContainer {
+	getInitialState() {
+		return {
+			baseCurrency: 'CHIPS',
+			quoteCurrency: 'KMD',
+			activeSwapsView: 'All',
+			swapHistory: [],
+			orderBook: {
+				bids: [],
+				asks: [],
+				biddepth: 0,
+				askdepth: 0,
+			},
+		};
+	}
+
+	componentDidMount() {
 		this.setSwapHistory();
 		appContainer.getSwapDB.then(swapDB => {
 			swapDB.on('change', this.setSwapHistory);
