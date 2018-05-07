@@ -2,6 +2,7 @@
 
 > [BarterDEX](https://barterdex.supernet.org) desktop app
 
+**The app is still in stealth mode, so please don't share it yet.**
 
 ## Install
 
