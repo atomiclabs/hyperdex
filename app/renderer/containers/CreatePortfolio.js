@@ -1,7 +1,7 @@
 import {remote} from 'electron';
 import bip39 from 'bip39';
 import {Container} from 'unstated';
-import loginContainer from '../containers/Login';
+import loginContainer from './Login';
 
 const {createPortfolio} = remote.require('./portfolio-util');
 

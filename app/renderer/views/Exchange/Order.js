@@ -134,7 +134,7 @@ class Bottom extends React.Component {
 	targetPriceButtonHandler = () => {
 		// TODO: Find a better way to calculate the optimal target price
 		const sortOrder = this.props.type === 'buy' ? 'asc' : 'desc';
-		const order = _.orderBy(this.props.getOrderBook(), ['price'], [sortOrder])[0];
+		const [order] = _.orderBy(this.props.getOrderBook(), ['price'], [sortOrder]);
 
 		if (!order) {
 			return;

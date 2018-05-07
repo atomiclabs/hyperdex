@@ -5,7 +5,7 @@ const Randoma = require('randoma');
 
 const createIconData = options => {
 	const random = new Randoma({seed: options.seed});
-	const size = options.size;
+	const {size} = options;
 	const sourceWidth = Math.ceil(size / 2);
 	const mirrorWidth = size - sourceWidth;
 
@@ -46,7 +46,7 @@ module.exports = options => {
 		options.color = random.arrayItem(options.color);
 	}
 
-	const scale = options.scale;
+	const {scale} = options;
 	const iconData = createIconData(options);
 	const sideLength = Math.sqrt(iconData.length);
 	const actualSideLength = sideLength * scale;

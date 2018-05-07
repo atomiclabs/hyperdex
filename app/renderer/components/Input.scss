@@ -2,6 +2,7 @@
 
 .Input {
 	--icon-container-width: 36px;
+	--view-width: 38px;
 	display: inline-block;
 	margin: 5px 0;
 	position: relative;
@@ -71,8 +72,6 @@
 			margin: 0 auto;
 		}
 	}
-
-	--view-width: 38px;
 
 	&--view {
 		input {

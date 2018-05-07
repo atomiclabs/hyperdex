@@ -35,8 +35,8 @@ const TextArea = ({
 					ref={ref}
 					disabled={disabled}
 					onChange={event => {
-						const target = event.target;
-						const value = target.value;
+						const {target} = event;
+						const {value} = target;
 
 						if (preventNewlines && /\r?\n/.test(value)) {
 							const form = target.closest('form');

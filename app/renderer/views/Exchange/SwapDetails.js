@@ -4,8 +4,8 @@ import formatDate from 'date-fns/format';
 import Modal from 'components/Modal';
 import Progress from 'components/Progress';
 import CurrencyIcon from 'components/CurrencyIcon';
-import swapTransactions from './../../swap-transactions';
-import {zeroPadFraction} from './../../util';
+import swapTransactions from '../../swap-transactions';
+import {zeroPadFraction} from '../../util';
 import './SwapDetails.scss';
 
 const stageToTitle = new Map([
