@@ -1,6 +1,6 @@
 {
 	"scripts": {
-		"init-project": "del-cli node_modules app/node_modules && yarn",
+		"init-project": "del-cli node_modules app/node_modules && yarn && git add .",
 		"postinstall": "electron-builder install-app-deps",
 		"lint": "xo && stylelint 'app/renderer/**/*.scss'",
 		"test": "yarn lint",
