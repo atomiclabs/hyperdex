@@ -1,5 +1,6 @@
 {
 	"scripts": {
+		"init-project": "yarn install --force",
 		"postinstall": "electron-builder install-app-deps",
 		"lint": "xo && stylelint 'app/renderer/**/*.scss'",
 		"test": "npm run lint",
@@ -8,7 +9,7 @@
 		"dev:start": "delay 1 && electron app",
 		"dev": "yarn && run-p dev:*",
 		"pack": "webpack && electron-builder --dir",
-		"dist": "webpack --mode=production && electron-builder --mac --linux --win",
+		"dist": "yarn install --force && webpack --mode=production && electron-builder --mac --linux --win",
 		"release": "np --no-publish"
 	},
 	"dependencies": {
@@ -49,7 +50,7 @@
 		"babel-preset-stage-3": "^6.24.1",
 		"clean-webpack-plugin": "^0.1.19",
 		"copy-webpack-plugin": "^4.5.1",
-		"cryptocurrency-icons": "cjdowner/cryptocurrency-icons",
+		"cryptocurrency-icons": "cjdowner/cryptocurrency-icons#68877c336de5f5cd69dc46de546edfde5331a148",
 		"css-loader": "^0.28.11",
 		"delay-cli": "^1.0.0",
 		"devtron": "^1.4.0",

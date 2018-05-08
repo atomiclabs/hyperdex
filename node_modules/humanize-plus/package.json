@@ -1,0 +1,66 @@
+{
+  "name": "humanize-plus",
+  "title": "Humanize",
+  "description": "A simple utility library for making the web more humane.",
+  "version": "1.8.2",
+  "license": "MIT",
+  "homepage": "https://github.com/HubSpot/humanize",
+  "main": "./dist/humanize.js",
+  "author": {
+    "name": "HubSpotDev",
+    "email": "devteam@hubspot.com",
+    "url": "dev.hubspot.com"
+  },
+  "maintainers": [
+    {
+      "name": "Jonathan Kim",
+      "email": "me@jonathan-kim.com",
+      "web": "http://jonathan-kim.com"
+    },
+    {
+      "name": "Bryan Ash",
+      "email": "ashbryanct@gmail.com",
+      "web": "http://github.com/b-ash"
+    },
+    {
+      "name": "Andy Aylward",
+      "email": "aaylward@gmail.com",
+      "web": "http://github.com/aaylward"
+    },
+    {
+      "name": "Nicholas Hwang",
+      "email": "geek@nicholashwang.com",
+      "web": "http://github.com/geekjuice"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/HubSpot/humanize.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HubSpot/humanize/issues"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "reinstall": "del node_modules && npm install",
+    "clean": "del dist",
+    "preuglify": "mkdir -p dist",
+    "uglify": "uglifyjs -cmo dist/humanize.min.js dist/humanize.js",
+    "watch": "babel --watch src -d dist",
+    "babel": "babel src -d dist",
+    "header": "./bin/header",
+    "build": "./bin/build",
+    "test": "node __tests__/runner.js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.6.5",
+    "babel-core": "^6.7.2",
+    "babel-preset-es2015-riot": "^1.0.3",
+    "del-cli": "^0.2.0",
+    "glob": "^7.0.3",
+    "jasmine": "^2.4.1",
+    "uglify-js": "^2.6.2"
+  }
+}

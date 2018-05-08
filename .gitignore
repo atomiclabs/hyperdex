@@ -1,3 +1,14 @@
-node_modules
 /dist
 /app/renderer-dist
+
+# Dependencies with large files we don't commit
+/node_modules/electron/dist
+/node_modules/cryptocurrency-icons/128/**/*.png
+/node_modules/cryptocurrency-icons/32@2x/**/*.png
+/node_modules/cryptocurrency-icons/32/**/*.png
+/node_modules/node-sass/vendor
+/node_modules/app-builder-bin-mac/app-builder
+/node_modules/fsevents/lib/binding/Release/node-*-darwin-x64/fse.node
+/node_modules/es5-ext/test
+/node_modules/webpack-addons/node_modules/jscodeshift/docs
+/node_modules/electron-react-devtools/devtools-full.gif

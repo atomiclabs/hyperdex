@@ -1,0 +1,34 @@
+{
+  "name": "the-argv",
+  "version": "1.0.0",
+  "description": "The part of argv you want",
+  "main": "index.js",
+  "scripts": {
+    "lint": "xo --space",
+    "pretest": "npm run -s lint",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joakimbeng/the-argv.git"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "argv",
+    "cli",
+    "process.argv",
+    "args"
+  ],
+  "author": "Joakim Carlstein <joakim@klei.se>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joakimbeng/the-argv/issues"
+  },
+  "homepage": "https://github.com/joakimbeng/the-argv#readme",
+  "devDependencies": {
+    "tape": "^4.0.3",
+    "xo": "^0.5.2"
+  }
+}

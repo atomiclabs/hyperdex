@@ -1,0 +1,24 @@
+{
+  "name": "keyboardevents-areequal",
+  "version": "0.2.2",
+  "description": "Check if two keyboardevents objects are equals.",
+  "repository": "parro-it/keyboardevents-areequal",
+  "author": "Andrea <andrea@parro.it>",
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "example.js"
+  ],
+  "scripts": {
+    "test": "rollup -c && ava && xo --ignore example.js --ignore index.js",
+    "doc": "documentation readme main.js --section=API"
+  },
+  "keywords": [],
+  "tonicExampleFilename": "example.js",
+  "devDependencies": {
+    "ava": "^0.20.0",
+    "documentation": "^4.0.0-rc.1",
+    "rollup": "^0.43.0",
+    "xo": "^0.18.2"
+  }
+}
