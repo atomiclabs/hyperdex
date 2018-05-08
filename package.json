@@ -1,6 +1,6 @@
 {
 	"scripts": {
-		"init-project": "npm install --force",
+		"init-project": "del-cli node_modules app/node_modules && npm install && git add .",
 		"postinstall": "electron-builder install-app-deps",
 		"lint": "xo && stylelint 'app/renderer/**/*.scss'",
 		"test": "npm run lint",
@@ -9,7 +9,7 @@
 		"dev:start": "delay 1 && electron app",
 		"dev": "npm install && run-p dev:*",
 		"pack": "webpack && electron-builder --dir",
-		"dist": "npm install --force && webpack --mode=production && electron-builder --mac --linux --win",
+		"dist": "npm run init-project && webpack --mode=production && electron-builder --mac --linux --win",
 		"release": "np --no-publish"
 	},
 	"dependencies": {
@@ -52,6 +52,7 @@
 		"copy-webpack-plugin": "^4.5.1",
 		"cryptocurrency-icons": "cjdowner/cryptocurrency-icons",
 		"css-loader": "^0.28.11",
+		"del-cli": "^1.1.0",
 		"delay-cli": "^1.0.0",
 		"devtron": "^1.4.0",
 		"electron": "^2.0.0",
