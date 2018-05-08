@@ -1,0 +1,45 @@
+{
+  "name": "get-set-props",
+  "version": "0.1.0",
+  "description": "List of getter/setter properties for JavaScript types",
+  "license": "MIT",
+  "repository": "dustinspecker/get-set-props",
+  "author": {
+    "name": "Dustin Specker",
+    "email": "DustinSpecker@DustinSpecker.com",
+    "url": "github.com/dustinspecker"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "xo && node test.js",
+    "generate": "node generate.js"
+  },
+  "main": "get-set-props.json",
+  "files": [
+    "get-set-props.json"
+  ],
+  "keywords": [
+    "js",
+    "javascript",
+    "ecmascript",
+    "builtin",
+    "types",
+    "type",
+    "data",
+    "getter",
+    "setter",
+    "props",
+    "properties",
+    "property",
+    "list",
+    "array",
+    "json"
+  ],
+  "devDependencies": {
+    "ava": "0.0.4",
+    "js-types": "^1.0.0",
+    "xo": "*"
+  }
+}

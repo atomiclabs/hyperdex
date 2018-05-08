@@ -2470,7 +2470,7 @@ crypto-random-string@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-1.0.0.tgz#a230f64f568310e1498009940790ec99545bca7e"
 
-cryptocurrency-icons@cjdowner/cryptocurrency-icons:
+cryptocurrency-icons@cjdowner/cryptocurrency-icons#68877c336de5f5cd69dc46de546edfde5331a148:
   version "0.0.1"
   resolved "https://codeload.github.com/cjdowner/cryptocurrency-icons/tar.gz/68877c336de5f5cd69dc46de546edfde5331a148"
 
@@ -2737,6 +2737,14 @@ define-property@^2.0.2:
 defined@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/defined/-/defined-1.0.0.tgz#c98d9bcef75674188e110969151199e39b1fa693"
+
+del-cli@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/del-cli/-/del-cli-1.1.0.tgz#27557d69a0b7df99dcbaa1e34a09e6ac6591d2c4"
+  dependencies:
+    del "^3.0.0"
+    meow "^3.6.0"
+    update-notifier "^2.1.0"
 
 del@^2.0.2:
   version "2.2.2"
@@ -5942,7 +5950,7 @@ memorystream@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/memorystream/-/memorystream-0.3.1.tgz#86d7090b30ce455d63fbae12dda51a47ddcaf9b2"
 
-meow@^3.1.0, meow@^3.3.0, meow@^3.7.0:
+meow@^3.1.0, meow@^3.3.0, meow@^3.6.0, meow@^3.7.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/meow/-/meow-3.7.0.tgz#72cb668b425228290abbfa856892587308a801fb"
   dependencies:

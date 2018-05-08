@@ -1,0 +1,51 @@
+{
+  "name": "devtron",
+  "version": "1.4.0",
+  "description": "Electron DevTools Extension",
+  "main": "./api.js",
+  "scripts": {
+    "prepublish": "browserify lib/*.js -o out/index.js --ignore-missing --entry lib/index.js && browserify lib/browser-globals.js -o out/browser-globals.js",
+    "start": "browserify lib/browser-globals.js -o out/browser-globals.js && watchify lib/*.js -o out/index.js --ignore-missing --entry lib/index.js --verbose",
+    "test": "mocha test/unit/*-test.js test/integration/*-test.js && standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/electron/devtron.git"
+  },
+  "author": "Kevin Sawicki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/electron/devtron/issues"
+  },
+  "keywords": [
+    "Electron",
+    "Chrome",
+    "Chromium",
+    "devtools",
+    "developer tools"
+  ],
+  "homepage": "https://github.com/electron/devtron#readme",
+  "devDependencies": {
+    "body-parser": "^1.15.0",
+    "browserify": "^13.0.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
+    "cors": "^2.7.1",
+    "electron-prebuilt": "~1.2.2",
+    "express": "^4.13.4",
+    "mocha": "^2.4.5",
+    "spectron": "~3.2.3",
+    "standard": "^6.0.8",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "accessibility-developer-tools": "^2.11.0",
+    "highlight.js": "^9.3.0",
+    "humanize-plus": "^1.8.1"
+  },
+  "standard": {
+    "ignore": [
+      "/out/index.js"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "webpack-addons",
+  "version": "1.1.5",
+  "description": "Utility suite for webpack-cli",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webpack-contrib/webpack-addons.git"
+  },
+  "keywords": [
+    "scaffold",
+    "cli",
+    "webpack",
+    "ast"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webpack-contrib/webpack-addons/issues"
+  },
+  "homepage": "https://github.com/webpack-contrib/webpack-addons#readme",
+  "dependencies": {
+    "jscodeshift": "^0.4.0"
+  },
+  "devDependencies": {
+    "babel-jest": "^19.0.0",
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
+    "eslint-plugin-node": "^4.2.2",
+    "jest": "^19.0.2"
+  }
+}
