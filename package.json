@@ -1,14 +1,15 @@
 {
 	"scripts": {
+		"init-project": "npm install --force",
 		"postinstall": "electron-builder install-app-deps",
 		"lint": "xo && stylelint 'app/renderer/**/*.scss'",
 		"test": "npm run lint",
 		"start": "webpack && electron app",
 		"dev:watch": "webpack-dev-server --hot",
 		"dev:start": "delay 1 && electron app",
-		"dev": "yarn && run-p dev:*",
+		"dev": "npm install && run-p dev:*",
 		"pack": "webpack && electron-builder --dir",
-		"dist": "webpack --mode=production && electron-builder --mac --linux --win",
+		"dist": "npm install --force && webpack --mode=production && electron-builder --mac --linux --win",
 		"release": "np --no-publish"
 	},
 	"dependencies": {
