@@ -28,6 +28,14 @@
 
 ## Dev
 
+### Init the project
+
+You only need to run this the first time.
+
+```
+$ yarn init-project
+```
+
 ### Install
 
 ```
