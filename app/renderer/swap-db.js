@@ -74,6 +74,7 @@ class SwapDB {
 			timeStarted,
 			status: 'pending',
 			statusFormatted: 'pending',
+			error: false,
 			progress: 0,
 			baseCurrency: response.base,
 			quoteCurrency: response.rel,
@@ -140,6 +141,13 @@ class SwapDB {
 
 			if (message.method === 'failed') {
 				swap.status = 'failed';
+
+				// TODO: Add error messages once we have errors documented
+				// https://github.com/lukechilds/hyperdex/issues/180
+				swap.error = {
+					code: message.error,
+					message: undefined,
+				}
 			}
 
 			swap.statusFormatted = swap.status;
