@@ -134,7 +134,7 @@ export default class Api {
 			quoteCurrency: response.rel,
 			bids: formatOrders(response.bids),
 			asks: formatOrders(response.asks),
-		}
+		};
 
 		return formattedResponse;
 	}
