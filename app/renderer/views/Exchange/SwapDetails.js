@@ -133,7 +133,7 @@ class SwapDetails extends React.Component {
 								{(swap.status === 'failed' && swap.error) && (
 									<React.Fragment>
 										<br/>
-										Error Code: {swap.error.code}
+										{swap.error.message}
 									</React.Fragment>
 								)}
 							</p>
