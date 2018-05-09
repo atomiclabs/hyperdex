@@ -147,7 +147,7 @@ class SwapDB {
 				swap.error = {
 					code: message.error,
 					message: undefined,
-				}
+				};
 			}
 
 			swap.statusFormatted = swap.status;
