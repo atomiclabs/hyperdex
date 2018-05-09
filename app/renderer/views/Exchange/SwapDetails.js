@@ -131,13 +131,15 @@ class SwapDetails extends React.Component {
 							<p>{title(swap.statusFormatted)}</p>
 						</div>
 						<div className="section details">
-							<h4>Your offer</h4>
-							<div className="offer">
-								{prices}
+							<div className="offer-wrapper">
+								<h4>Your offer</h4>
+								<div className="offer">
+									{prices}
+								</div>
+								{swap.executed.percentCheaperThanRequested > 0 && (
+									<p>The executed price was {swap.executed.percentCheaperThanRequested}% cheaper than requested!</p>
+								)}
 							</div>
-							{swap.executed.percentCheaperThanRequested > 0 && (
-								<p>Executed price was {swap.executed.percentCheaperThanRequested}% cheaper than requested!</p>
-							)}
 							{hasTransactions && (
 								<React.Fragment>
 									<h4>Transactions</h4>
