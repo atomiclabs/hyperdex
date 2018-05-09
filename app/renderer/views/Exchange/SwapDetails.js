@@ -128,7 +128,15 @@ class SwapDetails extends React.Component {
 						</div>
 						<div className="section progress">
 							<Progress value={swap.progress}/>
-							<p>{title(swap.statusFormatted)}</p>
+							<p>
+								{title(swap.statusFormatted)}
+								{(swap.status === 'failed' && swap.error) && (
+									<React.Fragment>
+										<br/>
+										{swap.error.message}
+									</React.Fragment>
+								)}
+							</p>
 						</div>
 						<div className="section details">
 							<div className="offer-wrapper">
