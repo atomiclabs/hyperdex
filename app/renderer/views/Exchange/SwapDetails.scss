@@ -84,7 +84,6 @@
 		.transactions {
 			display: flex;
 			justify-content: space-between;
-			margin-bottom: 40px;
 
 			h6 {
 				font-size: 12px;
@@ -97,6 +96,14 @@
 				margin: 0;
 				font-size: 14px;
 				color: rgba(255, 255, 255, 0.8);
+			}
+		}
+
+		.offer-wrapper {
+			margin-bottom: 40px;
+
+			> p {
+				margin-top: 10px;
 			}
 		}
 
@@ -120,6 +127,7 @@
 
 		.transactions {
 			justify-content: space-evenly;
+			margin-bottom: 40px;
 
 			.item {
 				display: flex;

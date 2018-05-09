@@ -94,6 +94,7 @@ class SwapDB {
 				baseCurrencyAmount: undefined,
 				quoteCurrencyAmount: undefined,
 				price: undefined,
+				percentCheaperThanRequested: undefined,
 			},
 			transactions: [],
 			_debug: {
@@ -136,6 +137,7 @@ class SwapDB {
 				swap.executed.baseCurrencyAmount = swap.baseCurrencyAmount;
 				swap.executed.quoteCurrencyAmount = swap.quoteCurrencyAmount;
 				swap.executed.price = swap.price;
+				swap.executed.percentCheaperThanRequested = roundTo(100 - ((swap.executed.price / swap.requested.price) * 100), 2);
 			}
 
 			if (message.method === 'failed') {
