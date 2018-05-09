@@ -135,6 +135,9 @@ class SwapDetails extends React.Component {
 							<div className="offer">
 								{prices}
 							</div>
+							{swap.executed.percentCheaperThanRequested > 0 && (
+								<p>Executed price was {swap.executed.percentCheaperThanRequested}% cheaper than requested!</p>
+							)}
 							{hasTransactions && (
 								<React.Fragment>
 									<h4>Transactions</h4>
