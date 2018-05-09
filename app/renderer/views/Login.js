@@ -58,7 +58,7 @@ class Login extends React.Component {
 							<div className="window-draggable-area"/>
 							<Progress className="login-progress" value={login.state.progress}/>
 							<div className="is-centered">
-								<img className="hyperdex-icon" src="/assets/hyperdex-icon.svg" width="75" height="75"/>
+								<img className="hyperdex-icon" src="/assets/hyperdex-logo-text.svg" width="130"/>
 								<LoginViews/>
 							</div>
 						</div>
