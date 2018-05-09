@@ -163,6 +163,8 @@ class SwapDB {
 
 				swap.statusFormatted = `swap ${swapProgress}/${swapTransactions.length}`;
 				swap.progress = (swapProgress + MATCHED_STEP) / TOTAL_PROGRESS_STEPS;
+			} else if (swap.status === 'failed' && message.error === -9999) {
+				swap.statusFormatted = 'unmatched';
 			}
 		});
 
