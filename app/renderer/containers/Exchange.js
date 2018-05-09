@@ -3,7 +3,6 @@ import _ from 'lodash';
 import {Container} from 'unstated';
 import appContainer from 'containers/App';
 import fireEvery from '../fire-every';
-import removeOrderBookTimes from '../remove-order-book-times';
 
 class ExchangeContainer extends Container {
 	state = {
@@ -61,7 +60,7 @@ class ExchangeContainer extends Container {
 			this.state.quoteCurrency,
 		);
 
-		if (!_.isEqual(removeOrderBookTimes(this.state.orderBook), removeOrderBookTimes(orderBook))) {
+		if (!_.isEqual(this.state.orderBook, orderBook)) {
 			this.setState({orderBook});
 		}
 	}

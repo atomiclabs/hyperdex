@@ -66,8 +66,8 @@ const Center = props => {
 							return props.getOrderBook().map((row, i) => (
 								<tr key={i} onClick={() => selectRow(row)}>
 									<td>{row.price}</td>
-									<td>{roundTo(row.avevolume, 8)}</td>
-									<td>{roundTo(row.maxvolume, 8)}</td>
+									<td>{roundTo(row.averageVolume, 8)}</td>
+									<td>{roundTo(row.maxVolume, 8)}</td>
 								</tr>
 							));
 						})()}

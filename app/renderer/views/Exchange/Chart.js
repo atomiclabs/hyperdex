@@ -11,12 +11,7 @@ const Chart = () => {
 		<div className="Exchange--Chart">
 			<div className="chart-container">
 				<h3>{state.baseCurrency}/{state.quoteCurrency} Depth Chart</h3>
-				<DepthChart
-					bids={orderBook.bids}
-					asks={orderBook.asks}
-					bidDepth={orderBook.biddepth}
-					askDepth={orderBook.askdepth}
-				/>
+				<DepthChart bids={orderBook.bids} asks={orderBook.asks}/>
 			</div>
 		</div>
 	);
