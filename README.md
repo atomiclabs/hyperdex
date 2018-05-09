@@ -4,6 +4,10 @@
 
 **This app is still in private testing phase. The repo has been made public for convenience. Please do not share it.**
 
+## Testing
+
+Please download the latest [nightly build](https://github.com/lukechilds/hyperdex-nightlies/releases/) and report detailed issues with the "feedback" button in the app.
+
 ## Install
 
 *macOS 10.9+, Linux, and Windows 7+ are supported (64-bit only).*
