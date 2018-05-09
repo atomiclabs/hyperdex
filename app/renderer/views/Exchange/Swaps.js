@@ -38,8 +38,8 @@ const SwapItem = ({swap}) => (
 	<div className="row">
 		<div className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD.MM')}</div>
 		<div className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</div>
-		<div className="sell-amount">-{swap.quoteCurrencyAmount} {swap.quoteCurrency}</div>
-		<div className="buy-amount">+{swap.baseCurrencyAmount} {swap.baseCurrency}</div>
+		<div className="base-amount">+{swap.baseCurrencyAmount} {swap.baseCurrency}</div>
+		<div className="quote-amount">-{swap.quoteCurrencyAmount} {swap.quoteCurrency}</div>
 		<div className="status">
 			<div className="status__icon" data-status={swap.status}>{swap.statusFormatted}</div>
 		</div>
@@ -72,10 +72,14 @@ const All = () => (
 const Split = () => {
 	const {state} = exchangeContainer;
 
-	const filteredData = state.swapHistory.filter(x =>
-		x.baseCurrency === state.baseCurrency &&
-		x.quoteCurrency === state.quoteCurrency
-	);
+	const filteredData = state.swapHistory.filter(swap => {
+		const tradingPair = [state.baseCurrency, state.quoteCurrency];
+
+		return (
+			tradingPair.includes(swap.baseCurrency) &&
+			tradingPair.includes(swap.quoteCurrency)
+		);
+	});
 
 	return (
 		<SwapList swaps={filteredData}/>

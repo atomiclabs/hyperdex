@@ -69,7 +69,7 @@
 			.row {
 				display: grid;
 				grid-template-areas:
-					'pairs sell-amount buy-amount'
+					'pairs base-amount quote-amount'
 					'timestamp status view';
 				grid-template-columns: repeat(3, 1fr);
 				grid-gap: 8px;
@@ -92,13 +92,13 @@
 					grid-area: pairs;
 				}
 
-				.sell-amount {
-					grid-area: sell-amount;
+				.base-amount {
+					grid-area: base-amount;
 					justify-self: center;
 				}
 
-				.buy-amount {
-					grid-area: buy-amount;
+				.quote-amount {
+					grid-area: quote-amount;
 					justify-self: end;
 				}
 
@@ -115,16 +115,16 @@
 
 			@media only screen and (min-width: 1260px) {
 				.row {
-					grid-template-areas: 'timestamp pairs sell-amount buy-amount status view';
+					grid-template-areas: 'timestamp pairs base-amount quote-amount status view';
 					grid-template-columns: 11% 18% 22% 22%;
 					justify-content: unset;
 					white-space: unset;
 
-					.sell-amount {
+					.base-amount {
 						justify-self: start;
 					}
 
-					.buy-amount {
+					.quote-amount {
 						justify-self: start;
 					}
 
@@ -160,11 +160,11 @@
 				color: var(--text-color);
 			}
 
-			.sell-amount {
+			.quote-amount {
 				color: var(--red-color);
 			}
 
-			.buy-amount {
+			.base-amount {
 				color: var(--green-color);
 			}
 
