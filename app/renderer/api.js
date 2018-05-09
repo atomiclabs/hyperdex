@@ -110,12 +110,33 @@ export default class Api {
 		return this.request({method: 'getcoins'});
 	}
 
-	orderBook(base, rel) {
-		return this.request({
+	async orderBook(base, rel) {
+		const response = await this.request({
 			method: 'orderbook',
 			base,
 			rel,
 		});
+
+		const formatOrders = orders => orders
+			.filter(order => order.numutxos > 0)
+			.map(order => ({
+				address: order.address,
+				depth: order.depth,
+				price: order.price,
+				numutxos: order.numutxos,
+				avevolume: order.avevolume,
+				maxvolume: order.maxvolume,
+				zcredits: order.zcredits,
+			}));
+
+		const formattedResponse = {
+			baseCurrency: response.base,
+			quoteCurrency: response.rel,
+			bids: formatOrders(response.bids),
+			asks: formatOrders(response.asks),
+		}
+
+		return formattedResponse;
 	}
 
 	order(opts) {

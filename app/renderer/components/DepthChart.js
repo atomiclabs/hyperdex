@@ -25,8 +25,9 @@ const CustomTooltipContent = ({payload}) => {
 };
 
 const DepthChart = props => {
-	let {bids, asks, bidDepth, askDepth} = props;
-	const maxDepth = Math.max(bidDepth, askDepth);
+	let {bids, asks} = props;
+	const getDepths = orders => orders.map(order => order.depth);
+	const maxDepth = Math.max(...getDepths(asks), ...getDepths(bids));
 
 	if (!(bids && bids.length > 0)) {
 		bids = [{price: 0, depth: 0}];
