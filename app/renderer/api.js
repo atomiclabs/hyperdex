@@ -2,7 +2,7 @@ import util from 'util';
 import electron from 'electron';
 import {sha256} from 'crypto-hash';
 import PQueue from 'p-queue';
-import supportedCoins from '../marketmaker/supported-coins';
+import supportedCurrencies from '../marketmaker/supported-currencies';
 import MarketmakerSocket from './marketmaker-socket';
 
 const getPort = electron.remote.require('get-port');
@@ -79,7 +79,7 @@ export default class Api {
 	}
 
 	async enableCoinElectrum(coin) {
-		const servers = supportedCoins
+		const servers = supportedCurrencies
 			.find(supportedCoin => supportedCoin.coin === coin)
 			.electrumServers;
 

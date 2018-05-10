@@ -1,6 +1,6 @@
 'use strict';
 
-const supportedCoins = [
+const supportedCurrencies = [
 	{
 		coin: 'KMD',
 		electrumServers: [
@@ -131,4 +131,4 @@ const supportedCoins = [
 	},
 ];
 
-module.exports = supportedCoins;
+module.exports = supportedCurrencies;

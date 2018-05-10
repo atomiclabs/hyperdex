@@ -8,7 +8,7 @@ const util = require('electron-util');
 const getPort = require('get-port');
 const logger = require('electron-timber');
 const makeDir = require('make-dir');
-const supportedCoins = require('./supported-coins');
+const supportedCurrencies = require('./supported-currencies');
 
 // `electron-builder` uses different names
 const platformMapping = new Map([
@@ -71,7 +71,7 @@ class Marketmaker {
 			gui: 'hyperdex',
 			userhome: os.homedir(),
 			rpcport: await getPort(),
-			coins: supportedCoins,
+			coins: supportedCurrencies,
 		});
 
 		this.port = options.rpcport;
