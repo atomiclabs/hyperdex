@@ -1,6 +1,5 @@
 'use strict';
 const nodeUtil = require('util');
-const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const childProcess = require('child_process');
@@ -9,6 +8,7 @@ const util = require('electron-util');
 const getPort = require('get-port');
 const logger = require('electron-timber');
 const makeDir = require('make-dir');
+const supportedCurrencies = require('./supported-currencies');
 
 // `electron-builder` uses different names
 const platformMapping = new Map([
@@ -28,19 +28,6 @@ const mmLogger = logger.create({
 });
 
 class Marketmaker {
-	_getCoins() {
-		// `coins.json` from:
-		// https://github.com/jl777/SuperNET/blob/c5227cd60248dd9b36274152161b13cc5cf9c0ea/iguana/exchanges/coins.json
-		const json = fs.readFileSync(path.join(__dirname, 'coins.json'), 'utf8').replace(/\\/g, '');
-		const coins = JSON.parse(json);
-
-		for (const coin of coins) {
-			delete coin.confpath;
-		}
-
-		return coins;
-	}
-
 	_isReady() {
 		return new Promise((resolve, reject) => {
 			const interval = setInterval(() => {
@@ -84,7 +71,7 @@ class Marketmaker {
 			gui: 'hyperdex',
 			userhome: os.homedir(),
 			rpcport: await getPort(),
-			coins: this._getCoins(),
+			coins: supportedCurrencies,
 		});
 
 		this.port = options.rpcport;

@@ -2,7 +2,7 @@ import util from 'util';
 import electron from 'electron';
 import {sha256} from 'crypto-hash';
 import PQueue from 'p-queue';
-import electrumServers from './electrum-servers';
+import supportedCurrencies from '../marketmaker/supported-currencies';
 import MarketmakerSocket from './marketmaker-socket';
 
 const getPort = electron.remote.require('get-port');
@@ -79,7 +79,9 @@ export default class Api {
 	}
 
 	async enableCoinElectrum(coin) {
-		const servers = electrumServers[coin];
+		const servers = supportedCurrencies
+			.find(supportedCoin => supportedCoin.coin === coin)
+			.electrumServers;
 
 		if (!servers) {
 			throw new Error('Electrum mode not supported for this coin');
@@ -88,7 +90,8 @@ export default class Api {
 		const requests = servers.map(server => this.request({
 			method: 'electrum',
 			coin,
-			...server,
+			ipaddr: server.host,
+			port: server.port,
 		}));
 
 		return Promise.all(requests);
