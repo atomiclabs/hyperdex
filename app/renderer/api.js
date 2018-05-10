@@ -97,6 +97,13 @@ export default class Api {
 		return Promise.all(requests);
 	}
 
+	disableCoin(coin) {
+		return this.request({
+			method: 'disable',
+			coin,
+		});
+	}
+
 	portfolio() {
 		return this.request({method: 'portfolio'});
 	}
