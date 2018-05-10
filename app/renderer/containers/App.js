@@ -34,12 +34,12 @@ const getTickerData = async symbol => {
 class AppContainer extends Container {
 	state = {
 		activeView: 'Login',
+		enabledCoins: config.get('enabledCoins'),
 	};
 
 	constructor() {
 		super();
 		this.views = new Cycled(appViews);
-		this.enabledCoins = config.get('enabledCoins');
 
 		this.getSwapDB = new Promise(resolve => {
 			this.setSwapDB = resolve;
@@ -119,6 +119,24 @@ class AppContainer extends Container {
 
 	getCurrency(symbol) {
 		return this.state.currencies.find(x => x.coin === symbol);
+	}
+
+	enableCoin(coin) {
+		this.setState(prevState => {
+			this.api.enableCoin(coin);
+			const enabledCoins = [...prevState.enabledCoins, coin];
+			config.set('enabledCoins', enabledCoins);
+			return {enabledCoins};
+		});
+	}
+
+	disableCoin(coin) {
+		this.setState(prevState => {
+			this.api.disableCoin(coin);
+			const enabledCoins = prevState.enabledCoins.filter(enabledCoin => enabledCoin !== coin);
+			config.set('enabledCoins', enabledCoins);
+			return {enabledCoins};
+		});
 	}
 
 	logOut() {

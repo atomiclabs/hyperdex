@@ -99,7 +99,7 @@ class LoginContainer extends Container {
 		// }
 
 		// TODO: These should be changeable by the user
-		await Promise.all(config.get('enabledCoins').map(x => api.enableCoin(x)));
+		await Promise.all(appContainer.state.enabledCoins.map(x => api.enableCoin(x)));
 
 		await appContainer.watchCMC();
 		await appContainer.watchCurrencies();

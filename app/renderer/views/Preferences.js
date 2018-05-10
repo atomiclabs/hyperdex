@@ -2,6 +2,7 @@ import electron from 'electron';
 import React from 'react';
 import _ from 'lodash';
 import coinlist from 'coinlist';
+import {Subscribe} from 'unstated';
 import appContainer from 'containers/App';
 import Input from 'components/Input';
 import CurrencyIcon from 'components/CurrencyIcon';
@@ -14,7 +15,6 @@ const config = electron.remote.require('./config');
 class Form extends React.Component {
 	state = {
 		marketmakerUrl: config.get('marketmakerUrl') || '',
-		enabledCoins: config.get('enabledCoins') || [],
 	};
 
 	persistState = _.debounce((name, value) => {
@@ -29,22 +29,12 @@ class Form extends React.Component {
 
 	toggleCurrency = (coin, event) => {
 		const {checked} = event.target;
-		const {api} = appContainer;
 
-		this.setState(prevState => {
-			let enabledCoins;
-			if (checked) {
-				api.enableCoin(coin);
-				enabledCoins = [...prevState.enabledCoins, coin];
-			} else {
-				api.disableCoin(coin);
-				enabledCoins = prevState.enabledCoins.filter(enabledCoin => enabledCoin !== coin);
-			}
-
-			this.persistState('enabledCoins', enabledCoins);
-
-			return {enabledCoins};
-		});
+		if (checked) {
+			appContainer.enableCoin(coin);
+		} else {
+			appContainer.disableCoin(coin);
+		}
 	};
 
 	render() {
@@ -74,7 +64,7 @@ class Form extends React.Component {
 								<Input
 									type="checkbox"
 									value={currency.coin}
-									checked={this.state.enabledCoins.includes(currency.coin)}
+									checked={appContainer.state.enabledCoins.includes(currency.coin)}
 									onChange={this.toggleCurrency}
 								/>
 							</label>
@@ -87,14 +77,18 @@ class Form extends React.Component {
 }
 
 const Preferences = () => (
-	<TabView title="Preferences" className="Preferences">
-		<header>
-			<h2>Preferences</h2>
-		</header>
-		<main>
-			<Form/>
-		</main>
-	</TabView>
+	<Subscribe to={[appContainer]}>
+		{() => (
+			<TabView title="Preferences" className="Preferences">
+				<header>
+					<h2>Preferences</h2>
+				</header>
+				<main>
+					<Form/>
+				</main>
+			</TabView>
+		)}
+	</Subscribe>
 );
 
 export default Preferences;
