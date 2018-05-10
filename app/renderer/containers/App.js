@@ -7,6 +7,7 @@ import roundTo from 'round-to';
 import {Container} from 'unstated';
 import loginContainer from 'containers/Login';
 import {appViews} from '../../constants';
+import supportedCurrencies from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
 import {formatCurrency} from '../util';
 
@@ -69,7 +70,7 @@ class AppContainer extends Container {
 		const FIVE_MINUTES = 1000 * 60 * 5;
 
 		await fireEvery(async () => {
-			this.coinPrices = await Promise.all(this.enabledCoins.map(symbol => getTickerData(symbol)));
+			this.coinPrices = await Promise.all(supportedCurrencies.map(currency => getTickerData(currency.coin)));
 		}, FIVE_MINUTES);
 	}
 
