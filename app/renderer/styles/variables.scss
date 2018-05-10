@@ -17,6 +17,7 @@
 	--pie-border-color: hsla(216, 27%, 16%, 1);
 	--pie-fill-color: #3d4e83;
 	--modal-close-button-color: hsla(216, 15%, 44%, 1);
+	--primary-color-opacity-0-7: hsla(232, 90%, 69%, 0.7);
 }
 
 // TODO: We have to duplicate the variables here as Sass doesn't support native CSS variables in color functions
