@@ -18,12 +18,12 @@ const supportedCurrencies = [
 		coin: 'BTC',
 		electrumServers: [
 			{
-				host: 'electrum.hsmiths.com',
-				port: 50001,
+				host: 'electrum1.cipig.net',
+				port: 10000,
 			},
 			{
-				host: 'helicarrier.bauerj.eu',
-				port: 50001,
+				host: 'electrum2.cipig.net',
+				port: 10000,
 			},
 		],
 	},
@@ -84,12 +84,12 @@ const supportedCurrencies = [
 		txfee: 100000,
 		electrumServers: [
 			{
-				host: '173.212.225.176',
-				port: 50088,
+				host: 'electrum1.cipig.net',
+				port: 10071,
 			},
 			{
-				host: '136.243.45.140',
-				port: 50088,
+				host: 'electrum2.cipig.net',
+				port: 10071,
 			},
 		],
 	},
@@ -102,12 +102,12 @@ const supportedCurrencies = [
 		txfee: 100000,
 		electrumServers: [
 			{
-				host: '173.212.225.176',
-				port: 50012,
+				host: 'electrum1.cipig.net',
+				port: 10065,
 			},
 			{
-				host: '136.243.45.140',
-				port: 50012,
+				host: 'electrum2.cipig.net',
+				port: 10065,
 			},
 		],
 	},
@@ -120,11 +120,11 @@ const supportedCurrencies = [
 		txfee: 100000000,
 		electrumServers: [
 			{
-				host: '173.212.225.176',
+				host: 'electrum1.cipig.net',
 				port: 10060,
 			},
 			{
-				host: '136.243.45.140',
+				host: 'electrum2.cipig.net',
 				port: 10060,
 			},
 		],
