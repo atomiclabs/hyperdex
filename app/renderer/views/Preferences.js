@@ -2,6 +2,7 @@ import electron from 'electron';
 import React from 'react';
 import _ from 'lodash';
 import coinlist from 'coinlist';
+import appContainer from 'containers/App';
 import Input from 'components/Input';
 import CurrencyIcon from 'components/CurrencyIcon';
 import supportedCurrencies from '../../marketmaker/supported-currencies';
@@ -26,13 +27,19 @@ class Form extends React.Component {
 		this.persistState(name, value);
 	};
 
-	toggleCurrency = (value, event) => {
+	toggleCurrency = (coin, event) => {
 		const {checked} = event.target;
+		const {api} = appContainer;
 
 		this.setState(prevState => {
-			const enabledCoins = checked ?
-				[...prevState.enabledCoins, value] :
-				prevState.enabledCoins.filter(coin => coin !== value);
+			let enabledCoins;
+			if (checked) {
+				api.enableCoin(coin);
+				enabledCoins = [...prevState.enabledCoins, coin];
+			} else {
+				api.disableCoin(coin);
+				enabledCoins = prevState.enabledCoins.filter(enabledCoin => enabledCoin !== coin);
+			}
 
 			this.persistState('enabledCoins', enabledCoins);
 
