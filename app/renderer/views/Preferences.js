@@ -58,18 +58,21 @@ class Form extends React.Component {
 					<label>
 						Enabled Currencies:
 					</label>
-					{supportedCurrencies.map(currency => (
-						<label key={currency.coin} style={{display: 'block'}}>
-							<CurrencyIcon symbol={currency.coin}/>
-							{(coinlist.get(currency.coin, 'name') || currency.coin)} ({currency.coin})
-							<Input
-								type="checkbox"
-								value={currency.coin}
-								checked={this.state.enabledCoins.includes(currency.coin)}
-								onChange={this.toggleCurrency}
-							/>
-						</label>
-					))}
+					{supportedCurrencies
+						.filter(currency => currency.coin !== 'KMD')
+						.map(currency => (
+							<label key={currency.coin} style={{display: 'block'}}>
+								<CurrencyIcon symbol={currency.coin}/>
+								{(coinlist.get(currency.coin, 'name') || currency.coin)} ({currency.coin})
+								<Input
+									type="checkbox"
+									value={currency.coin}
+									checked={this.state.enabledCoins.includes(currency.coin)}
+									onChange={this.toggleCurrency}
+								/>
+							</label>
+						))
+					}
 				</div>
 			</React.Fragment>
 		);
