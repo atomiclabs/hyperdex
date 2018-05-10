@@ -6,11 +6,11 @@ const supportedCurrencies = [
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
-				port: 10001
+				port: 10001,
 			},
 			{
 				host: 'electrum2.cipig.net',
-				port: 10001
+				port: 10001,
 			},
 		],
 	},
@@ -19,11 +19,11 @@ const supportedCurrencies = [
 		electrumServers: [
 			{
 				host: 'electrum.hsmiths.com',
-				port: 50001
+				port: 50001,
 			},
 			{
 				host: 'helicarrier.bauerj.eu',
-				port: 50001
+				port: 50001,
 			},
 		],
 	},
@@ -34,11 +34,11 @@ const supportedCurrencies = [
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
-				port: 10003
+				port: 10003,
 			},
 			{
 				host: 'electrum2.cipig.net',
-				port: 10003
+				port: 10003,
 			},
 		],
 	},
@@ -49,11 +49,11 @@ const supportedCurrencies = [
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
-				port: 10005
+				port: 10005,
 			},
 			{
 				host: 'electrum2.cipig.net',
-				port: 10005
+				port: 10005,
 			},
 		],
 	},
@@ -67,11 +67,11 @@ const supportedCurrencies = [
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
-				port: 10053
+				port: 10053,
 			},
 			{
 				host: 'electrum2.cipig.net',
-				port: 10053
+				port: 10053,
 			},
 		],
 	},
@@ -85,11 +85,11 @@ const supportedCurrencies = [
 		electrumServers: [
 			{
 				host: '173.212.225.176',
-				port: 50088
+				port: 50088,
 			},
 			{
 				host: '136.243.45.140',
-				port: 50088
+				port: 50088,
 			},
 		],
 	},
@@ -103,11 +103,11 @@ const supportedCurrencies = [
 		electrumServers: [
 			{
 				host: '173.212.225.176',
-				port: 50012
+				port: 50012,
 			},
 			{
 				host: '136.243.45.140',
-				port: 50012
+				port: 50012,
 			},
 		],
 	},
@@ -121,11 +121,11 @@ const supportedCurrencies = [
 		electrumServers: [
 			{
 				host: '173.212.225.176',
-				port: 10060
+				port: 10060,
 			},
 			{
 				host: '136.243.45.140',
-				port: 10060
+				port: 10060,
 			},
 		],
 	},
