@@ -1,6 +1,13 @@
-# HyperDEX <img src="app/static/icon.png" width="40">
-
-> [BarterDEX](https://barterdex.supernet.org) desktop app
+<div align="center">
+	<br>
+	<img src="media/Logo-Black-Text.png" height="260">
+	<br>
+	<br>
+	<p>Desktop App for <a href="https://barterdex.supernet.org">BarterDEX</a></p>
+	<br>
+	<br>
+	<br>
+</div>
 
 **This app is still in private testing phase. The repo has been made public for convenience. Please do not share it.**
 
@@ -25,38 +32,6 @@ Please download the latest [nightly build](https://github.com/lukechilds/hyperde
 ### Windows
 
 [**Download**](https://github.com/lukechilds/hyperdex/releases/latest) the `.exe` file.
-
-
----
-
-
-## Dev
-
-### Install
-
-```
-$ yarn
-```
-
-### Run
-
-```
-$ yarn run dev
-```
-
-### Package
-
-```
-$ yarn run pack
-```
-
-### Release
-
-```
-$ yarn run release
-```
-
-Then edit the automatically created GitHub Releases draft and publish.
 
 
 ## License

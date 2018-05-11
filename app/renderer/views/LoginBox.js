@@ -84,7 +84,6 @@ class LoginBox extends React.Component {
 
 		return (
 			<div className="LoginBox">
-				<h1>Welcome to HyperDEX!</h1>
 				<form onSubmit={this.handleSubmit}>
 					<div className="form-group form-group-1">
 						<Select

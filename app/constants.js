@@ -13,7 +13,7 @@ exports.minWindowSize = {
 
 exports.loginWindowSize = {
 	width: 680,
-	height: is.windows ? 520 : 460,
+	height: is.windows ? 550 : 500,
 };
 
 exports.appViews = [
