@@ -127,6 +127,28 @@
 			margin-top: 28px;
 		}
 	}
+
+	@media (min-width: 1360px) {
+		.top .address {
+			font-size: 12px;
+		}
+
+		.center .table-wrapper {
+			font-size: 13px;
+
+			thead tr:first-child th {
+				font-size: 13px;
+			}
+		}
+
+		.bottom .form-section .status-message {
+			font-size: 13px;
+		}
+
+		.bottom .form-section label {
+			font-size: 14px;
+		}
+	}
 }
 
 .Exchange--Buy {
