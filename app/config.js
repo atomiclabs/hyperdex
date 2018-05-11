@@ -15,6 +15,7 @@ module.exports = new Store({
 			'CHIPS',
 			'SUPERNET',
 			'REVS',
+			'OOT',
 			'LTC',
 			'VTC',
 			'DOGE',

@@ -58,6 +58,21 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'OOT',
+		asset: 'OOT',
+		rpcport: 12467,
+		electrumServers: [
+			{
+				host: 'electrum1.utrum.io',
+				port: 10088,
+			},
+			{
+				host: 'electrum2.utrum.io',
+				port: 10088,
+			},
+		],
+	},
+	{
 		coin: 'CHIPS',
 		rpcport: 57776,
 		pubtype: 60,
