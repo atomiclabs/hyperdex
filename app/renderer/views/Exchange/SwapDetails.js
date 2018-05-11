@@ -38,15 +38,22 @@ class SwapDetails extends React.Component {
 			const tx = swap.transactions.find(tx => tx.stage === stage);
 
 			if (!tx) {
-				return null;
+				return (
+					<React.Fragment key={stage}>
+						<div className="arrow">→</div>
+						<div className="item">
+							<h6>{stageToTitle.get(stage)}</h6>
+						</div>
+					</React.Fragment>
+				);
 			}
 
 			hasTransactions = true;
 
 			return (
 				<React.Fragment key={stage}>
-					<div className="arrow">→</div>
-					<div className="item" title={tx.txid}>
+					<div className="arrow completed">→</div>
+					<div className="item completed" title={tx.txid}>
 						<h6>{stageToTitle.get(stage)}</h6>
 						<p>{tx.amount}<br/>{tx.coin}</p>
 					</div>

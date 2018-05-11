@@ -134,18 +134,36 @@
 				flex-direction: column;
 				justify-items: center;
 				align-items: center;
+				width: 100px;
 				background: rgba(0, 0, 0, 0.08);
+				border: 1px solid rgba(0, 0, 0, 0.08);
 				border-radius: 4px;
 				padding: 10px;
 				position: relative;
-				animation: fadeIn 0.5s linear;
+				opacity: 0.5;
+				transition: 0.5s linear;
 
 				h6 {
 					margin-bottom: 6px;
+					opacity: 0.4;
+					transition: 0.5s linear;
 				}
 
 				p {
 					line-height: 1.4;
+				}
+
+				&.completed {
+					opacity: 1;
+					border: 1px solid var(--primary-color-opacity-0-7);
+
+					h6 {
+						opacity: 1;
+					}
+
+					p {
+						animation: fadeIn 1s linear;
+					}
 				}
 			}
 
