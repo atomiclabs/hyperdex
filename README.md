@@ -1,6 +1,8 @@
 <div align="center">
 	<br>
-	<img src="media/Logo-Black-Text.svg" height="260">
+	<img src="media/Logo-Black-Text.png" height="260">
+	<br>
+	<br>
 	<p>Desktop App for <a href="https://barterdex.supernet.org">BarterDEX</a></p>
 	<br>
 	<br>
