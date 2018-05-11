@@ -4,19 +4,21 @@ import {Container} from 'unstated';
 import appContainer from 'containers/App';
 import fireEvery from '../fire-every';
 
+const getInitialState = () => ({
+	baseCurrency: 'CHIPS',
+	quoteCurrency: 'KMD',
+	activeSwapsView: 'All',
+	swapHistory: [],
+	orderBook: {
+		bids: [],
+		asks: [],
+		biddepth: 0,
+		askdepth: 0,
+	},
+});
+
 class ExchangeContainer extends Container {
-	state = {
-		baseCurrency: 'CHIPS',
-		quoteCurrency: 'KMD',
-		activeSwapsView: 'All',
-		swapHistory: [],
-		orderBook: {
-			bids: [],
-			asks: [],
-			biddepth: 0,
-			askdepth: 0,
-		},
-	};
+	state = getInitialState();
 
 	constructor() {
 		super();
@@ -37,7 +39,8 @@ class ExchangeContainer extends Container {
 			this.setState({quoteCurrency: this.state.baseCurrency});
 		}
 
-		this.setState({baseCurrency});
+		const {orderBook} = getInitialState();
+		this.setState({baseCurrency, orderBook});
 		this.fetchOrderBook();
 	}
 
@@ -46,7 +49,8 @@ class ExchangeContainer extends Container {
 			this.setState({baseCurrency: this.state.quoteCurrency});
 		}
 
-		this.setState({quoteCurrency});
+		const {orderBook} = getInitialState();
+		this.setState({quoteCurrency, orderBook});
 		this.fetchOrderBook();
 	}
 
