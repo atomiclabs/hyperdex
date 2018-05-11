@@ -56,7 +56,7 @@ class Form extends React.Component {
 						Enabled Currencies:
 					</label>
 					{supportedCurrencies
-						.filter(currency => currency.coin !== 'KMD')
+						.filter(currency => !['KMD', 'CHIPS'].includes(currency.coin))
 						.map(currency => (
 							<label key={currency.coin} style={{display: 'block'}}>
 								<CurrencyIcon symbol={currency.coin}/>
