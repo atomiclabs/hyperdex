@@ -1,8 +1,19 @@
 export const formatCurrency = number => {
-	return new Intl.NumberFormat('en-US', {
+	const options = {
 		style: 'currency',
 		currency: 'USD',
-	}).format(number).replace(/\.00/, '');
+	};
+
+	if (number < 1 && number > 0) {
+		options.minimumFractionDigits = 4;
+	}
+
+	let result = new Intl.NumberFormat('en-US', options).format(number);
+
+	// Remove fractional trailing zeros
+	result = result.replace(/(\d+(\.\d+[1-9])?)(\.?0+$)/, '$1');
+
+	return result;
 };
 
 // Pads the fraction of a number with zeros and returns a string
