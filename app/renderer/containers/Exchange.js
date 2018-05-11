@@ -60,6 +60,13 @@ class ExchangeContainer extends Container {
 			this.state.quoteCurrency,
 		);
 
+		if (
+			orderBook.baseCurrency !== this.state.baseCurrency ||
+			orderBook.quoteCurrency !== this.state.quoteCurrency
+		) {
+			return;
+		}
+
 		if (!_.isEqual(this.state.orderBook, orderBook)) {
 			this.setState({orderBook});
 		}
