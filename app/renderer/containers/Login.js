@@ -6,7 +6,6 @@ import {minWindowSize} from '../../constants';
 import Api from '../api';
 import SwapDB from '../swap-db';
 import appContainer from './App';
-import dashboardContainer from './Dashboard';
 
 const config = remote.require('./config');
 const {getPortfolios, decryptSeedPhrase} = remote.require('./portfolio-util');
@@ -104,6 +103,11 @@ class LoginContainer extends Container {
 
 		await appContainer.watchCMC();
 		await appContainer.watchCurrencies();
+
+		// We have to use dynamic import here as Webpack is unable to resolve circular
+		// dependencies. Better to handle it here so that it's possible to import the
+		// App container in the Dashboard container.
+		const {default: dashboardContainer} = await import('./Dashboard');
 		await dashboardContainer.watchCurrencyHistory();
 
 		config.set('lastActivePortfolioId', portfolio.id);

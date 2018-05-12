@@ -55,6 +55,7 @@ module.exports = {
 						'stage-3',
 					],
 					plugins: [
+						'syntax-dynamic-import',
 						['transform-class-properties', {spec: true}],
 						'react-hot-loader/babel',
 					],
