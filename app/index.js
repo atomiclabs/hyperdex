@@ -78,6 +78,7 @@ function createMainWindow() {
 		maximizable: false,
 		fullscreenable: false,
 		titleBarStyle: 'hiddenInset',
+		backgroundColor: '#1b232f', // Same as `--background-color`
 		darkTheme: isDarkMode, // GTK+3
 		webPreferences: {
 			blinkFeatures: 'CSSBackdropFilter',

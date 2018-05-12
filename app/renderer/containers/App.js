@@ -5,10 +5,9 @@ import Cycled from 'cycled';
 import coinlist from 'coinlist';
 import roundTo from 'round-to';
 import {Container} from 'unstated';
-import loginContainer from 'containers/Login';
 import {appViews} from '../../constants';
 import fireEvery from '../fire-every';
-import {formatCurrency} from '../util';
+import {formatCurrency, setLoginWindowBounds} from '../util';
 
 const config = remote.require('./config');
 
@@ -120,19 +119,13 @@ class AppContainer extends Container {
 		return this.state.currencies.find(x => x.coin === symbol);
 	}
 
-	logOut() {
-		config.set('windowState', remote.getCurrentWindow().getBounds());
-
-		// TODO(sindresorhus): Temp fix until we support resetting the containers
-		loginContainer.setActiveView('LoginBox');
-		loginContainer.setProgress(0);
-
-		this.setState({
-			activeView: 'Login',
-			portfolio: null,
-		});
-
+	async logOut() {
 		this.stopMarketmaker();
+		config.set('windowState', remote.getCurrentWindow().getBounds());
+		this.setActiveView('');
+		await Promise.resolve();
+		setLoginWindowBounds();
+		location.reload();
 	}
 
 	async stopMarketmaker() {
