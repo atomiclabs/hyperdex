@@ -1,15 +1,19 @@
 import PouchDB from 'pouchdb-browser';
 import pouchDBFind from 'pouchdb-find';
+import cryptoPouch from 'crypto-pouch';
 import Emittery from 'emittery';
 import PQueue from 'p-queue';
 import roundTo from 'round-to';
 import swapTransactions from './swap-transactions';
 
 PouchDB.plugin(pouchDBFind);
+PouchDB.plugin(cryptoPouch);
 
 class SwapDB {
-	constructor(portfolioId) {
+	constructor(portfolioId, seedPhrase) {
 		this.db = new PouchDB(`swaps-${portfolioId}`, {adapter: 'idb'});
+
+		this.db.crypto(seedPhrase);
 
 		const ee = new Emittery();
 		this.on = ee.on.bind(ee);
