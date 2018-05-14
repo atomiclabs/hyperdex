@@ -1,4 +1,17 @@
+@keyframes Login-fade-in {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
 .Login {
+	animation-name: Login-fade-in;
+	animation-duration: 1s;
+	animation-timing-function: ease-in;
 	text-align: center;
 	display: flex;
 	justify-content: center;
