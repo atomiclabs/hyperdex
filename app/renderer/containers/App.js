@@ -7,6 +7,7 @@ import roundTo from 'round-to';
 import {Container} from 'unstated';
 import loginContainer from 'containers/Login';
 import {appViews} from '../../constants';
+import supportedCurrencies from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
 import {formatCurrency} from '../util';
 
@@ -33,12 +34,12 @@ const getTickerData = async symbol => {
 class AppContainer extends Container {
 	state = {
 		activeView: 'Login',
+		enabledCoins: config.get('enabledCoins'),
 	};
 
 	constructor() {
 		super();
 		this.views = new Cycled(appViews);
-		this.enabledCoins = config.get('enabledCoins');
 
 		this.getSwapDB = new Promise(resolve => {
 			this.setSwapDB = resolve;
@@ -69,7 +70,7 @@ class AppContainer extends Container {
 		const FIVE_MINUTES = 1000 * 60 * 5;
 
 		await fireEvery(async () => {
-			this.coinPrices = await Promise.all(this.enabledCoins.map(symbol => getTickerData(symbol)));
+			this.coinPrices = await Promise.all(supportedCurrencies.map(currency => getTickerData(currency.coin)));
 		}, FIVE_MINUTES);
 	}
 
@@ -118,6 +119,24 @@ class AppContainer extends Container {
 
 	getCurrency(symbol) {
 		return this.state.currencies.find(x => x.coin === symbol);
+	}
+
+	enableCoin(coin) {
+		this.setState(prevState => {
+			this.api.enableCoin(coin);
+			const enabledCoins = [...prevState.enabledCoins, coin];
+			config.set('enabledCoins', enabledCoins);
+			return {enabledCoins};
+		});
+	}
+
+	disableCoin(coin) {
+		this.setState(prevState => {
+			this.api.disableCoin(coin);
+			const enabledCoins = prevState.enabledCoins.filter(enabledCoin => enabledCoin !== coin);
+			config.set('enabledCoins', enabledCoins);
+			return {enabledCoins};
+		});
 	}
 
 	logOut() {

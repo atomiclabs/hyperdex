@@ -20,6 +20,12 @@ class DashboardContainer extends Container {
 	constructor() {
 		super();
 		this.currencyHistoryCache = new Map();
+
+		appContainer.subscribe(() => {
+			if (!appContainer.state.enabledCoins.includes(this.state.activeView)) {
+				this.setActiveView('Portfolio');
+			}
+		});
 	}
 
 	setActiveView = activeView => {

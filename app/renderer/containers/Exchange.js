@@ -26,6 +26,21 @@ class ExchangeContainer extends Container {
 		appContainer.getSwapDB.then(swapDB => {
 			swapDB.on('change', this.setSwapHistory);
 		});
+
+		appContainer.subscribe(() => {
+			if (!appContainer.state.enabledCoins.includes(this.state.baseCurrency)) {
+				const newBaseCurrency = appContainer.state.enabledCoins.find(enabledCoin => {
+					return enabledCoin !== this.state.quoteCurrency;
+				});
+				this.setBaseCurrency(newBaseCurrency);
+			}
+			if (!appContainer.state.enabledCoins.includes(this.state.quoteCurrency)) {
+				const newQuoteCurrency = appContainer.state.enabledCoins.find(enabledCoin => {
+					return enabledCoin !== this.state.baseCurrency;
+				});
+				this.setQuoteCurrency(newQuoteCurrency);
+			}
+		});
 	}
 
 	setSwapHistory = async () => {
