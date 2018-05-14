@@ -3,6 +3,7 @@
 const supportedCurrencies = [
 	{
 		coin: 'KMD',
+		name: 'Komodo',
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -16,6 +17,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'BTC',
+		name: 'Bitcoin',
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -29,6 +31,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'REVS',
+		name: 'Revs',
 		asset: 'REVS',
 		rpcport: 10196,
 		electrumServers: [
@@ -44,6 +47,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'SUPERNET',
+		name: 'Supernet',
 		asset: 'SUPERNET',
 		rpcport: 11341,
 		electrumServers: [
@@ -59,6 +63,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'OOT',
+		name: 'Utrum',
 		asset: 'OOT',
 		rpcport: 12467,
 		electrumServers: [
@@ -74,6 +79,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'CHIPS',
+		name: 'Chips',
 		rpcport: 57776,
 		pubtype: 60,
 		p2shtype: 85,
@@ -92,6 +98,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'VTC',
+		name: 'Vertcoin',
 		rpcport: 5888,
 		pubtype: 71,
 		p2shtype: 5,
@@ -110,6 +117,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'LTC',
+		name: 'Litecoin',
 		rpcport: 9332,
 		pubtype: 48,
 		p2shtype: 5,
@@ -128,6 +136,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'DOGE',
+		name: 'Dogecoin',
 		rpcport: 22555,
 		pubtype: 30,
 		p2shtype: 22,
