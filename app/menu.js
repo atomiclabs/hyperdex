@@ -159,10 +159,9 @@ const createAppMenu = options => {
 		activeView: 'Login',
 	}, options);
 
-	const viewSubmenu = [];
-
+	const portfolioSubmenu = [];
 	for (const [i, view] of appViews.entries()) {
-		viewSubmenu.push({
+		portfolioSubmenu.push({
 			label: view,
 			type: 'radio',
 			checked: activeView === view,
@@ -172,6 +171,18 @@ const createAppMenu = options => {
 			},
 		});
 	}
+
+	portfolioSubmenu.push(
+		{
+			type: 'separator',
+		},
+		{
+			label: 'Log out',
+			click() {
+				sendAction('log-out');
+			},
+		}
+	);
 
 	const macosTpl = [
 		{
@@ -189,16 +200,6 @@ const createAppMenu = options => {
 					accelerator: 'Cmd+,',
 					click() {
 						setActiveView('Preferences');
-					},
-				},
-				{
-					type: 'separator',
-				},
-				{
-					label: 'Log Out',
-					visible: isLoggedIn,
-					click() {
-						sendAction('log-out');
 					},
 				},
 				{
@@ -232,9 +233,9 @@ const createAppMenu = options => {
 			role: 'editMenu',
 		},
 		{
-			label: 'View',
+			label: 'Portfolio',
 			visible: isLoggedIn,
-			submenu: viewSubmenu,
+			submenu: portfolioSubmenu,
 		},
 		{
 			role: 'window',
@@ -286,16 +287,6 @@ const createAppMenu = options => {
 			label: 'File',
 			submenu: [
 				{
-					label: 'Log Out',
-					visible: isLoggedIn,
-					click() {
-						sendAction('log-out');
-					},
-				},
-				{
-					type: 'separator',
-				},
-				{
 					role: 'quit',
 				},
 			],
@@ -304,9 +295,9 @@ const createAppMenu = options => {
 			role: 'editMenu',
 		},
 		{
-			label: 'View',
+			label: 'Portfolio',
 			visible: isLoggedIn,
-			submenu: viewSubmenu,
+			submenu: portfolioSubmenu,
 		},
 		{
 			role: 'help',
