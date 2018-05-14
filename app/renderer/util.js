@@ -1,3 +1,7 @@
+import {remote} from 'electron';
+import {centerWindow} from 'electron-util';
+import {loginWindowSize} from '../constants';
+
 export const formatCurrency = number => {
 	const options = {
 		style: 'currency',
@@ -26,4 +30,19 @@ export const zeroPadFraction = number => {
 	}
 
 	return `${integer}.${fraction.padEnd(8, '0')}`;
+};
+
+export const setLoginWindowBounds = () => {
+	const win = remote.getCurrentWindow();
+	win.setFullScreen(false);
+	win.setFullScreenable(false);
+	win.setResizable(false);
+	win.setMaximizable(false);
+	win.setMinimumSize(loginWindowSize.width, loginWindowSize.height);
+	centerWindow({
+		size: {
+			width: loginWindowSize.width,
+			height: loginWindowSize.height,
+		},
+	});
 };
