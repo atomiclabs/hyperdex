@@ -2,6 +2,12 @@ import React from 'react';
 import ReactSelect from 'react-select';
 import './Select.scss';
 
-const Select = props => <ReactSelect {...props} searchable={false} clearable={false}/>;
+const Select = ({
+	searchable = false,
+	clearable = false,
+	...props
+}) => {
+	return <ReactSelect {...props} searchable={searchable} clearable={clearable}/>;
+};
 
 export default Select;
