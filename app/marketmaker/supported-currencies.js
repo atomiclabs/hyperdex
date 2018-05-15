@@ -161,8 +161,11 @@ const getCurrencyName = symbol => {
 	return coinParams.name || coinlist.get(symbol, 'name') || symbol;
 };
 
+const getCurrency = symbol => supportedCurrencies.find(currency => currency.coin === symbol);
+
 module.exports = {
 	supportedCurrencies,
 	getCurrencySymbols,
 	getCurrencyName,
+	getCurrency,
 };
