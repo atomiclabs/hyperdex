@@ -81,6 +81,7 @@ function createMainWindow() {
 		backgroundColor: '#1b232f', // Same as `--background-color`
 		darkTheme: isDarkMode, // GTK+3
 		webPreferences: {
+			webviewTag: false, // Disabled for security reasons since we don't use it
 			blinkFeatures: 'CSSBackdropFilter',
 		},
 	});
