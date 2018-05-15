@@ -96,8 +96,6 @@ class AppContainer extends Container {
 						currency.cmcBalanceUsd = currency.balance * currency.cmcPriceUsd;
 					}
 
-					const coinParams = supportedCurrencies.find(supportedCurrency => supportedCurrency.coin === currency.coin);
-
 					currency.symbol = currency.coin; // For readability
 					currency.name = getCurrencyName(currency.symbol);
 					currency.cmcPercentChange24h = percentChange24h;

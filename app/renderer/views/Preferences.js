@@ -1,13 +1,12 @@
 import electron from 'electron';
 import React from 'react';
 import _ from 'lodash';
-import coinlist from 'coinlist';
 import {Subscribe} from 'unstated';
 import appContainer from 'containers/App';
 import Input from 'components/Input';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import Select from 'components/Select';
-import {supportedCurrencies, getCurrencySymbols, getCurrencyName} from '../../marketmaker/supported-currencies';
+import {getCurrencySymbols, getCurrencyName} from '../../marketmaker/supported-currencies';
 import TabView from './TabView';
 import './Preferences.scss';
 
