@@ -7,7 +7,7 @@ import appContainer from 'containers/App';
 import Input from 'components/Input';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import Select from 'components/Select';
-import {supportedCurrencies} from '../../marketmaker/supported-currencies';
+import {supportedCurrencies, getCurrencyName} from '../../marketmaker/supported-currencies';
 import TabView from './TabView';
 import './Preferences.scss';
 
@@ -30,7 +30,7 @@ class CurrencySelection extends React.Component {
 
 	render() {
 		const selectData = _.orderBy(supportedCurrencies, ['coin']).map(currency => ({
-			label: `${coinlist.get(currency.coin, 'name') || currency.coin} (${currency.coin})`,
+			label: `${getCurrencyName(currency.coin)} (${currency.coin})`,
 			value: currency.coin,
 			clearableValue: !['KMD', 'CHIPS'].includes(currency.coin),
 		}));

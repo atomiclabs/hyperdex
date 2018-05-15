@@ -6,7 +6,7 @@ import coinlist from 'coinlist';
 import roundTo from 'round-to';
 import {Container} from 'unstated';
 import {appViews} from '../../constants';
-import {supportedCurrencies} from '../../marketmaker/supported-currencies';
+import {supportedCurrencies, getCurrencyName} from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
 import {formatCurrency, setLoginWindowBounds} from '../util';
 
@@ -99,7 +99,7 @@ class AppContainer extends Container {
 					const coinParams = supportedCurrencies.find(supportedCurrency => supportedCurrency.coin === currency.coin);
 
 					currency.symbol = currency.coin; // For readability
-					currency.name = coinParams.name || coinlist.get(currency.symbol, 'name') || currency.symbol;
+					currency.name = getCurrencyName(currency.symbol);
 					currency.cmcPercentChange24h = percentChange24h;
 
 					currency.balanceFormatted = roundTo(currency.balance, 8);
