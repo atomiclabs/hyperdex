@@ -1,6 +1,7 @@
 'use strict';
 
 const coinlist = require('coinlist');
+const _ = require('lodash');
 
 const supportedCurrencies = [
 	{
@@ -152,7 +153,7 @@ const supportedCurrencies = [
 	},
 ];
 
-const getCurrencySymbols = () => supportedCurrencies.map(currency => currency.coin);
+const getCurrencySymbols = () => _.orderBy(supportedCurrencies.map(currency => currency.coin));
 
 const getCurrencyName = symbol => {
 	const coinParams = supportedCurrencies.find(currency => currency.coin === symbol);

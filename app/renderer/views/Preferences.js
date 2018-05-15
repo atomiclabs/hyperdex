@@ -28,7 +28,7 @@ class CurrencySelection extends React.Component {
 	};
 
 	render() {
-		const selectData = _.orderBy(getCurrencySymbols()).map(symbol => ({
+		const selectData = getCurrencySymbols().map(symbol => ({
 			label: `${getCurrencyName(symbol)} (${symbol})`,
 			value: symbol,
 			clearableValue: !['KMD', 'CHIPS'].includes(symbol),
