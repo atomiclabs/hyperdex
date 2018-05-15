@@ -99,7 +99,7 @@ class AppContainer extends Container {
 					const coinParams = supportedCurrencies.find(supportedCurrency => supportedCurrency.coin === currency.coin);
 
 					currency.symbol = currency.coin; // For readability
-					currency.name = coinlist.get(currency.symbol, 'name') || coinParams.name || currency.symbol;
+					currency.name = coinParams.name || coinlist.get(currency.symbol, 'name') || currency.symbol;
 					currency.cmcPercentChange24h = percentChange24h;
 
 					currency.balanceFormatted = roundTo(currency.balance, 8);
