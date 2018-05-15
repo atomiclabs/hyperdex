@@ -3,7 +3,6 @@
 const supportedCurrencies = [
 	{
 		coin: 'KMD',
-		name: 'Komodo',
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -17,7 +16,6 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'BTC',
-		name: 'Bitcoin',
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -98,7 +96,6 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'VTC',
-		name: 'Vertcoin',
 		rpcport: 5888,
 		pubtype: 71,
 		p2shtype: 5,
@@ -117,7 +114,6 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'LTC',
-		name: 'Litecoin',
 		rpcport: 9332,
 		pubtype: 48,
 		p2shtype: 5,
@@ -136,7 +132,6 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'DOGE',
-		name: 'Dogecoin',
 		rpcport: 22555,
 		pubtype: 30,
 		p2shtype: 22,
