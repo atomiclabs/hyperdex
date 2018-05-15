@@ -8,7 +8,7 @@ const util = require('electron-util');
 const getPort = require('get-port');
 const logger = require('electron-timber');
 const makeDir = require('make-dir');
-const supportedCurrencies = require('./supported-currencies');
+const {supportedCurrencies} = require('./supported-currencies');
 
 // `electron-builder` uses different names
 const platformMapping = new Map([

@@ -1,5 +1,7 @@
 'use strict';
 
+const coinlist = require('coinlist');
+
 const supportedCurrencies = [
 	{
 		coin: 'KMD',
@@ -150,4 +152,16 @@ const supportedCurrencies = [
 	},
 ];
 
-module.exports = supportedCurrencies;
+const getCurrencySymbols = () => supportedCurrencies.map(currency => currency.coin);
+
+const getCurrencyName = symbol => {
+	const coinParams = supportedCurrencies.find(currency => currency.coin === symbol);
+
+	return coinParams.name || coinlist.get(symbol, 'name') || symbol;
+};
+
+module.exports = {
+	supportedCurrencies,
+	getCurrencySymbols,
+	getCurrencyName,
+};

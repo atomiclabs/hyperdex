@@ -6,7 +6,7 @@ import coinlist from 'coinlist';
 import roundTo from 'round-to';
 import {Container} from 'unstated';
 import {appViews} from '../../constants';
-import supportedCurrencies from '../../marketmaker/supported-currencies';
+import {supportedCurrencies} from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
 import {formatCurrency, setLoginWindowBounds} from '../util';
 

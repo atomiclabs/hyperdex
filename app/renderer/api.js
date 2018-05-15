@@ -2,7 +2,7 @@ import util from 'util';
 import electron from 'electron';
 import {sha256} from 'crypto-hash';
 import PQueue from 'p-queue';
-import supportedCurrencies from '../marketmaker/supported-currencies';
+import {supportedCurrencies} from '../marketmaker/supported-currencies';
 import MarketmakerSocket from './marketmaker-socket';
 
 const getPort = electron.remote.require('get-port');

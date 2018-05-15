@@ -7,7 +7,7 @@ import appContainer from 'containers/App';
 import Input from 'components/Input';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import Select from 'components/Select';
-import supportedCurrencies from '../../marketmaker/supported-currencies';
+import {supportedCurrencies} from '../../marketmaker/supported-currencies';
 import TabView from './TabView';
 import './Preferences.scss';
 
