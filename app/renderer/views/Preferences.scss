@@ -1,5 +1,5 @@
 .Preferences {
-	width: 520px;
+	width: 600px;
 	height: 100%;
 	margin: 0 auto;
 	border-radius: 4px;
@@ -20,11 +20,19 @@
 	main {
 		padding: 40px 30px;
 
+		.form-group {
+			margin-bottom: 20px;
+		}
+
 		label {
 			display: inline-block;
 			font-weight: 600;
 			margin-bottom: 5px;
 			color: var(--text-color);
+		}
+
+		.enabled-currencies {
+			margin: 5px 0;
 		}
 	}
 }
