@@ -6,7 +6,7 @@ import coinlist from 'coinlist';
 import roundTo from 'round-to';
 import {Container} from 'unstated';
 import {appViews} from '../../constants';
-import supportedCurrencies from '../../marketmaker/supported-currencies';
+import {getCurrencySymbols, getCurrencyName} from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
 import {formatCurrency, setLoginWindowBounds} from '../util';
 
@@ -69,7 +69,7 @@ class AppContainer extends Container {
 		const FIVE_MINUTES = 1000 * 60 * 5;
 
 		await fireEvery(async () => {
-			this.coinPrices = await Promise.all(supportedCurrencies.map(currency => getTickerData(currency.coin)));
+			this.coinPrices = await Promise.all(getCurrencySymbols().map(getTickerData));
 		}, FIVE_MINUTES);
 	}
 
@@ -97,7 +97,7 @@ class AppContainer extends Container {
 					}
 
 					currency.symbol = currency.coin; // For readability
-					currency.name = coinlist.get(currency.symbol, 'name') || currency.symbol;
+					currency.name = getCurrencyName(currency.symbol);
 					currency.cmcPercentChange24h = percentChange24h;
 
 					currency.balanceFormatted = roundTo(currency.balance, 8);

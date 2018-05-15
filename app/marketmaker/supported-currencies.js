@@ -1,5 +1,8 @@
 'use strict';
 
+const coinlist = require('coinlist');
+const _ = require('lodash');
+
 const supportedCurrencies = [
 	{
 		coin: 'KMD',
@@ -29,6 +32,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'REVS',
+		name: 'Revs',
 		asset: 'REVS',
 		rpcport: 10196,
 		electrumServers: [
@@ -44,6 +48,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'SUPERNET',
+		name: 'Supernet',
 		asset: 'SUPERNET',
 		rpcport: 11341,
 		electrumServers: [
@@ -59,6 +64,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'OOT',
+		name: 'Utrum',
 		asset: 'OOT',
 		rpcport: 12467,
 		electrumServers: [
@@ -74,6 +80,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'CHIPS',
+		name: 'Chips',
 		rpcport: 57776,
 		pubtype: 60,
 		p2shtype: 85,
@@ -146,4 +153,19 @@ const supportedCurrencies = [
 	},
 ];
 
-module.exports = supportedCurrencies;
+const getCurrencySymbols = () => _.orderBy(supportedCurrencies.map(currency => currency.coin));
+
+const getCurrencyName = symbol => {
+	const coinParams = supportedCurrencies.find(currency => currency.coin === symbol);
+
+	return coinParams.name || coinlist.get(symbol, 'name') || symbol;
+};
+
+const getCurrency = symbol => supportedCurrencies.find(currency => currency.coin === symbol);
+
+module.exports = {
+	supportedCurrencies,
+	getCurrencySymbols,
+	getCurrencyName,
+	getCurrency,
+};
