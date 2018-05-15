@@ -18,6 +18,8 @@
 	--pie-fill-color: #3d4e83;
 	--modal-close-button-color: hsla(216, 15%, 44%, 1);
 	--primary-color-opacity-0-7: hsla(232, 90%, 69%, 0.7);
+	--select-selection-box-background-color: hsla(232, 90%, 69%, 0.1);
+	--select-selection-box-border-color: hsla(232, 90%, 69%, 0.2);
 }
 
 // TODO: We have to duplicate the variables here as Sass doesn't support native CSS variables in color functions

@@ -11,7 +11,7 @@
 
 	&__image-wrap {
 		position: relative;
-		left: -7px;
+		left: -4px;
 	}
 
 	&__image {
@@ -22,7 +22,16 @@
 
 	&--image {
 		.SelectOption__label {
-			margin-left: 5px;
+			margin-left: 4px;
+		}
+	}
+}
+
+.Select--multi .Select-multi-value-wrapper {
+	.SelectOption {
+		&__image-wrap {
+			position: unset;
+			left: unset;
 		}
 	}
 }

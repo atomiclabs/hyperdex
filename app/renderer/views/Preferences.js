@@ -5,12 +5,55 @@ import coinlist from 'coinlist';
 import {Subscribe} from 'unstated';
 import appContainer from 'containers/App';
 import Input from 'components/Input';
-import CurrencyIcon from 'components/CurrencyIcon';
+import CurrencySelectOption from 'components/CurrencySelectOption';
+import Select from 'components/Select';
 import supportedCurrencies from '../../marketmaker/supported-currencies';
 import TabView from './TabView';
 import './Preferences.scss';
 
 const config = electron.remote.require('./config');
+
+class CurrencySelection extends React.Component {
+	handleSelectChange = options => {
+		const enabledCurrencies = appContainer.state.enabledCoins;
+		const newCurrencies = options.map(x => x.value);
+
+		// We have to do our own diffing as `react-select` just returns the new `value` array
+		const [added] = _.difference(newCurrencies, enabledCurrencies);
+		if (added) {
+			appContainer.enableCoin(added);
+		} else {
+			const [removed] = _.difference(enabledCurrencies, newCurrencies);
+			appContainer.disableCoin(removed);
+		}
+	};
+
+	render() {
+		const selectData = _.orderBy(supportedCurrencies, ['coin']).map(currency => ({
+			label: `${coinlist.get(currency.coin, 'name') || currency.coin} (${currency.coin})`,
+			value: currency.coin,
+			clearableValue: !['KMD', 'CHIPS'].includes(currency.coin),
+		}));
+
+		return (
+			<div className="form-group">
+				<label>
+					Enabled Currencies:
+				</label>
+				<Select
+					className="enabled-currencies"
+					multi
+					searchable
+					value={appContainer.state.enabledCoins}
+					options={selectData}
+					onChange={this.handleSelectChange}
+					valueRenderer={CurrencySelectOption}
+					optionRenderer={CurrencySelectOption}
+				/>
+			</div>
+		);
+	}
+}
 
 class Form extends React.Component {
 	state = {
@@ -27,16 +70,6 @@ class Form extends React.Component {
 		this.persistState(name, value);
 	};
 
-	toggleCurrency = (coin, event) => {
-		const {checked} = event.target;
-
-		if (checked) {
-			appContainer.enableCoin(coin);
-		} else {
-			appContainer.disableCoin(coin);
-		}
-	};
-
 	render() {
 		return (
 			<React.Fragment>
@@ -51,26 +84,7 @@ class Form extends React.Component {
 						placeholder="Example: http://localhost:7783"
 					/>
 				</div>
-				<div className="form-group">
-					<label>
-						Enabled Currencies:
-					</label>
-					{supportedCurrencies
-						.filter(currency => !['KMD', 'CHIPS'].includes(currency.coin))
-						.map(currency => (
-							<label key={currency.coin} style={{display: 'block'}}>
-								<CurrencyIcon symbol={currency.coin}/>
-								{(coinlist.get(currency.coin, 'name') || currency.coin)} ({currency.coin})
-								<Input
-									type="checkbox"
-									value={currency.coin}
-									checked={appContainer.state.enabledCoins.includes(currency.coin)}
-									onChange={this.toggleCurrency}
-								/>
-							</label>
-						))
-					}
-				</div>
+				<CurrencySelection/>
 			</React.Fragment>
 		);
 	}
