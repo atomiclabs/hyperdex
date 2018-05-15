@@ -23,7 +23,7 @@ try {
 	require('electron-reloader')(module, {watchRenderer: false});
 } catch (err) {}
 
-const {app} = electron;
+const {app, session} = electron;
 
 app.setAppUserModelId('com.lukechilds.hyperdex');
 
@@ -102,10 +102,16 @@ function createMainWindow() {
 }
 
 app.on('ready', () => {
-	appMenu();
-	mainWindow = createMainWindow();
+	session.defaultSession.setPermissionRequestHandler((webContents, permission, callback) => {
+		// We deny everything for extra security as we don't need it
+		callback(false);
+	});
 
 	logger.log(`HyperDEX ${app.getVersion()}`);
+
+	appMenu();
+
+	mainWindow = createMainWindow();
 });
 
 app.on('activate', () => {
