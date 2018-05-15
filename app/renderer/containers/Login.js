@@ -79,11 +79,11 @@ class LoginContainer extends Container {
 	async handleLogin(portfolioId, password) {
 		const portfolio = this.portfolioFromId(portfolioId);
 
-		const swapDB = new SwapDB(portfolioId);
-		appContainer.setSwapDB(swapDB);
-
 		// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker
 		const seedPhrase = await decryptSeedPhrase(portfolio.encryptedSeedPhrase, password);
+
+		const swapDB = new SwapDB(portfolioId, seedPhrase);
+		appContainer.setSwapDB(swapDB);
 
 		this.setActiveView('LoggingIn');
 
