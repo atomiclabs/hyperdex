@@ -212,7 +212,9 @@
 
 .Select--multi .Select-multi-value-wrapper {
 	display: inline-block;
-	padding-bottom: 6px;
+	padding: 4px 2px 8px;
+	max-height: 100px;
+	overflow-y: auto;
 }
 
 .Select .Select-aria-only {
