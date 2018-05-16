@@ -46,7 +46,10 @@ class Top extends React.Component {
 
 const Center = props => {
 	const {state} = exchangeContainer;
-	const selectRow = row => props.handlePriceChange(row.price);
+
+	// TODO: This should be fixed properly in mm or use more sensible logic here
+	// This is just a quick fix to increase match rate for a demo
+	const selectRow = row => props.handlePriceChange(row.price * 1.05);
 
 	return (
 		<div className="center">
