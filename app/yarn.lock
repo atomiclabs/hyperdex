@@ -655,6 +655,10 @@ sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
 
+strict-import@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/strict-import/-/strict-import-0.1.0.tgz#4a8ab2513f362df4ec192280ca5e2d4bc1307ac8"
+
 string_decoder@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"

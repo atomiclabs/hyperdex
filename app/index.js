@@ -1,4 +1,5 @@
 'use strict';
+require('strict-import')(module);
 const electron = require('electron');
 const {autoUpdater} = require('electron-updater');
 const {is, disableZoom} = require('electron-util');
