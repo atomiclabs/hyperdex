@@ -167,6 +167,54 @@ const supportedCurrencies = [
 			},
 		],
 	},
+	{
+		coin: 'PIZZA',
+		name: 'Pizza',
+		asset: 'PIZZA',
+		rpcport: 11116,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10024,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10024,
+			},
+		],
+	},
+	{
+		coin: 'BEER',
+		name: 'Beer',
+		asset: 'BEER',
+		rpcport: 8923,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10022,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10022,
+			},
+		],
+	},
+	{
+		coin: 'ETOMIC',
+		name: 'Etomic',
+		asset: 'ETOMIC',
+		rpcport: 10271,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10025,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10025,
+			},
+		],
+	},
 ];
 
 const getCurrencySymbols = () => _.orderBy(supportedCurrencies.map(currency => currency.coin));
