@@ -59,7 +59,13 @@ class WithdrawModal extends React.Component {
 		const maxAmount = currencyInfo.balance - networkFee;
 		const remainingBalance = roundTo(maxAmount - this.state.amount, 8);
 		const setAmount = amount => {
-			this.setState({amount});
+			/// this.setState({amount});
+			// Workaround for:
+			// https://github.com/facebook/react/issues/9402
+			// We force React to update
+			this.setState({amount: 0}, () => {
+				this.setState({amount});
+			});
 		};
 
 		return (
