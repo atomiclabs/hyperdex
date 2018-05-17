@@ -199,22 +199,6 @@ const supportedCurrencies = [
 			},
 		],
 	},
-	{
-		coin: 'ETOMIC',
-		name: 'Etomic',
-		asset: 'ETOMIC',
-		rpcport: 10271,
-		electrumServers: [
-			{
-				host: 'electrum1.cipig.net',
-				port: 10025,
-			},
-			{
-				host: 'electrum2.cipig.net',
-				port: 10025,
-			},
-		],
-	},
 ];
 
 const getCurrencySymbols = () => _.orderBy(supportedCurrencies.map(currency => currency.coin));
