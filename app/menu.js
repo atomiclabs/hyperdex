@@ -177,7 +177,7 @@ const createAppMenu = options => {
 			type: 'separator',
 		},
 		{
-			label: 'Log out',
+			label: 'Log Out',
 			click() {
 				sendAction('log-out');
 			},
