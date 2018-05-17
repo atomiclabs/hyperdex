@@ -20,8 +20,19 @@ const getTickerData = async symbol => {
 
 	// Docs: https://coinmarketcap.com/api/
 	// Example: https://api.coinmarketcap.com/v1/ticker/bitcoin/
-	const response = await fetch(`https://api.coinmarketcap.com/v1/ticker/${id}/`);
+	let response;
+	try {
+		response = await fetch(`https://api.coinmarketcap.com/v1/ticker/${id}/`);
+	} catch (_) {
+		return {symbol};
+	}
+
 	const json = await response.json();
+
+	if (json.error) {
+		return {symbol};
+	}
+
 	const [data] = json;
 	return {
 		symbol,
