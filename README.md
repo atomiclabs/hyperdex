@@ -13,7 +13,7 @@
 
 ## Testing
 
-Please download the latest [nightly build](https://github.com/lukechilds/hyperdex-nightlies/releases/) and report detailed issues with the "feedback" button in the app.
+Please download the latest [nightly build](https://github.com/lukechilds/hyperdex-nightlies/releases/latest) and report detailed issues with the "Feedback" button in the app.
 
 ## Install
 
