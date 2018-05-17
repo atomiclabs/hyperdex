@@ -8,6 +8,8 @@ import fireEvery from '../fire-every';
 const noPriceHistory = new Set([
 	'REVS',
 	'SUPERNET',
+	'PIZZA',
+	'BEER',
 ]);
 
 class DashboardContainer extends Container {
