@@ -7,6 +7,7 @@ import Input from 'components/Input';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import Select from 'components/Select';
 import {getCurrencySymbols, getCurrencyName} from '../../marketmaker/supported-currencies';
+import {isNightlyBuild} from '../../util-common';
 import TabView from './TabView';
 import './Preferences.scss';
 
@@ -28,7 +29,10 @@ class CurrencySelection extends React.Component {
 	};
 
 	render() {
-		const selectData = getCurrencySymbols().map(symbol => ({
+		const excludedCurrencies = isNightlyBuild ? [] : ['PIZZA', 'BEER'];
+		const currencySymbols = _.without(getCurrencySymbols(), ...excludedCurrencies);
+
+		const selectData = currencySymbols.map(symbol => ({
 			label: `${getCurrencyName(symbol)} (${symbol})`,
 			value: symbol,
 			clearableValue: !['KMD', 'CHIPS'].includes(symbol),
