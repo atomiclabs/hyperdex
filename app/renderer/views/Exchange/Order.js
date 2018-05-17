@@ -234,7 +234,7 @@ class Order extends React.Component {
 	handlePriceChange = price => {
 		// TODO: The `price`, `amount`, and `total` will will sometimes have leading 0s in the DOM
 		// even though we remove them in React state.
-		// This is a known React bug and should be fixed soon.
+		// This is a known React issue:
 		// https://github.com/facebook/react/issues/9402
 		price = (price === '') ? '' : roundTo(Number(price), 8);
 		this.setState(prevState => ({
@@ -242,7 +242,13 @@ class Order extends React.Component {
 			total: roundTo(price * prevState.amount, 8),
 		}));
 
-		this.setState({price});
+		/// this.setState({price});
+		// Workaround for the React issue mentioned above
+		// We force React to update
+		this.setState({price: 0}, () => {
+			this.setState({price});
+		});
+
 		if (this.state.total > 0) {
 			this.handleTotalChange(this.state.total);
 		} else if (this.state.amount > 0) {
@@ -252,21 +258,43 @@ class Order extends React.Component {
 
 	handleAmountChange = amount => {
 		amount = (amount === '') ? '' : roundTo(Number(amount), 8);
-		this.setState(prevState => ({
-			amount,
-			total: roundTo(prevState.price * amount, 8),
-		}));
+
+		/// this.setState(prevState => ({
+		// 	amount,
+		// 	total: roundTo(prevState.price * amount, 8),
+		// }));
+		// Workaround for the React issue mentioned above
+		// We force React to update
+		const {price} = this.state;
+		this.setState({amount: 0}, () => {
+			this.setState({
+				amount,
+				total: roundTo(price * amount, 8),
+			});
+		});
 	}
 
 	handleTotalChange = total => {
 		total = (total === '') ? '' : roundTo(Number(total), 8);
-		this.setState(prevState => {
+
+		/// this.setState(prevState => {
+		// 		const newState = {total};
+		// 		if (prevState.price > 0) {
+		// 			newState.amount = roundTo(total / prevState.price, 8);
+		// 		}
+		//
+		// 		return newState;
+		// 	});
+		// Workaround for the React issue mentioned above
+		// We force React to update
+		const {price} = this.state;
+		this.setState({total: 0}, () => {
 			const newState = {total};
-			if (prevState.price > 0) {
-				newState.amount = roundTo(total / prevState.price, 8);
+			if (price > 0) {
+				newState.amount = roundTo(total / price, 8);
 			}
 
-			return newState;
+			this.setState(newState);
 		});
 	}
 
