@@ -199,6 +199,24 @@ const supportedCurrencies = [
 			},
 		],
 	},
+	{
+		coin: 'DGB',
+		rpcport: 14022,
+		pubtype: 30,
+		p2shtype: 5,
+		wiftype: 128,
+		txfee: 100000,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10059,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10059,
+			},
+		],
+	},
 ];
 
 const getCurrencySymbols = () => _.orderBy(supportedCurrencies.map(currency => currency.coin));
