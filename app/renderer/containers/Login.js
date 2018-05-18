@@ -61,12 +61,8 @@ class LoginContainer extends Container {
 		this.setState({selectedPortfolioId: id});
 	}
 
-	loadPortfolios() {
-		return new Promise(async resolve => {
-			this.setState({portfolios: await getPortfolios()}, () => {
-				resolve();
-			});
-		});
+	async loadPortfolios() {
+		await this.setState({portfolios: await getPortfolios()});
 	}
 
 	portfolioFromId(id) {

@@ -9454,10 +9454,6 @@ thunky@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/thunky/-/thunky-1.0.2.tgz#a862e018e3fb1ea2ec3fce5d55605cf57f247371"
 
-tickedoff@^1.0.1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/tickedoff/-/tickedoff-1.0.2.tgz#7f56ece47c56162032a04ed4c2e0c10ac7c4003d"
-
 timed-out@^4.0.0, timed-out@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-4.0.1.tgz#f32eacac5a175bea25d7fab565ab3ed8741ef56f"
@@ -9859,12 +9855,11 @@ unstated-debug@^0.2.0:
   dependencies:
     deep-object-diff "^1.1.0"
 
-unstated@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/unstated/-/unstated-2.0.3.tgz#149d4ae46bec443ec55f9184914ac0286edd6f77"
+unstated@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/unstated/-/unstated-2.1.0.tgz#b018968912603f20591765755c14581d455fe363"
   dependencies:
     create-react-context "^0.1.5"
-    tickedoff "^1.0.1"
 
 untildify@^3.0.2:
   version "3.0.2"
