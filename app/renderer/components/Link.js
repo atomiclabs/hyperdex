@@ -1,6 +1,5 @@
 import React from 'react';
-import './Link.scss';
 
-const Link = ({className, ...props}) => <button {...props} type="button" className={`${className} Link`}/>;
+const Link = ({className = '', ...props}) => <a {...props} className={`${className} Link`}/>;
 
 export default Link;

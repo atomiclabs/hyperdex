@@ -18,6 +18,19 @@ body {
 	overflow: hidden;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+img,
+a,
+button {
+	user-select: none;
+	cursor: default;
+}
+
 h1 {
 	font-size: 1.625rem;
 	font-weight: 600;
@@ -50,15 +63,6 @@ p.secondary {
 	line-height: 1.375rem;
 }
 
-a {
-	color: var(--primary-color);
-	transition: color 0.1s ease-in-out;
-
-	&:hover {
-		color: #5362c4;
-	}
-}
-
 h1,
 h2,
 h3,
@@ -69,17 +73,53 @@ h6 {
 	margin-bottom: 0.5rem;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-img,
-a,
-button {
-	user-select: none;
-	cursor: default;
+a {
+	position: relative;
+	display: inline-block;
+	color: var(--primary-color);
+	cursor: pointer;
+	transition: color 0.2s ease;
+
+	&:hover {
+		color: var(--secondary-color);
+		text-decoration: none;
+
+		&::after,
+		&::before {
+			width: 100%;
+			left: 0;
+		}
+	}
+
+	&::after,
+	&::before {
+		content: '';
+		position: absolute;
+		top: calc(100% - 2px);
+		width: 0;
+		right: 0;
+		height: 1px;
+	}
+
+	&::before {
+		transition: width 0.4s cubic-bezier(0.51, 0.18, 0, 0.88) 0.1s;
+		background: var(--primary-color);
+	}
+
+	&::after {
+		transition: width 0.2s cubic-bezier(0.29, 0.18, 0.26, 0.83);
+		background: var(--secondary-color);
+	}
+
+	&[disabled] {
+		color: var(--text-color);
+		opacity: 0.3;
+		pointer-events: none;
+	}
+}
+
+p a {
+	user-select: unset;
 }
 
 hr {
