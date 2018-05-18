@@ -10,12 +10,13 @@ const appMenu = require('./menu');
 const config = require('./config');
 const marketmaker = require('./marketmaker');
 const {loginWindowSize} = require('./constants');
+const {isDevelopment} = require('./util-common');
 
 require('electron-unhandled')({
-	showDialog: !is.development,
+	showDialog: !isDevelopment,
 });
 require('electron-debug')({
-	enabled: true, // TODO: Remove this when we ship the app
+	enabled: isDevelopment,
 	showDevTools: 'undocked',
 });
 require('electron-context-menu')();

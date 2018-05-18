@@ -59,8 +59,6 @@ class ForgotPasswordContainer extends Container {
 
 		await loginContainer.loadPortfolios();
 		await loginContainer.handleLogin(loginContainer.state.selectedPortfolioId, this.state.password);
-
-		// TODO: Need a progress indicator here as login takes a while
 	};
 }
 

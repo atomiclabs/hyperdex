@@ -9,6 +9,7 @@ import {appViews} from '../../constants';
 import {getCurrencySymbols, getCurrencyName} from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
 import {formatCurrency, setLoginWindowBounds} from '../util';
+import {isDevelopment} from '../../util-common';
 
 const config = remote.require('./config');
 
@@ -182,10 +183,9 @@ ipc.on('set-previous-view', () => {
 	appContainer.setPreviousView();
 });
 
-// TODO: Uncomment this before we do the public release
-/// if (is.development) {
-window._config = electron.remote.require('./config');
-/// }
+if (isDevelopment) {
+	window._config = electron.remote.require('./config');
+}
 
 function handleDarkMode() {
 	const applyDarkMode = () => {

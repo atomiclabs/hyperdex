@@ -5,6 +5,7 @@ const {runJS} = require('electron-util');
 const config = require('./config');
 const {openGitHubIssue} = require('./util');
 const {websiteUrl, repoUrl, appViews} = require('./constants');
+const {isDevelopment} = require('./util-common');
 
 const {app, BrowserWindow, shell, clipboard, ipcMain: ipc, Menu} = electron;
 const appName = app.getName();
@@ -307,10 +308,9 @@ const createAppMenu = options => {
 
 	const tpl = process.platform === 'darwin' ? macosTpl : otherTpl;
 
-	// TODO: Uncomment this before doing the public release
-	/// if (is.development) {
-	tpl.push(createDebugMenu());
-	/// }
+	if (isDevelopment) {
+		tpl.push(createDebugMenu());
+	}
 
 	Menu.setApplicationMenu(Menu.buildFromTemplate(tpl));
 };
