@@ -19,7 +19,7 @@ class Intro extends React.Component {
 		return (
 			<div>
 				<Modal
-					title="How trading works with HyperDEX"
+					title="How Trading Works with HyperDEX"
 					open={this.state.shouldOpen}
 					didClose={this.closedHandler}
 					width="500px"
