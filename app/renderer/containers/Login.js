@@ -3,6 +3,7 @@ import {setWindowBounds} from 'electron-util';
 import ipc from 'electron-better-ipc';
 import {Container} from 'unstated';
 import {minWindowSize} from '../../constants';
+import {isDevelopment} from '../../util-common';
 import Api from '../api';
 import SwapDB from '../swap-db';
 import appContainer from './App';
@@ -78,8 +79,6 @@ class LoginContainer extends Container {
 
 	async handleLogin(portfolioId, password) {
 		const portfolio = this.portfolioFromId(portfolioId);
-
-		// TODO: Show some loading here as it takes some time to decrypt the password and then start marketmaker
 		const seedPhrase = await decryptSeedPhrase(portfolio.encryptedSeedPhrase, password);
 
 		const swapDB = new SwapDB(portfolioId, seedPhrase);
@@ -90,13 +89,12 @@ class LoginContainer extends Container {
 		const api = await initApi(seedPhrase);
 		await api.enableSocket();
 		appContainer.api = api;
-		// TODO: Uncomment this before we do the public release
-		// if (is.development) {
-		// 	// Expose the API for debugging in DevTools
-		// 	// Example: `_api.debug({method: 'portfolio'})`
-		window._api = api;
-		window._swapDB = swapDB;
-		// }
+		if (isDevelopment) {
+			// Exposes the API for debugging in DevTools
+			// Example: `_api.debug({method: 'portfolio'})`
+			window._api = api;
+			window._swapDB = swapDB;
+		}
 
 		await Promise.all(appContainer.state.enabledCoins.map(x => api.enableCoin(x)));
 

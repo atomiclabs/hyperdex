@@ -96,8 +96,6 @@ class CreatePortfolioContainer extends Container {
 
 		await loginContainer.loadPortfolios();
 		await loginContainer.handleLogin(portfolioId, this.state.portfolioPassword);
-
-		// TODO: Need a progress indicator here as login takes a while
 	};
 }
 
