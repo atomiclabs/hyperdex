@@ -51,11 +51,47 @@ p.secondary {
 }
 
 a {
+	position: relative;
+	display: inline-block;
 	color: var(--primary-color);
-	transition: color 0.1s ease-in-out;
+	cursor: pointer !important; // stylelint-disable-line
+	transition: color 0.2s ease;
 
 	&:hover {
-		color: #5362c4;
+		color: var(--secondary-color);
+		text-decoration: none;
+
+		&::after,
+		&::before {
+			width: 100%;
+			left: 0;
+		}
+	}
+
+	&::after,
+	&::before {
+		content: '';
+		position: absolute;
+		top: calc(100% - 2px);
+		width: 0;
+		right: 0;
+		height: 1px;
+	}
+
+	&::before {
+		transition: width 0.4s cubic-bezier(0.51, 0.18, 0, 0.88) 0.1s;
+		background: var(--primary-color);
+	}
+
+	&::after {
+		transition: width 0.2s cubic-bezier(0.29, 0.18, 0.26, 0.83);
+		background: var(--secondary-color);
+	}
+
+	&[disabled] {
+		color: var(--text-color);
+		opacity: 0.3;
+		pointer-events: none;
 	}
 }
 
