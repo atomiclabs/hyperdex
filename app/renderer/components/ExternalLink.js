@@ -1,5 +1,5 @@
-import React from 'react';
 import electron from 'electron';
+import React from 'react';
 
 const open = electron.shell.openExternal;
 
