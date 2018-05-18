@@ -30,16 +30,14 @@ class DashboardContainer extends Container {
 		});
 	}
 
-	setActiveView = activeView => {
-		this.setState({activeView}, () => {
-			this.updateCurrencyHistory();
-		});
+	setActiveView = async activeView => {
+		await this.setState({activeView});
+		this.updateCurrencyHistory();
 	};
 
-	setCurrencyHistoryResolution = currencyHistoryResolution => {
-		this.setState({currencyHistoryResolution}, () => {
-			this.updateCurrencyHistory();
-		});
+	setCurrencyHistoryResolution = async currencyHistoryResolution => {
+		await this.setState({currencyHistoryResolution});
+		this.updateCurrencyHistory();
 	};
 
 	setListSearchQuery = listSearchQuery => {

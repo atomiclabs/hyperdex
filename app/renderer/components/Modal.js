@@ -39,7 +39,7 @@ class Modal extends React.Component {
 		}
 	}
 
-	animationEnd = event => {
+	animationEnd = async event => {
 		const element = this.elementRef.current;
 
 		// Prevent event triggered by the dialog animation
@@ -48,12 +48,12 @@ class Modal extends React.Component {
 		}
 
 		if (this.state.animationType === 'close') {
-			this.setState({isOpen: false}, () => {
-				const {didClose} = this.props;
-				if (didClose) {
-					didClose();
-				}
-			});
+			await this.setState({isOpen: false});
+
+			const {didClose} = this.props;
+			if (didClose) {
+				didClose();
+			}
 		} else {
 			if (this.props.closeOnEsc) {
 				element.focus();

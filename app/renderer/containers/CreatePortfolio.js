@@ -67,12 +67,12 @@ class CreatePortfolioContainer extends Container {
 		return isMatch;
 	};
 
-	handleConfirmSeedPhraseInputChange = value => {
-		this.setState({confirmedSeedPhrase: value}, () => {
-			if (this.step3confirmButtonClicked) {
-				this.checkSeedPhrase();
-			}
-		});
+	handleConfirmSeedPhraseInputChange = async value => {
+		await this.setState({confirmedSeedPhrase: value});
+
+		if (this.step3confirmButtonClicked) {
+			this.checkSeedPhrase();
+		}
 	};
 
 	handleStep3Submit = async event => {
