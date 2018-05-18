@@ -14,9 +14,14 @@ import {isDevelopment} from '../../util-common';
 const config = remote.require('./config');
 
 const getTickerData = async symbol => {
+	const fallback = {
+		symbol,
+		price: 0,
+	};
+
 	const id = coinlist.get(symbol, 'id');
 	if (!id) { // For example, SUPERNET
-		return {symbol};
+		return fallback;
 	}
 
 	// Docs: https://coinmarketcap.com/api/
@@ -25,13 +30,13 @@ const getTickerData = async symbol => {
 	try {
 		response = await fetch(`https://api.coinmarketcap.com/v1/ticker/${id}/`);
 	} catch (_) {
-		return {symbol};
+		return fallback;
 	}
 
 	const json = await response.json();
 
 	if (json.error) {
-		return {symbol};
+		return fallback;
 	}
 
 	const [data] = json;
