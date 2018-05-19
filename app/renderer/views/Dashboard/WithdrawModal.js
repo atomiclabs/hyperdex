@@ -109,7 +109,7 @@ class WithdrawModal extends React.Component {
 								/>
 								<span className="separator">≈</span>
 								<Input
-									value={roundTo(this.state.amount * currencyInfo.cmcPriceUsd, 8)}
+									value={roundTo(this.state.amount * currencyInfo.cmcPriceUsd, 2)}
 									type="number"
 									min={0}
 									step="any"
