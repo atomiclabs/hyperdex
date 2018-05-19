@@ -1,4 +1,3 @@
-import {remote} from 'electron';
 import _ from 'lodash';
 import plur from 'plur';
 import pMap from 'p-map';
@@ -7,8 +6,6 @@ import {Container} from 'unstated';
 import appContainer from 'containers/App';
 import {formatCurrency} from '../util';
 import fireEvery from '../fire-every';
-
-const config = remote.require('./config');
 
 const noPriceHistory = new Set([
 	'REVS',
@@ -121,7 +118,7 @@ class DashboardContainer extends Container {
 	}
 
 	async fetchPriceHistoryForAllCurrencies() {
-		const currencySymbols = config.get('enabledCoins');
+		const currencySymbols = appContainer.state.enabledCoins;
 		const result = await pMap(currencySymbols, symbol => this.getCurrencyHistory(symbol), {concurrency: 6});
 		return _.zipObject(currencySymbols, result);
 	}
@@ -203,7 +200,7 @@ class DashboardContainer extends Container {
 			prevState.portfolioHistory[prevState.currencyHistoryResolution] = history;
 
 			// Also set the individual currency history since we got it too
-			const currencySymbols = config.get('enabledCoins');
+			const currencySymbols = appContainer.state.enabledCoins;
 			for (const symbol of currencySymbols) {
 				prevState.currencyHistory[prevState.currencyHistoryResolution][symbol] = priceHistory[symbol];
 			}

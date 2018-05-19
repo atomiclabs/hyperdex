@@ -29,20 +29,9 @@ const Chart = () => {
 	const {portfolioHistory, currencyHistory, activeView} = state;
 	const symbol = dashboardContainer.activeCurrencySymbol;
 
-	let data;
-	if (activeView === 'Portfolio') {
-		data = portfolioHistory[state.currencyHistoryResolution];
-	} else {
-		data = currencyHistory[state.currencyHistoryResolution][symbol];
-	}
-
-	if (!data) {
-		return (
-			<div className="Dashboard--Chart Empty">
-				<p>No data available</p>
-			</div>
-		);
-	}
+	const data = activeView === 'Portfolio' ?
+		portfolioHistory[state.currencyHistoryResolution] :
+		currencyHistory[state.currencyHistoryResolution][symbol];
 
 	return (
 		<div className="Dashboard--Chart">
@@ -52,15 +41,22 @@ const Chart = () => {
 			/>
 			<div className="overlay">
 				<h3>{activeView === 'Portfolio' ? 'Portfolio Value' : `${symbol} Chart`}</h3>
-				<div className="resolution-buttons">
-					<ResolutionButton title="1h" resolution="hour"/>
-					<ResolutionButton title="1d" resolution="day"/>
-					<ResolutionButton title="1w" resolution="week"/>
-					<ResolutionButton title="1m" resolution="month"/>
-					<ResolutionButton title="1y" resolution="year"/>
-					<ResolutionButton title="All" resolution="all"/>
-				</div>
+				{data &&
+					<div className="resolution-buttons">
+						<ResolutionButton title="1h" resolution="hour"/>
+						<ResolutionButton title="1d" resolution="day"/>
+						<ResolutionButton title="1w" resolution="week"/>
+						<ResolutionButton title="1m" resolution="month"/>
+						<ResolutionButton title="1y" resolution="year"/>
+						<ResolutionButton title="All" resolution="all"/>
+					</div>
+				}
 			</div>
+			{!data &&
+				<div className="Empty">
+					<p>No data available</p>
+				</div>
+			}
 		</div>
 	);
 };
