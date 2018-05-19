@@ -26,33 +26,37 @@ const ResolutionButton = props => {
 
 const Chart = () => {
 	const {state} = dashboardContainer;
+	const {portfolioHistory, currencyHistory, activeView} = state;
+	const symbol = dashboardContainer.activeCurrencySymbol;
 
-	const {currencyHistory} = state;
-	if (!currencyHistory) {
-		return (
-			<div className="Dashboard--Chart Empty">
-				<p>No data available</p>
-			</div>
-		);
-	}
+	const data = activeView === 'Portfolio' ?
+		portfolioHistory[state.currencyHistoryResolution] :
+		currencyHistory[state.currencyHistoryResolution][symbol];
 
 	return (
 		<div className="Dashboard--Chart">
 			<TimeSeriesChart
-				data={currencyHistory}
+				data={data}
 				resolution={state.currencyHistoryResolution}
 			/>
 			<div className="overlay">
-				<h3>{dashboardContainer.activeCurrency.symbol} Chart</h3>
-				<div className="resolution-buttons">
-					<ResolutionButton title="1h" resolution="hour"/>
-					<ResolutionButton title="1d" resolution="day"/>
-					<ResolutionButton title="1w" resolution="week"/>
-					<ResolutionButton title="1m" resolution="month"/>
-					<ResolutionButton title="1y" resolution="year"/>
-					<ResolutionButton title="All" resolution="all"/>
-				</div>
+				<h3>{activeView === 'Portfolio' ? 'Portfolio Value' : `${symbol} Chart`}</h3>
+				{data &&
+					<div className="resolution-buttons">
+						<ResolutionButton title="1h" resolution="hour"/>
+						<ResolutionButton title="1d" resolution="day"/>
+						<ResolutionButton title="1w" resolution="week"/>
+						<ResolutionButton title="1m" resolution="month"/>
+						<ResolutionButton title="1y" resolution="year"/>
+						<ResolutionButton title="All" resolution="all"/>
+					</div>
+				}
 			</div>
+			{!data &&
+				<div className="Empty">
+					<p>No data available</p>
+				</div>
+			}
 		</div>
 	);
 };

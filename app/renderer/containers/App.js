@@ -1,3 +1,4 @@
+import EventEmitter from 'events';
 import electron, {remote} from 'electron';
 import ipc from 'electron-better-ipc';
 import _ from 'lodash';
@@ -51,7 +52,10 @@ class AppContainer extends Container {
 	state = {
 		activeView: 'Login',
 		enabledCoins: config.get('enabledCoins'),
+		currencies: [],
 	};
+
+	events = new EventEmitter();
 
 	constructor() {
 		super();
@@ -143,6 +147,8 @@ class AppContainer extends Container {
 			const enabledCoins = [...prevState.enabledCoins, coin];
 			config.set('enabledCoins', enabledCoins);
 			return {enabledCoins};
+		}, () => {
+			this.events.emit('enabled-currencies-changed');
 		});
 	}
 
@@ -152,6 +158,8 @@ class AppContainer extends Container {
 			const enabledCoins = prevState.enabledCoins.filter(enabledCoin => enabledCoin !== coin);
 			config.set('enabledCoins', enabledCoins);
 			return {enabledCoins};
+		}, () => {
+			this.events.emit('enabled-currencies-changed');
 		});
 	}
 

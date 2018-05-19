@@ -1,5 +1,7 @@
 import _ from 'lodash';
 import plur from 'plur';
+import pMap from 'p-map';
+import delay from 'delay';
 import {Container} from 'unstated';
 import appContainer from 'containers/App';
 import {formatCurrency} from '../util';
@@ -17,16 +19,33 @@ class DashboardContainer extends Container {
 		activeView: 'Portfolio',
 		currencyHistoryResolution: 'month',
 		listSearchQuery: '',
+		portfolioHistory: {
+			hour: [],
+			day: [],
+			week: [],
+			month: [],
+			year: [],
+			all: [],
+		},
+		currencyHistory: {
+			hour: {},
+			day: {},
+			week: {},
+			month: {},
+			year: {},
+			all: {},
+		},
 	};
 
 	constructor() {
 		super();
-		this.currencyHistoryCache = new Map();
 
-		appContainer.subscribe(() => {
-			if (!appContainer.state.enabledCoins.includes(this.state.activeView)) {
+		appContainer.events.on('enabled-currencies-changed', () => {
+			if (!appContainer.state.enabledCoins.includes(this.activeCurrencySymbol)) {
 				this.setActiveView('Portfolio');
 			}
+
+			this.updateAllCurrencyHistory();
 		});
 	}
 
@@ -37,7 +56,12 @@ class DashboardContainer extends Container {
 
 	setCurrencyHistoryResolution = async currencyHistoryResolution => {
 		await this.setState({currencyHistoryResolution});
-		this.updateCurrencyHistory();
+
+		if (this.state.activeView === 'Portfolio') {
+			this.updateAllCurrencyHistory();
+		} else {
+			this.updateCurrencyHistory();
+		}
 	};
 
 	setListSearchQuery = listSearchQuery => {
@@ -57,12 +81,15 @@ class DashboardContainer extends Container {
 		return formatCurrency(this.totalAssetValue);
 	}
 
+	get activeCurrencySymbol() {
+		return this.state.activeView === 'Portfolio' ? undefined : this.state.activeView;
+	}
+
 	get activeCurrency() {
 		return appContainer.getCurrency(this.state.activeView);
 	}
 
-	get _currencyHistoryUrl() {
-		const {symbol} = this.activeCurrency;
+	_currencyHistoryUrl(symbol) {
 		const baseUrl = 'https://min-api.cryptocompare.com/data/';
 
 		const getUrl = (type, limit, aggregate = 1) =>
@@ -90,29 +117,53 @@ class DashboardContainer extends Container {
 		}
 	}
 
-	async updateCurrencyHistory() {
-		if (this.state.activeView === 'Portfolio') {
+	async fetchPriceHistoryForAllCurrencies() {
+		const currencySymbols = appContainer.state.enabledCoins;
+		const result = await pMap(currencySymbols, symbol => this.getCurrencyHistory(symbol), {concurrency: 6});
+		return _.zipObject(currencySymbols, result);
+	}
+
+	calculatePortfolioPriceHistory(currencyHistory) {
+		currencyHistory = _.omitBy(currencyHistory, _.isNil);
+
+		const [currencyHistoryFirstValue] = Object.values(currencyHistory);
+		if (!currencyHistoryFirstValue) {
 			return;
 		}
 
-		const {symbol} = this.activeCurrency;
+		// We use the first entry just to iterate through the correct amount of items
+		const history = currencyHistoryFirstValue.map((currency, index) => {
+			let value = 0;
+			for (const [currencyKey, currencyValue] of Object.entries(currencyHistory)) {
+				const currency = appContainer.getCurrency(currencyKey);
+				if (currency) { // Ensures the currency is still enabled
+					const price = currencyValue[index].value;
+					value += currency.balance * price;
+				}
+			}
+
+			return {
+				time: currency.time,
+				value,
+			};
+		});
+
+		return history;
+	}
+
+	async getCurrencyHistory(symbol) {
+		if (!symbol) {
+			return;
+		}
 
 		// We won't even bother to fetch if we know it won't work
 		if (noPriceHistory.has(symbol)) {
-			this.setState({currencyHistory: null});
 			return;
-		}
-
-		// Get it from the cache if available so we can show
-		// something right away while we fetch the latest data
-		const cacheKey = `${symbol}-${this.state.currencyHistoryResolution}`;
-		if (this.currencyHistoryCache.has(cacheKey)) {
-			this.setState({currencyHistory: this.currencyHistoryCache.get(cacheKey)});
 		}
 
 		let json;
 		try {
-			const response = await fetch(this._currencyHistoryUrl);
+			const response = await fetch(this._currencyHistoryUrl(symbol));
 			json = await response.json();
 		} catch (error) {
 			console.error('Failed to get price history:', error);
@@ -120,7 +171,6 @@ class DashboardContainer extends Container {
 
 		if (!json || json.Data.length === 0) {
 			noPriceHistory.add(symbol);
-			this.setState({currencyHistory: null});
 			return;
 		}
 
@@ -129,16 +179,56 @@ class DashboardContainer extends Container {
 			value: close,
 		}));
 
-		this.currencyHistoryCache.set(cacheKey, prices);
-		this.setState({currencyHistory: prices});
+		return prices;
+	}
+
+	async updateCurrencyHistory() {
+		const symbol = this.activeCurrencySymbol;
+		const prices = await this.getCurrencyHistory(symbol);
+
+		this.setState(prevState => {
+			prevState.currencyHistory[prevState.currencyHistoryResolution][symbol] = prices;
+			return prevState;
+		});
+	}
+
+	async updateAllCurrencyHistory() {
+		const priceHistory = await this.fetchPriceHistoryForAllCurrencies();
+		const history = await this.calculatePortfolioPriceHistory(priceHistory);
+
+		await this.setState(prevState => {
+			prevState.portfolioHistory[prevState.currencyHistoryResolution] = history;
+
+			// Also set the individual currency history since we got it too
+			const currencySymbols = appContainer.state.enabledCoins;
+			for (const symbol of currencySymbols) {
+				prevState.currencyHistory[prevState.currencyHistoryResolution][symbol] = priceHistory[symbol];
+			}
+
+			return prevState;
+		});
 	}
 
 	async watchCurrencyHistory() {
-		const FIVE_MINUTES = 1000 * 60 * 5;
+		const THREE_MINUTES = 1000 * 60 * 3;
+
+		// TODO: Add an option to `fireEvery` to only start after the delay
+		await delay(THREE_MINUTES);
 
 		await fireEvery(async () => {
 			await this.updateCurrencyHistory();
-		}, FIVE_MINUTES);
+		}, THREE_MINUTES);
+	}
+
+	async watchAllCurrencyHistory() {
+		const FIFTEEN_MINUTES = 1000 * 60 * 15;
+
+		// We update the active currency more often
+		this.watchCurrencyHistory();
+
+		await fireEvery(async () => {
+			await this.updateAllCurrencyHistory();
+		}, FIFTEEN_MINUTES);
 	}
 }
 

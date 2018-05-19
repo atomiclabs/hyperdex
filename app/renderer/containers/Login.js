@@ -101,7 +101,7 @@ class LoginContainer extends Container {
 		// dependencies. Better to handle it here so that it's possible to import the
 		// App container in the Dashboard container.
 		const {default: dashboardContainer} = await import('./Dashboard');
-		await dashboardContainer.watchCurrencyHistory();
+		await dashboardContainer.watchAllCurrencyHistory();
 
 		config.set('lastActivePortfolioId', portfolio.id);
 
