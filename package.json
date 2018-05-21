@@ -9,7 +9,7 @@
 		"dev": "yarn && run-p dev:*",
 		"pack": "webpack && electron-builder --dir",
 		"dist": "webpack --mode=production && electron-builder --mac --linux --win",
-		"release": "np --no-publish"
+		"release": "cd app && np --no-publish"
 	},
 	"dependencies": {
 		"bip39": "^2.5.0",
