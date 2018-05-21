@@ -239,7 +239,7 @@ export default class Api {
 			txid,
 			amount,
 			currency,
-			address
+			address,
 		} = await this.createTransaction(opts);
 
 		// Convert from satoshis
