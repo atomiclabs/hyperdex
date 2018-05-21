@@ -2502,9 +2502,9 @@ crypto-random-string@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-1.0.0.tgz#a230f64f568310e1498009940790ec99545bca7e"
 
-cryptocurrency-icons@cjdowner/cryptocurrency-icons#68877c336de5f5cd69dc46de546edfde5331a148:
+cryptocurrency-icons@cjdowner/cryptocurrency-icons#64760295b657a6576e1e6a974de501324e62ce1b:
   version "0.0.1"
-  resolved "https://codeload.github.com/cjdowner/cryptocurrency-icons/tar.gz/68877c336de5f5cd69dc46de546edfde5331a148"
+  resolved "https://codeload.github.com/cjdowner/cryptocurrency-icons/tar.gz/64760295b657a6576e1e6a974de501324e62ce1b"
 
 css-color-names@0.0.4:
   version "0.0.4"
