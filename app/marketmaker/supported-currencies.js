@@ -592,22 +592,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'MGW',
-		name: 'MultiGateway',
-		asset: 'MGW',
-		rpcport: 12386,
-		electrumServers: [
-			{
-				host: 'electrum1.cipig.net',
-				port: 10015,
-			},
-			{
-				host: 'electrum2.cipig.net',
-				port: 10015,
-			},
-		],
-	},
-	{
 		coin: 'MNZ',
 		name: 'Monaize',
 		asset: 'MNZ',
