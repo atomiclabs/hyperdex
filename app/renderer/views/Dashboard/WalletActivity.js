@@ -16,7 +16,7 @@ const Empty = () => (
 );
 
 const ActivityItem = ({swap}) => {
-	const {cmcPriceUsd} = appContainer.getCurrency(swap.baseCurrency);
+	const {cmcPriceUsd} = appContainer.getCurrencyPrice(swap.baseCurrency);
 	const totalUsd = swap.broadcast.baseCurrencyAmount * cmcPriceUsd;
 
 	return (
