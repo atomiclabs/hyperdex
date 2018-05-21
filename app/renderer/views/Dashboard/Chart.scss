@@ -67,6 +67,8 @@
 		justify-content: center;
 		align-items: center;
 		padding-top: 17px;
+		user-select: none;
+		cursor: default;
 
 		p {
 			display: block;

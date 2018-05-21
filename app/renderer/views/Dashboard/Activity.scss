@@ -24,6 +24,8 @@
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+			user-select: none;
+			cursor: default;
 
 			p {
 				font-size: 18px;

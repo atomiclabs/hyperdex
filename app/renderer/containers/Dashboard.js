@@ -148,6 +148,11 @@ class DashboardContainer extends Container {
 			};
 		});
 
+		// Don't show the graph if no data
+		if (history.every(x => x.value === 0)) {
+			return;
+		}
+
 		return history;
 	}
 
