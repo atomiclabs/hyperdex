@@ -17,7 +17,7 @@ const CustomTooltip = ({payload}) => {
 };
 
 const resolutionToLabelFormat = new Map([
-	['hour', 'HH:mm:ss'],
+	['hour', 'HH:mm'],
 	['day', 'HH:mm dddd'],
 	['week', 'dddd DD/MM'],
 	['month', 'DD/MM'],
