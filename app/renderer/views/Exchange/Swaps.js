@@ -36,7 +36,7 @@ const Empty = () => (
 
 const SwapItem = ({swap}) => (
 	<div className="row">
-		<div className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD.MM')}</div>
+		<div className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}</div>
 		<div className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</div>
 		<div className="base-amount">+{swap.baseCurrencyAmount} {swap.baseCurrency}</div>
 		<div className="quote-amount">-{swap.quoteCurrencyAmount} {swap.quoteCurrency}</div>
