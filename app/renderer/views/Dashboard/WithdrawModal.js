@@ -13,6 +13,9 @@ const getInitialProps = () => ({
 	recipientAddress: '',
 	amount: 0,
 	isWithdrawing: false,
+	isBroadcasting: false,
+	txFee: 0,
+	broadcast: false,
 });
 
 class WithdrawModal extends React.Component {
@@ -37,11 +40,18 @@ class WithdrawModal extends React.Component {
 		const currency = dashboardContainer.activeCurrency.symbol;
 		const {recipientAddress: address, amount} = this.state;
 
-		await appContainer.api.withdraw({
+		const {txFee, broadcast} = await appContainer.api.withdraw({
 			currency,
 			address,
 			amount,
 		});
+
+		this.setState({txFee, broadcast});
+	};
+
+	confirmButtonHandler = async () => {
+		this.setState({isBroadcasting: true});
+		const {amount, currency, address} = await this.state.broadcast();
 
 		// TODO: The notification should be clickable and open a block explorer for the currency.
 		// We'll need to have a list of block explorers for each currency.
@@ -134,26 +144,36 @@ class WithdrawModal extends React.Component {
 						</div>
 						<div className="section">
 							<div className="info">
-								<span>Network fee:</span>
-								<span>{networkFee} (TODO!)</span>
-							</div>
-							<div className="info">
 								<span>Remaining balance:</span>
-								<span className={remainingBalance < 0 ? 'negative-balance' : ''}>{remainingBalance}</span>
+								<span className={remainingBalance < 0 ? 'negative-balance' : ''}>{remainingBalance} {currencyInfo.symbol}</span>
+							</div>
+							<div className={`info ${this.state.broadcast || 'hidden'}`}>
+								<span>Network Fee:</span>
+								<span>{this.state.txFee} {currencyInfo.symbol} (${roundTo(this.state.txFee * currencyInfo.cmcPriceUsd, 8)})</span>
 							</div>
 						</div>
-						<Button
-							className="withdraw-button"
-							primary
-							value="Withdraw"
-							disabled={
-								!this.state.recipientAddress ||
-								!this.state.amount ||
-								remainingBalance < 0 ||
-								this.state.isWithdrawing
-							}
-							onClick={this.withdrawButtonHandler}
-						/>
+						{this.state.broadcast ? (
+							<Button
+								className="confirm-button"
+								primary
+								value="Confirm Network Fee"
+								disabled={this.state.isBroadcasting}
+								onClick={this.confirmButtonHandler}
+							/>
+						) : (
+							<Button
+								className="withdraw-button"
+								primary
+								value="Withdraw"
+								disabled={
+									!this.state.recipientAddress ||
+									!this.state.amount ||
+									remainingBalance < 0 ||
+									this.state.isWithdrawing
+								}
+								onClick={this.withdrawButtonHandler}
+							/>
+						)}
 					</React.Fragment>
 				</Modal>
 				<Button
