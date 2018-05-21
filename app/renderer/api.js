@@ -51,6 +51,7 @@ export default class Api {
 
 	async request(data) {
 		return this._request({
+			needjson: 1,
 			...data,
 			...{userpass: await this.token},
 		});
