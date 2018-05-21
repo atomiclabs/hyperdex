@@ -66,6 +66,11 @@ export default class Api {
 	}
 
 	async enableCoin(coin, opts = {}) {
+		if (!getCurrency(coin)) {
+			console.error('Tried to enable unsupported currency:', coin);
+			return;
+		}
+
 		if (opts.isFullNode) {
 			const response = await this.enableCoinFullNode(coin);
 			return response.status === 'active';
