@@ -105,7 +105,12 @@ function createMainWindow() {
 
 app.on('ready', () => {
 	session.defaultSession.setPermissionRequestHandler((webContents, permission, callback) => {
-		// We deny everything for extra security as we don't need it
+		if (permission === 'notifications') {
+			callback(true);
+			return;
+		}
+
+		// We deny almost everything for extra security as we don't need it
 		callback(false);
 	});
 
