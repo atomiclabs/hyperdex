@@ -249,7 +249,8 @@ export default class Api {
 		} = await this.createTransaction(opts);
 
 		// Convert from satoshis
-		const txFee = txFeeSatoshis / 100000000;
+		const SATOSHIS = 100000000;
+		const txFee = txFeeSatoshis / SATOSHIS;
 
 		const broadcast = async () => {
 			// This is needed until a bug in marketmaker is resolved
