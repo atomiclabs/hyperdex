@@ -224,11 +224,11 @@ export default class Api {
 		};
 	}
 
-	async broadcastTransaction(currencySymbol, transaction) {
+	async broadcastTransaction(currencySymbol, rawTransaction) {
 		const response = await this.request({
 			method: 'sendrawtransaction',
 			coin: currencySymbol,
-			signedtx: transaction,
+			signedtx: rawTransaction,
 		});
 
 		if (!response.result === 'success') {
@@ -240,7 +240,7 @@ export default class Api {
 
 	async withdraw(opts) {
 		const {
-			hex: transaction,
+			hex: rawTransaction,
 			txfee: txFeeSatoshis,
 			txid,
 			amount,
@@ -253,7 +253,7 @@ export default class Api {
 
 		const broadcast = async () => {
 			// This is needed until a bug in marketmaker is resolved
-			await this.broadcastTransaction(opts.currency, transaction);
+			await this.broadcastTransaction(opts.currency, rawTransaction);
 
 			return {txid, amount, currency, address};
 		};
