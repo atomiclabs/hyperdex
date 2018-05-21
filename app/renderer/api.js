@@ -193,7 +193,7 @@ export default class Api {
 		return response.txfee;
 	}
 
-	async withdraw(opts) {
+	async createTransaction(opts) {
 		if (typeof opts.currency !== 'string') {
 			throw new TypeError(`opts.currency must be a string: ${opts.currency}`);
 		}
@@ -211,14 +211,53 @@ export default class Api {
 			method: 'withdraw',
 			coin: opts.currency,
 			outputs: [{[opts.address]: opts.amount}],
-			broadcast: 1,
+			broadcast: 0,
 		});
 
 		if (!result.complete) {
 			throw errorWithObject('Couldn\'t complete withdrawal', result);
 		}
 
-		return result;
+		return {
+			...opts,
+			...result,
+		};
+	}
+
+	broadcastTransaction(coin, transaction) {
+		return this.request({
+			method: 'sendrawtransaction',
+			coin,
+			signedtx: transaction,
+		});
+	}
+
+	async withdraw(opts) {
+		const {
+			hex: transaction,
+			txfee: txFeeSatoshis,
+			txid,
+			amount,
+			currency,
+			address
+		} = await this.createTransaction(opts);
+
+		// Convert from satoshis
+		const txFee = txFeeSatoshis / 100000000;
+
+		const broadcast = async () => {
+			// This is needed until a bug in marketmaker is resolved
+			try {
+				await this.broadcastTransaction(opts.currency, transaction);
+			} catch (_) {}
+
+			return {txid, amount, currency, address};
+		};
+
+		return {
+			txFee,
+			broadcast,
+		};
 	}
 
 	listUnspent(coin, address) {
