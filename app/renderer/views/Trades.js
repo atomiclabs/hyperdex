@@ -75,7 +75,7 @@ class CancelButton extends React.Component {
 // TODO(sindresorhus): Consider DRYing this up with the code in `Exchange.js`
 const SwapItem = ({swap}) => (
 	<tr>
-		<td className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD.MM.YY')}</td>
+		<td className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}</td>
 		<td className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</td>
 		<td className="base-amount">+{swap.baseCurrencyAmount} {swap.baseCurrency}</td>
 		<td className="quote-amount">-{swap.quoteCurrencyAmount} {swap.quoteCurrency}</td>

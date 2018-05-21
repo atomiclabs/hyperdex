@@ -113,7 +113,7 @@ class SwapDetails extends React.Component {
 			<div className="modal-wrapper">
 				<Modal
 					className="SwapDetails"
-					title={`${baseCurrency}/${quoteCurrency} Swap \u{00A0}• \u{00A0}${formatDate(swap.timeStarted, 'HH:mm DD.MM.YY')}`}
+					title={`${baseCurrency}/${quoteCurrency} Swap \u{00A0}• \u{00A0}${formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}`}
 					icon="/assets/swap-icon.svg"
 					open={this.state.isOpen}
 					onClose={this.close}

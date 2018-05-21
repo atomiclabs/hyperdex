@@ -20,7 +20,7 @@ const ActivityItem = ({swap}) => {
 			<td className="timestamp">
 				<div>
 					<div>{formatDate(swap.timeStarted, 'HH:mm')}</div>
-					<div>{formatDate(swap.timeStarted, 'DD.MM.YY')}</div>
+					<div>{formatDate(swap.timeStarted, 'DD/MM/YY')}</div>
 				</div>
 			</td>
 			<td className="type">
