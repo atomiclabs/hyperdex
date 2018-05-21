@@ -4,6 +4,7 @@ import LoginBackButton from 'components/LoginBackButton';
 import ReloadButton from 'components/ReloadButton';
 import CopyButton from 'components/CopyButton';
 import WrapWidth from 'components/WrapWidth';
+import ExternalLink from 'components/ExternalLink';
 import container from 'containers/CreatePortfolio';
 import './CreatePortfolio.scss';
 
@@ -28,7 +29,7 @@ const CreatePortfolioStep2 = () => {
 					<img className="icon" src="/assets/warning-icon.svg" width="30" height="30"/>
 					<div className="content">
 						<h3>Important: please back up your seed phrase now!</h3>
-						<p>We recommend storing it offline. <a href="#">Learn more security best practices</a></p>
+						<p>We recommend storing it offline. <ExternalLink url="https://github.com/lukechilds/hyperdex/wiki/Security-Best-Practices">Learn more security best practices</ExternalLink></p>
 					</div>
 				</div>
 			</div>
