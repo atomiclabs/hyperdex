@@ -178,6 +178,23 @@ const createAppMenu = options => {
 			type: 'separator',
 		},
 		{
+			label: 'Go To Next View',
+			accelerator: 'Control+Tab',
+			click() {
+				sendAction('set-next-view');
+			},
+		},
+		{
+			label: 'Go To Previous View',
+			accelerator: 'Control+Shift+Tab',
+			click() {
+				sendAction('set-previous-view');
+			},
+		},
+		{
+			type: 'separator',
+		},
+		{
 			label: 'Log Out',
 			click() {
 				sendAction('log-out');
@@ -246,25 +263,6 @@ const createAppMenu = options => {
 				},
 				{
 					role: 'close',
-				},
-				{
-					type: 'separator',
-				},
-				{
-					label: 'Select Next View',
-					visible: isLoggedIn,
-					accelerator: 'Control+Tab',
-					click() {
-						sendAction('set-next-view');
-					},
-				},
-				{
-					label: 'Select Previous View',
-					visible: isLoggedIn,
-					accelerator: 'Control+Shift+Tab',
-					click() {
-						sendAction('set-previous-view');
-					},
 				},
 				{
 					type: 'separator',
