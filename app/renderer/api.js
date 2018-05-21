@@ -215,7 +215,7 @@ export default class Api {
 		});
 
 		if (!result.complete) {
-			throw errorWithObject('Couldn\'t complete withdrawal', result);
+			throw errorWithObject('Couldn\'t create withdrawal transaction', result);
 		}
 
 		return {
