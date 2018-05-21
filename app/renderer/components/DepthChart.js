@@ -36,10 +36,10 @@ const DepthChart = props => {
 		asks = [{price: 0, depth: 0}];
 	}
 
+	bids = _.orderBy(bids, ['depth'], ['desc']);
+	asks = _.orderBy(asks, ['depth'], ['asc']);
 	bids = roundPrice(bids);
 	asks = roundPrice(asks);
-	bids = _.sortBy(bids, ['price']);
-	asks = _.sortBy(asks, ['price']);
 
 	return (
 		<div className="DepthChart">
