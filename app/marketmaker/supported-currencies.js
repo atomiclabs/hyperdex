@@ -355,6 +355,29 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'DNR',
+		rpcport: 32339,
+		isPoS: 1,
+		pubtype: 30,
+		p2shtype: 90,
+		wiftype: 158,
+		txfee: 10000,
+		electrumServers: [
+			{
+				host: '155.254.33.176',
+				port: 50002,
+			},
+			{
+				host: '173.254.244.119',
+				port: 50002,
+			},
+			{
+				host: '173.254.244.122',
+				port: 50002,
+			},
+		],
+	},
+	{
 		coin: 'DOGE',
 		rpcport: 22555,
 		pubtype: 30,
