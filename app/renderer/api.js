@@ -224,10 +224,10 @@ export default class Api {
 		};
 	}
 
-	async broadcastTransaction(coin, transaction) {
+	async broadcastTransaction(currencySymbol, transaction) {
 		const response = await this.request({
 			method: 'sendrawtransaction',
-			coin,
+			coin: currencySymbol,
 			signedtx: transaction,
 		});
 
