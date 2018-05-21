@@ -105,11 +105,13 @@ class AppContainer extends Container {
 
 				// Mixin useful data for the currencies
 				currencies = currencies.map(currency => {
-					const {price, percentChange24h} = this.coinPrices.find(x => x.symbol === currency.coin);
+					currency.symbol = currency.coin; // For readability
 
-					if (price) {
-						currency.cmcPriceUsd = price;
-						currency.cmcBalanceUsd = currency.balance * price;
+					const {cmcPriceUsd, cmcPercentChange24h} = this.getCurrencyPrice(currency.symbol);
+
+					if (cmcPriceUsd) {
+						currency.cmcPriceUsd = cmcPriceUsd;
+						currency.cmcBalanceUsd = currency.balance * cmcPriceUsd;
 					} else {
 						// We handle coins not on CMC
 						// `currency.price` is the price of the coin in KMD
@@ -117,9 +119,8 @@ class AppContainer extends Container {
 						currency.cmcBalanceUsd = currency.balance * currency.cmcPriceUsd;
 					}
 
-					currency.symbol = currency.coin; // For readability
 					currency.name = getCurrencyName(currency.symbol);
-					currency.cmcPercentChange24h = percentChange24h;
+					currency.cmcPercentChange24h = cmcPercentChange24h;
 
 					currency.balanceFormatted = roundTo(currency.balance, 8);
 					currency.cmcPriceUsdFormatted = formatCurrency(currency.cmcPriceUsd);
@@ -139,6 +140,15 @@ class AppContainer extends Container {
 
 	getCurrency(symbol) {
 		return this.state.currencies.find(x => x.coin === symbol);
+	}
+
+	getCurrencyPrice(symbol) {
+		const {price, percentChange24h} = this.coinPrices.find(x => x.symbol === symbol);
+
+		return {
+			cmcPriceUsd: price,
+			cmcPercentChange24h: percentChange24h,
+		};
 	}
 
 	enableCoin(coin) {
