@@ -65,9 +65,8 @@ class WithdrawModal extends React.Component {
 
 	render() {
 		const currencyInfo = dashboardContainer.activeCurrency;
-		const networkFee = 0; // TODO: Implement getting the network fees
-		const maxAmount = currencyInfo.balance - networkFee;
-		const remainingBalance = roundTo(maxAmount - this.state.amount, 8);
+		const maxAmount = currencyInfo.balance;
+		const remainingBalance = roundTo(maxAmount - (this.state.amount + this.state.txFee), 8);
 		const setAmount = amount => {
 			/// this.setState({amount});
 			// Workaround for:
