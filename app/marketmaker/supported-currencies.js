@@ -81,21 +81,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'BET',
-		asset: 'BET',
-		rpcport: 14250,
-		electrumServers: [
-			{
-				host: 'electrum1.cipig.net',
-				port: 10012,
-			},
-			{
-				host: 'electrum2.cipig.net',
-				port: 10012,
-			},
-		],
-	},
-	{
 		coin: 'BLK',
 		isPoS: 1,
 		rpcport: 15715,
