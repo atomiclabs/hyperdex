@@ -14,17 +14,18 @@ import {isDevelopment} from '../../util-common';
 
 const config = remote.require('./config');
 
+const excludedTestCurrencies = new Set([
+	'PIZZA',
+	'BEER',
+]);
+
 const getTickerData = async symbol => {
 	const fallback = {
 		symbol,
 		price: 0,
 	};
 
-	const excludedTestCurrencies = [
-		'PIZZA',
-		'BEER',
-	];
-	if (excludedTestCurrencies.includes(symbol)) {
+	if (excludedTestCurrencies.has(symbol)) {
 		return fallback;
 	}
 
@@ -125,6 +126,12 @@ class AppContainer extends Container {
 						// `currency.price` is the price of the coin in KMD
 						currency.cmcPriceUsd = currency.price * kmdPriceInUsd;
 						currency.cmcBalanceUsd = currency.balance * currency.cmcPriceUsd;
+
+						// Don't show price for test currencies
+						if (excludedTestCurrencies.has(currency.symbol)) {
+							currency.cmcPriceUsd = 0;
+							currency.cmcBalanceUsd = 0;
+						}
 					}
 
 					currency.name = getCurrencyName(currency.symbol);
