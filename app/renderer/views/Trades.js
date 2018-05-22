@@ -82,11 +82,13 @@ const SwapItem = ({swap}) => (
 		<td className="status">
 			<div className="status__icon" data-status={swap.status}>{swap.statusFormatted}</div>
 		</td>
+		{tradesContainer.state.activeView === 'OpenOrders' &&
+			<td className="cancel">
+				<CancelButton swap={swap}/>
+			</td>
+		}
 		<td className="view">
-			{tradesContainer.state.activeView === 'OpenOrders' ?
-				<CancelButton swap={swap}/> :
-				<SwapDetails swap={swap}/>
-			}
+			<SwapDetails swap={swap}/>
 		</td>
 	</tr>
 );
