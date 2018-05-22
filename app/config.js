@@ -15,6 +15,7 @@ const defaults = {
 		'BTC',
 		'CHIPS',
 		'DASH',
+		'DNR',
 		'DOGE',
 		'HUSH',
 		'KMD',
