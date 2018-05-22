@@ -136,11 +136,11 @@ const supportedCurrencies = [
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
-				port: 10000,
+				port: 10020,
 			},
 			{
 				host: 'electrum2.cipig.net',
-				port: 10000,
+				port: 10020,
 			},
 		],
 	},
