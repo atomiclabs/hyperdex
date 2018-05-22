@@ -20,6 +20,14 @@ const getTickerData = async symbol => {
 		price: 0,
 	};
 
+	const excludedTestCurrencies = [
+		'PIZZA',
+		'BEER',
+	];
+	if (excludedTestCurrencies.includes(symbol)) {
+		return fallback;
+	}
+
 	const id = coinlist.get(symbol, 'id');
 	if (!id) { // For example, SUPERNET
 		return fallback;
