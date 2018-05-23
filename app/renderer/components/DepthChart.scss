@@ -26,4 +26,8 @@
 			display: none;
 		}
 	}
+
+	&.is-empty .recharts-area-dots {
+		display: none;
+	}
 }

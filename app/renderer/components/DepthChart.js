@@ -2,6 +2,7 @@ import React from 'react';
 import {ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip} from 'recharts';
 import roundTo from 'round-to';
 import _ from 'lodash';
+import Empty from 'components/Empty';
 import {formatCurrency} from '../util';
 import './DepthChart.scss';
 
@@ -25,24 +26,24 @@ const CustomTooltipContent = ({payload}) => {
 };
 
 const DepthChart = props => {
-	let {bids, asks} = props;
+	let {
+		bids = [],
+		asks = [],
+	} = props;
+
 	const getDepths = orders => orders.map(order => order.depth);
 	const maxDepth = Math.max(...getDepths(asks), ...getDepths(bids));
+	const isEmpty = bids.length === 0 && asks.length === 0;
 
-	if (!(bids && bids.length > 0)) {
-		bids = [{price: 0, depth: 0}];
-	}
-	if (!(asks && asks.length > 0)) {
-		asks = [{price: 0, depth: 0}];
-	}
-
+	bids = bids.length > 0 ? bids : [{price: 0, depth: 0}];
+	asks = asks.length > 0 ? asks : [{price: 0, depth: 0}];
 	bids = _.orderBy(bids, ['depth'], ['desc']);
 	asks = _.orderBy(asks, ['depth'], ['asc']);
 	bids = roundPrice(bids);
 	asks = roundPrice(asks);
 
 	return (
-		<div className="DepthChart">
+		<div className={`DepthChart ${isEmpty ? 'is-empty' : ''}`}>
 			<ResponsiveContainer width="50%" minHeight={100}>
 				<AreaChart data={bids}>
 					<Area
@@ -147,6 +148,7 @@ const DepthChart = props => {
 					/>
 				</AreaChart>
 			</ResponsiveContainer>
+			<Empty show={isEmpty} text="No data available"/>
 		</div>
 	);
 };

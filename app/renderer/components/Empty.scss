@@ -1,0 +1,28 @@
+@keyframes fade-in-0-4 {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 0.4;
+	}
+}
+
+.Empty {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
+	cursor: default;
+
+	p {
+		display: block;
+		margin: 0;
+		padding: 0;
+		font-size: 20px;
+		opacity: 0.4;
+		animation: fade-in-0-4 1s;
+	}
+}
