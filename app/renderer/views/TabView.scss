@@ -136,8 +136,8 @@ h6 {
 					@include colored-icon-no-size($trades-icon);
 				}
 
-				&--preferences {
-					@include colored-icon-no-size($preferences-icon);
+				&--settings {
+					@include colored-icon-no-size($settings-icon);
 				}
 			}
 

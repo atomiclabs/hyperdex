@@ -21,7 +21,7 @@ const Nav = () => (
 		<IconNavItem to="Swap"/>
 		<IconNavItem to="Exchange"/>
 		<IconNavItem to="Trades"/>
-		<IconNavItem to="Preferences"/>
+		<IconNavItem to="Settings"/>
 	</nav>
 );
 

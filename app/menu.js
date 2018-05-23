@@ -111,7 +111,7 @@ const createDebugMenu = () => {
 				},
 			},
 			{
-				label: 'Show Preferences',
+				label: 'Show Settings',
 				click() {
 					config.openInEditor();
 				},
@@ -133,7 +133,7 @@ const createDebugMenu = () => {
 				},
 			},
 			{
-				label: 'Delete Preferences',
+				label: 'Delete Settings',
 				click() {
 					config.clear();
 					app.relaunch();
@@ -217,7 +217,7 @@ const createAppMenu = options => {
 					visible: isLoggedIn,
 					accelerator: 'Cmd+,',
 					click() {
-						setActiveView('Preferences');
+						setActiveView('Settings');
 					},
 				},
 				{
