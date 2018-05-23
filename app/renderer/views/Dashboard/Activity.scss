@@ -35,6 +35,7 @@
 
 		.ActivityList {
 			flex: 1;
+			overflow-x: hidden;
 			overflow-y: auto;
 			margin-bottom: 20px;
 			font-size: 12px;
@@ -96,6 +97,7 @@
 
 			.value {
 				text-align: right;
+				white-space: normal;
 
 				&-description {
 					color: var(--text-color);

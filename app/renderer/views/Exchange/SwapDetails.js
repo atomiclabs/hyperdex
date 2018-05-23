@@ -117,7 +117,7 @@ class SwapDetails extends React.Component {
 					icon="/assets/swap-icon.svg"
 					open={this.state.isOpen}
 					onClose={this.close}
-					width="640px"
+					width="660px"
 				>
 					<React.Fragment>
 						<div className="section overview">

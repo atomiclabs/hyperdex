@@ -18,6 +18,7 @@
 
 	.ActivityList {
 		flex: 1;
+		overflow-x: hidden;
 		overflow-y: auto;
 		margin-bottom: 20px;
 		font-size: 12px;

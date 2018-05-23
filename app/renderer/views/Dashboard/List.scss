@@ -24,14 +24,14 @@
 	.center {
 		flex: 1;
 		min-height: 80px;
+		overflow-x: hidden;
 		overflow-y: auto;
 	}
 
 	.bottom {
 		align-items: end;
-		height: 88px;
 		border-top: 1px solid #313d4f;
-		padding: 20px;
+		padding: 12px 16px;
 
 		input {
 			border: none;
