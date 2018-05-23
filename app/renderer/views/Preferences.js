@@ -3,7 +3,6 @@ import React from 'react';
 import _ from 'lodash';
 import {Subscribe} from 'unstated';
 import appContainer from 'containers/App';
-import Input from 'components/Input';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import Select from 'components/Select';
 import {getCurrencySymbols, getCurrencyName} from '../../marketmaker/supported-currencies';
@@ -60,7 +59,7 @@ class CurrencySelection extends React.Component {
 
 class Form extends React.Component {
 	state = {
-		marketmakerUrl: config.get('marketmakerUrl') || '',
+		/// marketmakerUrl: config.get('marketmakerUrl') || '',
 	};
 
 	persistState = _.debounce((name, value) => {
@@ -76,7 +75,7 @@ class Form extends React.Component {
 	render() {
 		return (
 			<React.Fragment>
-				<div className="form-group">
+				{/* <div className="form-group">
 					<label htmlFor="marketmakerUrl">
 						Custom Marketmaker URL: <small>(Requires app restart)</small>
 					</label>
@@ -86,7 +85,7 @@ class Form extends React.Component {
 						onChange={this.handleChange}
 						placeholder="Example: http://localhost:7783"
 					/>
-				</div>
+				</div> */}
 				<CurrencySelection/>
 			</React.Fragment>
 		);

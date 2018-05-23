@@ -12,7 +12,9 @@ const config = remote.require('./config');
 const {getPortfolios, decryptSeedPhrase} = remote.require('./portfolio-util');
 
 const initApi = async seedPhrase => {
-	let url = config.get('marketmakerUrl');
+	// TODO: Disabled for now until we can properly support custom marketmaker instances
+	/// let url = config.get('marketmakerUrl');
+	let url = false;
 	if (url) {
 		console.log('Using custom marketmaker URL:', url);
 	} else {
