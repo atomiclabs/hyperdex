@@ -772,7 +772,7 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'SNG',
+		coin: 'XSG',
 		name: 'SnowGem',
 		rpcport: 16112,
 		taddr: 28,
