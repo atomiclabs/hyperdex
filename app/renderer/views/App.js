@@ -9,7 +9,7 @@ import Dashboard from './Dashboard';
 import Swap from './Swap';
 import Exchange from './Exchange';
 import Trades from './Trades';
-import Preferences from './Preferences';
+import Settings from './Settings';
 import ComponentsPreview from './ComponentsPreview';
 
 const App = () => (
@@ -21,7 +21,7 @@ const App = () => (
 				<AppView component={Swap}/>
 				<AppView component={Exchange}/>
 				<AppView component={Trades}/>
-				<AppView component={Preferences}/>
+				<AppView component={Settings}/>
 				<AppView component={ComponentsPreview}/>
 			</React.Fragment>
 		)}

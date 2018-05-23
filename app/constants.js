@@ -21,5 +21,5 @@ exports.appViews = [
 	'Swap',
 	'Exchange',
 	'Trades',
-	'Preferences',
+	'Settings',
 ];

@@ -9,7 +9,7 @@ import Select from 'components/Select';
 import {getCurrencySymbols, getCurrencyName} from '../../marketmaker/supported-currencies';
 import {isDevelopment} from '../../util-common';
 import TabView from './TabView';
-import './Preferences.scss';
+import './Settings.scss';
 
 const config = electron.remote.require('./config');
 
@@ -93,12 +93,12 @@ class Form extends React.Component {
 	}
 }
 
-const Preferences = () => (
+const Settings = () => (
 	<Subscribe to={[appContainer]}>
 		{() => (
-			<TabView title="Preferences" className="Preferences">
+			<TabView title="Settings" className="Settings">
 				<header>
-					<h2>Preferences</h2>
+					<h2>Settings</h2>
 				</header>
 				<main>
 					<Form/>
@@ -108,4 +108,4 @@ const Preferences = () => (
 	</Subscribe>
 );
 
-export default Preferences;
+export default Settings;
