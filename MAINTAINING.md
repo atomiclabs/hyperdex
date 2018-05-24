@@ -5,7 +5,7 @@
 ### Run
 
 ```
-$ yarn dev
+$ yarn start
 ```
 
 ### Release
