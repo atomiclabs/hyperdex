@@ -189,10 +189,10 @@ class AppContainer extends Container {
 	}
 
 	async logOut() {
-		this.stopMarketmaker();
+		await this.stopMarketmaker();
 		config.set('windowState', remote.getCurrentWindow().getBounds());
 		this.setActiveView('');
-		await Promise.resolve();
+		await Promise.resolve(); // Ensure the window is blank before changing the size
 		setLoginWindowBounds();
 		location.reload();
 	}
