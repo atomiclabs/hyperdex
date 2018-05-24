@@ -178,14 +178,14 @@ const createAppMenu = options => {
 			type: 'separator',
 		},
 		{
-			label: 'Go To Next View',
+			label: 'Go to Next View',
 			accelerator: 'Control+Tab',
 			click() {
 				sendAction('set-next-view');
 			},
 		},
 		{
-			label: 'Go To Previous View',
+			label: 'Go to Previous View',
 			accelerator: 'Control+Shift+Tab',
 			click() {
 				sendAction('set-previous-view');
