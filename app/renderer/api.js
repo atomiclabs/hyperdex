@@ -288,12 +288,10 @@ export default class Api {
 	}
 
 	async stop() {
+		this.queue.clear();
+		await this.request({method: 'stop'});
 		this.queue.pause();
 		this.queue.clear();
-
-		try {
-			await this.request({method: 'stop'});
-		} catch (_) {} // Ignoring the error as `marketmaker` doesn't return a response
 	}
 
 	subscribeToSwap(swap) {
