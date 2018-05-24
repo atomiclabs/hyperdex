@@ -21,7 +21,7 @@ const handleCurrencies = currencies => {
 		});
 	}
 
-	return _.orderBy(currencies, ['cmcBalanceUsd'], ['desc']);
+	return _.orderBy(currencies, ['cmcBalanceUsd', 'balance'], ['desc', 'desc']);
 };
 
 const List = () => {
