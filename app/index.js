@@ -1,5 +1,9 @@
 'use strict';
-require('strict-import')(module);
+require('strict-import')(module, {
+	_allowedModules: [
+		'electron-debug',
+	],
+});
 const electron = require('electron');
 const {autoUpdater} = require('electron-updater');
 const {is, disableZoom} = require('electron-util');
