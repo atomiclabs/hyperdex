@@ -1,9 +1,12 @@
+import {clipboard} from 'electron';
 import title from 'title';
 import React from 'react';
 import formatDate from 'date-fns/format';
 import Modal from 'components/Modal';
 import Progress from 'components/Progress';
 import CurrencyIcon from 'components/CurrencyIcon';
+import Button from 'components/Button';
+import {isDevelopment} from '../../../util-common';
 import swapTransactions from '../../swap-transactions';
 import {zeroPadFraction} from '../../util';
 import './SwapDetails.scss';
@@ -164,6 +167,14 @@ class SwapDetails extends React.Component {
 								</React.Fragment>
 							)}
 							<p>ID: {swap.uuid}</p>
+							{isDevelopment &&
+								<Button
+									value="Copy Swap Debug Data"
+									onClick={() => {
+										clipboard.writeText(JSON.stringify(swap, null, '\t'));
+									}}
+								/>
+							}
 						</div>
 					</React.Fragment>
 				</Modal>
