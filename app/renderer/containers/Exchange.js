@@ -15,6 +15,7 @@ const getInitialState = () => ({
 		biddepth: 0,
 		askdepth: 0,
 	},
+	isSendingOrder: false,
 });
 
 class ExchangeContainer extends Container {
@@ -100,6 +101,24 @@ class ExchangeContainer extends Container {
 
 		return this.stopWatchingOrderBook;
 	}
+
+	setIsSendingOrder = isSendingOrder => {
+		this.setState({isSendingOrder});
+	};
+
+	isActiveOrderPending = () => {
+		// TODO: Remove this when we have Marketmaker v2.
+		// Work around Marketmaker's limitation of only one pending swap at the time.
+		// Sometimes swaps get stuck in pending mode, so we timeout after one minute.
+		const ONE_MINUTE = 1000 * 60;
+		const [activeSwap] = this.state.swapHistory;
+		const isPending = (
+			activeSwap.status === 'pending' &&
+			(Date.now() - activeSwap.timeStarted) < ONE_MINUTE
+		);
+
+		return this.state.isSendingOrder || isPending;
+	};
 }
 
 const exchangeContainer = new ExchangeContainer();
