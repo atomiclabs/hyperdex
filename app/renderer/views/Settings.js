@@ -74,9 +74,13 @@ class Form extends React.Component {
 	};
 
 	render() {
+		const isValidMarketmakerUrl = this.state.marketmakerUrl.length < 1 || /^https?:\/\/.{4}/.test(this.state.marketmakerUrl);
+
 		return (
 			<React.Fragment>
+				<CurrencySelection/>
 				<div className="form-group">
+					<h3>Advanced</h3>
 					<label htmlFor="marketmakerUrl">
 						Custom Marketmaker URL: <small>(Requires app restart)</small>
 					</label>
@@ -84,10 +88,15 @@ class Form extends React.Component {
 						name="marketmakerUrl"
 						value={this.state.marketmakerUrl}
 						onChange={this.handleChange}
+						onBlur={() => {
+							if (!isValidMarketmakerUrl) {
+								this.setState({marketmakerUrl: ''});
+							}
+						}}
 						placeholder="Example: http://localhost:7783"
+						errorMessage={!isValidMarketmakerUrl && 'Invalid URL'}
 					/>
 				</div>
-				<CurrencySelection/>
 			</React.Fragment>
 		);
 	}
