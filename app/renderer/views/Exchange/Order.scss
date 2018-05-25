@@ -44,7 +44,7 @@
 			left: 0;
 			overflow-x: hidden;
 			overflow-y: auto;
-			font-size: 11px;
+			font-size: 12px;
 			color: var(--text-color);
 			cursor: default;
 
@@ -119,12 +119,34 @@
 				bottom: -10px;
 				margin: 0;
 				padding: 0;
-				font-size: 11px;
+				font-size: 12px;
 			}
 		}
 
 		.Button {
 			margin-top: 28px;
+		}
+	}
+
+	@media (min-width: 1400px) {
+		.top .address {
+			font-size: 12px;
+		}
+
+		.center .table-wrapper {
+			font-size: 13px;
+
+			thead tr:first-child th {
+				font-size: 13px;
+			}
+		}
+
+		.bottom .form-section .status-message {
+			font-size: 13px;
+		}
+
+		.bottom .form-section label {
+			font-size: 14px;
 		}
 	}
 }

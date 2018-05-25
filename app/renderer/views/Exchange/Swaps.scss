@@ -231,4 +231,11 @@
 			}
 		}
 	}
+
+	@media (min-width: 1400px) {
+		main .SwapList,
+		main .SwapList button {
+			font-size: 13px;
+		}
+	}
 }

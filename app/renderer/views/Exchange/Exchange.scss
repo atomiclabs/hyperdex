@@ -42,4 +42,8 @@
 		background-color: var(--widget-background-color);
 		border-radius: 4px;
 	}
+
+	@media (min-width: 1400px) {
+		grid-template-columns: 320px 1fr 320px;
+	}
 }
