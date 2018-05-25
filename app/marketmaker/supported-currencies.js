@@ -478,6 +478,7 @@ const supportedCurrencies = [
 			},
 		],
 	},
+	/* Disabled because of #289
 	{
 		coin: 'HODL',
 		asset: 'HODL',
@@ -512,6 +513,7 @@ const supportedCurrencies = [
 			},
 		],
 	},
+	*/
 	{
 		coin: 'HUSH',
 		rpcport: 8822,
