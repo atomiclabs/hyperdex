@@ -56,6 +56,7 @@ class TimeSeriesChart extends React.Component {
 							scale="time"
 							domain={['auto', 'auto']}
 							type="number"
+							interval="preserveStartEnd"
 							tickFormatter={unixTime => formatDate(new Date(unixTime), labelFormat)}
 							axisLine={{
 								stroke: 'transparent',
