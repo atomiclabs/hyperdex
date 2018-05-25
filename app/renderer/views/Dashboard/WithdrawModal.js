@@ -6,6 +6,7 @@ import Input from 'components/Input';
 import Link from 'components/Link';
 import appContainer from 'containers/App';
 import dashboardContainer from 'containers/Dashboard';
+import {formatCurrency} from '../../util';
 import './WithdrawModal.scss';
 
 const getInitialProps = () => ({
@@ -148,7 +149,7 @@ class WithdrawModal extends React.Component {
 							</div>
 							<div className={`info ${this.state.broadcast || 'hidden'}`}>
 								<span>Network Fee:</span>
-								<span>{this.state.txFee} {currencyInfo.symbol} (${roundTo(this.state.txFee * currencyInfo.cmcPriceUsd, 8)})</span>
+								<span>{this.state.txFee} {currencyInfo.symbol} ({formatCurrency(this.state.txFee * currencyInfo.cmcPriceUsd)})</span>
 							</div>
 						</div>
 						{this.state.broadcast ? (
