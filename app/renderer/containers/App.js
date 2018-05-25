@@ -158,7 +158,14 @@ class AppContainer extends Container {
 	}
 
 	getCurrencyPrice(symbol) {
-		const {price, percentChange24h} = this.coinPrices.find(x => x.symbol === symbol);
+		// In the case when we remove a supported currency from
+		// the app that the user still has in their swap history
+		const fallback = {
+			price: 0,
+			percentChange24h: 0,
+		};
+
+		const {price, percentChange24h} = this.coinPrices.find(x => x.symbol === symbol) || fallback;
 
 		return {
 			cmcPriceUsd: price,
