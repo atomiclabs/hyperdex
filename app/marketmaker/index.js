@@ -121,7 +121,13 @@ class Marketmaker {
 
 	async stop() {
 		this.isRunning = false;
-		this.cp.kill();
+
+		// It's sometimes undefined when we do Cmd+R during development.
+		// Just safeguarding it here to reduce the terminal noise.
+		if (this.cp) {
+			this.cp.kill();
+		}
+
 		this.cp = null;
 		await this._killProcess();
 	}
