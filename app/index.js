@@ -21,13 +21,12 @@ require('electron-unhandled')({
 });
 require('electron-debug')({
 	enabled: isDevelopment,
-	showDevTools: 'undocked',
 });
 require('electron-context-menu')();
 
 try {
 	require('electron-reloader')(module, {watchRenderer: false});
-} catch (err) {}
+} catch (_) {}
 
 const {app, session} = electron;
 
