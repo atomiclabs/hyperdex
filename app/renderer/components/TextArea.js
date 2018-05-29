@@ -8,17 +8,21 @@ class TextArea extends React.Component {
 	};
 
 	handleChange = event => {
-		const {target} = event;
-		const {value} = target;
 		const {onChange, preventNewlines} = this.props;
+		const {target} = event;
+		let {value} = target;
 
-		if (preventNewlines && /\r?\n/.test(value)) {
-			const form = target.closest('form');
-			if (form) {
-				form.dispatchEvent(new Event('submit'));
+		if (preventNewlines) {
+			if (event.nativeEvent.inputType === 'insertLineBreak') {
+				const form = target.closest('form');
+				if (form) {
+					form.dispatchEvent(new Event('submit'));
+				}
+
+				return;
 			}
 
-			return;
+			value = value.replace(/\r?\n/g, ' ').trim();
 		}
 
 		if (onChange) {
