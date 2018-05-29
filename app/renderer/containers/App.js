@@ -60,7 +60,7 @@ const getTickerData = async symbol => {
 class AppContainer extends Container {
 	state = {
 		activeView: 'Login',
-		enabledCoins: [...defaultCurrencies, ...config.get('enabledCoins')],
+		enabledCoins: _.union(defaultCurrencies, config.get('enabledCoins')),
 		currencies: [],
 	};
 
