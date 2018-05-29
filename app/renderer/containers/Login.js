@@ -2,7 +2,7 @@ import {remote} from 'electron';
 import {setWindowBounds} from 'electron-util';
 import ipc from 'electron-better-ipc';
 import {Container} from 'unstated';
-import {minWindowSize, alwaysEnabledCurrencies} from '../../constants';
+import {minWindowSize} from '../../constants';
 import {isDevelopment} from '../../util-common';
 import Api from '../api';
 import SwapDB from '../swap-db';
