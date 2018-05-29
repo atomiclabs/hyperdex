@@ -2,7 +2,7 @@ import {remote} from 'electron';
 import {setWindowBounds} from 'electron-util';
 import ipc from 'electron-better-ipc';
 import {Container} from 'unstated';
-import {minWindowSize, defaultCurrencies} from '../../constants';
+import {minWindowSize, alwaysEnabledCurrencies} from '../../constants';
 import {isDevelopment} from '../../util-common';
 import Api from '../api';
 import SwapDB from '../swap-db';
@@ -92,7 +92,7 @@ class LoginContainer extends Container {
 			window._swapDB = swapDB;
 		}
 
-		await Promise.all(defaultCurrencies.map(x => api.enableCoin(x)));
+		await Promise.all(alwaysEnabledCurrencies.map(x => api.enableCoin(x)));
 		await Promise.all(appContainer.state.enabledCoins.map(x => api.enableCoin(x)));
 
 		await appContainer.watchCMC();

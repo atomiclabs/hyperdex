@@ -24,7 +24,7 @@ exports.appViews = [
 	'Settings',
 ];
 
-exports.defaultCurrencies = [
+exports.alwaysEnabledCurrencies = [
 	'KMD',
 	'CHIPS',
 ];

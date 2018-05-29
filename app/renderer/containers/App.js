@@ -6,7 +6,7 @@ import Cycled from 'cycled';
 import coinlist from 'coinlist';
 import roundTo from 'round-to';
 import {Container} from 'unstated';
-import {appViews, defaultCurrencies} from '../../constants';
+import {appViews, alwaysEnabledCurrencies} from '../../constants';
 import {getCurrencySymbols, getCurrencyName} from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
 import {formatCurrency, setLoginWindowBounds} from '../util';
@@ -60,7 +60,7 @@ const getTickerData = async symbol => {
 class AppContainer extends Container {
 	state = {
 		activeView: 'Login',
-		enabledCoins: _.union(defaultCurrencies, config.get('enabledCoins')),
+		enabledCoins: _.union(alwaysEnabledCurrencies, config.get('enabledCoins')),
 		currencies: [],
 	};
 
