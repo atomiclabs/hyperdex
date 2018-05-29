@@ -23,3 +23,8 @@ exports.appViews = [
 	'Trades',
 	'Settings',
 ];
+
+exports.defaultCurrencies = [
+	'KMD',
+	'CHIPS',
+];
