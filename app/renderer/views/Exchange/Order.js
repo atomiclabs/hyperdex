@@ -130,16 +130,10 @@ class Bottom extends React.Component {
 		}
 
 		const swap = result.pending;
-
 		const swapDB = await appContainer.getSwapDB;
-		swapDB.insertSwapData(swap, requestOpts);
 		api.subscribeToSwap(swap.uuid).on('progress', swapDB.updateSwapData);
-
-		// There's a delay between the swap data coming back and the database being updated.
-		// We don't want the buttons to be disabled, then enabled for 400ms, and then disabled again.
-		setTimeout(() => {
-			exchangeContainer.setIsSendingOrder(false);
-		}, 5000);
+		await swapDB.insertSwapData(swap, requestOpts);
+		exchangeContainer.setIsSendingOrder(false);
 	};
 
 	targetPriceButtonHandler = () => {
@@ -229,7 +223,7 @@ class Bottom extends React.Component {
 							fullwidth
 							type="submit"
 							value={`${typeTitled} ${state.baseCurrency}`}
-							disabled={exchangeContainer.isActiveOrderPending()}
+							disabled={exchangeContainer.state.isSendingOrder}
 						/>
 					</div>
 				</form>
