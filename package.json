@@ -137,6 +137,9 @@
 				"deb",
 				"rpm"
 			]
+		},
+		"nsis": {
+			"createDesktopShortcut": "always"
 		}
 	}
 }
