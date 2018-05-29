@@ -65,7 +65,7 @@ export default class Api {
 		return this.request({method: 'bot_list'});
 	}
 
-	async enableCoin(symbol) {
+	async enableCurrency(symbol) {
 		const currency = getCurrency(symbol);
 
 		if (!currency) {
