@@ -8,6 +8,7 @@ import CurrencySelectOption from 'components/CurrencySelectOption';
 import Select from 'components/Select';
 import {getCurrencySymbols, getCurrencyName} from '../../marketmaker/supported-currencies';
 import {isDevelopment} from '../../util-common';
+import {alwaysEnabledCurrencies} from '../../constants';
 import TabView from './TabView';
 import './Settings.scss';
 
@@ -35,7 +36,7 @@ class CurrencySelection extends React.Component {
 		const selectData = currencySymbols.map(symbol => ({
 			label: `${getCurrencyName(symbol)} (${symbol})`,
 			value: symbol,
-			clearableValue: !['KMD', 'CHIPS'].includes(symbol),
+			clearableValue: !alwaysEnabledCurrencies.includes(symbol),
 		}));
 
 		return (
