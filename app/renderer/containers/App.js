@@ -173,9 +173,9 @@ class AppContainer extends Container {
 		};
 	}
 
-	enableCoin(coin) {
+	enableCurrency(coin) {
 		this.setState(prevState => {
-			this.api.enableCoin(coin);
+			this.api.enableCurrency(coin);
 			const enabledCoins = [...prevState.enabledCoins, coin];
 			config.set('enabledCoins', enabledCoins);
 			return {enabledCoins};

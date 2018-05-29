@@ -21,7 +21,7 @@ class CurrencySelection extends React.Component {
 		// We have to do our own diffing as `react-select` just returns the new `value` array
 		const [added] = _.difference(newCurrencies, enabledCurrencies);
 		if (added) {
-			appContainer.enableCoin(added);
+			appContainer.enableCurrency(added);
 		} else {
 			const [removed] = _.difference(enabledCurrencies, newCurrencies);
 			appContainer.disableCoin(removed);

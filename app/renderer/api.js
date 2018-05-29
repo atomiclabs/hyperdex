@@ -65,40 +65,28 @@ export default class Api {
 		return this.request({method: 'bot_list'});
 	}
 
-	async enableCoin(coin, opts = {}) {
-		if (!getCurrency(coin)) {
-			console.error('Tried to enable unsupported currency:', coin);
+	async enableCurrency(symbol) {
+		const currency = getCurrency(symbol);
+
+		if (!currency) {
+			console.error('Tried to enable unsupported currency:', symbol);
 			return;
 		}
 
-		if (opts.isFullNode) {
-			const response = await this.enableCoinFullNode(coin);
-			return response.status === 'active';
+		if (currency.electrumServers) {
+			const requests = currency.electrumServers.map(server => this.request({
+				method: 'electrum',
+				coin: symbol,
+				ipaddr: server.host,
+				port: server.port,
+			}));
+
+			const responses = await Promise.all(requests);
+			return responses.filter(response => response.result === 'success') > 0;
 		}
 
-		const responses = await this.enableCoinElectrum(coin);
-		return responses.filter(response => response.result === 'success') > 0;
-	}
-
-	enableCoinFullNode(coin) {
-		return this.request({method: 'enable', coin});
-	}
-
-	async enableCoinElectrum(coin) {
-		const {electrumServers} = getCurrency(coin);
-
-		if (!electrumServers) {
-			throw new Error('Electrum mode not supported for this coin');
-		}
-
-		const requests = electrumServers.map(server => this.request({
-			method: 'electrum',
-			coin,
-			ipaddr: server.host,
-			port: server.port,
-		}));
-
-		return Promise.all(requests);
+		const response = await this.request({method: 'enable', coin: symbol});
+		return response.status === 'active';
 	}
 
 	disableCoin(coin) {

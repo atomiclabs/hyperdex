@@ -92,7 +92,7 @@ class LoginContainer extends Container {
 			window._swapDB = swapDB;
 		}
 
-		await Promise.all(appContainer.state.enabledCoins.map(x => api.enableCoin(x)));
+		await Promise.all(appContainer.state.enabledCoins.map(x => api.enableCurrency(x)));
 
 		await appContainer.watchCMC();
 		await appContainer.watchCurrencies();
