@@ -28,3 +28,5 @@ exports.alwaysEnabledCurrencies = [
 	'KMD',
 	'CHIPS',
 ];
+
+exports.launchTimestamp = Date.now();
