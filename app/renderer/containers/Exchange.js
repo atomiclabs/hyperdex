@@ -15,6 +15,7 @@ const getInitialState = () => ({
 		biddepth: 0,
 		askdepth: 0,
 	},
+	isSendingOrder: false,
 });
 
 class ExchangeContainer extends Container {
@@ -100,6 +101,10 @@ class ExchangeContainer extends Container {
 
 		return this.stopWatchingOrderBook;
 	}
+
+	setIsSendingOrder = isSendingOrder => {
+		this.setState({isSendingOrder});
+	};
 }
 
 const exchangeContainer = new ExchangeContainer();

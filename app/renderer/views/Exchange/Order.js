@@ -88,6 +88,8 @@ class Bottom extends React.Component {
 
 	handleSubmit = async event => {
 		event.preventDefault();
+		this.setState({statusMessage: ''});
+		exchangeContainer.setIsSendingOrder(true);
 
 		const {api} = appContainer;
 
@@ -116,22 +118,22 @@ class Bottom extends React.Component {
 				statusMessage = `Only one pending swap at a time, try again in ${result.wait} seconds.`;
 			}
 			this.setState({statusMessage});
+			exchangeContainer.setIsSendingOrder(false);
 			return;
 		}
 
 		// TODO: Temp workaround for marketmaker issue
 		if (!result.pending) {
 			this.setState({statusMessage: 'Something unexpected happened. Are you sure you have enough UTXO?'});
+			exchangeContainer.setIsSendingOrder(false);
 			return;
 		}
 
-		this.setState({statusMessage: ''});
-
 		const swap = result.pending;
-
 		const swapDB = await appContainer.getSwapDB;
-		swapDB.insertSwapData(swap, requestOpts);
 		api.subscribeToSwap(swap.uuid).on('progress', swapDB.updateSwapData);
+		await swapDB.insertSwapData(swap, requestOpts);
+		exchangeContainer.setIsSendingOrder(false);
 	};
 
 	targetPriceButtonHandler = () => {
@@ -216,7 +218,13 @@ class Bottom extends React.Component {
 						}
 					</div>
 					<div className="form-section">
-						<Button color={this.props.type === 'buy' ? 'green' : 'red'} fullwidth type="submit" value={`${typeTitled} ${state.baseCurrency}`}/>
+						<Button
+							color={this.props.type === 'buy' ? 'green' : 'red'}
+							fullwidth
+							type="submit"
+							value={`${typeTitled} ${state.baseCurrency}`}
+							disabled={exchangeContainer.state.isSendingOrder}
+						/>
 					</div>
 				</form>
 			</div>
