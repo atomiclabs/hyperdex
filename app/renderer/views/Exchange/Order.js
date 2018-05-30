@@ -200,15 +200,36 @@ class Bottom extends React.Component {
 					<h3>{`${typeTitled} ${state.baseCurrency}`}</h3>
 					<div className="form-section">
 						<label>Price ({state.quoteCurrency}):</label>
-						<Input className="price-input" type="number" min="0" step="any" required value={this.props.price} onChange={this.props.handlePriceChange} button={TargetPriceButton}/>
+						<Input
+							className="price-input"
+							required
+							onlyNumeric
+							fractionalDigits={8}
+							value={this.props.price}
+							onChange={this.props.handlePriceChange}
+							button={TargetPriceButton}
+						/>
 					</div>
 					<div className="form-section">
 						<label>Amount ({state.baseCurrency}):</label>
-						<Input type="number" min="0" step="any" required value={this.props.amount} onChange={this.props.handleAmountChange} button={MaxPriceButton}/>
+						<Input
+							required
+							onlyNumeric
+							fractionalDigits={8}
+							value={this.props.amount}
+							onChange={this.props.handleAmountChange}
+							button={MaxPriceButton}
+						/>
 					</div>
 					<div className="form-section">
 						<label>Total ({state.quoteCurrency}):</label>
-						<Input type="number" min="0" step="any" required value={this.props.total} onChange={this.props.handleTotalChange}/>
+						<Input
+							required
+							onlyNumeric
+							fractionalDigits={8}
+							value={String(this.props.total)}
+							onChange={this.props.handleTotalChange}
+						/>
 					</div>
 					<div className="form-section">
 						{this.state.statusMessage &&
@@ -234,44 +255,38 @@ class Bottom extends React.Component {
 
 class Order extends React.Component {
 	state = {
-		price: 0,
-		amount: 0,
+		// We're using strings and not `input type="number"` because of a React issue:
+		// https://github.com/facebook/react/issues/9402
+		price: '',
+		amount: '',
 		total: 0,
 	};
 
 	handlePriceChange = price => {
-		// TODO: The `price`, `amount`, and `total` will will sometimes have leading 0s in the DOM
-		// even though we remove them in React state.
-		// This is a known React bug and should be fixed soon.
-		// https://github.com/facebook/react/issues/9402
-		price = (price === '') ? '' : roundTo(Number(price), 8);
 		this.setState(prevState => ({
 			price,
-			total: roundTo(price * prevState.amount, 8),
+			total: roundTo(Number(price) * Number(prevState.amount), 8),
 		}));
 
-		this.setState({price});
 		if (this.state.total > 0) {
 			this.handleTotalChange(this.state.total);
-		} else if (this.state.amount > 0) {
+		} else if (Number(this.state.amount) > 0) {
 			this.handleAmountChange(this.state.amount);
 		}
 	}
 
 	handleAmountChange = amount => {
-		amount = (amount === '') ? '' : roundTo(Number(amount), 8);
 		this.setState(prevState => ({
-			amount,
-			total: roundTo(prevState.price * amount, 8),
+			amount: String(amount),
+			total: roundTo(Number(prevState.price) * Number(amount), 8),
 		}));
 	}
 
 	handleTotalChange = total => {
-		total = (total === '') ? '' : roundTo(Number(total), 8);
 		this.setState(prevState => {
 			const newState = {total};
 			if (prevState.price > 0) {
-				newState.amount = roundTo(total / prevState.price, 8);
+				newState.amount = String(roundTo(total / prevState.price, 8));
 			}
 
 			return newState;
