@@ -395,6 +395,11 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'ETH',
+		etomic: '0x0000000000000000000000000000000000000000',
+		rpcport: 80,
+	},
+	{
 		coin: 'ETOMIC',
 		name: 'Etomic',
 		asset: 'ETOMIC',
