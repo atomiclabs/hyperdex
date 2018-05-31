@@ -1,8 +1,10 @@
 /* eslint-disable react/no-access-state-in-setstate */
+import {is, api, activeWindow} from 'electron-util';
 import _ from 'lodash';
 import {Container} from 'unstated';
 import appContainer from 'containers/App';
 import fireEvery from '../fire-every';
+import {appTimeStarted} from '../../constants';
 
 const getInitialState = () => ({
 	baseCurrency: 'CHIPS',
@@ -108,5 +110,37 @@ class ExchangeContainer extends Container {
 }
 
 const exchangeContainer = new ExchangeContainer();
+
+// Warn the user if they try to quit when they have in-progress swaps
+window.addEventListener('beforeunload', event => {
+	// We never want this annoyance in actual development
+	if (is.development) {
+		return;
+	}
+
+	const hasInProgressSwaps = exchangeContainer.state.swapHistory.find(swap => {
+		return swap.timeStarted > appTimeStarted && !['completed', 'failed'].includes(swap.status);
+	});
+
+	if (hasInProgressSwaps) {
+		event.returnValue = true;
+
+		const selectedButtonIndex = api.dialog.showMessageBox(activeWindow(), {
+			type: 'question',
+			title: 'Are you sure you want to quit?',
+			message: 'You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.',
+			buttons: [
+				'Quit',
+				'Cancel',
+			],
+			defaultId: 0,
+			cancelId: 1,
+		});
+
+		if (selectedButtonIndex === 0) {
+			api.app.exit();
+		}
+	}
+});
 
 export default exchangeContainer;
