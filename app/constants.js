@@ -29,4 +29,4 @@ exports.alwaysEnabledCurrencies = [
 	'CHIPS',
 ];
 
-exports.launchTimestamp = Date.now();
+exports.appTimeStarted = Date.now();

@@ -4,7 +4,7 @@ import _ from 'lodash';
 import {Container} from 'unstated';
 import appContainer from 'containers/App';
 import fireEvery from '../fire-every';
-import {launchTimestamp} from '../../constants';
+import {appTimeStarted} from '../../constants';
 
 const getInitialState = () => ({
 	baseCurrency: 'CHIPS',
@@ -119,7 +119,7 @@ window.addEventListener('beforeunload', event => {
 	}
 
 	const hasInProgressSwaps = exchangeContainer.state.swapHistory.find(swap => {
-		return swap.timeStarted > launchTimestamp && !['completed', 'failed'].includes(swap.status);
+		return swap.timeStarted > appTimeStarted && !['completed', 'failed'].includes(swap.status);
 	});
 
 	if (hasInProgressSwaps) {
@@ -128,7 +128,7 @@ window.addEventListener('beforeunload', event => {
 		const selectedButtonIndex = api.dialog.showMessageBox(activeWindow(), {
 			type: 'question',
 			title: 'Are you sure you want to quit?',
-			message: 'You have swap in-progress. Blah blah.',
+			message: 'You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.',
 			buttons: [
 				'Quit',
 				'Cancel',
