@@ -28,3 +28,7 @@ exports.alwaysEnabledCurrencies = [
 	'KMD',
 	'CHIPS',
 ];
+
+exports.hiddenCurrencies = [
+	'ETOMIC',
+];
