@@ -78,7 +78,7 @@ class LoginContainer extends Container {
 		const seedPhrase = await decryptSeedPhrase(portfolio.encryptedSeedPhrase, password);
 
 		const swapDB = new SwapDB(portfolioId, seedPhrase);
-		appContainer.setSwapDB(swapDB);
+		appContainer.swapDB = swapDB;
 
 		this.setActiveView('LoggingIn');
 

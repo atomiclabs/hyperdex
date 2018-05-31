@@ -1,32 +1,33 @@
 /* eslint-disable react/no-access-state-in-setstate */
 import _ from 'lodash';
-import {Container} from 'unstated';
+import SuperContainer from 'containers/SuperContainer';
 import appContainer from 'containers/App';
 import fireEvery from '../fire-every';
 
-const getInitialState = () => ({
-	baseCurrency: 'CHIPS',
-	quoteCurrency: 'KMD',
-	activeSwapsView: 'All',
-	swapHistory: [],
-	orderBook: {
-		bids: [],
-		asks: [],
-		biddepth: 0,
-		askdepth: 0,
-	},
-	isSendingOrder: false,
-});
+class ExchangeContainer extends SuperContainer {
+	getInitialState() {
+		return {
+			baseCurrency: 'CHIPS',
+			quoteCurrency: 'KMD',
+			activeSwapsView: 'All',
+			swapHistory: [],
+			orderBook: {
+				bids: [],
+				asks: [],
+				biddepth: 0,
+				askdepth: 0,
+			},
+			isSendingOrder: false,
+		};
+	}
 
-class ExchangeContainer extends Container {
-	state = getInitialState();
+	componentDidMountOnce() {
+		this.setSwapHistory();
+		appContainer.swapDB.on('change', this.setSwapHistory);
+	}
 
 	constructor() {
 		super();
-		this.setSwapHistory();
-		appContainer.getSwapDB.then(swapDB => {
-			swapDB.on('change', this.setSwapHistory);
-		});
 
 		appContainer.subscribe(() => {
 			if (!appContainer.state.enabledCoins.includes(this.state.baseCurrency)) {
@@ -45,8 +46,7 @@ class ExchangeContainer extends Container {
 	}
 
 	setSwapHistory = async () => {
-		const swapDB = await appContainer.getSwapDB;
-		this.setState({swapHistory: await swapDB.getSwaps()});
+		this.setState({swapHistory: await appContainer.swapDB.getSwaps()});
 	};
 
 	setBaseCurrency(baseCurrency) {
@@ -55,7 +55,7 @@ class ExchangeContainer extends Container {
 			this.setState({quoteCurrency: this.state.baseCurrency});
 		}
 
-		const {orderBook} = getInitialState();
+		const {orderBook} = this.getInitialState();
 		this.setState({baseCurrency, orderBook});
 		this.fetchOrderBook();
 	}
@@ -65,7 +65,7 @@ class ExchangeContainer extends Container {
 			this.setState({baseCurrency: this.state.quoteCurrency});
 		}
 
-		const {orderBook} = getInitialState();
+		const {orderBook} = this.getInitialState();
 		this.setState({quoteCurrency, orderBook});
 		this.fetchOrderBook();
 	}
