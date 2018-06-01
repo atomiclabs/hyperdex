@@ -69,7 +69,7 @@ const List = () => {
 								onClick={() => dashboardContainer.setActiveView(currency.symbol)}
 							>
 								<div className="left">
-									<CurrencyIcon symbol={currency.symbol}/>
+									<CurrencyIcon symbol={currency.symbol} size="32"/>
 								</div>
 								<div className="right">
 									<h2>{currency.name} ({currency.symbol})</h2>

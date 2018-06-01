@@ -32,3 +32,5 @@ exports.alwaysEnabledCurrencies = [
 exports.hiddenCurrencies = [
 	'ETOMIC',
 ];
+
+exports.appTimeStarted = Date.now();

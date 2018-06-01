@@ -26,6 +26,7 @@ const defaults = {
 		'SUPERNET',
 		'VTC',
 		'ZEC',
+		'OOT',
 	],
 };
 
