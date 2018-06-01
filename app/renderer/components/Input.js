@@ -45,7 +45,7 @@ class Input extends React.Component {
 		const {fractionalDigits} = this.props;
 
 		if (typeof fractionalDigits === 'undefined') {
-			return value;
+			return false;
 		}
 
 		return value !== '' && !/^\d+\.0*$/.test(value) && fractionCount(value) > fractionalDigits;
@@ -125,10 +125,12 @@ class Input extends React.Component {
 			throw new TypeError(`Expected \`value\` to be a string, got ${typeof value}`);
 		}
 
-		if (this._shouldTruncateFractions(value)) {
-			value = Number.parseFloat(value).toFixed(fractionalDigits);
+		if (onlyNumeric) {
+			if (this._shouldTruncateFractions(value)) {
+				value = Number.parseFloat(value).toFixed(fractionalDigits);
+			}
+			value = this._truncateZeroOnlyFractions(value);
 		}
-		value = this._truncateZeroOnlyFractions(value);
 
 		return (
 			<div className={containerClassName}>
