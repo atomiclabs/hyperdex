@@ -108,7 +108,11 @@ class WithdrawModal extends React.Component {
 										setAmount(amount);
 									}}
 									view={() => (
-										<span>{currencyInfo.symbol}</span>
+										<span
+											className={currencyInfo.symbol.length > 3 ? 'long-symbol' : ''}
+										>
+											{currencyInfo.symbol}
+										</span>
 									)}
 								/>
 								<span className="separator">≈</span>
