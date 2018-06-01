@@ -1,11 +1,11 @@
 import React from 'react';
+import CurrencyIcon from './CurrencyIcon';
 import SelectOption from './SelectOption';
 
 const CurrencySelectOption = option => (
 	<SelectOption
-		image={`/assets/cryptocurrency-icons/${option.value.toLowerCase()}.svg`}
-		fallbackImage="/assets/cryptocurrency-icons/generic.svg"
-		label={option.label}
+		{...option}
+		imageRenderer={() => <CurrencyIcon symbol={option.value} size="20"/>}
 	/>
 );
 

@@ -1,7 +1,7 @@
 @import '../styles/variables';
 
 .SelectOption {
-	--image-size: 18px;
+	--image-size: 20px;
 	display: flex;
 	align-items: center;
 
@@ -12,6 +12,10 @@
 	&__image-wrap {
 		position: relative;
 		left: -4px;
+
+		img {
+			display: block;
+		}
 	}
 
 	&__image {
@@ -32,6 +36,23 @@
 		&__image-wrap {
 			position: unset;
 			left: unset;
+
+			img {
+				width: 18px;
+				height: 18px;
+			}
+		}
+	}
+}
+
+.Select-menu {
+	.SelectOption {
+		&__image-wrap {
+			/* Use larger icons in the dropdown menu */
+			img {
+				width: 26px;
+				height: 26px;
+			}
 		}
 	}
 }
