@@ -12,7 +12,8 @@ import './WithdrawModal.scss';
 const getInitialProps = () => ({
 	isOpen: false,
 	recipientAddress: '',
-	amount: 0,
+	amount: '',
+	amountInUsd: '',
 	isWithdrawing: false,
 	isBroadcasting: false,
 	txFee: 0,
@@ -44,7 +45,7 @@ class WithdrawModal extends React.Component {
 		const {txFee, broadcast} = await appContainer.api.withdraw({
 			currency,
 			address,
-			amount,
+			amount: Number(amount),
 		});
 
 		this.setState({txFee, broadcast});
@@ -67,9 +68,13 @@ class WithdrawModal extends React.Component {
 	render() {
 		const currencyInfo = dashboardContainer.activeCurrency;
 		const maxAmount = currencyInfo.balance;
-		const remainingBalance = roundTo(maxAmount - (this.state.amount + this.state.txFee), 8);
-		const setAmount = amount => {
-			this.setState({amount});
+		const remainingBalance = roundTo(maxAmount - (Number(this.state.amount) + this.state.txFee), 8);
+
+		const setAmount = value => {
+			this.setState({
+				amount: value,
+				amountInUsd: String(Number.parseFloat(value || '0') / currencyInfo.cmcPriceUsd),
+			});
 		};
 
 		return (
@@ -84,8 +89,8 @@ class WithdrawModal extends React.Component {
 						<div className="section">
 							<label>Recipient:</label>
 							<Input
-								required
 								value={this.state.recipientAddress}
+								required
 								placeholder={`Enter ${currencyInfo.symbol} Address`}
 								disabled={this.state.isWithdrawing}
 								onChange={value => {
@@ -97,15 +102,13 @@ class WithdrawModal extends React.Component {
 							<label>Amount:</label>
 							<div className="amount-inputs">
 								<Input
-									value={roundTo(this.state.amount, 8)}
-									type="number"
-									min={0}
-									step="any"
+									value={this.state.amount}
 									required
+									onlyNumeric
+									fractionalDigits={8}
 									disabled={this.state.isWithdrawing}
 									onChange={value => {
-										const amount = Number.parseFloat(value || 0);
-										setAmount(amount);
+										setAmount(value);
 									}}
 									view={() => (
 										<span
@@ -117,15 +120,16 @@ class WithdrawModal extends React.Component {
 								/>
 								<span className="separator">≈</span>
 								<Input
-									value={roundTo(this.state.amount * currencyInfo.cmcPriceUsd, 2)}
-									type="number"
-									min={0}
-									step="any"
+									value={this.state.amountInUsd}
 									required
+									onlyNumeric
+									fractionalDigits={4}
 									disabled={this.state.isWithdrawing}
 									onChange={value => {
-										const amount = Number.parseFloat(value || 0) / currencyInfo.cmcPriceUsd;
-										setAmount(amount);
+										this.setState({
+											amountInUsd: value,
+											amount: String(Number.parseFloat(value || '0') * currencyInfo.cmcPriceUsd),
+										});
 									}}
 									view={() => (
 										<span>USD</span>
