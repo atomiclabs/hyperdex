@@ -263,6 +263,8 @@ class Order extends React.Component {
 	};
 
 	handlePriceChange = price => {
+		price = String(price);
+
 		this.setState(prevState => ({
 			price,
 			total: roundTo(Number(price) * Number(prevState.amount), 8),
