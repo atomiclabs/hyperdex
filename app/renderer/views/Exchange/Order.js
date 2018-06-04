@@ -101,8 +101,8 @@ class Bottom extends React.Component {
 			type,
 			baseCurrency,
 			quoteCurrency,
-			price,
-			amount,
+			price: Number(price),
+			amount: Number(amount),
 			total,
 		};
 
