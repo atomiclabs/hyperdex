@@ -7,6 +7,7 @@ import Select from 'components/Select';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import exchangeContainer from 'containers/Exchange';
 import appContainer from 'containers/App';
+import {formatCurrency} from '../../util';
 import './Order.scss';
 
 class Top extends React.Component {
@@ -194,6 +195,8 @@ class Bottom extends React.Component {
 			</div>
 		);
 
+		const swapWorthInUsd = formatCurrency(this.props.total * appContainer.getCurrency(state.quoteCurrency).cmcPriceUsd);
+
 		return (
 			<div className="bottom">
 				<form onSubmit={this.handleSubmit}>
@@ -221,7 +224,7 @@ class Bottom extends React.Component {
 							button={MaxPriceButton}
 						/>
 					</div>
-					<div className="form-section">
+					<div className="form-section total-section">
 						<label>Total ({state.quoteCurrency}):</label>
 						<Input
 							required
@@ -230,6 +233,11 @@ class Bottom extends React.Component {
 							value={String(this.props.total)}
 							onChange={this.props.handleTotalChange}
 						/>
+						{this.props.total > 0 &&
+							<p className="swap-worth">
+								This swap is worth {swapWorthInUsd}
+							</p>
+						}
 					</div>
 					<div className="form-section">
 						{this.state.statusMessage &&
