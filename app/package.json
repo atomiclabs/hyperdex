@@ -11,9 +11,6 @@
 		"email": "lukechilds123@gmail.com",
 		"url": "http://lukechilds.co.uk"
 	},
-	"scripts": {
-		"test": "echo"
-	},
 	"dependencies": {
 		"@sindresorhus/slugify": "^0.3.0",
 		"coinlist": "^1.1.3",

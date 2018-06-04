@@ -6559,9 +6559,9 @@ normalize-url@^1.4.0:
     query-string "^4.1.0"
     sort-keys "^1.0.0"
 
-np@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/np/-/np-3.0.2.tgz#a54bb97ee9b264432cd2d7637b19d266b95fcd4c"
+np@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/np/-/np-3.0.4.tgz#cccd1fd55bc1aea5b22b2ab5ee96e8273b9bbdd5"
   dependencies:
     "@samverschueren/stream-to-observable" "^0.3.0"
     any-observable "^0.3.0"
