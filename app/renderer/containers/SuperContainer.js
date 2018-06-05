@@ -30,13 +30,13 @@ const toClassComponent = (FunctionalComponent, constructorHook) => {
 };
 
 const addLifeCycleHooks = (self, lifecycleHooks) => {
-	for (const [key, value] of Object.entries(lifecycleHooks)) {
-		if (key === 'constructor') {
-			value(self.props);
+	for (const [hookName, hook] of Object.entries(lifecycleHooks)) {
+		if (hookName === 'constructor') {
+			hook(self.props);
 			continue;
 		}
 
-		self[key] = value;
+		self[hookName] = hook;
 	}
 };
 
