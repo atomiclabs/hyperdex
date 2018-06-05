@@ -2,6 +2,7 @@ import util from 'util';
 import electron from 'electron';
 import {sha256} from 'crypto-hash';
 import PQueue from 'p-queue';
+import pTimeout from 'p-timeout';
 import {getCurrency} from '../marketmaker/supported-currencies';
 import MarketmakerSocket from './marketmaker-socket';
 
@@ -81,7 +82,25 @@ export default class Api {
 				port: server.port,
 			}));
 
-			const responses = await Promise.all(requests);
+			const TWENTY_SECONDS = 20000;
+
+			let responses;
+			try {
+				responses = await pTimeout(Promise.all(requests), TWENTY_SECONDS);
+			} catch (err) {
+				let body = err.message;
+
+				if (err instanceof pTimeout.TimeoutError) {
+					body = `Timed out while trying to connect to Electrum server for ${symbol}.`;
+				}
+
+				console.error(body);
+				// eslint-disable-next-line no-new
+				new Notification(`Could not connect to ${symbol} Electrum server`, {body});
+
+				return false;
+			}
+
 			return responses.filter(response => response.result === 'success') > 0;
 		}
 

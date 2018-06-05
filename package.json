@@ -25,6 +25,7 @@
 		"p-event": "^2.0.0",
 		"p-map": "^1.2.0",
 		"p-queue": "^2.4.2",
+		"p-timeout": "^2.0.1",
 		"pouchdb-browser": "^6.4.3",
 		"pouchdb-find": "^6.4.3",
 		"qrcode.react": "^0.8.0",
