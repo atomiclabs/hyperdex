@@ -62,8 +62,12 @@ const Center = props => {
 					<thead>
 						<tr>
 							<th>Price ({state.quoteCurrency})</th>
-							<th>{!isEtomic && 'Avg Vol'}</th>
-							<th>{!isEtomic && 'Max Vol'}</th>
+							{!isEtomic && (
+								<React.Fragment>
+									<th>Avg Vol</th>
+									<th>Max Vol</th>
+								</React.Fragment>
+							)}
 						</tr>
 					</thead>
 					<tbody>
@@ -72,8 +76,12 @@ const Center = props => {
 							return props.getOrderBook().map((row, i) => (
 								<tr key={i} onClick={() => selectRow(row)}>
 									<td>{row.price}</td>
-									<td>{!isEtomic && roundTo(row.averageVolume, 8)}</td>
-									<td>{!isEtomic && roundTo(row.maxVolume, 8)}</td>
+									{!isEtomic && (
+										<React.Fragment>
+											<td>{roundTo(row.averageVolume, 8)}</td>
+											<td>{roundTo(row.maxVolume, 8)}</td>
+										</React.Fragment>
+									)}
 								</tr>
 							));
 						})()}
