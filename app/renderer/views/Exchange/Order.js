@@ -84,19 +84,17 @@ const Center = props => {
 
 class Bottom extends React.Component {
 	state = {
-		statusMessage: '',
+		hasError: false,
 	};
 
 	handleSubmit = async event => {
 		event.preventDefault();
-		this.setState({statusMessage: ''});
+		this.setState({hasError: false});
 		exchangeContainer.setIsSendingOrder(true);
 
 		const {api} = appContainer;
-
-		const {type} = this.props;
 		const {baseCurrency, quoteCurrency} = exchangeContainer.state;
-		const {price, amount, total} = this.props;
+		const {price, amount, total, type} = this.props;
 
 		const requestOpts = {
 			type,
@@ -109,24 +107,29 @@ class Bottom extends React.Component {
 
 		const result = await api.order(requestOpts);
 
+		const orderError = error => {
+			// eslint-disable-next-line no-new
+			new Notification(`Failed to ${type} ${baseCurrency}`, {body: error});
+			exchangeContainer.setIsSendingOrder(false);
+			this.setState({hasError: true});
+		};
+
 		// TODO: If we get this error we should probably show a more helpful error
 		// and grey out the order form for result.wait seconds.
 		// Or alternatively if we know there is a pending trade, prevent them from
 		// placing an order until it's matched.
 		if (result.error) {
-			let statusMessage = result.error;
-			if (result.error === 'only one pending request at a time') {
-				statusMessage = `Only one pending swap at a time, try again in ${result.wait} seconds.`;
+			let {error} = result;
+			if (error === 'only one pending request at a time') {
+				error = `Only one pending swap at a time, try again in ${result.wait} seconds.`;
 			}
-			this.setState({statusMessage});
-			exchangeContainer.setIsSendingOrder(false);
+			orderError(error);
 			return;
 		}
 
 		// TODO: Temp workaround for marketmaker issue
 		if (!result.pending) {
-			this.setState({statusMessage: 'Something unexpected happened. Are you sure you have enough UTXO?'});
-			exchangeContainer.setIsSendingOrder(false);
+			orderError('Something unexpected happened. Are you sure you have enough UTXO?');
 			return;
 		}
 
@@ -240,14 +243,8 @@ class Bottom extends React.Component {
 						}
 					</div>
 					<div className="form-section">
-						{this.state.statusMessage &&
-							<p className="secondary status-message">
-								{this.state.statusMessage}
-							</p>
-						}
-					</div>
-					<div className="form-section">
 						<Button
+							className={this.state.hasError ? 'shake-animation' : ''}
 							color={this.props.type === 'buy' ? 'green' : 'red'}
 							fullwidth
 							type="submit"
