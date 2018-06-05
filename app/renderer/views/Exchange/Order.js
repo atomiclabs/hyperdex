@@ -48,10 +48,7 @@ class Top extends React.Component {
 const Center = props => {
 	const {state} = exchangeContainer;
 
-	const isEtomic = (
-		props.type == 'buy' && getCurrency(state.baseCurrency).etomic
-		|| props.type == 'sell' && getCurrency(state.quoteCurrency).etomic
-	);
+	const isEtomic = getCurrency(props.type === 'buy' ? state.baseCurrency : state.quoteCurrency).etomic;
 
 	// TODO: This should be fixed properly in mm or use more sensible logic here
 	// This is just a quick fix to increase match rate for a demo
