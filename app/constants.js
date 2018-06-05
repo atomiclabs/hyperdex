@@ -28,5 +28,3 @@ exports.alwaysEnabledCurrencies = [
 	'KMD',
 	'CHIPS',
 ];
-
-exports.appTimeStarted = Date.now();

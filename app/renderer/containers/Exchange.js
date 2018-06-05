@@ -1,10 +1,9 @@
 /* eslint-disable react/no-access-state-in-setstate */
-import {is, api, activeWindow} from 'electron-util';
+import {is, api, activeWindow, appLaunchTimestamp} from 'electron-util';
 import _ from 'lodash';
 import {Container} from 'unstated';
 import appContainer from 'containers/App';
 import fireEvery from '../fire-every';
-import {appTimeStarted} from '../../constants';
 
 const getInitialState = () => ({
 	baseCurrency: 'CHIPS',
@@ -119,7 +118,7 @@ window.addEventListener('beforeunload', event => {
 	}
 
 	const hasInProgressSwaps = exchangeContainer.state.swapHistory.find(swap => {
-		return swap.timeStarted > appTimeStarted && !['completed', 'failed'].includes(swap.status);
+		return swap.timeStarted > appLaunchTimestamp && !['completed', 'failed'].includes(swap.status);
 	});
 
 	if (hasInProgressSwaps) {
