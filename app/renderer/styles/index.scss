@@ -196,22 +196,17 @@ th {
 		transform: translate3d(0, 0, 0);
 	}
 
-	10%,
-	30%,
-	50%,
-	70%,
-	90% {
-		transform: translate3d(-10px, 0, 0);
+	20%,
+	60% {
+		transform: translate3d(-5px, 0, 0);
 	}
 
-	20%,
 	40%,
-	60%,
 	80% {
-		transform: translate3d(10px, 0, 0);
+		transform: translate3d(5px, 0, 0);
 	}
 }
 
 .shake-animation {
-	animation: shake 0.8s ease;
+	animation: shake 0.3s ease;
 }
