@@ -2,14 +2,33 @@ import React from 'react';
 import {classNames} from 'react-extras';
 import './Input.scss';
 
+const stripLeadingZeros = string => string.replace(/^0+(?=\d)/, '');
+
+const fractionCount = string => {
+	const match = /\d+\.(\d+)$/.exec(string);
+	return match ? match[1].length : 0;
+};
+
 class Input extends React.Component {
 	state = {
-		value: this.props.value,
+		value: this.props.value || '',
 	};
 
 	handleChange = event => {
-		const {value} = event.target;
-		const {onChange} = this.props;
+		let {value} = event.target;
+		const {onlyNumeric, onChange} = this.props;
+
+		if (onlyNumeric) {
+			if (Number.isNaN(Number(value))) {
+				return;
+			}
+
+			value = stripLeadingZeros(value);
+
+			if (this._shouldTruncateFractions(value)) {
+				return;
+			}
+		}
 
 		if (onChange) {
 			event.persist();
@@ -21,6 +40,32 @@ class Input extends React.Component {
 			}
 		});
 	};
+
+	_shouldTruncateFractions(value) {
+		const {fractionalDigits} = this.props;
+
+		if (typeof fractionalDigits === 'undefined') {
+			return false;
+		}
+
+		return value !== '' && !/^\d+\.0*$/.test(value) && fractionCount(value) > fractionalDigits;
+	}
+
+	_truncateZeroOnlyFractions(value) {
+		const {fractionalDigits} = this.props;
+
+		if (typeof fractionalDigits === 'undefined') {
+			return value;
+		}
+
+		// Special case for handling `0.00000000` with fractions longer than `fractionalDigits`
+		const [number, fraction] = (value || '').split('.');
+		if (/^0+$/.test(fraction) && fraction.length > fractionalDigits) {
+			value = `${number}.${'0'.repeat(fractionalDigits)}`;
+		}
+
+		return value;
+	}
 
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.value !== this.state.value) {
@@ -38,6 +83,8 @@ class Input extends React.Component {
 			disabled,
 			readOnly,
 			onChange,
+			onlyNumeric,
+			fractionalDigits,
 			type = 'text',
 			icon,
 			iconSize,
@@ -72,13 +119,26 @@ class Input extends React.Component {
 			className
 		);
 
+		let {value} = this.state;
+
+		if (typeof value !== 'string') {
+			throw new TypeError(`Expected \`value\` to be a string, got ${typeof value}`);
+		}
+
+		if (onlyNumeric) {
+			if (this._shouldTruncateFractions(value)) {
+				value = Number.parseFloat(value).toFixed(fractionalDigits);
+			}
+			value = this._truncateZeroOnlyFractions(value);
+		}
+
 		return (
 			<div className={containerClassName}>
 				<div className="Input-wrap">
 					<input
 						{...props}
 						ref={forwardedRef}
-						value={this.state.value}
+						value={value}
 						type={type}
 						disabled={disabled}
 						readOnly={readOnly}
