@@ -1,13 +1,13 @@
 import React from 'react';
 import roundTo from 'round-to';
 import _ from 'lodash';
-import {getCurrency} from '../../../marketmaker/supported-currencies';
 import Input from 'components/Input';
 import Button from 'components/Button';
 import Select from 'components/Select';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import exchangeContainer from 'containers/Exchange';
 import appContainer from 'containers/App';
+import {getCurrency} from '../../../marketmaker/supported-currencies';
 import './Order.scss';
 
 class Top extends React.Component {
