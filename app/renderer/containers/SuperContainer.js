@@ -1,6 +1,7 @@
 /* eslint-disable new-cap */
 import {Container} from 'unstated';
 import React from 'react';
+import {isStatelessComponent} from 'react-extras';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 import _ from 'lodash';
 
@@ -29,6 +30,19 @@ const toClassComponent = (FunctionalComponent, constructorHook) => {
 	return ClassComponent;
 };
 
+const hookConstructor = (Component, constructorHook) => {
+	if (isStatelessComponent(Component)) {
+		return toClassComponent(Component, constructorHook);
+	}
+
+	return class extends Component {
+		constructor(...args) {
+			super(...args);
+			constructorHook(this);
+		}
+	};
+};
+
 const addLifeCycleHooks = (self, lifecycleHooks) => {
 	for (const [hookName, hook] of Object.entries(lifecycleHooks)) {
 		if (hookName === 'constructor') {
@@ -36,7 +50,11 @@ const addLifeCycleHooks = (self, lifecycleHooks) => {
 			continue;
 		}
 
-		self[hookName] = hook;
+		const originalMethod = self[hookName];
+		self[hookName] = function (...args) {
+			originalMethod.call(this, ...args);
+			hook(...args);
+		};
 	}
 };
 
@@ -54,8 +72,8 @@ const withState = (FunctionalComponent, initialState = {}, lifecycleHooks = {}) 
 	});
 };
 
-const withLifecycleHooks = (FunctionalComponent, lifecycleHooks = {}) => {
-	return toClassComponent(FunctionalComponent, self => {
+const withLifecycleHooks = (Component, lifecycleHooks = {}) => {
+	return hookConstructor(Component, self => {
 		addLifeCycleHooks(self, lifecycleHooks);
 	});
 };
@@ -74,7 +92,8 @@ class SuperContainer extends Container {
 		}
 	}
 
-	// Connect the container to a component to receive some lifecycle hooks
+	// Connect the container to a component to receive some of its lifecycle hooks
+	// Returns a wrapped version of the given `component`
 	connect(component) {
 		const self = this;
 
