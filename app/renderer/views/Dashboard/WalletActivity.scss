@@ -3,19 +3,6 @@
 	flex: 1;
 	padding: 10px 20px;
 
-	.Empty {
-		display: flex;
-		flex: 1;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-
-		p {
-			font-size: 20px;
-			opacity: 0.6;
-		}
-	}
-
 	.ActivityList {
 		flex: 1;
 		overflow-x: hidden;

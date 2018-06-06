@@ -15,16 +15,7 @@
 
 	main {
 		.SwapList {
-			tr {
-				border-bottom: 1px solid hsla(215, 23%, 22%, 1);
-				padding: 50px 0;
-
-				&:last-child {
-					border: none;
-				}
-			}
-
-			td {
+			.row {
 				padding: 12px 5px 12px 0;
 				font-size: 14px;
 			}
@@ -34,6 +25,33 @@
 				&__button {
 					padding: 4px 8px;
 					border-radius: 3px;
+				}
+			}
+
+			// TODO: When Electron supports the `env()` feature, we can deduplicate this with `SwapList.scss`
+			// https://stackoverflow.com/a/47212942/64949
+			@media (min-width: 0) {
+				.row {
+					grid-template-areas: 'timestamp pairs base-amount quote-amount status buttons';
+					grid-template-columns: 16% 14% 23% 20%;
+					justify-content: unset;
+					white-space: unset;
+
+					.base-amount {
+						justify-self: start;
+					}
+
+					.quote-amount {
+						justify-self: start;
+					}
+
+					.status {
+						justify-self: center;
+					}
+
+					.buttons {
+						justify-self: end;
+					}
 				}
 			}
 		}

@@ -6,9 +6,9 @@ import Modal from 'components/Modal';
 import Progress from 'components/Progress';
 import CurrencyIcon from 'components/CurrencyIcon';
 import Button from 'components/Button';
-import {isDevelopment} from '../../../util-common';
-import swapTransactions from '../../swap-transactions';
-import {zeroPadFraction} from '../../util';
+import {isDevelopment} from '../../util-common';
+import swapTransactions from '../swap-transactions';
+import {zeroPadFraction} from '../util';
 import './SwapDetails.scss';
 
 const stageToTitle = new Map([

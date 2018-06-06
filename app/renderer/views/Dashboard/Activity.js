@@ -2,14 +2,9 @@ import React from 'react';
 import {format as formatDate} from 'date-fns';
 import appContainer from 'containers/App';
 import exchangeContainer from 'containers/Exchange';
+import Empty from 'components/Empty';
 import {formatCurrency} from '../../util';
 import './Activity.scss';
-
-const Empty = () => (
-	<div className="Empty">
-		<p>No activity yet</p>
-	</div>
-);
 
 const ActivityItem = ({swap}) => {
 	const {cmcPriceUsd} = appContainer.getCurrencyPrice(swap.baseCurrency);
@@ -39,7 +34,7 @@ const ActivityItem = ({swap}) => {
 
 const ActivityList = ({items}) => {
 	if (items.length === 0) {
-		return <Empty/>;
+		return <Empty show text="No activity yet"/>;
 	}
 
 	// TODO: Only swaps for now, so this code assume swaps
