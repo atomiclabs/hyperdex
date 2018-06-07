@@ -87,11 +87,13 @@ class SuperContainer extends Container {
 	}
 
 	resetState() {
-		if (this.getInitialState) {
-			const state = this.getInitialState();
-			this.state = state; // We set this as `setState` only updates props in the initial state
-			this.setState(state);
+		if (!this.getInitialState) {
+			throw new Error('You need to use the `getInitialState` method to be able to reset the state');
 		}
+
+		const state = this.getInitialState();
+		this.state = state; // We set this as `setState` only updates props in the initial state
+		this.setState(state);
 	}
 
 	// Connect the container to a component to receive some of its lifecycle hooks
