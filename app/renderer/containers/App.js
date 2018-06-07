@@ -70,10 +70,6 @@ class AppContainer extends Container {
 	constructor() {
 		super();
 		this.views = new Cycled(appViews);
-
-		this.getSwapDB = new Promise(resolve => {
-			this.setSwapDB = resolve;
-		});
 	}
 
 	setActiveView(activeView) {

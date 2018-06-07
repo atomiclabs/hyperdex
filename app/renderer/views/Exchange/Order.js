@@ -134,7 +134,7 @@ class Bottom extends React.Component {
 		}
 
 		const swap = result.pending;
-		const swapDB = await appContainer.getSwapDB;
+		const {swapDB} = appContainer;
 		api.subscribeToSwap(swap.uuid).on('progress', swapDB.updateSwapData);
 		await swapDB.insertSwapData(swap, requestOpts);
 		exchangeContainer.setIsSendingOrder(false);

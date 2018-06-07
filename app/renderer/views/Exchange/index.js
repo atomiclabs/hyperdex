@@ -28,4 +28,4 @@ const Exchange = () => {
 	);
 };
 
-export default Exchange;
+export default exchangeContainer.connect(Exchange);
