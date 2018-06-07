@@ -3,17 +3,12 @@ import {format as formatDate} from 'date-fns';
 import appContainer from 'containers/App';
 import exchangeContainer from 'containers/Exchange';
 import dashboardContainer from 'containers/Dashboard';
+import SwapDetails from 'components/SwapDetails';
+import Empty from 'components/Empty';
 import {formatCurrency} from '../../util';
-import SwapDetails from '../Exchange/SwapDetails';
 import './WalletActivity.scss';
 
 // TODO(sindresorhus): If this view is still similar to the portfolio activity view in the future, we can refactor them into one component with some options. Keeping them separate for now to make it easier to make custom changes.
-
-const Empty = () => (
-	<div className="Empty">
-		<p>No activity yet</p>
-	</div>
-);
 
 const ActivityItem = ({swap}) => {
 	const {cmcPriceUsd} = appContainer.getCurrencyPrice(swap.baseCurrency);
@@ -59,7 +54,7 @@ const ActivityItem = ({swap}) => {
 
 const ActivityList = ({items}) => {
 	if (items.length === 0) {
-		return <Empty/>;
+		return <Empty show text="No activity yet"/>;
 	}
 
 	// TODO: Only swaps for now, so this code assume swaps
