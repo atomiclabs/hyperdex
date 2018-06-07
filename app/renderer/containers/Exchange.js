@@ -21,7 +21,7 @@ class ExchangeContainer extends SuperContainer {
 		};
 	}
 
-	componentDidMountOnce() {
+	componentDidInitialMount() {
 		this.setSwapHistory();
 		appContainer.swapDB.on('change', this.setSwapHistory);
 	}
