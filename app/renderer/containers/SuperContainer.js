@@ -99,10 +99,10 @@ class SuperContainer extends Container {
 	// Connect the container to a component to receive some of its lifecycle hooks
 	// Returns a wrapped version of the given `component`
 	connect(component) {
-		if (this._connectedToComponent) {
-			throw new Error(`The container is already connected to the \`${this._connectedToComponent}\` component`);
+		if (this._connectedComponent) {
+			throw new Error(`The container is already connected to the \`${this._connectedComponent}\` component`);
 		}
-		this._connectedToComponent = component.displayName || component.name;
+		this._connectedComponent = component.displayName || component.name;
 
 		const self = this;
 
