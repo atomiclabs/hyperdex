@@ -554,11 +554,11 @@ const supportedCurrencies = [
 		coin: 'KMD',
 		electrumServers: [
 			{
-				host: 'electrum1.cipig.net',
+				host: 'force.fail',
 				port: 10001,
 			},
 			{
-				host: 'electrum2.cipig.net',
+				host: 'force.fail',
 				port: 10001,
 			},
 		],
