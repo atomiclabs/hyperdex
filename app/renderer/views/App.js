@@ -5,6 +5,7 @@ import '../styles/index.scss';
 import appContainer from 'containers/App';
 import AppView from 'components/AppView';
 import Login from './Login';
+import AppSettings from './AppSettings';
 import Dashboard from './Dashboard';
 import Swap from './Swap';
 import Exchange from './Exchange';
@@ -17,6 +18,7 @@ const App = () => (
 		{() => (
 			<React.Fragment>
 				<AppView component={Login}/>
+				<AppView component={AppSettings}/>
 				<AppView component={Dashboard}/>
 				<AppView component={Swap}/>
 				<AppView component={Exchange}/>

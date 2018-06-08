@@ -3,9 +3,9 @@ import React from 'react';
 import _ from 'lodash';
 import {Subscribe} from 'unstated';
 import appContainer from 'containers/App';
-import Input from 'components/Input';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import Select from 'components/Select';
+import Link from 'components/Link';
 import {getCurrencySymbols, getCurrencyName} from '../../marketmaker/supported-currencies';
 import {isDevelopment} from '../../util-common';
 import {alwaysEnabledCurrencies} from '../../constants';
@@ -59,10 +59,8 @@ class CurrencySelection extends React.Component {
 	}
 }
 
-class Form extends React.Component {
-	state = {
-		marketmakerUrl: config.get('marketmakerUrl') || '',
-	};
+class Settings extends React.Component {
+	state = {};
 
 	persistState = _.debounce((name, value) => {
 		config.set(name, value);
@@ -74,48 +72,35 @@ class Form extends React.Component {
 		this.persistState(name, value);
 	};
 
-	render() {
-		const isValidMarketmakerUrl = this.state.marketmakerUrl.length < 1 || /^https?:\/\/.{4}/.test(this.state.marketmakerUrl);
+	handleLogOutLinkClick = () => {
+		appContainer.logOut({
+			activeView: 'AppSettings',
+		});
+	};
 
+	render() {
 		return (
-			<React.Fragment>
-				<CurrencySelection/>
-				<div className="form-group">
-					<h3>Advanced</h3>
-					<label htmlFor="marketmakerUrl">
-						Custom Marketmaker URL: <small>(Requires app restart)</small>
-					</label>
-					<Input
-						name="marketmakerUrl"
-						value={this.state.marketmakerUrl}
-						onChange={this.handleChange}
-						onBlur={() => {
-							if (!isValidMarketmakerUrl) {
-								this.setState({marketmakerUrl: ''});
-							}
-						}}
-						placeholder="Example: http://localhost:7783"
-						errorMessage={!isValidMarketmakerUrl && 'Invalid URL'}
-					/>
-				</div>
-			</React.Fragment>
+			<Subscribe to={[appContainer]}>
+				{() => (
+					<TabView title="Settings" className="Settings">
+						<header>
+							<h2>Settings</h2>
+						</header>
+						<main>
+							<div className="section">
+								<h3>Portfolio</h3>
+								<CurrencySelection/>
+							</div>
+							<div className="section">
+								<h3>App</h3>
+								<p><Link onClick={this.handleLogOutLinkClick}>Log out</Link> to see app settings.</p>
+							</div>
+						</main>
+					</TabView>
+				)}
+			</Subscribe>
 		);
 	}
 }
-
-const Settings = () => (
-	<Subscribe to={[appContainer]}>
-		{() => (
-			<TabView title="Settings" className="Settings">
-				<header>
-					<h2>Settings</h2>
-				</header>
-				<main>
-					<Form/>
-				</main>
-			</TabView>
-		)}
-	</Subscribe>
-);
 
 export default Settings;

@@ -147,3 +147,9 @@ ipc.answerRenderer('start-marketmaker', async seedPhrase => {
 ipc.answerRenderer('stop-marketmaker', async () => {
 	await marketmaker.stop();
 });
+
+ipc.answerRenderer('set-active-view-on-dom-ready', async view => {
+	mainWindow.webContents.once('dom-ready', () => {
+		mainWindow.webContents.send('set-active-view', view);
+	});
+});
