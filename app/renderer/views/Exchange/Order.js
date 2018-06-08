@@ -270,16 +270,16 @@ class Order extends React.Component {
 	handlePriceChange = price => {
 		price = String(price);
 
-		this.setState(prevState => ({
-			price,
-			total: roundTo(Number(price) * Number(prevState.amount), 8),
-		}));
+		this.setState(prevState => {
+			const total = roundTo(Number(price) * Number(prevState.amount), 8);
+			const newState = {price, total};
 
-		if (this.state.total > 0) {
-			this.handleTotalChange(this.state.total);
-		} else if (Number(this.state.amount) > 0) {
-			this.handleAmountChange(this.state.amount);
-		}
+			if (total > 0) {
+				newState.amount = this.getAmount(total, price);
+			}
+
+			return newState;
+		});
 	}
 
 	handleAmountChange = amount => {
@@ -292,13 +292,16 @@ class Order extends React.Component {
 	handleTotalChange = total => {
 		this.setState(prevState => {
 			const newState = {total};
+
 			if (prevState.price > 0) {
-				newState.amount = String(roundTo(total / prevState.price, 8));
+				newState.amount = this.getAmount(total, prevState.price);
 			}
 
 			return newState;
 		});
 	}
+
+	getAmount = (total, price) => String(roundTo(total / price, 8));
 
 	getSelectedCurrency = () => {
 		const {state} = exchangeContainer;
