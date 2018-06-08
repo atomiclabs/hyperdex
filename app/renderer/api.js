@@ -82,7 +82,16 @@ export default class Api {
 			}));
 
 			const responses = await Promise.all(requests);
-			return responses.filter(response => response.result === 'success') > 0;
+			const success = responses.filter(response => response.result === 'success').length > 0;
+
+			if (!success) {
+				const error = `Could not connect to ${symbol} Electrum server`;
+				console.error(error);
+				// eslint-disable-next-line no-new
+				new Notification(error);
+			}
+
+			return success;
 		}
 
 		const response = await this.request({method: 'enable', coin: symbol});
