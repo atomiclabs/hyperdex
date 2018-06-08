@@ -395,6 +395,22 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'EQL',
+		name: 'Equaliser',
+		asset: 'EQL',
+		rpcport: 10306,
+		electrumServers: [
+			{
+				host: '159.65.91.235',
+				port: 10801,
+			},
+			{
+				host: '167.99.204.42',
+				port: 10801,
+			},
+		],
+	},
+	{
 		coin: 'FAIR',
 		rpcport: 40405,
 		pubtype: 95,
