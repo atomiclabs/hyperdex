@@ -12,6 +12,7 @@ const noPriceHistory = new Set([
 	'SUPERNET',
 	'PIZZA',
 	'BEER',
+	'EQL',
 ]);
 
 class DashboardContainer extends Container {
