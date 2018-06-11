@@ -34,6 +34,7 @@
 		"react": "^16.3.2",
 		"react-dom": "^16.3.2",
 		"react-extras": "^0.6.0",
+		"react-i18next": "^7.7.0",
 		"react-select": "^1.2.1",
 		"read-blob": "^1.1.0",
 		"recharts": "^1.0.0-beta.10",

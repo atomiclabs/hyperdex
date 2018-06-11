@@ -1,4 +1,5 @@
 import React from 'react';
+import {translate} from 'react-i18next';
 import Button from 'components/Button';
 import Input from 'components/Input';
 import Select from 'components/Select';
@@ -47,6 +48,7 @@ class LoginBox extends React.Component {
 			passwordError: null,
 		});
 
+		const {t} = this.props;
 		const {selectedPortfolioId} = loginContainer.state;
 		const {passwordInputValue} = this.state;
 
@@ -57,7 +59,7 @@ class LoginBox extends React.Component {
 
 			this.setState({passwordInputValue: ''});
 
-			const passwordError = /Authentication failed/.test(err.message) ? 'Incorrect password' : err.message;
+			const passwordError = /Authentication failed/.test(err.message) ? t('incorrectPassword') : err.message;
 			await this.setState({
 				isLoggingIn: false,
 				passwordError,
@@ -67,6 +69,7 @@ class LoginBox extends React.Component {
 	};
 
 	render() {
+		const {t} = this.props;
 		const {portfolios, selectedPortfolioId} = loginContainer.state;
 
 		if (portfolios.length === 0) {
@@ -93,7 +96,7 @@ class LoginBox extends React.Component {
 							onClose={this.handleSelectClose}
 							valueRenderer={this.selectOptionRenderer}
 							optionRenderer={this.selectOptionRenderer}
-							placeholder="Select Portfolio…"
+							placeholder={t('selectPortfolio')}
 							disabled={this.state.isLoggingIn}
 						/>
 						<PlusButton
@@ -108,7 +111,7 @@ class LoginBox extends React.Component {
 							ref={this.passwordInputRef}
 							onChange={this.handlePasswordInputChange}
 							type="password"
-							placeholder="Password"
+							placeholder={t('password')}
 							value={this.state.passwordInputValue}
 							disabled={!selectedPortfolioId || this.state.isLoggingIn}
 							autoFocus
@@ -117,7 +120,7 @@ class LoginBox extends React.Component {
 						/>
 					</div>
 					<div className="form-group form-group-2">
-						<Button primary fullwidth type="submit" value="Login" disabled={!this.state.passwordInputValue || this.state.isLoggingIn}/>
+						<Button primary fullwidth type="submit" value={t('login')} disabled={!this.state.passwordInputValue || this.state.isLoggingIn}/>
 						<Link
 							disabled={this.state.isLoggingIn}
 							onClick={() => {
@@ -130,7 +133,7 @@ class LoginBox extends React.Component {
 								marginTop: '13px',
 							}}
 						>
-							Forgot password
+							{t('forgotPassword')}
 						</Link>
 					</div>
 				</form>
@@ -139,4 +142,4 @@ class LoginBox extends React.Component {
 	}
 }
 
-export default LoginBox;
+export default translate(['login'])(LoginBox);

@@ -6,6 +6,7 @@ const config = require('./config');
 const {openGitHubIssue} = require('./util');
 const {websiteUrl, repoUrl, appViews} = require('./constants');
 const {isDevelopment} = require('./util-common');
+const {t} = require('./locale');
 
 const {app, BrowserWindow, shell, clipboard, ipcMain: ipc, Menu} = electron;
 const appName = app.getName();
@@ -27,19 +28,19 @@ const setActiveView = view => {
 const createHelpMenu = () => {
 	const helpSubmenu = [
 		{
-			label: `Website`,
+			label: t('menu:help.website'),
 			click() {
 				shell.openExternal(websiteUrl);
 			},
 		},
 		{
-			label: `Source Code`,
+			label: t('menu:help.sourceCode'),
 			click() {
 				shell.openExternal(repoUrl);
 			},
 		},
 		{
-			label: 'Report an Issue…',
+			label: t('menu:help.reportIssue'),
 			click() {
 				openGitHubIssue('<!-- Please succinctly describe your issue and steps to reproduce it -->');
 			},
@@ -53,7 +54,7 @@ const createHelpMenu = () => {
 			role: 'about',
 			click() {
 				electron.dialog.showMessageBox({
-					title: `About ${appName}`,
+					title: t('menu:help.about', {appName}),
 					message: `${appName} ${app.getVersion()}`,
 					detail: 'Copyright © Luke Childs',
 					icon: path.join(__dirname, 'static/icon.png'),
@@ -70,14 +71,14 @@ const createDebugMenu = () => {
 		label: 'Debug',
 		submenu: [
 			{
-				label: 'Log Container State',
+				label: t('menu:debug.logContainerState'),
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					await runJS('UNSTATED.logState()', win);
 				},
 			},
 			{
-				label: 'Toggle Logging on State Changes',
+				label: t('menu:debug.logStateChanges'),
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					await runJS('UNSTATED.logStateChanges = !UNSTATED.logStateChanges', win);
@@ -87,14 +88,14 @@ const createDebugMenu = () => {
 				type: 'separator',
 			},
 			{
-				label: 'Log Swaps',
+				label: t('menu:debug.logSwaps'),
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					await runJS('_swapDB.getSwaps().then(console.log)', win);
 				},
 			},
 			{
-				label: 'Copy Swaps to Clipboard',
+				label: t('menu:debug.copySwapsClipboard'),
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					const swaps = await runJS('_swapDB.getSwaps()', win);
@@ -105,19 +106,19 @@ const createDebugMenu = () => {
 				type: 'separator',
 			},
 			{
-				label: 'Show Portfolios',
+				label: t('menu:debug.showPortfolios'),
 				click() {
 					shell.openItem(path.join(app.getPath('userData'), 'portfolios'));
 				},
 			},
 			{
-				label: 'Show Settings',
+				label: t('menu:debug.showSettings'),
 				click() {
 					config.openInEditor();
 				},
 			},
 			{
-				label: 'Show App Data',
+				label: t('menu:debug.showAppData'),
 				click() {
 					shell.openItem(app.getPath('userData'));
 				},
@@ -135,7 +136,7 @@ const createDebugMenu = () => {
 				},
 			},
 			{
-				label: 'Delete Portfolios',
+				label: t('menu:debug.deletePortfolios'),
 				click() {
 					const [win] = BrowserWindow.getAllWindows();
 					shell.moveItemToTrash(path.join(app.getPath('userData'), 'portfolios'));
@@ -143,7 +144,7 @@ const createDebugMenu = () => {
 				},
 			},
 			{
-				label: 'Delete Settings',
+				label: t('menu:debug.deleteSettings'),
 				click() {
 					config.clear();
 					app.relaunch();
@@ -151,7 +152,7 @@ const createDebugMenu = () => {
 				},
 			},
 			{
-				label: 'Delete App Data',
+				label: t('menu:debug.deleteAppData'),
 				click() {
 					shell.moveItemToTrash(app.getPath('userData'));
 					app.relaunch();
