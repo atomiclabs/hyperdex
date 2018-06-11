@@ -19,13 +19,17 @@ const excludedTestCurrencies = new Set([
 	'BEER',
 ]);
 
+const CMCBlacklist = new Set([
+	'EQL',
+]);
+
 const getTickerData = async symbol => {
 	const fallback = {
 		symbol,
 		price: 0,
 	};
 
-	if (excludedTestCurrencies.has(symbol)) {
+	if (CMCBlacklist.has(symbol) || excludedTestCurrencies.has(symbol)) {
 		return fallback;
 	}
 
