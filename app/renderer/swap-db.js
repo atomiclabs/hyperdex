@@ -28,9 +28,25 @@ class SwapDB {
 
 		// To be able to sort via timeStarted it MUST be the fist item in the index.
 		// https://github.com/pouchdb/pouchdb/issues/7207
-		this.ready = this.db.createIndex({index: {fields: ['timeStarted', 'uuid']}});
+		this.ready = (async () => {
+			await this.db.createIndex({index: {fields: ['timeStarted', 'uuid']}});
+			await this.migrate();
+		})();
 
 		this.pQueue = new PQueue({concurrency: 1});
+	}
+
+	async migrate() {
+		const {docs: swaps} = await this.db.find({
+			selector: {timeStarted: {$gt: true}},
+			sort: [{timeStarted: 'desc'}],
+		});
+
+		swaps.filter(swap => (
+			typeof swap.request.amount === 'string' ||
+			typeof swap.request.price === 'string' ||
+			typeof swap.request.total === 'string'
+		)).forEach(swap => this.db.remove(swap));
 	}
 
 	queue(fn) {
