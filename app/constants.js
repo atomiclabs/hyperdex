@@ -28,3 +28,11 @@ exports.alwaysEnabledCurrencies = [
 	'KMD',
 	'CHIPS',
 ];
+
+exports.ignoreExternalPrice = new Set([
+	'REVS',
+	'SUPERNET',
+	'PIZZA',
+	'BEER',
+	'EQL',
+]);

@@ -6,7 +6,7 @@ import Cycled from 'cycled';
 import coinlist from 'coinlist';
 import roundTo from 'round-to';
 import {Container} from 'unstated';
-import {appViews, alwaysEnabledCurrencies} from '../../constants';
+import {appViews, alwaysEnabledCurrencies, ignoreExternalPrice} from '../../constants';
 import {getCurrencySymbols, getCurrencyName} from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
 import {formatCurrency, setLoginWindowBounds} from '../util';
@@ -19,17 +19,13 @@ const excludedTestCurrencies = new Set([
 	'BEER',
 ]);
 
-const CMCBlacklist = new Set([
-	'EQL',
-]);
-
 const getTickerData = async symbol => {
 	const fallback = {
 		symbol,
 		price: 0,
 	};
 
-	if (CMCBlacklist.has(symbol) || excludedTestCurrencies.has(symbol)) {
+	if (ignoreExternalPrice.has(symbol)) {
 		return fallback;
 	}
 
