@@ -259,7 +259,13 @@ export default class Api {
 			broadcast: 0,
 		});
 
+		let hasBroadcast = false;
 		const broadcast = async () => {
+			if (hasBroadcast) {
+				throw new Error('Transaction has already been broadcast');
+			}
+			hasBroadcast = true;
+
 			// This is needed until a bug in marketmaker is resolved
 			const {tx_id} = await this.request({
 				method: 'eth_withdraw',
