@@ -8,6 +8,8 @@ import {formatCurrency} from '../util';
 import {ignoreExternalPrice} from '../../constants';
 import fireEvery from '../fire-every';
 
+const noPriceHistory = new Set();
+
 class DashboardContainer extends Container {
 	state = {
 		activeView: 'Portfolio',
@@ -156,7 +158,7 @@ class DashboardContainer extends Container {
 		}
 
 		// We won't even bother to fetch if we know it won't work
-		if (ignoreExternalPrice.has(symbol)) {
+		if (ignoreExternalPrice.has(symbol) || noPriceHistory.has(symbol)) {
 			return;
 		}
 
@@ -169,7 +171,7 @@ class DashboardContainer extends Container {
 		}
 
 		if (!json || json.Data.length === 0) {
-			ignoreExternalPrice.add(symbol);
+			noPriceHistory.add(symbol);
 			return;
 		}
 
