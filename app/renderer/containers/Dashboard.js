@@ -5,15 +5,10 @@ import delay from 'delay';
 import {Container} from 'unstated';
 import appContainer from 'containers/App';
 import {formatCurrency} from '../util';
+import {ignoreExternalPrice} from '../../constants';
 import fireEvery from '../fire-every';
 
-const noPriceHistory = new Set([
-	'REVS',
-	'SUPERNET',
-	'PIZZA',
-	'BEER',
-	'EQL',
-]);
+const noPriceHistory = new Set();
 
 class DashboardContainer extends Container {
 	state = {
@@ -163,7 +158,7 @@ class DashboardContainer extends Container {
 		}
 
 		// We won't even bother to fetch if we know it won't work
-		if (noPriceHistory.has(symbol)) {
+		if (ignoreExternalPrice.has(symbol) || noPriceHistory.has(symbol)) {
 			return;
 		}
 
