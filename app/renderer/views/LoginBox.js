@@ -1,5 +1,4 @@
 import React from 'react';
-import {translate} from 'react-i18next';
 import Button from 'components/Button';
 import Input from 'components/Input';
 import Select from 'components/Select';
@@ -8,7 +7,10 @@ import Link from 'components/Link';
 import PlusButton from 'components/PlusButton';
 import loginContainer from 'containers/Login';
 import avatar from '../avatar';
+import {translate} from '../translate';
 import './LoginBox.scss';
+
+const t = translate('login');
 
 class LoginBox extends React.Component {
 	state = {
@@ -48,7 +50,6 @@ class LoginBox extends React.Component {
 			passwordError: null,
 		});
 
-		const {t} = this.props;
 		const {selectedPortfolioId} = loginContainer.state;
 		const {passwordInputValue} = this.state;
 
@@ -69,7 +70,6 @@ class LoginBox extends React.Component {
 	};
 
 	render() {
-		const {t} = this.props;
 		const {portfolios, selectedPortfolioId} = loginContainer.state;
 
 		if (portfolios.length === 0) {
@@ -142,4 +142,4 @@ class LoginBox extends React.Component {
 	}
 }
 
-export default translate(['login'])(LoginBox);
+export default LoginBox;
