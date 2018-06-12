@@ -209,6 +209,10 @@ class SwapDB {
 
 		return swapData.map(this._formatSwap);
 	}
+
+	async destroy() {
+		await this.db.destroy();
+	}
 }
 
 export default SwapDB;
