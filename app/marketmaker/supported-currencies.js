@@ -1259,6 +1259,13 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
+		coin: 'MYTH',
+		name: 'Unicoin',
+		decimals: 18,
+		etomic: '0x277ab4b9dde09a8e710fd755deeb9d0d9532d047',
+		rpcport: 80,
+	},
+	{
 		coin: 'NAS',
 		name: 'Nebulas',
 		etomic: '0x5d65d971895edc438f465c17db6992698a52318d',
