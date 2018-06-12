@@ -2,19 +2,23 @@ import util from 'util';
 import electron from 'electron';
 import {sha256} from 'crypto-hash';
 import PQueue from 'p-queue';
+import ow from 'ow';
 import {getCurrency} from '../marketmaker/supported-currencies';
 import MarketmakerSocket from './marketmaker-socket';
 
 const getPort = electron.remote.require('get-port');
+
+const symbolPredicate = ow.string.matches(/^[A-Z]+$/);
+const uuidPredicate = ow.string.matches(/^[a-z\d]+$/);
 
 const errorWithObject = (message, object) => new Error(`${message}:\n${util.format(object)}`);
 const genericError = object => errorWithObject('Encountered an error', object);
 
 export default class Api {
 	constructor({endpoint, seedPhrase, concurrency = Infinity}) {
-		if (!(endpoint && seedPhrase)) {
-			throw new Error('The `endpoint` and `seedPhrase` options are required');
-		}
+		ow(endpoint, ow.string.label('endpoint'));
+		ow(seedPhrase, ow.string.label('seedPhrase'));
+		ow(concurrency, ow.any(ow.number.integer.label('concurrency'), ow.number.infinite.label('concurrency')));
 
 		this.endpoint = endpoint;
 		this.token = sha256(seedPhrase);
@@ -50,6 +54,8 @@ export default class Api {
 	}
 
 	async request(data) {
+		ow(data, ow.object.label('data'));
+
 		return this._request({
 			needjson: 1,
 			...data,
@@ -66,6 +72,8 @@ export default class Api {
 	}
 
 	async enableCurrency(symbol) {
+		ow(symbol, symbolPredicate.label('symbol'));
+
 		const currency = getCurrency(symbol);
 
 		if (!currency) {
@@ -99,6 +107,8 @@ export default class Api {
 	}
 
 	disableCoin(coin) {
+		ow(coin, symbolPredicate.label('coin'));
+
 		return this.request({
 			method: 'disable',
 			coin,
@@ -110,6 +120,9 @@ export default class Api {
 	}
 
 	balance(coin, address) {
+		ow(coin, symbolPredicate.label('coin'));
+		ow(address, ow.string.label('address'));
+
 		return this.request({
 			method: 'balance',
 			coin,
@@ -122,6 +135,9 @@ export default class Api {
 	}
 
 	async orderBook(base, rel) {
+		ow(base, symbolPredicate.label('base'));
+		ow(rel, symbolPredicate.label('rel'));
+
 		const response = await this.request({
 			method: 'orderbook',
 			base,
@@ -151,6 +167,13 @@ export default class Api {
 	}
 
 	order(opts) {
+		ow(opts.type, ow.string.oneOf(['buy', 'sell']).label('type'));
+		ow(opts.baseCurrency, symbolPredicate.label('baseCurrency'));
+		ow(opts.quoteCurrency, symbolPredicate.label('quoteCurrency'));
+		ow(opts.amount, ow.number.finite.label('amount'));
+		ow(opts.total, ow.number.finite.label('total'));
+		ow(opts.price, ow.number.finite.label('price'));
+
 		return this.request({
 			method: opts.type,
 			base: opts.baseCurrency,
@@ -162,6 +185,8 @@ export default class Api {
 	}
 
 	async cancelOrder(uuid) {
+		ow(uuid, uuidPredicate.label('uuid'));
+
 		const response = await this.request({
 			method: 'cancel',
 			uuid,
@@ -183,6 +208,8 @@ export default class Api {
 	}
 
 	async getFee(coin) {
+		ow(coin, symbolPredicate.label('coin'));
+
 		const response = await this.request({
 			method: 'getfee',
 			coin,
@@ -196,18 +223,9 @@ export default class Api {
 	}
 
 	async createTransaction(opts) {
-		if (typeof opts.currency !== 'string') {
-			throw new TypeError(`opts.currency must be a string: ${opts.currency}`);
-		}
-
-		// TODO: Also validate address based on opts.currency
-		if (typeof opts.address !== 'string') {
-			throw new TypeError(`opts.address must be a string: ${opts.address}`);
-		}
-
-		if (!Number.isFinite(opts.amount) || opts.amount <= 0) {
-			throw new TypeError(`opts.amount must be a positive number: ${opts.amount}`);
-		}
+		ow(opts.currency, symbolPredicate.label('currency')); // TODO: `currency` should be renamed to `symbol` for consistency
+		ow(opts.address, ow.string.label('address'));
+		ow(opts.amount, ow.number.positive.finite.label('amount'));
 
 		const result = await this.request({
 			method: 'withdraw',
@@ -227,6 +245,9 @@ export default class Api {
 	}
 
 	async broadcastTransaction(currencySymbol, rawTransaction) {
+		ow(currencySymbol, symbolPredicate.label('currencySymbol'));
+		ow(rawTransaction, ow.string.label('rawTransaction'));
+
 		const response = await this.request({
 			method: 'sendrawtransaction',
 			coin: currencySymbol,
@@ -268,6 +289,9 @@ export default class Api {
 	}
 
 	listUnspent(coin, address) {
+		ow(coin, symbolPredicate.label('coin'));
+		ow(address, ow.string.label('address'));
+
 		return this.request({
 			method: 'listunspent',
 			coin,
@@ -291,11 +315,13 @@ export default class Api {
 		this.queue.clear();
 	}
 
-	subscribeToSwap(swap) {
+	subscribeToSwap(uuid) {
+		ow(uuid, uuidPredicate.label('uuid'));
+
 		if (!this.socket) {
 			throw new Error('Swap subscriptions require the socket to be enabled');
 		}
 
-		return this.socket.subscribeToSwap(swap);
+		return this.socket.subscribeToSwap(uuid);
 	}
 }

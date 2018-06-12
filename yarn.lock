@@ -6104,6 +6104,10 @@ osenv@0, osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
+ow@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/ow/-/ow-0.5.0.tgz#63628c538291fce1299e88d9a62c3234a6d29980"
+
 p-any@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/p-any/-/p-any-1.1.0.tgz#1d03835c7eed1e34b8e539c47b7b60d0d015d4e1"
