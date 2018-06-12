@@ -234,7 +234,6 @@ export default class Api {
 		const txFee = txFeeSatoshis / SATOSHIS;
 
 		const broadcast = async () => {
-			// This is needed until a bug in marketmaker is resolved
 			await this._broadcastTransaction(opts.currency, rawTransaction);
 
 			return {txid, amount, currency, address};
@@ -266,7 +265,6 @@ export default class Api {
 			}
 			hasBroadcast = true;
 
-			// This is needed until a bug in marketmaker is resolved
 			const {tx_id} = await this.request({
 				method: 'eth_withdraw',
 				gas,
