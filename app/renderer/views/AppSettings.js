@@ -29,10 +29,10 @@ class AppSettings extends React.Component {
 		return (
 			<div className="AppSettings">
 				<div className="window-draggable-area"/>
-				<BackButton onClick={() => {
-					appContainer.setActiveView('Login');
-				}}/>
 				<header>
+					<BackButton onClick={() => {
+						appContainer.setActiveView('Login');
+					}}/>
 					<h2>Settings</h2>
 				</header>
 				<main>
