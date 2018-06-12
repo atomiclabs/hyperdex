@@ -52,7 +52,9 @@ const addLifeCycleHooks = (self, lifecycleHooks) => {
 
 		const originalMethod = self[hookName];
 		self[hookName] = function (...args) {
-			originalMethod.call(this, ...args);
+			if (typeof originalMethod === 'function') {
+				originalMethod.call(this, ...args);
+			}
 			hook(...args);
 		};
 	}
