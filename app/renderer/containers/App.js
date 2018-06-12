@@ -6,7 +6,7 @@ import Cycled from 'cycled';
 import coinlist from 'coinlist';
 import roundTo from 'round-to';
 import {Container} from 'unstated';
-import {appViews, alwaysEnabledCurrencies, hiddenCurrencies} from '../../constants';
+import {appViews, alwaysEnabledCurrencies, ignoreExternalPrice, hiddenCurrencies} from '../../constants';
 import {getCurrencySymbols, getCurrencyName} from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
 import {formatCurrency, setLoginWindowBounds} from '../util';
@@ -25,7 +25,7 @@ const getTickerData = async symbol => {
 		price: 0,
 	};
 
-	if (excludedTestCurrencies.has(symbol)) {
+	if (ignoreExternalPrice.has(symbol)) {
 		return fallback;
 	}
 
@@ -35,25 +35,26 @@ const getTickerData = async symbol => {
 	}
 
 	// Docs: https://coinmarketcap.com/api/
-	// Example: https://api.coinmarketcap.com/v1/ticker/bitcoin/
+	// Example: https://api.coinmarketcap.com/v2/ticker/99/
 	let response;
 	try {
-		response = await fetch(`https://api.coinmarketcap.com/v1/ticker/${id}/`);
+		response = await fetch(`https://api.coinmarketcap.com/v2/ticker/${id}/`);
 	} catch (_) {
 		return fallback;
 	}
 
 	const json = await response.json();
 
-	if (json.error) {
+	if (json.metadata.error) {
 		return fallback;
 	}
 
-	const [data] = json;
+	const {data} = json;
+	const quotes = data.quotes.USD;
 	return {
 		symbol,
-		price: Number.parseFloat(data.price_usd),
-		percentChange24h: data.percent_change_24h,
+		price: quotes.price,
+		percentChange24h: quotes.percent_change_24h,
 	};
 };
 
@@ -69,10 +70,6 @@ class AppContainer extends Container {
 	constructor() {
 		super();
 		this.views = new Cycled(appViews);
-
-		this.getSwapDB = new Promise(resolve => {
-			this.setSwapDB = resolve;
-		});
 	}
 
 	setActiveView(activeView) {

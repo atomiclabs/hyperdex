@@ -18,21 +18,6 @@
 		display: flex;
 		flex: 1;
 
-		.Empty {
-			display: flex;
-			flex: 1;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			user-select: none;
-			cursor: default;
-
-			p {
-				font-size: 18px;
-				opacity: 0.6;
-			}
-		}
-
 		.ActivityList {
 			flex: 1;
 			overflow-x: hidden;

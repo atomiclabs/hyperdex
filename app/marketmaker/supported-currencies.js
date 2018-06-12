@@ -394,6 +394,22 @@ const supportedCurrencies = [
 			},
 		],
 	},
+  {
+		coin: 'EQL',
+		name: 'Equaliser',
+		asset: 'EQL',
+		rpcport: 10306,
+		electrumServers: [
+			{
+				host: '159.65.91.235',
+				port: 10801,
+			},
+			{
+				host: '167.99.204.42',
+				port: 10801,
+			},
+		],
+	},
 	{
 		coin: 'ETH',
 		etomic: '0x0000000000000000000000000000000000000000',
@@ -412,9 +428,9 @@ const supportedCurrencies = [
 			{
 				host: 'electrum2.cipig.net',
 				port: 10025,
-			},
-		],
-	},
+      }
+    ],
+  },
 	{
 		coin: 'FAIR',
 		rpcport: 40405,

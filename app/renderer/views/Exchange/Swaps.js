@@ -1,9 +1,8 @@
 import React from 'react';
 import {classNames} from 'react-extras';
-import {format as formatDate} from 'date-fns';
 import exchangeContainer from 'containers/Exchange';
 import View from 'components/View';
-import SwapDetails from './SwapDetails';
+import SwapList from 'components/SwapList';
 import './Swaps.scss';
 
 const TabButton = props => (
@@ -27,43 +26,6 @@ const TabButton = props => (
 const TabView = ({component}) => (
 	<View component={component} activeView={exchangeContainer.state.activeSwapsView}/>
 );
-
-const Empty = () => (
-	<div className="Empty">
-		<p>No swaps yet</p>
-	</div>
-);
-
-const SwapItem = ({swap}) => (
-	<div className="row">
-		<div className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}</div>
-		<div className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</div>
-		<div className="base-amount">+{swap.baseCurrencyAmount} {swap.baseCurrency}</div>
-		<div className="quote-amount">-{swap.quoteCurrencyAmount} {swap.quoteCurrency}</div>
-		<div className="status">
-			<div className="status__icon" data-status={swap.status}>{swap.statusFormatted}</div>
-		</div>
-		<div className="view">
-			<SwapDetails swap={swap}/>
-		</div>
-	</div>
-);
-
-const SwapList = ({swaps}) => {
-	if (swaps.length === 0) {
-		return <Empty/>;
-	}
-
-	return (
-		<div className="SwapList">
-			{
-				swaps.map(swap => (
-					<SwapItem key={swap.uuid} swap={swap}/>
-				))
-			}
-		</div>
-	);
-};
 
 const All = () => (
 	<SwapList swaps={exchangeContainer.state.swapHistory}/>

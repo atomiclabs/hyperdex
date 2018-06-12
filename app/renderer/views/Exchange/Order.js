@@ -8,6 +8,7 @@ import CurrencySelectOption from 'components/CurrencySelectOption';
 import exchangeContainer from 'containers/Exchange';
 import appContainer from 'containers/App';
 import {getCurrency} from '../../../marketmaker/supported-currencies';
+import {formatCurrency} from '../../util';
 import './Order.scss';
 
 class Top extends React.Component {
@@ -94,54 +95,57 @@ const Center = props => {
 
 class Bottom extends React.Component {
 	state = {
-		statusMessage: '',
+		hasError: false,
 	};
 
 	handleSubmit = async event => {
 		event.preventDefault();
-		this.setState({statusMessage: ''});
+		this.setState({hasError: false});
 		exchangeContainer.setIsSendingOrder(true);
 
 		const {api} = appContainer;
-
-		const {type} = this.props;
 		const {baseCurrency, quoteCurrency} = exchangeContainer.state;
-		const {price, amount, total} = this.props;
+		const {price, amount, total, type} = this.props;
 
 		const requestOpts = {
 			type,
 			baseCurrency,
 			quoteCurrency,
-			price,
-			amount,
+			price: Number(price),
+			amount: Number(amount),
 			total,
 		};
 
 		const result = await api.order(requestOpts);
+
+		const orderError = error => {
+			// eslint-disable-next-line no-new
+			new Notification(`Failed to ${type} ${baseCurrency}`, {body: error});
+			exchangeContainer.setIsSendingOrder(false);
+			this.setState({hasError: true});
+		};
 
 		// TODO: If we get this error we should probably show a more helpful error
 		// and grey out the order form for result.wait seconds.
 		// Or alternatively if we know there is a pending trade, prevent them from
 		// placing an order until it's matched.
 		if (result.error) {
-			let statusMessage = result.error;
-			if (result.error === 'only one pending request at a time') {
-				statusMessage = `Only one pending swap at a time, try again in ${result.wait} seconds.`;
+			let {error} = result;
+			if (error === 'only one pending request at a time') {
+				error = `Only one pending swap at a time, try again in ${result.wait} seconds.`;
 			}
-			this.setState({statusMessage});
-			exchangeContainer.setIsSendingOrder(false);
+			orderError(error);
 			return;
 		}
 
 		// TODO: Temp workaround for marketmaker issue
 		if (!result.pending) {
-			this.setState({statusMessage: 'Something unexpected happened. Are you sure you have enough UTXO?'});
-			exchangeContainer.setIsSendingOrder(false);
+			orderError('Something unexpected happened. Are you sure you have enough UTXO?');
 			return;
 		}
 
 		const swap = result.pending;
-		const swapDB = await appContainer.getSwapDB;
+		const {swapDB} = appContainer;
 		api.subscribeToSwap(swap.uuid).on('progress', swapDB.updateSwapData);
 		await swapDB.insertSwapData(swap, requestOpts);
 		exchangeContainer.setIsSendingOrder(false);
@@ -205,6 +209,8 @@ class Bottom extends React.Component {
 			</div>
 		);
 
+		const swapWorthInUsd = formatCurrency(this.props.total * appContainer.getCurrency(state.quoteCurrency).cmcPriceUsd);
+
 		return (
 			<div className="bottom">
 				<form onSubmit={this.handleSubmit}>
@@ -232,7 +238,7 @@ class Bottom extends React.Component {
 							button={MaxPriceButton}
 						/>
 					</div>
-					<div className="form-section">
+					<div className="form-section total-section">
 						<label>Total ({state.quoteCurrency}):</label>
 						<Input
 							required
@@ -241,16 +247,15 @@ class Bottom extends React.Component {
 							value={String(this.props.total)}
 							onChange={this.props.handleTotalChange}
 						/>
-					</div>
-					<div className="form-section">
-						{this.state.statusMessage &&
-							<p className="secondary status-message">
-								{this.state.statusMessage}
+						{this.props.total > 0 &&
+							<p className="swap-worth">
+								This swap is worth {swapWorthInUsd}
 							</p>
 						}
 					</div>
 					<div className="form-section">
 						<Button
+							className={this.state.hasError ? 'shake-animation' : ''}
 							color={this.props.type === 'buy' ? 'green' : 'red'}
 							fullwidth
 							type="submit"
@@ -274,16 +279,18 @@ class Order extends React.Component {
 	};
 
 	handlePriceChange = price => {
-		this.setState(prevState => ({
-			price,
-			total: roundTo(Number(price) * Number(prevState.amount), 8),
-		}));
+		price = String(price);
 
-		if (this.state.total > 0) {
-			this.handleTotalChange(this.state.total);
-		} else if (Number(this.state.amount) > 0) {
-			this.handleAmountChange(this.state.amount);
-		}
+		this.setState(prevState => {
+			const total = roundTo(Number(price) * Number(prevState.amount), 8);
+			const newState = {price, total};
+
+			if (total > 0) {
+				newState.amount = this.getAmount(total, price);
+			}
+
+			return newState;
+		});
 	}
 
 	handleAmountChange = amount => {
@@ -296,13 +303,16 @@ class Order extends React.Component {
 	handleTotalChange = total => {
 		this.setState(prevState => {
 			const newState = {total};
+
 			if (prevState.price > 0) {
-				newState.amount = String(roundTo(total / prevState.price, 8));
+				newState.amount = this.getAmount(total, prevState.price);
 			}
 
 			return newState;
 		});
 	}
+
+	getAmount = (total, price) => String(roundTo(total / price, 8));
 
 	getSelectedCurrency = () => {
 		const {state} = exchangeContainer;

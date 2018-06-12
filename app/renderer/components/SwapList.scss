@@ -1,0 +1,169 @@
+.SwapList {
+	flex: 1;
+	overflow-x: hidden;
+	overflow-y: auto;
+	font-size: 12px;
+	height: 0;
+	min-height: 100%;
+
+	.row {
+		display: grid;
+		grid-template-areas:
+			'pairs base-amount quote-amount'
+			'timestamp status buttons';
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 8px;
+		justify-content: center;
+		align-items: center;
+		white-space: nowrap;
+		border-bottom: 1px solid var(--section-border-color);
+		padding: 10px 0;
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		.timestamp {
+			grid-area: timestamp;
+			white-space: nowrap;
+		}
+
+		.pairs {
+			grid-area: pairs;
+		}
+
+		.base-amount {
+			grid-area: base-amount;
+			justify-self: center;
+		}
+
+		.quote-amount {
+			grid-area: quote-amount;
+			justify-self: end;
+		}
+
+		.status {
+			grid-area: status;
+			justify-self: center;
+		}
+
+		.buttons {
+			grid-area: buttons;
+			justify-self: end;
+			display: flex;
+
+			> * {
+				margin-right: 10px;
+			}
+
+			> *:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	@media (min-width: 1260px) {
+		.row {
+			grid-template-areas: 'timestamp pairs base-amount quote-amount status buttons';
+			grid-template-columns: 16% 14% 23% 20%;
+			justify-content: unset;
+			white-space: unset;
+
+			.base-amount {
+				justify-self: start;
+			}
+
+			.quote-amount {
+				justify-self: start;
+			}
+
+			.status {
+				justify-self: center;
+			}
+
+			.buttons {
+				justify-self: end;
+			}
+		}
+	}
+
+	.timestamp {
+		color: var(--text-color);
+	}
+
+	.quote-amount {
+		color: var(--red-color);
+	}
+
+	.base-amount {
+		color: var(--green-color);
+	}
+
+	.status {
+		&__icon {
+			width: 62px;
+			padding: 1px 2px;
+			font-size: 10px;
+			text-align: center;
+			text-transform: uppercase;
+			border: 1px solid;
+			border-radius: 3px;
+			user-select: none;
+			cursor: default;
+		}
+
+		&__icon[data-status='pending'],
+		&__icon[data-status='matched'],
+		&__icon[data-status='swapping'] {
+			background-color: var(--primary-color);
+			border-color: var(--primary-color);
+		}
+
+		&__icon[data-status='failed'] {
+			border-color: #364357;
+		}
+
+		&__icon[data-status='completed'] {
+			border-color: var(--primary-color);
+		}
+	}
+
+	.view,
+	.cancel {
+		&__button {
+			padding: 2px 4px;
+			color: #fff;
+			background-color: var(--background-color);
+			border: 1px solid #313d4f;
+			transition: 0.2s ease-out;
+			font-size: 11px;
+
+			&:hover {
+				border-color: rgba(255, 255, 255, 0.2);
+			}
+
+			&:active {
+				color: rgba(255, 255, 255, 0.8);
+				border-color: rgba(255, 255, 255, 0.15);
+			}
+
+			&[disabled] {
+				user-select: none;
+				cursor: default;
+				color: var(--text-color);
+				opacity: 0.8;
+
+				&:hover {
+					border: 1px solid #313d4f;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1400px) {
+	.SwapList,
+	.SwapList button {
+		font-size: 13px;
+	}
+}

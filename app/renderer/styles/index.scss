@@ -189,3 +189,24 @@ th {
 		box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
 	}
 }
+
+@keyframes shake {
+	from,
+	to {
+		transform: translate3d(0, 0, 0);
+	}
+
+	20%,
+	60% {
+		transform: translate3d(-5px, 0, 0);
+	}
+
+	40%,
+	80% {
+		transform: translate3d(5px, 0, 0);
+	}
+}
+
+.shake-animation {
+	animation: shake 0.3s ease;
+}

@@ -29,6 +29,14 @@ exports.alwaysEnabledCurrencies = [
 	'CHIPS',
 ];
 
+exports.ignoreExternalPrice = new Set([
+	'REVS',
+	'SUPERNET',
+	'PIZZA',
+	'BEER',
+	'EQL',
+]);
+
 exports.hiddenCurrencies = [
 	'ETOMIC',
 ];
