@@ -10,6 +10,7 @@ const getPort = electron.remote.require('get-port');
 const errorWithObject = (message, object) => new Error(`${message}:\n${util.format(object)}`);
 const genericError = object => errorWithObject('Encountered an error', object);
 
+/* eslint-disable camelcase */
 export default class Api {
 	constructor({endpoint, seedPhrase, concurrency = Infinity}) {
 		if (!(endpoint && seedPhrase)) {
@@ -186,20 +187,7 @@ export default class Api {
 		return response.txfee;
 	}
 
-	async createTransaction(opts) {
-		if (typeof opts.currency !== 'string') {
-			throw new TypeError(`opts.currency must be a string: ${opts.currency}`);
-		}
-
-		// TODO: Also validate address based on opts.currency
-		if (typeof opts.address !== 'string') {
-			throw new TypeError(`opts.address must be a string: ${opts.address}`);
-		}
-
-		if (!Number.isFinite(opts.amount) || opts.amount <= 0) {
-			throw new TypeError(`opts.amount must be a positive number: ${opts.amount}`);
-		}
-
+	async _createTransaction(opts) {
 		const result = await this.request({
 			method: 'withdraw',
 			coin: opts.currency,
@@ -217,7 +205,7 @@ export default class Api {
 		};
 	}
 
-	async broadcastTransaction(currencySymbol, rawTransaction) {
+	async _broadcastTransaction(currencySymbol, rawTransaction) {
 		const response = await this.request({
 			method: 'sendrawtransaction',
 			coin: currencySymbol,
@@ -231,7 +219,7 @@ export default class Api {
 		return response.txid;
 	}
 
-	async withdraw(opts) {
+	async _withdrawBtcFork(opts) {
 		const {
 			hex: rawTransaction,
 			txfee: txFeeSatoshis,
@@ -239,7 +227,7 @@ export default class Api {
 			amount,
 			currency,
 			address,
-		} = await this.createTransaction(opts);
+		} = await this._createTransaction(opts);
 
 		// Convert from satoshis
 		const SATOSHIS = 100000000;
@@ -247,7 +235,7 @@ export default class Api {
 
 		const broadcast = async () => {
 			// This is needed until a bug in marketmaker is resolved
-			await this.broadcastTransaction(opts.currency, rawTransaction);
+			await this._broadcastTransaction(opts.currency, rawTransaction);
 
 			return {txid, amount, currency, address};
 		};
@@ -256,6 +244,62 @@ export default class Api {
 			txFee,
 			broadcast,
 		};
+	}
+
+	async _withdrawEth(opts) {
+		const {
+			eth_fee: txFee,
+			gas_price: gasPrice,
+			gas,
+		} = await this.request({
+			method: 'eth_withdraw',
+			coin: opts.currency,
+			to: opts.address,
+			amount: opts.amount,
+			broadcast: 0,
+		});
+
+		const broadcast = async () => {
+			// This is needed until a bug in marketmaker is resolved
+			const {tx_id} = await this.request({
+				method: 'eth_withdraw',
+				gas,
+				gas_price: gasPrice,
+				coin: opts.currency,
+				to: opts.address,
+				amount: opts.amount,
+				broadcast: 1,
+			});
+
+			return {
+				txid: tx_id,
+				currency: opts.currency,
+				amount: opts.amount,
+				address: opts.address,
+			};
+		};
+
+		return {
+			txFee,
+			broadcast,
+		};
+	}
+
+	withdraw(opts) {
+		if (typeof opts.currency !== 'string') {
+			throw new TypeError(`opts.currency must be a string: ${opts.currency}`);
+		}
+
+		// TODO: Also validate address based on opts.currency
+		if (typeof opts.address !== 'string') {
+			throw new TypeError(`opts.address must be a string: ${opts.address}`);
+		}
+
+		if (!Number.isFinite(opts.amount) || opts.amount <= 0) {
+			throw new TypeError(`opts.amount must be a positive number: ${opts.amount}`);
+		}
+
+		return getCurrency(opts.currency).etomic ? this._withdrawEth(opts) : this._withdrawBtcFork(opts);
 	}
 
 	listUnspent(coin, address) {
