@@ -58,7 +58,7 @@
 		"delay-cli": "^1.0.0",
 		"devtron": "^1.4.0",
 		"electron": "^2.0.0",
-		"electron-builder": "^20.15.1",
+		"electron-builder": "^20.14.7",
 		"electron-react-devtools": "^0.5.3",
 		"electron-reloader": "^0.2.0",
 		"eslint-config-xo-react": "^0.16.0",
