@@ -394,7 +394,7 @@ const supportedCurrencies = [
 			},
 		],
 	},
-  {
+	{
 		coin: 'EQL',
 		name: 'Equaliser',
 		asset: 'EQL',
@@ -428,9 +428,9 @@ const supportedCurrencies = [
 			{
 				host: 'electrum2.cipig.net',
 				port: 10025,
-      }
-    ],
-  },
+			},
+		],
+	},
 	{
 		coin: 'FAIR',
 		rpcport: 40405,
