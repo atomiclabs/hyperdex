@@ -102,7 +102,7 @@ class Bottom extends React.Component {
 			quoteCurrency,
 			price: Number(price),
 			amount: Number(amount),
-			total,
+			total: Number(total),
 		};
 
 		const result = await api.order(requestOpts);
@@ -198,7 +198,7 @@ class Bottom extends React.Component {
 			</div>
 		);
 
-		const swapWorthInUsd = formatCurrency(this.props.total * appContainer.getCurrency(state.quoteCurrency).cmcPriceUsd);
+		const swapWorthInUsd = formatCurrency(Number(this.props.total) * appContainer.getCurrency(state.quoteCurrency).cmcPriceUsd);
 
 		return (
 			<div className="bottom">
@@ -233,10 +233,10 @@ class Bottom extends React.Component {
 							required
 							onlyNumeric
 							fractionalDigits={8}
-							value={String(this.props.total)}
+							value={this.props.total}
 							onChange={this.props.handleTotalChange}
 						/>
-						{this.props.total > 0 &&
+						{Number(this.props.total) > 0 &&
 							<p className="swap-worth">
 								This swap is worth {swapWorthInUsd}
 							</p>
@@ -264,7 +264,7 @@ class Order extends React.Component {
 		// https://github.com/facebook/react/issues/9402
 		price: '',
 		amount: '',
-		total: 0,
+		total: '',
 	};
 
 	handlePriceChange = price => {
@@ -272,7 +272,7 @@ class Order extends React.Component {
 
 		this.setState(prevState => {
 			const total = roundTo(Number(price) * Number(prevState.amount), 8);
-			const newState = {price, total};
+			const newState = {price, total: String(total)};
 
 			if (total > 0) {
 				newState.amount = this.getAmount(total, price);
@@ -285,15 +285,15 @@ class Order extends React.Component {
 	handleAmountChange = amount => {
 		this.setState(prevState => ({
 			amount: String(amount),
-			total: roundTo(Number(prevState.price) * Number(amount), 8),
+			total: String(roundTo(Number(prevState.price) * Number(amount), 8)),
 		}));
 	}
 
 	handleTotalChange = total => {
 		this.setState(prevState => {
-			const newState = {total};
+			const newState = {total: String(total)};
 
-			if (prevState.price > 0) {
+			if (Number(prevState.price) > 0) {
 				newState.amount = this.getAmount(total, prevState.price);
 			}
 
@@ -301,7 +301,7 @@ class Order extends React.Component {
 		});
 	}
 
-	getAmount = (total, price) => String(roundTo(total / price, 8));
+	getAmount = (total, price) => String(roundTo(Number(total) / Number(price), 8));
 
 	getSelectedCurrency = () => {
 		const {state} = exchangeContainer;
