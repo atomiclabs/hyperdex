@@ -4,7 +4,7 @@ import cryptoPouch from 'crypto-pouch';
 import Emittery from 'emittery';
 import PQueue from 'p-queue';
 import roundTo from 'round-to';
-import {differenceInDays} from 'date-fns';
+import {subDays} from 'date-fns';
 import appContainer from 'containers/App';
 import swapTransactions from './swap-transactions';
 
@@ -193,21 +193,37 @@ class SwapDB {
 		return swap;
 	}
 
-	async _getAllSwapData() {
+	async _getAllSwapData(options = {}) {
 		await this.ready;
+
+		options = {
+			since: true,
+			sort: 'desc',
+			...options,
+		};
+
+		const query = {
+			selector: {
+				timeStarted: {
+					$gt: options.since,
+				},
+			},
+			sort: [
+				{
+					timeStarted: options.sort,
+				},
+			],
+		};
 
 		// We need `timeStarted: {$gt: true}` so PouchDB can sort.
 		// https://github.com/pouchdb/pouchdb/issues/7206
-		const {docs} = await this.db.find({
-			selector: {timeStarted: {$gt: true}},
-			sort: [{timeStarted: 'desc'}],
-		});
+		const {docs} = await this.db.find(options.query || query);
 
 		return docs;
 	}
 
-	async getSwaps() {
-		const swapData = await this._getAllSwapData();
+	async getSwaps(options) {
+		const swapData = await this._getAllSwapData(options);
 		return swapData.map(this._formatSwap);
 	}
 
@@ -215,10 +231,9 @@ class SwapDB {
 		await this.db.destroy();
 	}
 
-	async lastMonthStats() {
-		const swaps = await this.getSwaps();
-		const swapsInTheLastMonth = swaps.filter(swap => differenceInDays(Date.now(), swap.timeStarted) <= 30);
-		const successfulSwaps = swapsInTheLastMonth.filter(swap => swap.status === 'completed');
+	async statsSince(timestamp) {
+		const swaps = await this.getSwaps({since: timestamp});
+		const successfulSwaps = swaps.filter(swap => swap.status === 'completed');
 
 		const quoteCurrencies = new Set();
 		for (const swap of successfulSwaps) {
@@ -235,6 +250,10 @@ class SwapDB {
 			currencyCount: quoteCurrencies.size,
 			totalSwapsWorthInUsd,
 		};
+	}
+
+	statsSinceLastMonth() {
+		return this.statsSince(subDays(Date.now(), 30).getTime());
 	}
 }
 

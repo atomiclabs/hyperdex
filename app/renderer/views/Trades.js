@@ -87,7 +87,7 @@ export default withState(Trades, {}, {
 		exchangeContainer.setSwapHistory();
 
 		this.setState({
-			stats: await appContainer.swapDB.lastMonthStats(),
+			stats: await appContainer.swapDB.statsSinceLastMonth(),
 		});
 	},
 });
