@@ -36,3 +36,9 @@ exports.ignoreExternalPrice = new Set([
 	'BEER',
 	'EQL',
 ]);
+
+exports.hiddenCurrencies = [
+	'ETOMIC',
+];
+
+exports.appTimeStarted = Date.now();

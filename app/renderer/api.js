@@ -14,6 +14,7 @@ const uuidPredicate = ow.string.matches(/^[a-z\d]+$/);
 const errorWithObject = (message, object) => new Error(`${message}:\n${util.format(object)}`);
 const genericError = object => errorWithObject('Encountered an error', object);
 
+/* eslint-disable camelcase */
 export default class Api {
 	constructor({endpoint, seedPhrase, concurrency = Infinity}) {
 		ow(endpoint, ow.string.label('endpoint'));
@@ -144,8 +145,8 @@ export default class Api {
 			rel,
 		});
 
-		const formatOrders = orders => orders
-			.filter(order => order.numutxos > 0)
+		const formatOrders = (orders, symbol) => orders
+			.filter(order => getCurrency(symbol).etomic ? true : (order.numutxos > 0))
 			.map(order => ({
 				address: order.address,
 				depth: order.depth,
@@ -159,8 +160,8 @@ export default class Api {
 		const formattedResponse = {
 			baseCurrency: response.base,
 			quoteCurrency: response.rel,
-			bids: formatOrders(response.bids),
-			asks: formatOrders(response.asks),
+			asks: formatOrders(response.asks, response.base),
+			bids: formatOrders(response.bids, response.rel),
 		};
 
 		return formattedResponse;
@@ -222,7 +223,7 @@ export default class Api {
 		return response.txfee;
 	}
 
-	async createTransaction(opts) {
+	async _createTransaction(opts) {
 		ow(opts.currency, symbolPredicate.label('currency')); // TODO: `currency` should be renamed to `symbol` for consistency
 		ow(opts.address, ow.string.label('address'));
 		ow(opts.amount, ow.number.positive.finite.label('amount'));
@@ -244,7 +245,7 @@ export default class Api {
 		};
 	}
 
-	async broadcastTransaction(currencySymbol, rawTransaction) {
+	async _broadcastTransaction(currencySymbol, rawTransaction) {
 		ow(currencySymbol, symbolPredicate.label('currencySymbol'));
 		ow(rawTransaction, ow.string.label('rawTransaction'));
 
@@ -261,7 +262,11 @@ export default class Api {
 		return response.txid;
 	}
 
-	async withdraw(opts) {
+	async _withdrawBtcFork(opts) {
+		ow(opts.currency, symbolPredicate.label('currency')); // TODO: `currency` should be renamed to `symbol` for consistency
+		ow(opts.address, ow.string.label('address'));
+		ow(opts.amount, ow.number.positive.finite.label('amount'));
+
 		const {
 			hex: rawTransaction,
 			txfee: txFeeSatoshis,
@@ -269,15 +274,14 @@ export default class Api {
 			amount,
 			currency,
 			address,
-		} = await this.createTransaction(opts);
+		} = await this._createTransaction(opts);
 
 		// Convert from satoshis
 		const SATOSHIS = 100000000;
 		const txFee = txFeeSatoshis / SATOSHIS;
 
 		const broadcast = async () => {
-			// This is needed until a bug in marketmaker is resolved
-			await this.broadcastTransaction(opts.currency, rawTransaction);
+			await this._broadcastTransaction(opts.currency, rawTransaction);
 
 			return {txid, amount, currency, address};
 		};
@@ -286,6 +290,62 @@ export default class Api {
 			txFee,
 			broadcast,
 		};
+	}
+
+	async _withdrawEth(opts) {
+		ow(opts.currency, symbolPredicate.label('currency')); // TODO: `currency` should be renamed to `symbol` for consistency
+		ow(opts.address, ow.string.label('address'));
+		ow(opts.amount, ow.number.positive.finite.label('amount'));
+
+		const {
+			eth_fee: txFee,
+			gas_price: gasPrice,
+			gas,
+		} = await this.request({
+			method: 'eth_withdraw',
+			coin: opts.currency,
+			to: opts.address,
+			amount: opts.amount,
+			broadcast: 0,
+		});
+
+		let hasBroadcast = false;
+		const broadcast = async () => {
+			if (hasBroadcast) {
+				throw new Error('Transaction has already been broadcast');
+			}
+			hasBroadcast = true;
+
+			const {tx_id} = await this.request({
+				method: 'eth_withdraw',
+				gas,
+				gas_price: gasPrice,
+				coin: opts.currency,
+				to: opts.address,
+				amount: opts.amount,
+				broadcast: 1,
+			});
+
+			return {
+				txid: tx_id,
+				currency: opts.currency,
+				amount: opts.amount,
+				address: opts.address,
+			};
+		};
+
+		return {
+			txFee,
+			broadcast,
+		};
+	}
+
+	withdraw(opts) {
+		ow(opts.currency, symbolPredicate.label('currency')); // TODO: `currency` should be renamed to `symbol` for consistency
+		ow(opts.address, ow.string.label('address'));
+		ow(opts.amount, ow.number.positive.finite.label('amount'));
+
+		return getCurrency(opts.currency).etomic ? this._withdrawEth(opts) : this._withdrawBtcFork(opts);
 	}
 
 	listUnspent(coin, address) {

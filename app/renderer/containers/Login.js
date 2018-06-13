@@ -92,6 +92,8 @@ class LoginContainer extends Container {
 			window._swapDB = swapDB;
 		}
 
+		// ETOMIC needs to be enabled first otherwise ETH/ERC20 tokens will fail
+		await api.enableCurrency('ETOMIC');
 		await Promise.all(appContainer.state.enabledCoins.map(x => api.enableCurrency(x)));
 
 		await appContainer.watchCMC();

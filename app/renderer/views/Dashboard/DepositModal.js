@@ -41,6 +41,7 @@ class DepositModal extends React.Component {
 					title={`Your ${currencyInfo.name} (${currencyInfo.symbol}) Wallet Address`}
 					open={this.state.isOpen}
 					onClose={this.close}
+					width="445px"
 				>
 					<React.Fragment>
 						<div className="section qrcode">

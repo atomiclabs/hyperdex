@@ -6,7 +6,7 @@ import Cycled from 'cycled';
 import coinlist from 'coinlist';
 import roundTo from 'round-to';
 import {Container} from 'unstated';
-import {appViews, alwaysEnabledCurrencies, ignoreExternalPrice} from '../../constants';
+import {appViews, alwaysEnabledCurrencies, ignoreExternalPrice, hiddenCurrencies} from '../../constants';
 import {getCurrencySymbols, getCurrencyName} from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
 import {formatCurrency, setLoginWindowBounds} from '../util';
@@ -110,36 +110,38 @@ class AppContainer extends Container {
 				// TODO(sindresorhus): Move the returned `mm` currency info to a sub-property and only have cleaned-up top-level properties. For example, `mm` has too many properties for just the balance.
 
 				// Mixin useful data for the currencies
-				currencies = currencies.map(currency => {
-					currency.symbol = currency.coin; // For readability
+				currencies = currencies
+					.filter(currency => !hiddenCurrencies.includes(currency.coin))
+					.map(currency => {
+						currency.symbol = currency.coin; // For readability
 
-					const {cmcPriceUsd, cmcPercentChange24h} = this.getCurrencyPrice(currency.symbol);
+						const {cmcPriceUsd, cmcPercentChange24h} = this.getCurrencyPrice(currency.symbol);
 
-					if (cmcPriceUsd) {
-						currency.cmcPriceUsd = cmcPriceUsd;
-						currency.cmcBalanceUsd = currency.balance * cmcPriceUsd;
-					} else {
-						// We handle coins not on CMC
-						// `currency.price` is the price of the coin in KMD
-						currency.cmcPriceUsd = currency.price * kmdPriceInUsd;
-						currency.cmcBalanceUsd = currency.balance * currency.cmcPriceUsd;
+						if (cmcPriceUsd) {
+							currency.cmcPriceUsd = cmcPriceUsd;
+							currency.cmcBalanceUsd = currency.balance * cmcPriceUsd;
+						} else {
+							// We handle coins not on CMC
+							// `currency.price` is the price of the coin in KMD
+							currency.cmcPriceUsd = currency.price * kmdPriceInUsd;
+							currency.cmcBalanceUsd = currency.balance * currency.cmcPriceUsd;
 
-						// Don't show price for test currencies
-						if (excludedTestCurrencies.has(currency.symbol)) {
-							currency.cmcPriceUsd = 0;
-							currency.cmcBalanceUsd = 0;
+							// Don't show price for test currencies
+							if (excludedTestCurrencies.has(currency.symbol)) {
+								currency.cmcPriceUsd = 0;
+								currency.cmcBalanceUsd = 0;
+							}
 						}
-					}
 
-					currency.name = getCurrencyName(currency.symbol);
-					currency.cmcPercentChange24h = cmcPercentChange24h;
+						currency.name = getCurrencyName(currency.symbol);
+						currency.cmcPercentChange24h = cmcPercentChange24h;
 
-					currency.balanceFormatted = roundTo(currency.balance, 8);
-					currency.cmcPriceUsdFormatted = formatCurrency(currency.cmcPriceUsd);
-					currency.cmcBalanceUsdFormatted = formatCurrency(currency.cmcBalanceUsd);
+						currency.balanceFormatted = roundTo(currency.balance, 8);
+						currency.cmcPriceUsdFormatted = formatCurrency(currency.cmcPriceUsd);
+						currency.cmcBalanceUsdFormatted = formatCurrency(currency.cmcBalanceUsd);
 
-					return currency;
-				});
+						return currency;
+					});
 
 				if (!_.isEqual(this.state.currencies, currencies)) {
 					this.setState({currencies});

@@ -7,6 +7,7 @@ import Select from 'components/Select';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import exchangeContainer from 'containers/Exchange';
 import appContainer from 'containers/App';
+import {getCurrency} from '../../../marketmaker/supported-currencies';
 import {formatCurrency} from '../../util';
 import './Order.scss';
 
@@ -48,6 +49,8 @@ class Top extends React.Component {
 const Center = props => {
 	const {state} = exchangeContainer;
 
+	const isEtomic = getCurrency(props.type === 'buy' ? state.baseCurrency : state.quoteCurrency).etomic;
+
 	// TODO: This should be fixed properly in mm or use more sensible logic here
 	// This is just a quick fix to increase match rate for a demo
 	const selectRow = row => props.handlePriceChange(row.price * 1.05);
@@ -60,8 +63,12 @@ const Center = props => {
 					<thead>
 						<tr>
 							<th>Price ({state.quoteCurrency})</th>
-							<th>Avg Vol</th>
-							<th>Max Vol</th>
+							{!isEtomic && (
+								<React.Fragment>
+									<th>Avg Vol</th>
+									<th>Max Vol</th>
+								</React.Fragment>
+							)}
 						</tr>
 					</thead>
 					<tbody>
@@ -70,8 +77,12 @@ const Center = props => {
 							return props.getOrderBook().map((row, i) => (
 								<tr key={i} onClick={() => selectRow(row)}>
 									<td>{row.price}</td>
-									<td>{roundTo(row.averageVolume, 8)}</td>
-									<td>{roundTo(row.maxVolume, 8)}</td>
+									{!isEtomic && (
+										<React.Fragment>
+											<td>{roundTo(row.averageVolume, 8)}</td>
+											<td>{roundTo(row.maxVolume, 8)}</td>
+										</React.Fragment>
+									)}
 								</tr>
 							));
 						})()}
