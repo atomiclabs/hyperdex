@@ -266,7 +266,7 @@ export default class Api {
 		ow(opts.currency, symbolPredicate.label('currency')); // TODO: `currency` should be renamed to `symbol` for consistency
 		ow(opts.address, ow.string.label('address'));
 		ow(opts.amount, ow.number.positive.finite.label('amount'));
-    
+
 		const {
 			hex: rawTransaction,
 			txfee: txFeeSatoshis,
@@ -296,7 +296,7 @@ export default class Api {
 		ow(opts.currency, symbolPredicate.label('currency')); // TODO: `currency` should be renamed to `symbol` for consistency
 		ow(opts.address, ow.string.label('address'));
 		ow(opts.amount, ow.number.positive.finite.label('amount'));
-    
+
 		const {
 			eth_fee: txFee,
 			gas_price: gasPrice,
