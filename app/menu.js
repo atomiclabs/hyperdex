@@ -6,10 +6,11 @@ const config = require('./config');
 const {openGitHubIssue} = require('./util');
 const {websiteUrl, repoUrl, appViews} = require('./constants');
 const {isDevelopment} = require('./util-common');
-const {t} = require('./locale');
+const {translate} = require('./locale');
 
 const {app, BrowserWindow, shell, clipboard, ipcMain: ipc, Menu} = electron;
 const appName = app.getName();
+const t = translate('menu');
 
 const sendAction = (action, data) => {
 	const [win] = BrowserWindow.getAllWindows();
@@ -28,19 +29,19 @@ const setActiveView = view => {
 const createHelpMenu = () => {
 	const helpSubmenu = [
 		{
-			label: t('menu:help.website'),
+			label: t('help.website'),
 			click() {
 				shell.openExternal(websiteUrl);
 			},
 		},
 		{
-			label: t('menu:help.sourceCode'),
+			label: t('help.sourceCode'),
 			click() {
 				shell.openExternal(repoUrl);
 			},
 		},
 		{
-			label: t('menu:help.reportIssue'),
+			label: t('help.reportIssue'),
 			click() {
 				openGitHubIssue('<!-- Please succinctly describe your issue and steps to reproduce it -->');
 			},
@@ -54,7 +55,7 @@ const createHelpMenu = () => {
 			role: 'about',
 			click() {
 				electron.dialog.showMessageBox({
-					title: t('menu:help.about', {appName}),
+					title: t('help.about', {appName}),
 					message: `${appName} ${app.getVersion()}`,
 					detail: 'Copyright © Luke Childs',
 					icon: path.join(__dirname, 'static/icon.png'),
@@ -71,14 +72,14 @@ const createDebugMenu = () => {
 		label: 'Debug',
 		submenu: [
 			{
-				label: t('menu:debug.logContainerState'),
+				label: t('debug.logContainerState'),
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					await runJS('UNSTATED.logState()', win);
 				},
 			},
 			{
-				label: t('menu:debug.logStateChanges'),
+				label: t('debug.logStateChanges'),
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					await runJS('UNSTATED.logStateChanges = !UNSTATED.logStateChanges', win);
@@ -88,14 +89,14 @@ const createDebugMenu = () => {
 				type: 'separator',
 			},
 			{
-				label: t('menu:debug.logSwaps'),
+				label: t('debug.logSwaps'),
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					await runJS('_swapDB.getSwaps().then(console.log)', win);
 				},
 			},
 			{
-				label: t('menu:debug.copySwapsClipboard'),
+				label: t('debug.copySwapsClipboard'),
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					const swaps = await runJS('_swapDB.getSwaps()', win);
@@ -106,19 +107,19 @@ const createDebugMenu = () => {
 				type: 'separator',
 			},
 			{
-				label: t('menu:debug.showPortfolios'),
+				label: t('debug.showPortfolios'),
 				click() {
 					shell.openItem(path.join(app.getPath('userData'), 'portfolios'));
 				},
 			},
 			{
-				label: t('menu:debug.showSettings'),
+				label: t('debug.showSettings'),
 				click() {
 					config.openInEditor();
 				},
 			},
 			{
-				label: t('menu:debug.showAppData'),
+				label: t('debug.showAppData'),
 				click() {
 					shell.openItem(app.getPath('userData'));
 				},
@@ -136,7 +137,7 @@ const createDebugMenu = () => {
 				},
 			},
 			{
-				label: t('menu:debug.deletePortfolios'),
+				label: t('debug.deletePortfolios'),
 				click() {
 					const [win] = BrowserWindow.getAllWindows();
 					shell.moveItemToTrash(path.join(app.getPath('userData'), 'portfolios'));
@@ -144,7 +145,7 @@ const createDebugMenu = () => {
 				},
 			},
 			{
-				label: t('menu:debug.deleteSettings'),
+				label: t('debug.deleteSettings'),
 				click() {
 					config.clear();
 					app.relaunch();
@@ -152,7 +153,7 @@ const createDebugMenu = () => {
 				},
 			},
 			{
-				label: t('menu:debug.deleteAppData'),
+				label: t('debug.deleteAppData'),
 				click() {
 					shell.moveItemToTrash(app.getPath('userData'));
 					app.relaunch();

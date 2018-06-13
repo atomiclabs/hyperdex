@@ -19,4 +19,4 @@ i18next
 	});
 
 exports.i18n = i18next;
-exports.t = i18next.t.bind(i18next);
+exports.translate = namespaces => namespaces ? i18next.getFixedT(null, namespaces) : i18next.t.bind(i18next);
