@@ -1,10 +1,7 @@
 import {remote} from 'electron';
+import {init} from 'i18next';
 
-let instance;
+const {i18n} = remote.require('./locale');
 
-if (!instance) {
-	instance = remote.require('./locale').i18n;
-}
-
-export const i18n = instance;
+export const instance = init({...i18n.options, resources: i18n.store.data});
 export const translate = namespaces => namespaces ? instance.getFixedT(null, namespaces) : instance.t;
