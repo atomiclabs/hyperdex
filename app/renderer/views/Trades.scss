@@ -1,3 +1,5 @@
+@import '../styles/variables';
+
 .Trades {
 	display: flex;
 	height: 100%;
@@ -11,6 +13,20 @@
 
 	header {
 		padding: 20px;
+		position: relative;
+
+		.stats {
+			position: absolute;
+			top: 0;
+			right: 20px;
+			@include center-vertically;
+
+			p {
+				font-size: 12px;
+				margin: 0;
+				padding: 0;
+			}
+		}
 	}
 
 	main {

@@ -4,6 +4,8 @@ import cryptoPouch from 'crypto-pouch';
 import Emittery from 'emittery';
 import PQueue from 'p-queue';
 import roundTo from 'round-to';
+import {subDays} from 'date-fns';
+import appContainer from 'containers/App';
 import swapTransactions from './swap-transactions';
 
 PouchDB.plugin(pouchDBFind);
@@ -191,27 +193,67 @@ class SwapDB {
 		return swap;
 	}
 
-	async _getAllSwapData() {
+	async _getAllSwapData(options = {}) {
 		await this.ready;
+
+		options = {
+			since: true,
+			sort: 'desc',
+			...options,
+		};
+
+		const query = {
+			selector: {
+				timeStarted: {
+					$gt: options.since,
+				},
+			},
+			sort: [
+				{
+					timeStarted: options.sort,
+				},
+			],
+		};
 
 		// We need `timeStarted: {$gt: true}` so PouchDB can sort.
 		// https://github.com/pouchdb/pouchdb/issues/7206
-		const {docs} = await this.db.find({
-			selector: {timeStarted: {$gt: true}},
-			sort: [{timeStarted: 'desc'}],
-		});
+		const {docs} = await this.db.find(options.query || query);
 
 		return docs;
 	}
 
-	async getSwaps() {
-		const swapData = await this._getAllSwapData();
-
+	async getSwaps(options) {
+		const swapData = await this._getAllSwapData(options);
 		return swapData.map(this._formatSwap);
 	}
 
 	async destroy() {
 		await this.db.destroy();
+	}
+
+	async statsSince(timestamp) {
+		const swaps = await this.getSwaps({since: timestamp});
+		const successfulSwaps = swaps.filter(swap => swap.status === 'completed');
+
+		const quoteCurrencies = new Set();
+		for (const swap of successfulSwaps) {
+			quoteCurrencies.add(swap.quoteCurrency);
+		}
+
+		let totalSwapsWorthInUsd = 0;
+		for (const swap of successfulSwaps) {
+			totalSwapsWorthInUsd += swap.quoteCurrencyAmount * appContainer.getCurrency(swap.quoteCurrency).cmcPriceUsd;
+		}
+
+		return {
+			successfulSwapCount: successfulSwaps.length,
+			currencyCount: quoteCurrencies.size,
+			totalSwapsWorthInUsd,
+		};
+	}
+
+	statsSinceLastMonth() {
+		return this.statsSince(subDays(Date.now(), 30).getTime());
 	}
 }
 
