@@ -111,6 +111,7 @@ class AppContainer extends Container {
 
 				// Mixin useful data for the currencies
 				currencies = currencies
+					.filter(currency => !hiddenCurrencies.includes(currency.coin))
 					.map(currency => {
 						currency.symbol = currency.coin; // For readability
 
@@ -140,8 +141,7 @@ class AppContainer extends Container {
 						currency.cmcBalanceUsdFormatted = formatCurrency(currency.cmcBalanceUsd);
 
 						return currency;
-					})
-					.filter(currency => !hiddenCurrencies.includes(currency.symbol));
+					});
 
 				if (!_.isEqual(this.state.currencies, currencies)) {
 					this.setState({currencies});
