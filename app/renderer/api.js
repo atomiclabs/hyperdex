@@ -8,7 +8,7 @@ import MarketmakerSocket from './marketmaker-socket';
 
 const getPort = electron.remote.require('get-port');
 
-const symbolPredicate = ow.string.matches(/^[A-Z]+$/);
+const symbolPredicate = ow.string.matches(/^[A-Z\d]+$/);
 const uuidPredicate = ow.string.matches(/^[a-z\d]+$/);
 
 const errorWithObject = (message, object) => new Error(`${message}:\n${util.format(object)}`);
