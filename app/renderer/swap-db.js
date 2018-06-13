@@ -91,6 +91,11 @@ class SwapDB {
 
 		const {uuid, timeStarted, request, response, messages} = data;
 
+		// If we place a sell order marketmaker just inverts the values and places a buy
+		// on the opposite pair. We need to normalise this otherwise we'll show the
+		// wrong base/quote currencies.
+		const isSellOrder = (request.quoteCurrency === response.base);
+
 		const swap = {
 			uuid,
 			timeStarted,
@@ -104,9 +109,9 @@ class SwapDB {
 			quoteCurrencyAmount: roundTo(response.relvalue, 8),
 			price: roundTo(response.relvalue / response.basevalue, 8),
 			requested: {
-				baseCurrencyAmount: roundTo(request.amount, 8),
-				quoteCurrencyAmount: roundTo(request.total, 8),
-				price: roundTo(request.price, 8),
+				baseCurrencyAmount: roundTo(isSellOrder ? request.total : request.amount, 8),
+				quoteCurrencyAmount: roundTo(isSellOrder ? request.amount : request.total, 8),
+				price: roundTo(isSellOrder ? (request.amount / request.total) : request.price, 8),
 			},
 			broadcast: {
 				baseCurrencyAmount: roundTo(response.basevalue, 8),
