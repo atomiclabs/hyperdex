@@ -263,7 +263,7 @@ export default class Api {
 	}
 
 	async _withdrawBtcFork(opts) {
-    ow(opts.currency, symbolPredicate.label('currency')); // TODO: `currency` should be renamed to `symbol` for consistency
+		ow(opts.currency, symbolPredicate.label('currency')); // TODO: `currency` should be renamed to `symbol` for consistency
 		ow(opts.address, ow.string.label('address'));
 		ow(opts.amount, ow.number.positive.finite.label('amount'));
     
@@ -293,7 +293,7 @@ export default class Api {
 	}
 
 	async _withdrawEth(opts) {
-    ow(opts.currency, symbolPredicate.label('currency')); // TODO: `currency` should be renamed to `symbol` for consistency
+		ow(opts.currency, symbolPredicate.label('currency')); // TODO: `currency` should be renamed to `symbol` for consistency
 		ow(opts.address, ow.string.label('address'));
 		ow(opts.amount, ow.number.positive.finite.label('amount'));
     
