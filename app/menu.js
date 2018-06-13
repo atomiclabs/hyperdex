@@ -126,10 +126,20 @@ const createDebugMenu = () => {
 				type: 'separator',
 			},
 			{
+				label: 'Delete Swap History',
+				async click() {
+					const [win] = BrowserWindow.getAllWindows();
+					await runJS('_swapDB.destroy()', win);
+					app.relaunch();
+					app.quit();
+				},
+			},
+			{
 				label: 'Delete Portfolios',
 				click() {
+					const [win] = BrowserWindow.getAllWindows();
 					shell.moveItemToTrash(path.join(app.getPath('userData'), 'portfolios'));
-					BrowserWindow.getAllWindows()[0].webContents.reload();
+					win.webContents.reload();
 				},
 			},
 			{

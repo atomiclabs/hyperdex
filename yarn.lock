@@ -2580,7 +2580,7 @@ electron-builder-lib@~20.14.6:
     stream-json "^0.6.1"
     temp-file "^3.1.2"
 
-electron-builder@^20.15.1:
+electron-builder@^20.14.7:
   version "20.15.1"
   resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-20.15.1.tgz#078cda29bdb7240244e9bccf30740b1ea42deb44"
   dependencies:
@@ -6103,6 +6103,10 @@ osenv@0, osenv@^0.1.4:
   dependencies:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
+
+ow@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/ow/-/ow-0.5.0.tgz#63628c538291fce1299e88d9a62c3234a6d29980"
 
 p-any@^1.1.0:
   version "1.1.0"
