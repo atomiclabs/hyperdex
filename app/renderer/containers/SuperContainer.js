@@ -55,12 +55,11 @@ const addLifeCycleHooks = (self, lifecycleHooks) => {
 			if (typeof originalMethod === 'function') {
 				originalMethod.call(this, ...args);
 			}
-			hook(...args);
+			hook.call(this, ...args);
 		};
 	}
 };
 
-// eslint-disable-next-line no-unused-vars
 const withState = (FunctionalComponent, initialState = {}, lifecycleHooks = {}) => {
 	return toClassComponent(FunctionalComponent, self => {
 		self.state = initialState;
@@ -141,3 +140,7 @@ class SuperContainer extends Container {
 }
 
 export default SuperContainer;
+
+export {
+	withState,
+};

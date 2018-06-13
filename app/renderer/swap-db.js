@@ -4,6 +4,8 @@ import cryptoPouch from 'crypto-pouch';
 import Emittery from 'emittery';
 import PQueue from 'p-queue';
 import roundTo from 'round-to';
+import {differenceInDays} from 'date-fns';
+import appContainer from 'containers/App';
 import swapTransactions from './swap-transactions';
 
 PouchDB.plugin(pouchDBFind);
@@ -206,12 +208,33 @@ class SwapDB {
 
 	async getSwaps() {
 		const swapData = await this._getAllSwapData();
-
 		return swapData.map(this._formatSwap);
 	}
 
 	async destroy() {
 		await this.db.destroy();
+	}
+
+	async lastMonthStats() {
+		const swaps = await this.getSwaps();
+		const swapsInTheLastMonth = swaps.filter(swap => differenceInDays(Date.now(), swap.timeStarted) <= 30);
+		const successfulSwaps = swapsInTheLastMonth.filter(swap => swap.status === 'completed');
+
+		const quoteCurrencies = new Set();
+		for (const swap of successfulSwaps) {
+			quoteCurrencies.add(swap.quoteCurrency);
+		}
+
+		let totalSwapsWorthInUsd = 0;
+		for (const swap of successfulSwaps) {
+			totalSwapsWorthInUsd += swap.quoteCurrencyAmount * appContainer.getCurrency(swap.quoteCurrency).cmcPriceUsd;
+		}
+
+		return {
+			successfulSwapCount: successfulSwaps.length,
+			currencyCount: quoteCurrencies.size,
+			totalSwapsWorthInUsd,
+		};
 	}
 }
 
