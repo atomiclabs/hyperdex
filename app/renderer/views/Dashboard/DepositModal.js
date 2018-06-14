@@ -4,13 +4,31 @@ import Modal from 'components/Modal';
 import Button from 'components/Button';
 import CopyButton from 'components/CopyButton';
 import Input from 'components/Input';
+import Tooltip from 'components/Tooltip';
 import dashboardContainer from 'containers/Dashboard';
+import {withState} from 'containers/SuperContainer';
 import './DepositModal.scss';
 
-const CopyIconButton = props => (
-	<CopyButton {...props} value={dashboardContainer.activeCurrency.address}>
-		<img src="/assets/copy-icon.svg"/>
-	</CopyButton>
+const CopyIconButton = withState(
+	({setState, state, ...props}) => (
+		<Tooltip
+			content={state.isCopied ? 'Copied' : 'Copy'}
+			onClose={() => {
+				setState({isCopied: false});
+			}}
+		>
+			<CopyButton
+				{...props}
+				value={dashboardContainer.activeCurrency.address}
+				onClick={() => {
+					setState({isCopied: true});
+				}}
+			>
+				<img src="/assets/copy-icon.svg"/>
+			</CopyButton>
+		</Tooltip>
+	),
+	{isCopied: false}
 );
 
 class DepositModal extends React.Component {

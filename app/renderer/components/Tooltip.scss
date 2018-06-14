@@ -1,0 +1,122 @@
+.Tooltip {
+	--color: var(--border-color);
+	--arrow-height: 7px;
+	--arrow-width: 12px;
+	opacity: 0;
+	transition-property: opacity, transform;
+	transition-timing-function: ease-out;
+
+	&__target {
+		overflow: hidden;
+	}
+
+	&__container {
+		z-index: 1100;
+	}
+
+	&__content {
+		background-color: var(--color);
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1);
+		border-radius: 4px;
+		font-size: 13px;
+		padding: 8px 10px;
+		text-align: center;
+	}
+
+	&__arrow {
+		display: block;
+		height: var(--arrow-height);
+		position: absolute;
+		width: var(--arrow-width);
+
+		&::before {
+			border-color: transparent;
+			border-style: solid;
+			content: '';
+			position: absolute;
+		}
+	}
+
+	&--top {
+		padding-bottom: var(--arrow-height);
+		transform: translate3d(0, -10%, 0);
+
+		.Tooltip__arrow {
+			bottom: 0;
+			left: 0;
+
+			&::before {
+				border-top-color: var(--color);
+				border-width: var(--arrow-height) calc(var(--arrow-width) / 2) 0;
+				filter:
+					drop-shadow(0 calc(var(--arrow-height) / 2) 2px rgba(0, 0, 0, 0.1))
+					drop-shadow(0 calc(var(--arrow-height) / 2) 1px rgba(0, 0, 0, 0.1));
+				top: 0;
+			}
+		}
+	}
+
+	&--right {
+		padding-left: var(--arrow-height);
+		transform: translate3d(5%, 0, 0);
+
+		.Tooltip__arrow {
+			height: var(--arrow-width);
+			left: 0;
+			width: var(--arrow-height);
+
+			&::before {
+				border-right-color: var(--color);
+				border-width: calc(var(--arrow-width) / 2) var(--arrow-height) calc(var(--arrow-width) / 2) 0;
+				filter:
+					drop-shadow(calc(var(--arrow-height) / 2 * -1) 0 2px rgba(0, 0, 0, 0.1))
+					drop-shadow(calc(var(--arrow-height) / 2 * -1) 0 1px rgba(0, 0, 0, 0.1));
+				right: 0;
+			}
+		}
+	}
+
+	&--bottom {
+		padding-top: var(--arrow-height);
+		transform: translate3d(0, 10%, 0);
+
+		.Tooltip__arrow {
+			left: 0;
+			top: 0;
+
+			&::before {
+				border-bottom-color: var(--color);
+				border-width: 0 calc(var(--arrow-width) / 2) var(--arrow-height);
+				filter:
+					drop-shadow(0 calc(var(--arrow-height) / 2 * -1) 2px rgba(0, 0, 0, 0.1))
+					drop-shadow(0 calc(var(--arrow-height) / 2 * -1) 1px rgba(0, 0, 0, 0.1));
+				bottom: 0;
+			}
+		}
+	}
+
+	&--left {
+		padding-right: var(--arrow-height);
+		transform: translate3d(-5%, 0, 0);
+
+		.Tooltip__arrow {
+			height: var(--arrow-width);
+			right: 0;
+			width: var(--arrow-height);
+
+			&::before {
+				border-left-color: var(--color);
+				border-width: calc(var(--arrow-width) / 2) 0 calc(var(--arrow-width) / 2) var(--arrow-height);
+				filter:
+					drop-shadow(calc(var(--arrow-height) / 2) 0 2px rgba(0, 0, 0, 0.1))
+					drop-shadow(calc(var(--arrow-height) / 2) 0 1px rgba(0, 0, 0, 0.1));
+				left: 0;
+			}
+		}
+	}
+
+	&-enter-done {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
