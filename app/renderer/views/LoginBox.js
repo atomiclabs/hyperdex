@@ -7,7 +7,10 @@ import Link from 'components/Link';
 import PlusButton from 'components/PlusButton';
 import loginContainer from 'containers/Login';
 import avatar from '../avatar';
+import {translate} from '../translate';
 import './LoginBox.scss';
+
+const t = translate('login');
 
 class LoginBox extends React.Component {
 	state = {
@@ -57,7 +60,7 @@ class LoginBox extends React.Component {
 
 			this.setState({passwordInputValue: ''});
 
-			const passwordError = /Authentication failed/.test(err.message) ? 'Incorrect password' : err.message;
+			const passwordError = /Authentication failed/.test(err.message) ? t('incorrectPassword') : err.message;
 			await this.setState({
 				isLoggingIn: false,
 				passwordError,
@@ -93,7 +96,7 @@ class LoginBox extends React.Component {
 							onClose={this.handleSelectClose}
 							valueRenderer={this.selectOptionRenderer}
 							optionRenderer={this.selectOptionRenderer}
-							placeholder="Select Portfolio…"
+							placeholder={t('selectPortfolio')}
 							disabled={this.state.isLoggingIn}
 						/>
 						<PlusButton
@@ -108,7 +111,7 @@ class LoginBox extends React.Component {
 							ref={this.passwordInputRef}
 							onChange={this.handlePasswordInputChange}
 							type="password"
-							placeholder="Password"
+							placeholder={t('password')}
 							value={this.state.passwordInputValue}
 							disabled={!selectedPortfolioId || this.state.isLoggingIn}
 							autoFocus
@@ -117,7 +120,7 @@ class LoginBox extends React.Component {
 						/>
 					</div>
 					<div className="form-group form-group-2">
-						<Button primary fullwidth type="submit" value="Login" disabled={!this.state.passwordInputValue || this.state.isLoggingIn}/>
+						<Button primary fullwidth type="submit" value={t('login')} disabled={!this.state.passwordInputValue || this.state.isLoggingIn}/>
 						<Link
 							disabled={this.state.isLoggingIn}
 							onClick={() => {
@@ -130,7 +133,7 @@ class LoginBox extends React.Component {
 								marginTop: '13px',
 							}}
 						>
-							Forgot password
+							{t('forgotPassword')}
 						</Link>
 					</div>
 				</form>

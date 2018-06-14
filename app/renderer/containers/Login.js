@@ -2,6 +2,7 @@ import {remote} from 'electron';
 import {setWindowBounds} from 'electron-util';
 import ipc from 'electron-better-ipc';
 import {Container} from 'unstated';
+import LoginBox from 'views/LoginBox';
 import {minWindowSize} from '../../constants';
 import {isDevelopment} from '../../util-common';
 import Api from '../api';
@@ -39,7 +40,7 @@ const setAppWindowBounds = () => {
 class LoginContainer extends Container {
 	state = {
 		portfolios: null,
-		activeView: 'LoginBox',
+		activeView: LoginBox.name,
 		selectedPortfolioId: config.get('lastActivePortfolioId'),
 		progress: 0,
 	};
