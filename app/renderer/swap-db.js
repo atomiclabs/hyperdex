@@ -94,14 +94,14 @@ class SwapDB {
 		// If we place a sell order marketmaker just inverts the values and places a buy
 		// on the opposite pair. We need to normalise this otherwise we'll show the
 		// wrong base/quote currencies.
-		const isSellOrder = (request.quoteCurrency === response.base);
-		const responseBaseCurrencyAmount = isSellOrder ? response.relvalue : response.basevalue;
-		const responseQuoteCurrencyAmount = isSellOrder ? response.basevalue : response.relvalue;
+		const isBuyOrder = (request.baseCurrency === response.base);
+		const responseBaseCurrencyAmount = isBuyOrder ? response.basevalue : response.relvalue;
+		const responseQuoteCurrencyAmount = isBuyOrder ? response.relvalue : response.basevalue;
 
 		const swap = {
 			uuid,
 			timeStarted,
-			isSellOrder,
+			orderType: isBuyOrder ? 'buy' : 'sell',
 			status: 'pending',
 			statusFormatted: 'pending',
 			error: false,
@@ -162,8 +162,8 @@ class SwapDB {
 					amount: message.srcamount,
 				});
 
-				const executedBaseCurrencyAmount = isSellOrder ? message.destamount : message.srcamount;
-				const executedQuoteCurrencyAmount = isSellOrder ? message.srcamount : message.destamount;
+				const executedBaseCurrencyAmount = isBuyOrder ? message.srcamount : message.destamount;
+				const executedQuoteCurrencyAmount = isBuyOrder ? message.destamount : message.srcamount;
 				swap.baseCurrencyAmount = roundTo(executedBaseCurrencyAmount, 8);
 				swap.quoteCurrencyAmount = roundTo(executedQuoteCurrencyAmount, 8);
 				swap.price = roundTo(executedQuoteCurrencyAmount / executedBaseCurrencyAmount, 8);
@@ -171,7 +171,7 @@ class SwapDB {
 				swap.executed.quoteCurrencyAmount = swap.quoteCurrencyAmount;
 				swap.executed.price = swap.price;
 				swap.executed.percentCheaperThanRequested = roundTo(100 - ((swap.executed.price / swap.requested.price) * 100), 2);
-				if (isSellOrder) {
+				if (!isBuyOrder) {
 					swap.executed.percentCheaperThanRequested = -swap.executed.percentCheaperThanRequested;
 				}
 			}

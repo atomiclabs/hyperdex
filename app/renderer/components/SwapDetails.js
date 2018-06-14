@@ -73,7 +73,7 @@ class SwapDetails extends React.Component {
 				<div key={value}>
 					<h6>{title(value)}</h6>
 					<p>
-						<span className="label">{swap.isSellOrder ? 'Sell' : 'Buy'}:</span> {zeroPadFraction(swap[value].baseCurrencyAmount)} {baseCurrency}
+						<span className="label">{title(swap.orderType)}:</span> {zeroPadFraction(swap[value].baseCurrencyAmount)} {baseCurrency}
 						<br/>
 						<span className="label">For:</span> {zeroPadFraction(swap[value].quoteCurrencyAmount)} {quoteCurrency}
 						<br/>
@@ -84,20 +84,21 @@ class SwapDetails extends React.Component {
 		});
 
 		const overviewData = (() => {
+			const isBuyOrder = swap.orderType === 'buy';
 			const overview = {
 				fromTitle: 'Exchanging:',
 				forTitle: 'For:',
-				fromCurrency: swap.isSellOrder ? baseCurrency : quoteCurrency,
-				forCurrency: swap.isSellOrder ? quoteCurrency : baseCurrency,
-				fromAmount: swap.isSellOrder ? swap.broadcast.baseCurrencyAmount : swap.broadcast.quoteCurrencyAmount,
-				forAmount: swap.isSellOrder ? swap.broadcast.quoteCurrencyAmount : swap.broadcast.baseCurrencyAmount,
+				fromCurrency: isBuyOrder ? quoteCurrency : baseCurrency,
+				forCurrency: isBuyOrder ? baseCurrency : quoteCurrency,
+				fromAmount: isBuyOrder ? swap.broadcast.quoteCurrencyAmount : swap.broadcast.baseCurrencyAmount,
+				forAmount: isBuyOrder ? swap.broadcast.baseCurrencyAmount : swap.broadcast.quoteCurrencyAmount,
 			};
 
 			if (swap.executed.quoteCurrencyAmount) {
 				overview.fromTitle = 'You exchanged:';
 				overview.forTitle = 'You received:';
-				overview.fromAmount = swap.isSellOrder ? swap.executed.baseCurrencyAmount : swap.executed.quoteCurrencyAmount;
-				overview.forAmount = swap.isSellOrder ? swap.executed.quoteCurrencyAmount : swap.executed.baseCurrencyAmount;
+				overview.fromAmount = isBuyOrder ? swap.executed.quoteCurrencyAmount : swap.executed.baseCurrencyAmount;
+				overview.forAmount = isBuyOrder ? swap.executed.baseCurrencyAmount : swap.executed.quoteCurrencyAmount;
 			}
 
 			return overview;
@@ -107,7 +108,7 @@ class SwapDetails extends React.Component {
 			<div className="modal-wrapper">
 				<Modal
 					className="SwapDetails"
-					title={`${baseCurrency}/${quoteCurrency} ${swap.isSellOrder ? 'Sell' : 'Buy'} Order \u{00A0}• \u{00A0}${formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}`}
+					title={`${baseCurrency}/${quoteCurrency} ${title(swap.orderType)} Order \u{00A0}• \u{00A0}${formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}`}
 					icon="/assets/swap-icon.svg"
 					open={this.state.isOpen}
 					onClose={this.close}
