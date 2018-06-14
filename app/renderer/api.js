@@ -65,7 +65,9 @@ export default class Api {
 	}
 
 	async debug(data) {
-		console.log(await this.request(data));
+		const result = await this.request(data);
+		console.log(result);
+		return result;
 	}
 
 	botList() {
