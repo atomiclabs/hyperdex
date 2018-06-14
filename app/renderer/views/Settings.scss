@@ -73,29 +73,4 @@
 			margin: 0 auto;
 		}
 	}
-
-	.BackButton {
-		position: absolute;
-		top: 12px;
-		left: 18px;
-		background: transparent;
-		border: none;
-
-		&:hover {
-			background: unset;
-		}
-
-		&::after {
-			transition: background 0.15s ease-in;
-		}
-
-		&::before {
-			content: 'Back';
-			color: var(--text-color);
-		}
-
-		&:hover::after {
-			background: #fff;
-		}
-	}
 }

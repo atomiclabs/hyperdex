@@ -3,7 +3,7 @@ import React from 'react';
 import _ from 'lodash';
 import appContainer from 'containers/App';
 import Input from 'components/Input';
-import BackButton from 'components/BackButton';
+import BackTextButton from 'components/BackTextButton';
 import './Settings.scss';
 
 const config = remote.require('./config');
@@ -30,7 +30,7 @@ class AppSettings extends React.Component {
 			<div className="AppSettings">
 				<div className="window-draggable-area"/>
 				<header>
-					<BackButton onClick={() => {
+					<BackTextButton onClick={() => {
 						appContainer.setActiveView('Login');
 					}}/>
 					<h2>Settings</h2>

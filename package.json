@@ -39,6 +39,7 @@
 		"recharts": "^1.0.0-beta.10",
 		"round-to": "^3.0.0",
 		"sass-extras": "^0.3.0",
+		"styled-jsx": "^2.2.6",
 		"title": "^3.2.0",
 		"unstated": "^2.1.0",
 		"unstated-debug": "^0.2.0"
@@ -97,6 +98,7 @@
 			"unicorn/filename-case": "off",
 			"import/exports-last": "error",
 			"react/prop-types": "off",
+			"react/require-default-props": "off",
 			"react/no-deprecated": "off"
 		}
 	},
