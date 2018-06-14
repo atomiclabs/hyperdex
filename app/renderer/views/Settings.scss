@@ -1,7 +1,5 @@
-.Settings {
-	width: 600px;
-	height: 100%;
-	margin: 0 auto;
+.Settings,
+.AppSettings {
 	border-radius: 4px;
 	background-color: var(--widget-background-color);
 
@@ -18,10 +16,16 @@
 	}
 
 	main {
-		padding: 40px 30px;
+		padding: 30px;
+
+		h3 {
+			padding: 0 0 8px;
+			margin-bottom: 20px;
+			border-bottom: 1px solid var(--section-border-color);
+		}
 
 		.form-group {
-			margin-bottom: 20px;
+			margin-bottom: 30px;
 		}
 
 		label {
@@ -29,10 +33,44 @@
 			font-weight: 600;
 			margin-bottom: 5px;
 			color: var(--text-color);
+			line-height: 1.5;
 		}
 
 		.enabled-currencies {
 			margin: 5px 0;
+		}
+	}
+}
+
+.Settings {
+	width: 600px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.AppSettings {
+	display: flex;
+	flex-direction: column;
+	margin: 70px 50px;
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	.window-draggable-area {
+		width: 100%;
+		height: 50px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		-webkit-app-region: drag;
+	}
+
+	header {
+		position: relative;
+
+		h2 {
+			text-align: center;
+			display: inline-block;
+			margin: 0 auto;
 		}
 	}
 }

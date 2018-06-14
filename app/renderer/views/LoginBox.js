@@ -5,12 +5,24 @@ import Select from 'components/Select';
 import SelectOption from 'components/SelectOption';
 import Link from 'components/Link';
 import PlusButton from 'components/PlusButton';
+import CogIcon from 'icons/Cog';
+import appContainer from 'containers/App';
 import loginContainer from 'containers/Login';
 import avatar from '../avatar';
 import {translate} from '../translate';
 import './LoginBox.scss';
 
 const t = translate('login');
+
+const SettingsButton = () => (
+	<CogIcon
+		className="SettingsButton"
+		size="15px"
+		onClick={() => {
+			appContainer.setActiveView('AppSettings');
+		}}
+	/>
+);
 
 class LoginBox extends React.Component {
 	state = {
@@ -86,6 +98,7 @@ class LoginBox extends React.Component {
 
 		return (
 			<div className="LoginBox">
+				<SettingsButton/>
 				<form onSubmit={this.handleSubmit}>
 					<div className="form-group form-group-1">
 						<Select

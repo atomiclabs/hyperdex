@@ -31,6 +31,7 @@ module.exports = {
 			components: path.join(PATHS.src, 'components'),
 			containers: path.join(PATHS.src, 'containers'),
 			views: path.join(PATHS.src, 'views'),
+			icons: path.join(PATHS.src, 'icons'),
 		},
 	},
 	module: {
@@ -56,6 +57,7 @@ module.exports = {
 						'stage-3',
 					],
 					plugins: [
+						['styled-jsx/babel', {vendorPrefixes: false}],
 						'syntax-dynamic-import',
 						['transform-class-properties', {spec: true}],
 						'react-hot-loader/babel',

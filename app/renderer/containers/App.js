@@ -92,6 +92,10 @@ class AppContainer extends Container {
 		});
 	}
 
+	get isLoggedIn() {
+		return Boolean(this.state.portfolio);
+	}
+
 	async watchCMC() {
 		const FIVE_MINUTES = 1000 * 60 * 5;
 
@@ -194,12 +198,19 @@ class AppContainer extends Container {
 		});
 	}
 
-	async logOut() {
+	async logOut(options = {}) {
 		await this.stopMarketmaker();
 		config.set('windowState', remote.getCurrentWindow().getBounds());
 		this.setActiveView('');
+		this.setState({portfolio: null});
 		await Promise.resolve(); // Ensure the window is blank before changing the size
 		setLoginWindowBounds();
+
+		// This allows us to show a different view than `Login`` after logging out
+		if (options.activeView) {
+			ipc.callMain('set-active-view-on-dom-ready', options.activeView);
+		}
+
 		location.reload();
 	}
 
@@ -216,6 +227,12 @@ ipc.on('log-out', () => {
 });
 
 ipc.on('set-active-view', (event, view) => {
+	// This is needed for now as we don't have a good way to flow state up to the main process
+	// TODO: In the future we should fix this, but not important now
+	if (view === 'Settings' && !appContainer.isLoggedIn) {
+		view = 'AppSettings';
+	}
+
 	appContainer.setActiveView(view);
 });
 

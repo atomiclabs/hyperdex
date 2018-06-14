@@ -226,7 +226,6 @@ const createAppMenu = options => {
 				},
 				{
 					label: 'Preferences…',
-					visible: isLoggedIn,
 					accelerator: 'Cmd+,',
 					click() {
 						setActiveView('Settings');
@@ -327,7 +326,8 @@ const createAppMenu = options => {
 
 ipc.on('app-container-state-updated', (event, state) => {
 	createAppMenu({
-		isLoggedIn: state.activeView !== 'Login',
+		// TODO: Get the logged in state from the container
+		isLoggedIn: state.activeView !== 'Login' && state.activeView !== 'AppSettings',
 		activeView: state.activeView,
 	});
 });
