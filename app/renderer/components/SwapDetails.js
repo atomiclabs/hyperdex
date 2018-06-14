@@ -73,7 +73,7 @@ class SwapDetails extends React.Component {
 				<div key={value}>
 					<h6>{title(value)}</h6>
 					<p>
-						<span className="label">Buy:</span> {zeroPadFraction(swap[value].baseCurrencyAmount)} {baseCurrency}
+						<span className="label">{swap.isSellOrder ? 'Sell' : 'Buy'}:</span> {zeroPadFraction(swap[value].baseCurrencyAmount)} {baseCurrency}
 						<br/>
 						<span className="label">For:</span> {zeroPadFraction(swap[value].quoteCurrencyAmount)} {quoteCurrency}
 						<br/>
@@ -84,29 +84,20 @@ class SwapDetails extends React.Component {
 		});
 
 		const overviewData = (() => {
-			let overview = {
-				quoteTitle: 'Requesting:',
-				baseTitle: 'For:',
-				quoteAmount: swap.requested.quoteCurrencyAmount,
-				baseAmount: swap.requested.baseCurrencyAmount,
+			const overview = {
+				fromTitle: 'Exchanging:',
+				forTitle: 'For:',
+				fromCurrency: swap.isSellOrder ? baseCurrency : quoteCurrency,
+				forCurrency: swap.isSellOrder ? quoteCurrency : baseCurrency,
+				fromAmount: swap.isSellOrder ? swap.broadcast.baseCurrencyAmount : swap.broadcast.quoteCurrencyAmount,
+				forAmount: swap.isSellOrder ? swap.broadcast.quoteCurrencyAmount : swap.broadcast.baseCurrencyAmount,
 			};
 
-			if (swap.broadcast.quoteCurrencyAmount) {
-				overview = {
-					quoteTitle: 'Exchanging:',
-					baseTitle: 'For:',
-					quoteAmount: swap.broadcast.quoteCurrencyAmount,
-					baseAmount: swap.broadcast.baseCurrencyAmount,
-				};
-			}
-
 			if (swap.executed.quoteCurrencyAmount) {
-				overview = {
-					quoteTitle: 'You exchanged:',
-					baseTitle: 'You received:',
-					quoteAmount: swap.executed.quoteCurrencyAmount,
-					baseAmount: swap.executed.baseCurrencyAmount,
-				};
+				overview.fromTitle = 'You exchanged:';
+				overview.forTitle = 'You received:';
+				overview.fromAmount = swap.isSellOrder ? swap.executed.baseCurrencyAmount : swap.executed.quoteCurrencyAmount;
+				overview.forAmount = swap.isSellOrder ? swap.executed.quoteCurrencyAmount : swap.executed.baseCurrencyAmount;
 			}
 
 			return overview;
@@ -116,7 +107,7 @@ class SwapDetails extends React.Component {
 			<div className="modal-wrapper">
 				<Modal
 					className="SwapDetails"
-					title={`${baseCurrency}/${quoteCurrency} Swap \u{00A0}• \u{00A0}${formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}`}
+					title={`${baseCurrency}/${quoteCurrency} ${swap.isSellOrder ? 'Sell' : 'Buy'} Order \u{00A0}• \u{00A0}${formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}`}
 					icon="/assets/swap-icon.svg"
 					open={this.state.isOpen}
 					onClose={this.close}
@@ -124,16 +115,16 @@ class SwapDetails extends React.Component {
 				>
 					<React.Fragment>
 						<div className="section overview">
-							<div className="quote">
-								<CurrencyIcon symbol={quoteCurrency}/>
-								<p>{overviewData.quoteTitle}</p>
-								<p className="amount">{overviewData.quoteAmount} {quoteCurrency}</p>
+							<div className="from">
+								<CurrencyIcon symbol={overviewData.fromCurrency}/>
+								<p>{overviewData.fromTitle}</p>
+								<p className="amount">{overviewData.fromAmount} {overviewData.fromCurrency}</p>
 							</div>
 							<div className="arrow">→</div>
-							<div className="base">
-								<CurrencyIcon symbol={baseCurrency}/>
-								<p>{overviewData.baseTitle}</p>
-								<p className="amount">{overviewData.baseAmount} {baseCurrency}</p>
+							<div className="for">
+								<CurrencyIcon symbol={overviewData.forCurrency}/>
+								<p>{overviewData.forTitle}</p>
+								<p className="amount">{overviewData.forAmount} {overviewData.forCurrency}</p>
 							</div>
 						</div>
 						<div className="section progress">
