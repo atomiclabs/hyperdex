@@ -21,6 +21,7 @@ module.exports = {
 		historyApiFallback: true,
 		overlay: true,
 		logLevel: 'warn',
+		clientLogLevel: 'warning',
 	},
 	optimization: {
 		minimize: false,
