@@ -33,32 +33,25 @@ class AppSettings extends React.Component {
 					<BackTextButton onClick={() => {
 						appContainer.setActiveView('Login');
 					}}/>
-					<h2>Settings</h2>
+					<h2>App Settings</h2>
 				</header>
 				<main>
-					<div className="section">
-						<h3>App</h3>
-						<div className="form-group">
-							<label htmlFor="marketmakerUrl">
-								Custom Marketmaker URL:
-							</label>
-							<Input
-								name="marketmakerUrl"
-								value={this.state.marketmakerUrl}
-								onChange={this.handleChange}
-								onBlur={() => {
-									if (!isValidMarketmakerUrl) {
-										this.setState({marketmakerUrl: ''});
-									}
-								}}
-								placeholder="Example: http://localhost:7783"
-								errorMessage={!isValidMarketmakerUrl && 'Invalid URL'}
-							/>
-						</div>
-					</div>
-					<div className="section">
-						<h3>Portfolio</h3>
-						<p>Log in to see portfolio settings.</p>
+					<div className="form-group">
+						<label htmlFor="marketmakerUrl">
+							Custom Marketmaker URL:
+						</label>
+						<Input
+							name="marketmakerUrl"
+							value={this.state.marketmakerUrl}
+							onChange={this.handleChange}
+							onBlur={() => {
+								if (!isValidMarketmakerUrl) {
+									this.setState({marketmakerUrl: ''});
+								}
+							}}
+							placeholder="Example: http://localhost:7783"
+							errorMessage={!isValidMarketmakerUrl && 'Invalid URL'}
+						/>
 					</div>
 				</main>
 			</div>
