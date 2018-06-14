@@ -94,21 +94,19 @@
 	.buy .quote-amount,
 	.sell .base-amount {
 		color: var(--red-color);
-	}
 
-	.buy .quote-amount::before,
-	.sell .base-amount::before {
-		content: '-';
+		&::before {
+			content: '-';
+		}
 	}
 
 	.sell .quote-amount,
 	.buy .base-amount {
 		color: var(--green-color);
-	}
 
-	.sell .quote-amount::before,
-	.buy .base-amount::before {
-		content: '+';
+		&::before {
+			content: '+';
+		}
 	}
 
 	.status {
