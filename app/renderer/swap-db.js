@@ -173,22 +173,22 @@ class SwapDB {
 					message: `Error Code: ${message.error}`,
 				};
 			}
-
-			swap.statusFormatted = swap.status;
-			if (swap.status === 'swapping') {
-				const swapProgress = swap.transactions
-					.map(tx => tx.stage)
-					.reduce((prevStageLevel, stage) => {
-						const newStageLevel = swapTransactions.indexOf(stage) + 1;
-						return Math.max(prevStageLevel, newStageLevel);
-					}, 0);
-
-				swap.statusFormatted = `swap ${swapProgress}/${swapTransactions.length}`;
-				swap.progress = (swapProgress + MATCHED_STEP) / TOTAL_PROGRESS_STEPS;
-			} else if (swap.status === 'failed' && message.error === -9999) {
-				swap.statusFormatted = 'unmatched';
-			}
 		});
+
+		swap.statusFormatted = swap.status;
+		if (swap.status === 'swapping') {
+			const swapProgress = swap.transactions
+				.map(tx => tx.stage)
+				.reduce((prevStageLevel, stage) => {
+					const newStageLevel = swapTransactions.indexOf(stage) + 1;
+					return Math.max(prevStageLevel, newStageLevel);
+				}, 0);
+
+			swap.statusFormatted = `swap ${swapProgress}/${swapTransactions.length}`;
+			swap.progress = (swapProgress + MATCHED_STEP) / TOTAL_PROGRESS_STEPS;
+		} else if (swap.status === 'failed' && swap.error.code === -9999) {
+			swap.statusFormatted = 'unmatched';
+		}
 
 		return swap;
 	}
