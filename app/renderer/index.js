@@ -1,4 +1,5 @@
 import {is} from 'electron-util';
+import electronUnhandled from 'electron-unhandled';
 import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'unstated';
@@ -10,7 +11,7 @@ process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = true;
 UNSTATED.isEnabled = is.development;
 UNSTATED.logStateChanges = false;
 
-require('electron-unhandled')({
+electronUnhandled({
 	showDialog: !is.development,
 });
 

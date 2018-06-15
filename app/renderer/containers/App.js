@@ -1,5 +1,5 @@
 import EventEmitter from 'events';
-import electron, {remote} from 'electron';
+import {remote} from 'electron';
 import ipc from 'electron-better-ipc';
 import _ from 'lodash';
 import Cycled from 'cycled';
@@ -12,7 +12,7 @@ import fireEvery from '../fire-every';
 import {formatCurrency, setLoginWindowBounds} from '../util';
 import {isDevelopment} from '../../util-common';
 
-const config = remote.require('./config');
+const {config} = global.mainModules;
 
 const excludedTestCurrencies = new Set([
 	'PIZZA',
@@ -245,7 +245,7 @@ ipc.on('set-previous-view', () => {
 });
 
 if (isDevelopment) {
-	window._config = electron.remote.require('./config');
+	window._config = global.mainModules.config;
 }
 
 function handleDarkMode() {

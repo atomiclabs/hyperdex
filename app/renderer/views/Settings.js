@@ -1,4 +1,3 @@
-import electron from 'electron';
 import React from 'react';
 import _ from 'lodash';
 import {Subscribe} from 'unstated';
@@ -12,7 +11,7 @@ import {alwaysEnabledCurrencies} from '../../constants';
 import TabView from './TabView';
 import './Settings.scss';
 
-const config = electron.remote.require('./config');
+const {config} = global.mainModules;
 
 class CurrencySelection extends React.Component {
 	handleSelectChange = options => {

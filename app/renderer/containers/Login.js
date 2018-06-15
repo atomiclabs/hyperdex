@@ -9,8 +9,8 @@ import Api from '../api';
 import SwapDB from '../swap-db';
 import appContainer from './App';
 
-const config = remote.require('./config');
-const {getPortfolios, decryptSeedPhrase} = remote.require('./portfolio-util');
+const {config, portfolioUtil} = global.mainModules;
+const {getPortfolios, decryptSeedPhrase} = portfolioUtil;
 
 const initApi = async seedPhrase => {
 	let url = config.get('marketmakerUrl');

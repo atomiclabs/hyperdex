@@ -1,8 +1,7 @@
-import {remote} from 'electron';
 import {Container} from 'unstated';
 import loginContainer from './Login';
 
-const {createPortfolio} = remote.require('./portfolio-util');
+const {createPortfolio} = global.mainModules.portfolioUtil;
 
 class RestorePortfolioContainer extends Container {
 	state = {

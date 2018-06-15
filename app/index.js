@@ -4,6 +4,7 @@ require('strict-import')(module, {
 		'electron-debug',
 	],
 });
+const path = require('path');
 const electron = require('electron');
 const {autoUpdater} = require('electron-updater');
 const {is, disableZoom} = require('electron-util');
@@ -86,6 +87,8 @@ function createMainWindow() {
 		backgroundColor: '#1b232f', // Same as `--background-color`
 		darkTheme: isDarkMode, // GTK+3
 		webPreferences: {
+			nodeIntegration: false,
+			preload: path.join(__dirname, 'preload.js'),
 			webviewTag: false, // Disabled for security reasons since we don't use it
 			blinkFeatures: 'CSSBackdropFilter',
 		},
