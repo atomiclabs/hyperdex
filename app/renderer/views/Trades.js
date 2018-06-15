@@ -67,7 +67,7 @@ const Trades = props => (
 						</nav>
 						<div className="stats">
 							{stats &&
-								<p>In the last month you did {stats.successfulSwapCount} successful {stats.successfulSwapCount === 1 ? 'trade' : 'trades'} for {stats.currencyCount} {stats.currencyCount === 1 ? 'currency' : 'currencies'} worth {formatCurrency(stats.totalSwapsWorthInUsd)} in total</p>
+								<p>In the last month you did {stats.successfulSwapCount} successful {stats.successfulSwapCount === 1 ? 'trade' : 'trades'} in {stats.currencyCount} {stats.currencyCount === 1 ? 'currency' : 'currencies'} worth {formatCurrency(stats.totalSwapsWorthInUsd)} in total</p>
 							}
 						</div>
 					</header>

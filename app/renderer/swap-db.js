@@ -248,9 +248,10 @@ class SwapDB {
 		const swaps = await this.getSwaps({since: timestamp});
 		const successfulSwaps = swaps.filter(swap => swap.status === 'completed');
 
-		const quoteCurrencies = new Set();
+		const tradedCurrencies = new Set();
 		for (const swap of successfulSwaps) {
-			quoteCurrencies.add(swap.quoteCurrency);
+			tradedCurrencies.add(swap.baseCurrency);
+			tradedCurrencies.add(swap.quoteCurrency);
 		}
 
 		let totalSwapsWorthInUsd = 0;
@@ -260,7 +261,7 @@ class SwapDB {
 
 		return {
 			successfulSwapCount: successfulSwaps.length,
-			currencyCount: quoteCurrencies.size,
+			currencyCount: tradedCurrencies.size,
 			totalSwapsWorthInUsd,
 		};
 	}
