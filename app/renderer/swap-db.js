@@ -4,7 +4,7 @@ import cryptoPouch from 'crypto-pouch';
 import Emittery from 'emittery';
 import PQueue from 'p-queue';
 import roundTo from 'round-to';
-import {subDays} from 'date-fns';
+import {subDays, isPast, addMinutes} from 'date-fns';
 import appContainer from 'containers/App';
 import swapTransactions from './swap-transactions';
 
@@ -175,6 +175,17 @@ class SwapDB {
 			}
 		});
 
+		// Treat swaps pending for more than 5 minutes as failed.
+		// https://github.com/jl777/SuperNET/issues/775#issuecomment-397557568
+		const timedOut = swap.status === 'pending' && isPast(addMinutes(swap.timeStarted, 5));
+		if (timedOut) {
+			swap.status = 'failed';
+			swap.error = {
+				code: undefined,
+				message: `Swap timed out`,
+			};
+		}
+
 		swap.statusFormatted = swap.status;
 		if (swap.status === 'swapping') {
 			const swapProgress = swap.transactions
@@ -186,7 +197,7 @@ class SwapDB {
 
 			swap.statusFormatted = `swap ${swapProgress}/${swapTransactions.length}`;
 			swap.progress = (swapProgress + MATCHED_STEP) / TOTAL_PROGRESS_STEPS;
-		} else if (swap.status === 'failed' && swap.error.code === -9999) {
+		} else if (swap.status === 'failed' && (swap.error.code === -9999 || timedOut)) {
 			swap.statusFormatted = 'unmatched';
 		}
 
