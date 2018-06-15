@@ -33,6 +33,11 @@ class SwapDB {
 		this.ready = (async () => {
 			await this.db.createIndex({index: {fields: ['timeStarted', 'uuid']}});
 			await this.migrate();
+
+			// We need to regularly check if pending swaps have timed out.
+			// https://github.com/jl777/SuperNET/issues/775
+			const ONE_MINUTE = 60000;
+			setInterval(() => ee.emit('change'), ONE_MINUTE);
 		})();
 
 		this.pQueue = new PQueue({concurrency: 1});
