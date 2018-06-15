@@ -36,7 +36,7 @@ class SwapDB {
 
 			// We need to regularly check if pending swaps have timed out.
 			// https://github.com/jl777/SuperNET/issues/775
-			const ONE_MINUTE = 60000;
+			const ONE_MINUTE = 1000 * 60;
 			setInterval(() => ee.emit('change'), ONE_MINUTE);
 		})();
 
