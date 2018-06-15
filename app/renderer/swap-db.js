@@ -91,27 +91,35 @@ class SwapDB {
 
 		const {uuid, timeStarted, request, response, messages} = data;
 
+		// If we place a sell order marketmaker just inverts the values and places a buy
+		// on the opposite pair. We need to normalise this otherwise we'll show the
+		// wrong base/quote currencies.
+		const isBuyOrder = (request.baseCurrency === response.base);
+		const responseBaseCurrencyAmount = isBuyOrder ? response.basevalue : response.relvalue;
+		const responseQuoteCurrencyAmount = isBuyOrder ? response.relvalue : response.basevalue;
+
 		const swap = {
 			uuid,
 			timeStarted,
+			orderType: isBuyOrder ? 'buy' : 'sell',
 			status: 'pending',
 			statusFormatted: 'pending',
 			error: false,
 			progress: 0,
-			baseCurrency: response.base,
-			quoteCurrency: response.rel,
-			baseCurrencyAmount: roundTo(response.basevalue, 8),
-			quoteCurrencyAmount: roundTo(response.relvalue, 8),
-			price: roundTo(response.relvalue / response.basevalue, 8),
+			baseCurrency: request.baseCurrency,
+			quoteCurrency: request.quoteCurrency,
+			baseCurrencyAmount: roundTo(responseBaseCurrencyAmount, 8),
+			quoteCurrencyAmount: roundTo(responseQuoteCurrencyAmount, 8),
+			price: roundTo(responseQuoteCurrencyAmount / responseBaseCurrencyAmount, 8),
 			requested: {
 				baseCurrencyAmount: roundTo(request.amount, 8),
 				quoteCurrencyAmount: roundTo(request.total, 8),
 				price: roundTo(request.price, 8),
 			},
 			broadcast: {
-				baseCurrencyAmount: roundTo(response.basevalue, 8),
-				quoteCurrencyAmount: roundTo(response.relvalue, 8),
-				price: roundTo(response.relvalue / response.basevalue, 8),
+				baseCurrencyAmount: roundTo(responseBaseCurrencyAmount, 8),
+				quoteCurrencyAmount: roundTo(responseQuoteCurrencyAmount, 8),
+				price: roundTo(responseQuoteCurrencyAmount / responseBaseCurrencyAmount, 8),
 			},
 			executed: {
 				baseCurrencyAmount: undefined,
@@ -154,13 +162,18 @@ class SwapDB {
 					amount: message.srcamount,
 				});
 
-				swap.baseCurrencyAmount = roundTo(message.srcamount, 8);
-				swap.quoteCurrencyAmount = roundTo(message.destamount, 8);
-				swap.price = roundTo(message.destamount / message.srcamount, 8);
+				const executedBaseCurrencyAmount = isBuyOrder ? message.srcamount : message.destamount;
+				const executedQuoteCurrencyAmount = isBuyOrder ? message.destamount : message.srcamount;
+				swap.baseCurrencyAmount = roundTo(executedBaseCurrencyAmount, 8);
+				swap.quoteCurrencyAmount = roundTo(executedQuoteCurrencyAmount, 8);
+				swap.price = roundTo(executedQuoteCurrencyAmount / executedBaseCurrencyAmount, 8);
 				swap.executed.baseCurrencyAmount = swap.baseCurrencyAmount;
 				swap.executed.quoteCurrencyAmount = swap.quoteCurrencyAmount;
 				swap.executed.price = swap.price;
 				swap.executed.percentCheaperThanRequested = roundTo(100 - ((swap.executed.price / swap.requested.price) * 100), 2);
+				if (!isBuyOrder) {
+					swap.executed.percentCheaperThanRequested = -swap.executed.percentCheaperThanRequested;
+				}
 			}
 
 			if (message.method === 'failed') {

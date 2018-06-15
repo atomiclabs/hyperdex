@@ -34,14 +34,10 @@ const All = () => (
 const Split = () => {
 	const {state} = exchangeContainer;
 
-	const filteredData = state.swapHistory.filter(swap => {
-		const tradingPair = [state.baseCurrency, state.quoteCurrency];
-
-		return (
-			tradingPair.includes(swap.baseCurrency) &&
-			tradingPair.includes(swap.quoteCurrency)
-		);
-	});
+	const filteredData = state.swapHistory.filter(x =>
+		x.baseCurrency === state.baseCurrency &&
+		x.quoteCurrency === state.quoteCurrency
+	);
 
 	return (
 		<SwapList swaps={filteredData}/>

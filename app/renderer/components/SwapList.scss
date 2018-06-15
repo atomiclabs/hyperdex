@@ -91,12 +91,22 @@
 		color: var(--text-color);
 	}
 
-	.quote-amount {
+	.buy .quote-amount,
+	.sell .base-amount {
 		color: var(--red-color);
+
+		&::before {
+			content: '-';
+		}
 	}
 
-	.base-amount {
+	.sell .quote-amount,
+	.buy .base-amount {
 		color: var(--green-color);
+
+		&::before {
+			content: '+';
+		}
 	}
 
 	.status {

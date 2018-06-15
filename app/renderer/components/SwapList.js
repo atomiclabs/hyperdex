@@ -39,11 +39,11 @@ class CancelButton extends React.Component {
 }
 
 const SwapItem = ({swap, showCancel}) => (
-	<div className="row">
+	<div className={`row ${swap.orderType}`}>
 		<div className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}</div>
 		<div className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</div>
-		<div className="base-amount">+{swap.baseCurrencyAmount} {swap.baseCurrency}</div>
-		<div className="quote-amount">-{swap.quoteCurrencyAmount} {swap.quoteCurrency}</div>
+		<div className="base-amount">{swap.baseCurrencyAmount} {swap.baseCurrency}</div>
+		<div className="quote-amount">{swap.quoteCurrencyAmount} {swap.quoteCurrency}</div>
 		<div className="status">
 			<div className="status__icon" data-status={swap.status}>{swap.statusFormatted}</div>
 		</div>
