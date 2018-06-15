@@ -4,7 +4,7 @@ import cryptoPouch from 'crypto-pouch';
 import Emittery from 'emittery';
 import PQueue from 'p-queue';
 import roundTo from 'round-to';
-import {subDays} from 'date-fns';
+import {subDays, isPast, addMinutes} from 'date-fns';
 import appContainer from 'containers/App';
 import swapTransactions from './swap-transactions';
 
@@ -33,6 +33,11 @@ class SwapDB {
 		this.ready = (async () => {
 			await this.db.createIndex({index: {fields: ['timeStarted', 'uuid']}});
 			await this.migrate();
+
+			// We need to regularly check if pending swaps have timed out.
+			// https://github.com/jl777/SuperNET/issues/775
+			const ONE_MINUTE = 1000 * 60;
+			setInterval(() => ee.emit('change'), ONE_MINUTE);
 		})();
 
 		this.pQueue = new PQueue({concurrency: 1});
@@ -186,22 +191,33 @@ class SwapDB {
 					message: `Error Code: ${message.error}`,
 				};
 			}
-
-			swap.statusFormatted = swap.status;
-			if (swap.status === 'swapping') {
-				const swapProgress = swap.transactions
-					.map(tx => tx.stage)
-					.reduce((prevStageLevel, stage) => {
-						const newStageLevel = swapTransactions.indexOf(stage) + 1;
-						return Math.max(prevStageLevel, newStageLevel);
-					}, 0);
-
-				swap.statusFormatted = `swap ${swapProgress}/${swapTransactions.length}`;
-				swap.progress = (swapProgress + MATCHED_STEP) / TOTAL_PROGRESS_STEPS;
-			} else if (swap.status === 'failed' && message.error === -9999) {
-				swap.statusFormatted = 'unmatched';
-			}
 		});
+
+		// Treat swaps pending for more than 5 minutes as failed.
+		// https://github.com/jl777/SuperNET/issues/775#issuecomment-397557568
+		const timedOut = swap.status === 'pending' && isPast(addMinutes(swap.timeStarted, 5));
+		if (timedOut) {
+			swap.status = 'failed';
+			swap.error = {
+				code: undefined,
+				message: `Swap timed out`,
+			};
+		}
+
+		swap.statusFormatted = swap.status;
+		if (swap.status === 'swapping') {
+			const swapProgress = swap.transactions
+				.map(tx => tx.stage)
+				.reduce((prevStageLevel, stage) => {
+					const newStageLevel = swapTransactions.indexOf(stage) + 1;
+					return Math.max(prevStageLevel, newStageLevel);
+				}, 0);
+
+			swap.statusFormatted = `swap ${swapProgress}/${swapTransactions.length}`;
+			swap.progress = (swapProgress + MATCHED_STEP) / TOTAL_PROGRESS_STEPS;
+		} else if (swap.status === 'failed' && (swap.error.code === -9999 || timedOut)) {
+			swap.statusFormatted = 'unmatched';
+		}
 
 		return swap;
 	}
