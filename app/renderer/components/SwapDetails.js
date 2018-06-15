@@ -19,6 +19,27 @@ const stageToTitle = new Map([
 	['alicespend', 'Alice Spend'],
 ]);
 
+const getOverview = swap => {
+	const isBuyOrder = swap.orderType === 'buy';
+	const overview = {
+		fromTitle: 'Exchanging:',
+		forTitle: 'For:',
+		fromCurrency: isBuyOrder ? swap.quoteCurrency : swap.baseCurrency,
+		forCurrency: isBuyOrder ? swap.baseCurrency : swap.quoteCurrency,
+		fromAmount: isBuyOrder ? swap.broadcast.quoteCurrencyAmount : swap.broadcast.baseCurrencyAmount,
+		forAmount: isBuyOrder ? swap.broadcast.baseCurrencyAmount : swap.broadcast.quoteCurrencyAmount,
+	};
+
+	if (swap.executed.quoteCurrencyAmount) {
+		overview.fromTitle = 'You exchanged:';
+		overview.forTitle = 'You received:';
+		overview.fromAmount = isBuyOrder ? swap.executed.quoteCurrencyAmount : swap.executed.baseCurrencyAmount;
+		overview.forAmount = isBuyOrder ? swap.executed.baseCurrencyAmount : swap.executed.quoteCurrencyAmount;
+	}
+
+	return overview;
+};
+
 class SwapDetails extends React.Component {
 	state = {
 		isOpen: false,
@@ -83,26 +104,7 @@ class SwapDetails extends React.Component {
 			);
 		});
 
-		const overviewData = (() => {
-			const isBuyOrder = swap.orderType === 'buy';
-			const overview = {
-				fromTitle: 'Exchanging:',
-				forTitle: 'For:',
-				fromCurrency: isBuyOrder ? quoteCurrency : baseCurrency,
-				forCurrency: isBuyOrder ? baseCurrency : quoteCurrency,
-				fromAmount: isBuyOrder ? swap.broadcast.quoteCurrencyAmount : swap.broadcast.baseCurrencyAmount,
-				forAmount: isBuyOrder ? swap.broadcast.baseCurrencyAmount : swap.broadcast.quoteCurrencyAmount,
-			};
-
-			if (swap.executed.quoteCurrencyAmount) {
-				overview.fromTitle = 'You exchanged:';
-				overview.forTitle = 'You received:';
-				overview.fromAmount = isBuyOrder ? swap.executed.quoteCurrencyAmount : swap.executed.baseCurrencyAmount;
-				overview.forAmount = isBuyOrder ? swap.executed.baseCurrencyAmount : swap.executed.quoteCurrencyAmount;
-			}
-
-			return overview;
-		})();
+		const overview = getOverview(swap);
 
 		return (
 			<div className="modal-wrapper">
@@ -117,15 +119,15 @@ class SwapDetails extends React.Component {
 					<React.Fragment>
 						<div className="section overview">
 							<div className="from">
-								<CurrencyIcon symbol={overviewData.fromCurrency}/>
-								<p>{overviewData.fromTitle}</p>
-								<p className="amount">{overviewData.fromAmount} {overviewData.fromCurrency}</p>
+								<CurrencyIcon symbol={overview.fromCurrency}/>
+								<p>{overview.fromTitle}</p>
+								<p className="amount">{overview.fromAmount} {overview.fromCurrency}</p>
 							</div>
 							<div className="arrow">→</div>
 							<div className="for">
-								<CurrencyIcon symbol={overviewData.forCurrency}/>
-								<p>{overviewData.forTitle}</p>
-								<p className="amount">{overviewData.forAmount} {overviewData.forCurrency}</p>
+								<CurrencyIcon symbol={overview.forCurrency}/>
+								<p>{overview.forTitle}</p>
+								<p className="amount">{overview.forAmount} {overview.forCurrency}</p>
 							</div>
 						</div>
 						<div className="section progress">
