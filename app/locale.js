@@ -10,7 +10,7 @@ i18next
 	.init({
 		debug: isDevelopment,
 		fallbackLng: 'en',
-		whitelist: ['en'],
+		whitelist: ['ar', 'en', 'de', 'es', 'fr', 'ja', 'ko', 'ru', 'tr', 'zh'],
 		nonExplicitWhitelist: true,
 		ns: [
 			'app',
