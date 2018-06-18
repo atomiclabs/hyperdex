@@ -22,7 +22,7 @@ class TextArea extends React.Component {
 				return;
 			}
 
-			value = value.replace(/\r?\n/g, ' ').trim();
+			value = value.replace(/\r?\n/g, ' ');
 		}
 
 		if (onChange) {
