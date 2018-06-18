@@ -3,7 +3,10 @@ import {classNames} from 'react-extras';
 import exchangeContainer from 'containers/Exchange';
 import View from 'components/View';
 import SwapList from 'components/SwapList';
+import {translate} from '../../translate';
 import './Swaps.scss';
+
+const t = translate('exchange');
 
 const TabButton = props => (
 	<span
@@ -50,10 +53,10 @@ const Swaps = () => {
 	return (
 		<div className="Exchange--Swaps">
 			<header>
-				<h3>Swaps</h3>
+				<h3>{t('swaps.title')}</h3>
 				<nav>
 					<TabButton
-						title="All"
+						title={t('swaps.all')}
 						component={All}
 					/>
 					<TabButton

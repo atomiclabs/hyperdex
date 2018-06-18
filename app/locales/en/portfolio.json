@@ -1,0 +1,21 @@
+{
+	"create": {
+		"confirm": "Confirm",
+		"confirmPassword": "Confirm Password",
+		"confirmSeedPhrase": "Confirm Your Seed Phrase",
+		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
+		"name": "Portfolio Name",
+		"next": "Next",
+		"password": "Password",
+		"securityTitle": "Important: please back up your seed phrase now!",
+		"seedPhrase": "Seed Phrase for Your Portfolio",
+		"success": "New portfolio added!",
+		"title": "Create New Portfolio"
+	},
+	"new": {
+		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
+		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
+		"createPortfolio": "Create New Portfolio",
+		"restorePortfolio": "Restore Portfolio"
+	}
+}
