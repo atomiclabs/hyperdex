@@ -1,10 +1,10 @@
-import {is, activeWindow} from 'electron-util';
 import React from 'react';
 import Button from 'components/Button';
 import Avatar from 'components/Avatar';
 import Nav from './Nav';
 import './TabView.scss';
 
+const {is, activeWindow} = global.mainModules.electronUtil;
 const {openGitHubIssue} = global.mainModules.util;
 
 class TabView extends React.Component {

@@ -1,6 +1,8 @@
-import {remote} from 'electron';
-import {centerWindow} from 'electron-util';
 import {loginWindowSize} from '../constants';
+
+const {electron, electronUtil} = global.mainModules;
+const {remote} = electron;
+const {centerWindow} = electronUtil;
 
 export const formatCurrency = number => {
 	const options = {
@@ -40,6 +42,7 @@ export const setLoginWindowBounds = () => {
 	win.setMaximizable(false);
 	win.setMinimumSize(loginWindowSize.width, loginWindowSize.height);
 	centerWindow({
+		window: remote.getCurrentWindow(),
 		size: {
 			width: loginWindowSize.width,
 			height: loginWindowSize.height,

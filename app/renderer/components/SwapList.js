@@ -1,4 +1,3 @@
-import {api} from 'electron-util';
 import React from 'react';
 import {format as formatDate} from 'date-fns';
 import appContainer from 'containers/App';
@@ -18,7 +17,7 @@ class CancelButton extends React.Component {
 			await appContainer.api.cancelOrder(swapUuid);
 		} catch (error) {
 			console.error(error);
-			api.dialog.showErrorBox('Error', error.message);
+			global.mainModules.dialog.showErrorBox('Error', error.message);
 		}
 	};
 

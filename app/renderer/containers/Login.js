@@ -1,5 +1,3 @@
-import {remote} from 'electron';
-import {setWindowBounds} from 'electron-util';
 import ipc from 'electron-better-ipc';
 import {Container} from 'unstated';
 import LoginBox from 'views/LoginBox';
@@ -9,7 +7,9 @@ import Api from '../api';
 import SwapDB from '../swap-db';
 import appContainer from './App';
 
-const {config, portfolioUtil} = global.mainModules;
+const {config, portfolioUtil, electronUtil, electron} = global.mainModules;
+const {remote} = electron;
+const {setWindowBounds} = electronUtil;
 const {getPortfolios, decryptSeedPhrase} = portfolioUtil;
 
 const initApi = async seedPhrase => {

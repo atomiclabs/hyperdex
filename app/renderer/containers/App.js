@@ -1,5 +1,4 @@
 import EventEmitter from 'events';
-import {remote} from 'electron';
 import ipc from 'electron-better-ipc';
 import _ from 'lodash';
 import Cycled from 'cycled';
@@ -12,7 +11,8 @@ import fireEvery from '../fire-every';
 import {formatCurrency, setLoginWindowBounds} from '../util';
 import {isDevelopment} from '../../util-common';
 
-const {config} = global.mainModules;
+const {config, electron} = global.mainModules;
+const {remote} = electron;
 
 const excludedTestCurrencies = new Set([
 	'PIZZA',

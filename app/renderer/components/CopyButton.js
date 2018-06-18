@@ -1,6 +1,7 @@
-import {clipboard} from 'electron';
 import React from 'react';
 import './CopyButton.scss';
+
+const {clipboard} = global.mainModules.electron;
 
 const CopyButton = ({className, value, ...props}) => {
 	return (
