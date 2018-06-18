@@ -42,7 +42,7 @@ if (!is.development) {
 		});
 
 		notification.on('click', () => {
-			electron.shell.openExternal('https://github.com/lukechilds/hyperdex/releases/latest');
+			electron.shell.openExternal('https://github.com/hyperdexapp/hyperdex/releases/latest');
 		});
 
 		notification.show();

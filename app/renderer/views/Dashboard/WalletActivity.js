@@ -26,7 +26,7 @@ const ActivityItem = ({swap}) => {
 				<div>
 					{/*
 						TODO: Use something more proper than `Did Not Swap`
-						https://github.com/lukechilds/hyperdex/pull/160#discussion_r185178958
+						https://github.com/hyperdexapp/hyperdex/pull/160#discussion_r185178958
 					*/}
 					<div className="type-title">{swap.status === 'failed' ? 'Did Not Swap' : 'Swapped'}</div>
 					<div className="type-description">{swap.quoteCurrency} for {swap.baseCurrency}</div>

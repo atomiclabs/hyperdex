@@ -169,7 +169,7 @@ class Bottom extends React.Component {
 			this.targetPriceButtonHandler();
 		}
 
-		// TODO: Get the txfee: https://github.com/lukechilds/hyperdex/issues/104
+		// TODO: Get the txfee: https://github.com/hyperdexapp/hyperdex/issues/104
 		// Make sure to convert it to the current base currency.
 		const txfee = 0;
 

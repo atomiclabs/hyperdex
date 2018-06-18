@@ -185,7 +185,7 @@ class SwapDB {
 				swap.status = 'failed';
 
 				// TODO: Add error messages once we have errors documented
-				// https://github.com/lukechilds/hyperdex/issues/180
+				// https://github.com/hyperdexapp/hyperdex/issues/180
 				swap.error = {
 					code: message.error,
 					message: `Error Code: ${message.error}`,
