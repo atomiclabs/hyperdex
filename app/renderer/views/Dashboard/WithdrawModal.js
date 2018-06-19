@@ -73,7 +73,7 @@ class WithdrawModal extends React.Component {
 		const setAmount = value => {
 			this.setState({
 				amount: String(value),
-				amountInUsd: String(Number.parseFloat(value || '0') / currencyInfo.cmcPriceUsd),
+				amountInUsd: String(Number.parseFloat(value || '0') * currencyInfo.cmcPriceUsd),
 			});
 		};
 
