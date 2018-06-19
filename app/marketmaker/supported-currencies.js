@@ -685,6 +685,13 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'MYTH',
+		name: 'Unicoin',
+		decimals: 18,
+		etomic: '0x277ab4b9dde09a8e710fd755deeb9d0d9532d047',
+		rpcport: 80,
+	},
+	{
 		coin: 'NMC',
 		rpcport: 8336,
 		pubtype: 52,
