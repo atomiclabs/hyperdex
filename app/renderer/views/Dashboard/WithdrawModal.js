@@ -39,11 +39,11 @@ class WithdrawModal extends React.Component {
 	withdrawButtonHandler = async () => {
 		this.setState({isWithdrawing: true});
 
-		const currency = dashboardContainer.activeCurrency.symbol;
+		const {symbol} = dashboardContainer.activeCurrency;
 		const {recipientAddress: address, amount} = this.state;
 
 		const {txFee, broadcast} = await appContainer.api.withdraw({
-			currency,
+			symbol,
 			address,
 			amount: Number(amount),
 		});

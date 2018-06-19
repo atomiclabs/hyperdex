@@ -226,13 +226,13 @@ export default class Api {
 	}
 
 	async _createTransaction(opts) {
-		ow(opts.currency, symbolPredicate.label('currency')); // TODO: `currency` should be renamed to `symbol` for consistency
+		ow(opts.symbol, symbolPredicate.label('symbol'));
 		ow(opts.address, ow.string.label('address'));
 		ow(opts.amount, ow.number.positive.finite.label('amount'));
 
 		const result = await this.request({
 			method: 'withdraw',
-			coin: opts.currency,
+			coin: opts.symbol,
 			outputs: [{[opts.address]: opts.amount}],
 			broadcast: 0,
 		});
@@ -247,13 +247,13 @@ export default class Api {
 		};
 	}
 
-	async _broadcastTransaction(currencySymbol, rawTransaction) {
-		ow(currencySymbol, symbolPredicate.label('currencySymbol'));
+	async _broadcastTransaction(symbol, rawTransaction) {
+		ow(symbol, symbolPredicate.label('symbol'));
 		ow(rawTransaction, ow.string.label('rawTransaction'));
 
 		const response = await this.request({
 			method: 'sendrawtransaction',
-			coin: currencySymbol,
+			coin: symbol,
 			signedtx: rawTransaction,
 		});
 
@@ -265,7 +265,7 @@ export default class Api {
 	}
 
 	async _withdrawBtcFork(opts) {
-		ow(opts.currency, symbolPredicate.label('currency')); // TODO: `currency` should be renamed to `symbol` for consistency
+		ow(opts.symbol, symbolPredicate.label('symbol'));
 		ow(opts.address, ow.string.label('address'));
 		ow(opts.amount, ow.number.positive.finite.label('amount'));
 
@@ -274,7 +274,7 @@ export default class Api {
 			txfee: txFeeSatoshis,
 			txid,
 			amount,
-			currency,
+			symbol,
 			address,
 		} = await this._createTransaction(opts);
 
@@ -283,9 +283,9 @@ export default class Api {
 		const txFee = txFeeSatoshis / SATOSHIS;
 
 		const broadcast = async () => {
-			await this._broadcastTransaction(opts.currency, rawTransaction);
+			await this._broadcastTransaction(opts.symbol, rawTransaction);
 
-			return {txid, amount, currency, address};
+			return {txid, amount, symbol, address};
 		};
 
 		return {
@@ -295,7 +295,7 @@ export default class Api {
 	}
 
 	async _withdrawEth(opts) {
-		ow(opts.currency, symbolPredicate.label('currency')); // TODO: `currency` should be renamed to `symbol` for consistency
+		ow(opts.symbol, symbolPredicate.label('symbol'));
 		ow(opts.address, ow.string.label('address'));
 		ow(opts.amount, ow.number.positive.finite.label('amount'));
 
@@ -305,7 +305,7 @@ export default class Api {
 			gas,
 		} = await this.request({
 			method: 'eth_withdraw',
-			coin: opts.currency,
+			coin: opts.symbol,
 			to: opts.address,
 			amount: opts.amount,
 			broadcast: 0,
@@ -322,7 +322,7 @@ export default class Api {
 				method: 'eth_withdraw',
 				gas,
 				gas_price: gasPrice,
-				coin: opts.currency,
+				coin: opts.symbol,
 				to: opts.address,
 				amount: opts.amount,
 				broadcast: 1,
@@ -330,7 +330,7 @@ export default class Api {
 
 			return {
 				txid: tx_id,
-				currency: opts.currency,
+				symbol: opts.symbol,
 				amount: opts.amount,
 				address: opts.address,
 			};
@@ -343,11 +343,11 @@ export default class Api {
 	}
 
 	withdraw(opts) {
-		ow(opts.currency, symbolPredicate.label('currency')); // TODO: `currency` should be renamed to `symbol` for consistency
+		ow(opts.symbol, symbolPredicate.label('symbol'));
 		ow(opts.address, ow.string.label('address'));
 		ow(opts.amount, ow.number.positive.finite.label('amount'));
 
-		return getCurrency(opts.currency).etomic ? this._withdrawEth(opts) : this._withdrawBtcFork(opts);
+		return getCurrency(opts.symbol).etomic ? this._withdrawEth(opts) : this._withdrawBtcFork(opts);
 	}
 
 	listUnspent(coin, address) {
