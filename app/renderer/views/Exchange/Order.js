@@ -49,8 +49,6 @@ class Top extends React.Component {
 const Center = props => {
 	const {state} = exchangeContainer;
 
-	const isEtomic = getCurrency(props.type === 'buy' ? state.baseCurrency : state.quoteCurrency).etomic;
-
 	// TODO: This should be fixed properly in mm or use more sensible logic here
 	// This is just a quick fix to increase match rate for a demo
 	const selectRow = row => props.handlePriceChange(row.price * 1.05);
@@ -63,12 +61,8 @@ const Center = props => {
 					<thead>
 						<tr>
 							<th>Price ({state.quoteCurrency})</th>
-							{!isEtomic && (
-								<React.Fragment>
-									<th>Avg Vol</th>
-									<th>Max Vol</th>
-								</React.Fragment>
-							)}
+							<th>Avg Vol</th>
+							<th>Max Vol</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -77,12 +71,8 @@ const Center = props => {
 							return props.getOrderBook().map((row, i) => (
 								<tr key={i} onClick={() => selectRow(row)}>
 									<td>{row.price}</td>
-									{!isEtomic && (
-										<React.Fragment>
-											<td>{roundTo(row.averageVolume, 8)}</td>
-											<td>{roundTo(row.maxVolume, 8)}</td>
-										</React.Fragment>
-									)}
+									<td>{roundTo(row.averageVolume, 8)}</td>
+									<td>{roundTo(row.maxVolume, 8)}</td>
 								</tr>
 							));
 						})()}
