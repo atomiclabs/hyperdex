@@ -1,5 +1,6 @@
 import {clipboard} from 'electron';
 import React from 'react';
+import CopyIcon from 'icons/Copy';
 import './CopyButton.scss';
 
 const CopyButton = ({className, onClick, value, ...props}) => {
@@ -15,7 +16,9 @@ const CopyButton = ({className, onClick, value, ...props}) => {
 
 				clipboard.writeText(value);
 			}}
-		/>
+		>
+			<CopyIcon/>
+		</button>
 	);
 };
 

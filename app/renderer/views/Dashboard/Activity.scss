@@ -48,7 +48,7 @@
 
 			tr {
 				white-space: nowrap;
-				border-bottom: 1px solid hsla(215, 23%, 24%, 1);
+				border-bottom: 1px solid var(--section-border-color);
 
 				&:last-child {
 					border: none;

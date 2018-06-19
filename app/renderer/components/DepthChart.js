@@ -45,6 +45,8 @@ const DepthChart = props => {
 	bids = roundPrice(bids);
 	asks = roundPrice(asks);
 
+	const borderColor = 'var(--section-border-color)';
+
 	return (
 		<div className={`DepthChart ${isEmpty ? 'is-empty' : ''}`}>
 			<ResponsiveContainer width="50%" minHeight={100}>
@@ -52,9 +54,9 @@ const DepthChart = props => {
 					<Area
 						dataKey="depth"
 						type="step"
-						stroke="#28af60"
+						stroke="var(--depth-chart-buy-stroke-color)"
 						fillOpacity={1}
-						fill="#275049"
+						fill="var(--depth-chart-buy-background-color)"
 						isAnimationActive={false}
 					/>
 					<XAxis
@@ -62,11 +64,11 @@ const DepthChart = props => {
 						allowDecimals={false}
 						interval="preserveStartEnd"
 						axisLine={{
-							stroke: '#364357',
+							stroke: borderColor,
 							strokeWidth: 2,
 						}}
 						tickLine={{
-							stroke: '#364357',
+							stroke: borderColor,
 						}}
 						tick={{
 							fontSize: '12px',
@@ -81,7 +83,7 @@ const DepthChart = props => {
 						scale="linear"
 						domain={['dataMin', maxDepth]}
 						axisLine={{
-							stroke: '#364357',
+							stroke: borderColor,
 							strokeWidth: 2,
 						}}
 						tickLine={{
@@ -104,9 +106,9 @@ const DepthChart = props => {
 					<Area
 						dataKey="depth"
 						type="step"
-						stroke="#f80759"
+						stroke="var(--depth-chart-sell-stroke-color)"
 						fillOpacity={1}
-						fill="#5a2947"
+						fill="var(--depth-chart-sell-background-color)"
 						isAnimationActive={false}
 					/>
 					<XAxis
@@ -114,11 +116,11 @@ const DepthChart = props => {
 						allowDecimals={false}
 						interval="preserveStartEnd"
 						axisLine={{
-							stroke: '#364357',
+							stroke: borderColor,
 							strokeWidth: 2,
 						}}
 						tickLine={{
-							stroke: '#364357',
+							stroke: borderColor,
 						}}
 						tick={{
 							fontSize: '12px',
@@ -133,7 +135,7 @@ const DepthChart = props => {
 						scale="linear"
 						domain={['dataMin', maxDepth]}
 						axisLine={{
-							stroke: '#364357',
+							stroke: borderColor,
 							strokeWidth: 2,
 						}}
 						tickLine={{

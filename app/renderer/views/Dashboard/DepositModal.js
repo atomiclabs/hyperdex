@@ -26,9 +26,7 @@ const CopyIconButton = withState(
 				onClick={() => {
 					setState({isCopied: true});
 				}}
-			>
-				<img src="/assets/copy-icon.svg"/>
-			</CopyButton>
+			/>
 		</Tooltip>
 	),
 	{isCopied: false}

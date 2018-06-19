@@ -127,10 +127,15 @@
 		&__icon[data-status='swapping'] {
 			background-color: var(--primary-color);
 			border-color: var(--primary-color);
+
+			[data-theme='light'] & {
+				background-color: var(--primary-color-opacity-0-2);
+			}
 		}
 
 		&__icon[data-status='failed'] {
-			border-color: #364357;
+			color: var(--text-color-faded);
+			border-color: var(--swap-status-border-color);
 		}
 
 		&__icon[data-status='completed'] {
@@ -142,14 +147,18 @@
 	.cancel {
 		&__button {
 			padding: 2px 4px;
-			color: #fff;
+			color: var(--text-color2);
 			background-color: var(--background-color);
-			border: 1px solid #313d4f;
+			border: 1px solid var(--border-color);
 			transition: 0.2s ease-out;
 			font-size: 11px;
 
 			&:hover {
 				border-color: rgba(255, 255, 255, 0.2);
+
+				[data-theme='light'] & {
+					border-color: rgba(0, 0, 0, 0.5);
+				}
 			}
 
 			&:active {
@@ -164,7 +173,7 @@
 				opacity: 0.8;
 
 				&:hover {
-					border: 1px solid #313d4f;
+					border: 1px solid var(--border-color);
 				}
 			}
 		}

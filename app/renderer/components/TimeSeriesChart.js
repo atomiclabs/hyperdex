@@ -45,9 +45,9 @@ class TimeSeriesChart extends React.Component {
 						<Area
 							dataKey="value"
 							name="Value"
-							stroke="#8050ef"
+							stroke="var(--timeseries-chart-stroke)"
 							fillOpacity={1}
-							fill="#313b5e"
+							fill="var(--timeseries-chart-background-color)"
 							isAnimationActive={false}
 						/>
 						<XAxis
@@ -66,7 +66,7 @@ class TimeSeriesChart extends React.Component {
 							}}
 							tick={{
 								fontSize: '12px',
-								fill: '#687bf7',
+								fill: 'var(--primary-color)',
 							}}
 						/>
 						<YAxis

@@ -14,7 +14,7 @@ body {
 	background-color: var(--background-color);
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: normal;
-	color: #fff;
+	color: var(--text-color2);
 	overflow: hidden;
 }
 
@@ -50,7 +50,7 @@ h3 {
 }
 
 p {
-	color: #7f8fa4;
+	color: var(--text-color);
 	font-size: 1rem;
 	line-height: 1.5rem;
 	margin-top: 0;
@@ -58,7 +58,7 @@ p {
 }
 
 p.secondary {
-	color: #fff;
+	color: var(--text-color2);
 	font-size: 0.875rem;
 	line-height: 1.375rem;
 }

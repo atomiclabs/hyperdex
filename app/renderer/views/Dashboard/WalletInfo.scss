@@ -80,12 +80,12 @@
 			background: var(--background-color);
 			border: 1px solid var(--border-color);
 
-			&__value {
-				color: rgba(255, 255, 255, 0.8);
+			.Button__value {
+				color: var(--text-color-faded);
 				transition: color 0.1s ease-in;
 			}
 
-			&__helper {
+			.Button__helper {
 				transition: opacity 0.1s ease-in;
 			}
 
@@ -93,7 +93,7 @@
 				border: 1px solid hsl(216, 23%, 30%);
 
 				.Button__value {
-					color: rgba(255, 255, 255, 1);
+					color: var(--text-color2);
 				}
 
 				.Button__helper {
@@ -105,7 +105,7 @@
 				border: 1px solid var(--border-color);
 
 				.Button__value {
-					color: rgba(255, 255, 255, 0.8);
+					color: var(--text-color-faded);
 				}
 			}
 		}

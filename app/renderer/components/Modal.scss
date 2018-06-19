@@ -121,7 +121,7 @@
 			align-items: center;
 			position: relative;
 			padding: 22px 30px;
-			border-bottom: 1px solid #364357;
+			border-bottom: 1px solid var(--section-border-color);
 
 			.Modal__icon {
 				display: block;
@@ -185,6 +185,6 @@
 
 	&__close:hover::before,
 	&__close:hover::after {
-		background: rgba(255, 255, 255, 0.8);
+		background: var(--text-color-faded);
 	}
 }
