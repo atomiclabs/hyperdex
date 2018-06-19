@@ -7,7 +7,6 @@ import Select from 'components/Select';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import exchangeContainer from 'containers/Exchange';
 import appContainer from 'containers/App';
-import {getCurrency} from '../../../marketmaker/supported-currencies';
 import {formatCurrency} from '../../util';
 import './Order.scss';
 
