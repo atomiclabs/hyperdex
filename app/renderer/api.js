@@ -147,8 +147,8 @@ export default class Api {
 			rel,
 		});
 
-		const formatOrders = (orders, symbol) => orders
-			.filter(order => getCurrency(symbol).etomic ? true : (order.numutxos > 0))
+		const formatOrders = orders => orders
+			.filter(order => order.numutxos > 0)
 			.map(order => ({
 				address: order.address,
 				depth: order.depth,
@@ -162,8 +162,8 @@ export default class Api {
 		const formattedResponse = {
 			baseCurrency: response.base,
 			quoteCurrency: response.rel,
-			asks: formatOrders(response.asks, response.base),
-			bids: formatOrders(response.bids, response.rel),
+			asks: formatOrders(response.asks),
+			bids: formatOrders(response.bids),
 		};
 
 		return formattedResponse;
