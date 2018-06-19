@@ -17,6 +17,7 @@ const defaults = {
 		'DASH',
 		'DNR',
 		'DOGE',
+		'EQL',
 		'HUSH',
 		'KMD',
 		'LTC',
