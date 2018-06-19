@@ -62,7 +62,7 @@ class WithdrawModal extends React.Component {
 		// We'll need to have a list of block explorers for each currency.
 		// eslint-disable-next-line no-new
 		new Notification(t('withdraw.successTitle'), {
-			body: t('withdraw.successTitle', {address, amount, currency}),
+			body: t('withdraw.successDescription', {address, amount, symbol: currency}),
 		});
 
 		this.close();

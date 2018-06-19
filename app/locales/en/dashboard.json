@@ -38,7 +38,7 @@
 		"recipientLabel": "Recipient",
 		"recipientPlaceholder": "Enter {{symbol}} Address",
 		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{currency}} sent to {{address}}",
+		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
 		"successTitle": "Successful withdrawal!",
 		"title": "Withdraw {{name}} ({{symbol}})"
 	}
