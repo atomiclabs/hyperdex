@@ -1,4 +1,3 @@
-import {remote} from 'electron';
 import React from 'react';
 import _ from 'lodash';
 import appContainer from 'containers/App';
@@ -6,7 +5,7 @@ import Input from 'components/Input';
 import BackTextButton from 'components/BackTextButton';
 import './Settings.scss';
 
-const config = remote.require('./config');
+const {config} = global.mainModules;
 
 class AppSettings extends React.Component {
 	state = {

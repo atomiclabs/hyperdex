@@ -1,12 +1,11 @@
 import util from 'util';
-import electron from 'electron';
 import {sha256} from 'crypto-hash';
 import PQueue from 'p-queue';
 import ow from 'ow';
 import {getCurrency} from '../marketmaker/supported-currencies';
 import MarketmakerSocket from './marketmaker-socket';
 
-const getPort = electron.remote.require('get-port');
+const {getPort} = global.mainModules;
 
 const symbolPredicate = ow.string.matches(/^[A-Z\d]+$/);
 const uuidPredicate = ow.string.matches(/^[a-z\d]+$/);

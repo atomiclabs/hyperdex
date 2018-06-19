@@ -15,7 +15,8 @@ module.exports = {
 		path: PATHS.dist,
 		filename: 'bundle.js',
 	},
-	target: 'electron-renderer',
+	/// TODO: Open webpack issue about a new target for `electron-renderer-no-node`
+	target: 'web',
 	devtool: 'cheap-module-source-map',
 	devServer: {
 		historyApiFallback: true,
@@ -33,6 +34,14 @@ module.exports = {
 			views: path.join(PATHS.src, 'views'),
 			icons: path.join(PATHS.src, 'icons'),
 		},
+	},
+	externals: [
+		{
+			'electron': 'global.mainModules.electron'
+		}
+	],
+	node: {
+		process: false,
 	},
 	module: {
 		rules: [

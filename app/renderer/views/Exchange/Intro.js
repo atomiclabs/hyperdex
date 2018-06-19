@@ -1,9 +1,8 @@
-import {remote} from 'electron';
 import React from 'react';
 import Modal from 'components/Modal';
 import ExternalLink from 'components/ExternalLink';
 
-const config = remote.require('./config');
+const {config} = global.mainModules;
 
 class Intro extends React.Component {
 	state = {

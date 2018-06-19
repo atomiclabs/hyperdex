@@ -1,5 +1,5 @@
 'use strict';
-const Randoma = require('randoma');
+import Randoma from 'randoma';
 
 // TODO(sindresorhus): Extract this into a npm package when it's more mature
 
@@ -32,7 +32,7 @@ const createIconData = options => {
 
 const createSvgElement = name => document.createElementNS('http://www.w3.org/2000/svg', name);
 
-module.exports = options => {
+export default options => {
 	options = Object.assign({
 		size: 10,
 		scale: 10,

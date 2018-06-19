@@ -1,9 +1,10 @@
 /* eslint-disable react/no-access-state-in-setstate */
-import {is, api, activeWindow, appLaunchTimestamp} from 'electron-util';
 import _ from 'lodash';
 import SuperContainer from 'containers/SuperContainer';
 import appContainer from 'containers/App';
 import fireEvery from '../fire-every';
+
+const {is, activeWindow, appLaunchTimestamp} = global.mainModules.electronUtil;
 
 class ExchangeContainer extends SuperContainer {
 	getInitialState() {
@@ -124,7 +125,7 @@ window.addEventListener('beforeunload', event => {
 	if (hasInProgressSwaps) {
 		event.returnValue = true;
 
-		const selectedButtonIndex = api.dialog.showMessageBox(activeWindow(), {
+		const selectedButtonIndex = global.mainModules.electron.dialog.showMessageBox(activeWindow(), {
 			type: 'question',
 			title: 'Are you sure you want to quit?',
 			message: 'You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.',
@@ -137,7 +138,7 @@ window.addEventListener('beforeunload', event => {
 		});
 
 		if (selectedButtonIndex === 0) {
-			api.app.exit();
+			global.mainModules.electron.app.exit();
 		}
 	}
 });

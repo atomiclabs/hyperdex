@@ -1,8 +1,7 @@
-import {remote} from 'electron';
 import {Container} from 'unstated';
 import loginContainer from './Login';
 
-const {changePortfolioPassword} = remote.require('./portfolio-util');
+const {changePortfolioPassword} = global.mainModules.portfolioUtil;
 
 class ForgotPasswordContainer extends Container {
 	state = {

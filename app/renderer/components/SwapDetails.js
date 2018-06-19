@@ -1,4 +1,3 @@
-import {clipboard} from 'electron';
 import title from 'title';
 import React from 'react';
 import formatDate from 'date-fns/format';
@@ -10,6 +9,8 @@ import {isDevelopment} from '../../util-common';
 import swapTransactions from '../swap-transactions';
 import {zeroPadFraction} from '../util';
 import './SwapDetails.scss';
+
+const {clipboard} = global.mainModules.electron;
 
 const stageToTitle = new Map([
 	['myfee', 'My Fee'],
