@@ -7,6 +7,7 @@ import Link from 'components/Link';
 import appContainer from 'containers/App';
 import dashboardContainer from 'containers/Dashboard';
 import {formatCurrency} from '../../util';
+import {getCurrency} from '../../../marketmaker/supported-currencies';
 import './WithdrawModal.scss';
 
 const getInitialProps = () => ({
@@ -16,7 +17,9 @@ const getInitialProps = () => ({
 	amountInUsd: '',
 	isWithdrawing: false,
 	isBroadcasting: false,
+	txFeeCurrencySymbol: '',
 	txFee: 0,
+	txFeeUsd: 0,
 	broadcast: false,
 });
 
@@ -48,7 +51,12 @@ class WithdrawModal extends React.Component {
 			amount: Number(amount),
 		});
 
-		this.setState({txFee, broadcast});
+		const currency = getCurrency(symbol);
+		const txFeeCurrencySymbol = currency.etomic ? 'ETH' : symbol;
+		const {cmcPriceUsd} = appContainer.getCurrencyPrice(txFeeCurrencySymbol);
+		const txFeeUsd = formatCurrency(txFee * cmcPriceUsd);
+
+		this.setState({txFeeCurrencySymbol, txFee, txFeeUsd, broadcast});
 	};
 
 	confirmButtonHandler = async () => {
@@ -151,7 +159,7 @@ class WithdrawModal extends React.Component {
 							</div>
 							<div className={`info ${this.state.broadcast || 'hidden'}`}>
 								<span>Network Fee:</span>
-								<span>{this.state.txFee} {currencyInfo.symbol} ({formatCurrency(this.state.txFee * currencyInfo.cmcPriceUsd)})</span>
+								<span>{this.state.txFee} {this.state.txFeeCurrencySymbol} ({this.state.txFeeUsd})</span>
 							</div>
 						</div>
 						{this.state.broadcast ? (
