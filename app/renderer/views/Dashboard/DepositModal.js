@@ -1,4 +1,3 @@
-import {clipboard} from 'electron';
 import React from 'react';
 import QRCode from 'qrcode.react';
 import Modal from 'components/Modal';
