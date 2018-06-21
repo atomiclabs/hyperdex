@@ -17,5 +17,10 @@
 		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
 		"createPortfolio": "Create New Portfolio",
 		"restorePortfolio": "Restore Portfolio"
+	},
+	"restore": {
+		"confirm": "Confirm",
+		"enterSeedPhrase": "Enter Your Seed Phrase",
+		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
 	}
 }
