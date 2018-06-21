@@ -4,6 +4,7 @@ require('strict-import')(module, {
 		'electron-debug',
 	],
 });
+const {URL} = require('url');
 const electron = require('electron');
 const {autoUpdater} = require('electron-updater');
 const {is, disableZoom, appReady} = require('electron-util');
@@ -134,18 +135,29 @@ const setContentSecuriyPolicy = async (policy, options) => {
 
 if (!is.development) {
 	/// Note: Validate it with https://csp-evaluator.withgoogle.com after doing changes
-	setContentSecuriyPolicy(() => `
-		default-src 'none';
-		script-src 'self';
-		img-src 'self' data:;
-		style-src 'self' 'unsafe-inline';
-		font-src 'self';
-		connect-src 'self' http://127.0.0.1:${marketmaker.port || '*'} ws://127.0.0.1:${marketmaker.port || '*'} https://api.coinmarketcap.com https://min-api.cryptocompare.com;
+	setContentSecuriyPolicy(() => {
+		let host = marketmaker.port && `127.0.0.1:${marketmaker.port}`;
 
-		base-uri 'none';
-		form-action 'none';
-		frame-ancestors 'none';
-	`);
+		const mmUrl = config.get('marketmakerUrl');
+		if (mmUrl) {
+			({host} = new URL(mmUrl));
+		}
+
+		const mmPolicy = host ? `http://${host} ws://${host}` : '';
+
+		return `
+			default-src 'none';
+			script-src 'self';
+			img-src 'self' data:;
+			style-src 'self' 'unsafe-inline';
+			font-src 'self';
+			connect-src 'self' ${mmPolicy} https://api.coinmarketcap.com https://min-api.cryptocompare.com;
+
+			base-uri 'none';
+			form-action 'none';
+			frame-ancestors 'none';
+		`;
+	});
 }
 
 app.on('ready', () => {
