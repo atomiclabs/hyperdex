@@ -3,19 +3,15 @@ import React from 'react';
 import QRCode from 'qrcode.react';
 import Modal from 'components/Modal';
 import Button from 'components/Button';
+import CopyButton from 'components/CopyButton';
 import Input from 'components/Input';
 import dashboardContainer from 'containers/Dashboard';
 import './DepositModal.scss';
 
-const CopyButton = props => (
-	<div
-		{...props}
-		onClick={() => {
-			clipboard.writeText(dashboardContainer.activeCurrency.address);
-		}}
-	>
+const CopyIconButton = props => (
+	<CopyButton {...props} value={dashboardContainer.activeCurrency.address}>
 		<img src="/assets/copy-icon.svg"/>
-	</div>
+	</CopyButton>
 );
 
 class DepositModal extends React.Component {
@@ -48,7 +44,7 @@ class DepositModal extends React.Component {
 							<QRCode value={currencyInfo.address}/>
 						</div>
 						<div className="section">
-							<Input className="address-input" value={currencyInfo.address} button={CopyButton}/>
+							<Input className="address-input" value={currencyInfo.address} button={CopyIconButton}/>
 						</div>
 						<div className="section infobox">
 							<img src="/assets/info-icon.svg" width="26" height="26"/>
