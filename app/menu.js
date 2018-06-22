@@ -175,7 +175,7 @@ const createAppMenu = options => {
 	const portfolioSubmenu = [];
 	for (const [i, view] of appViews.entries()) {
 		portfolioSubmenu.push({
-			label: view,
+			label: t(`portfolio.${view.toLowerCase()}`),
 			type: 'radio',
 			checked: activeView === view,
 			accelerator: `CommandOrControl+${i + 1}`,
@@ -190,14 +190,14 @@ const createAppMenu = options => {
 			type: 'separator',
 		},
 		{
-			label: 'Go to Next View',
+			label: t('portfolio.goToNextView'),
 			accelerator: 'Control+Tab',
 			click() {
 				sendAction('set-next-view');
 			},
 		},
 		{
-			label: 'Go to Previous View',
+			label: t('portfolio.goToPrevView'),
 			accelerator: 'Control+Shift+Tab',
 			click() {
 				sendAction('set-previous-view');
@@ -207,7 +207,7 @@ const createAppMenu = options => {
 			type: 'separator',
 		},
 		{
-			label: 'Log Out',
+			label: t('portfolio.logOut'),
 			click() {
 				sendAction('log-out');
 			},
@@ -262,7 +262,7 @@ const createAppMenu = options => {
 			role: 'editMenu',
 		},
 		{
-			label: 'Portfolio',
+			label: t('portfolio.title'),
 			visible: isLoggedIn,
 			submenu: portfolioSubmenu,
 		},
@@ -294,7 +294,7 @@ const createAppMenu = options => {
 
 	const otherTpl = [
 		{
-			label: 'File',
+			label: t('other.file'),
 			submenu: [
 				{
 					role: 'quit',
@@ -305,7 +305,7 @@ const createAppMenu = options => {
 			role: 'editMenu',
 		},
 		{
-			label: 'Portfolio',
+			label: t('portfolio.title'),
 			visible: isLoggedIn,
 			submenu: portfolioSubmenu,
 		},
