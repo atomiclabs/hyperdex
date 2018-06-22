@@ -1,6 +1,6 @@
 import React from 'react';
 import BackArrow from 'icons/BackArrow';
-import {translate} from '../../translate';
+import {translate} from '../translate';
 
 const t = translate('common');
 

@@ -9,7 +9,7 @@ import Button from 'components/Button';
 import {isDevelopment} from '../../util-common';
 import swapTransactions from '../swap-transactions';
 import {zeroPadFraction} from '../util';
-import {translate} from '../../translate';
+import {translate} from '../translate';
 import './SwapDetails.scss';
 
 const t = translate('swap');

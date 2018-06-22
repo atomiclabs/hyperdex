@@ -4,7 +4,7 @@ import {format as formatDate} from 'date-fns';
 import appContainer from 'containers/App';
 import Empty from 'components/Empty';
 import SwapDetails from 'components/SwapDetails';
-import {translate} from '../../translate';
+import {translate} from '../translate';
 import './SwapList.scss';
 
 const t = translate('swap');
