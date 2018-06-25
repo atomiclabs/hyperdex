@@ -1,6 +1,6 @@
 import {remote} from 'electron';
 import ipc from 'electron-better-ipc';
-import {createInstance, init} from 'i18next';
+import {createInstance} from 'i18next';
 import mem from 'mem';
 
 const instance = createInstance();
