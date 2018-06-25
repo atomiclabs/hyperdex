@@ -21,6 +21,7 @@
 		"emittery": "^0.3.0",
 		"hoist-non-react-statics": "^2.5.5",
 		"lodash": "^4.17.10",
+		"mem": "^3.0.1",
 		"modern-normalize": "^0.4.0",
 		"ow": "^0.6.0",
 		"p-any": "^1.1.0",
