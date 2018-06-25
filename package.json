@@ -57,7 +57,7 @@
 		"babel-preset-stage-3": "^6.24.1",
 		"clean-webpack-plugin": "^0.1.19",
 		"copy-webpack-plugin": "^4.5.1",
-		"cryptocurrency-icons": "cjdowner/cryptocurrency-icons#64760295b657a6576e1e6a974de501324e62ce1b",
+		"cryptocurrency-icons": "^0.1.1",
 		"css-loader": "^0.28.11",
 		"delay-cli": "^1.0.0",
 		"devtron": "^1.4.0",
