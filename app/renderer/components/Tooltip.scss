@@ -7,7 +7,7 @@
 	transition-timing-function: ease-out;
 
 	&__target {
-		overflow: hidden;
+		display: contents;
 	}
 
 	&__container {
