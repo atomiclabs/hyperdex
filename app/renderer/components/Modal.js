@@ -11,19 +11,29 @@ class Modal extends React.Component {
 		delay: 400,
 	};
 
+	static getDerivedStateFromProps(props, state) {
+		if (!state.open && props.open) {
+			return {
+				isOpen: true,
+				animationType: 'open',
+			};
+		}
+
+		if (state.open && !props.open) {
+			if (props.onClose) {
+				props.onClose();
+			}
+
+			return {animationType: 'close'};
+		}
+	}
+
 	state = {
 		isOpen: false,
 		animationType: 'close',
 	};
 
 	elementRef = React.createRef();
-
-	openHandler = () => {
-		this.setState({
-			isOpen: true,
-			animationType: 'open',
-		});
-	};
 
 	closeHandler = () => {
 		if (this.props.onClose) {
@@ -64,14 +74,6 @@ class Modal extends React.Component {
 			if (input) {
 				input.focus();
 			}
-		}
-	}
-
-	componentWillReceiveProps(nextProps) {
-		if (!this.props.open && nextProps.open) {
-			this.openHandler();
-		} else if (this.props.open && !nextProps.open) {
-			this.closeHandler();
 		}
 	}
 

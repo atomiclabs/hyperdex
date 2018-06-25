@@ -29,12 +29,6 @@ class Tooltip extends React.PureComponent {
 		isOpen: false,
 	}
 
-	componentWillReceiveProps({content}) {
-		if (typeof this.updatePopper === 'function' && this.props.content !== content) {
-			this.updatePopper();
-		}
-	}
-
 	handleMouseEnter = () => {
 		this.setState({isOpen: true});
 	}
@@ -46,6 +40,11 @@ class Tooltip extends React.PureComponent {
 	render() {
 		const {animationDuration, children, content, margin, onClose, position} = this.props;
 		const {isOpen} = this.state;
+
+		if (typeof this.updatePopper === 'function') {
+			this.updatePopper();
+		}
+
 		const tooltip = (
 			<Popper placement={position} modifiers={{offset: {offset: `0, ${margin}`}}}>
 				{({arrowProps, placement, ref, scheduleUpdate, style}) => {

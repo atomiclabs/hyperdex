@@ -3,6 +3,10 @@ import {classNames} from 'react-extras';
 import './TextArea.scss';
 
 class TextArea extends React.Component {
+	static getDerivedStateFromProps(props, state) {
+		return props.value === state.value ? null : {value: props.value};
+	}
+
 	state = {
 		value: this.props.value,
 	};
@@ -35,12 +39,6 @@ class TextArea extends React.Component {
 			}
 		});
 	};
-
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.value !== this.state.value) {
-			this.setState({value: nextProps.value});
-		}
-	}
 
 	render() {
 		let {

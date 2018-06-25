@@ -176,8 +176,7 @@
 			"unicorn/filename-case": "off",
 			"import/exports-last": "error",
 			"react/prop-types": "off",
-			"react/require-default-props": "off",
-			"react/no-deprecated": "off"
+			"react/require-default-props": "off"
 		}
 	},
 	"stylelint": {

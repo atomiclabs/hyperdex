@@ -19,6 +19,8 @@ document.documentElement.classList.add(`os-${process.platform}`);
 
 render((
 	<Provider>
-		<App/>
+		<React.StrictMode>
+			<App/>
+		</React.StrictMode>
 	</Provider>
 ), document.querySelector('#root'));
