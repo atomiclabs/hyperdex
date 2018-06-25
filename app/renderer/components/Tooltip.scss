@@ -6,10 +6,6 @@
 	transition-property: opacity, transform;
 	transition-timing-function: ease-out;
 
-	&__target {
-		display: contents;
-	}
-
 	&__container {
 		z-index: 1100;
 	}

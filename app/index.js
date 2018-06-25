@@ -87,7 +87,7 @@ function createMainWindow() {
 		darkTheme: isDarkMode, // GTK+3
 		webPreferences: {
 			webviewTag: false, // Disabled for security reasons since we don't use it
-			blinkFeatures: 'CSSBackdropFilter, CSSDisplayContents',
+			blinkFeatures: 'CSSBackdropFilter',
 		},
 	});
 
