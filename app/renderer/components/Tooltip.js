@@ -98,6 +98,7 @@ class Tooltip extends React.PureComponent {
 					{({ref}) => (
 						<div
 							ref={ref}
+							className="Tooltip__target"
 							onMouseEnter={this.handleMouseEnter}
 							onMouseLeave={this.handleMouseLeave}
 						>
