@@ -7,6 +7,7 @@
 		"name": "Portfolio Name",
 		"next": "Next",
 		"password": "Password",
+		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
 		"securityTitle": "Important: please back up your seed phrase now!",
 		"seedPhrase": "Seed Phrase for Your Portfolio",
 		"success": "New portfolio added!",

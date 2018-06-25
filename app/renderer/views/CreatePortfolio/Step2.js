@@ -12,7 +12,7 @@ import {withState} from 'containers/SuperContainer';
 import {instance, translate} from '../../translate';
 import './CreatePortfolio.scss';
 
-const t = translate('portfolio');
+const t = translate(['portfolio', 'common']);
 
 const CreatePortfolioStep2 = ({setState, ...props}) => {
 	// TODO(sindresorhus): Fill in the link to security best practices
@@ -39,7 +39,7 @@ const CreatePortfolioStep2 = ({setState, ...props}) => {
 					</div>
 					<div className="button button--copy">
 						<Tooltip
-							content={isCopied ? 'Copied' : 'Copy'}
+							content={isCopied ? t('copied') : t('copy')}
 							onClose={() => {
 								setState({isCopied: false});
 							}}

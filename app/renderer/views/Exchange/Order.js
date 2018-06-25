@@ -67,7 +67,7 @@ const Center = props => {
 				<table>
 					<thead>
 						<tr>
-							<th>Price ({state.quoteCurrency})</th>
+							<th>{t('order.price', {symbol: state.quoteCurrency})}</th>
 							<th>{t('order.averageVolume')}</th>
 							<th>{t('order.maxVolume')}</th>
 						</tr>

@@ -10,12 +10,12 @@ import {withState} from 'containers/SuperContainer';
 import {translate} from '../../translate';
 import './DepositModal.scss';
 
-const t = translate('dashboard');
+const t = translate(['dashboard', 'common']);
 
 const CopyIconButton = withState(
 	({setState, state, ...props}) => (
 		<Tooltip
-			content={state.isCopied ? 'Copied' : 'Copy'}
+			content={state.isCopied ? t('copied') : t('copy')}
 			onClose={() => {
 				setState({isCopied: false});
 			}}
