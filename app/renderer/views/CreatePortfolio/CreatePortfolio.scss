@@ -2,26 +2,33 @@
 
 .CreatePortfolio {
 	.generated-seed-phrase-container {
+		align-items: center;
 		background-color: rgba(248, 7, 89, 0.05);
 		border: 1px solid var(--error-color);
 		color: var(--error-color);
+		display: flex;
 		border-radius: 4px;
-		position: relative;
-		padding: 10px 60px;
+		padding: 10px 0;
 
-		.ReloadButton {
-			@include center-vertically;
-			left: 12px;
+		.button {
+			display: flex;
+			flex-basis: 60px;
+			padding: 0 12px;
 		}
 
-		.CopyButton {
-			@include center-vertically;
-			right: 12px;
+		.button--reload {
+			justify-content: flex-start;
+		}
+
+		.button--copy {
+			justify-content: flex-end;
 		}
 
 		.seed-phrase {
-			margin: 0 auto;
+			display: flex;
+			flex: 1;
 			font-size: 17px;
+			justify-content: center;
 		}
 	}
 
