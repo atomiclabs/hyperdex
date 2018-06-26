@@ -28,6 +28,12 @@ class ExchangeContainer extends SuperContainer {
 	componentDidInitialMount() {
 		this.setSwapHistory();
 		appContainer.swapDB.on('change', this.setSwapHistory);
+		appContainer.api.socket.on('message', message => {
+			const uuids = this.state.swapHistory.map(swap => swap.uuid);
+			if (uuids.includes(message.uuid)) {
+				appContainer.swapDB.updateSwapData(message);
+			}
+		});
 	}
 
 	constructor() {
