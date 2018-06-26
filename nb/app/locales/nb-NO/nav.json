@@ -1,7 +1,7 @@
 {
-	"dashboard": "Dashboard",
-	"exchange": "Exchange",
-	"settings": "Settings",
-	"swap": "Swap",
-	"trades": "Trades"
+	"dashboard": "Start",
+	"exchange": "Børs",
+	"settings": "Innstillinger",
+	"swap": "Bytte",
+	"trades": "Handler"
 }
