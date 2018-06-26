@@ -10,8 +10,19 @@ i18next
 	.use(i18nextBackend)
 	.init({
 		debug: isDevelopment,
-		fallbackLng: 'en',
-		whitelist: ['ar', 'en', 'de', 'es', 'fr', 'ja', 'ko', 'ru', 'tr', 'zh'],
+		fallbackLng: 'en-US',
+		whitelist: [
+			'ar',
+			'en',
+			'de',
+			'es-ES',
+			'fr',
+			'ja',
+			'ko',
+			'ru',
+			'tr',
+			'zh-CN',
+		],
 		nonExplicitWhitelist: true,
 		ns: [
 			'app',
