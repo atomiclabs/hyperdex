@@ -1,0 +1,19 @@
+{
+	"tempMessageDescription": "Simple atomic swaps with minimal user interaction",
+	"tempMessageTitle": "Coming soon…",
+	"title": "Swap",
+	"details": {
+		"copyDebugData": "Copy Swap Debug Data",
+		"for": "For",
+		"order": "Order",
+		"price": "Price",
+		"stats": "The executed price was {{percentCheaperThanRequested}}% cheaper than requested!",
+		"transactions": "Transactions",
+		"yourOffer": "Your offer",
+		"view": "View"
+	},
+	"list": {
+		"cancel": "Cancel",
+		"empty": "No swaps yet"
+	}
+}
