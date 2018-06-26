@@ -6,3 +6,6 @@ script:
   - brew install rpm
   - npm test
   - npm run dist
+branches:
+  except:
+  - l10n_master
