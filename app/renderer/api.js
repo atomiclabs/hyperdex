@@ -376,14 +376,4 @@ export default class Api {
 		this.queue.pause();
 		this.queue.clear();
 	}
-
-	subscribeToSwap(uuid) {
-		ow(uuid, uuidPredicate.label('uuid'));
-
-		if (!this.socket) {
-			throw new Error('Swap subscriptions require the socket to be enabled');
-		}
-
-		return this.socket.subscribeToSwap(uuid);
-	}
 }
