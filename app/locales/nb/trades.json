@@ -1,0 +1,6 @@
+{
+	"openOrders": "Åpne handler",
+	"swapHistory": "Bytte historikk",
+	"stats": "I den siste måneden utførte du {{count}} vellykket handel i {{currencyCount}} valutaer verdt {{totalSwapsWorthInUsd}} totalt",
+	"stats_plural": "I den siste måneden utførte du {{count}} vellykkede handler i {{currencyCount}} valutaer verdt {{totalSwapsWorthInUsd}} totalt"
+}

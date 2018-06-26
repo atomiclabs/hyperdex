@@ -1,0 +1,53 @@
+{
+	"intro": {
+		"title": "✨Takk for at du hjelper oss med å teste HyperDEX!",
+		"description": "<0>Vær oppmerksom på at <1>dette prosjektet er fortsatt i alpha-versjon</1>.</0><1>Selv om tap av midler er usannsynlig, bør du bare handle med ekte valuta hvis du kan ta den risikoen.</1><2>Hvis du bare vil teste HyperDEX, kan du prøve å handle mellom testvalutaene <1>BEER</1> og <3>PIZZA</3> i stedet. Du kan få gratis <5>BEER</5> på <7><0>BEER</0> kranen</7>.</2><3>HyperDEX er åpen kildekode programvare levert &qoute;som den er&qoute;, uten garanti av noe slag. Forfatterne eller rettighetshaverne er ikke ansvarlige for eventuelle skader forårsaket som følge av bruk av denne programvaren.</3><4>Ved å bruke HyperDEX godtar du vilkårene i <1>MIT-lisensen </1>.</4>"
+	},
+	"activity": {
+		"noActivity": "Ingen aktivitet",
+		"recentActivity": "Nylig aktivitet",
+		"swapFailedTitle": "Byttet ikke",
+		"swapTitle": "Byttet",
+		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+	},
+	"chart": {
+		"noData": "Ingen data tilgjengelig",
+		"portfolioValue": "Porteføljeverdi",
+		"symbolChart": "{{symbol}} diagram"
+	},
+	"deposit": {
+		"copy": "Kopier",
+		"copied": "Kopiert",
+		"label": "Innskudd",
+		"title": "Din {{name}} ({{symbol}}) lommebokadresse",
+		"warning": "Kontroller at du bare sender {{symbol}} til denne adressen"
+	},
+	"info": {
+		"assets": "eiendel",
+		"assets_plural": "eiendeler",
+		"holdings": "{{symbol}} beholdning",
+		"price": "{{symbol}} pris",
+		"value": "{{symbol}} beholdningsverdi"
+	},
+	"list": {
+		"emptyWallet": "Tom lommebok",
+		"search": "Søk…"
+	},
+	"wallet": {
+		"info": "{{symbol}} lommebok",
+		"recentActivity": "Nylig aktivitet"
+	},
+	"withdraw": {
+		"amountLabel": "Beløp",
+		"confirmNetworkFee": "Bekreft nettverksavgift",
+		"label": "Uttak",
+		"maxAmount": "Maks",
+		"networkFee": "Nettverksavgift",
+		"recipientLabel": "Mottaker",
+		"recipientPlaceholder": "Skriv inn {{symbol}} adresse",
+		"remainingBalance": "Gjenværende saldo",
+		"successDescription": "{{amount}} {{symbol}} sendt til {{address}}",
+		"successTitle": "Vellykket uttak!",
+		"title": "Ta ut {{name}} ({{symbol}})"
+	}
+}

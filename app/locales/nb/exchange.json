@@ -1,0 +1,34 @@
+{
+	"cancel": "Avbryt",
+	"chart": {
+		"depth": "{{baseCurrency}}/{{quoteCurrency}} dybde diagram"
+	},
+	"confirmQuitTitle": "Er du sikker på at du vil avslutte?",
+	"confirmQuitDescription": "Du har pågående byttehandler. HyperDEX vil forsøke å fortsette byttehandlene neste gang du kjører appen, men vi anbefaler at du lar HyperDEX gjøre seg ferdig først.",
+	"intro": {
+		"description": " <0>HyperDEX er en desentralisert børs. Den har en P2P ordrebok og handler gjøres via <1>kryss-kjede atombytteavtaler</1>. Det betyr at det fungerer litt annerledes enn en sentralisert børs.</0> <1>Ordrer kan ta en stund å spre seg i P2P-nettverket. Du må vente litt før ordreboken vises.</1> <2>HyperDEX krever at du har riktig størrelse på <1>UTXO</1> for å utføre et vellykket bytte. Du kan utføre bare ett bytte per UTXO. Den beste måten å forsikre at du kan delta i et bytte er å utføre to eller tre mindre innskudd til kontoen i stedet for ett stort innskudd.</2> <3>Et atombytte består av seks på-kjede transaksjoner. Når du bytter en valuta med høy transaksjonsgebyr, er det viktig å øke prisen litt. Dette er spesielt viktig når bytter små beløp.</3>",
+		"title": "Hvordan handel fungerer med HyperDEX"
+	},
+	"order": {
+		"amount": "Beløp {{symbol}}",
+		"averageVolume": "Snitt volum",
+		"buy": "Kjøpe",
+		"buyOrders": "Kjøpe ordrer",
+		"failedTrade": "Kunne ikke {{type}} {{baseCurrency}}",
+		"maxOnePendingSwap": "Bare et ventende bytte om gangen, prøv igjen om {{wait}} sekunder.",
+		"maxPrice": "Maks",
+		"maxVolume": "Maksvolum",
+		"price": "Pris {{symbol}}",
+		"sell": "Selge",
+		"sellOrders": "Selge ordrer",
+		"symbolBalance": "Balanse: {{balance}} {{symbol}}",
+		"total": "Totalt {{symbol}}",
+		"unexpectedError": "Noe uventet skjedde. Er du sikker på at du har nok UTXO?",
+		"worth": "Dette byttet er verdt {{swapWorthInUsd}}"
+	},
+	"quit": "Avslutt",
+	"swaps": {
+		"all": "Alle",
+		"title": "Bytter"
+	}
+}
