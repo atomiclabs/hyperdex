@@ -1,34 +1,34 @@
 {
 	"debug": {
 		"copySwapsClipboard": "Copy Swaps to Clipboard",
-		"deleteAppData": "Delete App Data",
-		"deletePortfolios": "Delete Portfolios",
-		"deleteSettings": "Delete Settings",
+		"deleteAppData": "Slett data",
+		"deletePortfolios": "Slett porteføljer",
+		"deleteSettings": "Slett innstillinger",
 		"logContainerState": "Log Container State",
 		"logStateChanges": "Toggle Logging on State Changes",
 		"logSwaps": "Log Swaps",
 		"showAppData": "Show App Data",
 		"showPortfolios": "Show Portfolios",
-		"showSettings": "Show Settings"
+		"showSettings": "Vis innstillinger"
 	},
 	"help": {
 		"about": "About {{appName}}",
-		"reportIssue": "Report an issue…",
-		"sourceCode": "Source code",
-		"website": "Website"
+		"reportIssue": "Rapporter et problem…",
+		"sourceCode": "Kildekode",
+		"website": "Nettsted"
 	},
 	"other": {
-		"file": "File"
+		"file": "Fil"
 	},
 	"portfolio": {
 		"dashboard": "Dashboard",
 		"exchange": "Exchange",
-		"goToPrevView": "Go to Previous View",
-		"goToNextView": "Go to Next View",
-		"logOut": "Log Out",
-		"settings": "Settings",
+		"goToPrevView": "Gå til forrige visning",
+		"goToNextView": "Gå til neste visning",
+		"logOut": "Logg ut",
+		"settings": "Innstillinger",
 		"swap": "Swap",
-		"title": "Portfolio",
+		"title": "Portefølje",
 		"trades": "Trades"
 	}
 }
