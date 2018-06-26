@@ -8,9 +8,12 @@ import tradesContainer from 'containers/Trades';
 import View from 'components/View';
 import SwapList from 'components/SwapList';
 import {formatCurrency} from '../util';
+import {translate} from '../translate';
 import AppTabView from './TabView';
 import './Exchange/Swaps.scss';
 import './Trades.scss';
+
+const t = translate('trades');
 
 const TabButton = props => (
 	<span
@@ -57,17 +60,23 @@ const Trades = props => (
 					<header>
 						<nav>
 							<TabButton
-								title="Open Orders"
+								title={t('openOrders')}
 								component={OpenOrders}
 							/>
 							<TabButton
-								title="Swap History"
+								title={t('swapHistory')}
 								component={SwapHistory}
 							/>
 						</nav>
 						<div className="stats">
 							{stats &&
-								<p>In the last month you did {stats.successfulSwapCount} successful {stats.successfulSwapCount === 1 ? 'trade' : 'trades'} in {stats.currencyCount} {stats.currencyCount === 1 ? 'currency' : 'currencies'} worth {formatCurrency(stats.totalSwapsWorthInUsd)} in total</p>
+								<p>
+									{t('stats', {
+										count: stats.successfulSwapCount,
+										currencyCount: stats.currencyCount,
+										totalSwapsWorthInUsd: formatCurrency(stats.totalSwapsWorthInUsd),
+									})}
+								</p>
 							}
 						</div>
 					</header>

@@ -1,8 +1,11 @@
 import React from 'react';
 import dashboardContainer from 'containers/Dashboard';
+import {translate} from '../../translate';
 import WithdrawModal from './WithdrawModal';
 import DepositModal from './DepositModal';
 import './WalletInfo.scss';
+
+const t = translate('dashboard');
 
 const WalletInfo = () => {
 	const {activeCurrency} = dashboardContainer;
@@ -12,11 +15,11 @@ const WalletInfo = () => {
 		<div className="Wallet--Info">
 			<div className="currency-info">
 				<div className="item">
-					<h6>{activeCurrency.symbol} Holdings</h6>
+					<h6>{t('info.holdings', {symbol: activeCurrency.symbol})}</h6>
 					<span>{activeCurrency.balanceFormatted}</span>
 				</div>
 				<div className="item">
-					<h6>{activeCurrency.symbol} Price</h6>
+					<h6>{t('info.price', {symbol: activeCurrency.symbol})}</h6>
 					<span>{activeCurrency.cmcPriceUsdFormatted}</span>
 					{activeCurrency.cmcPercentChange24h &&
 						<div className={`price-change ${priceChangeClass}`}>
@@ -26,7 +29,7 @@ const WalletInfo = () => {
 					}
 				</div>
 				<div className="item">
-					<h6>{activeCurrency.symbol} Holdings Value</h6>
+					<h6>{t('info.value', {symbol: activeCurrency.symbol})}</h6>
 					<span>{activeCurrency.cmcBalanceUsdFormatted}</span>
 				</div>
 			</div>

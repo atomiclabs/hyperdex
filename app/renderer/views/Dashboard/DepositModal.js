@@ -7,12 +7,15 @@ import Input from 'components/Input';
 import Tooltip from 'components/Tooltip';
 import dashboardContainer from 'containers/Dashboard';
 import {withState} from 'containers/SuperContainer';
+import {translate} from '../../translate';
 import './DepositModal.scss';
+
+const t = translate(['dashboard', 'common']);
 
 const CopyIconButton = withState(
 	({setState, state, ...props}) => (
 		<Tooltip
-			content={state.isCopied ? 'Copied' : 'Copy'}
+			content={state.isCopied ? t('copied') : t('copy')}
 			onClose={() => {
 				setState({isCopied: false});
 			}}
@@ -51,7 +54,7 @@ class DepositModal extends React.Component {
 			<div className="modal-wrapper">
 				<Modal
 					className="DepositModal"
-					title={`Your ${currencyInfo.name} (${currencyInfo.symbol}) Wallet Address`}
+					title={t('deposit.title', {name: currencyInfo.name, symbol: currencyInfo.symbol})}
 					open={this.state.isOpen}
 					onClose={this.close}
 					width="445px"
@@ -65,11 +68,11 @@ class DepositModal extends React.Component {
 						</div>
 						<div className="section infobox">
 							<img src="/assets/info-icon.svg" width="26" height="26"/>
-							<p>Make sure you only send {currencyInfo.symbol} to this address</p>
+							<p>{t('deposit.warning', {symbol: currencyInfo.symbol})}</p>
 						</div>
 					</React.Fragment>
 				</Modal>
-				<Button className="OpenModalButton" value="Deposit" onClick={this.open}/>
+				<Button className="OpenModalButton" value={t('deposit.label')} onClick={this.open}/>
 			</div>
 		);
 	}

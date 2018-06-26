@@ -7,7 +7,10 @@ import Link from 'components/Link';
 import appContainer from 'containers/App';
 import dashboardContainer from 'containers/Dashboard';
 import {formatCurrency} from '../../util';
+import {translate} from '../../translate';
 import './WithdrawModal.scss';
+
+const t = translate('dashboard');
 
 const getInitialProps = () => ({
 	isOpen: false,
@@ -58,8 +61,8 @@ class WithdrawModal extends React.Component {
 		// TODO: The notification should be clickable and open a block explorer for the currency.
 		// We'll need to have a list of block explorers for each currency.
 		// eslint-disable-next-line no-new
-		new Notification('Successful withdrawal!', {
-			body: `${amount} ${currency} sent to ${address}`,
+		new Notification(t('withdraw.successTitle'), {
+			body: t('withdraw.successDescription', {address, amount, symbol: currency}),
 		});
 
 		this.close();
@@ -81,17 +84,17 @@ class WithdrawModal extends React.Component {
 			<div className="modal-wrapper">
 				<Modal
 					className="WithdrawModal"
-					title={`Withdraw ${currencyInfo.name} (${currencyInfo.symbol})`}
+					title={t('withdraw.title', {name: currencyInfo.name, symbol: currencyInfo.symbol})}
 					open={this.state.isOpen}
 					onClose={this.close}
 				>
 					<React.Fragment>
 						<div className="section">
-							<label>Recipient:</label>
+							<label>{t('withdraw.recipientLabel')}:</label>
 							<Input
 								value={this.state.recipientAddress}
 								required
-								placeholder={`Enter ${currencyInfo.symbol} Address`}
+								placeholder={t('withdraw.recipientPlaceholder', {symbol: currencyInfo.symbol})}
 								disabled={this.state.isWithdrawing}
 								onChange={value => {
 									this.setState({recipientAddress: value});
@@ -99,7 +102,7 @@ class WithdrawModal extends React.Component {
 							/>
 						</div>
 						<div className="section">
-							<label>Amount:</label>
+							<label>{t('withdraw.amountLabel')}:</label>
 							<div className="amount-inputs">
 								<Input
 									value={this.state.amount}
@@ -140,17 +143,17 @@ class WithdrawModal extends React.Component {
 										setAmount(maxAmount);
 									}}
 								>
-									(Max)
+									{t('withdraw.maxAmount')}
 								</Link>
 							</div>
 						</div>
 						<div className="section">
 							<div className="info">
-								<span>Remaining balance:</span>
+								<span>{t('withdraw.remainingBalance')}:</span>
 								<span className={remainingBalance < 0 ? 'negative-balance' : ''}>{remainingBalance} {currencyInfo.symbol}</span>
 							</div>
 							<div className={`info ${this.state.broadcast || 'hidden'}`}>
-								<span>Network Fee:</span>
+								<span>{t('withdraw.networkFee')}:</span>
 								<span>{this.state.txFee} {currencyInfo.symbol} ({formatCurrency(this.state.txFee * currencyInfo.cmcPriceUsd)})</span>
 							</div>
 						</div>
@@ -158,7 +161,7 @@ class WithdrawModal extends React.Component {
 							<Button
 								className="confirm-button"
 								primary
-								value="Confirm Network Fee"
+								value={t('withdraw.confirmNetworkFee')}
 								disabled={this.state.isBroadcasting}
 								onClick={this.confirmButtonHandler}
 							/>
@@ -166,7 +169,7 @@ class WithdrawModal extends React.Component {
 							<Button
 								className="withdraw-button"
 								primary
-								value="Withdraw"
+								value={t('withdraw.label')}
 								disabled={
 									!this.state.recipientAddress ||
 									!this.state.amount ||
@@ -180,7 +183,7 @@ class WithdrawModal extends React.Component {
 				</Modal>
 				<Button
 					className="OpenModalButton"
-					value="Withdraw"
+					value={t('withdraw.label')}
 					disabled={!currencyInfo.balance}
 					onClick={this.open}
 				/>

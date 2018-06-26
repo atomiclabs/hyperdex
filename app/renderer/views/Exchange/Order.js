@@ -8,7 +8,10 @@ import CurrencySelectOption from 'components/CurrencySelectOption';
 import exchangeContainer from 'containers/Exchange';
 import appContainer from 'containers/App';
 import {formatCurrency} from '../../util';
+import {translate} from '../../translate';
 import './Order.scss';
+
+const t = translate('exchange');
 
 class Top extends React.Component {
 	handleSelectChange = selectedOption => {
@@ -38,7 +41,12 @@ class Top extends React.Component {
 					valueRenderer={CurrencySelectOption}
 					optionRenderer={CurrencySelectOption}
 				/>
-				<h3 className="balance">Balance: {roundTo(selectedCurrency.balance, 8)} {selectedCurrency.symbol}</h3>
+				<h3 className="balance">
+					{t('order.symbolBalance', {
+						balance: roundTo(selectedCurrency.balance, 8),
+						symbol: selectedCurrency.symbol,
+					})}
+				</h3>
 				<p className="address">{selectedCurrency.address}</p>
 			</div>
 		);
@@ -54,14 +62,14 @@ const Center = props => {
 
 	return (
 		<div className="center">
-			<h3>{`${state.baseCurrency} ${props.type === 'buy' ? 'Sell' : 'Buy'} Orders`}</h3>
+			<h3>{`${state.baseCurrency} ${props.type === 'buy' ? t('order.sellOrders') : t('order.buyOrders')}`}</h3>
 			<div className="table-wrapper">
 				<table>
 					<thead>
 						<tr>
-							<th>Price ({state.quoteCurrency})</th>
-							<th>Avg Vol</th>
-							<th>Max Vol</th>
+							<th>{t('order.price', {symbol: state.quoteCurrency})}</th>
+							<th>{t('order.averageVolume')}</th>
+							<th>{t('order.maxVolume')}</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -109,7 +117,7 @@ class Bottom extends React.Component {
 
 		const orderError = error => {
 			// eslint-disable-next-line no-new
-			new Notification(`Failed to ${type} ${baseCurrency}`, {body: error});
+			new Notification(t('order.failedTrade', {baseCurrency, type}), {body: error});
 			exchangeContainer.setIsSendingOrder(false);
 			this.setState({hasError: true});
 		};
@@ -121,7 +129,7 @@ class Bottom extends React.Component {
 		if (result.error) {
 			let {error} = result;
 			if (error === 'only one pending request at a time') {
-				error = `Only one pending swap at a time, try again in ${result.wait} seconds.`;
+				error = t('order.maxOnePendingSwap', {wait: result.wait});
 			}
 			orderError(error);
 			return;
@@ -129,7 +137,7 @@ class Bottom extends React.Component {
 
 		// TODO: Temp workaround for marketmaker issue
 		if (!result.pending) {
-			orderError('Something unexpected happened. Are you sure you have enough UTXO?');
+			orderError(t('order.unexpectedError'));
 			return;
 		}
 
@@ -194,7 +202,7 @@ class Bottom extends React.Component {
 				onClick={this.maxPriceButtonHandler}
 				disabled={orderBook.length === 0}
 			>
-				MAX
+				{t('order.maxPrice')}
 			</div>
 		);
 
@@ -205,7 +213,7 @@ class Bottom extends React.Component {
 				<form onSubmit={this.handleSubmit}>
 					<h3>{`${typeTitled} ${state.baseCurrency}`}</h3>
 					<div className="form-section">
-						<label>Price ({state.quoteCurrency}):</label>
+						<label>{t('order.price', {symbol: state.quoteCurrency})}</label>
 						<Input
 							className="price-input"
 							required
@@ -217,7 +225,7 @@ class Bottom extends React.Component {
 						/>
 					</div>
 					<div className="form-section">
-						<label>Amount ({state.baseCurrency}):</label>
+						<label>{t('order.amount', {symbol: state.baseCurrency})}</label>
 						<Input
 							required
 							onlyNumeric
@@ -228,7 +236,7 @@ class Bottom extends React.Component {
 						/>
 					</div>
 					<div className="form-section total-section">
-						<label>Total ({state.quoteCurrency}):</label>
+						<label>{t('order.total', {symbol: state.quoteCurrency})}</label>
 						<Input
 							required
 							onlyNumeric
@@ -238,7 +246,7 @@ class Bottom extends React.Component {
 						/>
 						{Number(this.props.total) > 0 &&
 							<p className="swap-worth">
-								This swap is worth {swapWorthInUsd}
+								{t('order.worth', {swapWorthInUsd})}
 							</p>
 						}
 					</div>

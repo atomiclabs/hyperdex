@@ -2,6 +2,7 @@ import electron from 'electron';
 import React from 'react';
 import _ from 'lodash';
 import {Subscribe} from 'unstated';
+import {Trans} from 'react-i18next';
 import appContainer from 'containers/App';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import Select from 'components/Select';
@@ -9,10 +10,12 @@ import Link from 'components/Link';
 import {getCurrencySymbols, getCurrencyName} from '../../marketmaker/supported-currencies';
 import {isDevelopment} from '../../util-common';
 import {alwaysEnabledCurrencies} from '../../constants';
+import {instance, translate} from '../translate';
 import TabView from './TabView';
 import './Settings.scss';
 
 const config = electron.remote.require('./config');
+const t = translate('settings');
 
 class CurrencySelection extends React.Component {
 	handleSelectChange = options => {
@@ -42,7 +45,7 @@ class CurrencySelection extends React.Component {
 		return (
 			<div className="form-group">
 				<label>
-					Enabled Currencies:
+					{t('enabledCurrencies')}
 				</label>
 				<Select
 					className="enabled-currencies"
@@ -84,16 +87,18 @@ class Settings extends React.Component {
 				{() => (
 					<TabView title="Settings" className="Settings">
 						<header>
-							<h2>Settings</h2>
+							<h2>{t('title')}</h2>
 						</header>
 						<main>
 							<div className="section">
-								<h3>Portfolio</h3>
+								<h3>{t('portfolio')}</h3>
 								<CurrencySelection/>
 							</div>
 							<div className="section">
-								<h3>App</h3>
-								<p><Link onClick={this.handleLogOutLinkClick}>Log out</Link> to see app settings.</p>
+								<h3>{t('app')}</h3>
+								<Trans i18n={instance} i18nKey="logOutAppSettings" t={t}>
+									<p><Link onClick={this.handleLogOutLinkClick}>Log out</Link> to see app settings.</p>
+								</Trans>
 							</div>
 						</main>
 					</TabView>

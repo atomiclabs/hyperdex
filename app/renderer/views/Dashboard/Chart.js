@@ -2,7 +2,10 @@ import React from 'react';
 import {classNames} from 'react-extras';
 import TimeSeriesChart from 'components/TimeSeriesChart';
 import dashboardContainer from 'containers/Dashboard';
+import {translate} from '../../translate';
 import './Chart.scss';
+
+const t = translate('dashboard');
 
 const ResolutionButton = props => {
 	const setResolution = () => {
@@ -40,7 +43,7 @@ const Chart = () => {
 				resolution={state.currencyHistoryResolution}
 			/>
 			<div className="overlay">
-				<h3>{activeView === 'Portfolio' ? 'Portfolio Value' : `${symbol} Chart`}</h3>
+				<h3>{activeView === 'Portfolio' ? t('chart.portfolioValue') : t('chart.symbolChart', {symbol})}</h3>
 				{data &&
 					<div className="resolution-buttons">
 						<ResolutionButton title="1h" resolution="hour"/>
@@ -54,7 +57,7 @@ const Chart = () => {
 			</div>
 			{!data &&
 				<div className="Empty">
-					<p>No data available</p>
+					<p>{t('chart.noData')}</p>
 				</div>
 			}
 		</div>

@@ -1,11 +1,14 @@
 import React from 'react';
 import BackArrow from 'icons/BackArrow';
+import {translate} from '../translate';
+
+const t = translate('common');
 
 const BackTextButton = props => (
 	<React.Fragment>
 		<div {...props}>
 			<BackArrow size="14px"/>
-			<span>Back</span>
+			<span>{t('back')}</span>
 		</div>
 		<style jsx>
 			{`

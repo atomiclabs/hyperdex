@@ -4,7 +4,10 @@ import {format as formatDate} from 'date-fns';
 import appContainer from 'containers/App';
 import Empty from 'components/Empty';
 import SwapDetails from 'components/SwapDetails';
+import {translate} from '../translate';
 import './SwapList.scss';
+
+const t = translate('swap');
 
 // eslint-disable-next-line no-unused-vars
 class CancelButton extends React.Component {
@@ -33,7 +36,7 @@ class CancelButton extends React.Component {
 				disabled={swap.status !== 'pending' || this.state.isCancelling}
 				onClick={() => this.cancelSwap(swap.uuid)}
 			>
-				Cancel
+				{t('list.cancel')}
 			</button>
 		);
 	}
@@ -65,7 +68,7 @@ const SwapItem = ({swap}) => (
 
 const SwapList = ({swaps, showCancel}) => {
 	if (swaps.length === 0) {
-		return <Empty show text="No swaps yet"/>;
+		return <Empty show text={t('list.empty')}/>;
 	}
 
 	return (

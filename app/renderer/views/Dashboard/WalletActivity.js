@@ -6,7 +6,10 @@ import dashboardContainer from 'containers/Dashboard';
 import SwapDetails from 'components/SwapDetails';
 import Empty from 'components/Empty';
 import {formatCurrency} from '../../util';
+import {translate} from '../../translate';
 import './WalletActivity.scss';
+
+const t = translate('dashboard');
 
 // TODO(sindresorhus): If this view is still similar to the portfolio activity view in the future, we can refactor them into one component with some options. Keeping them separate for now to make it easier to make custom changes.
 
@@ -28,8 +31,13 @@ const ActivityItem = ({swap}) => {
 						TODO: Use something more proper than `Did Not Swap`
 						https://github.com/hyperdexapp/hyperdex/pull/160#discussion_r185178958
 					*/}
-					<div className="type-title">{swap.status === 'failed' ? 'Did Not Swap' : 'Swapped'}</div>
-					<div className="type-description">{swap.quoteCurrency} for {swap.baseCurrency}</div>
+					<div className="type-title">{swap.status === 'failed' ? t('activity.swapFailedTitle') : t('activity.swapTitle')}</div>
+					<div className="type-description">
+						{t('activity.swappedDescription', {
+							baseCurrency: swap.baseCurrency,
+							quoteCurrency: swap.quoteCurrency,
+						})}
+					</div>
 				</div>
 			</td>
 			<td className="value">
@@ -54,7 +62,7 @@ const ActivityItem = ({swap}) => {
 
 const ActivityList = ({items}) => {
 	if (items.length === 0) {
-		return <Empty show text="No activity yet"/>;
+		return <Empty show text={t('activity.noActivity')}/>;
 	}
 
 	// TODO: Only swaps for now, so this code assume swaps

@@ -9,7 +9,10 @@ import Button from 'components/Button';
 import {isDevelopment} from '../../util-common';
 import swapTransactions from '../swap-transactions';
 import {zeroPadFraction} from '../util';
+import {translate} from '../translate';
 import './SwapDetails.scss';
+
+const t = translate('swap');
 
 const stageToTitle = new Map([
 	['myfee', 'My Fee'],
@@ -96,9 +99,9 @@ class SwapDetails extends React.Component {
 					<p>
 						<span className="label">{title(swap.orderType)}:</span> {zeroPadFraction(swap[value].baseCurrencyAmount)} {baseCurrency}
 						<br/>
-						<span className="label">For:</span> {zeroPadFraction(swap[value].quoteCurrencyAmount)} {quoteCurrency}
+						<span className="label">{t('details.for')}:</span> {zeroPadFraction(swap[value].quoteCurrencyAmount)} {quoteCurrency}
 						<br/>
-						<span className="label">Price:</span> {zeroPadFraction(swap[value].price)} {quoteCurrency}
+						<span className="label">{t('details.price')}:</span> {zeroPadFraction(swap[value].price)} {quoteCurrency}
 					</p>
 				</div>
 			);
@@ -110,7 +113,7 @@ class SwapDetails extends React.Component {
 			<div className="modal-wrapper">
 				<Modal
 					className="SwapDetails"
-					title={`${baseCurrency}/${quoteCurrency} ${title(swap.orderType)} Order \u{00A0}• \u{00A0}${formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}`}
+					title={`${baseCurrency}/${quoteCurrency} ${title(swap.orderType)} ${t('details.order')} \u{00A0}• \u{00A0}${formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}`}
 					icon="/assets/swap-icon.svg"
 					open={this.state.isOpen}
 					onClose={this.close}
@@ -144,17 +147,21 @@ class SwapDetails extends React.Component {
 						</div>
 						<div className="section details">
 							<div className="offer-wrapper">
-								<h4>Your offer</h4>
+								<h4>{t('details.yourOffer')}</h4>
 								<div className="offer">
 									{prices}
 								</div>
 								{swap.executed.percentCheaperThanRequested > 0 && (
-									<p>The executed price was {swap.executed.percentCheaperThanRequested}% cheaper than requested!</p>
+									<p>
+										{t('details.stats', {
+											percentCheaperThanRequested: swap.executed.percentCheaperThanRequested,
+										})}
+									</p>
 								)}
 							</div>
 							{hasTransactions && (
 								<React.Fragment>
-									<h4>Transactions</h4>
+									<h4>{t('details.transactions')}</h4>
 									<div className="transactions">
 										{transactions}
 									</div>
@@ -163,7 +170,7 @@ class SwapDetails extends React.Component {
 							<p>ID: {swap.uuid}</p>
 							{isDevelopment &&
 								<Button
-									value="Copy Swap Debug Data"
+									value={t('details.copyDebugData')}
 									onClick={() => {
 										clipboard.writeText(JSON.stringify(swap, null, '\t'));
 									}}
@@ -172,7 +179,7 @@ class SwapDetails extends React.Component {
 						</div>
 					</React.Fragment>
 				</Modal>
-				<button type="button" className="view__button" onClick={this.open}>View</button>
+				<button type="button" className="view__button" onClick={this.open}>{t('details.view')}</button>
 			</div>
 		);
 	}

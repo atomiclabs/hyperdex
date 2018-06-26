@@ -4,7 +4,10 @@ import appContainer from 'containers/App';
 import exchangeContainer from 'containers/Exchange';
 import Empty from 'components/Empty';
 import {formatCurrency} from '../../util';
+import {translate} from '../../translate';
 import './Activity.scss';
+
+const t = translate('dashboard');
 
 const ActivityItem = ({swap}) => {
 	const {cmcPriceUsd} = appContainer.getCurrencyPrice(swap.baseCurrency);
@@ -20,8 +23,13 @@ const ActivityItem = ({swap}) => {
 			</td>
 			<td className="type">
 				<div>
-					<div className="type-title">Swapped</div>
-					<div className="type-description">{swap.quoteCurrency} for {swap.baseCurrency}</div>
+					<div className="type-title">{t('activity.swappedTitle')}</div>
+					<div className="type-description">
+						{t('activity.swappedDescription', {
+							baseCurrency: swap.baseCurrency,
+							quoteCurrency: swap.quoteCurrency,
+						})}
+					</div>
 				</div>
 			</td>
 			<td className="value">
@@ -34,7 +42,7 @@ const ActivityItem = ({swap}) => {
 
 const ActivityList = ({items}) => {
 	if (items.length === 0) {
-		return <Empty show text="No activity yet"/>;
+		return <Empty show text={t('activity.noActivity')}/>;
 	}
 
 	// TODO: Only swaps for now, so this code assume swaps
@@ -60,7 +68,7 @@ const Activity = () => {
 	return (
 		<div className="Dashboard--Activity">
 			<header>
-				<h3>Recent Activity</h3>
+				<h3>{t('activity.recentActivity')}</h3>
 			</header>
 			<main>
 				<ActivityList items={successfulSwaps}/>

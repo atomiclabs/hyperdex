@@ -4,9 +4,11 @@ import _ from 'lodash';
 import appContainer from 'containers/App';
 import Input from 'components/Input';
 import BackTextButton from 'components/BackTextButton';
+import {translate} from '../translate';
 import './Settings.scss';
 
 const config = remote.require('./config');
+const t = translate('app');
 
 class AppSettings extends React.Component {
 	state = {
@@ -33,12 +35,12 @@ class AppSettings extends React.Component {
 					<BackTextButton onClick={() => {
 						appContainer.setActiveView('Login');
 					}}/>
-					<h2>App Settings</h2>
+					<h2>{t('settings.title')}</h2>
 				</header>
 				<main>
 					<div className="form-group">
 						<label htmlFor="marketmakerUrl">
-							Custom Marketmaker URL:
+							{t('settings.customUrl')}:
 						</label>
 						<Input
 							name="marketmakerUrl"
@@ -49,8 +51,8 @@ class AppSettings extends React.Component {
 									this.setState({marketmakerUrl: ''});
 								}
 							}}
-							placeholder="Example: http://localhost:7783"
-							errorMessage={!isValidMarketmakerUrl && 'Invalid URL'}
+							placeholder={t('settings.exampleUrl', {url: 'http://localhost:7783'})}
+							errorMessage={!isValidMarketmakerUrl && t('settings.invalidUrl')}
 						/>
 					</div>
 				</main>

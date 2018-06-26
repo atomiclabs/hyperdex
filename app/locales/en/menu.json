@@ -16,5 +16,19 @@
 		"reportIssue": "Report an issue…",
 		"sourceCode": "Source code",
 		"website": "Website"
+	},
+	"other": {
+		"file": "File"
+	},
+	"portfolio": {
+		"dashboard": "Dashboard",
+		"exchange": "Exchange",
+		"goToPrevView": "Go to Previous View",
+		"goToNextView": "Go to Next View",
+		"logOut": "Log Out",
+		"settings": "Settings",
+		"swap": "Swap",
+		"title": "Portfolio",
+		"trades": "Trades"
 	}
 }
