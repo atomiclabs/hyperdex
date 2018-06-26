@@ -1,0 +1,47 @@
+{
+	"activity": {
+		"noActivity": "No activity yet",
+		"recentActivity": "Recent Activity",
+		"swapFailedTitle": "Did Not Swap",
+		"swapTitle": "Swapped",
+		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+	},
+	"chart": {
+		"noData": "No data available",
+		"portfolioValue": "Portfolio Value",
+		"symbolChart": "{{symbol}} Chart"
+	},
+	"deposit": {
+		"copy": "Copy",
+		"copied": "Copied",
+		"label": "Deposit",
+		"title": "Your {{name}} {{symbol}} Wallet Address",
+		"warning": "Make sure you only send {{symbol}} to this address"
+	},
+	"info": {
+		"holdings": "{{symbol}} Holdings",
+		"price": "{{symbol}} Price",
+		"value": "{{symbol}} Holdings Value"
+	},
+	"list": {
+		"emptyWallet": "Empty wallet",
+		"search": "Search…"
+	},
+	"wallet": {
+		"info": "{{symbol}} Wallet",
+		"recentActivity": "Recent Activity"
+	},
+	"withdraw": {
+		"amountLabel": "Amount",
+		"confirmNetworkFee": "Confirm Network Fee",
+		"label": "Withdraw",
+		"maxAmount": "Max",
+		"networkFee": "Network Fee",
+		"recipientLabel": "Recipient",
+		"recipientPlaceholder": "Enter {{symbol}} Address",
+		"remainingBalance": "Remaining balance",
+		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
+		"successTitle": "Successful withdrawal!",
+		"title": "Withdraw {{name}} ({{symbol}})"
+	}
+}

@@ -1,0 +1,8 @@
+{
+	"settings": {
+		"customUrl": "Egendefinert Marketmaker nettadresse",
+		"exampleUrl": "Eksempel: {{url}}",
+		"invalidUrl": "Ugyldig nettadresse",
+		"title": "App-innstillinger"
+	}
+}

@@ -1,0 +1,47 @@
+{
+	"activity": {
+		"noActivity": "Ingen aktivitet",
+		"recentActivity": "Nylig aktivitet",
+		"swapFailedTitle": "Byttet ikke",
+		"swapTitle": "Byttet",
+		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+	},
+	"chart": {
+		"noData": "Ingen data tilgjengelig",
+		"portfolioValue": "Porteføljeverdi",
+		"symbolChart": "{{symbol}} diagram"
+	},
+	"deposit": {
+		"copy": "Kopier",
+		"copied": "Kopiert",
+		"label": "Innskudd",
+		"title": "Din {{name}} {{symbol}} lommebokadresse",
+		"warning": "Kontroller at du bare sender {{symbol}} til denne adressen"
+	},
+	"info": {
+		"holdings": "{{symbol}} beholdning",
+		"price": "{{symbol}} pris",
+		"value": "{{symbol}} beholdningsverdi"
+	},
+	"list": {
+		"emptyWallet": "Tom lommebok",
+		"search": "Søk…"
+	},
+	"wallet": {
+		"info": "{{symbol}} lommebok",
+		"recentActivity": "Nylig aktivitet"
+	},
+	"withdraw": {
+		"amountLabel": "Beløp",
+		"confirmNetworkFee": "Bekreft nettverksavgift",
+		"label": "Uttak",
+		"maxAmount": "Maks",
+		"networkFee": "Nettverksavgift",
+		"recipientLabel": "Mottaker",
+		"recipientPlaceholder": "Skriv inn {{symbol}} adresse",
+		"remainingBalance": "Gjenværende saldo",
+		"successDescription": "{{amount}} {{symbol}} sendt til {{address}}",
+		"successTitle": "Vellykket uttak!",
+		"title": "Ta ut {{name}} ({{symbol}})"
+	}
+}
