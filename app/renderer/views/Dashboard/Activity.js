@@ -23,9 +23,9 @@ const ActivityItem = ({swap}) => {
 			</td>
 			<td className="type">
 				<div>
-					<div className="type-title">{t('activity.swappedTitle')}</div>
+					<div className="type-title">{t('activity.swapTitle')}</div>
 					<div className="type-description">
-						{t('activity.swappedDescription', {
+						{t('activity.swapDescription', {
 							baseCurrency: swap.baseCurrency,
 							quoteCurrency: swap.quoteCurrency,
 						})}
