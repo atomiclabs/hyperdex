@@ -22,6 +22,7 @@ i18next
 			'ru',
 			'tr',
 			'zh-CN',
+			'nb',
 		],
 		nonExplicitWhitelist: true,
 		ns: [

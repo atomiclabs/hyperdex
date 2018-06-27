@@ -143,7 +143,7 @@ class WithdrawModal extends React.Component {
 										setAmount(maxAmount);
 									}}
 								>
-									{t('withdraw.maxAmount')}
+									({t('withdraw.maxAmount')})
 								</Link>
 							</div>
 						</div>

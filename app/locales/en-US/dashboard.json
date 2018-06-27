@@ -15,7 +15,7 @@
 		"copy": "Copy",
 		"copied": "Copied",
 		"label": "Deposit",
-		"title": "Your {{name}} {{symbol}} Wallet Address",
+		"title": "Your {{name}} ({{symbol}}) Wallet Address",
 		"warning": "Make sure you only send {{symbol}} to this address"
 	},
 	"info": {
