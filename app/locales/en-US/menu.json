@@ -1,16 +1,4 @@
 {
-	"debug": {
-		"copySwapsClipboard": "Copy Swaps to Clipboard",
-		"deleteAppData": "Delete App Data",
-		"deletePortfolios": "Delete Portfolios",
-		"deleteSettings": "Delete Settings",
-		"logContainerState": "Log Container State",
-		"logStateChanges": "Toggle Logging on State Changes",
-		"logSwaps": "Log Swaps",
-		"showAppData": "Show App Data",
-		"showPortfolios": "Show Portfolios",
-		"showSettings": "Show Settings"
-	},
 	"help": {
 		"about": "About {{appName}}",
 		"reportIssue": "Report an issue…",

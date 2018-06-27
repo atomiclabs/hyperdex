@@ -72,14 +72,14 @@ const createDebugMenu = () => {
 		label: 'Debug',
 		submenu: [
 			{
-				label: t('debug.logContainerState'),
+				label: 'Log Container State',
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					await runJS('UNSTATED.logState()', win);
 				},
 			},
 			{
-				label: t('debug.logStateChanges'),
+				label: 'Toggle Logging on State Changes',
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					await runJS('UNSTATED.logStateChanges = !UNSTATED.logStateChanges', win);
@@ -89,14 +89,14 @@ const createDebugMenu = () => {
 				type: 'separator',
 			},
 			{
-				label: t('debug.logSwaps'),
+				label: 'Log Swaps',
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					await runJS('_swapDB.getSwaps().then(console.log)', win);
 				},
 			},
 			{
-				label: t('debug.copySwapsClipboard'),
+				label: 'Copy Swaps to Clipboard',
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					const swaps = await runJS('_swapDB.getSwaps()', win);
@@ -107,19 +107,19 @@ const createDebugMenu = () => {
 				type: 'separator',
 			},
 			{
-				label: t('debug.showPortfolios'),
+				label: 'Show Portfolios',
 				click() {
 					shell.openItem(path.join(app.getPath('userData'), 'portfolios'));
 				},
 			},
 			{
-				label: t('debug.showSettings'),
+				label: 'Show Settings',
 				click() {
 					config.openInEditor();
 				},
 			},
 			{
-				label: t('debug.showAppData'),
+				label: 'Show App Data',
 				click() {
 					shell.openItem(app.getPath('userData'));
 				},
@@ -137,7 +137,7 @@ const createDebugMenu = () => {
 				},
 			},
 			{
-				label: t('debug.deletePortfolios'),
+				label: 'Delete Portfolios',
 				click() {
 					const [win] = BrowserWindow.getAllWindows();
 					shell.moveItemToTrash(path.join(app.getPath('userData'), 'portfolios'));
@@ -145,7 +145,7 @@ const createDebugMenu = () => {
 				},
 			},
 			{
-				label: t('debug.deleteSettings'),
+				label: 'Delete Settings',
 				click() {
 					config.clear();
 					app.relaunch();
@@ -153,7 +153,7 @@ const createDebugMenu = () => {
 				},
 			},
 			{
-				label: t('debug.deleteAppData'),
+				label: 'Delete App Data',
 				click() {
 					shell.moveItemToTrash(app.getPath('userData'));
 					app.relaunch();
