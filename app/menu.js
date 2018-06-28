@@ -225,7 +225,7 @@ const createAppMenu = options => {
 					type: 'separator',
 				},
 				{
-					label: 'Preferences…',
+					label: t('app.preferences'),
 					accelerator: 'Cmd+,',
 					click() {
 						setActiveView('Settings');

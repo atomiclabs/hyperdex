@@ -27,6 +27,7 @@ i18next
 		nonExplicitWhitelist: true,
 		ns: [
 			'app',
+			'chart',
 			'common',
 			'dashboard',
 			'exchange',

@@ -1,9 +1,11 @@
 import {remote} from 'electron';
 import bip39 from 'bip39';
 import {Container} from 'unstated';
+import {translate} from '../translate';
 import loginContainer from './Login';
 
 const {createPortfolio} = remote.require('./portfolio-util');
+const t = translate('portfolio');
 
 class CreatePortfolioContainer extends Container {
 	state = {
@@ -43,7 +45,7 @@ class CreatePortfolioContainer extends Container {
 		if (this.state.portfolioPassword !== this.state.confirmedPassword) {
 			this.setState({
 				confirmedPassword: '',
-				confirmedPasswordError: 'Confirmed password doesn\'t match password',
+				confirmedPasswordError: t('create.confirmPasswordNoMatch'),
 			});
 			this.confirmPasswordInput.focus();
 			return;
@@ -62,7 +64,7 @@ class CreatePortfolioContainer extends Container {
 
 	checkSeedPhrase = () => {
 		const isMatch = this.state.generatedSeedPhrase === this.state.confirmedSeedPhrase;
-		const seedPhraseError = isMatch ? null : 'The seed phrase you entered is not the same as the generated one';
+		const seedPhraseError = isMatch ? null : t('create.seedPhraseNoMatch');
 		this.setState({seedPhraseError});
 		return isMatch;
 	};

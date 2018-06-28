@@ -1,4 +1,7 @@
 {
+	"app": {
+		"preferences": "Preferences…"
+	},
 	"help": {
 		"about": "About {{appName}}",
 		"reportIssue": "Report an issue…",

@@ -3,8 +3,11 @@ import {ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip} from 'recha
 import roundTo from 'round-to';
 import _ from 'lodash';
 import Empty from 'components/Empty';
+import {translate} from '../translate';
 import {formatCurrency} from '../util';
 import './DepthChart.scss';
+
+const t = translate('chart');
 
 const roundPrice = array => array.map(x => ({
 	...x,
@@ -148,7 +151,7 @@ const DepthChart = props => {
 					/>
 				</AreaChart>
 			</ResponsiveContainer>
-			<Empty show={isEmpty} text="No data available"/>
+			<Empty show={isEmpty} text={t('noData')}/>
 		</div>
 	);
 };

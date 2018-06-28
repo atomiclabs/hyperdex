@@ -3,7 +3,10 @@ import {is, api, activeWindow, appLaunchTimestamp} from 'electron-util';
 import _ from 'lodash';
 import SuperContainer from 'containers/SuperContainer';
 import appContainer from 'containers/App';
+import {translate} from '../translate';
 import fireEvery from '../fire-every';
+
+const t = translate('exchange');
 
 class ExchangeContainer extends SuperContainer {
 	getInitialState() {
@@ -126,11 +129,11 @@ window.addEventListener('beforeunload', event => {
 
 		const selectedButtonIndex = api.dialog.showMessageBox(activeWindow(), {
 			type: 'question',
-			title: 'Are you sure you want to quit?',
-			message: 'You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.',
+			title: t('confirmQuitTitle'),
+			message: t('confirmQuitDescription'),
 			buttons: [
-				'Quit',
-				'Cancel',
+				t('quit'),
+				t('cancel'),
 			],
 			defaultId: 0,
 			cancelId: 1,

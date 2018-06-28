@@ -1,8 +1,10 @@
 import {remote} from 'electron';
 import {Container} from 'unstated';
+import {translate} from '../translate';
 import loginContainer from './Login';
 
 const {changePortfolioPassword} = remote.require('./portfolio-util');
+const t = translate('forgot-password');
 
 class ForgotPasswordContainer extends Container {
 	state = {
@@ -14,7 +16,7 @@ class ForgotPasswordContainer extends Container {
 	};
 
 	handleSeedPhraseInputChange = value => {
-		const seedPhraseError = (value.length > 0 && value.length < 10) ? 'The seed phrase you entered is not very secure.' : null;
+		const seedPhraseError = (value.length > 0 && value.length < 10) ? t('seedPhraseNotSecure') : null;
 		this.setState({
 			seedPhrase: value,
 			seedPhraseError,
@@ -40,7 +42,7 @@ class ForgotPasswordContainer extends Container {
 		if (this.state.password !== this.state.confirmedPassword) {
 			this.setState({
 				confirmedPassword: '',
-				confirmedPasswordError: 'Confirmed password doesn\'t match password',
+				confirmedPasswordError: t('confirmPasswordNoMatch'),
 			});
 			this.confirmPasswordInput.focus();
 			return;

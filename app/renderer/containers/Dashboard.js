@@ -1,13 +1,14 @@
 import _ from 'lodash';
-import plur from 'plur';
 import pMap from 'p-map';
 import delay from 'delay';
 import {Container} from 'unstated';
 import appContainer from 'containers/App';
 import {formatCurrency} from '../util';
 import {ignoreExternalPrice} from '../../constants';
+import {translate} from '../translate';
 import fireEvery from '../fire-every';
 
+const t = translate('dashboard');
 const noPriceHistory = new Set();
 
 class DashboardContainer extends Container {
@@ -66,7 +67,7 @@ class DashboardContainer extends Container {
 
 	get assetCount() {
 		const {length} = appContainer.state.currencies;
-		return `${length} ${plur('asset', length)}`;
+		return `${length} ${t('info.assets', {count: length})}`;
 	}
 
 	get totalAssetValue() {

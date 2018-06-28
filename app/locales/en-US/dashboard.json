@@ -19,6 +19,8 @@
 		"warning": "Make sure you only send {{symbol}} to this address"
 	},
 	"info": {
+		"assets": "asset",
+		"assets_plural": "assets",
 		"holdings": "{{symbol}} Holdings",
 		"price": "{{symbol}} Price",
 		"value": "{{symbol}} Holdings Value"

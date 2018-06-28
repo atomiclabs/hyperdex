@@ -1,8 +1,10 @@
 import {remote} from 'electron';
 import {Container} from 'unstated';
+import {translate} from '../translate';
 import loginContainer from './Login';
 
 const {createPortfolio} = remote.require('./portfolio-util');
+const t = translate('portfolio');
 
 class RestorePortfolioContainer extends Container {
 	state = {
@@ -46,7 +48,7 @@ class RestorePortfolioContainer extends Container {
 		if (this.state.portfolioPassword !== this.state.confirmedPassword) {
 			this.setState({
 				confirmedPassword: '',
-				confirmedPasswordError: 'Confirmed password doesn\'t match password',
+				confirmedPasswordError: t('restore.confirmPasswordNoMatch'),
 			});
 			this.confirmPasswordInput.focus();
 			return;

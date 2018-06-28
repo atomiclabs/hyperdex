@@ -33,7 +33,7 @@ const ActivityItem = ({swap}) => {
 					*/}
 					<div className="type-title">{swap.status === 'failed' ? t('activity.swapFailedTitle') : t('activity.swapTitle')}</div>
 					<div className="type-description">
-						{t('activity.swappedDescription', {
+						{t('activity.swapDescription', {
 							baseCurrency: swap.baseCurrency,
 							quoteCurrency: swap.quoteCurrency,
 						})}
