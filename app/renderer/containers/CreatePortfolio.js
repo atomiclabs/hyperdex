@@ -64,7 +64,7 @@ class CreatePortfolioContainer extends Container {
 
 	checkSeedPhrase = () => {
 		const isMatch = this.state.generatedSeedPhrase === this.state.confirmedSeedPhrase;
-		const seedPhraseError = isMatch ? null : 'The seed phrase you entered is not the same as the generated one';
+		const seedPhraseError = isMatch ? null : t('create.seedPhraseNoMatch');
 		this.setState({seedPhraseError});
 		return isMatch;
 	};
