@@ -2,6 +2,7 @@
 	"create": {
 		"confirm": "Confirm",
 		"confirmPassword": "Confirm Password",
+		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
 		"confirmSeedPhrase": "Confirm Your Seed Phrase",
 		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
 		"name": "Portfolio Name",
@@ -21,6 +22,7 @@
 	},
 	"restore": {
 		"confirm": "Confirm",
+		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
 		"enterSeedPhrase": "Enter Your Seed Phrase",
 		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
 	}

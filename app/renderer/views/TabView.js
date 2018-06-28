@@ -3,10 +3,12 @@ import {is, activeWindow} from 'electron-util';
 import React from 'react';
 import Button from 'components/Button';
 import Avatar from 'components/Avatar';
+import {translate} from '../translate';
 import Nav from './Nav';
 import './TabView.scss';
 
 const {openGitHubIssue} = remote.require('./util');
+const t = translate('common');
 
 class TabView extends React.Component {
 	componentDidMount() {
@@ -25,7 +27,7 @@ class TabView extends React.Component {
 					<div className="right-container">
 						<Button
 							className="feedback-button"
-							value="Feedback"
+							value={t('feedback')}
 							onClick={() => {
 								openGitHubIssue('<!--\n\nWe appreciate your feedback!\nTry to include as much relevant info as possible.\n\n-->');
 							}}

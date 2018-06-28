@@ -183,7 +183,7 @@ class Bottom extends React.Component {
 
 	render() {
 		const {state} = exchangeContainer;
-		const typeTitled = _.upperFirst(this.props.type);
+		const typeTitled = t(`order.${this.props.type}`);
 		const orderBook = this.props.getOrderBook();
 
 		const TargetPriceButton = () => (
