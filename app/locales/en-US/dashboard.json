@@ -1,7 +1,7 @@
 {
 	"intro": {
 		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <2>PIZZA</2> instead. You can get free <3>BEER</3> at the <4><1>BEER</1> faucet</4>.</2><3>HyperDEX is Open Source software provided \"as is\", without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><2>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</2><3>If you just want to test HyperDEX, try trading between the test currencies <4>BEER</4> and <5>PIZZA</5> instead. You can get free <6>BEER</6> at the <7><8>BEER</8> faucet</7>.</3><9>HyperDEX is Open Source software provided \"as is\", without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</9><10>By using HyperDEX you are agreeing to the terms of the <11>MIT License</11>.</10>"
 	},
 	"activity": {
 		"noActivity": "No activity yet",
