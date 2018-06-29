@@ -10,7 +10,7 @@ const t = translate('dashboard');
 
 class Intro extends React.Component {
 	state = {
-		shouldOpen: true || !config.get('hasShownDashboardIntro'),
+		shouldOpen: !config.get('hasShownDashboardIntro'),
 	}
 
 	closedHandler = () => {
