@@ -15,20 +15,20 @@
 		"buy": "Kaufen:",
 		"buyOrders": "Kaufaufträge",
 		"failedTrade": "{{type}} von {{baseCurrency}} fehlgeschlagen",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
+		"maxOnePendingSwap": "Nur ein ausstehendes Tauschgeschäft gleichzeitig, bitte in {{wait}} Sekunden erneut versuchen.",
 		"maxPrice": "MAX",
 		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"price": "Preis {{symbol}}",
+		"sell": "Verkaufen:",
+		"sellOrders": "Verkaufsaufträge",
+		"symbolBalance": "Guthaben: {{balance}} {{symbol}}",
+		"total": "Gesamt {{symbol}}",
+		"unexpectedError": "Unerwarteter Fehler. Bist du sicher, dass du genügend UTXO hast?",
+		"worth": "Dieses Tauschgeschäft hat einen Wert von {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "Beenden",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "Alle",
+		"title": "Tauschgeschäfte"
 	}
 }
