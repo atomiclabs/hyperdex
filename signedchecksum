@@ -14,4 +14,3 @@ export GPG_TTY=$(tty)
 shasum -a 256 * | gpg --clearsign > "$run_dir/SHASUMS256.txt.asc"
 
 echo "Created SHASUM256.txt.asc"
-
