@@ -13,17 +13,17 @@
 	"chart": {
 		"noData": "Brak dostępnych danych",
 		"portfolioValue": "Wartość Portfolio",
-		"symbolChart": "{{symbol}} Chart"
+		"symbolChart": "Wykres {{symbol}}"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "Kopiuj",
+		"copied": "Skopiowano",
+		"label": "Wpłać",
+		"title": "Adres portfela {{name}} ({{symbol}})",
+		"warning": "Pamiętaj, aby wysyłać na ten adres wyłącznie {{symbol}}"
 	},
 	"info": {
-		"assets": "asset",
+		"assets": "kapitał",
 		"assets_plural": "assets",
 		"holdings": "{{symbol}} Holdings",
 		"price": "{{symbol}} Price",
