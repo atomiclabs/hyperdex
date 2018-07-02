@@ -8,19 +8,19 @@
 		"alicespend": "Wydatek Alice",
 		"bobdeposit": "Wpłata Boba",
 		"bobpayment": "Płatność Boba",
-		"broadcast": "Broadcast",
+		"broadcast": "Nadane",
 		"buy": "Kup",
 		"copyDebugData": "Copy Swap Debug Data",
 		"exchanging": "Wymiana",
 		"executed": "Wykonano",
 		"for": "Na",
 		"myfee": "Moja opłata",
-		"order": "Order",
-		"requested": "Requested",
+		"order": "Zamówienie",
+		"requested": "Żądane",
 		"pending": "Oczekuje",
 		"price": "Cena",
 		"sell": "Sprzedaj",
-		"stats": "The executed price was {{percentCheaperThanRequested}}% cheaper than requested!",
+		"stats": "Cena realizacji była o {{percentCheaperThanRequested}}% niższa niż żądana cena!",
 		"transactions": "Transakcje",
 		"youExchanged": "Zamieniono",
 		"youReceived": "Otrzymano",
@@ -29,13 +29,13 @@
 	},
 	"list": {
 		"cancel": "Anuluj",
-		"empty": "No swaps yet"
+		"empty": "Nie ma jeszcze wymian"
 	},
 	"status": {
 		"completed": "Ukończono",
-		"failed": "Failed",
-		"matched": "Matched",
-		"pending": "Pending",
-		"unmatched": "Unmatched"
+		"failed": "Nieudane",
+		"matched": "Dopasowane",
+		"pending": "Oczekujące",
+		"unmatched": "Niedopasowane"
 	}
 }
