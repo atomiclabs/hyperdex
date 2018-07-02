@@ -1,19 +1,19 @@
 {
 	"intro": {
-		"title": "✨ Thanks for Helping Us Test HyperDEX!",
+		"title": "Merci de nous aider à tester HyperDEX !",
 		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
+		"noActivity": "Pas encore d'activité",
+		"recentActivity": "Activité récente",
 		"swapFailedTitle": "Did Not Swap",
 		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"swapDescription": "{{quoteCurrency}} pour {{baseCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "Aucune donnée disponible",
+		"portfolioValue": "Valeur du portefeuille",
+		"symbolChart": "Graphique {{symbol}}"
 	},
 	"deposit": {
 		"copy": "Copy",
