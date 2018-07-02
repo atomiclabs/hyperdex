@@ -41,13 +41,13 @@
 		"amountLabel": "Kwota",
 		"confirmNetworkFee": "Potwierdź opłatę sieciową",
 		"label": "Wypłać",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"maxAmount": "Maks.",
+		"networkFee": "Opłata sieciowa",
+		"recipientLabel": "Odbiorca",
+		"recipientPlaceholder": "Wprowadź adres {{symbol}}",
+		"remainingBalance": "Saldo końcowe",
+		"successDescription": "Wysłano {{amount}} {{symbol}} do {{address}}",
+		"successTitle": "Pomyślna wypłata!",
+		"title": "Wypłać {{name}} ({{symbol}})"
 	}
 }
