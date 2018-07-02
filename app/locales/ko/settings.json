@@ -1,6 +1,6 @@
 {
-	"app": "App",
-	"enabledCurrencies": "Enabled currencies",
+	"app": "앱",
+	"enabledCurrencies": "활성화된 화폐",
 	"logOutAppSettings": "<0><0>Log out</0> to see more app settings.</0>",
 	"portfolio": "Portfolio",
 	"title": "Settings",
