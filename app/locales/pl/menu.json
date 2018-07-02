@@ -14,8 +14,8 @@
 	"portfolio": {
 		"dashboard": "Pulpit",
 		"exchange": "Exchange",
-		"goToPrevView": "Go to Previous View",
-		"goToNextView": "Go to Next View",
+		"goToPrevView": "Przejdź do poprzedniego widoku",
+		"goToNextView": "Przejdź do następnego widoku",
 		"logOut": "Wyloguj się",
 		"settings": "Ustawienia",
 		"swap": "Swap",
