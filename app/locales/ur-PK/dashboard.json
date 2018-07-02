@@ -48,6 +48,6 @@
 		"remainingBalance": "بقیہ بیلنس",
 		"successDescription": "{{amount}}{{symbol}} بھیجیں اس {{address}} پر",
 		"successTitle": "آپ کامیابی سے رقم نکال چکے ہیں!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"title": "رقم نکالیں {{name}}{{symbol}}"
 	}
 }
