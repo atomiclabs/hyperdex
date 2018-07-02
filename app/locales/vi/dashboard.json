@@ -7,12 +7,12 @@
 		"noActivity": "Chưa có hoạt động nào",
 		"recentActivity": "Hoạt động Gần đây",
 		"swapFailedTitle": "Không Trao đổi",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"swapTitle": "Đã trao đổi",
+		"swapDescription": "{{quoteCurrency}} cho {{baseCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
+		"noData": "Không có dữ liệu khả dụng",
+		"portfolioValue": "Giá trị khoản Đầu tư",
 		"symbolChart": "{{symbol}} Chart"
 	},
 	"deposit": {
