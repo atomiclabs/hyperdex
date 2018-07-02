@@ -23,24 +23,24 @@
 		"warning": "Pamiętaj, aby wysyłać na ten adres wyłącznie {{symbol}}"
 	},
 	"info": {
-		"assets": "kapitał",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "aktywo",
+		"assets_plural": "aktywa/ów",
+		"holdings": "Holdingi {{symbol}}",
+		"price": "Cena {{symbol}}",
+		"value": "Wartość holdingów {{symbol}}"
 	},
 	"list": {
 		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"search": "Wyszukiwanie…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "Portfel {{symbol}}",
+		"recentActivity": "Ostatnia aktywność"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
+		"amountLabel": "Kwota",
+		"confirmNetworkFee": "Potwierdź opłatę sieciową",
+		"label": "Wypłać",
 		"maxAmount": "Max",
 		"networkFee": "Network Fee",
 		"recipientLabel": "Recipient",
