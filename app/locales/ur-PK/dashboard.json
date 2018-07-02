@@ -20,34 +20,34 @@
 		"copied": "نقل کیا",
 		"label": "ڈپازٹ",
 		"title": "آپ کا {{name}}{{symbol}} والٹ ایڈریس",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"warning": "اس بات کو یقینی بنائیں کہ آپ {{symbol}} صرف اس ایڈریس پر بھیجیں"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "اثاثہ",
+		"assets_plural": "اثاثہ جات",
+		"holdings": "{{symbol}} مالیات",
+		"price": "{{symbol}} قیمت",
+		"value": "{{symbol}} مالیات کی ویلیو"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "خالی والٹ",
+		"search": "تلاش کریں…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "{{symbol}} والٹ",
+		"recentActivity": "حالیہ سرگرمی"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
+		"amountLabel": "رقم",
+		"confirmNetworkFee": "نیٹ ورک فیس کی تصدیق کریں",
+		"label": "رقم نکالیں",
+		"maxAmount": "زیادہ سے زیادہ",
+		"networkFee": "نیٹ ورک فیس",
+		"recipientLabel": "وصول کنندہ",
+		"recipientPlaceholder": "درج کریں {{symbol}} پتہ",
+		"remainingBalance": "بقیہ بیلنس",
+		"successDescription": "{{amount}}{{symbol}} بھیجیں اس {{address}} پر",
+		"successTitle": "آپ کامیابی سے رقم نکال چکے ہیں!",
 		"title": "Withdraw {{name}} ({{symbol}})"
 	}
 }
