@@ -1,5 +1,5 @@
 {
-	"cancel": "Cancel",
+	"cancel": "Annuler",
 	"chart": {
 		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
 	},
