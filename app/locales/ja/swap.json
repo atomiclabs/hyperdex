@@ -1,14 +1,14 @@
 {
 	"tempMessageDescription": "Simple atomic swaps with minimal user interaction",
-	"tempMessageTitle": "Coming soon…",
+	"tempMessageTitle": "近日公開…",
 	"timedOut": "Swap timed out",
-	"title": "Swap",
+	"title": "スワップ",
 	"details": {
 		"alicepayment": "Alice Payment",
 		"alicespend": "Alice Spend",
 		"bobdeposit": "Bob Deposit",
 		"bobpayment": "Bob Payment",
-		"broadcast": "Broadcast",
+		"broadcast": "ブロードキャスト",
 		"buy": "Buy",
 		"copyDebugData": "Copy Swap Debug Data",
 		"exchanging": "Exchanging",
