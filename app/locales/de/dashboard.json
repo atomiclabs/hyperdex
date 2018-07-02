@@ -19,35 +19,35 @@
 		"copy": "Kopieren",
 		"copied": "Kopiert",
 		"label": "Einzahlen",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"title": "Deine {{name}} ({{symbol}}) Wallet-Adresse",
+		"warning": "Sende an diese Adresse nur {{symbol}}"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
+		"assets": "Guthaben",
+		"assets_plural": "Guthaben",
 		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"price": "{{symbol}} Preis",
+		"value": "{{symbol}} Holdings-Wert"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "Leeres Wallet",
+		"search": "Suchen…"
 	},
 	"wallet": {
 		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"recentActivity": "Letzte Aktivitäten"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
+		"amountLabel": "Betrag",
+		"confirmNetworkFee": "Netzwerkgebühr bestätigen",
+		"label": "Abbuchen",
 		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"networkFee": "Netzwerkgebühr",
+		"recipientLabel": "Empfänger",
+		"recipientPlaceholder": "{{symbol}}-Adresse eingeben",
+		"remainingBalance": "Verbleibender Betrag",
+		"successDescription": "{{amount}} {{symbol}} an {{address}} gesendet",
+		"successTitle": "Erfolgreiche Abbuchung!",
+		"title": "{{name}} ({{symbol}}) abbuchen"
 	}
 }
