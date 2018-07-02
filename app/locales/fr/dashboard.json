@@ -16,11 +16,11 @@
 		"symbolChart": "Graphique {{symbol}}"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
+		"copy": "Copier",
+		"copied": "Copié",
+		"label": "Dépôt",
 		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"warning": "Assurez-vous de n'envoyer que {{symbol}} à cette adresse"
 	},
 	"info": {
 		"assets": "asset",
@@ -31,16 +31,16 @@
 	},
 	"list": {
 		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"search": "Rechercher…"
 	},
 	"wallet": {
 		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"recentActivity": "Activité récente"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
+		"amountLabel": "Quantité",
 		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
+		"label": "Retirer",
 		"maxAmount": "Max",
 		"networkFee": "Network Fee",
 		"recipientLabel": "Recipient",
