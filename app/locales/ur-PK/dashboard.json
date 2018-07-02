@@ -19,7 +19,7 @@
 		"copy": "نقل",
 		"copied": "نقل کیا",
 		"label": "ڈپازٹ",
-		"title": "آپ کا {{name}}{{symbol}} والٹ ایڈریس",
+		"title": "آپ کا ({{name}} ({{symbol}} والٹ ایڈریس",
 		"warning": "اس بات کو یقینی بنائیں کہ آپ {{symbol}} صرف اس ایڈریس پر بھیجیں"
 	},
 	"info": {
@@ -48,6 +48,6 @@
 		"remainingBalance": "بقیہ بیلنس",
 		"successDescription": "{{amount}}{{symbol}} بھیجیں اس {{address}} پر",
 		"successTitle": "آپ کامیابی سے رقم نکال چکے ہیں!",
-		"title": "رقم نکالیں {{name}}{{symbol}}"
+		"title": "رقم نکالیں ({{name}} ({{symbol}}"
 	}
 }
