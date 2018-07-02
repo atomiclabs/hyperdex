@@ -24,11 +24,11 @@
 		"symbolBalance": "Saldo: {{balance}} {{symbol}}",
 		"total": "Total {{symbol}}",
 		"unexpectedError": "Ha ocurrido algo inesperado. ¿Estás seguro de que tienes suficiente UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"worth": "Este intercambio asciende a {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "Salir",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "Todo",
+		"title": "Intercambios"
 	}
 }
