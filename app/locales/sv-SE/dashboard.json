@@ -6,8 +6,8 @@
 	"activity": {
 		"noActivity": "Ingen aktivitet än",
 		"recentActivity": "Senaste aktivitet",
-		"swapFailedTitle": "Bytte inte",
-		"swapTitle": "Bytte",
+		"swapFailedTitle": "Ingen swap",
+		"swapTitle": "Swap genomförd",
 		"swapDescription": "{{quoteCurrency}} för {{baseCurrency}}"
 	},
 	"chart": {
