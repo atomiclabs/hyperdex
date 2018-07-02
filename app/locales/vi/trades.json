@@ -1,6 +1,6 @@
 {
-	"openOrders": "Open Orders",
-	"swapHistory": "Swap History",
-	"stats": "In the last month you did {{count}} successful trade in {{currencyCount}} currencies worth {{totalSwapsWorthInUsd}} in total",
-	"stats_plural": "In the last month you did {{count}} successful trades in {{currencyCount}} currencies worth {{totalSwapsWorthInUsd}} in total"
+	"openOrders": "Mở Lệnh",
+	"swapHistory": "Lịch sử Hoán đổi",
+	"stats": "Trong tháng vừa rồi bạn đã thực hiện {{count}} giao dịch thành công với {{currencyCount}} đồng tiền có tổng giá trị là {{totalSwapsWorthInUsd}}",
+	"stats_plural": "Trong tháng vừa rồi bạn đã thực hiện {{count}} giao dịch thành công với {{currencyCount}} đồng tiền có tổng giá trị là {{totalSwapsWorthInUsd}}"
 }
