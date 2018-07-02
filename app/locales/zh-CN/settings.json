@@ -1,13 +1,13 @@
 {
-	"app": "App",
-	"enabledCurrencies": "Enabled currencies",
-	"logOutAppSettings": "<0><0>Log out</0> to see more app settings.</0>",
-	"portfolio": "Portfolio",
-	"title": "Settings",
+	"app": "应用",
+	"enabledCurrencies": "已启用的货币",
+	"logOutAppSettings": "<0><0>注销</0>以查看更多应用设置。</0>",
+	"portfolio": "资产组合",
+	"title": "设置",
 	"theme": {
-		"theme": "Theme",
-		"dark": "Dark",
-		"light": "Light",
-		"system": "System"
+		"theme": "主题",
+		"dark": "夜间模式",
+		"light": "白天模式",
+		"system": "系统"
 	}
 }
