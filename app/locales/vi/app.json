@@ -1,6 +1,6 @@
 {
 	"settings": {
-		"customUrl": "URL Tùy chỉnh cho Người chơi",
+		"customUrl": "URL Tùy chỉnh cho Nhà đầu tư",
 		"exampleUrl": "Ví dụ: {{url}}",
 		"invalidUrl": "URL không hợp lệ",
 		"title": "Cài đặt ứng dụng"
