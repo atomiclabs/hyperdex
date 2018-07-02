@@ -1,8 +1,8 @@
 {
 	"settings": {
-		"customUrl": "Custom Marketmaker URL",
-		"exampleUrl": "Example: {{url}}",
-		"invalidUrl": "Invalid URL",
+		"customUrl": "کسٹم مارکیٹ میکر یو آر ایل",
+		"exampleUrl": "مثال: {{url}}",
+		"invalidUrl": "غلط یو آر ایل",
 		"title": "App settings"
 	}
 }
