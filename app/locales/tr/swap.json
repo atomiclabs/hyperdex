@@ -1,7 +1,7 @@
 {
-	"tempMessageDescription": "Simple atomic swaps with minimal user interaction",
-	"tempMessageTitle": "Coming soon…",
-	"timedOut": "Swap timed out",
+	"tempMessageDescription": "Minimal kullanıcı etkileşimine sahip basit atomik takaslar",
+	"tempMessageTitle": "Çok yakında…",
+	"timedOut": "Takas zaman aşımına uğradı",
 	"title": "Swap",
 	"details": {
 		"alicepayment": "Alice Payment",
