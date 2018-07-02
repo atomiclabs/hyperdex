@@ -1,19 +1,19 @@
 {
 	"create": {
-		"confirm": "Confirm",
-		"confirmPassword": "Confirm Password",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
+		"confirm": "Potwierdź",
+		"confirmPassword": "Potwierdź hasło",
+		"confirmPasswordNoMatch": "Potwierdzone hasło nie jest zgodne z hasłem",
 		"confirmSeedPhrase": "Confirm Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
-		"name": "Portfolio Name",
-		"next": "Next",
-		"password": "Password",
+		"exampleSeedPhrase": "Na przykład: {{seedPhrase}}…",
+		"name": "Nazwa portfolio",
+		"next": "Dalej",
+		"password": "Hasło",
 		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
 		"securityTitle": "Important: please back up your seed phrase now!",
 		"seedPhrase": "Seed Phrase for Your Portfolio",
 		"seedPhraseNoMatch": "The seed phrase you entered is not the same as the generated one",
-		"success": "New portfolio added!",
-		"title": "Create New Portfolio"
+		"success": "Dodano nowe portfolio!",
+		"title": "Utwórz nowe portfolio"
 	},
 	"new": {
 		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
