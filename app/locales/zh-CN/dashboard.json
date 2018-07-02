@@ -38,16 +38,16 @@
 		"recentActivity": "近期动态"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "数额",
+		"confirmNetworkFee": "确认网络手续费",
+		"label": "取款",
+		"maxAmount": "最大",
+		"networkFee": "网络手续费",
+		"recipientLabel": "接收方",
+		"recipientPlaceholder": "输入 {{symbol}} 地址",
+		"remainingBalance": "余额",
+		"successDescription": "已发送 {{amount}} {{symbol}} 到 {{address}}",
+		"successTitle": "取款成功！",
+		"title": "{{name}} ({{symbol}}) 取款"
 	}
 }
