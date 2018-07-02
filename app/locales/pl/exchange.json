@@ -4,10 +4,10 @@
 		"depth": "Wykres głębokości {{baseCurrency}}/{{quoteCurrency}}"
 	},
 	"confirmQuitTitle": "Czy na pewno chcesz opuścić aplikację?",
-	"confirmQuitDescription": "You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.",
+	"confirmQuitDescription": "Wymiany są w toku. HyperDEX spróbuje kontynuować wymiany, kiedy następnym razem otworzysz aplikację, ale zalecamy pozostawienie programu włączonego do czasu, aż wymiany zostaną zrealizowane.",
 	"intro": {
 		"description": " <0>HyperDEX is a decentralized exchange. It has a P2P order book and trades are made via <1>cross-chain atomic swaps</1>. This means it works slightly differently than a centralized exchange.</0><1>Orders can take a while to propagate across the P2P network. You may need to wait a while for the order book to display.</1><2>HyperDEX needs you to have correctly sized <1>UTXOs</1> to make a successful swap. For each UTXO you can make a single swap. The easiest way to ensure you can participate in a swap is to make two or three smaller deposits to your account rather than a single large deposit.</2><3>An atomic swap is comprised of six on-chain transactions. When trading a currency with high transaction fees, it's important to slightly increase your price to account for the total transaction fees. This is especially important when trading small amounts.</3>",
-		"title": "How Trading Works with HyperDEX"
+		"title": "Jak działa handel z HyperDEX"
 	},
 	"order": {
 		"amount": "Kwota {{symbol}}",
@@ -15,7 +15,7 @@
 		"buy": "Kup",
 		"buyOrders": "Zlecenia kupna",
 		"failedTrade": "{{type}} {{baseCurrency}} nie powiodło się",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
+		"maxOnePendingSwap": "Tylko jedna oczekująca wymiana jednocześnie. Spróbuj ponownie za {{wait}} sekund(y).",
 		"maxPrice": "MAKS.",
 		"maxVolume": "Maks. obrót",
 		"price": "Cena {{symbol}}",
@@ -24,11 +24,11 @@
 		"symbolBalance": "Saldo: {{balance}} {{symbol}}",
 		"total": "Łącznie {{symbol}}",
 		"unexpectedError": "Stało się coś nieoczekiwanego. Czy na pewno masz wystarczająco dużo UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"worth": "Ta wymiana jest warta {{swapWorthInUsd}}"
 	},
 	"quit": "Opuść aplikację",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "Wszystkie",
+		"title": "Wymiany"
 	}
 }
