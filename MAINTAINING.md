@@ -22,4 +22,4 @@ Once the release is published you can automatically generate a signed checksum f
 $ ./signedchecksum
 ```
 
-It will create a file called `SHASUMS256.txt.asc`, you should manually upload this file to the GitHub release.
+It will create a file called `SHASUMS256.txt.asc` that you need to upload to the GitHub release manually.
