@@ -20,32 +20,32 @@
 		"copied": "복사됨",
 		"label": "입금",
 		"title": "귀하의 {{name}} ({{symbol}}) 지갑 주소",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"warning": "이 주소에 {{symbol}}만 보내십시오"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "자산",
+		"assets_plural": "자산",
+		"holdings": "{{symbol}} 보유량",
+		"price": "{{symbol}} 가격",
+		"value": "{{symbol}} 보유 가치"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "빈 지갑",
+		"search": "검색..."
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "{{symbol}} 지갑",
+		"recentActivity": "최근 활동"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
+		"amountLabel": "금액",
+		"confirmNetworkFee": "네트워크 수수료 확인",
+		"label": "출금",
+		"maxAmount": "최대",
+		"networkFee": "네트워크 수수료",
+		"recipientLabel": "수취인",
+		"recipientPlaceholder": "{{symbol}} 주소를 입력하십시오",
+		"remainingBalance": "잔고",
 		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
 		"successTitle": "Successful withdrawal!",
 		"title": "Withdraw {{name}} ({{symbol}})"
