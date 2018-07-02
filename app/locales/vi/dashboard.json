@@ -25,7 +25,7 @@
 	"info": {
 		"assets": "tài sản",
 		"assets_plural": "loại tài sản",
-		"holdings": "Cổ phần {{symbol}}",
+		"holdings": "Số lượng {{symbol}}",
 		"price": "Giá {{symbol}}",
 		"value": "Giá trị Cổ phần {{symbol}}"
 	},
