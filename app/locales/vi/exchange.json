@@ -14,7 +14,7 @@
 		"averageVolume": "Khối lượng Trung bình",
 		"buy": "Mua",
 		"buyOrders": "Đơn hàng Mua",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
+		"failedTrade": "Thất bại {{type}} {{baseCurrency}}",
 		"maxOnePendingSwap": "Mỗi một lần chỉ có một giao dịch trao đổi đang chờ, hãy thử lại sau {{wait}} giây.",
 		"maxPrice": "TỐI ĐA",
 		"maxVolume": "Khối lượng Tối đa",
