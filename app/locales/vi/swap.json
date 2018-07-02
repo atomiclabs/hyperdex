@@ -12,30 +12,30 @@
 		"buy": "Mua",
 		"copyDebugData": "Copy Swap Debug Data",
 		"exchanging": "Đang trao đổi",
-		"executed": "Đã thực hiện",
+		"executed": "Đã chốt",
 		"for": "Với",
 		"myfee": "Chi phí của tôi",
 		"order": "Lệnh",
-		"requested": "Requested",
-		"pending": "Pending",
-		"price": "Price",
-		"sell": "Sell",
-		"stats": "The executed price was {{percentCheaperThanRequested}}% cheaper than requested!",
-		"transactions": "Transactions",
-		"youExchanged": "You exchanged",
-		"youReceived": "You received",
-		"yourOffer": "Your offer",
-		"view": "View"
+		"requested": "Được đề xuất",
+		"pending": "Chờ xử lý",
+		"price": "Giá",
+		"sell": "Bán",
+		"stats": "Giá đã chốt rẻ hơn {{percentCheaperThanRequested}} so với giá được đề xuất!",
+		"transactions": "Giao dịch",
+		"youExchanged": "Bạn đã trao đổi",
+		"youReceived": "Bạn đã nhận",
+		"yourOffer": "Bạn đưa",
+		"view": "Xem"
 	},
 	"list": {
-		"cancel": "Cancel",
-		"empty": "No swaps yet"
+		"cancel": "Hủy",
+		"empty": "Chưa có hoán đổi nào"
 	},
 	"status": {
-		"completed": "Completed",
-		"failed": "Failed",
-		"matched": "Matched",
-		"pending": "Pending",
-		"unmatched": "Unmatched"
+		"completed": "Đã hoàn tất",
+		"failed": "Thất bại",
+		"matched": "Đã khớp",
+		"pending": "Chờ xử lý",
+		"unmatched": "Không khớp"
 	}
 }
