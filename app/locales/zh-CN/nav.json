@@ -1,7 +1,7 @@
 {
-	"dashboard": "Dashboard",
-	"exchange": "Exchange",
-	"settings": "Settings",
-	"swap": "Swap",
-	"trades": "Trades"
+	"dashboard": "仪表盘",
+	"exchange": "交易",
+	"settings": "设置",
+	"swap": "交换",
+	"trades": "交易"
 }
