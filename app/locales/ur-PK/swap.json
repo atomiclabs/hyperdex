@@ -20,22 +20,22 @@
 		"pending": "زیرالتوا",
 		"price": "قیمت",
 		"sell": "بیچیں",
-		"stats": "The executed price was {{percentCheaperThanRequested}}% cheaper than requested!",
+		"stats": "عمل میں لائی جانے والی قیمت {{percentCheaperThanRequested}} % درخواست کی جانے والی سے کام ہے!",
 		"transactions": "ٹرانزیکشنز",
-		"youExchanged": "You exchanged",
-		"youReceived": "You received",
-		"yourOffer": "Your offer",
-		"view": "View"
+		"youExchanged": "آپ نے تبادلہ کیا",
+		"youReceived": "آپ نے موصول کیا",
+		"yourOffer": "آپ کی پیشکش",
+		"view": "دیکھیں"
 	},
 	"list": {
-		"cancel": "Cancel",
-		"empty": "No swaps yet"
+		"cancel": "منسوخ کریں",
+		"empty": "ابھی تک کوئی سویپ نہیں"
 	},
 	"status": {
-		"completed": "Completed",
-		"failed": "Failed",
-		"matched": "Matched",
-		"pending": "Pending",
-		"unmatched": "Unmatched"
+		"completed": "مکمل",
+		"failed": "ناکام",
+		"matched": "مشابہ",
+		"pending": "زیرالتوا",
+		"unmatched": "مشابہ نہیں ہے"
 	}
 }
