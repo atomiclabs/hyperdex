@@ -1,7 +1,7 @@
 {
 	"cancel": "Anuluj",
 	"chart": {
-		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
+		"depth": "Wykres głębokości {{baseCurrency}}/{{quoteCurrency}}"
 	},
 	"confirmQuitTitle": "Czy na pewno chcesz opuścić aplikację?",
 	"confirmQuitDescription": "You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.",
