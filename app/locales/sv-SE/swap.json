@@ -20,22 +20,22 @@
 		"pending": "Pågående",
 		"price": "Pris",
 		"sell": "Sälj",
-		"stats": "The executed price was {{percentCheaperThanRequested}}% cheaper than requested!",
-		"transactions": "Transactions",
-		"youExchanged": "You exchanged",
-		"youReceived": "You received",
-		"yourOffer": "Your offer",
-		"view": "View"
+		"stats": "Det utförda priset var {{percentCheaperThanRequested}} % billigare än begärt!",
+		"transactions": "Transaktioner",
+		"youExchanged": "Du växlade",
+		"youReceived": "Du fick",
+		"yourOffer": "Ditt erbjudande",
+		"view": "Visa"
 	},
 	"list": {
-		"cancel": "Cancel",
-		"empty": "No swaps yet"
+		"cancel": "Avbryt",
+		"empty": "Inga swaps än"
 	},
 	"status": {
-		"completed": "Completed",
-		"failed": "Failed",
-		"matched": "Matched",
-		"pending": "Pending",
-		"unmatched": "Unmatched"
+		"completed": "Slutförd",
+		"failed": "Misslyckades",
+		"matched": "Matchad",
+		"pending": "Pågående",
+		"unmatched": "Ej matchad"
 	}
 }
