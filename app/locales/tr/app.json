@@ -1,8 +1,8 @@
 {
 	"settings": {
-		"customUrl": "Custom Marketmaker URL",
-		"exampleUrl": "Example: {{url}}",
-		"invalidUrl": "Invalid URL",
-		"title": "App settings"
+		"customUrl": "Özel Piyasa Yapıcı URL",
+		"exampleUrl": "Örnek: {{url}}",
+		"invalidUrl": "Geçersiz URL",
+		"title": "Uygulama ayarları"
 	}
 }
