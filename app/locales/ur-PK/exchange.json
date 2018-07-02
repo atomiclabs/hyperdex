@@ -1,7 +1,7 @@
 {
-	"cancel": "Cancel",
+	"cancel": "منسوخ کریں",
 	"chart": {
-		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
+		"depth": "{{baseCurrency}}/{{quoteCurrency}} گہرائی چارٹ"
 	},
 	"confirmQuitTitle": "Are you sure you want to quit?",
 	"confirmQuitDescription": "You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.",
