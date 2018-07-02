@@ -1,13 +1,13 @@
 {
-	"app": "App",
-	"enabledCurrencies": "Enabled currencies",
-	"logOutAppSettings": "<0><0>Log out</0> to see more app settings.</0>",
-	"portfolio": "Portfolio",
-	"title": "Settings",
+	"app": "Uygulama",
+	"enabledCurrencies": "Etkin para birimleri",
+	"logOutAppSettings": "<0><0>Daha fazla uygulama ayarı görmek için</0>çıkış yap.</0>",
+	"portfolio": "Portföy",
+	"title": "Ayarlar",
 	"theme": {
-		"theme": "Theme",
-		"dark": "Dark",
-		"light": "Light",
-		"system": "System"
+		"theme": "Tema",
+		"dark": "Koyu",
+		"light": "Açık",
+		"system": "Sistem"
 	}
 }
