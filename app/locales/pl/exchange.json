@@ -21,12 +21,12 @@
 		"price": "Cena {{symbol}}",
 		"sell": "Sprzedaj",
 		"sellOrders": "Zlecenia sprzedaży",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
+		"symbolBalance": "Saldo: {{balance}} {{symbol}}",
 		"total": "Total {{symbol}}",
 		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
 		"worth": "This swap is worth {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "Opuść aplikację",
 	"swaps": {
 		"all": "All",
 		"title": "Swaps"
