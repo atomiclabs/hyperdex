@@ -11,24 +11,24 @@
 	},
 	"order": {
 		"amount": "금액 {{symbol}}",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"averageVolume": "평균 거래량",
+		"buy": "매입",
+		"buyOrders": "매입 주문",
+		"failedTrade": "{{type}} {{baseCurrency}} 실패",
+		"maxOnePendingSwap": "한 번에 하나의 스왑만 대기할 수 있습니다. {{wait}}초 후 다시 시도하십시오.",
+		"maxPrice": "최대",
+		"maxVolume": "최대 거래량",
+		"price": "가격 {{symbol}}",
+		"sell": "매도",
+		"sellOrders": "매도 주문",
+		"symbolBalance": "잔고: {{balance}} {{symbol}}",
+		"total": "총 {{symbol}}",
+		"unexpectedError": "예기치 않은 문제가 발생했습니다. UTXO를 충분히 보유하고 계십니까?",
+		"worth": "이 스왑은 {{swapWorthInUsd}}의 가치가 있습니다"
 	},
-	"quit": "Quit",
+	"quit": "종료",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "모두",
+		"title": "스왑"
 	}
 }
