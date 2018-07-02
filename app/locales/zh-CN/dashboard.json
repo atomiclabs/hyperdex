@@ -6,36 +6,36 @@
 	"activity": {
 		"noActivity": "暂无动态",
 		"recentActivity": "近期动态",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"swapFailedTitle": "未交换",
+		"swapTitle": "已交换",
+		"swapDescription": "{{quoteCurrency}} 兑换 {{baseCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "无可用数据",
+		"portfolioValue": "资产价值",
+		"symbolChart": "{{symbol}} 走势图"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "复制",
+		"copied": "已复制",
+		"label": "存款",
+		"title": "您的 {{name}} ({{symbol}}) 钱包地址",
+		"warning": "确保向此地址只发送 {{symbol}}"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "资产",
+		"assets_plural": "资产",
+		"holdings": "{{symbol}} 持有量",
+		"price": "{{symbol}} 价格",
+		"value": "{{symbol}} 持有价格"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "空钱包",
+		"search": "搜索..."
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "{{symbol}} 钱包",
+		"recentActivity": "近期动态"
 	},
 	"withdraw": {
 		"amountLabel": "Amount",
