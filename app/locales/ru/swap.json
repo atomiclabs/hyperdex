@@ -28,7 +28,7 @@
 		"view": "View"
 	},
 	"list": {
-		"cancel": "Cancel",
+		"cancel": "Отменить",
 		"empty": "No swaps yet"
 	},
 	"status": {
