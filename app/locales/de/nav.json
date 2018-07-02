@@ -1,7 +1,7 @@
 {
 	"dashboard": "Dashboard",
-	"exchange": "Exchange",
-	"settings": "Settings",
-	"swap": "Swap",
-	"trades": "Trades"
+	"exchange": "Markt",
+	"settings": "Einstellungen",
+	"swap": "Tausch",
+	"trades": "Geschäfte"
 }
