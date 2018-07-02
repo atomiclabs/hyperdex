@@ -9,17 +9,17 @@
 		"website": "Página web"
 	},
 	"other": {
-		"file": "File"
+		"file": "Archivo"
 	},
 	"portfolio": {
-		"dashboard": "Dashboard",
-		"exchange": "Exchange",
-		"goToPrevView": "Go to Previous View",
-		"goToNextView": "Go to Next View",
-		"logOut": "Log Out",
-		"settings": "Settings",
-		"swap": "Swap",
-		"title": "Portfolio",
-		"trades": "Trades"
+		"dashboard": "Panel de control",
+		"exchange": "Intercambio",
+		"goToPrevView": "Ir a la vista anterior",
+		"goToNextView": "Ir a la vista siguiente",
+		"logOut": "Cerrar Sesión",
+		"settings": "Ajustes",
+		"swap": "Cambio",
+		"title": "Cartera",
+		"trades": "Operaciones"
 	}
 }
