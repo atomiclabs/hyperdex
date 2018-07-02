@@ -13,13 +13,13 @@
 	},
 	"portfolio": {
 		"dashboard": "대시보드",
-		"exchange": "Exchange",
-		"goToPrevView": "Go to Previous View",
-		"goToNextView": "Go to Next View",
-		"logOut": "Log Out",
-		"settings": "Settings",
-		"swap": "Swap",
-		"title": "Portfolio",
-		"trades": "Trades"
+		"exchange": "환전",
+		"goToPrevView": "이전 보기로 가기",
+		"goToNextView": "다음 보기로 가기",
+		"logOut": "로그아웃",
+		"settings": "설정",
+		"swap": "스왑",
+		"title": "포트폴리오",
+		"trades": "거래"
 	}
 }
