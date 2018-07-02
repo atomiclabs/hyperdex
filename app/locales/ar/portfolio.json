@@ -3,7 +3,7 @@
 		"confirm": "تأكيد",
 		"confirmPassword": "تأكيد كلمة المرور",
 		"confirmPasswordNoMatch": "كلمة المرور المؤكدة غير متطابقة",
-		"confirmSeedPhrase": "تأكيد عبارة Seed ",
+		"confirmSeedPhrase": "تأكيد عبارة Seed",
 		"exampleSeedPhrase": "مثال: {{seedPhrase}} …",
 		"name": "اسم الحافظة",
 		"next": "التالي",
