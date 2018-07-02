@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 run_dir=$(pwd)
 cd $(mktemp -d)
