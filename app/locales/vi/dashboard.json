@@ -19,7 +19,7 @@
 		"copy": "Sao chép",
 		"copied": "Đã sao chép",
 		"label": "Nạp tiền",
-		"title": "Địa chỉ Ví ({{name}} {{symbol}}) của bạn",
+		"title": "Địa chỉ Ví {{name}} ({{symbol}}) của bạn",
 		"warning": "Đảm bảo rằng bạn chỉ gửi {{symbol}} đến địa chỉ này"
 	},
 	"info": {
@@ -30,7 +30,7 @@
 		"value": "Giá trị Cổ phần {{symbol}}"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
+		"emptyWallet": "Ví rỗng",
 		"search": "Tìm kiếm…"
 	},
 	"wallet": {
@@ -48,6 +48,6 @@
 		"remainingBalance": "Số dư Còn lại",
 		"successDescription": "{{amount}} {{symbol}} đã gửi tới {{address}}",
 		"successTitle": "Rút tiền thành công!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"title": "Rút {{name}} ({{symbol}})"
 	}
 }
