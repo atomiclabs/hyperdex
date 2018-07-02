@@ -4,9 +4,9 @@
 		"depth": "Biểu đồ Độ sâu {{baseCurrency}}/{{quoteCurrency}}"
 	},
 	"confirmQuitTitle": "Bạn có chắc muốn thoát ra?",
-	"confirmQuitDescription": "Bạn có giao dịch đang thực hiện. HyperDEX sẽ cố gắng để các giao dịch này tiếp diễn khi bạn chạy ứng dụng vào lần tới, nhưng chúng tôi khuyên bạn hãy để HyperDEX hoạt động cho đến khi các giao dịch hoàn thành.",
+	"confirmQuitDescription": "Bạn có hoán đổi đang thực hiện. HyperDEX sẽ cố gắng để các hoán đổi này tiếp diễn khi bạn chạy ứng dụng vào lần tới, nhưng chúng tôi khuyên bạn hãy để HyperDEX hoạt động cho đến khi các hoán đổi hoàn thành.",
 	"intro": {
-		"description": " <0>HyperDEX is a decentralized exchange. It has a P2P order book and trades are made via <1>cross-chain atomic swaps</1>. This means it works slightly differently than a centralized exchange.</0><1>Orders can take a while to propagate across the P2P network. You may need to wait a while for the order book to display.</1><2>HyperDEX needs you to have correctly sized <1>UTXOs</1> to make a successful swap. For each UTXO you can make a single swap. The easiest way to ensure you can participate in a swap is to make two or three smaller deposits to your account rather than a single large deposit.</2><3>An atomic swap is comprised of six on-chain transactions. When trading a currency with high transaction fees, it's important to slightly increase your price to account for the total transaction fees. This is especially important when trading small amounts.</3>",
+		"description": " <0>HyperDEX là một hoạt động trao đổi phân cấp. Nó có một sổ lệnh P2P và các giao dịch thực hiện qua<1>các hoán đổi nguyên tử liên-chuỗi</1>. Điều này có nghĩa nó hoạt động hơi khác so với hoạt động trao đổi tập trung.</0><1>Phải mất một lúc để các lệnh có thể lưu chuyển trong mạng lưới P2P. Bạn phải chờ một lúc thì mới thấy cuốn sổ lệnh hiện thị.</1><2>HyperDEX cần bạn cung cấp chính xác kích thước <1>UTXOs</1> để có một giao dịch thành công. Với mỗi một UTXO bạn có thể tạo một giao dịch. Cách dễ dàng nhất đảm bảo rằng bạn có thể tham gia một giao dịch là nộp hai hoặc ba khoản tiền nhỏ vào tài khoản của bạn thay vì nộp vào một lần một khoản tiền lớn.</2><3>Một hoán đổi nguyên tử bao gồm sáu giao dịch trên-chuổi. Khi trao đổi một loại tiền với phí giao dịch cao, việc tăng nhẹ giá của bạn là rất quan trọng để bù đắp chi phí giao dịch. Điều này thậm chí còn đặc biệt quan trọng nếu bạn giao dịch với số lượng nhỏ</3>",
 		"title": "Hoạt động Giao Dịch trên HyperDEX như thế nào"
 	},
 	"order": {
@@ -15,7 +15,7 @@
 		"buy": "Mua",
 		"buyOrders": "Đơn hàng Mua",
 		"failedTrade": "Thất bại {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Mỗi một lần chỉ có một giao dịch trao đổi đang chờ, hãy thử lại sau {{wait}} giây.",
+		"maxOnePendingSwap": "Một thời điểm chỉ có một giao dịch hoán đổi chờ xử lý, hãy thử lại sau {{wait}} giây.",
 		"maxPrice": "TỐI ĐA",
 		"maxVolume": "Khối lượng Tối đa",
 		"price": "Giá {{symbol}}",
@@ -24,7 +24,7 @@
 		"symbolBalance": "Số dư: {{balance}} {{symbol}}",
 		"total": "Tổng số {{symbol}}",
 		"unexpectedError": "Có gì đó bất ngờ đã xảy ra. Bạn có chắc bạn có đủ UTXO?",
-		"worth": "Trao đổi này có giá trị {{swapWorthInUsd}}"
+		"worth": "Hoán đổi này có giá trị {{swapWorthInUsd}}"
 	},
 	"quit": "Thoát",
 	"swaps": {
