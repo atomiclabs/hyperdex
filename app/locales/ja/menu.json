@@ -1,15 +1,15 @@
 {
 	"app": {
-		"preferences": "Preferences…"
+		"preferences": "設定…"
 	},
 	"help": {
-		"about": "About {{appName}}",
-		"reportIssue": "Report an issue…",
-		"sourceCode": "Source code",
-		"website": "Website"
+		"about": "{{appName}} について",
+		"reportIssue": "問題を報告…",
+		"sourceCode": "ソースコード",
+		"website": "ウェブサイト"
 	},
 	"other": {
-		"file": "File"
+		"file": "ファイル"
 	},
 	"portfolio": {
 		"dashboard": "Dashboard",
