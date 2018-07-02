@@ -44,10 +44,10 @@
 		"maxAmount": "Máx.",
 		"networkFee": "Comisión de red",
 		"recipientLabel": "Destinatario",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"recipientPlaceholder": "Introducir dirección de {{symbol}}",
+		"remainingBalance": "Saldo restante",
+		"successDescription": "{{amount}} {{symbol}} enviado a {{address}}",
+		"successTitle": "¡Retirado correctamente!",
+		"title": "Retirar {{name}} ({{symbol}})"
 	}
 }
