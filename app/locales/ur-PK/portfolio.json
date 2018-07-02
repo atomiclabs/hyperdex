@@ -17,7 +17,7 @@
 	},
 	"new": {
 		"createOrRestoreDescription": "اگر آپ کے پاس ابھی تک تفصیلی فقرہ نہیں ہے تو نیا بنائیں.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
+		"createOrRestoreTitle": "<0>کیا آپ ایک نیا پورٹ فولیو بنانا چاہتے ہیں <1></1> یا موجودہ پورٹ فولیو کو بحال کرنا چاہتے ہیں ؟</0>",
 		"createPortfolio": "نیا پورٹ فولیو بنائیں",
 		"restorePortfolio": "پورٹ فولیو بحال کریں"
 	},
