@@ -1,8 +1,8 @@
 {
-	"forgotPassword": "Forgot password",
-	"incorrectPassword": "Incorrect password",
-	"login": "Login",
-	"loggingIn": "Logging in…",
-	"password": "Password",
-	"selectPortfolio": "Select portfolio…"
+	"forgotPassword": "Glömt lösenord",
+	"incorrectPassword": "Fel lösenord",
+	"login": "Logga in",
+	"loggingIn": "Loggar in…",
+	"password": "Lösenord",
+	"selectPortfolio": "Välj portfölj…"
 }
