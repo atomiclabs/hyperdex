@@ -1,9 +1,9 @@
 {
 	"app": {
-		"preferences": "Preferences…"
+		"preferences": "Inställningar…"
 	},
 	"help": {
-		"about": "About {{appName}}",
+		"about": "Om {{appName}}",
 		"reportIssue": "Report an issue…",
 		"sourceCode": "Source code",
 		"website": "Website"
