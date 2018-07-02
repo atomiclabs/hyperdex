@@ -13,18 +13,18 @@
 		"seedPhrase": "Seed-Schlüssel für dein Portfolio",
 		"seedPhraseNoMatch": "Der eingegebene Seed-Schlüssel stimmt nicht mit dem generierten überein",
 		"success": "Neues Portfolio hinzugefügt!",
-		"title": "Create New Portfolio"
+		"title": "Neues Portfolio erstellen"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
-		"createPortfolio": "Create New Portfolio",
-		"restorePortfolio": "Restore Portfolio"
+		"createOrRestoreDescription": "Erstelle ein neues, falls du noch keinen Seed-Schlüssel hast.",
+		"createOrRestoreTitle": "<0>Möchtest du ein neues Portfolio erstellen<1></1>oder ein bestehendes wiederherstellen?</0>",
+		"createPortfolio": "Neues Portfolio erstellen",
+		"restorePortfolio": "Portfolio wiederherstellen"
 	},
 	"restore": {
-		"confirm": "Confirm",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"confirm": "Bestätigen",
+		"confirmPasswordNoMatch": "Bestätigungspasswort stimmt nicht überein",
+		"enterSeedPhrase": "Seed-Schlüssel eingeben",
+		"exampleSeedPhrase": "Beispiel: {{seedPhrase}} …"
 	}
 }
