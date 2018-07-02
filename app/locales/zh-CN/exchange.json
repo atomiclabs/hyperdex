@@ -21,14 +21,14 @@
 		"price": "{{symbol}} 价格",
 		"sell": "卖出",
 		"sellOrders": "卖单",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"symbolBalance": "余额：{{balance}} {{symbol}}",
+		"total": "{{symbol}} 总价",
+		"unexpectedError": "有意外事件发生。你确定拥有足够的 UTXO 吗？",
+		"worth": "此交换价值为 {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "退出",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "全部",
+		"title": "交换"
 	}
 }
