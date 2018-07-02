@@ -1,8 +1,8 @@
 {
-	"forgotPassword": "Forgot password",
-	"incorrectPassword": "Incorrect password",
-	"login": "Login",
-	"loggingIn": "Logging in…",
-	"password": "Password",
-	"selectPortfolio": "Select portfolio…"
+	"forgotPassword": "Şifremi unuttum",
+	"incorrectPassword": "Hatalı şifre",
+	"login": "Oturum Aç",
+	"loggingIn": "Oturum açılıyor…",
+	"password": "Şifre",
+	"selectPortfolio": "Portföy seç…"
 }
