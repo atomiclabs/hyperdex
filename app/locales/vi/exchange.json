@@ -4,31 +4,31 @@
 		"depth": "Biểu đồ Độ sâu {{baseCurrency}}/{{quoteCurrency}}"
 	},
 	"confirmQuitTitle": "Bạn có chắc muốn thoát ra?",
-	"confirmQuitDescription": "Bạn có giao dịch trao đổi đang thực hiện. HyperDEX sẽ cố gắng để các giao dịch trao đổi này tiếp diễn khi bạn chạy ứng dụng vào lần tới, nhưng chúng tôi khuyên bạn hãy để HyperDEX hoạt động cho đến khi các giao dịch trao đổi hoàn thành.",
+	"confirmQuitDescription": "Bạn có giao dịch đang thực hiện. HyperDEX sẽ cố gắng để các giao dịch này tiếp diễn khi bạn chạy ứng dụng vào lần tới, nhưng chúng tôi khuyên bạn hãy để HyperDEX hoạt động cho đến khi các giao dịch hoàn thành.",
 	"intro": {
 		"description": " <0>HyperDEX is a decentralized exchange. It has a P2P order book and trades are made via <1>cross-chain atomic swaps</1>. This means it works slightly differently than a centralized exchange.</0><1>Orders can take a while to propagate across the P2P network. You may need to wait a while for the order book to display.</1><2>HyperDEX needs you to have correctly sized <1>UTXOs</1> to make a successful swap. For each UTXO you can make a single swap. The easiest way to ensure you can participate in a swap is to make two or three smaller deposits to your account rather than a single large deposit.</2><3>An atomic swap is comprised of six on-chain transactions. When trading a currency with high transaction fees, it's important to slightly increase your price to account for the total transaction fees. This is especially important when trading small amounts.</3>",
-		"title": "How Trading Works with HyperDEX"
+		"title": "Hoạt động Giao Dịch trên HyperDEX như thế nào"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
+		"amount": "Số lượng {{symbol}}",
+		"averageVolume": "Khối lượng Trung bình",
+		"buy": "Mua",
+		"buyOrders": "Đơn hàng Mua",
 		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"maxOnePendingSwap": "Mỗi một lần chỉ có một giao dịch trao đổi đang chờ, hãy thử lại sau {{wait}} giây.",
+		"maxPrice": "TỐI ĐA",
+		"maxVolume": "Khối lượng Tối đa",
+		"price": "Giá {{symbol}}",
+		"sell": "Bán",
+		"sellOrders": "Lệnh Bán",
+		"symbolBalance": "Số dư: {{balance}} {{symbol}}",
+		"total": "Tổng số {{symbol}}",
+		"unexpectedError": "Có gì đó bất ngờ đã xảy ra. Bạn có chắc bạn có đủ UTXO?",
+		"worth": "Trao đổi này có giá trị {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "Thoát",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "Tất cả",
+		"title": "Trao đổi"
 	}
 }
