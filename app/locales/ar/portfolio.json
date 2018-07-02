@@ -24,7 +24,7 @@
 	"restore": {
 		"confirm": "تأكيد",
 		"confirmPasswordNoMatch": "كلمة المرور المؤكدة غير متطابقة",
-		"enterSeedPhrase": "أدخل عبارة Seed ",
+		"enterSeedPhrase": "أدخل عبارة Seed",
 		"exampleSeedPhrase": "مثال: {{seedPhrase}} …"
 	}
 }
