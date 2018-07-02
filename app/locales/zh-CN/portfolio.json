@@ -13,18 +13,18 @@
 		"seedPhrase": "您的资产组合的助记词",
 		"seedPhraseNoMatch": "您输入的助记词与生成的不匹配",
 		"success": "新资产组合已添加！",
-		"title": "Create New Portfolio"
+		"title": "新建资产组合"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
-		"createPortfolio": "Create New Portfolio",
-		"restorePortfolio": "Restore Portfolio"
+		"createOrRestoreDescription": "如果你还没有助记词，请新建资产组合",
+		"createOrRestoreTitle": "<0>你想要新建资产组合<1></1>还是从恢复已有的数据？</0>",
+		"createPortfolio": "新建资产组合",
+		"restorePortfolio": "恢复资产组合"
 	},
 	"restore": {
-		"confirm": "Confirm",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"confirm": "确认",
+		"confirmPasswordNoMatch": "确认的密码与原密码不匹配。",
+		"enterSeedPhrase": "输入您的助记词",
+		"exampleSeedPhrase": "例如：{{seedPhrase}} …"
 	}
 }
