@@ -1,5 +1,5 @@
 {
-	"cancel": "Cancel",
+	"cancel": "Отменить",
 	"chart": {
 		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
 	},
@@ -26,9 +26,9 @@
 		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
 		"worth": "This swap is worth {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "Завершить",
 	"swaps": {
-		"all": "All",
+		"all": "Все",
 		"title": "Swaps"
 	}
 }
