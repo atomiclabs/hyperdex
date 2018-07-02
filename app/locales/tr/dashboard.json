@@ -40,14 +40,14 @@
 	"withdraw": {
 		"amountLabel": "Miktar",
 		"confirmNetworkFee": "Ağ Ücreti Onayla",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"label": "Çek",
+		"maxAmount": "Maks",
+		"networkFee": "Ağ Ücreti",
+		"recipientLabel": "Alıcı",
+		"recipientPlaceholder": "{{symbol}} Adresini Gir",
+		"remainingBalance": "Kalan bakiye",
+		"successDescription": "{{amount}}{{symbol}} bu {{address}} adrese gönderildi",
+		"successTitle": "Çekim başarılı!",
+		"title": "Çek {{name}} ({{symbol}})"
 	}
 }
