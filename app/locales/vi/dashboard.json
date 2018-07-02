@@ -1,12 +1,12 @@
 {
 	"intro": {
 		"title": "✨ Cảm ơn bạn đã Giúp Chúng tôi Chạy thử HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"description": "<0>Hãy nhớ <1>đây là dự án vẫn còn trong Alpha</1>.</0> <1>Mặc dù mất tiền không chắc, bạn nên chỉ thương mại với thực tế thu nếu bạn có thể có rủi ro đó.</1> <2>Nếu bạn chỉ muốn kiểm tra HyperDEX, cố gắng thương mại giữa các bài kiểm tra đơn vị tiền tệ <1>bia</1> và <3>bánh PIZZA</3> để thay thế. Bạn có thể nhận được miễn phí <5>bia</5> <7><0>bia</0> vòi</7>.</2> <3>HyperDEX là phần mềm mã nguồn mở cung cấp &qoute;như là&qoute;, không có bảo hành của loại nào. Các tác giả hoặc chủ sở hữu quyền tác giả là không chịu trách nhiệm về bất kỳ thiệt hại nào gây ra do việc sử dụng phần mềm này.</3> <4>Khi sử dụng HyperDEX bạn đồng ý với các điều khoản của <1>Giấy phép MIT</1>.</4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
+		"noActivity": "Chưa có hoạt động nào",
+		"recentActivity": "Hoạt động Gần đây",
+		"swapFailedTitle": "Không Trao đổi",
 		"swapTitle": "Swapped",
 		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
 	},
