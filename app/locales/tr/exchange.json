@@ -11,24 +11,24 @@
 	},
 	"order": {
 		"amount": "Miktar {{symbol}}",
-		"averageVolume": "Ort Hacim",
+		"averageVolume": "Ort Hac",
 		"buy": "Satın al",
 		"buyOrders": "Alış Emirleri",
 		"failedTrade": "{{type}}{{baseCurrency}} başarısız oldu",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"maxOnePendingSwap": "Aynı anda sadece bir takas beklemede olabilir, {{wait}} saniye içinde tekrar dene.",
+		"maxPrice": "MAKS",
+		"maxVolume": "Maks Hac",
+		"price": "Fiyat {{symbol}}",
+		"sell": "Sat",
+		"sellOrders": "Satış Emirleri",
+		"symbolBalance": "Bakiye: {{balance}} {{symbol}}",
+		"total": "Toplam {{symbol}}",
+		"unexpectedError": "Beklenmeyen bir hata oluştu. Hesabında yeterli UTXO olduğuna emin misin?",
+		"worth": "Bu takas {{swapWorthInUsd}} değerinde"
 	},
-	"quit": "Quit",
+	"quit": "Çık",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "Tümü",
+		"title": "Takaslar"
 	}
 }
