@@ -13,41 +13,41 @@
 	"chart": {
 		"noData": "Không có dữ liệu khả dụng",
 		"portfolioValue": "Giá trị khoản Đầu tư",
-		"symbolChart": "{{symbol}} Chart"
+		"symbolChart": "Biểu đồ {{symbol}}"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "Sao chép",
+		"copied": "Đã sao chép",
+		"label": "Nạp tiền",
+		"title": "Địa chỉ Ví ({{name}} {{symbol}}) của bạn",
+		"warning": "Đảm bảo rằng bạn chỉ gửi {{symbol}} đến địa chỉ này"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "tài sản",
+		"assets_plural": "loại tài sản",
+		"holdings": "Cổ phần {{symbol}}",
+		"price": "Giá {{symbol}}",
+		"value": "Giá trị Cổ phần {{symbol}}"
 	},
 	"list": {
 		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"search": "Tìm kiếm…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "Ví {{symbol}}",
+		"recentActivity": "Hoạt động Gần đây"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
+		"amountLabel": "Số lượng",
+		"confirmNetworkFee": "Xác nhận Chi phí Mạng lưới",
+		"label": "Rút tiền",
+		"maxAmount": "Tối đa",
+		"networkFee": "Chi phí Mạng lưới",
+		"recipientLabel": "Người nhận",
+		"recipientPlaceholder": "Nhập địa chỉ {{symbol}}",
+		"remainingBalance": "Số dư Còn lại",
+		"successDescription": "{{amount}} {{symbol}} đã gửi tới {{address}}",
+		"successTitle": "Rút tiền thành công!",
 		"title": "Withdraw {{name}} ({{symbol}})"
 	}
 }
