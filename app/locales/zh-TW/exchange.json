@@ -11,24 +11,24 @@
 	},
 	"order": {
 		"amount": "{{symbol}} 數額",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"averageVolume": "平均數額",
+		"buy": "買入",
+		"buyOrders": "買單",
+		"failedTrade": "{{type}} {{baseCurrency}} 失敗",
+		"maxOnePendingSwap": "只允許同時存在一筆交換訂單，請等待 {{wait}} 後再試。",
+		"maxPrice": "最大",
+		"maxVolume": "最大數額",
+		"price": "{{symbol}} 價格",
+		"sell": "賣出",
+		"sellOrders": "賣單",
+		"symbolBalance": "餘額：{{balance}} {{symbol}}",
+		"total": "{{symbol}} 總價",
+		"unexpectedError": "有意外事件發生。您確定擁有足夠的 UTXO 嗎？",
+		"worth": "此交換價值為 {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "退出 ",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "全部",
+		"title": "交換"
 	}
 }
