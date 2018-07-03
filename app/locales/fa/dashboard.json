@@ -44,7 +44,7 @@
 		"maxAmount": "بیشینه",
 		"networkFee": "هزینه شبکه",
 		"recipientLabel": "گیرنده",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
+		"recipientPlaceholder": "نشانی {{symbol}} را وارد کنید",
 		"remainingBalance": "اعتبار باقی مانده",
 		"successDescription": "{{amount}} {{symbol}} ارسال شد به {{address}}",
 		"successTitle": "برداشت موفق!",
