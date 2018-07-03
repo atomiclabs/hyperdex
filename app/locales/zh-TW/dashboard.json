@@ -27,27 +27,27 @@
 		"assets_plural": "資產",
 		"holdings": "{{symbol}} 持有量",
 		"price": "{{symbol}} 價格",
-		"value": "{{symbol}} Holdings Value"
+		"value": "{{symbol}} 持有價值"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "空錢包",
+		"search": "搜尋..."
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "{{symbol}} 錢包",
+		"recentActivity": "近期活動"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "數額",
+		"confirmNetworkFee": "確認網路手續費",
+		"label": "提款",
+		"maxAmount": "最大",
+		"networkFee": "網路手續費",
+		"recipientLabel": "接收者",
+		"recipientPlaceholder": "輸入 {{symbol}} 位址",
+		"remainingBalance": "餘額",
+		"successDescription": "已發送 {{amount}} {{symbol}} 到 {{address}}",
+		"successTitle": "成功提款！",
+		"title": "{{name}} ({{symbol}}) 提款"
 	}
 }
