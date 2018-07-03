@@ -11,7 +11,7 @@
 		"securityDescription": "<0>Мы рекомендуем хранить его офлайн. <1>Узнайте больше о лучших практиках безопасности</1></0>",
 		"securityTitle": "Важно! Запишите секретную фразу прямо сейчас!",
 		"seedPhrase": "Секретная фраза для вашего портфолио",
-		"seedPhraseNoMatch": "The seed phrase you entered is not the same as the generated one",
+		"seedPhraseNoMatch": "Введенная вами секретная фраза не совпадает со сгенерированной",
 		"success": "New portfolio added!",
 		"title": "Create New Portfolio"
 	},
