@@ -25,8 +25,8 @@
 	"info": {
 		"assets": "актив",
 		"assets_plural": "активы",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
+		"holdings": "Авуары {{symbol}}",
+		"price": "Цена {{symbol}}",
 		"value": "{{symbol}} Holdings Value"
 	},
 	"list": {
