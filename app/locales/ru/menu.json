@@ -12,13 +12,13 @@
 		"file": "Файл"
 	},
 	"portfolio": {
-		"dashboard": "Dashboard",
-		"exchange": "Exchange",
-		"goToPrevView": "Go to Previous View",
-		"goToNextView": "Go to Next View",
+		"dashboard": "Панель мониторинга",
+		"exchange": "Обмен",
+		"goToPrevView": "Перейти к предыдущему виду",
+		"goToNextView": "Перейти к следующему виду",
 		"logOut": "Выйти",
 		"settings": "Настройки",
-		"swap": "Swap",
+		"swap": "Своп",
 		"title": "Портфолио",
 		"trades": "Сделки"
 	}
