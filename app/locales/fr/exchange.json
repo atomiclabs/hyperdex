@@ -7,28 +7,28 @@
 	"confirmQuitDescription": "Vous avez des échanges en cours. HyperDEX essaiera de poursuivre les échanges la prochaine fois que vous utiliserez l'appli mais nous vous conseillons de laisser HyperDEX tourner jusqu'à ce que les échanges soient achevés.",
 	"intro": {
 		"description": " <0>HyperDEX est une bourse décentralisée. Elle possède un carnet d'ordres en P2P et les transactions sont effectués par le biais <1>d'échanges atomiques inter-chaînes</1>. Cela veut dire qu'elle fonctionne un peu différemment d'une bourse centralisée. </0><1>Les ordres peuvent mettre du temps à être diffusés à travers le réseau P2P. Il se peut que le carnet d'ordre mette un peu de temps à s'afficher. </1><2>HyperDEX a besoin que vos <1>UTXO</1> soient d'une taille correcte pour que l'échange soit réussi. Vous pouvez faire un échange unique par UTXO. Le moyen le plus simple de vous assurez que vous puissiez participer à un échange et de faire deux ou trois dépôts plus petits sur votre compte, plutôt qu'un seul dépôt important. </2><3>Un échange atomique comprend six transactions on chain. Quand vous tradez une devise possédant des frais de transaction élevés, il est important d'augmenter légèrement votre prix pour tenir compte des frais de transaction totaux. Ceci est particulièrement important quand vous tradez de petites sommes.</3>",
-		"title": "How Trading Works with HyperDEX"
+		"title": "Comment fonctionne le trading avec HyperDEX"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
+		"amount": "Montant {{symbol}}",
+		"averageVolume": "Vol. moy.",
+		"buy": "Acheter",
+		"buyOrders": "Ordres d'achat",
+		"failedTrade": "Impossible de {{type}} {{baseCurrency}}",
+		"maxOnePendingSwap": "Vous ne pouvez avoir qu'un seul échange en cours à la fois. Réessayez dans {{wait}} secondes.",
 		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
+		"maxVolume": "Vol. max.",
+		"price": "Prix {{symbol}}",
+		"sell": "Vendre",
+		"sellOrders": "Ordres de vente",
+		"symbolBalance": "Solde : {{balance}} {{symbol}}",
 		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"unexpectedError": "Il y a eu un imprévu. Êtes-vous certain(e) d'avoir assez d'UTXO ?",
+		"worth": "Cet échange vaut {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "Arrêter",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "Tous",
+		"title": "Échanges"
 	}
 }
