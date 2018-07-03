@@ -19,35 +19,35 @@
 		"copy": "Copier",
 		"copied": "Copié",
 		"label": "Dépôt",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
+		"title": "L'adresse de votre portefeuille {{name}} ({{symbol}})",
 		"warning": "Assurez-vous de n'envoyer que {{symbol}} à cette adresse"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "actif",
+		"assets_plural": "actifs",
+		"holdings": "Portefeuille d'actions {{symbol}}",
+		"price": "Prix de {{symbol}}",
+		"value": "Valeur du portefeuille d'actions {{symbol}}"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
+		"emptyWallet": "Portefeuille vide",
 		"search": "Rechercher…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
+		"info": "Portefeuille {{symbol}}",
 		"recentActivity": "Activité récente"
 	},
 	"withdraw": {
 		"amountLabel": "Quantité",
-		"confirmNetworkFee": "Confirm Network Fee",
+		"confirmNetworkFee": "Confirmer les frais de réseau",
 		"label": "Retirer",
 		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"networkFee": "Frais de réseau",
+		"recipientLabel": "Bénéficiaire",
+		"recipientPlaceholder": "Saisir l'adresse de {{symbol}}",
+		"remainingBalance": "Solde restant",
+		"successDescription": "{{amount}} {{symbol}} envoyés à {{address}}",
+		"successTitle": "Retrait réussi !",
+		"title": "Retirer de {{name}} ({{symbol}})"
 	}
 }
