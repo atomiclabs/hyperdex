@@ -1,8 +1,8 @@
 {
-	"forgotPassword": "Forgot password",
+	"forgotPassword": "Забыли пароль",
 	"incorrectPassword": "Неверный пароль",
 	"login": "Войти",
-	"loggingIn": "Вход…",
+	"loggingIn": "Производится вход…",
 	"password": "Пароль",
-	"selectPortfolio": "Select portfolio…"
+	"selectPortfolio": "Выбрать Портфолио…"
 }
