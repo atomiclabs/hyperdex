@@ -10,21 +10,21 @@
 		"title": "How Trading Works with HyperDEX"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
-		"averageVolume": "Avg Vol",
+		"amount": "Сумма {{symbol}}",
+		"averageVolume": "Ср. объем",
 		"buy": "Купить",
-		"buyOrders": "Buy Orders",
+		"buyOrders": "Ордера на покупку",
 		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
 		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
 		"maxPrice": "МАКС.",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"maxVolume": "Макс. объем",
+		"price": "Цена {{symbol}}",
+		"sell": "Продать",
+		"sellOrders": "Ордера на Продажу",
+		"symbolBalance": "Баланс: {{balance}} {{symbol}}",
+		"total": "Итого {{symbol}}",
+		"unexpectedError": "Произошло что-то неожиданное. Уверены, что у вас достаточно UTXO?",
+		"worth": "Стоимость этого свопа {{swapWorthInUsd}}"
 	},
 	"quit": "Завершить",
 	"swaps": {
