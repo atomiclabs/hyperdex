@@ -10,7 +10,7 @@
 		"title": "HyperDEX 如何處理交易"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
+		"amount": "{{symbol}} 數額",
 		"averageVolume": "Avg Vol",
 		"buy": "Buy",
 		"buyOrders": "Buy Orders",
