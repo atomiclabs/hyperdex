@@ -1,6 +1,6 @@
 {
-	"openOrders": "Open Orders",
-	"swapHistory": "Swap History",
-	"stats": "In the last month you did {{count}} successful trade in {{currencyCount}} currencies worth {{totalSwapsWorthInUsd}} in total",
-	"stats_plural": "In the last month you did {{count}} successful trades in {{currencyCount}} currencies worth {{totalSwapsWorthInUsd}} in total"
+	"openOrders": "開放訂單",
+	"swapHistory": "交換歷史記錄",
+	"stats": "上個月您在 {{currencyCount}} 種貨幣間成功進行了 {{count}} 筆交易，總價值 {{totalSwapsWorthInUsd}}。",
+	"stats_plural": "上個月您在 {{currencyCount}} 種貨幣間成功進行了 {{count}} 筆交易，總價值 {{totalSwapsWorthInUsd}}。"
 }
