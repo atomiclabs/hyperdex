@@ -25,29 +25,29 @@
 	"info": {
 		"assets": "risorsa",
 		"assets_plural": "risorse",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"holdings": "Pacchetti di {{symbol}}",
+		"price": "Prezzo di {{symbol}}",
+		"value": "Valore dei pacchetti di {{symbol}}"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "Portafoglio vuoto",
+		"search": "Ricerca…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "Portafoglio di {{symbol}}",
+		"recentActivity": "Attività recenti"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "Quantità",
+		"confirmNetworkFee": "Conferma commissione di rete",
+		"label": "Preleva",
+		"maxAmount": "Massimo",
+		"networkFee": "Commissione di rete",
+		"recipientLabel": "Destinatario",
+		"recipientPlaceholder": "Inserisci indirizzo {{symbol}}",
+		"remainingBalance": "Saldo residuo",
+		"successDescription": "{{amount}} {{symbol}} inviati a {{address}}",
+		"successTitle": "Prelievo effettuato con successo!",
+		"title": "Preleva {{name}} ({{symbol}})"
 	}
 }
