@@ -12,15 +12,15 @@
 	},
 	"chart": {
 		"noData": "利用可能なデータがありません。",
-		"portfolioValue": "Portfolio Value",
+		"portfolioValue": "ポートフォリオ評価額",
 		"symbolChart": "{{symbol}} チャート"
 	},
 	"deposit": {
 		"copy": "コピー",
 		"copied": "コピーしました",
 		"label": "入金",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"title": "あなたの {{name}} ({{symbol}}) ウォレットアドレス",
+		"warning": "このアドレスには {{symbol}} 以外は絶対に送金しないでください"
 	},
 	"info": {
 		"assets": "資産",
