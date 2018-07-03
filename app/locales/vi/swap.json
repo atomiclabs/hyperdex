@@ -5,7 +5,7 @@
 	"title": "Hoán đổi",
 	"details": {
 		"alicepayment": "Thanh toán Alice",
-		"alicespend": "Chi tiêu",
+		"alicespend": "Chi tiêu Alice",
 		"bobdeposit": "Nạp tiền Bob",
 		"bobpayment": "Thanh toán Bob",
 		"broadcast": "Công bố",
@@ -14,7 +14,7 @@
 		"exchanging": "Đang đổi",
 		"executed": "Đã chốt",
 		"for": "Lấy",
-		"myfee": "Phí của tôi",
+		"myfee": "Chi phí của tôi",
 		"order": "Lệnh",
 		"requested": "Được đề xuất",
 		"pending": "Chờ xử lý",
