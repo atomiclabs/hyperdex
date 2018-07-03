@@ -3,28 +3,28 @@
 		"confirm": "تایید",
 		"confirmPassword": "تأیید رمز عبور",
 		"confirmPasswordNoMatch": "تایید رمزعبور با رمزعبور تطابق ندارد",
-		"confirmSeedPhrase": "Confirm Your Seed Phrase",
+		"confirmSeedPhrase": "عبارت مولد خود را تایید کنید",
 		"exampleSeedPhrase": "مثال: {{seedPhrase}} …",
 		"name": "نام سبد سهام",
 		"next": "بعدی",
 		"password": "رمزعبور",
-		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
-		"securityTitle": "Important: please back up your seed phrase now!",
-		"seedPhrase": "Seed Phrase for Your Portfolio",
-		"seedPhraseNoMatch": "The seed phrase you entered is not the same as the generated one",
+		"securityDescription": "<0>توصیه می‌کنید آن را آفلاین ذخیره کنید. <1>از بهترین روش‌های امنیتی بیشتر بیاموزید</1></0>",
+		"securityTitle": "مهم: لطفا همین حالا از عبارت مولد خود پشتیبان تهیه کنید!",
+		"seedPhrase": "عبارت مولد سبد سهام‌تان",
+		"seedPhraseNoMatch": "عبارت مولدی که وارد کرده‌اید با آنچه تولید شده است یکسان نیست",
 		"success": "سبد سهام جدید اضافه شد!",
 		"title": "ایجاد سبد سهام جدید"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
+		"createOrRestoreDescription": "اگر عبارت مولد ندارید، یکی ایجاد کنید.",
 		"createOrRestoreTitle": "<0>آیا می‌خواهید سبد سهام جدیدی بسازید <1></1>یا سبد سهام موجود را بازیابی کنید؟</0>",
 		"createPortfolio": "ایجاد سبد سهام جدید",
 		"restorePortfolio": "بازگرداندن سبد سهام"
 	},
 	"restore": {
 		"confirm": "تایید",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
+		"confirmPasswordNoMatch": "تایید رمزعبور با رمزعبور تطابق ندارد",
+		"enterSeedPhrase": "عبارت مولد خود را وارد کنید",
 		"exampleSeedPhrase": "مثال: {{seedPhrase}} …"
 	}
 }
