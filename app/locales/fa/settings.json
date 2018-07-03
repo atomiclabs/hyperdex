@@ -3,11 +3,11 @@
 	"enabledCurrencies": "Enabled currencies",
 	"logOutAppSettings": "<0><0>Log out</0> to see more app settings.</0>",
 	"portfolio": "Portfolio",
-	"title": "Settings",
+	"title": "تنظیمات",
 	"theme": {
-		"theme": "Theme",
-		"dark": "Dark",
-		"light": "Light",
-		"system": "System"
+		"theme": "پوسته",
+		"dark": "تیره",
+		"light": "روشن",
+		"system": "سیستم"
 	}
 }
