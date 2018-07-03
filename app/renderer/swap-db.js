@@ -108,6 +108,8 @@ class SwapDB {
 
 		const swap = {
 			uuid,
+			requestId: undefined,
+			quoteId: undefined,
 			timeStarted,
 			orderType: isBuyOrder ? 'buy' : 'sell',
 			status: 'pending',
@@ -144,6 +146,13 @@ class SwapDB {
 		};
 
 		messages.forEach(message => {
+			if (message.requestid) {
+				swap.requestId = message.requestid;
+			}
+			if (message.quoteid) {
+				swap.quoteId = message.quoteid;
+			}
+
 			if (message.method === 'connected') {
 				swap.status = 'matched';
 				swap.progress = MATCHED_STEP / TOTAL_PROGRESS_STEPS;
