@@ -1,8 +1,8 @@
 {
 	"tempMessageDescription": "Simple atomic swaps with minimal user interaction",
 	"tempMessageTitle": "Już wkrótce…",
-	"timedOut": "Czas wymiany wygasł",
-	"title": "Wymiana",
+	"timedOut": "Czas swapu wygasł",
+	"title": "Swap",
 	"details": {
 		"alicepayment": "Płatność Alice",
 		"alicespend": "Wydatek Alice",
@@ -10,7 +10,7 @@
 		"bobpayment": "Płatność Boba",
 		"broadcast": "Nadane",
 		"buy": "Kup",
-		"copyDebugData": "Copy Swap Debug Data",
+		"copyDebugData": "Kopiuj dane debugowania swapu",
 		"exchanging": "Wymiana",
 		"executed": "Wykonano",
 		"for": "Na",
