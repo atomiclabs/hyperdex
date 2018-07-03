@@ -17,9 +17,9 @@
 		"goToPrevView": "轉到上一視圖",
 		"goToNextView": "轉到下一視圖",
 		"logOut": "登出",
-		"settings": "Settings",
-		"swap": "Swap",
-		"title": "Portfolio",
-		"trades": "Trades"
+		"settings": "設定",
+		"swap": "交換",
+		"title": "投資組合",
+		"trades": "交易"
 	}
 }
