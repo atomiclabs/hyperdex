@@ -19,35 +19,35 @@
 		"copy": "کپی",
 		"copied": "کپی شد",
 		"label": "سپرده",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"title": "آدرس کیف پول‌تان {{name}} ({{symbol}})",
+		"warning": "مطمئن شوید که شما تنها {{symbol}} را به این آدرس ارسال می‌کنید"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
+		"assets": "دارایی",
+		"assets_plural": "دارایی‌ها",
 		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
+		"price": "قیمت {{symbol}}",
 		"value": "{{symbol}} Holdings Value"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "کیف پول خالی",
+		"search": "جستجو…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "کیف پول {{symbol}}",
+		"recentActivity": "فعالیت اخیر"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
+		"amountLabel": "مقدار",
+		"confirmNetworkFee": "تایید هزینه شبکه",
+		"label": "برداشت",
+		"maxAmount": "بیشینه",
+		"networkFee": "هزینه شبکه",
+		"recipientLabel": "گیرنده",
 		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"remainingBalance": "اعتبار باقی مانده",
+		"successDescription": "{{amount}} {{symbol}} ارسال شد به {{address}}",
+		"successTitle": "برداشت موفق!",
+		"title": "برداشت {{name}} ({{symbol}})"
 	}
 }
