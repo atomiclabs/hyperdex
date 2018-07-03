@@ -22,20 +22,20 @@
 		"sell": "매도",
 		"stats": "실행된 가격은 요청된 것보다 {{percentCheaperThanRequested}}% 더 저렴했습니다!",
 		"transactions": "거래",
-		"youExchanged": "You exchanged",
-		"youReceived": "You received",
-		"yourOffer": "Your offer",
-		"view": "View"
+		"youExchanged": "환전함",
+		"youReceived": "수령함",
+		"yourOffer": "귀하의 제안",
+		"view": "보기"
 	},
 	"list": {
-		"cancel": "Cancel",
-		"empty": "No swaps yet"
+		"cancel": "취소",
+		"empty": "아직 스왑 없음"
 	},
 	"status": {
-		"completed": "Completed",
-		"failed": "Failed",
-		"matched": "Matched",
-		"pending": "Pending",
+		"completed": "완료됨",
+		"failed": "실패함",
+		"matched": "일치됨",
+		"pending": "대기 중",
 		"unmatched": "Unmatched"
 	}
 }
