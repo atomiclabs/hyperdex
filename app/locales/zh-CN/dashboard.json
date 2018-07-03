@@ -27,7 +27,7 @@
 		"assets_plural": "资产",
 		"holdings": "{{symbol}} 持有量",
 		"price": "{{symbol}} 价格",
-		"value": "{{symbol}} 持有价格"
+		"value": "{{symbol}} 持有价值"
 	},
 	"list": {
 		"emptyWallet": "空钱包",
