@@ -1,16 +1,16 @@
 {
 	"tempMessageDescription": "Simple atomic swaps with minimal user interaction",
 	"tempMessageTitle": "Скоро появится…",
-	"timedOut": "Swap timed out",
-	"title": "Swap",
+	"timedOut": "Время свопа истекло",
+	"title": "Своп",
 	"details": {
-		"alicepayment": "Alice Payment",
+		"alicepayment": "Платеж Алисы",
 		"alicespend": "Alice Spend",
-		"bobdeposit": "Bob Deposit",
-		"bobpayment": "Bob Payment",
+		"bobdeposit": "Депозит Боба",
+		"bobpayment": "Платеж Боба",
 		"broadcast": "Broadcast",
-		"buy": "Buy",
-		"copyDebugData": "Copy Swap Debug Data",
+		"buy": "Купить",
+		"copyDebugData": "Скопировать данные отладки свопов",
 		"exchanging": "Exchanging",
 		"executed": "Executed",
 		"for": "For",
@@ -29,7 +29,7 @@
 	},
 	"list": {
 		"cancel": "Отменить",
-		"empty": "No swaps yet"
+		"empty": "Свопов еще не было"
 	},
 	"status": {
 		"completed": "Completed",
