@@ -14,8 +14,8 @@
 	"portfolio": {
 		"dashboard": "Bảng điều khiển",
 		"exchange": "Tỉ giá",
-		"goToPrevView": "Đi tới Xem Trước đó",
-		"goToNextView": "Đi tới Xem Tiếp",
+		"goToPrevView": "Đi tới Trang Trước",
+		"goToNextView": "Đi tới Trang Tiếp",
 		"logOut": "Đăng Xuất",
 		"settings": "Cài đặt",
 		"swap": "Hoán đổi",
