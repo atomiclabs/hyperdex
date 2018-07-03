@@ -32,10 +32,10 @@
 		"empty": "Свопов еще не было"
 	},
 	"status": {
-		"completed": "Completed",
-		"failed": "Failed",
-		"matched": "Matched",
-		"pending": "Pending",
-		"unmatched": "Unmatched"
+		"completed": "Завершено",
+		"failed": "С ошибкой",
+		"matched": "Совпало",
+		"pending": "Ожидание",
+		"unmatched": "Не совпало"
 	}
 }
