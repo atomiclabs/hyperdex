@@ -1,7 +1,7 @@
 {
 	"intro": {
 		"title": "✨ Спасибо за помощь в тестировании HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"description": "<0>Просим не забывать, что <1>этот проект по-прежнему находится в альфа-версии</1>.</0><1>Хотя потеря фондов маловероятна, вам следует торговать реальной валютой, только если вы принимаете на себя такой риск.</1><2>Если вы хотите только протестировать HyperDEX, пробуйте производить торговлю только между тестовыми валютами <1>BEER</1> и <3>PIZZA</3>. Вы можете получить бесплатно <5>BEER</5> на <7><0>BEER</0> faucet</7>.</2><3>HyperDEX — это программное обеспечение Open Source, предоставляемое по принципу «как есть», без каких-либо гарантий. Авторы и держатели копирайта не отвечают за какой-либо ущерб, причиненный в результате использования этого программного обеспечения.</3><4>Используя HyperDEX вы тем самым выражаете согласие на условия <1>Лицензии MIT</1>.</4>"
 	},
 	"activity": {
 		"noActivity": "Еще не было активности",
@@ -45,7 +45,7 @@
 		"networkFee": "Network Fee",
 		"recipientLabel": "Получатель",
 		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
+		"remainingBalance": "Остаток баланса",
 		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
 		"successTitle": "Successful withdrawal!",
 		"title": "Withdraw {{name}} ({{symbol}})"
