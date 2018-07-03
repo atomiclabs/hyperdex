@@ -45,7 +45,7 @@
 		"networkFee": "Chi phí Mạng lưới",
 		"recipientLabel": "Người nhận",
 		"recipientPlaceholder": "Nhập địa chỉ {{symbol}}",
-		"remainingBalance": "Số dư Còn lại",
+		"remainingBalance": "Số dư còn lại",
 		"successDescription": "{{amount}} {{symbol}} đã gửi tới {{address}}",
 		"successTitle": "Rút tiền thành công!",
 		"title": "Rút tiền {{name}} ({{symbol}})"
