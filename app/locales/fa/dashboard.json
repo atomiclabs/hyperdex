@@ -25,9 +25,9 @@
 	"info": {
 		"assets": "دارایی",
 		"assets_plural": "دارایی‌ها",
-		"holdings": "{{symbol}} Holdings",
+		"holdings": "{{symbol}} هلدینگ",
 		"price": "قیمت {{symbol}}",
-		"value": "{{symbol}} Holdings Value"
+		"value": "{{symbol}} ارزش هلدینگ"
 	},
 	"list": {
 		"emptyWallet": "کیف پول خالی",
