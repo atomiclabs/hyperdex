@@ -1,13 +1,13 @@
 {
 	"intro": {
 		"title": "Merci de nous aider à tester HyperDEX !",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"description": "<0>N'oubliez pas que <1>ce projet est encore en alpha</1>.</0><1>Bien qu'il soit peu probable que vous perdiez des fonds, vous ne devez tradez avec de l'argent que si vous pouvez courir ce risque.</1><2> Si vous voulez juste essayer HyperDEX, esssayez plutôt le trading entre les devises de test <1>BEER</1> et <3>PIZZA</3>. Vous pouvez obtenir de la <5>BEER</5> gratuitement au <7>robinet à <0>BEER</0></7>. </2><3>HyperDEX est un logiciel libre fourni &qoute;tel quel&qoute;, sans aucune garantie. Les auteurs ou les ayants droit déclinent toute responsabilité quant aux dommages pouvant résulter de l'utilisation de ce logiciel. </3><4>En utilisant HyperDEX, vous acceptez les conditions de la <1>licence MIT</1>.</4>"
 	},
 	"activity": {
 		"noActivity": "Pas encore d'activité",
 		"recentActivity": "Activité récente",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
+		"swapFailedTitle": "Échec de l'échange",
+		"swapTitle": "Échangé",
 		"swapDescription": "{{quoteCurrency}} pour {{baseCurrency}}"
 	},
 	"chart": {
