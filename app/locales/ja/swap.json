@@ -16,26 +16,26 @@
 		"for": "交換後:",
 		"myfee": "手数料",
 		"order": "注文",
-		"requested": "Requested",
-		"pending": "Pending",
-		"price": "Price",
-		"sell": "Sell",
+		"requested": "リクエスト",
+		"pending": "ペンディング",
+		"price": "価格",
+		"sell": "売り",
 		"stats": "The executed price was {{percentCheaperThanRequested}}% cheaper than requested!",
-		"transactions": "Transactions",
+		"transactions": "取引",
 		"youExchanged": "You exchanged",
 		"youReceived": "You received",
-		"yourOffer": "Your offer",
-		"view": "View"
+		"yourOffer": "あなたのオファー",
+		"view": "表示"
 	},
 	"list": {
-		"cancel": "Cancel",
+		"cancel": "キャンセル",
 		"empty": "No swaps yet"
 	},
 	"status": {
-		"completed": "Completed",
-		"failed": "Failed",
-		"matched": "Matched",
-		"pending": "Pending",
+		"completed": "完了",
+		"failed": "失敗",
+		"matched": "一致",
+		"pending": "ペンディング",
 		"unmatched": "Unmatched"
 	}
 }
