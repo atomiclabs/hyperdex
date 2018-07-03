@@ -1,9 +1,9 @@
 {
 	"create": {
-		"confirm": "Confirm",
-		"confirmPassword": "Confirm Password",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"confirmSeedPhrase": "Confirm Your Seed Phrase",
+		"confirm": "Подтвердить",
+		"confirmPassword": "Подтвердить пароль",
+		"confirmPasswordNoMatch": "Подтверждение пароля не совпадает с паролем",
+		"confirmSeedPhrase": "Подтвердите вашу секретную фразу",
 		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
 		"name": "Portfolio Name",
 		"next": "Next",
@@ -22,8 +22,8 @@
 		"restorePortfolio": "Restore Portfolio"
 	},
 	"restore": {
-		"confirm": "Confirm",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
+		"confirm": "Подтвердить",
+		"confirmPasswordNoMatch": "Подтверждение пароля не совпадает с паролем",
 		"enterSeedPhrase": "Enter Your Seed Phrase",
 		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
 	}
