@@ -43,11 +43,11 @@
 		"label": "Penarikan",
 		"maxAmount": "Maksimal",
 		"networkFee": "Biaya Network",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"recipientLabel": "Penerima",
+		"recipientPlaceholder": "Masukkan {{symbol}} Alamat",
+		"remainingBalance": "Saldo yang tersisa",
+		"successDescription": "{{amount}} {{symbol}} kirim ke {{address}}",
+		"successTitle": "Penarikan Berhasil!",
+		"title": "Penarikan {{name}} ({{symbol}})"
 	}
 }
