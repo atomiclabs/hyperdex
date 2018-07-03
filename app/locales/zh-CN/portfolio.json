@@ -16,8 +16,8 @@
 		"title": "新建资产组合"
 	},
 	"new": {
-		"createOrRestoreDescription": "如果你还没有助记词，请新建资产组合",
-		"createOrRestoreTitle": "<0>你想要新建资产组合<1></1>还是从恢复已有的数据？</0>",
+		"createOrRestoreDescription": "如果您还没有助记词，请新建资产组合",
+		"createOrRestoreTitle": "<0>您想要新建资产组合<1></1>还是恢复已有的数据？</0>",
 		"createPortfolio": "新建资产组合",
 		"restorePortfolio": "恢复资产组合"
 	},
