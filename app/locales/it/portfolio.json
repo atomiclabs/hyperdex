@@ -17,14 +17,14 @@
 	},
 	"new": {
 		"createOrRestoreDescription": "Creane uno nuovo se non hai ancora una frase segreta.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
-		"createPortfolio": "Create New Portfolio",
-		"restorePortfolio": "Restore Portfolio"
+		"createOrRestoreTitle": "<0>Vuoi creare un nuovo portafoglio<1></1>o ripristinarne uno esistente?</0>",
+		"createPortfolio": "Crea nuovo portafoglio",
+		"restorePortfolio": "Ripristina portafoglio"
 	},
 	"restore": {
-		"confirm": "Confirm",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"confirm": "Conferma",
+		"confirmPasswordNoMatch": "La password confermata non corrisponde alla password",
+		"enterSeedPhrase": "Inserisci la tua frase segreta",
+		"exampleSeedPhrase": "Esempio: {{seedPhrase}} …"
 	}
 }
