@@ -36,6 +36,6 @@
 		"failed": "실패함",
 		"matched": "일치됨",
 		"pending": "대기 중",
-		"unmatched": "Unmatched"
+		"unmatched": "일치 안 됨"
 	}
 }
