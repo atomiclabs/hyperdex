@@ -12,14 +12,14 @@
 		"file": "File"
 	},
 	"portfolio": {
-		"dashboard": "Dashboard",
-		"exchange": "Exchange",
-		"goToPrevView": "Go to Previous View",
-		"goToNextView": "Go to Next View",
-		"logOut": "Log Out",
-		"settings": "Settings",
+		"dashboard": "Dasbor",
+		"exchange": "Pertukaran",
+		"goToPrevView": "Pergi ke tampilan sebelumnya",
+		"goToNextView": "Pergi ke tampilan berikutnya",
+		"logOut": "Log out",
+		"settings": "Pengaturan",
 		"swap": "Swap",
 		"title": "Portfolio",
-		"trades": "Trades"
+		"trades": "Trade"
 	}
 }
