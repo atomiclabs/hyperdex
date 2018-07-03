@@ -20,15 +20,15 @@
 		"maxVolume": "Vol max",
 		"price": "Prezzo {{symbol}}",
 		"sell": "Vendi",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"sellOrders": "Ordini di vendita",
+		"symbolBalance": "Saldo: {{balance}} {{symbol}}",
+		"total": "Totale {{symbol}}",
+		"unexpectedError": "È accaduto qualcosa di inaspettato. Sei sicuro di avere abbastanza UTXO?",
+		"worth": "Questo scambio vale {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "Esci",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "Tutti",
+		"title": "Scambi"
 	}
 }
