@@ -15,7 +15,7 @@
 		"buy": "Acheter",
 		"buyOrders": "Ordres d'achat",
 		"failedTrade": "Impossible de {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Vous ne pouvez avoir qu'un seul échange en cours à la fois. Réessayez dans {{wait}} secondes.",
+		"maxOnePendingSwap": "Vous ne pouvez avoir qu'un seul échange en attente à la fois. Réessayez dans {{wait}} secondes.",
 		"maxPrice": "MAX",
 		"maxVolume": "Vol. max.",
 		"price": "Prix {{symbol}}",
