@@ -12,7 +12,7 @@
 	"order": {
 		"amount": "Amount {{symbol}}",
 		"averageVolume": "Avg Vol",
-		"buy": "Buy",
+		"buy": "Купить",
 		"buyOrders": "Buy Orders",
 		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
 		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
