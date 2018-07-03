@@ -12,12 +12,12 @@
 		"securityTitle": "Важно! Запишите секретную фразу прямо сейчас!",
 		"seedPhrase": "Секретная фраза для вашего портфолио",
 		"seedPhraseNoMatch": "Введенная вами секретная фраза не совпадает со сгенерированной",
-		"success": "New portfolio added!",
-		"title": "Create New Portfolio"
+		"success": "Добавлено новое портфолио!",
+		"title": "Создать новое портфолио"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
+		"createOrRestoreDescription": "Создать новое, если еще не создана секретная фраза.",
+		"createOrRestoreTitle": "<0>Хотите создать новое портфолио<1></1>или восстановить имеющееся?</0>",
 		"createPortfolio": "Создать новое портфолио",
 		"restorePortfolio": "Восстановить портфолио"
 	},
