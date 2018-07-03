@@ -36,6 +36,6 @@
 		"failed": "Échec",
 		"matched": "Correspondant",
 		"pending": "En attente",
-		"unmatched": "Unmatched"
+		"unmatched": "Sans correspondance"
 	}
 }
