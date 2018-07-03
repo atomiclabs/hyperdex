@@ -12,7 +12,7 @@
 	},
 	"chart": {
 		"noData": "Нет даты",
-		"portfolioValue": "Величина портфолио",
+		"portfolioValue": "Стоимость портфолио",
 		"symbolChart": "График {{symbol}}"
 	},
 	"deposit": {
@@ -27,7 +27,7 @@
 		"assets_plural": "активы",
 		"holdings": "Авуары {{symbol}}",
 		"price": "Цена {{symbol}}",
-		"value": "{{symbol}} Holdings Value"
+		"value": "Стоимость авуаров {{symbol}}"
 	},
 	"list": {
 		"emptyWallet": "Пустой кошелек",
