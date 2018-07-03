@@ -30,7 +30,7 @@
 		"value": "Wartość holdingów {{symbol}}"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
+		"emptyWallet": "Pusty portfel",
 		"search": "Wyszukiwanie…"
 	},
 	"wallet": {
