@@ -1,8 +1,8 @@
 {
 	"forgotPassword": "فراموشی رمزعبور",
-	"incorrectPassword": "Incorrect password",
-	"login": "Login",
-	"loggingIn": "Logging in…",
-	"password": "Password",
-	"selectPortfolio": "Select portfolio…"
+	"incorrectPassword": "رمز عبور نادرست",
+	"login": "ورود",
+	"loggingIn": "در حال ورود…",
+	"password": "رمزعبور",
+	"selectPortfolio": "انتخاب نمونه کارها…"
 }
