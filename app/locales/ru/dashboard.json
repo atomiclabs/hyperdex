@@ -6,48 +6,48 @@
 	"activity": {
 		"noActivity": "Еще не было активности",
 		"recentActivity": "Недавняя активность",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"swapFailedTitle": "Не делать своп",
+		"swapTitle": "Своп сделан",
+		"swapDescription": "{{quoteCurrency}} для {{baseCurrency}}"
 	},
 	"chart": {
 		"noData": "Нет даты",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"portfolioValue": "Величина портфолио",
+		"symbolChart": "График {{symbol}}"
 	},
 	"deposit": {
 		"copy": "Копировать",
 		"copied": "Скопировано",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"label": "Депозит",
+		"title": "Адрес вашего кошелька {{name}} ({{symbol}})",
+		"warning": "Убедитесь, что отправили на этот адрес только {{symbol}}"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
+		"assets": "актив",
+		"assets_plural": "активы",
 		"holdings": "{{symbol}} Holdings",
 		"price": "{{symbol}} Price",
 		"value": "{{symbol}} Holdings Value"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "Пустой кошелек",
+		"search": "Поиск…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
+		"info": "Кошелек {{symbol}}",
 		"recentActivity": "Недавняя активность"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
+		"amountLabel": "Сумма",
+		"confirmNetworkFee": "Подтвердить комиссию сети",
+		"label": "Вывести",
 		"maxAmount": "Макс.",
-		"networkFee": "Network Fee",
+		"networkFee": "Комиссия сети",
 		"recipientLabel": "Получатель",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
+		"recipientPlaceholder": "Ввести адрес {{symbol}}",
 		"remainingBalance": "Остаток баланса",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"successDescription": "{{amount}} {{symbol}} отправлено {{address}}",
+		"successTitle": "Успешный вывод средств!",
+		"title": "Вывести {{name}} ({{symbol}})"
 	}
 }
