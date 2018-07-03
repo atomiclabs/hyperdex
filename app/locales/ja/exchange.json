@@ -12,9 +12,9 @@
 	"order": {
 		"amount": "数量 {{symbol}}",
 		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
+		"buy": "購入",
+		"buyOrders": "買い注文",
+		"failedTrade": "{{type}}{{baseCurrency}} に失敗しました",
 		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
 		"maxPrice": "最大",
 		"maxVolume": "最大数量",
