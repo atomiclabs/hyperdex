@@ -12,7 +12,7 @@
 	},
 	"chart": {
 		"noData": "اطلاعاتی موجود نیست",
-		"portfolioValue": "ارزش نمونه کارها",
+		"portfolioValue": "ارزش سبد سهام",
 		"symbolChart": "نمودار {{symbol}}"
 	},
 	"deposit": {
