@@ -1,13 +1,13 @@
 {
 	"create": {
-		"confirm": "Confirm",
-		"confirmPassword": "Confirm Password",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
+		"confirm": "تایید",
+		"confirmPassword": "تأیید رمز عبور",
+		"confirmPasswordNoMatch": "تایید رمزعبور با رمزعبور تطابق ندارد",
 		"confirmSeedPhrase": "Confirm Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
+		"exampleSeedPhrase": "مثال: {{seedPhrase}} …",
 		"name": "نام سبد سهام",
-		"next": "Next",
-		"password": "Password",
+		"next": "بعدی",
+		"password": "رمزعبور",
 		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
 		"securityTitle": "Important: please back up your seed phrase now!",
 		"seedPhrase": "Seed Phrase for Your Portfolio",
@@ -17,14 +17,14 @@
 	},
 	"new": {
 		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
+		"createOrRestoreTitle": "<0>آیا می‌خواهید سبد سهام جدیدی بسازید <1></1>یا سبد سهام موجود را بازیابی کنید؟</0>",
 		"createPortfolio": "ایجاد سبد سهام جدید",
 		"restorePortfolio": "بازگرداندن سبد سهام"
 	},
 	"restore": {
-		"confirm": "Confirm",
+		"confirm": "تایید",
 		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
 		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"exampleSeedPhrase": "مثال: {{seedPhrase}} …"
 	}
 }
