@@ -16,15 +16,15 @@
 		"title": "Unda Uwekezaji Mpya"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
-		"createPortfolio": "Create New Portfolio",
-		"restorePortfolio": "Restore Portfolio"
+		"createOrRestoreDescription": "Unda maneno ya kurejesha sarafu ikiwa huna.",
+		"createOrRestoreTitle": "<0>Ungependa kuunda uwekezaji mpya <1></1> au kurejesha uliopo?</0>",
+		"createPortfolio": "Unda Uwekezaji Mpya",
+		"restorePortfolio": "Rejesha Uwekezaji"
 	},
 	"restore": {
-		"confirm": "Confirm",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"confirm": "Thibitisha",
+		"confirmPasswordNoMatch": "Nenosiri ulilothibitisha halilingani na la kwanza",
+		"enterSeedPhrase": "Weka Maneno Yako ya Kurejesha Sarafu",
+		"exampleSeedPhrase": "Mfano: {{seedPhrase}}…"
 	}
 }
