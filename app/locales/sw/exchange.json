@@ -15,20 +15,20 @@
 		"buy": "Nunua",
 		"buyOrders": "Nunua Bidhaa",
 		"failedTrade": "Hukuweza {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"maxOnePendingSwap": "Ni badilisho moja tu linaloendelea kwa wakati mmoja, jaribu tena baada ya sekunde {{wait}}.",
+		"maxPrice": "KIASI CHA JUU",
+		"maxVolume": "Ukubwa wa Kiasi cha Juu",
+		"price": "Bei {{symbol}}",
+		"sell": "Uza",
+		"sellOrders": "Uza Bidhaa",
+		"symbolBalance": "Salio: {{balance}} {{symbol}}",
+		"total": "Jumla {{symbol}}",
+		"unexpectedError": "Hitilafu isiyotarajiwa imetokea. Una uhakika una UTXO za kutosha?",
+		"worth": "Badilisho hili lina thamani ya {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "Ondoka",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "Yote",
+		"title": "Mabadilisho"
 	}
 }
