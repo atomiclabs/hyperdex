@@ -26,7 +26,7 @@
 		"unexpectedError": "有意外事件發生。您確定擁有足夠的 UTXO 嗎？",
 		"worth": "此交換價值為 {{swapWorthInUsd}}"
 	},
-	"quit": "退出 ",
+	"quit": "退出",
 	"swaps": {
 		"all": "全部",
 		"title": "交換"
