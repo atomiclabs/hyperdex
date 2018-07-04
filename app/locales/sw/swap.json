@@ -23,19 +23,19 @@
 		"stats": "Bei iliyotekelezwa ilikuwa ya chini kuliko iliyoombwa kwa {{percentCheaperThanRequested}}%!",
 		"transactions": "Miamala",
 		"youExchanged": "Umebadilisha",
-		"youReceived": "You received",
-		"yourOffer": "Your offer",
-		"view": "View"
+		"youReceived": "Umepokea",
+		"yourOffer": "Bei yako",
+		"view": "Angalia"
 	},
 	"list": {
-		"cancel": "Cancel",
-		"empty": "No swaps yet"
+		"cancel": "Ghairi",
+		"empty": "Bado hakuna mabadilisho"
 	},
 	"status": {
-		"completed": "Completed",
-		"failed": "Failed",
-		"matched": "Matched",
-		"pending": "Pending",
-		"unmatched": "Unmatched"
+		"completed": "Umekamilisha",
+		"failed": "Imeshindwa",
+		"matched": "Zimelingana",
+		"pending": "Inaendelea",
+		"unmatched": "Hazijalingana"
 	}
 }
