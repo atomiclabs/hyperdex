@@ -1,13 +1,13 @@
 {
 	"create": {
-		"confirm": "Confirm",
-		"confirmPassword": "Confirm Password",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
+		"confirm": "ยืนยัน",
+		"confirmPassword": "ยืนยันรหัสผ่าน",
+		"confirmPasswordNoMatch": "รหัสผ่านที่ยืนยันไม่ตรงกับรหัสผ่าน",
 		"confirmSeedPhrase": "Confirm Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
+		"exampleSeedPhrase": "ตัวอย่าง: {{seedPhrase}} ...",
 		"name": "Portfolio Name",
-		"next": "Next",
-		"password": "Password",
+		"next": "ถัดไป",
+		"password": "รหัสผ่าน",
 		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
 		"securityTitle": "Important: please back up your seed phrase now!",
 		"seedPhrase": "Seed Phrase for Your Portfolio",
@@ -22,9 +22,9 @@
 		"restorePortfolio": "Restore Portfolio"
 	},
 	"restore": {
-		"confirm": "Confirm",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
+		"confirm": "ยืนยัน",
+		"confirmPasswordNoMatch": "รหัสผ่านที่ยืนยันไม่ตรงกับรหัสผ่าน",
 		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"exampleSeedPhrase": "ตัวอย่าง: {{seedPhrase}} ..."
 	}
 }
