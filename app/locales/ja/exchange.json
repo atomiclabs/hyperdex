@@ -11,7 +11,7 @@
 	},
 	"order": {
 		"amount": "数量 {{symbol}}",
-		"averageVolume": "Avg Vol",
+		"averageVolume": "平均量",
 		"buy": "購入",
 		"buyOrders": "買い注文",
 		"failedTrade": "{{type}}{{baseCurrency}} に失敗しました",
