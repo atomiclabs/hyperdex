@@ -3,20 +3,20 @@
 		"preferences": "Preferences…"
 	},
 	"help": {
-		"about": "About {{appName}}",
+		"about": "সম্পর্কে {{appName}}",
 		"reportIssue": "Report an issue…",
 		"sourceCode": "Source code",
-		"website": "Website"
+		"website": "ওয়েবসাইট"
 	},
 	"other": {
 		"file": "File"
 	},
 	"portfolio": {
-		"dashboard": "Dashboard",
+		"dashboard": "ড্যাশবোর্ড",
 		"exchange": "Exchange",
 		"goToPrevView": "Go to Previous View",
 		"goToNextView": "Go to Next View",
-		"logOut": "Log Out",
+		"logOut": "লগ আউট",
 		"settings": "Settings",
 		"swap": "Swap",
 		"title": "Portfolio",
