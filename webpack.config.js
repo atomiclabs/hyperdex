@@ -51,18 +51,6 @@ module.exports = {
 				test: /\.js$/,
 				exclude: /node_modules/,
 				loader: 'babel-loader',
-				options: {
-					presets: [
-						'react',
-						'stage-3',
-					],
-					plugins: [
-						['styled-jsx/babel', {vendorPrefixes: false}],
-						'syntax-dynamic-import',
-						['transform-class-properties', {spec: true}],
-						'react-hot-loader/babel',
-					],
-				},
 			},
 			{
 				test: /\.scss$/,

@@ -2,7 +2,7 @@
 	"scripts": {
 		"postinstall": "electron-builder install-app-deps",
 		"lint": "xo && stylelint 'app/renderer/**/*.scss'",
-		"test": "yarn lint",
+		"test": "yarn lint && NODE_ENV=test ava",
 		"start:watch": "webpack-dev-server --hot",
 		"start:launch": "wait-for-localhost 8080 && electron app",
 		"start": "yarn && run-p start:*",
@@ -50,13 +50,18 @@
 		"unstated-debug": "^0.2.0"
 	},
 	"devDependencies": {
+		"ava": "^0.25.0",
 		"babel-core": "^6.26.3",
 		"babel-eslint": "^8.2.3",
 		"babel-loader": "^7.1.4",
 		"babel-plugin-syntax-dynamic-import": "^6.18.0",
 		"babel-plugin-transform-class-properties": "^6.24.1",
+		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+		"babel-plugin-transform-require-ignore": "^0.1.1",
+		"babel-plugin-webpack-alias": "^2.1.2",
 		"babel-preset-react": "^6.24.1",
 		"babel-preset-stage-3": "^6.24.1",
+		"browser-env": "^3.2.5",
 		"clean-webpack-plugin": "^0.1.19",
 		"copy-webpack-plugin": "^4.5.1",
 		"cryptocurrency-icons": "^0.2.0",
@@ -67,14 +72,18 @@
 		"electron-builder": "20.13.3",
 		"electron-react-devtools": "^0.5.3",
 		"electron-reloader": "^0.2.0",
+		"enzyme": "^3.3.0",
+		"enzyme-adapter-react-16": "^1.1.1",
 		"eslint-config-xo-react": "^0.16.0",
 		"eslint-plugin-react": "^7.9.1",
 		"file-loader": "^1.1.11",
 		"node-sass": "^4.9.0",
 		"np": "^3.0.4",
 		"npm-run-all": "^4.1.3",
+		"proxyquire": "^2.0.1",
 		"react-hot-loader": "^4.3.3",
 		"sass-loader": "^7.0.3",
+		"sinon": "^6.0.1",
 		"style-loader": "^0.21.0",
 		"stylelint": "^9.3.0",
 		"stylelint-config-xo-scss": "^0.5.0",
@@ -83,6 +92,69 @@
 		"webpack-cli": "^3.0.8",
 		"webpack-dev-server": "^3.1.4",
 		"xo": "^0.21.1"
+	},
+	"ava": {
+		"babel": "inherit",
+		"require": [
+			"babel-register",
+			"./test/_index"
+		]
+	},
+	"babel": {
+		"presets": [
+			"react",
+			"stage-3"
+		],
+		"plugins": [
+			[
+				"styled-jsx/babel",
+				{
+					"vendorPrefixes": false
+				}
+			],
+			"syntax-dynamic-import",
+			[
+				"transform-class-properties",
+				{
+					"spec": true
+				}
+			],
+			"react-hot-loader/babel"
+		],
+		"env": {
+			"test": {
+				"plugins": [
+					[
+						"webpack-alias",
+						{
+							"config": "./webpack.config.js"
+						}
+					],
+					"transform-es2015-modules-commonjs",
+					[
+						"transform-require-ignore",
+						{
+							"extensions": [
+								".scss"
+							]
+						}
+					],
+					[
+						"styled-jsx/babel",
+						{
+							"vendorPrefixes": false
+						}
+					],
+					"syntax-dynamic-import",
+					[
+						"transform-class-properties",
+						{
+							"spec": true
+						}
+					]
+				]
+			}
+		}
 	},
 	"xo": {
 		"nodeVersion": ">=8",
