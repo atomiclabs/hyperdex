@@ -6,27 +6,27 @@
 	"activity": {
 		"noActivity": "ยังไม่มีกิจกรรม",
 		"recentActivity": "กิจกรรมล่าสุด",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
+		"swapFailedTitle": "ไม่ได้สวอป",
+		"swapTitle": "สวอปแล้ว",
 		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
 	},
 	"chart": {
 		"noData": "ไม่มีข้อมูล",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"portfolioValue": "มูลค่าพอร์ต",
+		"symbolChart": "แผนภูมิ {{symbol}}"
 	},
 	"deposit": {
 		"copy": "คัดลอก",
 		"copied": "คัดลอกแล้ว",
 		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"title": "ที่อยู่กระเป๋าสตางค์ {{name}} ({{symbol}}) ของคุณ",
+		"warning": "โปรดดูให้แน่ใจว่าคุณส่งแต่ {{symbol}} ไปยังที่อยู่นี้"
 	},
 	"info": {
 		"assets": "สินทรัพย์",
 		"assets_plural": "สินทรัพย์",
 		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
+		"price": "ราคา {{symbol}}",
 		"value": "{{symbol}} Holdings Value"
 	},
 	"list": {
@@ -46,7 +46,7 @@
 		"recipientLabel": "ผู้รับ",
 		"recipientPlaceholder": "ป้อนที่อยู่ {{symbol}}",
 		"remainingBalance": "ยอดคงเหลือ",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
+		"successDescription": "ส่ง {{amount}} {{symbol}} ไปที่ {{address}} แล้ว",
 		"successTitle": "ถอนเงินสำเร็จ!",
 		"title": "ถอน {{name}} ({{symbol}})"
 	}
