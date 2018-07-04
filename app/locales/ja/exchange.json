@@ -15,7 +15,7 @@
 		"buy": "購入",
 		"buyOrders": "買い注文",
 		"failedTrade": "{{type}}{{baseCurrency}} に失敗しました",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
+		"maxOnePendingSwap": "保留中のスワップは 1 件のみ可能なため {{wait}} 秒後にもう一度お試しください。",
 		"maxPrice": "最大",
 		"maxVolume": "最大数量",
 		"price": "価格 {{symbol}}",
@@ -23,8 +23,8 @@
 		"sellOrders": "売り注文",
 		"symbolBalance": "残高: {{balance}} {{symbol}}",
 		"total": "合計 {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"unexpectedError": "予期しない問題が発生しました。十分な UTXO があることを確認してください。",
+		"worth": "このスワップの価値は {{swapWorthInUsd}} です"
 	},
 	"quit": "終了",
 	"swaps": {
