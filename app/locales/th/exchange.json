@@ -1,5 +1,5 @@
 {
-	"cancel": "Cancel",
+	"cancel": "ยกเลิก",
 	"chart": {
 		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
 	},
@@ -10,16 +10,16 @@
 		"title": "How Trading Works with HyperDEX"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
+		"amount": "จำนวน {{symbol}}",
 		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
+		"buy": "ซื้อ",
+		"buyOrders": "คำสั่งซื้อ",
 		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
 		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
+		"maxPrice": "สูงสุด",
 		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
+		"price": "ราคา {{symbol}}",
+		"sell": "ขาย",
 		"sellOrders": "Sell Orders",
 		"symbolBalance": "Balance: {{balance}} {{symbol}}",
 		"total": "Total {{symbol}}",
