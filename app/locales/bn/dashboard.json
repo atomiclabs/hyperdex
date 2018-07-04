@@ -30,24 +30,24 @@
 		"value": "{{symbol}} হোল্ডিংসের মান"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "শূণ্য ওয়ালেট",
+		"search": "অনুসন্ধান…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "{{symbol}} ওয়ালেট",
+		"recentActivity": "সাম্প্রতিক কার্যক্রম"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "পরিমাণ",
+		"confirmNetworkFee": "নেটওয়ার্ক ফি নিশ্চিত করুন",
+		"label": "উত্তোলন",
+		"maxAmount": "সর্বোচ্চ",
+		"networkFee": "নেটওয়ার্ক ফি",
+		"recipientLabel": "প্রাপক",
+		"recipientPlaceholder": "{{symbol}} ঠিকানা প্রবেশ করান",
+		"remainingBalance": "অবশিষ্ট ব্যালেন্স",
+		"successDescription": "{{address}} এ {{amount}}{{symbol}} পাঠিয়েছিলো",
+		"successTitle": "সফল উত্তোলন!",
+		"title": "{{name}} {{symbol}} উত্তোলন করুন"
 	}
 }
