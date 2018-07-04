@@ -18,36 +18,36 @@
 	"deposit": {
 		"copy": "Nakili",
 		"copied": "Imenakiliwa",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"label": "Amana",
+		"title": "Anwani ya Mkoba wako wa {{name}} ({{symbol}})",
+		"warning": "Hakikisha kuwa unatuma tu {{symbol}} kwenye anwani hii"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "mali",
+		"assets_plural": "mali",
+		"holdings": "Rasilimali za {{symbol}}",
+		"price": "Bei ya {{symbol}}",
+		"value": "Thamani ya Rasilimali za {{symbol}}"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "Mkoba mtupu",
+		"search": "Tafuta…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "Mkoba wa {{symbol}}",
+		"recentActivity": "Shughuli za Hivi Majuzi"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "Kiasi",
+		"confirmNetworkFee": "Thibitisha Ada ya Mtandao",
+		"label": "Kutoa Pesa",
+		"maxAmount": "Kiasi cha Kuu",
+		"networkFee": "Ada ya Mtandao",
+		"recipientLabel": "Mpokeaji",
+		"recipientPlaceholder": "Weka Anwani ya {{symbol}}",
+		"remainingBalance": "Salio",
+		"successDescription": "{{amount}} {{symbol}} zimetumwa kwa {{address}}",
+		"successTitle": "Umetoa pesa!",
+		"title": "Toa {{name}} ({{symbol}})"
 	}
 }
