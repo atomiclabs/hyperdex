@@ -1,8 +1,8 @@
 {
 	"settings": {
 		"customUrl": "সাধারণ মার্কেটার URL",
-		"exampleUrl": "Example: {{url}}",
-		"invalidUrl": "Invalid URL",
-		"title": "App settings"
+		"exampleUrl": "যেমন: {{url}}",
+		"invalidUrl": "ভুল URL",
+		"title": "অ্যাপ সেটিংস"
 	}
 }
