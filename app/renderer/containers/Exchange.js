@@ -23,6 +23,7 @@ class ExchangeContainer extends SuperContainer {
 				askdepth: 0,
 			},
 			isSendingOrder: false,
+			doneInitialKickstart: false,
 		};
 	}
 
@@ -63,14 +64,20 @@ class ExchangeContainer extends SuperContainer {
 	}
 
 	async kickstartStuckSwaps() {
+		const {doneInitialKickstart} = this.state;
 		this.state.swapHistory
-			.filter(swap => {
-				return swap.status === 'swapping' && isPast(addHours(swap.timeStarted, 4));
-			})
+			.filter(swap => (
+				swap.status === 'swapping' &&
+				(!doneInitialKickstart || isPast(addHours(swap.timeStarted, 4)))
+			))
 			.forEach(async swap => {
 				const {requestId, quoteId} = swap;
 				const result = await appContainer.api.kickstart({requestId, quoteId});
 			});
+
+		if (!doneInitialKickstart) {
+			this.setState({doneInitialKickstart: true});
+		}
 	}
 
 	setSwapHistory = async () => {
