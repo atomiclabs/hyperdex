@@ -8,7 +8,7 @@
 		"name": "ポートフォリオ名",
 		"next": "次",
 		"password": "パスワード",
-		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
+		"securityDescription": "<0>オフラインで保管することをお勧めします。<1>推奨のセキュリティプラクティスについてもっと学ぶ</1></0>",
 		"securityTitle": "重要: シードフレーズを今すぐバックアップしてください!",
 		"seedPhrase": "あなたのポートフォリオのシードフレーズ",
 		"seedPhraseNoMatch": "入力したシードフレーズと、生成されたシードフレーズが違います",
@@ -23,7 +23,7 @@
 	},
 	"restore": {
 		"confirm": "確認",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
+		"confirmPasswordNoMatch": "確認パスワードが一致しません",
 		"enterSeedPhrase": "シードフレーズを入力",
 		"exampleSeedPhrase": "例: {{seedPhrase}} …"
 	}
