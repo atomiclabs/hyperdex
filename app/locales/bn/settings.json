@@ -3,11 +3,11 @@
 	"enabledCurrencies": "সক্রিয় মূদ্রাসমূহ",
 	"logOutAppSettings": "<0><0>লগ আউট করুন</0>আরো বেশী অ্যাপ সেটিংস দেখার জন্য।</0>",
 	"portfolio": "পোর্টফোলিও",
-	"title": "Settings",
+	"title": "সেটিংস",
 	"theme": {
-		"theme": "Theme",
-		"dark": "Dark",
-		"light": "Light",
-		"system": "System"
+		"theme": "থিম",
+		"dark": "গাঢ়",
+		"light": "হালকা",
+		"system": "সিস্টেম"
 	}
 }
