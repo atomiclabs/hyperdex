@@ -8,7 +8,7 @@
 		"recentActivity": "กิจกรรมล่าสุด",
 		"swapFailedTitle": "ไม่ได้สวอป",
 		"swapTitle": "สวอปแล้ว",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"swapDescription": "{{quoteCurrency}} สำหรับ {{baseCurrency}}"
 	},
 	"chart": {
 		"noData": "ไม่มีข้อมูล",
@@ -25,9 +25,9 @@
 	"info": {
 		"assets": "สินทรัพย์",
 		"assets_plural": "สินทรัพย์",
-		"holdings": "{{symbol}} Holdings",
+		"holdings": "{{symbol}} ที่ถืออยู่",
 		"price": "ราคา {{symbol}}",
-		"value": "{{symbol}} Holdings Value"
+		"value": "มูลค่า {{symbol}} ที่ถืออยู่"
 	},
 	"list": {
 		"emptyWallet": "กระเป๋าสตางค์ว่างเปล่า",
