@@ -17,10 +17,9 @@ require('electron-unhandled')({
 // Enable OS specific styles
 document.documentElement.classList.add(`os-${process.platform}`);
 
+// TODO: Wrap `<App>` in `<React.StrictMode>` sometime in the future when external components are updated to support it
 render((
 	<Provider>
-		<React.StrictMode>
-			<App/>
-		</React.StrictMode>
+		<App/>
 	</Provider>
 ), document.querySelector('#root'));
