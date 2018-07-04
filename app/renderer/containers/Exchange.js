@@ -72,7 +72,7 @@ class ExchangeContainer extends SuperContainer {
 			))
 			.forEach(async swap => {
 				const {requestId, quoteId} = swap;
-				const result = await appContainer.api.kickstart({requestId, quoteId});
+				await appContainer.api.kickstart({requestId, quoteId});
 			});
 
 		if (!doneInitialKickstart) {
