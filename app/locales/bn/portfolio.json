@@ -1,8 +1,8 @@
 {
 	"create": {
-		"confirm": "Confirm",
-		"confirmPassword": "Confirm Password",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
+		"confirm": "নিশ্চিত করুন",
+		"confirmPassword": "পাসওয়ার্ড নিশ্চিত করুন",
+		"confirmPasswordNoMatch": "নিশ্চিতকৃত পাসওয়ার্ড মূল পাসওয়ার্ডের সাথে মেলেনি",
 		"confirmSeedPhrase": "Confirm Your Seed Phrase",
 		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
 		"name": "Portfolio Name",
