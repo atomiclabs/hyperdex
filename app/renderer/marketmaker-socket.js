@@ -1,8 +1,6 @@
 import Emittery from 'emittery';
 import pEvent from 'p-event';
 import readBlob from 'read-blob';
-import pAny from 'p-any';
-import delay from 'delay';
 
 class MarketmakerSocket {
 	constructor(endpoint) {
