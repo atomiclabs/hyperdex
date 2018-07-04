@@ -3,28 +3,28 @@
 		"confirm": "ยืนยัน",
 		"confirmPassword": "ยืนยันรหัสผ่าน",
 		"confirmPasswordNoMatch": "รหัสผ่านที่ยืนยันไม่ตรงกับรหัสผ่าน",
-		"confirmSeedPhrase": "Confirm Your Seed Phrase",
+		"confirmSeedPhrase": "ยืนยันรหัสแบบสุ่มของคุณ",
 		"exampleSeedPhrase": "ตัวอย่าง: {{seedPhrase}} ...",
-		"name": "ชื่อพอร์ต",
+		"name": "ชื่อพอร์ตการลงทุน",
 		"next": "ถัดไป",
 		"password": "รหัสผ่าน",
 		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
 		"securityTitle": "Important: please back up your seed phrase now!",
-		"seedPhrase": "Seed Phrase for Your Portfolio",
-		"seedPhraseNoMatch": "The seed phrase you entered is not the same as the generated one",
-		"success": "เพิ่มพอร์ตใหม่แล้ว!",
-		"title": "สร้างพอร์ตใหม่"
+		"seedPhrase": "รหัสแบบสุ่มสำหรับพอร์ตการลงทุนของคุณ",
+		"seedPhraseNoMatch": "รหัสแบบสุ่มที่คุณป้อนไม่ตรงกับรหัสที่สร้างขึ้น",
+		"success": "เพิ่มพอร์ตการลงทุนใหม่แล้ว!",
+		"title": "สร้างพอร์ตการลงทุนใหม่"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
+		"createOrRestoreDescription": "สร้างรหัสแบบสุ่มใหม่หากคุณยังไม่มีรหัสแบบสุ่ม",
 		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
-		"createPortfolio": "สร้างพอร์ตใหม่",
+		"createPortfolio": "สร้างพอร์ตการลงทุนใหม่",
 		"restorePortfolio": "Restore Portfolio"
 	},
 	"restore": {
 		"confirm": "ยืนยัน",
 		"confirmPasswordNoMatch": "รหัสผ่านที่ยืนยันไม่ตรงกับรหัสผ่าน",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
+		"enterSeedPhrase": "ป้อนรหัสแบบสุ่มของคุณ",
 		"exampleSeedPhrase": "ตัวอย่าง: {{seedPhrase}} ..."
 	}
 }
