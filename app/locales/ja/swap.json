@@ -22,8 +22,8 @@
 		"sell": "売り",
 		"stats": "指値よりも {{percentCheaperThanRequested}}% 安く約定されました！",
 		"transactions": "取引",
-		"youExchanged": "You exchanged",
-		"youReceived": "You received",
+		"youExchanged": "スワップ前",
+		"youReceived": "スワップ後",
 		"yourOffer": "あなたのオファー",
 		"view": "表示"
 	},
