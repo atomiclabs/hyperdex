@@ -10,10 +10,10 @@
 		"password": "Nenosiri",
 		"securityDescription": "<0>Tunapendekeza uhifadhi nje ya mtandao. <1>Pata maelezo zaidi kuhusu mbinu za kudumisha usalama</1></0>",
 		"securityTitle": "Muhimu: Tafadhali hifadhi nakala ya maneno yako kurejesha sarafu sasa!",
-		"seedPhrase": "Seed Phrase for Your Portfolio",
-		"seedPhraseNoMatch": "The seed phrase you entered is not the same as the generated one",
-		"success": "New portfolio added!",
-		"title": "Create New Portfolio"
+		"seedPhrase": "Maneno ya Kurejesha Sarafu ya Uwekezaji Wako",
+		"seedPhraseNoMatch": "Maneno ya kurejesha sarafu uliyoweka hayafanani na yaliyozalishwa",
+		"success": "Uwekezaji mpya umeongezwa!",
+		"title": "Unda Uwekezaji Mpya"
 	},
 	"new": {
 		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
