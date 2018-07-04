@@ -1,8 +1,8 @@
 {
 	"forgotPassword": "Forgot password",
 	"incorrectPassword": "Incorrect password",
-	"login": "Login",
+	"login": "লগইন",
 	"loggingIn": "Logging in…",
-	"password": "Password",
+	"password": "পাসওয়ার্ড",
 	"selectPortfolio": "Select portfolio…"
 }
