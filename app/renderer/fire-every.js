@@ -1,12 +1,14 @@
 import toMilliseconds from '@sindresorhus/to-milliseconds';
 import delayModule from 'delay';
 
-const fireEvery = async (delay, cb, options = {}) => {
+const fireEvery = async (delay, cb, options) => {
 	if (typeof delay !== 'number') {
 		delay = toMilliseconds(delay);
 	}
 
-	if (options.startAfterDelay) {
+	options = Object.assign({fireInstantly: true}, options);
+
+	if (!options.fireInstantly) {
 		await delayModule(delay);
 	}
 

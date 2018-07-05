@@ -213,7 +213,7 @@ class DashboardContainer extends Container {
 	async watchCurrencyHistory() {
 		await fireEvery({minutes: 3}, async () => {
 			await this.updateCurrencyHistory();
-		}, {startAfterDelay: true});
+		}, {fireInstantly: false});
 	}
 
 	async watchAllCurrencyHistory() {
