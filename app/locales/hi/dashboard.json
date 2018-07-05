@@ -39,10 +39,10 @@
 	},
 	"withdraw": {
 		"amountLabel": "राशि",
-		"confirmNetworkFee": "Confirm Network Fee",
+		"confirmNetworkFee": "नेटवर्क शुल्क की पुष्टि करें",
 		"label": "निकालें",
 		"maxAmount": "अधिकतम",
-		"networkFee": "Network Fee",
+		"networkFee": "नेटवर्क शुल्क",
 		"recipientLabel": "Recipient",
 		"recipientPlaceholder": "Enter {{symbol}} Address",
 		"remainingBalance": "Remaining balance",
