@@ -10,6 +10,24 @@ We use the `name` property only when the currency is not on `coinmarketcap.com`.
 
 const supportedCurrencies = [
 	{
+		coin: '$PAC',
+		rpcport: 7111,
+		pubtype: 55,
+		p2shtype: 10,
+		wiftype: 204,
+		txfee: 10000,
+		electrumServers: [
+			{
+				host: 'electrum.paccoin.io',
+				port: 50001,
+			},
+			{
+				host: 'electro-pac.paccoin.io',
+				port: 50001,
+			},
+		],
+	},
+	{
 		coin: 'ARG',
 		rpcport: 13581,
 		pubtype: 23,
