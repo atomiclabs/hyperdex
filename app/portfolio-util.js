@@ -40,9 +40,13 @@ const renamePortfolio = async ({id, newName}) => {
 	const portfolio = await loadJsonFile(filePath);
 	const newId = generateId(newName);
 	const newFilePath = path.join(portfolioPath, idToFileName(newId));
+
 	portfolio.name = newName;
+
 	await writeJsonFile(newFilePath, portfolio);
 	await deletePortfolio(id);
+
+	return newId;
 };
 
 const changePortfolioPassword = async ({id, seedPhrase, newPassword}) => {
