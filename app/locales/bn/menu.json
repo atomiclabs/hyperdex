@@ -1,25 +1,25 @@
 {
 	"app": {
-		"preferences": "Preferences…"
+		"preferences": "অগ্রাধিকারসমূহ…"
 	},
 	"help": {
 		"about": "সম্পর্কে {{appName}}",
-		"reportIssue": "Report an issue…",
-		"sourceCode": "Source code",
+		"reportIssue": "সমস্যা রিপোর্ট করুন…",
+		"sourceCode": "সোর্স কোড",
 		"website": "ওয়েবসাইট"
 	},
 	"other": {
-		"file": "File"
+		"file": "ফাইল"
 	},
 	"portfolio": {
 		"dashboard": "ড্যাশবোর্ড",
-		"exchange": "Exchange",
-		"goToPrevView": "Go to Previous View",
-		"goToNextView": "Go to Next View",
+		"exchange": "লেনদেন",
+		"goToPrevView": "পূর্ববর্তী দৃশ্যে যান",
+		"goToNextView": "পরের দৃশ্যে যান",
 		"logOut": "লগ আউট",
 		"settings": "সেটিংস",
-		"swap": "Swap",
-		"title": "Portfolio",
+		"swap": "বিনিময়",
+		"title": "পোর্টফোলিও",
 		"trades": "ট্রেডসমূহ"
 	}
 }
