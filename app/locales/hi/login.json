@@ -1,8 +1,8 @@
 {
-	"forgotPassword": "Forgot password",
-	"incorrectPassword": "Incorrect password",
-	"login": "Login",
-	"loggingIn": "Logging in…",
-	"password": "Password",
-	"selectPortfolio": "Select portfolio…"
+	"forgotPassword": "पासवर्ड भूल गए",
+	"incorrectPassword": "गलत पासवर्ड",
+	"login": "लॉगिन करें",
+	"loggingIn": "लॉगिन कर रहे हैं…",
+	"password": "पासवर्ड",
+	"selectPortfolio": "पोर्टफोलियो चुनें…"
 }
