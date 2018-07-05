@@ -40,7 +40,8 @@ class ExchangeContainer extends SuperContainer {
 
 		const ONE_HOUR = 1000 * 60 * 60;
 		fireEvery(async () => {
-			await this.kickstartStuckSwaps();
+			// Disable this while we test swap incentive flaw
+			// await this.kickstartStuckSwaps();
 		}, ONE_HOUR);
 	}
 
