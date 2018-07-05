@@ -172,12 +172,84 @@ class SwapDB {
 				swap.status = 'completed';
 				swap.progress = 1;
 
-				swap.transactions.push({
-					stage: 'alicespend',
-					coin: message.bob,
-					txid: message.paymentspent,
-					amount: message.srcamount,
-				});
+				// Nuke transaction history and rebuild it from this message.
+				// This will normally result in the same transaction array but
+				// if we were offline and missed some messages this will allow us
+				// to reconstruct what happened.
+				//
+				// It also allows us to correctly rebuild the tx chain of swaps that
+				// didn't quite go to plan like claiming bobdeposit or alicepayment.
+				const amounts = (() => {
+					const [alicespend, bobspend, bobpayment, alicepayment, bobdeposit, otherfee, myfee, bobrefund, bobreclaim, alicereclaim, aliceclaim] = message.values;
+					return {alicespend, bobspend, bobpayment, alicepayment, bobdeposit, otherfee, myfee, bobrefund, bobreclaim, alicereclaim, aliceclaim};
+				})();
+
+				swap.transactions = [];
+				if (amounts.myfee > 0) {
+					swap.transactions.push({
+						stage: 'myfee',
+						coin: message.alice,
+						txid: undefined,
+						amount: amounts.myfee,
+					});
+				}
+				if (amounts.bobdeposit > 0) {
+					swap.transactions.push({
+						stage: 'bobdeposit',
+						coin: message.bob,
+						txid: message.bobdeposit,
+						amount: amounts.bobdeposit,
+					});
+				}
+				if (amounts.alicepayment > 0) {
+					swap.transactions.push({
+						stage: 'alicepayment',
+						coin: message.alice,
+						txid: message.alicepayment,
+						amount: amounts.alicepayment,
+					});
+				}
+				if (amounts.bobpayment > 0) {
+					swap.transactions.push({
+						stage: 'bobpayment',
+						coin: message.bob,
+						txid: message.bobpayment,
+						amount: amounts.bobpayment,
+					});
+				}
+
+				// This is the final tx claiming bobpayment for a trade that completed as expected.
+				if (amounts.alicespend > 0) {
+					swap.transactions.push({
+						stage: 'alicespend',
+						coin: message.bob,
+						txid: message.paymentspent,
+						amount: amounts.alicespend,
+					});
+				}
+
+				// This is the final tx in the case that bob doesn't send bobpayment.
+				// We can claim bobdeposit which gives us a 12.5% bonus to punish bob.
+				if (amounts.aliceclaim > 0) {
+					swap.transactions.push({
+						stage: 'aliceclaim',
+						coin: message.bob,
+						txid: message.depositspent,
+						amount: amounts.aliceclaim,
+					});
+				}
+
+				// This is the final tx in the case that bob doesn't send anything after
+				// we've already sent alicepayment. We don't get any of the currency we
+				// want, just claim our original payment back.
+				if (amounts.alicereclaim > 0) {
+					swap.transactions.push({
+						stage: 'alicereclaim',
+						coin: message.alice,
+						txid: message.Apaymentspent,
+						amount: amounts.alicereclaim,
+					});
+				}
 
 				const executedBaseCurrencyAmount = isBuyOrder ? message.srcamount : message.destamount;
 				const executedQuoteCurrencyAmount = isBuyOrder ? message.destamount : message.srcamount;
