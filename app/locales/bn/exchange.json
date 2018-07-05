@@ -12,7 +12,7 @@
 	"order": {
 		"amount": "পরিমাণ {{symbol}}",
 		"averageVolume": "গড় ভলিউম",
-		"buy": "কিনুন",
+		"buy": "ক্রয় করুন",
 		"buyOrders": "ক্রয় আদেশ",
 		"failedTrade": "{{type}}{{baseCurrency}} করতে ব্যর্থ হয়েছে",
 		"maxOnePendingSwap": "একবারে শুধুমাত্র একটি বিবেচনাধীন বিনিময়, {{wait}} সেকেন্ড পর আবার চেষ্টা করুন।",
