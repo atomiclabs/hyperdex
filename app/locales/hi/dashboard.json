@@ -19,12 +19,12 @@
 		"copy": "कॉपी करें",
 		"copied": "कॉपी किया गया",
 		"label": "जमा",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"title": "आपका {{name}} ({{symbol}}) वॉलेट पता",
+		"warning": "सुनिश्चित करें कि आप इस पते पर केवल {{symbol}} भेजें"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
+		"assets": "एसेट",
+		"assets_plural": "परिसंपत्तियाँ",
 		"holdings": "{{symbol}} Holdings",
 		"price": "{{symbol}} Price",
 		"value": "{{symbol}} Holdings Value"
