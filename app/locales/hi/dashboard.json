@@ -18,7 +18,7 @@
 	"deposit": {
 		"copy": "कॉपी करें",
 		"copied": "कॉपी किया गया",
-		"label": "जमा",
+		"label": "जमा करें",
 		"title": "आपका {{name}} ({{symbol}}) वॉलेट पता",
 		"warning": "सुनिश्चित करें कि आप इस पते पर केवल {{symbol}} भेजें"
 	},
@@ -40,8 +40,8 @@
 	"withdraw": {
 		"amountLabel": "राशि",
 		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
+		"label": "निकालें",
+		"maxAmount": "अधिकतम",
 		"networkFee": "Network Fee",
 		"recipientLabel": "Recipient",
 		"recipientPlaceholder": "Enter {{symbol}} Address",
