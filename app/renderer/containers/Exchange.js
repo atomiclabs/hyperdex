@@ -98,9 +98,9 @@ class ExchangeContainer extends SuperContainer {
 
 	async watchOrderBook() {
 		if (!this.stopWatchingOrderBook) {
-			this.stopWatchingOrderBook = await fireEvery(async () => {
+			this.stopWatchingOrderBook = await fireEvery({seconds: 1}, async () => {
 				await this.fetchOrderBook();
-			}, 1000);
+			});
 		}
 
 		return this.stopWatchingOrderBook;

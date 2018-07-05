@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import pMap from 'p-map';
-import delay from 'delay';
 import {Container} from 'unstated';
 import appContainer from 'containers/App';
 import {formatCurrency} from '../util';
@@ -212,25 +211,18 @@ class DashboardContainer extends Container {
 	}
 
 	async watchCurrencyHistory() {
-		const THREE_MINUTES = 1000 * 60 * 3;
-
-		// TODO: Add an option to `fireEvery` to only start after the delay
-		await delay(THREE_MINUTES);
-
-		await fireEvery(async () => {
+		await fireEvery({minutes: 3}, async () => {
 			await this.updateCurrencyHistory();
-		}, THREE_MINUTES);
+		}, {fireInstantly: false});
 	}
 
 	async watchAllCurrencyHistory() {
-		const FIFTEEN_MINUTES = 1000 * 60 * 15;
-
 		// We update the active currency more often
 		this.watchCurrencyHistory();
 
-		await fireEvery(async () => {
+		await fireEvery({minutes: 15}, async () => {
 			await this.updateAllCurrencyHistory();
-		}, FIFTEEN_MINUTES);
+		});
 	}
 }
 

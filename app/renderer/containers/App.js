@@ -97,17 +97,15 @@ class AppContainer extends Container {
 	}
 
 	async watchCMC() {
-		const FIVE_MINUTES = 1000 * 60 * 5;
-
-		await fireEvery(async () => {
+		await fireEvery({minutes: 5}, async () => {
 			this.coinPrices = await Promise.all(getCurrencySymbols().map(getTickerData));
-		}, FIVE_MINUTES);
+		});
 	}
 
 	// TODO: We should use the portfolio socket event instead once it's implemented
 	async watchCurrencies() {
 		if (!this.stopWatchingCurrencies) {
-			this.stopWatchingCurrencies = await fireEvery(async () => {
+			this.stopWatchingCurrencies = await fireEvery({seconds: 1}, async () => {
 				const {price: kmdPriceInUsd} = this.coinPrices.find(x => x.symbol === 'KMD');
 				let {portfolio: currencies} = await this.api.portfolio();
 
@@ -150,7 +148,7 @@ class AppContainer extends Container {
 				if (!_.isEqual(this.state.currencies, currencies)) {
 					this.setState({currencies});
 				}
-			}, 1000);
+			});
 		}
 
 		return this.stopWatchingCurrencies;

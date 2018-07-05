@@ -11,6 +11,7 @@
 		"release": "cd app && np --no-publish"
 	},
 	"dependencies": {
+		"@sindresorhus/to-milliseconds": "^1.0.0",
 		"bip39": "^2.5.0",
 		"coinlist": "^2.0.0",
 		"crypto-hash": "^0.1.0",
