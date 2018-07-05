@@ -60,6 +60,7 @@ html[data-theme='light'] {
 	--text-color-faded: rgba(0, 0, 0, 0.8);
 	--text-color-opacity-0-5: rgba(0, 0, 0, 0.5);
 	--active-text-color: hsla(0, 0, 30%, 1);
+	--button-gradient: linear-gradient(180deg, hsla(216, 15%, 55%, 1) 0%, hsla(216, 15%, 35%, 1) 100%);
 	--border-color: hsla(200, 10%, 80%, 1);
 	--section-border-color: hsla(0, 0%, 0%, 0.2);
 	--pie-border-color: var(--widget-background-color);

@@ -1,6 +1,7 @@
 import {is} from 'electron-util';
 import React from 'react';
 import appContainer from 'containers/App';
+import NativeSelect from 'components/NativeSelect';
 import {translate} from '../../translate';
 
 const t = translate('settings');
@@ -18,13 +19,13 @@ class ThemeSetting extends React.Component {
 					{t('theme.theme')}:
 				</label>
 				<br/>
-				<select value={appContainer.state.theme} onChange={this.handleChange}>
+				<NativeSelect value={appContainer.state.theme} onChange={this.handleChange}>
 					<option value="dark">{t('theme.dark')}</option>
 					<option value="light">{t('theme.light')}</option>
 					{is.macos &&
 						<option value="system">{t('theme.system')}</option>
 					}
-				</select>
+				</NativeSelect>
 			</div>
 		);
 	}

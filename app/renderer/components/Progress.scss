@@ -17,6 +17,6 @@
 		@include center-vertically;
 		right: -34px;
 		font-size: 11px;
-		color: rgba(255, 255, 255, 0.5);
+		color: var(--text-color-opacity-0-5);
 	}
 }

@@ -74,7 +74,7 @@
 				width: 120px;
 
 				&__bar {
-					background: #687bf7;
+					background: var(--primary-color);
 					border-radius: 10px;
 				}
 
@@ -88,7 +88,7 @@
 		&:hover,
 		&.active {
 			background-color: rgba(104, 123, 247, 0.1);
-			border-image: linear-gradient(to bottom, #687bf7, #8050ef) 1 100%;
+			border-image: linear-gradient(to bottom, var(--primary-color), var(--secondary-color)) 1 100%;
 		}
 
 		&.active {
