@@ -2,7 +2,7 @@
 	"create": {
 		"confirm": "নিশ্চিত করুন",
 		"confirmPassword": "পাসওয়ার্ড নিশ্চিত করুন",
-		"confirmPasswordNoMatch": "নিশ্চিতকৃত পাসওয়ার্ড মূল পাসওয়ার্ডের সাথে মেলেনি",
+		"confirmPasswordNoMatch": "নিশ্চিতকৃত পাসওয়ার্ড মূল পাসওয়ার্ডের সাথে মিলেনি",
 		"confirmSeedPhrase": "আপনার সিড ফ্রেজ নিশ্চিত করুন",
 		"exampleSeedPhrase": "যেমন: {{seedPhrase}}…",
 		"name": "পোর্টফোলিও মান",
