@@ -16,15 +16,15 @@
 		"title": "नया पोर्टफोलियो बनाएँ"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
-		"createPortfolio": "Create New Portfolio",
-		"restorePortfolio": "Restore Portfolio"
+		"createOrRestoreDescription": "यदि आपके पास अभी तक कोई सीड वाक्यांश नहीं है तो नया बनाएँ।",
+		"createOrRestoreTitle": "<0>क्या आप एक नया पोर्टफोलियो बनाना चाहते हैं<1></1>या मौजूदा को रीस्टोर करना चाहते हैं?</0>",
+		"createPortfolio": "नया पोर्टफोलियो बनाएँ",
+		"restorePortfolio": "पोर्टफोलियो रीस्टोर करें"
 	},
 	"restore": {
-		"confirm": "Confirm",
+		"confirm": "पुष्टि करें",
 		"confirmPasswordNoMatch": "पासवर्ड से पुष्टि पासवर्ड मेल नहीं खाता है",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"enterSeedPhrase": "अपना सीड वाक्यांश दर्ज करें",
+		"exampleSeedPhrase": "उदाहरण: {{seedPhrase}} …"
 	}
 }
