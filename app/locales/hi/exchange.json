@@ -19,7 +19,7 @@
 		"maxPrice": "अधिकतम",
 		"maxVolume": "अधि. वॉल्यूम",
 		"price": "कीमत {{symbol}}",
-		"sell": "बिक्री",
+		"sell": "बेचें",
 		"sellOrders": "ऑर्डर बेचें",
 		"symbolBalance": "बैलेंस: {{balance}} {{symbol}}",
 		"total": "कुल {{symbol}}",
