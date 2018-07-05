@@ -24,21 +24,21 @@
 	},
 	"info": {
 		"assets": "एसेट",
-		"assets_plural": "परिसंपत्तियाँ",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets_plural": "एसेट्स",
+		"holdings": "{{symbol}} होल्डिंग्स",
+		"price": "{{symbol}} कीमत",
+		"value": "{{symbol}} होल्डिंग्स वैल्यू"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "खाली वॉलेट",
+		"search": "खोजें…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "{{symbol}} वॉलेट",
+		"recentActivity": "हालिया गतिविधि"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
+		"amountLabel": "राशि",
 		"confirmNetworkFee": "Confirm Network Fee",
 		"label": "Withdraw",
 		"maxAmount": "Max",
