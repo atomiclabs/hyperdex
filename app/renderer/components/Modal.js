@@ -26,6 +26,8 @@ class Modal extends React.Component {
 
 			return {animationType: 'close'};
 		}
+
+		return null;
 	}
 
 	state = {
