@@ -12,7 +12,7 @@
 	"order": {
 		"amount": "राशि {{symbol}}",
 		"averageVolume": "औसत वॉल्यूम",
-		"buy": "खरीद",
+		"buy": "खरीदें",
 		"buyOrders": "ऑर्डर खरीदें",
 		"failedTrade": "{{baseCurrency}} {{type}} में विफल",
 		"maxOnePendingSwap": "एक समय में केवल एक पेंडिंग स्वैप, {{wait}} सेकंड में फिर कोशिश करें ।",
