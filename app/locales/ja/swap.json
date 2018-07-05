@@ -36,6 +36,6 @@
 		"failed": "失敗",
 		"matched": "一致",
 		"pending": "ペンディング",
-		"unmatched": "Unmatched"
+		"unmatched": "マッチなし"
 	}
 }
