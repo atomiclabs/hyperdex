@@ -6,16 +6,17 @@ const randomString = require('crypto-random-string');
 const writeJsonFile = require('write-json-file');
 const dir = require('node-dir');
 const loadJsonFile = require('load-json-file');
+const del = require('del');
 const {encrypt, decrypt} = require('./encryption');
 
 const portfolioPath = path.join(app.getPath('userData'), 'portfolios');
 
 const idToFileName = id => `hyperdex-portfolio-${id}.json`;
 const fileNameToId = fileName => fileName.replace(/^hyperdex-portfolio-/, '').replace(/\.json$/, '');
+const generateId = name => `${slugify(name).slice(0, 40)}-${randomString(6)}`;
 
 const createPortfolio = async ({name, seedPhrase, password}) => {
-	const safeName = slugify(name).slice(0, 40);
-	const id = `${safeName}-${randomString(6)}`;
+	const id = generateId(name);
 	const filePath = path.join(portfolioPath, idToFileName(id));
 
 	const portfolio = {
@@ -27,6 +28,21 @@ const createPortfolio = async ({name, seedPhrase, password}) => {
 	await writeJsonFile(filePath, portfolio);
 
 	return id;
+};
+
+const deletePortfolio = async id => {
+	const filePath = path.join(portfolioPath, idToFileName(id));
+	await del(filePath, {force: true});
+};
+
+const renamePortfolio = async ({id, newName}) => {
+	const filePath = path.join(portfolioPath, idToFileName(id));
+	const portfolio = await loadJsonFile(filePath);
+	const newId = generateId(newName);
+	const newFilePath = path.join(portfolioPath, idToFileName(newId));
+	portfolio.name = newName;
+	await writeJsonFile(newFilePath, portfolio);
+	await deletePortfolio(id);
 };
 
 const changePortfolioPassword = async ({id, seedPhrase, newPassword}) => {
@@ -63,6 +79,8 @@ const getPortfolios = async () => {
 
 module.exports = {
 	createPortfolio,
+	deletePortfolio,
+	renamePortfolio,
 	changePortfolioPassword,
 	getPortfolios,
 	decryptSeedPhrase: decrypt,

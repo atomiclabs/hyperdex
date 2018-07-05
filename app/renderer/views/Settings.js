@@ -5,6 +5,7 @@ import {Subscribe} from 'unstated';
 import {Trans} from 'react-i18next';
 import appContainer from 'containers/App';
 import Link from 'components/Link';
+import Button from 'components/Button';
 import {instance, translate} from '../translate';
 import TabView from './TabView';
 import CurrencySetting from './Settings/Currency';
@@ -12,6 +13,7 @@ import ThemeSetting from './Settings/Theme';
 import './Settings.scss';
 
 const config = electron.remote.require('./config');
+const {deletePortfolio} = electron.remote.require('./portfolio-util');
 const t = translate('settings');
 
 const persistState = _.debounce((name, value) => config.set(name, value), 500);
@@ -31,6 +33,11 @@ class Settings extends React.Component {
 		});
 	};
 
+	handleDeletePortfolioClick = () => {
+		deletePortfolio(appContainer.state.portfolio.id);
+		appContainer.logOut();
+	}
+
 	render() {
 		return (
 			<Subscribe to={[appContainer]}>
@@ -43,6 +50,9 @@ class Settings extends React.Component {
 							<div className="section">
 								<h3>{t('portfolio')}</h3>
 								<CurrencySetting/>
+								<div className="form-group">
+									<Button value={t('deletePortfolio')} color="red" onClick={this.handleDeletePortfolioClick}/>
+								</div>
 							</div>
 							<div className="section">
 								<h3>{t('app')}</h3>

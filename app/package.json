@@ -15,6 +15,7 @@
 		"@sindresorhus/slugify": "^0.3.0",
 		"coinlist": "^2.0.0",
 		"crypto-random-string": "^1.0.0",
+		"del": "^3.0.0",
 		"delay": "^3.0.0",
 		"electron-better-ipc": "^0.1.1",
 		"electron-context-menu": "^0.10.0",
