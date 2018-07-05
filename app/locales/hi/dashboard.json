@@ -48,6 +48,6 @@
 		"remainingBalance": "शेष बैलेंस",
 		"successDescription": "{{amount}} {{symbol}} को यहाँ भेजा गया: {{address}}",
 		"successTitle": "निकासी सफल!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"title": "{{name}} ({{symbol}}) निकालें"
 	}
 }
