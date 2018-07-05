@@ -43,11 +43,11 @@
 		"label": "निकालें",
 		"maxAmount": "अधिकतम",
 		"networkFee": "नेटवर्क शुल्क",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
+		"recipientLabel": "प्राप्तकर्ता",
+		"recipientPlaceholder": "{{symbol}} पता एंटर करें",
+		"remainingBalance": "शेष बैलेंस",
+		"successDescription": "{{amount}} {{symbol}} को यहाँ भेजा गया: {{address}}",
+		"successTitle": "निकासी सफल!",
 		"title": "Withdraw {{name}} ({{symbol}})"
 	}
 }
