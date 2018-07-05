@@ -1,9 +1,9 @@
 {
 	"app": {
-		"preferences": "Preferences…"
+		"preferences": "प्राथमिकताएँ..."
 	},
 	"help": {
-		"about": "About {{appName}}",
+		"about": "{{appName}} के बारे में",
 		"reportIssue": "Report an issue…",
 		"sourceCode": "Source code",
 		"website": "Website"
