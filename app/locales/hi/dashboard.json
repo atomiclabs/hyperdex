@@ -12,7 +12,7 @@
 	},
 	"chart": {
 		"noData": "कोई डेटा उपलब्ध नहीं",
-		"portfolioValue": "पोर्टफोलियो मान",
+		"portfolioValue": "पोर्टफोलियो वैल्यू",
 		"symbolChart": "{{symbol}} चार्ट"
 	},
 	"deposit": {
