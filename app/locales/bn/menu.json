@@ -3,7 +3,7 @@
 		"preferences": "অগ্রাধিকারসমূহ…"
 	},
 	"help": {
-		"about": "সম্পর্কে {{appName}}",
+		"about": "{{appName}} সম্পর্কে",
 		"reportIssue": "সমস্যা রিপোর্ট করুন…",
 		"sourceCode": "সোর্স কোড",
 		"website": "ওয়েবসাইট"
