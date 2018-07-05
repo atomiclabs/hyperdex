@@ -46,12 +46,12 @@
 		}
 
 		&:hover {
-			border-color: #3f4d61;
+			border-color: var(--input-lighter-border-color);
 		}
 
 		&:focus {
 			border: 1px solid #687bf7;
-			color: #fff;
+			color: var(--text-color2);
 		}
 	}
 

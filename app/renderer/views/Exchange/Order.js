@@ -7,6 +7,7 @@ import Select from 'components/Select';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import exchangeContainer from 'containers/Exchange';
 import appContainer from 'containers/App';
+import CrosshairIcon from 'icons/Crosshair';
 import {formatCurrency} from '../../util';
 import {translate} from '../../translate';
 import './Order.scss';
@@ -187,13 +188,12 @@ class Bottom extends React.Component {
 		const orderBook = this.props.getOrderBook();
 
 		const TargetPriceButton = () => (
-			<div
+			<CrosshairIcon
 				className="target-price-button"
 				onClick={this.targetPriceButtonHandler}
 				disabled={orderBook.length === 0}
-			>
-				<img src="/assets/crosshair-icon.svg"/>
-			</div>
+				size="13px"
+			/>
 		);
 
 		const MaxPriceButton = () => (

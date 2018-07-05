@@ -21,7 +21,7 @@
 		display: inline-block;
 		position: relative;
 		z-index: 2;
-		color: #fff;
+		color: var(--text-color2-inverse);
 		font-size: 14px;
 		font-weight: 600;
 		text-decoration: none;
@@ -161,11 +161,12 @@
 		pointer-events: none;
 		cursor: default;
 		background: transparent;
-		border: 1px solid #313d4f;
+		border: 1px solid var(--button-border-color-disabled) !important; // stylelint-disable-line
 		line-height: calc(var(--line-height) - 2px/* border * 2 */);
+		box-shadow: none;
 
 		.Button__value {
-			color: #354052;
+			color: var(--button-text-color-disabled) !important; // stylelint-disable-line
 		}
 	}
 }

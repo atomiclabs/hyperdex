@@ -44,7 +44,7 @@
 			}
 
 			.amount {
-				color: #fff;
+				color: var(--text-color2);
 				font-size: 17px;
 			}
 		}
@@ -96,7 +96,7 @@
 			p {
 				margin: 0;
 				font-size: 14px;
-				color: rgba(255, 255, 255, 0.8);
+				color: var(--text-color-faded);
 			}
 		}
 
@@ -143,6 +143,10 @@
 				position: relative;
 				opacity: 0.5;
 				transition: 0.5s linear;
+
+				[data-theme='light'] & {
+					background: rgba(0, 0, 0, 0.02);
+				}
 
 				h6 {
 					margin-bottom: 6px;

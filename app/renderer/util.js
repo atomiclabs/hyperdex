@@ -46,3 +46,5 @@ export const setLoginWindowBounds = () => {
 		},
 	});
 };
+
+export const config = remote.require('./config');

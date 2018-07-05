@@ -1,4 +1,5 @@
 'use strict';
+const {is} = require('electron-util');
 const Store = require('electron-store');
 const {minWindowSize} = require('./constants');
 const {isNightlyBuild} = require('./util-common');
@@ -8,7 +9,7 @@ const defaults = {
 		width: minWindowSize.width,
 		height: minWindowSize.height,
 	},
-	darkMode: true,
+	theme: is.macos ? 'system' : 'dark',
 	enabledCoins: [
 		'BCH',
 		'BEER',

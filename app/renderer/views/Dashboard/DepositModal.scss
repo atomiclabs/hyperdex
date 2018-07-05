@@ -18,7 +18,7 @@
 
 	.address-input {
 		input {
-			color: #fff;
+			color: var(--text-color2);
 			font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 			font-size: 13px;
 			font-weight: normal;
@@ -27,14 +27,14 @@
 	}
 
 	.CopyButton {
-		background-color: #fff;
+		color: var(--text-color2);
 	}
 
 	.infobox {
 		display: flex;
 		align-items: center;
 		padding: 12px 14px;
-		background-color: #313d4f;
+		background-color: var(--background-color);
 		border-radius: 4px;
 
 		img {
@@ -43,7 +43,7 @@
 		}
 
 		p {
-			color: #fff;
+			color: var(--text-color2);
 			margin: 0;
 			font-size: 14px;
 		}

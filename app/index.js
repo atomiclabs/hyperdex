@@ -71,8 +71,6 @@ if (isAlreadyRunning) {
 const loadUrl = serve({directory: 'renderer-dist'});
 
 function createMainWindow() {
-	const isDarkMode = config.get('darkMode');
-
 	const win = new electron.BrowserWindow({
 		show: false,
 		title: app.getName(),
@@ -84,7 +82,7 @@ function createMainWindow() {
 		fullscreenable: false,
 		titleBarStyle: 'hiddenInset',
 		backgroundColor: '#1b232f', // Same as `--background-color`
-		darkTheme: isDarkMode, // GTK+3
+		darkTheme: config.get('theme') === 'dark', // GTK+3
 		webPreferences: {
 			webviewTag: false, // Disabled for security reasons since we don't use it
 			blinkFeatures: 'CSSBackdropFilter',

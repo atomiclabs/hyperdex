@@ -1,5 +1,6 @@
 import EventEmitter from 'events';
 import electron, {remote} from 'electron';
+import {is, api} from 'electron-util';
 import ipc from 'electron-better-ipc';
 import _ from 'lodash';
 import Cycled from 'cycled';
@@ -60,6 +61,7 @@ const getTickerData = async symbol => {
 
 class AppContainer extends Container {
 	state = {
+		theme: config.get('theme'),
 		activeView: 'Login',
 		enabledCoins: _.union(alwaysEnabledCurrencies, config.get('enabledCoins')),
 		currencies: [],
@@ -70,6 +72,7 @@ class AppContainer extends Container {
 	constructor() {
 		super();
 		this.views = new Cycled(appViews);
+		this.setTheme(this.state.theme);
 	}
 
 	setActiveView(activeView) {
@@ -83,6 +86,28 @@ class AppContainer extends Container {
 
 	setPreviousView() {
 		this.setActiveView(this.views.previous());
+	}
+
+	setTheme(theme) {
+		config.set('theme', theme);
+
+		let cssTheme = theme;
+		if (theme === 'system' && is.macos) {
+			cssTheme = api.systemPreferences.isDarkMode() ? 'dark' : 'light';
+		}
+		document.documentElement.dataset.theme = cssTheme;
+
+		this.setState({theme});
+	}
+
+	get isDarkTheme() {
+		const {theme} = this.state;
+
+		if (theme === 'system' && is.macos) {
+			return api.systemPreferences.isDarkMode();
+		}
+
+		return theme === 'dark';
 	}
 
 	logIn(portfolio) {
@@ -242,26 +267,13 @@ ipc.on('set-previous-view', () => {
 	appContainer.setPreviousView();
 });
 
+api.systemPreferences.subscribeNotification('AppleInterfaceThemeChangedNotification', () => {
+	appContainer.setTheme(appContainer.state.theme);
+});
+
 if (isDevelopment) {
 	window._config = electron.remote.require('./config');
 }
-
-function handleDarkMode() {
-	const applyDarkMode = () => {
-		const darkMode = config.get('darkMode');
-		appContainer.setState({darkMode});
-		document.documentElement.classList.toggle('dark-mode', darkMode);
-	};
-
-	ipc.on('toggle-dark-mode', () => {
-		config.set('darkMode', !config.get('darkMode'));
-		applyDarkMode();
-	});
-
-	applyDarkMode();
-}
-
-handleDarkMode();
 
 let prevState = appContainer.state;
 appContainer.subscribe(() => {
