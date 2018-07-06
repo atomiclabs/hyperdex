@@ -192,7 +192,7 @@ class SwapDB {
 					swap.transactions.push({
 						stage: 'myfee',
 						coin: message.alice,
-						txid: undefined,
+						txid: undefined, // This is currently mising from marketmaker responses
 						amount: amounts.myfee,
 					});
 				}
