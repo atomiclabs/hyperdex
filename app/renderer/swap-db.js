@@ -160,12 +160,15 @@ class SwapDB {
 
 			if (message.method === 'update') {
 				swap.status = 'swapping';
-				swap.transactions.push({
-					stage: message.name,
-					coin: message.coin,
-					txid: message.txid,
-					amount: message.amount,
-				});
+				// Don't push duplicate messages
+				if(!swap.transactions.some(tx => tx.stage === message.name)) {
+					swap.transactions.push({
+						stage: message.name,
+						coin: message.coin,
+						txid: message.txid,
+						amount: message.amount,
+					});
+				}
 			}
 
 			if (message.method === 'tradestatus' && message.status === 'finished') {
