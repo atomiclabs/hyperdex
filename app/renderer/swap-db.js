@@ -231,11 +231,15 @@ class SwapDB {
 				// This is the final tx in the case that bob doesn't send bobpayment.
 				// We can claim bobdeposit which gives us a 12.5% bonus to punish bob.
 				if (message.sentflags.includes('aliceclaim')) {
+					// There is a bug in marketmaker where it doesn't always correctly report
+					// the values. If aliceclaim is 0 we fallback to bobdeposit as it should
+					// be very close (same amount minus our claim txfee)
+					// https://github.com/jl777/SuperNET/issues/920
 					swap.transactions.push({
 						stage: 'aliceclaim',
 						coin: message.bob,
 						txid: message.depositspent,
-						amount: amounts.aliceclaim,
+						amount: amounts.aliceclaim || amounts.bobdeposit,
 					});
 				}
 
