@@ -38,10 +38,10 @@ class ExchangeContainer extends SuperContainer {
 			}
 		});
 
-		const ONE_HOUR = 1000 * 60 * 60;
+		const FIFTEEN_MINUTES = 1000 * 60 * 15;
 		fireEvery(async () => {
 			await this.kickstartStuckSwaps();
-		}, ONE_HOUR);
+		}, FIFTEEN_MINUTES);
 	}
 
 	constructor() {
