@@ -255,17 +255,24 @@ class SwapDB {
 					});
 				}
 
-				const executedBaseCurrencyAmount = isBuyOrder ? message.srcamount : message.destamount;
-				const executedQuoteCurrencyAmount = isBuyOrder ? message.destamount : message.srcamount;
+				const startTx = swap.transactions.find(tx => tx.stage === 'alicepayment');
+				const startAmount = startTx ? startTx.amount : 0;
+				const endTx = swap.transactions.find(tx => ['alicespend', 'aliceclaim'].includes(tx.stage));
+				const endAmount = endTx ? endTx.amount : 0;
+				const executedBaseCurrencyAmount = isBuyOrder ? endAmount : startAmount;
+				const executedQuoteCurrencyAmount = isBuyOrder ? startAmount : endAmount;
 				swap.baseCurrencyAmount = roundTo(executedBaseCurrencyAmount, 8);
 				swap.quoteCurrencyAmount = roundTo(executedQuoteCurrencyAmount, 8);
-				swap.price = roundTo(executedQuoteCurrencyAmount / executedBaseCurrencyAmount, 8);
 				swap.executed.baseCurrencyAmount = swap.baseCurrencyAmount;
 				swap.executed.quoteCurrencyAmount = swap.quoteCurrencyAmount;
-				swap.executed.price = swap.price;
-				swap.executed.percentCheaperThanRequested = roundTo(100 - ((swap.executed.price / swap.requested.price) * 100), 2);
-				if (!isBuyOrder) {
-					swap.executed.percentCheaperThanRequested = -swap.executed.percentCheaperThanRequested;
+
+				if (endAmount > 0 && startAmount > 0) {
+					swap.price = roundTo(executedQuoteCurrencyAmount / executedBaseCurrencyAmount, 8);
+					swap.executed.price = swap.price;
+					swap.executed.percentCheaperThanRequested = roundTo(100 - ((swap.executed.price / swap.requested.price) * 100), 2);
+					if (!isBuyOrder) {
+						swap.executed.percentCheaperThanRequested = -swap.executed.percentCheaperThanRequested;
+					}
 				}
 			}
 
