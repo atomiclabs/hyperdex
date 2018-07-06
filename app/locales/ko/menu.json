@@ -13,7 +13,7 @@
 	},
 	"portfolio": {
 		"dashboard": "대시보드",
-		"exchange": "환전",
+		"exchange": "거래소",
 		"goToPrevView": "이전 보기로 가기",
 		"goToNextView": "다음 보기로 가기",
 		"logOut": "로그아웃",
