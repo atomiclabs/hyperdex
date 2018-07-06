@@ -161,7 +161,7 @@ class SwapDB {
 			if (message.method === 'update') {
 				swap.status = 'swapping';
 				// Don't push duplicate messages
-				if(!swap.transactions.some(tx => tx.stage === message.name)) {
+				if(!swap.transactions.map(tx => tx.stage).includes(message.name)) {
 					swap.transactions.push({
 						stage: message.name,
 						coin: message.coin,
