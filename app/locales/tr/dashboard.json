@@ -6,7 +6,7 @@
 	"activity": {
 		"noActivity": "Henüz işlem yok",
 		"recentActivity": "Son İşlemler",
-		"swapFailedTitle": "Takas Edilmedi",
+		"swapFailedTitle": "Takas Yapılmadı",
 		"swapTitle": "Takas Edildi",
 		"swapDescription": "{{quoteCurrency}} için {{baseCurrency}}"
 	},
@@ -30,7 +30,7 @@
 		"value": "{{symbol}} Tahvil Değeri"
 	},
 	"list": {
-		"emptyWallet": "Cüzdanı boşalt",
+		"emptyWallet": "Cüzdan boş",
 		"search": "Ara…"
 	},
 	"wallet": {
