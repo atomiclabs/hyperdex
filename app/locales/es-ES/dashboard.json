@@ -30,7 +30,7 @@
 		"value": "Valor de participaciones de {{symbol}}"
 	},
 	"list": {
-		"emptyWallet": "Vaciar cartera",
+		"emptyWallet": "Cartera vacía",
 		"search": "Buscar…"
 	},
 	"wallet": {
