@@ -185,7 +185,7 @@ class SwapDB {
 				})();
 
 				swap.transactions = [];
-				if (amounts.myfee > 0) {
+				if (message.sentflags.includes('myfee')) {
 					swap.transactions.push({
 						stage: 'myfee',
 						coin: message.alice,
@@ -193,7 +193,7 @@ class SwapDB {
 						amount: amounts.myfee,
 					});
 				}
-				if (amounts.bobdeposit > 0) {
+				if (message.sentflags.includes('bobdeposit')) {
 					swap.transactions.push({
 						stage: 'bobdeposit',
 						coin: message.bob,
@@ -201,7 +201,7 @@ class SwapDB {
 						amount: amounts.bobdeposit,
 					});
 				}
-				if (amounts.alicepayment > 0) {
+				if (message.sentflags.includes('alicepayment')) {
 					swap.transactions.push({
 						stage: 'alicepayment',
 						coin: message.alice,
@@ -209,7 +209,7 @@ class SwapDB {
 						amount: amounts.alicepayment,
 					});
 				}
-				if (amounts.bobpayment > 0) {
+				if (message.sentflags.includes('bobpayment')) {
 					swap.transactions.push({
 						stage: 'bobpayment',
 						coin: message.bob,
@@ -219,7 +219,7 @@ class SwapDB {
 				}
 
 				// This is the final tx claiming bobpayment for a trade that completed as expected.
-				if (amounts.alicespend > 0) {
+				if (message.sentflags.includes('alicespend')) {
 					swap.transactions.push({
 						stage: 'alicespend',
 						coin: message.bob,
@@ -230,7 +230,7 @@ class SwapDB {
 
 				// This is the final tx in the case that bob doesn't send bobpayment.
 				// We can claim bobdeposit which gives us a 12.5% bonus to punish bob.
-				if (amounts.aliceclaim > 0) {
+				if (message.sentflags.includes('aliceclaim')) {
 					swap.transactions.push({
 						stage: 'aliceclaim',
 						coin: message.bob,
@@ -242,7 +242,7 @@ class SwapDB {
 				// This is the final tx in the case that bob doesn't send anything after
 				// we've already sent alicepayment. We don't get any of the currency we
 				// want, just claim our original payment back.
-				if (amounts.alicereclaim > 0) {
+				if (message.sentflags.includes('alicereclaim')) {
 					swap.transactions.push({
 						stage: 'alicereclaim',
 						coin: message.alice,
