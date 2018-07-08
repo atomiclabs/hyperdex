@@ -13,7 +13,7 @@
 	},
 	"portfolio": {
 		"dashboard": "Dashboard",
-		"exchange": "Tausch",
+		"exchange": "Tauschmarkt",
 		"goToPrevView": "Zur vorherigen Ansicht",
 		"goToNextView": "Zur nächsten Ansicht",
 		"logOut": "Ausloggen",
