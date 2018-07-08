@@ -16,8 +16,8 @@
 		"title": "Créer un nouveau portefeuille"
 	},
 	"new": {
-		"createOrRestoreDescription": "Créez-en un nouveau si vous n'avez pas encore de phrase de récupération.",
-		"createOrRestoreTitle": "<0>Voulez-vous créer un nouveau portefeuille<1></1>ou récupérer un portefeuille existant ?</0>",
+		"createOrRestoreDescription": "Crée-en un nouveau si tu n'as pas encore de phrase de récupération.",
+		"createOrRestoreTitle": "<0>Veux-tu créer un nouveau portefeuille<1></1>ou récupérer un portefeuille existant ?</0>",
 		"createPortfolio": "Créer un nouveau portefeuille",
 		"restorePortfolio": "Récupérer un portefeuille"
 	},
