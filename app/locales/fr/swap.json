@@ -22,8 +22,8 @@
 		"sell": "Vendre",
 		"stats": "Le prix d'exécution était {{percentCheaperThanRequested}} % moins cher que demandé !",
 		"transactions": "Transactions",
-		"youExchanged": "Vous avez échangé",
-		"youReceived": "Vous avez reçu",
+		"youExchanged": "Tu as échangé",
+		"youReceived": "Tu as reçu",
 		"yourOffer": "Votre offre",
 		"view": "Afficher"
 	},
