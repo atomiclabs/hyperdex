@@ -258,6 +258,14 @@ class SwapDB {
 					});
 				}
 
+				// Overrride status to failed if we don't have a successful completion transaction
+				if (!(
+					message.sentflags.includes('alicespend') ||
+					message.sentflags.includes('aliceclaim')
+				)) {
+					swap.status = 'failed';
+				}
+
 				const startTx = swap.transactions.find(tx => tx.stage === 'alicepayment');
 				const startAmount = startTx ? startTx.amount : 0;
 				const endTx = swap.transactions.find(tx => ['alicespend', 'aliceclaim'].includes(tx.stage));
@@ -319,9 +327,6 @@ class SwapDB {
 			if (swap.error.code === -9999 || timedOut) {
 				swap.statusFormatted = t('status.unmatched').toLowerCase();
 			}
-		}
-
-		if (swap.status === 'completed') {
 			if (swap.transactions.find(tx => tx.stage === 'alicereclaim')) {
 				swap.statusFormatted = t('status.reverted').toLowerCase();
 				swap.statusInformation = t('statusInformation.reverted');
