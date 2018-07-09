@@ -4,6 +4,8 @@
 	"timedOut": "Swap timed out",
 	"title": "Swap",
 	"details": {
+		"aliceclaim": "Alice Claim",
+		"alicereclaim": "Alice Reclaim",
 		"alicepayment": "Alice Payment",
 		"alicespend": "Alice Spend",
 		"bobdeposit": "Bob Deposit",
