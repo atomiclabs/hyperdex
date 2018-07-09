@@ -2,9 +2,10 @@
 const path = require('path');
 const electron = require('electron');
 const {runJS} = require('electron-util');
+const i18next = require('i18next');
 const config = require('./config');
 const {openGitHubIssue} = require('./util');
-const {websiteUrl, repoUrl, appViews} = require('./constants');
+const {websiteUrl, repoUrl, appViews, supportedLanguagesWithNames} = require('./constants');
 const {isDevelopment} = require('./util-common');
 const {translate} = require('./locale');
 
@@ -68,9 +69,35 @@ const createHelpMenu = () => {
 };
 
 const createDebugMenu = () => {
+	const createLanguageMenu = () => {
+		const menu = {
+			label: 'Language',
+			submenu: [],
+		};
+
+		for (const [language, name] of supportedLanguagesWithNames) {
+			menu.submenu.push({
+				label: `${name} (${language})`,
+				type: 'radio',
+				checked: i18next.language === language,
+				async click() {
+					config.set('debug_forcedLanguage', language);
+					app.relaunch();
+					app.quit();
+				},
+			});
+		}
+
+		return menu;
+	};
+
 	const debugMenu = {
 		label: 'Debug',
 		submenu: [
+			createLanguageMenu(),
+			{
+				type: 'separator',
+			},
 			{
 				label: 'Log Container State',
 				async click() {

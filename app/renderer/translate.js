@@ -1,4 +1,3 @@
-import {remote} from 'electron';
 import ipc from 'electron-better-ipc';
 import {createInstance} from 'i18next';
 import mem from 'mem';
@@ -11,7 +10,7 @@ const translate = namespaces => mem(namespaces ? instance.getFixedT(null, namesp
 
 	instance.init({
 		...i18n.options,
-		lng: remote.app.getLocale(),
+		lng: i18n.language,
 		resources: i18n.store.data,
 	});
 })();
