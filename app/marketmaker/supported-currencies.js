@@ -951,10 +951,6 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10028,
 			},
-			{
-				host: '158.69.0.198',
-				port: 10028,
-			},
 		],
 	},
 ];
