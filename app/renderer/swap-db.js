@@ -313,8 +313,18 @@ class SwapDB {
 
 			swap.statusFormatted = `swap ${swapProgress}/${swapTransactions.length}`;
 			swap.progress = (swapProgress + MATCHED_STEP) / TOTAL_PROGRESS_STEPS;
-		} else if (swap.status === 'failed' && (swap.error.code === -9999 || timedOut)) {
-			swap.statusFormatted = t('status.unmatched').toLowerCase();
+		}
+
+		if (swap.status === 'failed') {
+			if (swap.error.code === -9999 || timedOut) {
+				swap.statusFormatted = t('status.unmatched').toLowerCase();
+			}
+		}
+
+		if (swap.status === 'completed') {
+			if (swap.transactions.find(tx => tx.stage === 'alicereclaim')) {
+				swap.statusFormatted = t('status.reverted').toLowerCase();
+			}
 		}
 
 		return swap;

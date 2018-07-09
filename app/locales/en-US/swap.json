@@ -37,6 +37,7 @@
 		"completed": "Completed",
 		"failed": "Failed",
 		"matched": "Matched",
+		"reverted": "Reverted",
 		"pending": "Pending",
 		"unmatched": "Unmatched"
 	}
