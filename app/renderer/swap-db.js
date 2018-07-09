@@ -324,6 +324,7 @@ class SwapDB {
 		if (swap.status === 'completed') {
 			if (swap.transactions.find(tx => tx.stage === 'alicereclaim')) {
 				swap.statusFormatted = t('status.reverted').toLowerCase();
+				swap.statusInformation = t('statusInformation.reverted');
 			}
 		}
 

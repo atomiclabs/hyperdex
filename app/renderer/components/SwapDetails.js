@@ -135,6 +135,9 @@ class SwapDetails extends React.Component {
 									</React.Fragment>
 								)}
 							</p>
+							{swap.statusInformation && (
+								<p>{swap.statusInformation}</p>
+							)}
 						</div>
 						<div className="section details">
 							<div className="offer-wrapper">
