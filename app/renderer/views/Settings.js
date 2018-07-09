@@ -9,7 +9,7 @@ import {instance, translate} from '../translate';
 import TabView from './TabView';
 import CurrencySetting from './Settings/Currency';
 import ThemeSetting from './Settings/Theme';
-import DeletePortfolio from './Settings/DeletePortfolio';
+import DeleteModal from './Settings/DeleteModal';
 import RenamePortfolio from './Settings/RenamePortfolio';
 import './Settings.scss';
 
@@ -46,7 +46,7 @@ class Settings extends React.Component {
 								<h3>{t('portfolio')}</h3>
 								<RenamePortfolio/>
 								<CurrencySetting/>
-								<DeletePortfolio/>
+								<DeleteModal/>
 							</div>
 							<div className="section">
 								<h3>{t('app')}</h3>
