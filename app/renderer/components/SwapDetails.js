@@ -63,7 +63,7 @@ class SwapDetails extends React.Component {
 		));
 
 		if (swap.status === 'swapping') {
-			swapTransactions.forEach((stage, i) => {
+			swapTransactions.forEach(stage => {
 				const tx = swap.transactions.find(tx => tx.stage === stage);
 
 				if (!tx) {
