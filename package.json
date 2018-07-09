@@ -2,7 +2,7 @@
 	"scripts": {
 		"postinstall": "electron-builder install-app-deps",
 		"lint": "xo && stylelint 'app/renderer/**/*.scss'",
-		"test": "yarn lint && NODE_ENV=test ava",
+		"test": "yarn lint",
 		"start:watch": "webpack-dev-server --hot",
 		"start:launch": "wait-for-localhost 8080 && electron app",
 		"start": "yarn && run-p start:*",
