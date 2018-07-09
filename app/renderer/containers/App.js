@@ -121,6 +121,17 @@ class AppContainer extends Container {
 		return Boolean(this.state.portfolio);
 	}
 
+	updatePortfolio(portfolio) {
+		this.setState(state => ({
+			portfolio: {
+				...state.portfolio,
+				...portfolio,
+			},
+		}));
+
+		config.set('lastActivePortfolioId', portfolio.id);
+	}
+
 	async watchCMC() {
 		await fireEvery({minutes: 5}, async () => {
 			this.coinPrices = await Promise.all(getCurrencySymbols().map(getTickerData));
