@@ -1,53 +1,53 @@
 {
 	"intro": {
-		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"title": "✨ تشکر از کمک به آزمایش HyperDEX!",
+		"description": "<0>لطفا بخاطر بسپارید <1>این پروژه هنوز در مرحله آلفا است</1>.</0><1>هرچند احتمال از دست رفتن سرمایه اندک است، شما فقط زمانی می‌توانید با ارز واقعی معامله کنید که بتوانید خطر آن را بپذیرید.</1><2>اگر می‌خواهید تنها HyperDEX را آزمایش کنید، بجای آن با ارزهای آزمایشی <1>BEER</1> و <3>PIZZA</3> معامله کنید. به شما <5>BEER</5> رایگان به نرخ <7><0>BEER</0> داده می‌شود</7>.</2><3>HyperDEX یک نرم‌افزار اوپن سورس است که &qoute;به همین وضعی که هست&qoute;, بدون هیچگونه ضمانتی ارایه می‌شود. نویسندگان یا صاحبان حق نشر آن هیچ مسئولیتی بابت خسارات ناشی از استفاده از این نرم‌افزار برعهده ندارند.</3><4>استفاده از HyperDEX به معنای موافقت با شرایط و ضوابط <1>MIT License</1> است.</4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"noActivity": "هنوز بدون فعالیت",
+		"recentActivity": "فعالیت اخیر",
+		"swapFailedTitle": "مبادل انجام نشد",
+		"swapTitle": "جابجا شد",
+		"swapDescription": "{{quoteCurrency}} برای {{baseCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "اطلاعاتی موجود نیست",
+		"portfolioValue": "ارزش سبد سهام",
+		"symbolChart": "نمودار {{symbol}}"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "کپی",
+		"copied": "کپی شد",
+		"label": "سپرده",
+		"title": "آدرس کیف پول‌تان {{name}} ({{symbol}})",
+		"warning": "مطمئن شوید که شما تنها {{symbol}} را به این آدرس ارسال می‌کنید"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "دارایی",
+		"assets_plural": "دارایی‌ها",
+		"holdings": "{{symbol}} هلدینگ",
+		"price": "قیمت {{symbol}}",
+		"value": "{{symbol}} ارزش هلدینگ"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "کیف پول خالی",
+		"search": "جستجو…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "کیف پول {{symbol}}",
+		"recentActivity": "فعالیت اخیر"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "مقدار",
+		"confirmNetworkFee": "تایید هزینه شبکه",
+		"label": "برداشت",
+		"maxAmount": "بیشینه",
+		"networkFee": "هزینه شبکه",
+		"recipientLabel": "گیرنده",
+		"recipientPlaceholder": "نشانی {{symbol}} را وارد کنید",
+		"remainingBalance": "اعتبار باقی مانده",
+		"successDescription": "{{amount}} {{symbol}} ارسال شد به {{address}}",
+		"successTitle": "برداشت موفق!",
+		"title": "برداشت {{name}} ({{symbol}})"
 	}
 }

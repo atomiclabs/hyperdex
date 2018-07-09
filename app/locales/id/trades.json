@@ -1,6 +1,6 @@
 {
-	"openOrders": "Open Orders",
-	"swapHistory": "Swap History",
-	"stats": "In the last month you did {{count}} successful trade in {{currencyCount}} currencies worth {{totalSwapsWorthInUsd}} in total",
-	"stats_plural": "In the last month you did {{count}} successful trades in {{currencyCount}} currencies worth {{totalSwapsWorthInUsd}} in total"
+	"openOrders": "Pesanan Terbuka",
+	"swapHistory": "Riwayat Swap",
+	"stats": "Pada bulan lalu Anda melakukan {{count}} trade yang berhasil dalam {{currencyCount}} mata uang senilai {{totalSwapsWorthInUsd}} secara total",
+	"stats_plural": "Pada bulan lalu Anda melakukan {{count}} trade yang berhasil dalam {{currencyCount}} mata uang senilai {{totalSwapsWorthInUsd}} secara total"
 }

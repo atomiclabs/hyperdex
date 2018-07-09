@@ -1,34 +1,34 @@
 {
-	"cancel": "Cancel",
+	"cancel": "取消",
 	"chart": {
-		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
+		"depth": "{{baseCurrency}}/{{quoteCurrency}} 走势图"
 	},
-	"confirmQuitTitle": "Are you sure you want to quit?",
-	"confirmQuitDescription": "You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.",
+	"confirmQuitTitle": "您确定要退出吗？",
+	"confirmQuitDescription": "你有正在进行中的交换订单。退出后，HyperDEX 将在您下次运行应用时继续尝试此交换订单，所以我们建议您将 HyperDEX 留在后台以便交易尽快完成。",
 	"intro": {
-		"description": " <0>HyperDEX is a decentralized exchange. It has a P2P order book and trades are made via <1>cross-chain atomic swaps</1>. This means it works slightly differently than a centralized exchange.</0><1>Orders can take a while to propagate across the P2P network. You may need to wait a while for the order book to display.</1><2>HyperDEX needs you to have correctly sized <1>UTXOs</1> to make a successful swap. For each UTXO you can make a single swap. The easiest way to ensure you can participate in a swap is to make two or three smaller deposits to your account rather than a single large deposit.</2><3>An atomic swap is comprised of six on-chain transactions. When trading a currency with high transaction fees, it's important to slightly increase your price to account for the total transaction fees. This is especially important when trading small amounts.</3>",
-		"title": "How Trading Works with HyperDEX"
+		"description": " <0>HyperDEX 是去中心化的交易所。它使用 P2P 订单账本通过<1>跨链原子交换</1>技术进行交易。这意味着其工作原理和中心化的交易所有所区别。</0><1>订单需要花一些时间在 P2P 网络上扩散传播。您可能需要等候一些时间后才会看到订单在账本上显示出来。</1><2>HyperDEX 要求你拥有正确数额的 <1>UTXO</1> 才能成功完成交换。每拥有一个 UTXO 都可允许你进行一次简单交换。保证你能参与交换最简单的方法是做两次或三次小额存款，而不是一次将全部款项存入。</2><3>一次原子交换由 6 笔链上交易组成。在交易收取较高交易手续费的货币时，请务必略微调高价格，以确保足额支付手续费。在交易额度较低时这尤其重要。</3>",
+		"title": "HyperDEX 如何处理交易"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"amount": "{{symbol}} 数额",
+		"averageVolume": "平均数额",
+		"buy": "买入",
+		"buyOrders": "买单",
+		"failedTrade": "{{type}} {{baseCurrency}} 失败",
+		"maxOnePendingSwap": "只允许同时存在一笔交换订单，请等待 {{wait}} 后再试。",
+		"maxPrice": "最大",
+		"maxVolume": "最大数额",
+		"price": "{{symbol}} 价格",
+		"sell": "卖出",
+		"sellOrders": "卖单",
+		"symbolBalance": "余额：{{balance}} {{symbol}}",
+		"total": "{{symbol}} 总价",
+		"unexpectedError": "有意外事件发生。你确定拥有足够的 UTXO 吗？",
+		"worth": "此交换价值为 {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "退出",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "全部",
+		"title": "交换"
 	}
 }

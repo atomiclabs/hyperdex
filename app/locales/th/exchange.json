@@ -1,34 +1,34 @@
 {
-	"cancel": "Cancel",
+	"cancel": "ยกเลิก",
 	"chart": {
-		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
+		"depth": "แผนภูมิเชิงลึก {{baseCurrency}}/{{quoteCurrency}}"
 	},
-	"confirmQuitTitle": "Are you sure you want to quit?",
-	"confirmQuitDescription": "You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.",
+	"confirmQuitTitle": "คุณแน่ใจหรือว่าต้องการจะออกจากระบบ",
+	"confirmQuitDescription": "คุณมีรายการสวอปที่ยังดำเนินการอยู่ HyperDEX จะดำเนินการสวอปของคุณต่อเมื่อคุณเปิดแอปครั้งต่อไป แต่เราแนะนำให้คุณเปิด HyperDEX ทิ้งไว้จนกว่าการสวอปจะเสร็จสิ้น",
 	"intro": {
-		"description": " <0>HyperDEX is a decentralized exchange. It has a P2P order book and trades are made via <1>cross-chain atomic swaps</1>. This means it works slightly differently than a centralized exchange.</0><1>Orders can take a while to propagate across the P2P network. You may need to wait a while for the order book to display.</1><2>HyperDEX needs you to have correctly sized <1>UTXOs</1> to make a successful swap. For each UTXO you can make a single swap. The easiest way to ensure you can participate in a swap is to make two or three smaller deposits to your account rather than a single large deposit.</2><3>An atomic swap is comprised of six on-chain transactions. When trading a currency with high transaction fees, it's important to slightly increase your price to account for the total transaction fees. This is especially important when trading small amounts.</3>",
-		"title": "How Trading Works with HyperDEX"
+		"description": " <0>HyperDEX เป็นการแลกเปลี่ยนแบบกระจาย โดยมีรายการสั่งซื้อเพียร์ทูเพียร์ (P2P) และการซื้อขายจะทำผ่าน<1>สวอปอะตอมมิกแบบครอสเชน</1> ซึ่งแตกต่างจากการแลกเปลี่ยนแบบรวมศูนย์</0><1>การสั่งซื้ออาจใช้เวลาในการกระจายไปทั่วเครือข่าย P2P คุณอาจต้องรอสักครู่ก่อนที่รายการสั่งซื้อจะปรากฏ</1><2>สำหรับ HyperDEX คุณต้องมี <1>UTXO</1> ที่ถูกขนาดเพื่อทำการสวอปให้เสร็จสมบูรณ์ สำหรับแต่ละ UTXO คุณสามารถทำการสวอปได้หนึ่งครั้ง วิธีที่ง่ายที่สุดที่คุณสามารถใช้เพื่อรับรองว่าคุณจะสามารถทำการสวอปได้คือการฝากเงินเข้าบัญชีด้วยเงินจำนวนเล็ก ๆ สองหรือสามครั้งแทนที่จะเป็นจำนวนใหญ่หนึ่งครั้ง</2><3>การสวอปอะตอมมิกประกอบด้วยธุรกรรมแบบออนเชน 6 รายการ เมื่อซื้อขายสกุลเงินที่มีค่าธรรมเนียมธุรกรรมสูงเป็นเรื่องสำคัญที่จะเพิ่มราคาของคุณเล็กน้อยเพื่อครอบคลุมค่าธรรมเนียมทั้งหมด สิ่งนี้เป็นสิ่งสำคัญอย่างยิ่งเมื่อซื้อขายในจำนวนน้อย</3>",
+		"title": "การซื้อขายด้วย HyperDEX ทำอย่างไร"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"amount": "จำนวน {{symbol}}",
+		"averageVolume": "ปริมาณเฉลี่ย",
+		"buy": "ซื้อ",
+		"buyOrders": "คำสั่งซื้อ",
+		"failedTrade": "{{type}} {{baseCurrency}} ไม่สำเร็จ",
+		"maxOnePendingSwap": "สามารถมีรายการสวอปที่กำลังดำเนินการอยู่ได้เพียงครั้งละหนึ่งรายการ โปรดลองใหม่อีกครั้งในอีก {{wait}} วินาที",
+		"maxPrice": "สูงสุด",
+		"maxVolume": "ปริมาณสูงสุด",
+		"price": "ราคา {{symbol}}",
+		"sell": "ขาย",
+		"sellOrders": "คำสั่งขาย",
+		"symbolBalance": "ยอดคงเหลือ: {{balance}} {{symbol}}",
+		"total": "{{symbol}} รวม",
+		"unexpectedError": "เกิดข้อผิดพลาด โปรดตรวจสอบว่าคุณมี UTXO เพียงพอหรือไม่",
+		"worth": "การสวอปนี้มีมูลค่า {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "ออกจากระบบ",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "ทั้งหมด",
+		"title": "สวอป"
 	}
 }

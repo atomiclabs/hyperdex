@@ -1,34 +1,34 @@
 {
-	"cancel": "Cancel",
+	"cancel": "रद्द करें",
 	"chart": {
-		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
+		"depth": "{{baseCurrency}}/{{quoteCurrency}} डेप्थ चार्ट"
 	},
-	"confirmQuitTitle": "Are you sure you want to quit?",
-	"confirmQuitDescription": "You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.",
+	"confirmQuitTitle": "क्या आप वाकई छोड़ना चाहते हैं?",
+	"confirmQuitDescription": "आपकी स्वैप प्रगति में हैं। हालाँकि HyperDEX का प्रयास होगा कि अगली बार जब आप ऐप चलाएँ तो स्वैप जारी रहें, मगर हमारा यह सुझाव है कि स्वैप पूर्ण होने तक आप HyperDEX चलते रहने दें।",
 	"intro": {
-		"description": " <0>HyperDEX is a decentralized exchange. It has a P2P order book and trades are made via <1>cross-chain atomic swaps</1>. This means it works slightly differently than a centralized exchange.</0><1>Orders can take a while to propagate across the P2P network. You may need to wait a while for the order book to display.</1><2>HyperDEX needs you to have correctly sized <1>UTXOs</1> to make a successful swap. For each UTXO you can make a single swap. The easiest way to ensure you can participate in a swap is to make two or three smaller deposits to your account rather than a single large deposit.</2><3>An atomic swap is comprised of six on-chain transactions. When trading a currency with high transaction fees, it's important to slightly increase your price to account for the total transaction fees. This is especially important when trading small amounts.</3>",
-		"title": "How Trading Works with HyperDEX"
+		"description": " <0>HyperDEX एक विकेन्द्रीकृत विनिमय है। इसमें P2P ऑर्डर बुक होती है और ट्रेड <1>क्रॉस-चेन एटॉमिक स्वैप</1> के जरिये होते हैं। इसका मतलब है कि यह एक केंद्रीकृत विनिमय से थोड़ा अलग काम करता है।</0><1>ऑर्डर P2P नेटवर्क में आगे बढ़ने में कुछ समय ले सकते हैं। ऑर्डर बुक प्रदर्शित होने में आपको थोड़ी देर इंतजार करना पड़ सकता है।</1><2>HyperDEX आपसे अपेक्षा करता है कि <1>UTXOs</1> एकदम सही आकार में हों ताकि स्वैप सफल रहे। प्रत्येक UTXO के लिए आप एक ही स्वैप बना सकते हैं। किसी स्वैप में आपका भाग लेना सुनिश्चित हो सके इसका सबसे आसान तरीका है कि एक ही बड़े डिपॉजिट के बजाय आपके अकाउंट में दो या तीन अपेक्षाकृत छोटे डिपॉजिट हों। </2><3>एक एटॉमिक स्वैप में छह ऑन-चेन ट्रांजेक्शन शामिल होते हैं। उच्च ट्रांजेक्शन शुल्क वाली मुद्रा के साथ ट्रेडिंग करते समय, कुल ट्रांजेक्शन शुल्कों के वास्ते अपनी कीमत को थोड़ा सा बढ़ाना महत्वपूर्ण है। छोटी धनराशियों वाली ट्रेडिंग पर यह बात विशेष महत्व की है।</3>",
+		"title": "HyperDEX के साथ ट्रेडिंग कैसे कारगर है"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"amount": "राशि {{symbol}}",
+		"averageVolume": "औसत वॉल्यूम",
+		"buy": "खरीदें",
+		"buyOrders": "ऑर्डर खरीदें",
+		"failedTrade": "{{baseCurrency}} {{type}} में विफल",
+		"maxOnePendingSwap": "एक समय में केवल एक पेंडिंग स्वैप, {{wait}} सेकंड में फिर कोशिश करें ।",
+		"maxPrice": "अधिकतम",
+		"maxVolume": "अधि. वॉल्यूम",
+		"price": "कीमत {{symbol}}",
+		"sell": "बेचें",
+		"sellOrders": "ऑर्डर बेचें",
+		"symbolBalance": "बैलेंस: {{balance}} {{symbol}}",
+		"total": "कुल {{symbol}}",
+		"unexpectedError": "कुछ अप्रत्याशित हुआ। क्या वाकई आपके पास पर्याप्त UTXO हैं?",
+		"worth": "यह स्वैप {{swapWorthInUsd}} मूल्य का है"
 	},
-	"quit": "Quit",
+	"quit": "छोड़ें",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "सभी",
+		"title": "स्वैप"
 	}
 }

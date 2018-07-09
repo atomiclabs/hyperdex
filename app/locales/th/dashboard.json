@@ -1,53 +1,53 @@
 {
 	"intro": {
-		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"title": "✨ ขอบคุณที่ช่วยเราทดสอบ HyperDEX!",
+		"description": "<0>โปรดอย่าลืมว่า<1>โปรเจกต์นี้ยังอยู่ในระยะพัฒนาอัลฟา</1></0><1>แม้ว่าจะมีโอกาสน้อยในการสูญเสียเงิน คุณควรซื้อขายด้วยสกุลเงินจริงต่อเมื่อคุณสามารถรับความเสี่ยงนั้นได้เท่านั้น</1><2>หากคุณเพียงแต่ต้องการทดลองใช้ HyperDEX ลองซื้อขายด้วยสกุลเงินทดลอง<1>เบียร์</1>และ<3>พิซซ่า</3>แทน คุณสามารถรับ<5>เบียร์</5>ฟรีได้ที่<7>ก๊อก<0>เบียร์</0></7></2><3>HyperDEX เป็นซอฟต์แวร์โอเพนซอร์สที่ให้บริการ &qoute;ตามสภาพ&qoute; โดยไม่มีการรับประกันใด ๆ ผู้เขียนหรือผู้ถือลิขสิทธิ์ไม่มีความรับผิดต่อความเสียหายใด ๆ ก็ตามที่เกิดจากการใช้ซอฟต์แวร์นี้</3><4>เมื่อใช้ HyperDEX คุณตกลงตามเงื่อนไขของ<1>สัญญาอนุญาตของสถาบันเทคโนโลยีแมสซาชูเซตส์ (MIT License)</1></4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"noActivity": "ยังไม่มีกิจกรรม",
+		"recentActivity": "กิจกรรมล่าสุด",
+		"swapFailedTitle": "ไม่ได้สวอป",
+		"swapTitle": "สวอปแล้ว",
+		"swapDescription": "{{quoteCurrency}} สำหรับ {{baseCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "ไม่มีข้อมูล",
+		"portfolioValue": "มูลค่าพอร์ต",
+		"symbolChart": "แผนภูมิ {{symbol}}"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "คัดลอก",
+		"copied": "คัดลอกแล้ว",
+		"label": "ฝาก",
+		"title": "ที่อยู่กระเป๋าสตางค์ {{name}} ({{symbol}}) ของคุณ",
+		"warning": "โปรดดูให้แน่ใจว่าคุณส่งแต่ {{symbol}} ไปยังที่อยู่นี้"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "สินทรัพย์",
+		"assets_plural": "สินทรัพย์",
+		"holdings": "{{symbol}} ที่ถืออยู่",
+		"price": "ราคา {{symbol}}",
+		"value": "มูลค่า {{symbol}} ที่ถืออยู่"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "กระเป๋าสตางค์ว่างเปล่า",
+		"search": "ค้นหา..."
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "กระเป๋าสตางค์ {{symbol}}",
+		"recentActivity": "กิจกรรมล่าสุด"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "จำนวน",
+		"confirmNetworkFee": "ยืนยันค่าธรรมเนียมเครือข่าย",
+		"label": "ถอน",
+		"maxAmount": "สูงสุด",
+		"networkFee": "ค่าธรรมเนียมเครือข่าย",
+		"recipientLabel": "ผู้รับ",
+		"recipientPlaceholder": "ป้อนที่อยู่ {{symbol}}",
+		"remainingBalance": "ยอดคงเหลือ",
+		"successDescription": "ส่ง {{amount}} {{symbol}} ไปที่ {{address}} แล้ว",
+		"successTitle": "ถอนเงินสำเร็จ!",
+		"title": "ถอน {{name}} ({{symbol}})"
 	}
 }

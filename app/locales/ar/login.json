@@ -1,8 +1,8 @@
 {
-	"forgotPassword": "Forgot password",
-	"incorrectPassword": "Incorrect password",
-	"login": "Login",
-	"loggingIn": "Logging in…",
-	"password": "Password",
-	"selectPortfolio": "Select portfolio…"
+	"forgotPassword": "هل نسيت كلمة المرور",
+	"incorrectPassword": "كلمة المرور غير صحيحة",
+	"login": "تسجيل الدخول",
+	"loggingIn": "تسجيل الدخول…",
+	"password": "كلمة المرور",
+	"selectPortfolio": "حدد الحافظة…"
 }

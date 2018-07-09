@@ -1,6 +1,6 @@
 {
-	"openOrders": "Open Orders",
-	"swapHistory": "Swap History",
-	"stats": "In the last month you did {{count}} successful trade in {{currencyCount}} currencies worth {{totalSwapsWorthInUsd}} in total",
-	"stats_plural": "In the last month you did {{count}} successful trades in {{currencyCount}} currencies worth {{totalSwapsWorthInUsd}} in total"
+	"openOrders": "Ordres ouverts",
+	"swapHistory": "Historique des échanges",
+	"stats": "Au cours du dernier mois, tu as effectué {{count}} transactions réussies dans {{currencyCount}} devises, pour une valeur totale de {{totalSwapsWorthInUsd}}",
+	"stats_plural": "Au cours du dernier mois, tu as effectué {{count}} transaction réussie dans {{currencyCount}} devises, pour une valeur totale de {{totalSwapsWorthInUsd}}"
 }

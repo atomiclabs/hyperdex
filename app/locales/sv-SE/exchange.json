@@ -1,34 +1,34 @@
 {
-	"cancel": "Cancel",
+	"cancel": "Avbryt",
 	"chart": {
-		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
+		"depth": "{{baseCurrency}}/{{quoteCurrency}} fördjupningsdiagram"
 	},
-	"confirmQuitTitle": "Are you sure you want to quit?",
-	"confirmQuitDescription": "You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.",
+	"confirmQuitTitle": "Är du säker på att du vill avsluta?",
+	"confirmQuitDescription": "Du har pågående swaps. HyperDEX försöker fortsätta med dessa swaps nästa gång du kör appen, men vi rekommenderar att du låter HyperDEX köras tills de är klara.",
 	"intro": {
-		"description": " <0>HyperDEX is a decentralized exchange. It has a P2P order book and trades are made via <1>cross-chain atomic swaps</1>. This means it works slightly differently than a centralized exchange.</0><1>Orders can take a while to propagate across the P2P network. You may need to wait a while for the order book to display.</1><2>HyperDEX needs you to have correctly sized <1>UTXOs</1> to make a successful swap. For each UTXO you can make a single swap. The easiest way to ensure you can participate in a swap is to make two or three smaller deposits to your account rather than a single large deposit.</2><3>An atomic swap is comprised of six on-chain transactions. When trading a currency with high transaction fees, it's important to slightly increase your price to account for the total transaction fees. This is especially important when trading small amounts.</3>",
-		"title": "How Trading Works with HyperDEX"
+		"description": " <0>HyperDEX är en decentraliserad börs. Den har en P2P-orderbok och handel görs via <1>atomiska korskedjebyten</1>. Det innebär att det fungerar något annorlunda än en centraliserad börs.</0><1>Ordrar kan ta en stund att spridas över P2P-nätverket. Du kanske måste vänta en stund för att orderboken ska visas.</1><2>HyperDEX kräver att du har <1>UTXO</1> i korrekt storlek för en lyckad swap. För varje UTXO kan du göra en swap. Det enklaste sättet att säkerställa att du kan delta i en swap är att göra två eller tre mindre insättningar till ditt konto hellre än en stor insättning.</2><3>Ett atomiskt byte består av sex transaktioner på kedjan. När du handlar en valuta med höga transaktionsavgifter är det viktigt att öka priset något för att ta med de totala transaktionsavgifterna i beräkningen. Det är särskilt viktigt när du handlar med små belopp.</3>",
+		"title": "Så här fungerar handel med HyperDEX"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
+		"amount": "Belopp {{symbol}}",
+		"averageVolume": "Genomsn. vol",
+		"buy": "Köp",
+		"buyOrders": "Köpordrar",
+		"failedTrade": "Det gick inte att {{type}} {{baseCurrency}}",
+		"maxOnePendingSwap": "Endast en väntande swap i taget, försök igen om {{wait}} sekunder.",
 		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"maxVolume": "Max vol",
+		"price": "Pris {{symbol}}",
+		"sell": "Sälj",
+		"sellOrders": "Säljordrar",
+		"symbolBalance": "Balans: {{balance}} {{symbol}}",
+		"total": "Totalt {{symbol}}",
+		"unexpectedError": "Något oväntat hände. Är du säker på att du har tillräckligt UTXO?",
+		"worth": "Denna swap är värd {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "Avsluta",
 	"swaps": {
-		"all": "All",
+		"all": "Alla",
 		"title": "Swaps"
 	}
 }

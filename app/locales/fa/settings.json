@@ -1,13 +1,13 @@
 {
-	"app": "App",
-	"enabledCurrencies": "Enabled currencies",
-	"logOutAppSettings": "<0><0>Log out</0> to see more app settings.</0>",
-	"portfolio": "Portfolio",
-	"title": "Settings",
+	"app": "نرم افزار",
+	"enabledCurrencies": "ارزهای فعال",
+	"logOutAppSettings": "<0><0>خارج شوید</0> تا تنظیمات بیشتری از برنامه را ببینید.</0>",
+	"portfolio": "سبد سهام",
+	"title": "تنظیمات",
 	"theme": {
-		"theme": "Theme",
-		"dark": "Dark",
-		"light": "Light",
-		"system": "System"
+		"theme": "پوسته",
+		"dark": "تیره",
+		"light": "روشن",
+		"system": "سیستم"
 	}
 }

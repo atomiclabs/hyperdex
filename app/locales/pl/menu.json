@@ -1,25 +1,25 @@
 {
 	"app": {
-		"preferences": "Preferences…"
+		"preferences": "Preferencje…"
 	},
 	"help": {
-		"about": "About {{appName}}",
-		"reportIssue": "Report an issue…",
-		"sourceCode": "Source code",
-		"website": "Website"
+		"about": "O {{appName}}",
+		"reportIssue": "Zgłoś problem…",
+		"sourceCode": "Kod źródłowy",
+		"website": "Strona internetowa"
 	},
 	"other": {
-		"file": "File"
+		"file": "Plik"
 	},
 	"portfolio": {
-		"dashboard": "Dashboard",
-		"exchange": "Exchange",
-		"goToPrevView": "Go to Previous View",
-		"goToNextView": "Go to Next View",
-		"logOut": "Log Out",
-		"settings": "Settings",
+		"dashboard": "Pulpit",
+		"exchange": "Wymiana",
+		"goToPrevView": "Przejdź do poprzedniego widoku",
+		"goToNextView": "Przejdź do następnego widoku",
+		"logOut": "Wyloguj się",
+		"settings": "Ustawienia",
 		"swap": "Swap",
 		"title": "Portfolio",
-		"trades": "Trades"
+		"trades": "Transakcje"
 	}
 }

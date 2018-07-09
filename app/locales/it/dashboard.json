@@ -1,53 +1,53 @@
 {
 	"intro": {
-		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"title": "✨ Grazie per averci aiutato a testare HyperDEX!",
+		"description": "<0>Per favore nota <1>questo progetto è ancora in versione Alpha</1>.</0><1>Sebbene la perdita di fondi sia improbabile, consigliamo di fare trading con denaro reale solo se si è in grado di assumerne i rischi.</1><2>Se vuoi semplicemente provare HyperDEX, prova a fare del trading con le valute test <1>BIRRA</1> e <3>PIZZA</3>. Puoi ottenere della <5>BIRRA</5> gratis alla <7>spina della <0>BIRRA</0></7>.</2><3>HyperDEX è un software open source fornito &qoute;così com'è&qoute;, senza alcuna garanzia. Gli autori o i titolari del copyright non sono responsabili per qualsiasi danno causato dall'utilizzo del software.</3><4>Utilizzando HyperDEX, accetti i termini della <1>Licenza MIT</1>.</4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"noActivity": "Ancora nessuna attività",
+		"recentActivity": "Attività recenti",
+		"swapFailedTitle": "Nessuno scambio",
+		"swapTitle": "Scambiato",
+		"swapDescription": "{{quoteCurrency}} per {{baseCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "Nessun dato disponibile",
+		"portfolioValue": "Valore del portafoglio",
+		"symbolChart": "Grafico {{symbol}}"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "Copia",
+		"copied": "Copiato",
+		"label": "Deposito",
+		"title": "Indirizzo del tuo portafoglio {{name}} ({{symbol}})",
+		"warning": "Assicurati di inviare solo {{symbol}} a questo indirizzo"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "risorsa",
+		"assets_plural": "risorse",
+		"holdings": "Pacchetti di {{symbol}}",
+		"price": "Prezzo di {{symbol}}",
+		"value": "Valore dei pacchetti di {{symbol}}"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "Portafoglio vuoto",
+		"search": "Ricerca…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "Portafoglio di {{symbol}}",
+		"recentActivity": "Attività recenti"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "Quantità",
+		"confirmNetworkFee": "Conferma commissione di rete",
+		"label": "Preleva",
+		"maxAmount": "Massimo",
+		"networkFee": "Commissione di rete",
+		"recipientLabel": "Destinatario",
+		"recipientPlaceholder": "Inserisci indirizzo {{symbol}}",
+		"remainingBalance": "Saldo residuo",
+		"successDescription": "{{amount}} {{symbol}} inviati a {{address}}",
+		"successTitle": "Prelievo effettuato con successo!",
+		"title": "Preleva {{name}} ({{symbol}})"
 	}
 }

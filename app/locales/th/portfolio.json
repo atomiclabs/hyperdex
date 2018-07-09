@@ -1,30 +1,30 @@
 {
 	"create": {
-		"confirm": "Confirm",
-		"confirmPassword": "Confirm Password",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"confirmSeedPhrase": "Confirm Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
-		"name": "Portfolio Name",
-		"next": "Next",
-		"password": "Password",
-		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
-		"securityTitle": "Important: please back up your seed phrase now!",
-		"seedPhrase": "Seed Phrase for Your Portfolio",
-		"seedPhraseNoMatch": "The seed phrase you entered is not the same as the generated one",
-		"success": "New portfolio added!",
-		"title": "Create New Portfolio"
+		"confirm": "ยืนยัน",
+		"confirmPassword": "ยืนยันรหัสผ่าน",
+		"confirmPasswordNoMatch": "รหัสผ่านที่ยืนยันไม่ตรงกับรหัสผ่าน",
+		"confirmSeedPhrase": "ยืนยันรหัสแบบสุ่มของคุณ",
+		"exampleSeedPhrase": "ตัวอย่าง: {{seedPhrase}} ...",
+		"name": "ชื่อพอร์ตการลงทุน",
+		"next": "ถัดไป",
+		"password": "รหัสผ่าน",
+		"securityDescription": "<0>เราแนะนำให้จัดเก็บออฟไลน์<1>เรียนรู้เพิ่มเติมเกี่ยวกับวิธีการรักษาความปลอดภัยที่ดีที่สุด</1></0>",
+		"securityTitle": "สำคัญ: โปรดสำรองข้อมูลรหัสแบบสุ่มของคุณตอนนี้!",
+		"seedPhrase": "รหัสแบบสุ่มสำหรับพอร์ตการลงทุนของคุณ",
+		"seedPhraseNoMatch": "รหัสแบบสุ่มที่คุณป้อนไม่ตรงกับรหัสที่สร้างขึ้น",
+		"success": "เพิ่มพอร์ตการลงทุนใหม่แล้ว!",
+		"title": "สร้างพอร์ตการลงทุนใหม่"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
-		"createPortfolio": "Create New Portfolio",
-		"restorePortfolio": "Restore Portfolio"
+		"createOrRestoreDescription": "สร้างรหัสแบบสุ่มใหม่หากคุณยังไม่มีรหัสแบบสุ่ม",
+		"createOrRestoreTitle": "<0>คุณต้องการสร้างพอร์ตการลงทุนใหม่<1></1>หรือกู้คืนพอร์ตการลงทุนที่มีอยู่</0>",
+		"createPortfolio": "สร้างพอร์ตการลงทุนใหม่",
+		"restorePortfolio": "กู้คืนพอร์ตการลงทุน"
 	},
 	"restore": {
-		"confirm": "Confirm",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"confirm": "ยืนยัน",
+		"confirmPasswordNoMatch": "รหัสผ่านที่ยืนยันไม่ตรงกับรหัสผ่าน",
+		"enterSeedPhrase": "ป้อนรหัสแบบสุ่มของคุณ",
+		"exampleSeedPhrase": "ตัวอย่าง: {{seedPhrase}} ..."
 	}
 }

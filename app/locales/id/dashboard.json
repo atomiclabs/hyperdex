@@ -1,53 +1,53 @@
 {
 	"intro": {
-		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"title": "Terimakasih Telah Membantu Kami Menguji HyperDEX!",
+		"description": "<0>Harap diingat<1>proyek ini masih dalam Alpha</1>.</0><1>Meskipun kehilangan dana tidak mungkin, Anda harus trading dengan mata uang nyata jika Anda dapat mengambil resiko tersebut.</1><2>Jika Anda hanya ingin menguji HyperDEX, cobalah trading antara mata uang uji <1>BEER</1> and <3>PIZZA</3> sebagai gantinya.Anda bisa mendapatkan <5>BEER</5> gratis di keran<7><0>BEER</0></7>.</2><3>HyperDEX adalah perangkat lunak Open Source yang tersedia provided &qoute;seperti&qoute;, tanpa jaminan apapun. Para penulis atau pemegang hak cipta tidak bertanggung jawab atas kerusakan apa pun yang disebabkan karena menggunakan perangkat lunak ini.</3><4>Dengan menggunakan HyperDEX Anda menyetujui persyaratan <1>Lisensi MIT</1>.</4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"noActivity": "Belum ada aktivitas",
+		"recentActivity": "Aktivitas Terbaru",
+		"swapFailedTitle": "Tidak diswap",
+		"swapTitle": "Diswap",
+		"swapDescription": "{{quoteCurrency}} untuk {{baseCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "Data tidak tersedia",
+		"portfolioValue": "Nilai Portfolio",
+		"symbolChart": "Grafik {{symbol}}"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
+		"copy": "Salin",
+		"copied": "Disalin",
 		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"title": "Alamat Wallet Anda {{name}} ({{symbol}})",
+		"warning": "Pastikan Anda hanya mengirim {{symbol}} ke alamat ini"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "aset",
+		"assets_plural": "aset-aset",
+		"holdings": "Saham {{symbol}}",
+		"price": "{{symbol}} Harga",
+		"value": "{{symbol}} Nilai Saham"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "Wallet kosong",
+		"search": "Mencari…"
 	},
 	"wallet": {
 		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"recentActivity": "Aktivitas Terbaru"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "Jumlah",
+		"confirmNetworkFee": "Konfirmasi Biaya Network",
+		"label": "Penarikan",
+		"maxAmount": "Maksimal",
+		"networkFee": "Biaya Network",
+		"recipientLabel": "Penerima",
+		"recipientPlaceholder": "Masukkan {{symbol}} Alamat",
+		"remainingBalance": "Saldo yang tersisa",
+		"successDescription": "{{amount}} {{symbol}} kirim ke {{address}}",
+		"successTitle": "Penarikan Berhasil!",
+		"title": "Penarikan {{name}} ({{symbol}})"
 	}
 }

@@ -1,53 +1,53 @@
 {
 	"intro": {
-		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"title": "Merci de nous aider à tester HyperDEX !",
+		"description": "<0>N'oublie pas que <1>ce projet est encore en alpha</1>.</0><1>Bien qu'il soit peu probable que tu perdes des fonds, tu ne dois trader avec de l'argent que si tu peux courir ce risque.</1><2> Si tu veux juste essayer HyperDEX, essaie plutôt le trading entre les devises de test <1>BEER</1> et <3>PIZZA</3>. Tu peux obtenir de la <5>BEER</5> gratuitement au <7>robinet à <0>BEER</0></7>. </2><3>HyperDEX est un logiciel libre fourni &qoute;tel quel&qoute;, sans aucune garantie. Les auteurs ou les ayants droit déclinent toute responsabilité quant aux dommages pouvant résulter de l'utilisation de ce logiciel. </3><4>En utilisant HyperDEX, tu accepte les conditions de la <1>licence MIT</1>.</4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"noActivity": "Pas encore d'activité",
+		"recentActivity": "Activité récente",
+		"swapFailedTitle": "Échec de l'échange",
+		"swapTitle": "Échangé",
+		"swapDescription": "{{quoteCurrency}} pour {{baseCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "Aucune donnée disponible",
+		"portfolioValue": "Valeur du portefeuille",
+		"symbolChart": "Graphique {{symbol}}"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "Copier",
+		"copied": "Copié",
+		"label": "Dépôt",
+		"title": "L'adresse de votre portefeuille {{name}} ({{symbol}})",
+		"warning": "Assure-toi de n'envoyer que {{symbol}} à cette adresse"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "actif",
+		"assets_plural": "actifs",
+		"holdings": "Portefeuille d'actions {{symbol}}",
+		"price": "Prix de {{symbol}}",
+		"value": "Valeur du portefeuille d'actions {{symbol}}"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "Portefeuille vide",
+		"search": "Rechercher…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "Portefeuille {{symbol}}",
+		"recentActivity": "Activité récente"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
+		"amountLabel": "Quantité",
+		"confirmNetworkFee": "Confirmer les frais de réseau",
+		"label": "Retirer",
 		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"networkFee": "Frais de réseau",
+		"recipientLabel": "Bénéficiaire",
+		"recipientPlaceholder": "Saisir l'adresse de {{symbol}}",
+		"remainingBalance": "Solde restant",
+		"successDescription": "{{amount}} {{symbol}} envoyés à {{address}}",
+		"successTitle": "Retrait réussi !",
+		"title": "Retirer de {{name}} ({{symbol}})"
 	}
 }

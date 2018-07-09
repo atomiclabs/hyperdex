@@ -1,53 +1,53 @@
 {
 	"intro": {
-		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"title": "✨ Cảm ơn bạn đã Giúp Chúng tôi Thử nghiệm HyperDEX!",
+		"description": "<0>Lưu ý<1>đây vẫn là một dự án thử nghiệm</1>.</0><1>Mặc dù mất tiền khó có thể xảy ra, nhưng bạn chỉ nên giao dịch với tiền thật nếu bạn chấp nhận rủi ro.</1> <2>Nếu bạn chỉ muốn thử nghiệm HyperDEX, hãy giao dịch bằng các đồng tiền thử nghiệm <1>BEER</1> và <3>PIZZA</3> trước. Bạn có thể nhận miễn phí tới<5>BEER</5> ở tại <7> vòi <0>BEER</0></7>.</2> <3>HyperDEX là phần mềm mã nguồn mở được cung cấp bởi &qoute; như là &qoute;, mà không có sự bảo đảm của bất kỳ bên nào. Tác giả hoặc chủ tác quyền không chịu trách nhiệm với bất kỳ thiệt hại nào phát sinh từ việc sử dụng phần mềm này.</3><4>Khi sử dụng HyperDEX bạn đồng ý với các điều khoản của <1>Giấy phép MIT</1>.</4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"noActivity": "Chưa có hoạt động nào",
+		"recentActivity": "Hoạt động Gần đây",
+		"swapFailedTitle": "Không Hoán đổi",
+		"swapTitle": "Đã hoán đổi",
+		"swapDescription": "{{quoteCurrency}} cho {{baseCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "Không có dữ liệu khả dụng",
+		"portfolioValue": "Giá trị mục Đầu tư",
+		"symbolChart": "Biểu đồ {{symbol}}"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "Sao chép",
+		"copied": "Đã sao chép",
+		"label": "Nạp tiền",
+		"title": "Địa chỉ Ví {{name}} ({{symbol}}) của bạn",
+		"warning": "Đảm bảo rằng bạn chỉ gửi {{symbol}} đến địa chỉ này"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "tài sản",
+		"assets_plural": "loại tài sản",
+		"holdings": "Số lượng {{symbol}}",
+		"price": "Giá {{symbol}}",
+		"value": "Giá trị Lý thuyết {{symbol}}"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "Ví rỗng",
+		"search": "Tìm kiếm…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "Ví {{symbol}}",
+		"recentActivity": "Hoạt động Gần đây"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "Số lượng",
+		"confirmNetworkFee": "Xác nhận Chi phí Mạng lưới",
+		"label": "Rút tiền",
+		"maxAmount": "Tối đa",
+		"networkFee": "Chi phí Mạng lưới",
+		"recipientLabel": "Người nhận",
+		"recipientPlaceholder": "Nhập địa chỉ {{symbol}}",
+		"remainingBalance": "Số dư còn lại",
+		"successDescription": "{{amount}} {{symbol}} đã gửi tới {{address}}",
+		"successTitle": "Rút tiền thành công!",
+		"title": "Rút tiền {{name}} ({{symbol}})"
 	}
 }

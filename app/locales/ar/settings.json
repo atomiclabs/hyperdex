@@ -1,13 +1,13 @@
 {
-	"app": "App",
-	"enabledCurrencies": "Enabled currencies",
-	"logOutAppSettings": "<0><0>Log out</0> to see more app settings.</0>",
-	"portfolio": "Portfolio",
-	"title": "Settings",
+	"app": "التطبيق",
+	"enabledCurrencies": "العملات المفعلة",
+	"logOutAppSettings": "<0><0>تسجيل الخروج</0> لمعرفة المزيد من إعدادات التطبيق.</0>",
+	"portfolio": "الحافظة",
+	"title": "الإعدادات",
 	"theme": {
-		"theme": "Theme",
-		"dark": "Dark",
-		"light": "Light",
-		"system": "System"
+		"theme": "الموضوع",
+		"dark": "داكن",
+		"light": "فاتح",
+		"system": "النظام"
 	}
 }

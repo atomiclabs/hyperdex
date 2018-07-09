@@ -1,30 +1,30 @@
 {
 	"create": {
-		"confirm": "Confirm",
-		"confirmPassword": "Confirm Password",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"confirmSeedPhrase": "Confirm Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
-		"name": "Portfolio Name",
-		"next": "Next",
-		"password": "Password",
-		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
-		"securityTitle": "Important: please back up your seed phrase now!",
-		"seedPhrase": "Seed Phrase for Your Portfolio",
-		"seedPhraseNoMatch": "The seed phrase you entered is not the same as the generated one",
-		"success": "New portfolio added!",
-		"title": "Create New Portfolio"
+		"confirm": "নিশ্চিত করুন",
+		"confirmPassword": "পাসওয়ার্ড নিশ্চিত করুন",
+		"confirmPasswordNoMatch": "নিশ্চিতকৃত পাসওয়ার্ড মূল পাসওয়ার্ডের সাথে মিলেনি",
+		"confirmSeedPhrase": "আপনার সিড ফ্রেজ নিশ্চিত করুন",
+		"exampleSeedPhrase": "যেমন: {{seedPhrase}}…",
+		"name": "পোর্টফোলিও মান",
+		"next": "পরবর্তী",
+		"password": "পাসওয়ার্ড",
+		"securityDescription": "<0>আমরা এটিকে অফলাইনে সংরক্ষণ করার পরামর্শ দেই। <1>নিরাপত্তার সেরা অনুশীলনসমূহ সম্পর্কে আরও জানুন</1></0>",
+		"securityTitle": "গুরুত্বপূর্ণ: অনুগ্রপূর্বক এখনই আপনার সিড ফ্রেজের ব্যাক আপ নিন!",
+		"seedPhrase": "আপনার পোর্টফোলিওর সিড ফ্রেজ",
+		"seedPhraseNoMatch": "আপনি যে সিডফ্রেজটি প্রবেশ করিয়েছেন সেটি তৈরিকৃতটির সাথে সাদৃশ্যপূর্ণ নয়",
+		"success": "নতুন পোর্টফোলিও যুক্ত করা হয়েছে!",
+		"title": "নতুন পোর্টফোলিও তৈরি করুন"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
-		"createPortfolio": "Create New Portfolio",
-		"restorePortfolio": "Restore Portfolio"
+		"createOrRestoreDescription": "আপনার যদি এখনও কোনো সিড ফ্রেজ না থাকে তাহলে নতুন একটি তৈরি করুন।",
+		"createOrRestoreTitle": "<0>আপনি কি নতুন একটি পোর্টফোলিও তৈরি করতে চান<1></1>বা পুরনো একটি পুনর্বহাল করতে চান?</0>",
+		"createPortfolio": "নতুন পোর্টফোলিও তৈরি করুন",
+		"restorePortfolio": "পোর্টফোলিও পুনর্বহাল করুন"
 	},
 	"restore": {
-		"confirm": "Confirm",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"confirm": "নিশ্চিত করুন",
+		"confirmPasswordNoMatch": "নিশ্চিত করা পাসওয়ার্ড মূল পাসওয়ার্ডের সাথে মেলেনি",
+		"enterSeedPhrase": "আপনার সিড ফ্রেজ প্রবেশ করান",
+		"exampleSeedPhrase": "যেমন: {{seedPhrase}}…"
 	}
 }

@@ -1,7 +1,7 @@
 {
-	"dashboard": "Dashboard",
-	"exchange": "Exchange",
-	"settings": "Settings",
-	"swap": "Swap",
-	"trades": "Trades"
+	"dashboard": "대시보드",
+	"exchange": "환전",
+	"settings": "설정",
+	"swap": "스왑",
+	"trades": "거래"
 }

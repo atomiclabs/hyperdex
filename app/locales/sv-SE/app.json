@@ -1,8 +1,8 @@
 {
 	"settings": {
-		"customUrl": "Custom Marketmaker URL",
-		"exampleUrl": "Example: {{url}}",
-		"invalidUrl": "Invalid URL",
-		"title": "App settings"
+		"customUrl": "Anpassad webbadress till Marketmaker",
+		"exampleUrl": "Exempel: {{url}}",
+		"invalidUrl": "Ogiltig webbadress",
+		"title": "Appinställningar"
 	}
 }

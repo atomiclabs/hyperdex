@@ -1,34 +1,34 @@
 {
-	"cancel": "Cancel",
+	"cancel": "Ghairi",
 	"chart": {
-		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
+		"depth": "Chati ya Kina cha {{baseCurrency}}/{{quoteCurrency}}"
 	},
-	"confirmQuitTitle": "Are you sure you want to quit?",
-	"confirmQuitDescription": "You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.",
+	"confirmQuitTitle": "Una uhakika unataka kuondoka?",
+	"confirmQuitDescription": "Una mabadilishano yanayoendelea. HyperDEX itajaribu kuendelea na mabadilishano haya utakapoendesha programu baadaye, lakini tunapendekeza uache HyperDEX ikiendelea hadi mabadilishano yakamilike.",
 	"intro": {
-		"description": " <0>HyperDEX is a decentralized exchange. It has a P2P order book and trades are made via <1>cross-chain atomic swaps</1>. This means it works slightly differently than a centralized exchange.</0><1>Orders can take a while to propagate across the P2P network. You may need to wait a while for the order book to display.</1><2>HyperDEX needs you to have correctly sized <1>UTXOs</1> to make a successful swap. For each UTXO you can make a single swap. The easiest way to ensure you can participate in a swap is to make two or three smaller deposits to your account rather than a single large deposit.</2><3>An atomic swap is comprised of six on-chain transactions. When trading a currency with high transaction fees, it's important to slightly increase your price to account for the total transaction fees. This is especially important when trading small amounts.</3>",
-		"title": "How Trading Works with HyperDEX"
+		"description": " <0>HyperDEX ni soko lisilogatuliwa. Ina kitabu cha maagizo cha P2P na biashara hufanywa kupitia <1>mabadilishano ya sarafu pepe mbalimbali</1>. Hii ina maana kuwa inafanya kazi kwa njia tofauti kidogo na biashara ya kubadilishana iliyogatuliwa.</0><1>Maagizo yanaweza kuchukua muda mrefu kabla ya kuzalishwa kote kwenye mtandao wa P2P. Huenda ukahitaji kusubiri kwa muda ili kitabu cha maagizo kionekane.</1><2>HyperDEX inakuhitaji uwe na <1>UTXO</1> zenye ukubwa sahihi ili ufanikiwe kubadilishana. Kwa kila UTXO unaweza kufanya badilisho moja. Njia rahisi ya kuhakikisha kuwa unaweza kushiriki katika badilisho ni kuweka amana mbili au tatu ndogo katika akaunti yako badala ya amana moja kubwa.</2><3>Badilisho atomiki huwa na miamala sita mfululizo. Unapofanya biashara ya sarafu iliyo na kiasi kikubwa cha ada ya manunuzi, ni muhimu uongeze bei yako kidogo ili ulipie ada ya jumla ya manunuzi. Jambo hili ni muhimu hasa unapofanya biashara ya kiasi kidogo.</3>",
+		"title": "Jinsi Biashara Inavyofanya Kazi kwa HyperDEX"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"amount": "Kiasi {{symbol}}",
+		"averageVolume": "Kiasi Wastani",
+		"buy": "Nunua",
+		"buyOrders": "Nunua Bidhaa",
+		"failedTrade": "Hukuweza {{type}} {{baseCurrency}}",
+		"maxOnePendingSwap": "Ni badilisho moja tu linaloendelea kwa wakati mmoja, jaribu tena baada ya sekunde {{wait}}.",
+		"maxPrice": "KIASI CHA JUU",
+		"maxVolume": "Ukubwa wa Kiasi cha Juu",
+		"price": "Bei {{symbol}}",
+		"sell": "Uza",
+		"sellOrders": "Uza Bidhaa",
+		"symbolBalance": "Salio: {{balance}} {{symbol}}",
+		"total": "Jumla {{symbol}}",
+		"unexpectedError": "Hitilafu isiyotarajiwa imetokea. Una uhakika una UTXO za kutosha?",
+		"worth": "Badilisho hili lina thamani ya {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "Ondoka",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "Yote",
+		"title": "Mabadilisho"
 	}
 }

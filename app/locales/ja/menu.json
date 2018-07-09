@@ -1,25 +1,25 @@
 {
 	"app": {
-		"preferences": "Preferences…"
+		"preferences": "設定…"
 	},
 	"help": {
-		"about": "About {{appName}}",
-		"reportIssue": "Report an issue…",
-		"sourceCode": "Source code",
-		"website": "Website"
+		"about": "{{appName}} について",
+		"reportIssue": "問題を報告…",
+		"sourceCode": "ソースコード",
+		"website": "ウェブサイト"
 	},
 	"other": {
-		"file": "File"
+		"file": "ファイル"
 	},
 	"portfolio": {
-		"dashboard": "Dashboard",
-		"exchange": "Exchange",
-		"goToPrevView": "Go to Previous View",
-		"goToNextView": "Go to Next View",
-		"logOut": "Log Out",
-		"settings": "Settings",
-		"swap": "Swap",
-		"title": "Portfolio",
-		"trades": "Trades"
+		"dashboard": "ダッシュボード",
+		"exchange": "取引所",
+		"goToPrevView": "前のビューに移動",
+		"goToNextView": "次のビューに移動",
+		"logOut": "ログアウト",
+		"settings": "設定",
+		"swap": "スワップ",
+		"title": "ポートフォリオ",
+		"trades": "トレード"
 	}
 }

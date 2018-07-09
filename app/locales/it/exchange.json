@@ -1,34 +1,34 @@
 {
-	"cancel": "Cancel",
+	"cancel": "Annulla",
 	"chart": {
-		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
+		"depth": "Grafico di profondità di {{baseCurrency}}/{{quoteCurrency}}"
 	},
-	"confirmQuitTitle": "Are you sure you want to quit?",
-	"confirmQuitDescription": "You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.",
+	"confirmQuitTitle": "Sei sicuro di voler uscire?",
+	"confirmQuitDescription": "Ci sono degli scambi in corso. HyperDEX cercherà di continuare gli scambi la prossima volta che aprirai l'app, ma ti consigliamo di lasciare HyperDEX in esecuzione fino al completamento degli scambi.",
 	"intro": {
-		"description": " <0>HyperDEX is a decentralized exchange. It has a P2P order book and trades are made via <1>cross-chain atomic swaps</1>. This means it works slightly differently than a centralized exchange.</0><1>Orders can take a while to propagate across the P2P network. You may need to wait a while for the order book to display.</1><2>HyperDEX needs you to have correctly sized <1>UTXOs</1> to make a successful swap. For each UTXO you can make a single swap. The easiest way to ensure you can participate in a swap is to make two or three smaller deposits to your account rather than a single large deposit.</2><3>An atomic swap is comprised of six on-chain transactions. When trading a currency with high transaction fees, it's important to slightly increase your price to account for the total transaction fees. This is especially important when trading small amounts.</3>",
-		"title": "How Trading Works with HyperDEX"
+		"description": " <0>HyperDEX è un mercato decentralizzato. Ha un portafoglio ordini P2P e gli scambi vengono effettuati tramite <1>scambi atomici a catena incrociata</1>. Questo significa che funziona in modo leggermente diverso rispetto ad un mercato centralizzato.</0><1>Gli ordini possono richiedere un po' di tempo per essere propagati attraverso la rete P2P. Potrebbe essere necessario attendere prima di poter visualizzare il portafoglio ordini.</1><2>HyperDEX necessita che tu abbia misurato correttamente gli <1>UTXO</1> affinché uno scambio avvenga con successo. Per ciascun UTXO puoi effettuare un singolo scambio. Il modo più semplice per assicurarti di poter partecipare ad uno scambio è quello di effettuare due o tre piccoli depositi sul tuo account invece che un singolo grosso deposito.</2><3>Uno scambio atomico si compone di sei transazioni a catena. Quando scambi una valuta con un'alta commissione per la transazione, è importante aumentare leggermente il prezzo del tuo account per le commissioni totali della transazione. Ciò è importante in modo particolare quando si scambiano delle somme piccole.</3>",
+		"title": "Come funziona il trading con HyperDEX"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"amount": "Importo {{symbol}}",
+		"averageVolume": "Vol medio",
+		"buy": "Acquista",
+		"buyOrders": "Ordini di acquisto",
+		"failedTrade": "Impossibile {{type}} {{baseCurrency}}",
+		"maxOnePendingSwap": "Solo uno scambio in elaborazione per volta, riprova tra {{wait}} secondi.",
+		"maxPrice": "MASSIMO",
+		"maxVolume": "Vol max",
+		"price": "Prezzo {{symbol}}",
+		"sell": "Vendi",
+		"sellOrders": "Ordini di vendita",
+		"symbolBalance": "Saldo: {{balance}} {{symbol}}",
+		"total": "Totale {{symbol}}",
+		"unexpectedError": "È accaduto qualcosa di inaspettato. Sei sicuro di avere abbastanza UTXO?",
+		"worth": "Questo scambio vale {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "Esci",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "Tutti",
+		"title": "Scambi"
 	}
 }

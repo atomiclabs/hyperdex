@@ -1,34 +1,34 @@
 {
-	"cancel": "Cancel",
+	"cancel": "Batal",
 	"chart": {
-		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
+		"depth": "{{baseCurrency}}/{{quoteCurrency}} Kedalaman Grafik"
 	},
-	"confirmQuitTitle": "Are you sure you want to quit?",
-	"confirmQuitDescription": "You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.",
+	"confirmQuitTitle": "Anda yakin ingin keluar?",
+	"confirmQuitDescription": "Anda memiliki swap dalam proses. HyperDEX akan mencoba untuk melanjutkan swap pada saat Anda menjalankan aplikasi berikutnya, tapi kami sarankan Anda meninggalkan HyperDEX berjalan hingga swap selesai.",
 	"intro": {
-		"description": " <0>HyperDEX is a decentralized exchange. It has a P2P order book and trades are made via <1>cross-chain atomic swaps</1>. This means it works slightly differently than a centralized exchange.</0><1>Orders can take a while to propagate across the P2P network. You may need to wait a while for the order book to display.</1><2>HyperDEX needs you to have correctly sized <1>UTXOs</1> to make a successful swap. For each UTXO you can make a single swap. The easiest way to ensure you can participate in a swap is to make two or three smaller deposits to your account rather than a single large deposit.</2><3>An atomic swap is comprised of six on-chain transactions. When trading a currency with high transaction fees, it's important to slightly increase your price to account for the total transaction fees. This is especially important when trading small amounts.</3>",
-		"title": "How Trading Works with HyperDEX"
+		"description": " <0>HyperDEX adalah pertukaran terdesentralisasi. Memiliki buku pesanan P2P dan trade dilakukan melalui <1>swap atomik lintas rantai</ 1>. Ini berarti kerjanya sedikit berbeda daripada trade terpusat.</ 0><1> Pesanan membutuhkan waktu beberapa saat untuk menyebar di seluruh jaringan P2P. Anda perlu menunggu beberapa saat agar buku pesanan ditampilkan.</1><2> HyperDEX membutuhkan Anda untuk memiliki ukuran <1>UTXOs</ 1> yang tepat untuk membuat swap yang sukses. Untuk setiap UTXO Anda dapat membuat satu swap. Cara termudah untuk memastikan Anda dapat berpartisipasi dalam swap adalah dengan membuat dua atau tiga deposit yang lebih kecil ke akun Anda daripada satu deposit besar. </2><3> Swap atomik terdiri dari enam transaksi berantai. Ketika trading mata uang dengan biaya transaksi tinggi, penting untuk sedikit menaikkan harga Anda ke akun untuk total biaya transaksi. Ini sangat penting ketika melakukan trading dalam jumlah kecil.</ 3>",
+		"title": "Bagaimana Trading bekerja dengan HyperDEX"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
+		"amount": "Jumlah {{symbol}}",
+		"averageVolume": "Vol Avg",
+		"buy": "Beli",
+		"buyOrders": "Membeli Pesanan",
+		"failedTrade": "Gagal untuk {{type}} {{baseCurrency}}",
+		"maxOnePendingSwap": "Hanya satu swap yang tertunda dalam satu waktu, coba lagi dalam {{wait}} detik.",
+		"maxPrice": "Maks",
+		"maxVolume": "Vol Maks",
+		"price": "Harga {{symbol}}",
+		"sell": "Jual",
+		"sellOrders": "Jual pesanan",
+		"symbolBalance": "Saldo: {{balance}} {{symbol}}",
 		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"unexpectedError": "Sesuatu yang tidak terduga terjadi. Apakah Anda yakin Anda memiliki UTXO yang cukup?",
+		"worth": "Swap ini sangat berharga {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "Keluar",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "Semua",
+		"title": "Swap"
 	}
 }

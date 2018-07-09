@@ -1,13 +1,13 @@
 {
-	"app": "App",
-	"enabledCurrencies": "Enabled currencies",
-	"logOutAppSettings": "<0><0>Log out</0> to see more app settings.</0>",
-	"portfolio": "Portfolio",
-	"title": "Settings",
+	"app": "アプリ",
+	"enabledCurrencies": "有効になっている通貨",
+	"logOutAppSettings": "さらにアプリ設定を表示するには<0><0>ログアウト</0>してください。</0>",
+	"portfolio": "ポートフォリオ",
+	"title": "設定",
 	"theme": {
-		"theme": "Theme",
-		"dark": "Dark",
-		"light": "Light",
-		"system": "System"
+		"theme": "テーマ",
+		"dark": "ダーク",
+		"light": "ライト",
+		"system": "システム"
 	}
 }

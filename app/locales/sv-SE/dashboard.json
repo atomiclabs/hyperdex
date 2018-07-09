@@ -1,53 +1,53 @@
 {
 	"intro": {
-		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"title": "✨ Tack för att du hjälper oss testa HyperDEX!",
+		"description": "<0>Kom ihåg att <1>att det här projektet fortfarande är i alfa</1>.</0><1>Även om förlust av medel inte är troligt, ska du endast handla med verklig valuta om du kan ta den risken.</1><2>Om du vill testa HyperDEX, försök att handla mellan dessa valutor <1>BEER</1> och <3>PIZZA</3> i stället. Du kan få gratis <5>BEER</5> vid <7><0>BEER</0>-kranen</7>.</2><3>HyperDEX är programvara med öppen källkod som tillhandahålls &qoute;i befintligt tillstånd&qoute;, utan garanti av något slag. Författarna eller upphovsrättsinnehavarna är inte ansvarsskyldiga för eventuella skador som uppstår som ett resultat av att använda denna programvara.</3><4>Genom att använda HyperDEX samtycker du till villkoren i <1>MIT-licensen</1>.</4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"noActivity": "Ingen aktivitet än",
+		"recentActivity": "Senaste aktivitet",
+		"swapFailedTitle": "Ingen swap",
+		"swapTitle": "Swap genomförd",
+		"swapDescription": "{{quoteCurrency}} för {{baseCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "Inga data tillgängliga",
+		"portfolioValue": "Portföljvärde",
+		"symbolChart": "{{symbol}}-diagram"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "Kopiera",
+		"copied": "Kopierad",
+		"label": "Insättning",
+		"title": "Din {{name}} ({{symbol}}) plånboksadress",
+		"warning": "Se till att du endast skickar {{symbol}} till den här adressen"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "tillgång",
+		"assets_plural": "tillgångar",
+		"holdings": "{{symbol}}-innehav",
+		"price": "{{symbol}}-pris",
+		"value": "{{symbol}}-innehavsvärde"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "Tom plånbok",
+		"search": "Sök…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "{{symbol}}-plånbok",
+		"recentActivity": "Senaste aktivitet"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
+		"amountLabel": "Belopp",
+		"confirmNetworkFee": "Bekräfta nätverksavgift",
+		"label": "Ta ut",
 		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"networkFee": "Nätverksavgift",
+		"recipientLabel": "Mottagare",
+		"recipientPlaceholder": "Ange {{symbol}}-address",
+		"remainingBalance": "Återstående saldo",
+		"successDescription": "{{amount}} {{symbol}} skickat till {{address}}",
+		"successTitle": "Uttag genomfört!",
+		"title": "Ta ut {{name}} ({{symbol}})"
 	}
 }

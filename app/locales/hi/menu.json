@@ -1,25 +1,25 @@
 {
 	"app": {
-		"preferences": "Preferences…"
+		"preferences": "प्राथमिकताएँ..."
 	},
 	"help": {
-		"about": "About {{appName}}",
-		"reportIssue": "Report an issue…",
-		"sourceCode": "Source code",
-		"website": "Website"
+		"about": "{{appName}} के बारे में",
+		"reportIssue": "किसी समस्या की रिपोर्ट करें…",
+		"sourceCode": "सोर्स कोड",
+		"website": "वेबसाइट"
 	},
 	"other": {
-		"file": "File"
+		"file": "फ़ाइल"
 	},
 	"portfolio": {
-		"dashboard": "Dashboard",
-		"exchange": "Exchange",
-		"goToPrevView": "Go to Previous View",
-		"goToNextView": "Go to Next View",
-		"logOut": "Log Out",
-		"settings": "Settings",
-		"swap": "Swap",
-		"title": "Portfolio",
-		"trades": "Trades"
+		"dashboard": "डैशबोर्ड",
+		"exchange": "एक्सचेंज",
+		"goToPrevView": "पिछले व्यू पर जाएँ",
+		"goToNextView": "अगले व्यू पर जाएँ",
+		"logOut": "लॉग आउट",
+		"settings": "सेटिंग",
+		"swap": "स्वैप करें",
+		"title": "पोर्टफोलियो",
+		"trades": "ट्रेड"
 	}
 }

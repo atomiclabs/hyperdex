@@ -1,6 +1,6 @@
 {
-	"openOrders": "Open Orders",
-	"swapHistory": "Swap History",
-	"stats": "In the last month you did {{count}} successful trade in {{currencyCount}} currencies worth {{totalSwapsWorthInUsd}} in total",
-	"stats_plural": "In the last month you did {{count}} successful trades in {{currencyCount}} currencies worth {{totalSwapsWorthInUsd}} in total"
+	"openOrders": "คำสั่งซื้อเปิด",
+	"swapHistory": "ประวัติการสวอป",
+	"stats": "ในเดือนที่แล้ว คุณได้ซื้อขาย {{count}} ครั้งด้วยสกุลเงิน {{currencyCount}} สกุลที่มีมูลค่ารวม {{totalSwapsWorthInUsd}}",
+	"stats_plural": "ในเดือนที่แล้ว คุณได้ซื้อขาย {{count}} ครั้งด้วยสกุลเงิน {{currencyCount}} สกุลที่มีมูลค่ารวม {{totalSwapsWorthInUsd}}"
 }

@@ -1,8 +1,8 @@
 {
-	"forgotPassword": "Forgot password",
-	"incorrectPassword": "Incorrect password",
-	"login": "Login",
-	"loggingIn": "Logging in…",
-	"password": "Password",
-	"selectPortfolio": "Select portfolio…"
+	"forgotPassword": "پاس ورڈ بھول گیا",
+	"incorrectPassword": "غلط پاسورڈ",
+	"login": "لاگ اِن",
+	"loggingIn": "لاگ ان ہو رہا ہے…",
+	"password": "پاس ورڈ",
+	"selectPortfolio": "پورٹ فولیو منتخب کریں…"
 }

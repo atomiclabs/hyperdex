@@ -1,7 +1,7 @@
 {
-	"dashboard": "Dashboard",
-	"exchange": "Exchange",
-	"settings": "Settings",
-	"swap": "Swap",
-	"trades": "Trades"
+	"dashboard": "หน้าหลัก",
+	"exchange": "แลกเปลี่ยน",
+	"settings": "การตั้งค่า",
+	"swap": "สวอป",
+	"trades": "การซื้อขาย"
 }

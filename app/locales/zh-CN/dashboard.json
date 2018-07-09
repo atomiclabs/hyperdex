@@ -1,53 +1,53 @@
 {
 	"intro": {
-		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"title": "✨ 感谢您参与测试 HyperDEX！",
+		"description": "<0>请记住<1>此项目仍在封闭测试阶段</1>。</0><1>尽管资金损失的可能性极小，但您仍应当只交易您风险承受范围内的真实货币。</1><2>如果您只是想测试 HyperDEX 功能，请尝试交易测试货币 <1>BEER</1> 和 <3>PIZZA </3>。<5>BEER</5> 货币可以在 <7><0>BEER</0> 赠币水龙头免费获取</7>。</2><3>HyperDEX 是“以现状提供”的开源软件，不含任何形式的保证。软件作者或版权持有人不对任何因使用此软件产生的损失负责。</3><4>使用 HyperDEX 即表示您同意 <1>MIT 许可证</1> 的条款。</4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"noActivity": "暂无动态",
+		"recentActivity": "近期动态",
+		"swapFailedTitle": "未交换",
+		"swapTitle": "已交换",
+		"swapDescription": "{{quoteCurrency}} 兑换 {{baseCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "无可用数据",
+		"portfolioValue": "资产组合价值",
+		"symbolChart": "{{symbol}} 走势图"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "复制",
+		"copied": "已复制",
+		"label": "存款",
+		"title": "您的 {{name}} ({{symbol}}) 钱包地址",
+		"warning": "确保向此地址只发送 {{symbol}}"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "资产",
+		"assets_plural": "资产",
+		"holdings": "{{symbol}} 持有量",
+		"price": "{{symbol}} 价格",
+		"value": "{{symbol}} 持有价值"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "空钱包",
+		"search": "搜索..."
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "{{symbol}} 钱包",
+		"recentActivity": "近期动态"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "数额",
+		"confirmNetworkFee": "确认网络手续费",
+		"label": "取款",
+		"maxAmount": "最大",
+		"networkFee": "网络手续费",
+		"recipientLabel": "接收方",
+		"recipientPlaceholder": "输入 {{symbol}} 地址",
+		"remainingBalance": "余额",
+		"successDescription": "已发送 {{amount}} {{symbol}} 到 {{address}}",
+		"successTitle": "取款成功！",
+		"title": "{{name}} ({{symbol}}) 取款"
 	}
 }

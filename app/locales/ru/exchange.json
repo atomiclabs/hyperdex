@@ -1,34 +1,34 @@
 {
-	"cancel": "Cancel",
+	"cancel": "Отменить",
 	"chart": {
-		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
+		"depth": "График глубины {{baseCurrency}}/{{quoteCurrency}}"
 	},
-	"confirmQuitTitle": "Are you sure you want to quit?",
-	"confirmQuitDescription": "You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.",
+	"confirmQuitTitle": "Вы точно хотите выйти?",
+	"confirmQuitDescription": "У вас есть выполняющиеся свопы. HyperDEX попытается продолжить выполнять эти свопы, когда вы запустите это приложение в следующий раз, но мы рекомендуем дать сейчас время HyperDEX на завершение этих свопов.",
 	"intro": {
-		"description": " <0>HyperDEX is a decentralized exchange. It has a P2P order book and trades are made via <1>cross-chain atomic swaps</1>. This means it works slightly differently than a centralized exchange.</0><1>Orders can take a while to propagate across the P2P network. You may need to wait a while for the order book to display.</1><2>HyperDEX needs you to have correctly sized <1>UTXOs</1> to make a successful swap. For each UTXO you can make a single swap. The easiest way to ensure you can participate in a swap is to make two or three smaller deposits to your account rather than a single large deposit.</2><3>An atomic swap is comprised of six on-chain transactions. When trading a currency with high transaction fees, it's important to slightly increase your price to account for the total transaction fees. This is especially important when trading small amounts.</3>",
-		"title": "How Trading Works with HyperDEX"
+		"description": " <0>HyperDEX — децентрализованная биржа. Ею используется P2P-книга сделок и ордеров (заказов), произведенных с помощью <1>атомных свопов между блокчейнами</1>. Это означает, что она работает несколько иначе, чем централизованная биржа.</0><1>Прохождение ордеров через P2P-сеть может занять некоторое время. Возможно, вам будет нужно подождать некоторое время до появления книги ордеров на экране.</1><2>HyperDEX необходимо, чтобы вы правильно масштабировали транзакции<1>UTXO</1>, чтобы произвести успешный своп. Для каждого UTXO вы можете произвести единственный своп. Самый простой путь обеспечить вам участие в свопе — это сделать 2-3 меньших депозита в вашем аккаунте вместо единственного большого депозита.</2><3>Атомный своп состоит из шести транзакций типа «on-chain». При сделках с валютой, имеющей высокие комиссии транзакций, важно слегка повысить вашу цену, чтобы учесть общую комиссию транзакции. Это особенно важно при торговле малыми количествами валюты.</3>",
+		"title": "Как торговля работает с HyperDEX"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"amount": "Сумма {{symbol}}",
+		"averageVolume": "Ср. объем",
+		"buy": "Купить",
+		"buyOrders": "Ордера на покупку",
+		"failedTrade": "Не удалось {{type}} {{baseCurrency}}",
+		"maxOnePendingSwap": "Только один ожидающий своп одновременно, попробуйте снова через {{wait}} с.",
+		"maxPrice": "МАКС.",
+		"maxVolume": "Макс. объем",
+		"price": "Цена {{symbol}}",
+		"sell": "Продать",
+		"sellOrders": "Ордера на Продажу",
+		"symbolBalance": "Баланс: {{balance}} {{symbol}}",
+		"total": "Итого {{symbol}}",
+		"unexpectedError": "Произошло что-то неожиданное. Уверены, что у вас достаточно UTXO?",
+		"worth": "Стоимость этого свопа {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "Завершить",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "Все",
+		"title": "Свопы"
 	}
 }

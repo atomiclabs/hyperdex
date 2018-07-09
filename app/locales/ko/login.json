@@ -1,8 +1,8 @@
 {
-	"forgotPassword": "Forgot password",
-	"incorrectPassword": "Incorrect password",
-	"login": "Login",
-	"loggingIn": "Logging in…",
-	"password": "Password",
-	"selectPortfolio": "Select portfolio…"
+	"forgotPassword": "비밀번호 찾기",
+	"incorrectPassword": "잘못된 비밀번호",
+	"login": "로그인",
+	"loggingIn": "로그인 중…",
+	"password": "비밀번호",
+	"selectPortfolio": "포트폴리오 선택..."
 }

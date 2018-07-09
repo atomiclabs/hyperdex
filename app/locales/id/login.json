@@ -1,8 +1,8 @@
 {
-	"forgotPassword": "Forgot password",
-	"incorrectPassword": "Incorrect password",
+	"forgotPassword": "Lupa kata sandi",
+	"incorrectPassword": "Kata sandi tidak benar",
 	"login": "Login",
-	"loggingIn": "Logging in…",
-	"password": "Password",
-	"selectPortfolio": "Select portfolio…"
+	"loggingIn": "Login…",
+	"password": "Kata sandi",
+	"selectPortfolio": "Pilih portfolio…"
 }

@@ -1,30 +1,30 @@
 {
 	"create": {
-		"confirm": "Confirm",
-		"confirmPassword": "Confirm Password",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"confirmSeedPhrase": "Confirm Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
-		"name": "Portfolio Name",
-		"next": "Next",
-		"password": "Password",
-		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
-		"securityTitle": "Important: please back up your seed phrase now!",
-		"seedPhrase": "Seed Phrase for Your Portfolio",
-		"seedPhraseNoMatch": "The seed phrase you entered is not the same as the generated one",
-		"success": "New portfolio added!",
-		"title": "Create New Portfolio"
+		"confirm": "تایید",
+		"confirmPassword": "تأیید رمز عبور",
+		"confirmPasswordNoMatch": "تایید رمزعبور با رمزعبور تطابق ندارد",
+		"confirmSeedPhrase": "عبارت مولد خود را تایید کنید",
+		"exampleSeedPhrase": "مثال: {{seedPhrase}} …",
+		"name": "نام سبد سهام",
+		"next": "بعدی",
+		"password": "رمزعبور",
+		"securityDescription": "<0>توصیه می‌کنید آن را آفلاین ذخیره کنید. <1>از بهترین روش‌های امنیتی بیشتر بیاموزید</1></0>",
+		"securityTitle": "مهم: لطفا همین حالا از عبارت مولد خود پشتیبان تهیه کنید!",
+		"seedPhrase": "عبارت مولد سبد سهام‌تان",
+		"seedPhraseNoMatch": "عبارت مولدی که وارد کرده‌اید با آنچه تولید شده است یکسان نیست",
+		"success": "سبد سهام جدید اضافه شد!",
+		"title": "ایجاد سبد سهام جدید"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
-		"createPortfolio": "Create New Portfolio",
-		"restorePortfolio": "Restore Portfolio"
+		"createOrRestoreDescription": "اگر عبارت مولد ندارید، یکی ایجاد کنید.",
+		"createOrRestoreTitle": "<0>آیا می‌خواهید سبد سهام جدیدی بسازید <1></1>یا سبد سهام موجود را بازیابی کنید؟</0>",
+		"createPortfolio": "ایجاد سبد سهام جدید",
+		"restorePortfolio": "بازگرداندن سبد سهام"
 	},
 	"restore": {
-		"confirm": "Confirm",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"confirm": "تایید",
+		"confirmPasswordNoMatch": "تایید رمزعبور با رمزعبور تطابق ندارد",
+		"enterSeedPhrase": "عبارت مولد خود را وارد کنید",
+		"exampleSeedPhrase": "مثال: {{seedPhrase}} …"
 	}
 }

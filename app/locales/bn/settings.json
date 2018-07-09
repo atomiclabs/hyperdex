@@ -1,13 +1,13 @@
 {
-	"app": "App",
-	"enabledCurrencies": "Enabled currencies",
-	"logOutAppSettings": "<0><0>Log out</0> to see more app settings.</0>",
-	"portfolio": "Portfolio",
-	"title": "Settings",
+	"app": "অ্যাপ",
+	"enabledCurrencies": "সক্রিয় মুদ্রাসমূহ",
+	"logOutAppSettings": "<0>আরও অ্যাপ সেটিংস দেখার জন্য <0>লগ আউট</0> করুন।</0>",
+	"portfolio": "পোর্টফোলিও",
+	"title": "সেটিংস",
 	"theme": {
-		"theme": "Theme",
-		"dark": "Dark",
-		"light": "Light",
-		"system": "System"
+		"theme": "থিম",
+		"dark": "গাঢ়",
+		"light": "হালকা",
+		"system": "সিস্টেম"
 	}
 }

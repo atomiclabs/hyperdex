@@ -1,53 +1,53 @@
 {
 	"intro": {
-		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"title": "✨ HyperDEX의 테스트를 도와주셔서 감사합니다!",
+		"description": "<0><1>이 프로젝트는 아직 알파 단계</1>임을 참고해주십시오.</0><1>자금이 손실될 가능성은 적지만, 위험을 감수하실 수 있을 경우에만 실제 화폐로 거래하시기 바랍니다.</1><2>HyperDEX를 테스트만 해보시려면 테스트 화폐인 <1>BEER</1>와 <3>PIZZA</3>를 대신 사용해서 거래하십시오. <5>BEER</5> 수전에서 무료 <7><0>BEER</0>를 얻으실 수 있습니다</7>.</2><3>HyperDEX는 &qoute;있는 그대로&qoute;의 원칙 하에 제공되는 오픈 소스 소프트웨어로 어떤 보증도 제공되지 않습니다. 해당 창작자 또는 저작권 보유자는 이 소프트웨어를 사용함으로 인하여 발생하는 피해에 대하여 책임을 부담하지 않습니다.</3><4>HyperDEX를 사용하면 <1>MIT 라이선스</1>에 동의하시는 것으로 간주됩니다.</4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"noActivity": "아직 활동 없음",
+		"recentActivity": "최근 활동",
+		"swapFailedTitle": "스왑되지 않음",
+		"swapTitle": "스왑됨",
+		"swapDescription": "{{baseCurrency}}에 대한 {{quoteCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "이용 가능한 데이터 없음",
+		"portfolioValue": "포트폴리오 값",
+		"symbolChart": "{{symbol}} 차트"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "복사",
+		"copied": "복사됨",
+		"label": "입금",
+		"title": "귀하의 {{name}} ({{symbol}}) 지갑 주소",
+		"warning": "이 주소에 {{symbol}}만 보내십시오"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "자산",
+		"assets_plural": "자산",
+		"holdings": "{{symbol}} 보유량",
+		"price": "{{symbol}} 가격",
+		"value": "{{symbol}} 보유 가치"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "빈 지갑",
+		"search": "검색..."
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "{{symbol}} 지갑",
+		"recentActivity": "최근 활동"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "금액",
+		"confirmNetworkFee": "네트워크 수수료 확인",
+		"label": "출금",
+		"maxAmount": "최대",
+		"networkFee": "네트워크 수수료",
+		"recipientLabel": "수취인",
+		"recipientPlaceholder": "{{symbol}} 주소를 입력하십시오",
+		"remainingBalance": "잔고",
+		"successDescription": "{{amount}} {{symbol}}을(를) {{address}}에 보냈습니다",
+		"successTitle": "출금 성공!",
+		"title": "{{name}} ({{symbol}}) 출금"
 	}
 }

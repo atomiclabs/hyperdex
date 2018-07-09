@@ -1,13 +1,13 @@
 {
-	"app": "App",
-	"enabledCurrencies": "Enabled currencies",
-	"logOutAppSettings": "<0><0>Log out</0> to see more app settings.</0>",
-	"portfolio": "Portfolio",
-	"title": "Settings",
+	"app": "ایپ",
+	"enabledCurrencies": "فعال کرنسیاں",
+	"logOutAppSettings": "<0>مزید ایپ سیٹنگز دیکھنے کے لیے <0>لاگ آؤٹ</0> کریں.</0>",
+	"portfolio": "پورٹ فولیو",
+	"title": "سیٹنگیز",
 	"theme": {
-		"theme": "Theme",
-		"dark": "Dark",
-		"light": "Light",
-		"system": "System"
+		"theme": "تھیم",
+		"dark": "گہری",
+		"light": "ہلکی تھیم",
+		"system": "سسٹم"
 	}
 }

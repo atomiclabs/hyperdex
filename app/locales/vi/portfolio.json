@@ -1,30 +1,30 @@
 {
 	"create": {
-		"confirm": "Confirm",
-		"confirmPassword": "Confirm Password",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"confirmSeedPhrase": "Confirm Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
-		"name": "Portfolio Name",
-		"next": "Next",
-		"password": "Password",
-		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
-		"securityTitle": "Important: please back up your seed phrase now!",
-		"seedPhrase": "Seed Phrase for Your Portfolio",
-		"seedPhraseNoMatch": "The seed phrase you entered is not the same as the generated one",
-		"success": "New portfolio added!",
-		"title": "Create New Portfolio"
+		"confirm": "Xác nhận",
+		"confirmPassword": "Xác nhận Mật khẩu",
+		"confirmPasswordNoMatch": "Mật khẩu được xác nhận không khớp",
+		"confirmSeedPhrase": "Nhập Seed Phrase của bạn",
+		"exampleSeedPhrase": "Ví dụ: {{seedPhrase}} …",
+		"name": "Tên mục Đầu tư",
+		"next": "Tiếp theo",
+		"password": "Mật khẩu",
+		"securityDescription": "<0>Chúng tôi khuyên bạn nên lưu trữ ngoại tuyến. <1>Tìm hiểu thêm các biện pháp bảo mật tốt nhất</1></0>",
+		"securityTitle": "Quan trọng: hãy sao lưu seed phrase của bạn ngay!",
+		"seedPhrase": "Seed Phrase cho mục Đầu tư của Bạn",
+		"seedPhraseNoMatch": "Seed phrase mà bạn nhập không giống một cái đã được tạo",
+		"success": "Mục Đầu tư mới đã được thêm!",
+		"title": "Tạo mục Đầu tư Mới"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
-		"createPortfolio": "Create New Portfolio",
-		"restorePortfolio": "Restore Portfolio"
+		"createOrRestoreDescription": "Tạo một seed phrase mới nếu bạn chưa có.",
+		"createOrRestoreTitle": "<0>Bạn có muốn tạo một mục đầu tư mới<1></1>hoặc khôi phục cái đã có sẵn?</0>",
+		"createPortfolio": "Tạo mục Đầu tư Mới",
+		"restorePortfolio": "Khôi phục mục Đầu tư"
 	},
 	"restore": {
-		"confirm": "Confirm",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"confirm": "Xác nhận",
+		"confirmPasswordNoMatch": "Mật khẩu được xác nhận không khớp",
+		"enterSeedPhrase": "Nhập Seed Phrase của bạn",
+		"exampleSeedPhrase": "Ví dụ: {{seedPhrase}} …"
 	}
 }

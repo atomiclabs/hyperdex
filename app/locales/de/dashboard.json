@@ -1,53 +1,53 @@
 {
 	"intro": {
-		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"title": "✨Danke für deine Hilfe beim Testen von HyperDEX!",
+		"description": "<0>Bitte bedenke, dass <1>sich dieses Projekt noch in der Alpha-Phase befindet</1>.</0><1>Obwohl der Verlust von Kapital unwahrscheinlich ist solltest du nur mit echten Währungen handeln, wenn du das Risiko auf dich nehmen kannst.</1><2>Wenn du HyperDEX nur testen möchtest, handle stattdessen mit den Testwährungen <1>BIER</1> und <3>PIZZA</3>. Du erhältst kostenloses <5>BIER</5> am <7><0>BIER</0>zapfhahn</7>.</2><3>HyperDEX ist eine Open Source Software, zur Verfügung gestellt &qoute;wie sie ist&qoute;, ohne jegliche Garantie. Die Autoren oder Urheberrechtsinhaber haften nicht für etwaige Schäden, die durch Verwendung dieser Software entstehen.</3><4>Indem du HyperDEX verwendest, erklärst du dich mit den Bedingungen der <1>MIT-Lizenz</1> einverstanden.</4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"noActivity": "Noch keine Aktivitäten",
+		"recentActivity": "Letzte Aktivitäten",
+		"swapFailedTitle": "Nicht Getauscht",
+		"swapTitle": "Getauscht",
+		"swapDescription": "{{quoteCurrency}} gegen {{baseCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "Keine Daten verfügbar",
+		"portfolioValue": "Portfolio-Wert",
+		"symbolChart": "{{symbol}} Diagramm"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "Kopieren",
+		"copied": "Kopiert",
+		"label": "Einzahlen",
+		"title": "Deine {{name}} ({{symbol}}) Wallet-Adresse",
+		"warning": "Sende an diese Adresse nur {{symbol}}"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
+		"assets": "Guthaben",
+		"assets_plural": "Guthaben",
 		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"price": "{{symbol}} Preis",
+		"value": "{{symbol}} Holdings-Wert"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "Leeres Wallet",
+		"search": "Suchen…"
 	},
 	"wallet": {
 		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"recentActivity": "Letzte Aktivitäten"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
+		"amountLabel": "Betrag",
+		"confirmNetworkFee": "Netzwerkgebühr bestätigen",
+		"label": "Abbuchen",
 		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"networkFee": "Netzwerkgebühr",
+		"recipientLabel": "Empfänger",
+		"recipientPlaceholder": "{{symbol}}-Adresse eingeben",
+		"remainingBalance": "Verbleibender Betrag",
+		"successDescription": "{{amount}} {{symbol}} an {{address}} gesendet",
+		"successTitle": "Erfolgreiche Abbuchung!",
+		"title": "{{name}} ({{symbol}}) abbuchen"
 	}
 }

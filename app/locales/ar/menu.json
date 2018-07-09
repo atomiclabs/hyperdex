@@ -1,25 +1,25 @@
 {
 	"app": {
-		"preferences": "Preferences…"
+		"preferences": "التفضيلات…"
 	},
 	"help": {
-		"about": "About {{appName}}",
-		"reportIssue": "Report an issue…",
-		"sourceCode": "Source code",
-		"website": "Website"
+		"about": "حول {{appName}}",
+		"reportIssue": "الإبلاغ عن مشكلة…",
+		"sourceCode": "الكود المصدر",
+		"website": "الويب"
 	},
 	"other": {
-		"file": "File"
+		"file": "الملف"
 	},
 	"portfolio": {
-		"dashboard": "Dashboard",
-		"exchange": "Exchange",
-		"goToPrevView": "Go to Previous View",
-		"goToNextView": "Go to Next View",
-		"logOut": "Log Out",
-		"settings": "Settings",
-		"swap": "Swap",
-		"title": "Portfolio",
-		"trades": "Trades"
+		"dashboard": "لوحة المعلومات",
+		"exchange": "تبادل",
+		"goToPrevView": "انتقل إلى العرض السابق",
+		"goToNextView": "انتقل إلى العرض التالي",
+		"logOut": "تسجيل الخروج",
+		"settings": "الإعدادات",
+		"swap": "مبادلة",
+		"title": "الحافظة",
+		"trades": "التداولات"
 	}
 }

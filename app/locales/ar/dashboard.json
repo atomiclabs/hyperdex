@@ -1,53 +1,53 @@
 {
 	"intro": {
-		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"title": "شكرًا على مساعدتك لنا في اختبار HyperDEX!",
+		"description": "<0>يرجى الأخذ في الاعتبار أن <1>هذا المشروع ما يزال في المرحلة التجريبية</1>.</0> <1>وعلى الرغم من أنه من غير المرجح خسارة الأموال، إلا أنه ينبغي عليك التداول فقط في حالة كان يمكنك تحمل المخاطرة</1><2> إذا كنت ترغب فقط في اختبار HyperDEX، فحاول التداول باستخدام عملتي اختبار <1>بيرة</1> و <3>بيتزا</3> بدلاً من ذلك. يمكنك الحصول على <5>بيرة</5> مجانًا من<7><0>صنبور</0> البيرة</7>.</2><3>HyperDEX هو عبارة عن برنامج مفتوح المصدر مقدم &qoute;كما هو&qoute;، بدون أية ضمانات من أي نوع. ولا يتحمل كاتبو البرنامج أو حاملو حقوق النسخ أية مسؤولية عن أية أضرار قد تنجم بسبب استخدام هذا البرنامج-</3> <4>ومن خلال استخدام HyperDEX فإنك توافق على شروط <1>ترخيص MIT </1>.</4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"noActivity": "لا يوجد نشاط بعد",
+		"recentActivity": "أحدث نشاط",
+		"swapFailedTitle": "عدم المبادلة",
+		"swapTitle": "تمت المبادلة",
+		"swapDescription": "{{quoteCurrency}} مقابل {{baseCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "لا توجد بيانات متاحة",
+		"portfolioValue": "قيمة المحفظة",
+		"symbolChart": "مخطط {{symbol}}"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "نسخ",
+		"copied": "تم النسخ",
+		"label": "الرصيد",
+		"title": "عنوان محفظتك {{name}} ({{symbol}})",
+		"warning": "تأكد من أن ترسل فقط {{symbol}} إلى هذا العنوان"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "الأصول",
+		"assets_plural": "الأصول",
+		"holdings": "مقبوضات {{symbol}}",
+		"price": "سعر {{symbol}}",
+		"value": "قيمة المقبوضات {{symbol}}"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "محفظة فارغة",
+		"search": "بحث…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "محفظة {{symbol}}",
+		"recentActivity": "أحدث نشاط"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "المبلغ",
+		"confirmNetworkFee": "تأكيد رسوم شبكة",
+		"label": "سحب",
+		"maxAmount": "الحد الأقصى",
+		"networkFee": "رسوم الشبكة",
+		"recipientLabel": "المُستلم",
+		"recipientPlaceholder": "أدخل عنوان {{symbol}}",
+		"remainingBalance": "الرصيد المتبقي",
+		"successDescription": "{{amount}} {{symbol}} تم إرساله إلى {{address}}",
+		"successTitle": "سحب ناجح!",
+		"title": "سحب {{name}} ({{symbol}})"
 	}
 }

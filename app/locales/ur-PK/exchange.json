@@ -1,34 +1,34 @@
 {
-	"cancel": "Cancel",
+	"cancel": "منسوخ کریں",
 	"chart": {
-		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
+		"depth": "{{baseCurrency}}/{{quoteCurrency}} گہرائی چارٹ"
 	},
-	"confirmQuitTitle": "Are you sure you want to quit?",
-	"confirmQuitDescription": "You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.",
+	"confirmQuitTitle": "کیا آپ کو یقین ہے کہ آپ چھوڑنا چاہتے ہیں؟",
+	"confirmQuitDescription": "آپ کے پاس ترقی میں تبدیلی ہے. ہائپر ڈیکس کوشش کرے گا کہ جب آپ اگلی بار اپلی کیشن کو چلائیں تو سویپس کو جاری رکھیں ، لیکن ہم آپ کو تجویز کرتے ہیں کہ آپ ہائپر ڈیکس کو سویپ مکمل ہونے تک چلائیں.",
 	"intro": {
-		"description": " <0>HyperDEX is a decentralized exchange. It has a P2P order book and trades are made via <1>cross-chain atomic swaps</1>. This means it works slightly differently than a centralized exchange.</0><1>Orders can take a while to propagate across the P2P network. You may need to wait a while for the order book to display.</1><2>HyperDEX needs you to have correctly sized <1>UTXOs</1> to make a successful swap. For each UTXO you can make a single swap. The easiest way to ensure you can participate in a swap is to make two or three smaller deposits to your account rather than a single large deposit.</2><3>An atomic swap is comprised of six on-chain transactions. When trading a currency with high transaction fees, it's important to slightly increase your price to account for the total transaction fees. This is especially important when trading small amounts.</3>",
-		"title": "How Trading Works with HyperDEX"
+		"description": " <0>HyperDEX ایک مرکزی اقتدار کم کرنے والا (ڈی سینٹرا لائزڈ) تبادلہ ہے. اس کے پاس P2P آرڈر ہے اور ٹریڈ کے بنائے گئے ہیں بذریعہ<1> کراس- چین اٹامک سویپ </1>. اس کا مطلب یہ ہے کہ یہ مرکزی تبادلے سے تھوڑا سا الگ کام کرتا ہے.</0><1>آرڈرز P2P نیٹ ورک کے گرد پھیلنے میں کچھ وقت لے سکتے ہیں. آرڈر کتاب کو ظاہر ہونے کیلئے آپ کو تھوڑی دیر تک انتظار کرنا ہوگا.</1><2> ہائپر ڈیکس کو آپ کی ضرورت ہے کہ آپ صحیح سائز دیں<1> UTXOs</1>کامیاب تبادلہ کرنے کے لئے. ہر UTXO کے لئے آپ ایک ہی تبادلہ کرسکتے ہیں. آپ تبادلہ میں حصہ لے سکتے ہیں اس بات کو یقینی بنانے کا سب سے آسان طریقہ یہ ہے کہ آپ اپنے اکاؤنٹس میں دو یا تین چھوٹے ڈپازٹس بنائیں ایک بڑا ڈپازٹ بنانے کے بجائے.</2><3> ایک اٹامک سویپ چھ آن-چین ٹرانزیکشنز پر مشتمل ہے. اعلی ٹرانزیکشن فیس کے ساتھ ایک کرنسی ٹریڈ کرتے وقت، کل ٹرانزیکشن فیس کی قیمتوں میں اپنی قیمت کا تھوڑا سا اضافہ کرنا ضروری ہے. یہ خاص طور پر اہم ہے جب تھوڑی مقدار میں ٹریڈ کرنا ہو.</3>",
+		"title": "ٹریڈنگ ہائپر ڈیکس کے ساتھ کس طرح کام کرتی ہے"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"amount": "رقم {{symbol}}",
+		"averageVolume": "اوسط حجم",
+		"buy": "خریدیں",
+		"buyOrders": "آرڈرز خریدیں",
+		"failedTrade": "ناکام ہو گیا {{type}}{{baseCurrency}}",
+		"maxOnePendingSwap": "ایک وقت میں صرف ایک زیر التواء سویپ، دوبارہ کوشش کریں {{wait}} سیکنڈز میں.",
+		"maxPrice": "زیادہ سے زیادہ",
+		"maxVolume": "زیادہ سے زیادہ حجم",
+		"price": "رقم {{symbol}}",
+		"sell": "بیچیں",
+		"sellOrders": "آرڈرز بیچیں",
+		"symbolBalance": "بیلنس: {{balance}}{{symbol}}",
+		"total": "تمام {{symbol}}",
+		"unexpectedError": "کچھ غیر متوقع ہوا ۔ کیا آپ کو یقین ہے کہ آپ کے پاس کافی UTXO ہے؟",
+		"worth": "یہ تبادلہ بہترین ہے {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "بند کریں",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "سب",
+		"title": "تبادلہ"
 	}
 }

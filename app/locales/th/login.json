@@ -1,8 +1,8 @@
 {
-	"forgotPassword": "Forgot password",
-	"incorrectPassword": "Incorrect password",
-	"login": "Login",
-	"loggingIn": "Logging in…",
-	"password": "Password",
-	"selectPortfolio": "Select portfolio…"
+	"forgotPassword": "ลืมรหัสผ่าน",
+	"incorrectPassword": "รหัสผ่านไม่ถูกต้อง",
+	"login": "เข้าสู่ระบบ",
+	"loggingIn": "กำลังเข้าสู่ระบบ...",
+	"password": "รหัสผ่าน",
+	"selectPortfolio": "เลือกพอร์ต..."
 }

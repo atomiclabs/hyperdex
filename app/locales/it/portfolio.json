@@ -1,30 +1,30 @@
 {
 	"create": {
-		"confirm": "Confirm",
-		"confirmPassword": "Confirm Password",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"confirmSeedPhrase": "Confirm Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
-		"name": "Portfolio Name",
-		"next": "Next",
+		"confirm": "Conferma",
+		"confirmPassword": "Conferma password",
+		"confirmPasswordNoMatch": "La password confermata non corrisponde alla password",
+		"confirmSeedPhrase": "Conferma la tua frase segreta",
+		"exampleSeedPhrase": "Esempio: {{seedPhrase}} …",
+		"name": "Nome del portafoglio",
+		"next": "Successivo",
 		"password": "Password",
-		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
-		"securityTitle": "Important: please back up your seed phrase now!",
-		"seedPhrase": "Seed Phrase for Your Portfolio",
-		"seedPhraseNoMatch": "The seed phrase you entered is not the same as the generated one",
-		"success": "New portfolio added!",
-		"title": "Create New Portfolio"
+		"securityDescription": "<0>Consigliamo l'archiviazione offline. <1>Scopri di più sulle migliori pratiche per la sicurezza</1></0>",
+		"securityTitle": "Importante: esegui ora il backup della frase segreta!",
+		"seedPhrase": "Frase segreta per il tuo portafoglio",
+		"seedPhraseNoMatch": "La frase segreta che hai inserito non è identica a quello generata",
+		"success": "Nuovo portafoglio aggiunto!",
+		"title": "Crea nuovo portafoglio"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
-		"createPortfolio": "Create New Portfolio",
-		"restorePortfolio": "Restore Portfolio"
+		"createOrRestoreDescription": "Creane uno nuovo se non hai ancora una frase segreta.",
+		"createOrRestoreTitle": "<0>Vuoi creare un nuovo portafoglio<1></1>o ripristinarne uno esistente?</0>",
+		"createPortfolio": "Crea nuovo portafoglio",
+		"restorePortfolio": "Ripristina portafoglio"
 	},
 	"restore": {
-		"confirm": "Confirm",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"confirm": "Conferma",
+		"confirmPasswordNoMatch": "La password confermata non corrisponde alla password",
+		"enterSeedPhrase": "Inserisci la tua frase segreta",
+		"exampleSeedPhrase": "Esempio: {{seedPhrase}} …"
 	}
 }

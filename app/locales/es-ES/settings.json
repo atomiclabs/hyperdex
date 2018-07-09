@@ -1,13 +1,13 @@
 {
-	"app": "App",
-	"enabledCurrencies": "Enabled currencies",
-	"logOutAppSettings": "<0><0>Log out</0> to see more app settings.</0>",
-	"portfolio": "Portfolio",
-	"title": "Settings",
+	"app": "Aplicación",
+	"enabledCurrencies": "Divisas habilitadas",
+	"logOutAppSettings": "<0><0>Cierra sesión</0> para ver más ajustes de la aplicación.</0>",
+	"portfolio": "Cartera",
+	"title": "Ajustes",
 	"theme": {
-		"theme": "Theme",
-		"dark": "Dark",
-		"light": "Light",
-		"system": "System"
+		"theme": "Tema",
+		"dark": "Oscuro",
+		"light": "Claro",
+		"system": "Sistema"
 	}
 }

@@ -1,34 +1,34 @@
 {
-	"cancel": "Cancel",
+	"cancel": "İptal",
 	"chart": {
-		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
+		"depth": "{{baseCurrency}}/{{quoteCurrency}} Derinlik Grafiği"
 	},
-	"confirmQuitTitle": "Are you sure you want to quit?",
-	"confirmQuitDescription": "You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.",
+	"confirmQuitTitle": "Çıkmak istediğine emin misin?",
+	"confirmQuitDescription": "Devam eden takas işlemlerin bulunuyor. HyperDEX uygulamayı bir sonraki açışında takasları devam ettirmeyi deneyecek ama takaslar bitene kadar HyperDEX'i açık bırakmanı tavsiye ederiz.",
 	"intro": {
-		"description": " <0>HyperDEX is a decentralized exchange. It has a P2P order book and trades are made via <1>cross-chain atomic swaps</1>. This means it works slightly differently than a centralized exchange.</0><1>Orders can take a while to propagate across the P2P network. You may need to wait a while for the order book to display.</1><2>HyperDEX needs you to have correctly sized <1>UTXOs</1> to make a successful swap. For each UTXO you can make a single swap. The easiest way to ensure you can participate in a swap is to make two or three smaller deposits to your account rather than a single large deposit.</2><3>An atomic swap is comprised of six on-chain transactions. When trading a currency with high transaction fees, it's important to slightly increase your price to account for the total transaction fees. This is especially important when trading small amounts.</3>",
-		"title": "How Trading Works with HyperDEX"
+		"description": " <0>HyperDEX merkezde olmayan bir borsadır. Uçtan uca bir sipariş defteri vardır ve işlemler <1>atomik çapraz zincir ticareti ile yapılır</1>. Bu merkezi borsadan biraz daha farklı çalıştığı anlamına gelir.</0><1>Borsa emirlerinin uçtan uca ağda ilerlemesi biraz zaman alabilir. Sipariş defterinin görünmesi için biraz beklemeniz gerekebilir.</1><2>HyperDEX başarılı bir takas yapabilmek için doğru boyutlanmış <1>UTXOlara</1>sahip olmanızı gerektirir. Her UTXO için bir takas yapabilirsiniz. Takas yapabilmenizi garantilemenin en kolay yolu hesabınıza bir büyük meblağdansa iki yada üç küçük para girişi yapmanızdır.</2><3>Atomik Çapraz takası altı zincir içinde işlemden oluşur. Yüksek işlem ücretlerine sahip bir para birimiyle takas yapılırken tüm işlem ücretlerini karşılamak için fiyatınızı biraz yükseltmeniz önemlidir. Bu özellikle küçük miktarlarla işlem yaparken önemlidir.</3>",
+		"title": "HyperDEX ile Nasıl Ticaret Yapılır"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"amount": "Miktar {{symbol}}",
+		"averageVolume": "Ort Hac",
+		"buy": "Satın al",
+		"buyOrders": "Alış Emirleri",
+		"failedTrade": "{{type}}{{baseCurrency}} başarısız oldu",
+		"maxOnePendingSwap": "Aynı anda sadece bir takas beklemede olabilir, {{wait}} saniye içinde tekrar dene.",
+		"maxPrice": "MAKS",
+		"maxVolume": "Maks Hac",
+		"price": "Fiyat {{symbol}}",
+		"sell": "Sat",
+		"sellOrders": "Satış Emirleri",
+		"symbolBalance": "Bakiye: {{balance}} {{symbol}}",
+		"total": "Toplam {{symbol}}",
+		"unexpectedError": "Beklenmeyen bir hata oluştu. Hesabında yeterli UTXO olduğuna emin misin?",
+		"worth": "Bu takas {{swapWorthInUsd}} değerinde"
 	},
-	"quit": "Quit",
+	"quit": "Çık",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "Tümü",
+		"title": "Takaslar"
 	}
 }

@@ -1,30 +1,30 @@
 {
 	"create": {
-		"confirm": "Confirm",
-		"confirmPassword": "Confirm Password",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"confirmSeedPhrase": "Confirm Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
-		"name": "Portfolio Name",
-		"next": "Next",
-		"password": "Password",
-		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
-		"securityTitle": "Important: please back up your seed phrase now!",
-		"seedPhrase": "Seed Phrase for Your Portfolio",
-		"seedPhraseNoMatch": "The seed phrase you entered is not the same as the generated one",
-		"success": "New portfolio added!",
-		"title": "Create New Portfolio"
+		"confirm": "पुष्टि करें",
+		"confirmPassword": "पासवर्ड की पुष्टि करें",
+		"confirmPasswordNoMatch": "पासवर्ड से पुष्टि पासवर्ड मेल नहीं खाता है",
+		"confirmSeedPhrase": "अपने सीड वाक्यांश की पुष्टि करें",
+		"exampleSeedPhrase": "उदाहरण: {{seedPhrase}} …",
+		"name": "पोर्टफोलियो नाम",
+		"next": "अगला",
+		"password": "पासवर्ड",
+		"securityDescription": "<0>हम इसे ऑफलाइन स्टोर करने की सलाह देते हैं। <1>सर्वोत्तम सुरक्षा प्रैक्टिसेज के बारे में अधिक जानें</1></0>",
+		"securityTitle": "महत्वपूर्ण: कृपया अपने सीड वाक्यांश का बैक अप लें!",
+		"seedPhrase": "आपके पोर्टफोलियो के लिए सीड वाक्यांश",
+		"seedPhraseNoMatch": "आपके द्वारा दर्ज किया गया सीड वाक्यांश जनरेट किए गए के समान नहीं है",
+		"success": "नया पोर्टफोलियो जोड़ा गया!",
+		"title": "नया पोर्टफोलियो बनाएँ"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
-		"createPortfolio": "Create New Portfolio",
-		"restorePortfolio": "Restore Portfolio"
+		"createOrRestoreDescription": "यदि आपके पास अभी तक कोई सीड वाक्यांश नहीं है तो नया बनाएँ।",
+		"createOrRestoreTitle": "<0>क्या आप एक नया पोर्टफोलियो बनाना चाहते हैं<1></1>या मौजूदा को रीस्टोर करना चाहते हैं?</0>",
+		"createPortfolio": "नया पोर्टफोलियो बनाएँ",
+		"restorePortfolio": "पोर्टफोलियो रीस्टोर करें"
 	},
 	"restore": {
-		"confirm": "Confirm",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"confirm": "पुष्टि करें",
+		"confirmPasswordNoMatch": "पासवर्ड से पुष्टि पासवर्ड मेल नहीं खाता है",
+		"enterSeedPhrase": "अपना सीड वाक्यांश दर्ज करें",
+		"exampleSeedPhrase": "उदाहरण: {{seedPhrase}} …"
 	}
 }

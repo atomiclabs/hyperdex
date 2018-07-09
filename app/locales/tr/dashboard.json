@@ -1,53 +1,53 @@
 {
 	"intro": {
-		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"title": "✨ HyperDEX'i Test Etmemizde Bize Yardım Ettiğin için Teşekkürler!",
+		"description": "<0>Lütfen unutma <1>bu proje hala test aşamasında</1>.</0><1>Para kaybetmek ihtimali olmasa da bu riski almak istiyorsan sadece gerçek para ile işlem yapmalısın.</1><2>HyperDEX'i sadece test etmek istiyorsan, test para birimleri <1>BİRA</1> ve <3>PİZZA</3> ile işlem yapmayı dene. <7><0>BİRA</0>musluğundan bedava <5>BİRA</5>kazanabilirsin</7>.</2><3>HyperDEX herhangi bir garanti olmadan &qoute;sunulan&qoute; Açık Kaynak bir yazılımdır. Geliştiriciler ya da hak sahipleri bu yazılım kullanımından kaynaklanan herhangi bir zarar için sorumlu tutulamaz.</3><4> HyperDEX kullanarak <1>MIT Lisans</1> şartlarını kabul etmiş olursun.</4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"noActivity": "Henüz işlem yok",
+		"recentActivity": "Son İşlemler",
+		"swapFailedTitle": "Takas Yapılmadı",
+		"swapTitle": "Takas Edildi",
+		"swapDescription": "{{quoteCurrency}} için {{baseCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "Veri yok",
+		"portfolioValue": "Portföy Değeri",
+		"symbolChart": "{{symbol}} Grafiği"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "Kopyala",
+		"copied": "Kopyalandı",
+		"label": "Yatır",
+		"title": "{{name}} ({{symbol}}) Cüzdan Adresin",
+		"warning": "Bu adrese sadece {{symbol}} gönderdiğinden emin ol"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "varlık",
+		"assets_plural": "varlık",
+		"holdings": "{{symbol}} Tahvil",
+		"price": "{{symbol}} Fiyat",
+		"value": "{{symbol}} Tahvil Değeri"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "Cüzdan boş",
+		"search": "Ara…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "{{symbol}} Cüzdan",
+		"recentActivity": "Son İşlemler"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "Miktar",
+		"confirmNetworkFee": "Ağ Ücreti Onayla",
+		"label": "Çek",
+		"maxAmount": "Maks",
+		"networkFee": "Ağ Ücreti",
+		"recipientLabel": "Alıcı",
+		"recipientPlaceholder": "{{symbol}} Adresini Gir",
+		"remainingBalance": "Kalan bakiye",
+		"successDescription": "{{amount}}{{symbol}} bu {{address}} adrese gönderildi",
+		"successTitle": "Çekim başarılı!",
+		"title": "Çek {{name}} ({{symbol}})"
 	}
 }

@@ -1,53 +1,53 @@
 {
 	"intro": {
-		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"title": "✨ ہائپر ڈیکس ٹیسٹ میں ہماری مدد کرنے کا شکریہ!",
+		"description": "<0>برائے مہربانی ذہن میں رکھیں <1> یہ منصوبہ ابھی بھی الفا میں ہے</1>.</0><1> اگرچہ فنڈز کے نقصان کا امکان نہیں ہے، اگر آپ اس خطرے کو قبول کر سکتے ہیں تو ہی آپ کو حقیقی کرنسی کے ساتھ ٹریڈ کرنا چاہئے. </1><2> اگر آپ صرف ہائپر ڈیکس کو ٹیسٹ کرنا چاہتے ہیں تو،آپ ٹیسٹ کرنسیوں کے درمیان ٹریڈنگ کی کوشش کریں <1> شراب </1> اور <3> پیزا </3> کے بجائے. آپ مفت حاصل کر سکتے ہیں <5> شراب </5> سے <7><0> شراب کے </0>نل سے </7>.</2><3> ہائپر ڈیکس اوپن سورس سافٹ ویئر ہے جو کہ فراہم کرتا ہے &qoute; جیسا کہ ہے&qoute;,کسی قسم کی وارنٹی کے بغیر. اس سافٹ ویئر کو استعمال کرنے کے نتیجے میں کسی بھی نقصان کے لئے مصنفین یا کاپی رائٹ ہولڈر ذمہ دار نہیں ہیں.</3><4> ہائپر ڈیکس استعمال کرتے ہوئے آپ ان شرائط پر اتفاق کرتے ہیں <1>ایم آئی ٹی لائسنس</1>.</4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"noActivity": "ابھی تک کوئی سرگرمی نہیں ہے",
+		"recentActivity": "حالیہ سرگرمی",
+		"swapFailedTitle": "تبدیل نہیں کیا",
+		"swapTitle": "تبدیل کیا",
+		"swapDescription": "{{quoteCurrency}} کیے لیے {{baseCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "اعداد و شمار دستیاب نہیں ہیں",
+		"portfolioValue": "پورٹ فولیو ویلیو",
+		"symbolChart": "{{symbol}} چارٹ"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "نقل",
+		"copied": "نقل کیا",
+		"label": "ڈپازٹ",
+		"title": "آپ کا {{name}} ({{symbol}}) والٹ ایڈریس",
+		"warning": "اس بات کو یقینی بنائیں کہ آپ {{symbol}} صرف اس ایڈریس پر بھیجیں"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "اثاثہ",
+		"assets_plural": "اثاثہ جات",
+		"holdings": "{{symbol}} مالیات",
+		"price": "{{symbol}} قیمت",
+		"value": "{{symbol}} مالیات کی ویلیو"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "خالی والٹ",
+		"search": "تلاش کریں…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "{{symbol}} والٹ",
+		"recentActivity": "حالیہ سرگرمی"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "رقم",
+		"confirmNetworkFee": "نیٹ ورک فیس کی تصدیق کریں",
+		"label": "رقم نکالیں",
+		"maxAmount": "زیادہ سے زیادہ",
+		"networkFee": "نیٹ ورک فیس",
+		"recipientLabel": "وصول کنندہ",
+		"recipientPlaceholder": "درج کریں {{symbol}} پتہ",
+		"remainingBalance": "بقیہ بیلنس",
+		"successDescription": "{{amount}}{{symbol}} بھیجیں اس {{address}} پر",
+		"successTitle": "آپ کامیابی سے رقم نکال چکے ہیں!",
+		"title": "رقم نکالیں ({{name}} ({{symbol}}"
 	}
 }

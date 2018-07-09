@@ -1,8 +1,8 @@
 {
-	"forgotPassword": "Forgot password",
-	"incorrectPassword": "Incorrect password",
-	"login": "Login",
-	"loggingIn": "Logging in…",
-	"password": "Password",
-	"selectPortfolio": "Select portfolio…"
+	"forgotPassword": "忘記密碼",
+	"incorrectPassword": "密碼錯誤",
+	"login": "登入",
+	"loggingIn": "登入中…",
+	"password": "密碼",
+	"selectPortfolio": "選擇投資組合…"
 }

@@ -1,34 +1,34 @@
 {
-	"cancel": "Cancel",
+	"cancel": "キャンセル",
 	"chart": {
-		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
+		"depth": "{{baseCurrency}}/{{quoteCurrency}} デプスチャート"
 	},
-	"confirmQuitTitle": "Are you sure you want to quit?",
-	"confirmQuitDescription": "You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.",
+	"confirmQuitTitle": "終了してもよろしいですか？",
+	"confirmQuitDescription": "スワップがまだ実行中です。HyperDEX は、アプリの次回起動時にスワップを再開しようと試みますが、スワップが完了するまでは HyperDEX を起動したままにすることをお勧めします。",
 	"intro": {
-		"description": " <0>HyperDEX is a decentralized exchange. It has a P2P order book and trades are made via <1>cross-chain atomic swaps</1>. This means it works slightly differently than a centralized exchange.</0><1>Orders can take a while to propagate across the P2P network. You may need to wait a while for the order book to display.</1><2>HyperDEX needs you to have correctly sized <1>UTXOs</1> to make a successful swap. For each UTXO you can make a single swap. The easiest way to ensure you can participate in a swap is to make two or three smaller deposits to your account rather than a single large deposit.</2><3>An atomic swap is comprised of six on-chain transactions. When trading a currency with high transaction fees, it's important to slightly increase your price to account for the total transaction fees. This is especially important when trading small amounts.</3>",
-		"title": "How Trading Works with HyperDEX"
+		"description": " <0>HyperDEX は分散型取引所です。P2P によるオーダーブックを採用しており、トレードは<1>クロスチェーンのアトミックスワップ</1>によって実行されます。この仕組みは、中央集権型の取引所と少し異なります。</0><1>注文が P2P ネットワーク上に伝播される必要があるため、中央集権型の取引所よりも時間がかかります。オーダーブックが表示されるまでに少し待たなければならない場合もあります。</1><2>また HyperDEX で正しくスワップを行うには、適正なサイズの <1>UTXO</1> を持っている必要があります。1 つの UTXO ごとに、1 つのスワップを行うことができます。スワップに確実に参加する最も簡単な方法は、アカウントに 1 回の大きな入金ではなく、2～3 回の小さな入金を行う方法です。</2><3>アトミックスワップは、6 つのオンチェーンのトランザクションで構成されています。トランザクション手数料が高い通貨をトレードする際は、手数料を考慮し、価格を少しだけ多めにすることが大切です。これは、取引量が少ない場合に特に重要となります。</3>",
+		"title": "HyperDEX でのトレードの仕組み"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"amount": "数量 {{symbol}}",
+		"averageVolume": "平均量",
+		"buy": "購入",
+		"buyOrders": "買い注文",
+		"failedTrade": "{{type}}{{baseCurrency}} に失敗しました",
+		"maxOnePendingSwap": "保留中のスワップは 1 件のみ可能なため {{wait}} 秒後にもう一度お試しください。",
+		"maxPrice": "最大",
+		"maxVolume": "最大数量",
+		"price": "価格 {{symbol}}",
+		"sell": "売り",
+		"sellOrders": "売り注文",
+		"symbolBalance": "残高: {{balance}} {{symbol}}",
+		"total": "合計 {{symbol}}",
+		"unexpectedError": "予期しない問題が発生しました。十分な UTXO があることを確認してください。",
+		"worth": "このスワップの価値は {{swapWorthInUsd}} です"
 	},
-	"quit": "Quit",
+	"quit": "終了",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "すべて",
+		"title": "スワップ"
 	}
 }

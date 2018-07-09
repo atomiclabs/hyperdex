@@ -1,34 +1,34 @@
 {
-	"cancel": "Cancel",
+	"cancel": "বাতিল করুন",
 	"chart": {
-		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
+		"depth": "{{baseCurrency}}/{{quoteCurrency}} গভীরতার তালিকা"
 	},
-	"confirmQuitTitle": "Are you sure you want to quit?",
-	"confirmQuitDescription": "You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.",
+	"confirmQuitTitle": "আপনি কি নিশ্চিত যে আপনি প্রস্থান করতে চান?",
+	"confirmQuitDescription": "আপনার প্রগতি হয় swaps আছে। HyperDEX swaps পরবর্তী সময়ে আপনি অ্যাপটি চালু অব্যাহত রাখতে চেষ্টা করবে, কিন্তু আমরা সুপারিশ আপনি ছেড়ে HyperDEX দৌড়ে swaps সম্পন্ন না হওয়া পর্যন্ত।.",
 	"intro": {
-		"description": " <0>HyperDEX is a decentralized exchange. It has a P2P order book and trades are made via <1>cross-chain atomic swaps</1>. This means it works slightly differently than a centralized exchange.</0><1>Orders can take a while to propagate across the P2P network. You may need to wait a while for the order book to display.</1><2>HyperDEX needs you to have correctly sized <1>UTXOs</1> to make a successful swap. For each UTXO you can make a single swap. The easiest way to ensure you can participate in a swap is to make two or three smaller deposits to your account rather than a single large deposit.</2><3>An atomic swap is comprised of six on-chain transactions. When trading a currency with high transaction fees, it's important to slightly increase your price to account for the total transaction fees. This is especially important when trading small amounts.</3>",
-		"title": "How Trading Works with HyperDEX"
+		"description": " <0>HyperDEX একটি বিকেন্দ্রীভূত লেনদেন। এটির একটি অর্ডার বুক এবং ট্রেডসমূহ রয়েছে যেগুলো <1>ক্রস-চেইন অটোমিক বিনিময়</1> দ্বারা গঠিত। যার অর্থ হলো এটি কোনো কেন্দ্রীভূত লেনদেনের তুলনায় কিছুটা ভিন্নভাবে কাজ করে।</0><1>P2Pনেটওয়ার্কে অর্ডারসমূহ তৈরি হতে কিছুটা সময় লাগতে পারে</1>।<2>একটি সফল বিনিময় সম্পন্ন করতে HyperDEX এ আপনাকে সঠিক আকারের <1>UTXOs</1> করতে হবে। প্রতিটি UTXO এর জন্য আপনি শুধুমাত্র একটি বিনিময় করতে পারবেন।আপনার একটি বিনিময়ে অংশগ্রহণ করা নিশ্চিত করার সবচেয়ে সহজ উপায় হলো আপনার একাউন্টে কোনো বড় আকারের জমা করার পরিবর্তে দুই তিনটি ছোট আকারের জমা করুন।</2><3>একটি অটোমিক চেইন ছয়টি অন-চেইন লেনদেন নিয়ে গঠিত হয়। কোনো উচ্চ লেনদেন ফিস সম্বলিত মূদ্রা কেনাবেচা করার সময় মোট লেনদেন ফিসের বিপরীতে আপনার মূল্য কিছুটা বৃদ্ধি করা গুরুত্বপূর্ণ। এটা বিশেষভাবে ছোট আকারের কেনাবেচার ক্ষেত্রে গুরুত্বপূর্ণ।</3>",
+		"title": "HyperDEX এ ট্রেডিং কিভাবে কাজ করে"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"amount": "পরিমাণ {{symbol}}",
+		"averageVolume": "গড় ভলিউম",
+		"buy": "ক্রয় করুন",
+		"buyOrders": "ক্রয় আদেশ",
+		"failedTrade": "{{type}}{{baseCurrency}} করতে ব্যর্থ হয়েছে",
+		"maxOnePendingSwap": "একবারে শুধুমাত্র একটি বিবেচনাধীন বিনিময়, {{wait}} সেকেন্ড পর আবার চেষ্টা করুন।",
+		"maxPrice": "সর্বোচ্চ",
+		"maxVolume": "সর্বোচ্চ ভলিউম",
+		"price": "মূল্য {{symbol}}",
+		"sell": "বিক্রয় করুন",
+		"sellOrders": "বিক্রয় আদেশ",
+		"symbolBalance": "ব্যালেন্স: {{balance}}{{symbol}}",
+		"total": "মোট {{symbol}}",
+		"unexpectedError": "অপ্রত্যাশিত কিছু ঘটেছে। আপনি কি নিশ্চিত যে আপনার যথেষ্ট UTXO রয়েছে?",
+		"worth": "এই বিনিময়টির মূল্য {{swapWorthInUsd}}"
 	},
-	"quit": "Quit",
+	"quit": "প্রস্থান",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "সকল",
+		"title": "বিনিময়"
 	}
 }

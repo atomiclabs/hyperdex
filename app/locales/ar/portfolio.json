@@ -1,30 +1,30 @@
 {
 	"create": {
-		"confirm": "Confirm",
-		"confirmPassword": "Confirm Password",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"confirmSeedPhrase": "Confirm Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
-		"name": "Portfolio Name",
-		"next": "Next",
-		"password": "Password",
-		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
-		"securityTitle": "Important: please back up your seed phrase now!",
-		"seedPhrase": "Seed Phrase for Your Portfolio",
-		"seedPhraseNoMatch": "The seed phrase you entered is not the same as the generated one",
-		"success": "New portfolio added!",
-		"title": "Create New Portfolio"
+		"confirm": "تأكيد",
+		"confirmPassword": "تأكيد كلمة المرور",
+		"confirmPasswordNoMatch": "كلمة المرور المؤكدة غير متطابقة",
+		"confirmSeedPhrase": "تأكيد عبارة Seed",
+		"exampleSeedPhrase": "مثال: {{seedPhrase}} …",
+		"name": "اسم الحافظة",
+		"next": "التالي",
+		"password": "كلمة المرور",
+		"securityDescription": "<0>ننصحك بتخزينها بعيدًا عن الجهاز. <1>اعرف المزيد عن أفضل ممارسات الأمان</1></0>",
+		"securityTitle": "هام: يرجى إجراء نسخ احتياطي لعبارة seed الآن!",
+		"seedPhrase": "عبارة Seed لحافظتك",
+		"seedPhraseNoMatch": "عبارة Seed التي أدخلتها لا تطابق مع تلك التي تم استخراجها",
+		"success": "تمت إضافة حافظة جديدة!",
+		"title": "إنشاء حافظة جديدة"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
-		"createPortfolio": "Create New Portfolio",
-		"restorePortfolio": "Restore Portfolio"
+		"createOrRestoreDescription": "قم بإنشاء حافظة جديدة إذا لم يكن لديك عبارة Seed.",
+		"createOrRestoreTitle": "<0>هل تريد إنشاء حافظة جديدة<1></1>أم استعادة الموجودة؟</0>",
+		"createPortfolio": "إنشاء حافظة جديدة",
+		"restorePortfolio": "استعادة الحافظة"
 	},
 	"restore": {
-		"confirm": "Confirm",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"confirm": "تأكيد",
+		"confirmPasswordNoMatch": "كلمة المرور المؤكدة غير متطابقة",
+		"enterSeedPhrase": "أدخل عبارة Seed",
+		"exampleSeedPhrase": "مثال: {{seedPhrase}} …"
 	}
 }

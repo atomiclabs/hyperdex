@@ -1,30 +1,30 @@
 {
 	"create": {
-		"confirm": "Confirm",
-		"confirmPassword": "Confirm Password",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"confirmSeedPhrase": "Confirm Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
-		"name": "Portfolio Name",
-		"next": "Next",
-		"password": "Password",
-		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
-		"securityTitle": "Important: please back up your seed phrase now!",
-		"seedPhrase": "Seed Phrase for Your Portfolio",
-		"seedPhraseNoMatch": "The seed phrase you entered is not the same as the generated one",
-		"success": "New portfolio added!",
-		"title": "Create New Portfolio"
+		"confirm": "Confirmar",
+		"confirmPassword": "Confirmar contraseña",
+		"confirmPasswordNoMatch": "La contraseña confirmada no coincide con la contraseña",
+		"confirmSeedPhrase": "Confirma tu frase secreta",
+		"exampleSeedPhrase": "Ejemplo: {{seedPhrase}}…",
+		"name": "Nombre de la cartera",
+		"next": "Siguiente",
+		"password": "Contraseña",
+		"securityDescription": "<0>Recomendamos almacenarla fuera de línea. <1>Leer más sobre las mejores prácticas de seguridad</1></0>",
+		"securityTitle": "Importante: ¡realiza una copia de seguridad de tu frase ahora!",
+		"seedPhrase": "Frase secreta de tu cartera",
+		"seedPhraseNoMatch": "La frase secreta que has introducido no es la misma que la que se ha generado",
+		"success": "¡Nueva cartera añadida!",
+		"title": "Crear una nueva cartera"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
-		"createPortfolio": "Create New Portfolio",
-		"restorePortfolio": "Restore Portfolio"
+		"createOrRestoreDescription": "Crea una nueva si no tienes una frase secreta todavía.",
+		"createOrRestoreTitle": "<0>¿Te gustaría crear una nueva cartera<1></1>o restablecer una ya existente?</0>",
+		"createPortfolio": "Crear una nueva cartera",
+		"restorePortfolio": "Restablecer cartera"
 	},
 	"restore": {
-		"confirm": "Confirm",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"confirm": "Confirmar",
+		"confirmPasswordNoMatch": "La contraseña confirmada no coincide con la contraseña",
+		"enterSeedPhrase": "Introduce tu frase secreta",
+		"exampleSeedPhrase": "Ejemplo: {{seedPhrase}}…"
 	}
 }

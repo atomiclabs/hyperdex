@@ -1,8 +1,8 @@
 {
 	"settings": {
-		"customUrl": "Custom Marketmaker URL",
-		"exampleUrl": "Example: {{url}}",
-		"invalidUrl": "Invalid URL",
-		"title": "App settings"
+		"customUrl": "URL Maalum ya Muuzaji Hisa",
+		"exampleUrl": "Mfano: {{url}}",
+		"invalidUrl": "URL si sahihi",
+		"title": "Mipangilio ya programu"
 	}
 }

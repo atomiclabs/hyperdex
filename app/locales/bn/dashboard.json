@@ -1,53 +1,53 @@
 {
 	"intro": {
-		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"title": "✨ আমাদেরকে HyperDEX পরীক্ষায় সহায়তা করার জন্য ধন্যবাদ!",
+		"description": "<0>অনুগ্রহপূর্বক মনে রাখবেন <1>এই প্রোজেক্টটি এখনও আলফাতে রয়েছে</1>।</0><1>যদিও মূলধন সরানোর সম্ভাবনা কম তবুও আপনি যদি সেই ঝুঁকিটুকু নিতে পারেন শুধুমাত্র তখনই আসল মুদ্রা দিয়ে ট্রেড করবেন।</1><2>আপনি যদি শুধুমাত্র HyperDEX পরীক্ষা করতে চান তাহলে বিকল্প হিসেবে পরীক্ষামূলক মুদ্রা<1>BEER</1> এবং <3>PIZZA</3> এর মধ্যে যেকোনো একটি দিয়ে ট্রেড করতে পারেন। আপনি <7><0>BEER</0> ফুসেট</7> এ গিয়ে ফ্রি <5>BEER</5> পেতে পারেন।</2><3>HyperDEX হলো ওপেন সোর্স সফটওয়্যার যা কোনো প্রকার নিশ্চয়তা ছাড়াই &qoute;পাওয়া যায়&qoute;। এই সফটওয়্যার ব্যবহারের ফলে সংঘটিত কোনো প্রকার ক্ষতির জন্য প্রস্তুতকারক বা কপিরাইটের স্বত্বাধিকারীগণ দ্বায়বদ্ধ থাকবে না। </3><4>HyperDEX ব্যবহারের মাধ্যমে আপনি <1>MIT লাইসেন্সের</1> শর্তাবলির প্রতি সম্মতিজ্ঞাপন করছেন।</4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"noActivity": "এখনও কোনো কার্যক্রম নেই",
+		"recentActivity": "সাম্প্রতিক কার্যক্রম",
+		"swapFailedTitle": "বিনিময় হয়নি",
+		"swapTitle": "বিনিময় হয়েছে",
+		"swapDescription": "{{baseCurrency}} এর {{quoteCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "কোনো তথ্য পাওয়া যায়নি",
+		"portfolioValue": "পোর্টফোলিও মান",
+		"symbolChart": "{{symbol}} চার্ট"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "কপি",
+		"copied": "কপি করা হয়েছে",
+		"label": "জমা",
+		"title": "আপনার {{name}} ({{symbol}}) ওয়ালেট ঠিকানা",
+		"warning": "আপ্পনার শুধুমাত্র এই ঠিকানায় {{symbol}} পাঠানো নিশ্চিত করুন"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "সম্পত্তি",
+		"assets_plural": "সম্পত্তি",
+		"holdings": "{{symbol}} হোল্ডিংস",
+		"price": "{{symbol}} মূল্য",
+		"value": "{{symbol}} হোল্ডিংসের মান"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "শূণ্য ওয়ালেট",
+		"search": "অনুসন্ধান…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "{{symbol}} ওয়ালেট",
+		"recentActivity": "সাম্প্রতিক কার্যক্রম"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "পরিমাণ",
+		"confirmNetworkFee": "নেটওয়ার্ক ফি নিশ্চিত করুন",
+		"label": "উত্তোলন",
+		"maxAmount": "সর্বোচ্চ",
+		"networkFee": "নেটওয়ার্ক ফি",
+		"recipientLabel": "প্রাপক",
+		"recipientPlaceholder": "{{symbol}} ঠিকানা প্রবেশ করান",
+		"remainingBalance": "অবশিষ্ট ব্যালেন্স",
+		"successDescription": "{{address}} এ {{amount}}{{symbol}} পাঠিয়েছিলো",
+		"successTitle": "সফল উত্তোলন!",
+		"title": "{{name}} {{symbol}} উত্তোলন করুন"
 	}
 }

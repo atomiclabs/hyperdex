@@ -1,6 +1,6 @@
 {
-	"openOrders": "Open Orders",
-	"swapHistory": "Swap History",
-	"stats": "In the last month you did {{count}} successful trade in {{currencyCount}} currencies worth {{totalSwapsWorthInUsd}} in total",
-	"stats_plural": "In the last month you did {{count}} successful trades in {{currencyCount}} currencies worth {{totalSwapsWorthInUsd}} in total"
+	"openOrders": "Açık Siparişler",
+	"swapHistory": "Takas geçmişi",
+	"stats": "Geçen ay içerisinde toplamda {{totalSwapsWorthInUsd}} olmak üzere; {{currencyCount}} değerinde {{count}} kadar başarılı takas yaptınız",
+	"stats_plural": "Geçen ay {{currencyCount}} ile toplamda {{totalSwapsWorthInUsd}} değerinde {{count}} başarılı takas yaptın"
 }

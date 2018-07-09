@@ -1,30 +1,30 @@
 {
 	"create": {
-		"confirm": "Confirm",
-		"confirmPassword": "Confirm Password",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"confirmSeedPhrase": "Confirm Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
-		"name": "Portfolio Name",
-		"next": "Next",
-		"password": "Password",
-		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
-		"securityTitle": "Important: please back up your seed phrase now!",
-		"seedPhrase": "Seed Phrase for Your Portfolio",
-		"seedPhraseNoMatch": "The seed phrase you entered is not the same as the generated one",
-		"success": "New portfolio added!",
-		"title": "Create New Portfolio"
+		"confirm": "確認",
+		"confirmPassword": "パスワードの確認",
+		"confirmPasswordNoMatch": "確認パスワードが一致しません",
+		"confirmSeedPhrase": "シードフレーズを確認",
+		"exampleSeedPhrase": "例: {{seedPhrase}} …",
+		"name": "ポートフォリオ名",
+		"next": "次",
+		"password": "パスワード",
+		"securityDescription": "<0>オフラインで保管することをお勧めします。<1>推奨のセキュリティプラクティスについてもっと学ぶ</1></0>",
+		"securityTitle": "重要: シードフレーズを今すぐバックアップしてください!",
+		"seedPhrase": "あなたのポートフォリオのシードフレーズ",
+		"seedPhraseNoMatch": "入力したシードフレーズと、生成されたシードフレーズが違います",
+		"success": "新しいポートフォリオが追加されました!",
+		"title": "新しいポートフォリオを作成"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
-		"createPortfolio": "Create New Portfolio",
-		"restorePortfolio": "Restore Portfolio"
+		"createOrRestoreDescription": "シードフレーズがまだない場合は、新たに作成してください。",
+		"createOrRestoreTitle": "<0>新しいポートフォリオを作成<1>しますか、それとも</1>既存のポートフォリオを復元</0>しますか?",
+		"createPortfolio": "新しいポートフォリオを作成",
+		"restorePortfolio": "ポートフォリオを復元"
 	},
 	"restore": {
-		"confirm": "Confirm",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"confirm": "確認",
+		"confirmPasswordNoMatch": "確認パスワードが一致しません",
+		"enterSeedPhrase": "シードフレーズを入力",
+		"exampleSeedPhrase": "例: {{seedPhrase}} …"
 	}
 }

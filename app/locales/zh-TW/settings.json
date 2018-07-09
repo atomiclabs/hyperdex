@@ -1,13 +1,13 @@
 {
-	"app": "App",
-	"enabledCurrencies": "Enabled currencies",
-	"logOutAppSettings": "<0><0>Log out</0> to see more app settings.</0>",
-	"portfolio": "Portfolio",
-	"title": "Settings",
+	"app": "程式",
+	"enabledCurrencies": "已啟用的貨幣",
+	"logOutAppSettings": "<0><0>登出</0>以查看更多程式設定。</0>",
+	"portfolio": "投資組合",
+	"title": "設定",
 	"theme": {
-		"theme": "Theme",
-		"dark": "Dark",
-		"light": "Light",
-		"system": "System"
+		"theme": "主題",
+		"dark": "暗色主題",
+		"light": "白色主題",
+		"system": "系統"
 	}
 }

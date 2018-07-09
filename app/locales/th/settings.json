@@ -1,13 +1,13 @@
 {
-	"app": "App",
-	"enabledCurrencies": "Enabled currencies",
-	"logOutAppSettings": "<0><0>Log out</0> to see more app settings.</0>",
-	"portfolio": "Portfolio",
-	"title": "Settings",
+	"app": "แอป",
+	"enabledCurrencies": "สกุลเงินที่เปิดใช้",
+	"logOutAppSettings": "<0><0>ออกจากระบบ</0>เพื่อดูการตั้งค่าแอปเพิ่มเติม</0>",
+	"portfolio": "พอร์ตการลงทุน",
+	"title": "การตั้งค่า",
 	"theme": {
-		"theme": "Theme",
-		"dark": "Dark",
-		"light": "Light",
-		"system": "System"
+		"theme": "ธีม",
+		"dark": "สีเข้ม",
+		"light": "สีอ่อน",
+		"system": "ระบบ"
 	}
 }

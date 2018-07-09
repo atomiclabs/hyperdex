@@ -1,25 +1,25 @@
 {
 	"app": {
-		"preferences": "Preferences…"
+		"preferences": "偏好设置..."
 	},
 	"help": {
-		"about": "About {{appName}}",
-		"reportIssue": "Report an issue…",
-		"sourceCode": "Source code",
-		"website": "Website"
+		"about": "关于 {{appName}}",
+		"reportIssue": "报告问题…",
+		"sourceCode": "源代码",
+		"website": "网站"
 	},
 	"other": {
-		"file": "File"
+		"file": "文件"
 	},
 	"portfolio": {
-		"dashboard": "Dashboard",
-		"exchange": "Exchange",
-		"goToPrevView": "Go to Previous View",
-		"goToNextView": "Go to Next View",
-		"logOut": "Log Out",
-		"settings": "Settings",
-		"swap": "Swap",
-		"title": "Portfolio",
-		"trades": "Trades"
+		"dashboard": "仪表盘",
+		"exchange": "交易",
+		"goToPrevView": "转到上一视图",
+		"goToNextView": "转到下一视图",
+		"logOut": "注销",
+		"settings": "设置",
+		"swap": "交换",
+		"title": "资产组合",
+		"trades": "交易"
 	}
 }

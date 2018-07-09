@@ -1,34 +1,34 @@
 {
-	"cancel": "Cancel",
+	"cancel": "انصراف",
 	"chart": {
-		"depth": "{{baseCurrency}}/{{quoteCurrency}} Depth Chart"
+		"depth": "{{baseCurrency}}/{{quoteCurrency}} نمودار عمق"
 	},
-	"confirmQuitTitle": "Are you sure you want to quit?",
-	"confirmQuitDescription": "You have swaps in-progress. HyperDEX will try to continue the swaps the next time you run the app, but we recommend you leave HyperDEX running until the swaps complete.",
+	"confirmQuitTitle": "آیا مطمئنید که می‌خواهید خارج شوید؟",
+	"confirmQuitDescription": "شما جابجایی در حال انجام دارید. دفعه بعدی که برنامه را اجرا کردید HyperDEX سعی می‌کند جابجایی را ادامه دهد، اما توصیه می‌کنیم تا تکمیل جابجایی، HyperDEX را در حال اجرا رها کنید.",
 	"intro": {
-		"description": " <0>HyperDEX is a decentralized exchange. It has a P2P order book and trades are made via <1>cross-chain atomic swaps</1>. This means it works slightly differently than a centralized exchange.</0><1>Orders can take a while to propagate across the P2P network. You may need to wait a while for the order book to display.</1><2>HyperDEX needs you to have correctly sized <1>UTXOs</1> to make a successful swap. For each UTXO you can make a single swap. The easiest way to ensure you can participate in a swap is to make two or three smaller deposits to your account rather than a single large deposit.</2><3>An atomic swap is comprised of six on-chain transactions. When trading a currency with high transaction fees, it's important to slightly increase your price to account for the total transaction fees. This is especially important when trading small amounts.</3>",
-		"title": "How Trading Works with HyperDEX"
+		"description": " <0>HyperDEX مبادله‌ای غیرمتمرکز است. یک دفترچه ثبت سفارش P2P دارد و معاملات از طریق <1>جابجایی‌های یکپارچه بین زنجیره‌ای</1> انجام می‌شود. معنای آن این است که شیوه کار آن با مبادله متمرکز اندکی متفاوت است.</0><1>سفارش‌ها مدتی طول می‌کشد تا در سراسر شبکه P2P منتشر شوند. ممکن است لازم باشد مدتی صبر کنید تا دفترچه ثبت سفارش نمایش داده شود.</1><2>HyperDEX نیاز دارد تا <1>UTXOها</1> اندازه صحیح داشته باشند تا جابجایی با موفقیت انجام شود. برای هر UTXO می‌توانید یک تک جابجایی انجام دهید. آسان‌ترین راه برای مطمئن شدن از مشارکت در جابجایی این است که در عوض یک سپرده‌گذاری حجیم، کوچک‌تر انجام دهید. دو یا سه سپرده‌گذاری.</2><3>یک جابجایی یکپارچه یا اتمیک از شش تراکنش درون زنجیره‌ای تشکیل شده است. هنگام معامله کردن با ارزشی که نرخ تراکنش بالایی دارد، مهم است که به آرامی قیمت خود را بالا ببرید تا تا با قیمت کل تراکنش برابری کند. این نکته بخصوص هنگام معامله در مقادیر خرد، اهمیت دارد.</3>",
+		"title": "معامه کردن با HyperDEX چگونه است"
 	},
 	"order": {
-		"amount": "Amount {{symbol}}",
-		"averageVolume": "Avg Vol",
-		"buy": "Buy",
-		"buyOrders": "Buy Orders",
-		"failedTrade": "Failed to {{type}} {{baseCurrency}}",
-		"maxOnePendingSwap": "Only one pending swap at a time, try again in {{wait}} seconds.",
-		"maxPrice": "MAX",
-		"maxVolume": "Max Vol",
-		"price": "Price {{symbol}}",
-		"sell": "Sell",
-		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
-		"total": "Total {{symbol}}",
-		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
-		"worth": "This swap is worth {{swapWorthInUsd}}"
+		"amount": "میزان {{symbol}}",
+		"averageVolume": "حجم میانگین",
+		"buy": "خرید",
+		"buyOrders": "سفارش خرید",
+		"failedTrade": "{{type}} {{baseCurrency}} ناموفق بود",
+		"maxOnePendingSwap": "فقط یک جابجایی در حال بررسی در این زمان هست، لطفا {{wait}} ثانیه بعد مجدد سعی کنید.",
+		"maxPrice": "حداکثر",
+		"maxVolume": "حداکثر حجم",
+		"price": "قیمت {{symbol}}",
+		"sell": "فروش",
+		"sellOrders": "دستور فروش",
+		"symbolBalance": "باقی‌مانده: {{balance}} {{symbol}}",
+		"total": "مجموع {{symbol}}",
+		"unexpectedError": "اتفاق غیرمنتظره‌ای رخ داد. آیا مطمئنید UTXO کافی دارید؟",
+		"worth": "ارزش جابجایی {{swapWorthInUsd}} است"
 	},
-	"quit": "Quit",
+	"quit": "خروج",
 	"swaps": {
-		"all": "All",
-		"title": "Swaps"
+		"all": "همه",
+		"title": "جابجایی‌ها"
 	}
 }

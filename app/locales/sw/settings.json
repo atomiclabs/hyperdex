@@ -1,13 +1,13 @@
 {
-	"app": "App",
-	"enabledCurrencies": "Enabled currencies",
-	"logOutAppSettings": "<0><0>Log out</0> to see more app settings.</0>",
-	"portfolio": "Portfolio",
-	"title": "Settings",
+	"app": "Programu",
+	"enabledCurrencies": "Sarafu zilizoruhusiwa",
+	"logOutAppSettings": "<0><0>Ondoka</0> uone mipangilio zaidi ya programu.</0>",
+	"portfolio": "Uwekezaji",
+	"title": "Mipangilio",
 	"theme": {
-		"theme": "Theme",
-		"dark": "Dark",
-		"light": "Light",
-		"system": "System"
+		"theme": "Mandhari",
+		"dark": "Nyeusi",
+		"light": "Nyeupe",
+		"system": "Mfumo"
 	}
 }

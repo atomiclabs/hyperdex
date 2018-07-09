@@ -1,30 +1,30 @@
 {
 	"create": {
-		"confirm": "Confirm",
-		"confirmPassword": "Confirm Password",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"confirmSeedPhrase": "Confirm Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …",
-		"name": "Portfolio Name",
-		"next": "Next",
-		"password": "Password",
-		"securityDescription": "<0>We recommend storing it offline. <1>Learn more security best practices</1></0>",
-		"securityTitle": "Important: please back up your seed phrase now!",
-		"seedPhrase": "Seed Phrase for Your Portfolio",
-		"seedPhraseNoMatch": "The seed phrase you entered is not the same as the generated one",
-		"success": "New portfolio added!",
-		"title": "Create New Portfolio"
+		"confirm": "확인",
+		"confirmPassword": "비밀번호 확인",
+		"confirmPasswordNoMatch": "확인 비밀번호가 비밀번호와 일치하지 않습니다",
+		"confirmSeedPhrase": "씨앗구(시드 프레이즈)를 확인하십시오",
+		"exampleSeedPhrase": "예: {{seedPhrase}} …",
+		"name": "포트폴리오 이름",
+		"next": "다음",
+		"password": "비밀번호",
+		"securityDescription": "<0>오프라인에 보관할 것을 권장합니다. <1>자세한 보안 모범 사례 보기</1></0>",
+		"securityTitle": "중요: 지금 씨앗구를 백업하십시오!",
+		"seedPhrase": "포트폴리오용 씨앗구(시드 프레이즈)",
+		"seedPhraseNoMatch": "입력하신 씨앗구(시드 프레이즈)가 생성된 것과 같지 않습니다",
+		"success": "새 포트폴리오가 추가되었습니다!",
+		"title": "새 포트폴리오 생성"
 	},
 	"new": {
-		"createOrRestoreDescription": "Create a new one if you don't have a seed phrase yet.",
-		"createOrRestoreTitle": "<0>Would you like to create a new portfolio<1></1>or restore an existing one?</0>",
-		"createPortfolio": "Create New Portfolio",
-		"restorePortfolio": "Restore Portfolio"
+		"createOrRestoreDescription": "아직 씨앗구가 없으면 생성하십시오.",
+		"createOrRestoreTitle": "<0>새 포트폴리오를 생성하시거나,<1></1>기존의 것을 복원하시겠습니까?</0>",
+		"createPortfolio": "새 포트폴리오 생성",
+		"restorePortfolio": "포트폴리오 복원"
 	},
 	"restore": {
-		"confirm": "Confirm",
-		"confirmPasswordNoMatch": "Confirmed password doesn't match password",
-		"enterSeedPhrase": "Enter Your Seed Phrase",
-		"exampleSeedPhrase": "Example: {{seedPhrase}} …"
+		"confirm": "확인",
+		"confirmPasswordNoMatch": "확인 비밀번호가 비밀번호와 일치하지 않습니다",
+		"enterSeedPhrase": "씨앗구(시드 프레이즈)를 입력하십시오",
+		"exampleSeedPhrase": "예: {{seedPhrase}} …"
 	}
 }

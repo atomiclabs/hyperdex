@@ -1,8 +1,8 @@
 {
 	"settings": {
-		"customUrl": "Custom Marketmaker URL",
-		"exampleUrl": "Example: {{url}}",
-		"invalidUrl": "Invalid URL",
-		"title": "App settings"
+		"customUrl": "URL Tùy chỉnh cho Nhà đầu tư",
+		"exampleUrl": "Ví dụ: {{url}}",
+		"invalidUrl": "URL không hợp lệ",
+		"title": "Cài đặt ứng dụng"
 	}
 }

@@ -1,25 +1,25 @@
 {
 	"app": {
-		"preferences": "Preferences…"
+		"preferences": "Inställningar…"
 	},
 	"help": {
-		"about": "About {{appName}}",
-		"reportIssue": "Report an issue…",
-		"sourceCode": "Source code",
-		"website": "Website"
+		"about": "Om {{appName}}",
+		"reportIssue": "Rapportera ett problem…",
+		"sourceCode": "Källkod",
+		"website": "Webbplats"
 	},
 	"other": {
-		"file": "File"
+		"file": "Arkiv"
 	},
 	"portfolio": {
-		"dashboard": "Dashboard",
-		"exchange": "Exchange",
-		"goToPrevView": "Go to Previous View",
-		"goToNextView": "Go to Next View",
-		"logOut": "Log Out",
-		"settings": "Settings",
+		"dashboard": "Kontrollpanel",
+		"exchange": "Börs",
+		"goToPrevView": "Gå till föregående vy",
+		"goToNextView": "Gå till nästa vy",
+		"logOut": "Logga ut",
+		"settings": "Inställningar",
 		"swap": "Swap",
-		"title": "Portfolio",
-		"trades": "Trades"
+		"title": "Portfölj",
+		"trades": "Handel"
 	}
 }

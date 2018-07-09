@@ -1,13 +1,13 @@
 {
-	"app": "App",
-	"enabledCurrencies": "Enabled currencies",
-	"logOutAppSettings": "<0><0>Log out</0> to see more app settings.</0>",
-	"portfolio": "Portfolio",
-	"title": "Settings",
+	"app": "앱",
+	"enabledCurrencies": "활성화된 화폐",
+	"logOutAppSettings": "<0>더 많은 앱 설정을 보려면 <0>로그아웃</0>하십시오.</0>",
+	"portfolio": "포트폴리오",
+	"title": "설정",
 	"theme": {
-		"theme": "Theme",
-		"dark": "Dark",
-		"light": "Light",
-		"system": "System"
+		"theme": "테마",
+		"dark": "어두움",
+		"light": "밝음",
+		"system": "시스템"
 	}
 }

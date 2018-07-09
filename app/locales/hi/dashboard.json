@@ -1,53 +1,53 @@
 {
 	"intro": {
-		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Alpha</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>BEER</1> and <3>PIZZA</3> instead. You can get free <5>BEER</5> at the <7><0>BEER</0> faucet</7>.</2><3>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"title": "✨ HyperDEX के परीक्षण में हमारी सहायता करने के लिए धन्यवाद!",
+		"description": "<0>कृपया ध्यान रखें <1>यह प्रोजेक्ट अभी भी अल्फा में है</1>।</0><1>हालाँकि धन की हानि की संभावना नहीं है, लेकिन अगर आप जोखिम ले सकते हैं तो आपको केवल वास्तविक मुद्रा के साथ ट्रेडिंग करनी चाहिए।</1><2>यदि आप HyperDEX का परीक्षण करना चाहते हैं, तो इसके बजाय परीक्षण मुद्राओं <1>BEER</1> और <3>PIZZA</3> के बीच ट्रेडिंग कर सकते हैं। आप <5>BEER</5> को <7><0>BEER</0> फॉसेट</7> पर मुफ्त में प्राप्त कर सकते हैं। </2><3>HyperDEX ओपन सोर्स सॉफ़्टवेयर है जिसे &qoute;यथावत&qoute;, किसी भी तरह की वारंटी के बिना, प्रदान किया जाता है। रचनाकार या कॉपीराइट धारक इस सॉफ़्टवेयर का उपयोग करने के परिणामस्वरूप होने वाली किसी भी क्षति के लिए उत्तरदायी नहीं होंगे।</3><4>HyperDEX का उपयोग करके आप <1>MIT लाइसेंस</1> की शर्तों से सहमत हो रहे हैं।</4>"
 	},
 	"activity": {
-		"noActivity": "No activity yet",
-		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
-		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
+		"noActivity": "अभी तक कोई गतिविधि नहीं",
+		"recentActivity": "हालिया गतिविधि",
+		"swapFailedTitle": "स्वैप नहीं किया",
+		"swapTitle": "स्वैप किया",
+		"swapDescription": "{{baseCurrency}} हेतु {{quoteCurrency}}"
 	},
 	"chart": {
-		"noData": "No data available",
-		"portfolioValue": "Portfolio Value",
-		"symbolChart": "{{symbol}} Chart"
+		"noData": "कोई डेटा उपलब्ध नहीं",
+		"portfolioValue": "पोर्टफोलियो वैल्यू",
+		"symbolChart": "{{symbol}} चार्ट"
 	},
 	"deposit": {
-		"copy": "Copy",
-		"copied": "Copied",
-		"label": "Deposit",
-		"title": "Your {{name}} ({{symbol}}) Wallet Address",
-		"warning": "Make sure you only send {{symbol}} to this address"
+		"copy": "कॉपी करें",
+		"copied": "कॉपी किया गया",
+		"label": "जमा करें",
+		"title": "आपका {{name}} ({{symbol}}) वॉलेट पता",
+		"warning": "सुनिश्चित करें कि आप इस पते पर केवल {{symbol}} भेजें"
 	},
 	"info": {
-		"assets": "asset",
-		"assets_plural": "assets",
-		"holdings": "{{symbol}} Holdings",
-		"price": "{{symbol}} Price",
-		"value": "{{symbol}} Holdings Value"
+		"assets": "एसेट",
+		"assets_plural": "एसेट्स",
+		"holdings": "{{symbol}} होल्डिंग्स",
+		"price": "{{symbol}} कीमत",
+		"value": "{{symbol}} होल्डिंग्स वैल्यू"
 	},
 	"list": {
-		"emptyWallet": "Empty wallet",
-		"search": "Search…"
+		"emptyWallet": "खाली वॉलेट",
+		"search": "खोजें…"
 	},
 	"wallet": {
-		"info": "{{symbol}} Wallet",
-		"recentActivity": "Recent Activity"
+		"info": "{{symbol}} वॉलेट",
+		"recentActivity": "हालिया गतिविधि"
 	},
 	"withdraw": {
-		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
-		"label": "Withdraw",
-		"maxAmount": "Max",
-		"networkFee": "Network Fee",
-		"recipientLabel": "Recipient",
-		"recipientPlaceholder": "Enter {{symbol}} Address",
-		"remainingBalance": "Remaining balance",
-		"successDescription": "{{amount}} {{symbol}} sent to {{address}}",
-		"successTitle": "Successful withdrawal!",
-		"title": "Withdraw {{name}} ({{symbol}})"
+		"amountLabel": "राशि",
+		"confirmNetworkFee": "नेटवर्क शुल्क की पुष्टि करें",
+		"label": "निकालें",
+		"maxAmount": "अधिकतम",
+		"networkFee": "नेटवर्क शुल्क",
+		"recipientLabel": "प्राप्तकर्ता",
+		"recipientPlaceholder": "{{symbol}} पता एंटर करें",
+		"remainingBalance": "शेष बैलेंस",
+		"successDescription": "{{amount}} {{symbol}} को यहाँ भेजा गया: {{address}}",
+		"successTitle": "निकासी सफल!",
+		"title": "{{name}} ({{symbol}}) निकालें"
 	}
 }
