@@ -63,15 +63,15 @@ class WithdrawModal extends React.Component {
 	};
 
 	confirmButtonHandler = async () => {
-    this.setState({isBroadcasting: true});
-		const {txid, amount, currency, address} = await this.state.broadcast();
-    console.log({txid, amount, currency, address});
+		this.setState({isBroadcasting: true});
+		const {txid, amount, symbol, address} = await this.state.broadcast();
+		console.log({txid, amount, symbol, address});
 
 		// TODO: The notification should be clickable and open a block explorer for the currency.
 		// We'll need to have a list of block explorers for each currency.
 		// eslint-disable-next-line no-new
 		new Notification(t('withdraw.successTitle'), {
-			body: t('withdraw.successDescription', {address, amount, symbol: currency}),
+			body: t('withdraw.successDescription', {address, amount, symbol}),
 		});
 
 		this.close();
