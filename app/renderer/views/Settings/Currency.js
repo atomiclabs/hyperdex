@@ -49,6 +49,13 @@ class CurrencySetting extends React.Component {
 					onChange={this.handleSelectChange}
 					valueRenderer={CurrencySelectOption}
 					optionRenderer={CurrencySelectOption}
+					onOpen={() => {
+						// TODO: This is very ugly, but not worth doing better since
+						// React Select v2 will soon be out and will be completely different.
+						// We can perfect it more then.
+						const mainElement = document.body.querySelector('.Settings main');
+						mainElement.scrollTop = mainElement.scrollHeight;
+					}}
 				/>
 			</div>
 		);

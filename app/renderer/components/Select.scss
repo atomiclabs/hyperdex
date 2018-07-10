@@ -1,6 +1,7 @@
 @import '../styles/variables';
 
 .Select {
+	--dropdown-max-height: 200px;
 	position: relative;
 	z-index: 10;
 	text-align: left;
@@ -213,7 +214,7 @@
 .Select--multi .Select-multi-value-wrapper {
 	display: inline-block;
 	padding: 4px 2px 8px;
-	max-height: 300px;
+	max-height: 240px;
 	overflow-y: auto;
 }
 
@@ -243,7 +244,7 @@
 	border: 1px solid var(--input-border-color);
 	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18);
 	margin-top: 4px;
-	max-height: 200px;
+	max-height: var(--dropdown-max-height);
 	position: absolute;
 	top: 100%;
 	width: 100%;
@@ -252,7 +253,7 @@
 }
 
 .Select-menu {
-	max-height: 198px;
+	max-height: calc(var(--dropdown-max-height) - 2px);
 	overflow-y: auto;
 }
 
