@@ -10,6 +10,8 @@ $ yarn start
 
 ### Release
 
+**Only do a new release when you can be available in the next hours to handle any issues. Prefer doing a new release in the morning your time.**
+
 Ensure the app works without any issues on our supported platforms.
 
 ```
