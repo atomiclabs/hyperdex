@@ -83,6 +83,7 @@ class SeedPhraseModal extends React.Component {
 									disabled={this.state.isVerifying}
 									errorMessage={this.state.passwordError}
 									placeholder="Enter password"
+									type="password"
 									value={this.state.passwordInputValue}
 									onChange={this.handlePasswordInputChange}
 								/>
