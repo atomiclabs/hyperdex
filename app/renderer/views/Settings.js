@@ -11,6 +11,7 @@ import CurrencySetting from './Settings/Currency';
 import ThemeSetting from './Settings/Theme';
 import DeleteModal from './Settings/DeleteModal';
 import RenamePortfolio from './Settings/RenamePortfolio';
+import SeedPhraseModal from './Settings/SeedPhraseModal';
 import './Settings.scss';
 
 const config = electron.remote.require('./config');
@@ -46,7 +47,10 @@ class Settings extends React.Component {
 								<h3>{t('portfolio')}</h3>
 								<RenamePortfolio/>
 								<CurrencySetting/>
-								<DeleteModal/>
+								<div className="form-group">
+									<SeedPhraseModal/>
+									<DeleteModal/>
+								</div>
 							</div>
 							<div className="section">
 								<h3>{t('app')}</h3>

@@ -41,6 +41,15 @@
 			color: var(--text-color);
 			line-height: 1.5;
 		}
+
+		.modal-wrapper {
+			display: inline-block;
+			margin-right: 10px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
 	}
 }
 
