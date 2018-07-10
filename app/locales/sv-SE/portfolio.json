@@ -1,0 +1,30 @@
+{
+	"create": {
+		"confirm": "Bekräfta",
+		"confirmPassword": "Bekräfta lösenord",
+		"confirmPasswordNoMatch": "Bekräftat lösenord matchar inte lösenord",
+		"confirmSeedPhrase": "Bekräfta din fröfras",
+		"exampleSeedPhrase": "Exempel: {{seedPhrase}} …",
+		"name": "Portföljnamn",
+		"next": "Nästa",
+		"password": "Lösenord",
+		"securityDescription": "<0>Vi rekommenderar att du lagrar den offline. <1>Läs mer om bästa säkerhetspraxis</1></0>",
+		"securityTitle": "Viktigt: säkerhetskopiera din fröfras nu!",
+		"seedPhrase": "Fröfras för din portfölj",
+		"seedPhraseNoMatch": "Den fröfras du angav är inte samma som den som genererats",
+		"success": "Ny portfölj tillagd!",
+		"title": "Skapa ny portfölj"
+	},
+	"new": {
+		"createOrRestoreDescription": "Skapa en ny om du inte har någon fröfras än.",
+		"createOrRestoreTitle": "<0>Vill du skapa en ny portfölj<1></1>eller återställa en befintlig?</0>",
+		"createPortfolio": "Skapa ny portfölj",
+		"restorePortfolio": "Återställa portfölj"
+	},
+	"restore": {
+		"confirm": "Bekräfta",
+		"confirmPasswordNoMatch": "Bekräftat lösenord matchar inte lösenord",
+		"enterSeedPhrase": "Ange din fröfras",
+		"exampleSeedPhrase": "Exempel: {{seedPhrase}} …"
+	}
+}

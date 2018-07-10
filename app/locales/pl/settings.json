@@ -1,0 +1,13 @@
+{
+	"app": "Aplikacja",
+	"enabledCurrencies": "Aktywne waluty",
+	"logOutAppSettings": "<0><0>Wyloguj się</0>, aby zobaczyć więcej ustawień aplikacji.</0>",
+	"portfolio": "Portfolio",
+	"title": "Ustawienia",
+	"theme": {
+		"theme": "Motyw",
+		"dark": "Ciemny",
+		"light": "Jasny",
+		"system": "System"
+	}
+}

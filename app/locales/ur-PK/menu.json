@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "ترجیحات…"
+	},
+	"help": {
+		"about": "{{appName}} کے بارے میں",
+		"reportIssue": "مسئلے کو رپورٹ کریں…",
+		"sourceCode": "سورس کوڈ",
+		"website": "ویب سائٹ"
+	},
+	"other": {
+		"file": "فائل"
+	},
+	"portfolio": {
+		"dashboard": "ڈیش بورڈ",
+		"exchange": "تبادلہ",
+		"goToPrevView": "پچھلے منظر پر جائیں",
+		"goToNextView": "اگلے منظر پر جائیں",
+		"logOut": "لاگ آؤٹ",
+		"settings": "سیٹنگیز",
+		"swap": "سویپ کریں",
+		"title": "پورٹ فولیو",
+		"trades": "ٹریڈز"
+	}
+}

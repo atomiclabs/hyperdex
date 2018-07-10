@@ -7,6 +7,9 @@ import roundTo from 'round-to';
 import {subDays, isPast, addMinutes} from 'date-fns';
 import appContainer from 'containers/App';
 import swapTransactions from './swap-transactions';
+import {translate} from './translate';
+
+const t = translate('swap');
 
 PouchDB.plugin(pouchDBFind);
 PouchDB.plugin(cryptoPouch);
@@ -108,7 +111,7 @@ class SwapDB {
 			timeStarted,
 			orderType: isBuyOrder ? 'buy' : 'sell',
 			status: 'pending',
-			statusFormatted: 'pending',
+			statusFormatted: t('status.pending').toLowerCase(),
 			error: false,
 			progress: 0,
 			baseCurrency: request.baseCurrency,
@@ -200,11 +203,11 @@ class SwapDB {
 			swap.status = 'failed';
 			swap.error = {
 				code: undefined,
-				message: `Swap timed out`,
+				message: t('timedOut'),
 			};
 		}
 
-		swap.statusFormatted = swap.status;
+		swap.statusFormatted = t(`status.${swap.status}`).toLowerCase();
 		if (swap.status === 'swapping') {
 			const swapProgress = swap.transactions
 				.map(tx => tx.stage)
@@ -216,7 +219,7 @@ class SwapDB {
 			swap.statusFormatted = `swap ${swapProgress}/${swapTransactions.length}`;
 			swap.progress = (swapProgress + MATCHED_STEP) / TOTAL_PROGRESS_STEPS;
 		} else if (swap.status === 'failed' && (swap.error.code === -9999 || timedOut)) {
-			swap.statusFormatted = 'unmatched';
+			swap.statusFormatted = t('status.unmatched').toLowerCase();
 		}
 
 		return swap;

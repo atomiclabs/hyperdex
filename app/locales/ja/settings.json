@@ -1,0 +1,13 @@
+{
+	"app": "アプリ",
+	"enabledCurrencies": "有効になっている通貨",
+	"logOutAppSettings": "さらにアプリ設定を表示するには<0><0>ログアウト</0>してください。</0>",
+	"portfolio": "ポートフォリオ",
+	"title": "設定",
+	"theme": {
+		"theme": "テーマ",
+		"dark": "ダーク",
+		"light": "ライト",
+		"system": "システム"
+	}
+}

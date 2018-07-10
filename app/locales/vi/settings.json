@@ -1,0 +1,13 @@
+{
+	"app": "Ứng dụng",
+	"enabledCurrencies": "Đồng tiền đã kích hoạt",
+	"logOutAppSettings": "<0><0>Đăng xuất</0>để xem thêm cài đặt của ứng dụng.</0>",
+	"portfolio": "Mục đầu tư",
+	"title": "Cài đặt",
+	"theme": {
+		"theme": "Chủ đề",
+		"dark": "Tối",
+		"light": "Sáng",
+		"system": "Hệ thống"
+	}
+}

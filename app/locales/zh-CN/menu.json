@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "偏好设置..."
+	},
+	"help": {
+		"about": "关于 {{appName}}",
+		"reportIssue": "报告问题…",
+		"sourceCode": "源代码",
+		"website": "网站"
+	},
+	"other": {
+		"file": "文件"
+	},
+	"portfolio": {
+		"dashboard": "仪表盘",
+		"exchange": "交易",
+		"goToPrevView": "转到上一视图",
+		"goToNextView": "转到下一视图",
+		"logOut": "注销",
+		"settings": "设置",
+		"swap": "交换",
+		"title": "资产组合",
+		"trades": "交易"
+	}
+}

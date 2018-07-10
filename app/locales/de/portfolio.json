@@ -1,0 +1,30 @@
+{
+	"create": {
+		"confirm": "Bestätigen",
+		"confirmPassword": "Passwort bestätigen",
+		"confirmPasswordNoMatch": "Bestätigungspasswort stimmt nicht überein",
+		"confirmSeedPhrase": "Seed-Schlüssel bestätigen",
+		"exampleSeedPhrase": "Beispiel: {{seedPhrase}} …",
+		"name": "Portfolio-Name",
+		"next": "Weiter",
+		"password": "Passwort",
+		"securityDescription": "<0>Wir empfehlen, ihn offline zu speichern. <1>Erfahre mehr über bewährte Sicherheitsverfahren</1></0>",
+		"securityTitle": "Wichtig: erstelle jetzt eine Sicherung deines Seed-Schlüssels!",
+		"seedPhrase": "Seed-Schlüssel für dein Portfolio",
+		"seedPhraseNoMatch": "Der eingegebene Seed-Schlüssel stimmt nicht mit dem generierten überein",
+		"success": "Neues Portfolio hinzugefügt!",
+		"title": "Neues Portfolio erstellen"
+	},
+	"new": {
+		"createOrRestoreDescription": "Erstelle ein neues, falls du noch keinen Seed-Schlüssel hast.",
+		"createOrRestoreTitle": "<0>Möchtest du ein neues Portfolio erstellen<1></1>oder ein bestehendes wiederherstellen?</0>",
+		"createPortfolio": "Neues Portfolio erstellen",
+		"restorePortfolio": "Portfolio wiederherstellen"
+	},
+	"restore": {
+		"confirm": "Bestätigen",
+		"confirmPasswordNoMatch": "Bestätigungspasswort stimmt nicht überein",
+		"enterSeedPhrase": "Seed-Schlüssel eingeben",
+		"exampleSeedPhrase": "Beispiel: {{seedPhrase}} …"
+	}
+}

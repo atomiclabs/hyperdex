@@ -7,12 +7,12 @@ $icon: '<svg width="8" height="7" xmlns:xlink="http://www.w3.org/1999/xlink"><us
 	@include icon-button;
 
 	&::after {
-		@include colored-icon($icon, #fff);
+		@include colored-icon($icon, var(--text-color2));
 	}
 
 	&[disabled] {
 		&::after {
-			@include colored-icon($icon, #354052);
+			@include colored-icon($icon, var(--button-text-color-disabled));
 		}
 
 		&:hover {

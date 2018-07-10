@@ -8,7 +8,10 @@ import Avatar from 'components/Avatar';
 import Input from 'components/Input';
 import Progress from 'components/Progress';
 import {formatCurrency} from '../../util';
+import {translate} from '../../translate';
 import './List.scss';
+
+const t = translate('dashboard');
 
 const handleCurrencies = currencies => {
 	const {state} = dashboardContainer;
@@ -54,7 +57,7 @@ const List = () => {
 						let balance = `${roundTo(currency.balance, 8)} ≈ ${formatCurrency(currency.cmcBalanceUsd)}`;
 
 						if (currency.balance === 0) {
-							balance = 'Empty wallet';
+							balance = t('list.emptyWallet');
 						}
 
 						let percentageOfTotalBalance = currency.cmcBalanceUsd / dashboardContainer.totalAssetValue;
@@ -84,7 +87,7 @@ const List = () => {
 			{currencies.length > 5 &&
 				<div className="bottom">
 					<Input
-						placeholder="Search…"
+						placeholder={t('list.search')}
 						value={state.listSearchQuery}
 						onChange={dashboardContainer.setListSearchQuery}
 						onBlur={() => {

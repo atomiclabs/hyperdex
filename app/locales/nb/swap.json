@@ -1,0 +1,41 @@
+{
+	"tempMessageDescription": "Enkle atombytter med minimal brukerinteraksjon",
+	"tempMessageTitle": "Kommer snart…",
+	"timedOut": "Byttehandel utløpte",
+	"title": "Bytte",
+	"details": {
+		"alicepayment": "Alice betaling",
+		"alicespend": "Alice brukt",
+		"bobdeposit": "Bob innskudd",
+		"bobpayment": "Bob betaling",
+		"broadcast": "Kringkasting",
+		"buy": "Kjøp",
+		"copyDebugData": "Kopiere bytte feilsøkingsdata",
+		"exchanging": "Utveksler",
+		"executed": "Utført",
+		"for": "For",
+		"myfee": "Min gebyr",
+		"order": "Ordre",
+		"requested": "Forespurt",
+		"pending": "Ventende",
+		"price": "Pris",
+		"sell": "Selg",
+		"stats": "Den utførte prisen var {{percentCheaperThanRequested}}% billigere enn angitt!",
+		"transactions": "Transaksjoner",
+		"youExchanged": "Du byttet",
+		"youReceived": "Du mottok",
+		"yourOffer": "Ditt bud",
+		"view": "Vis"
+	},
+	"list": {
+		"cancel": "Avbryt",
+		"empty": "Ingen byttehandler ennå"
+	},
+	"status": {
+		"completed": "Fullført",
+		"failed": "Mislyktes",
+		"matched": "Matchet",
+		"pending": "Ventende",
+		"unmatched": "Umatchet"
+	}
+}

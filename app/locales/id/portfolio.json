@@ -1,0 +1,30 @@
+{
+	"create": {
+		"confirm": "Konfirmasi",
+		"confirmPassword": "Konfirmasi kata sandi",
+		"confirmPasswordNoMatch": "Kata sandi yang dikonfirmasi tidak sesuai",
+		"confirmSeedPhrase": "Konfirmasi frasa seed Anda",
+		"exampleSeedPhrase": "Contoh: {{seedPhrase}} …",
+		"name": "Name portfolio",
+		"next": "Berikutnya",
+		"password": "Kata sandi",
+		"securityDescription": "<0>Kami sarankan untuk menyimpannya secara offline. <1>Pelajari praktik terbaik keamanan lainnya</1></0>",
+		"securityTitle": "Penting: harap cadangkan frasa seed Anda sekarang!",
+		"seedPhrase": "Frasa seed untuk portfolio Anda",
+		"seedPhraseNoMatch": "Frasa seed yang Anda masukkan tidak sama dengan frasa yang diberikan",
+		"success": "Portfolio bari ditambahkan!",
+		"title": "Buat portfolio baru"
+	},
+	"new": {
+		"createOrRestoreDescription": "Buat frasa seed yang baru jika Anda belum memilikinya.",
+		"createOrRestoreTitle": "<0>Apakah Anda ingin membuat portofolio baru<1></1>atau mengembalikan yang sudah ada?</0>",
+		"createPortfolio": "Buat portfolio baru",
+		"restorePortfolio": "Kembalikan portfolio"
+	},
+	"restore": {
+		"confirm": "Konfirmasi",
+		"confirmPasswordNoMatch": "Kata sandi yang dikonfirmasi tidak sesuai",
+		"enterSeedPhrase": "Masukkan frasa seed Anda",
+		"exampleSeedPhrase": "Contoh: {{seedPhrase}} …"
+	}
+}

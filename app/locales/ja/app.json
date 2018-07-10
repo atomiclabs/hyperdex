@@ -1,0 +1,8 @@
+{
+	"settings": {
+		"customUrl": "カスタム マーケットメーカー URL",
+		"exampleUrl": "例: {{url}}",
+		"invalidUrl": "無効な URL",
+		"title": "アプリの設定"
+	}
+}

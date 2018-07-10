@@ -51,18 +51,6 @@ module.exports = {
 				test: /\.js$/,
 				exclude: /node_modules/,
 				loader: 'babel-loader',
-				options: {
-					presets: [
-						'react',
-						'stage-3',
-					],
-					plugins: [
-						['styled-jsx/babel', {vendorPrefixes: false}],
-						'syntax-dynamic-import',
-						['transform-class-properties', {spec: true}],
-						'react-hot-loader/babel',
-					],
-				},
 			},
 			{
 				test: /\.scss$/,
@@ -95,7 +83,7 @@ module.exports = {
 				ignore: ['*.{js,css,scss}'],
 			},
 			{
-				context: 'node_modules/cryptocurrency-icons/svg/color',
+				context: 'node_modules/cryptocurrency-icons/dist/svg/color',
 				from: '*.svg',
 				to: 'assets/cryptocurrency-icons',
 			},

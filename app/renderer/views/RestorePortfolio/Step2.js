@@ -3,6 +3,9 @@ import Button from 'components/Button';
 import Input from 'components/Input';
 import LoginBackButton from 'components/LoginBackButton';
 import container from 'containers/RestorePortfolio';
+import {translate} from '../../translate';
+
+const t = translate('portfolio');
 
 const RestorePortfolioStep2 = () => {
 	const {state} = container;
@@ -10,12 +13,12 @@ const RestorePortfolioStep2 = () => {
 	return (
 		<div className="RestorePortfolio">
 			<LoginBackButton view="RestorePortfolioStep1" progress={0.33}/>
-			<h1>Create New Portfolio</h1>
+			<h1>{t('create.title')}</h1>
 			<form onSubmit={container.handleStep2Submit} style={{marginTop: '20px'}}>
 				<div className="form-group">
 					<Input
 						onChange={container.handlePortfolioNameInputChange}
-						placeholder="Portfolio Name"
+						placeholder={t('create.name')}
 						value={state.portfolioName}
 						autoFocus
 						required
@@ -27,7 +30,7 @@ const RestorePortfolioStep2 = () => {
 					<Input
 						onChange={container.handlePortfolioPasswordInputChange}
 						type="password"
-						placeholder="Password"
+						placeholder={t('create.password')}
 						value={state.portfolioPassword}
 						required
 					/>
@@ -39,7 +42,7 @@ const RestorePortfolioStep2 = () => {
 						}}
 						onChange={container.handleConfirmPasswordInputChange}
 						type="password"
-						placeholder="Confirm Password"
+						placeholder={t('create.confirmPassword')}
 						value={state.confirmedPassword}
 						required
 						errorMessage={state.confirmedPasswordError}
@@ -48,7 +51,7 @@ const RestorePortfolioStep2 = () => {
 				<div className="form-group">
 					<Button
 						type="submit"
-						value="Next"
+						value={t('create.next')}
 						disabled={!(state.portfolioName && state.portfolioPassword && state.confirmedPassword)}
 						style={{width: '170px', marginTop: '15px'}}
 					/>

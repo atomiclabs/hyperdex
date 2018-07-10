@@ -1,0 +1,41 @@
+{
+	"tempMessageDescription": "Simple atomic swaps with minimal user interaction",
+	"tempMessageTitle": "Coming soon…",
+	"timedOut": "Swap timed out",
+	"title": "Swap",
+	"details": {
+		"alicepayment": "Alice Payment",
+		"alicespend": "Alice Spend",
+		"bobdeposit": "Bob Deposit",
+		"bobpayment": "Bob Payment",
+		"broadcast": "Broadcast",
+		"buy": "Buy",
+		"copyDebugData": "Copy Swap Debug Data",
+		"exchanging": "Exchanging",
+		"executed": "Executed",
+		"for": "For",
+		"myfee": "My Fee",
+		"order": "Order",
+		"requested": "Requested",
+		"pending": "Pending",
+		"price": "Price",
+		"sell": "Sell",
+		"stats": "The executed price was {{percentCheaperThanRequested}}% cheaper than requested!",
+		"transactions": "Transactions",
+		"youExchanged": "You exchanged",
+		"youReceived": "You received",
+		"yourOffer": "Your offer",
+		"view": "View"
+	},
+	"list": {
+		"cancel": "Cancel",
+		"empty": "No swaps yet"
+	},
+	"status": {
+		"completed": "Completed",
+		"failed": "Failed",
+		"matched": "Matched",
+		"pending": "Pending",
+		"unmatched": "Unmatched"
+	}
+}

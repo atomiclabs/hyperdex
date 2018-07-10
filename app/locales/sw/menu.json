@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "Mapendeleo…"
+	},
+	"help": {
+		"about": "Kuhusu {{appName}}",
+		"reportIssue": "Tuma ripoti kuhusu hitilafu…",
+		"sourceCode": "Msimbo chanzo",
+		"website": "Tovuti"
+	},
+	"other": {
+		"file": "Faili"
+	},
+	"portfolio": {
+		"dashboard": "Dashibodi",
+		"exchange": "Badilisha",
+		"goToPrevView": "Nenda kwenye Mwonekano Uliopita",
+		"goToNextView": "Nenda kwenye Mwonekano Unaofuata",
+		"logOut": "Ondoka",
+		"settings": "Mipangilio",
+		"swap": "Badilisha",
+		"title": "Uwekezaji",
+		"trades": "Biashara"
+	}
+}

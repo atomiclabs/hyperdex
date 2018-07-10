@@ -1,0 +1,13 @@
+{
+	"app": "App",
+	"enabledCurrencies": "Aktiverte valutaer",
+	"logOutAppSettings": "<0><0>Logg ut</0> for å se flere app innstillinger.</0>",
+	"portfolio": "Portefølje",
+	"title": "Innstillinger",
+	"theme": {
+		"theme": "Utseende",
+		"dark": "Mørk",
+		"light": "Lys",
+		"system": "System"
+	}
+}

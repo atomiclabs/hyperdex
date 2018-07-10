@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "Tùy chọn…"
+	},
+	"help": {
+		"about": "Về {{appName}}",
+		"reportIssue": "Báo cáo một vấn đề…",
+		"sourceCode": "Mã nguồn",
+		"website": "Trang web"
+	},
+	"other": {
+		"file": "File"
+	},
+	"portfolio": {
+		"dashboard": "Bảng điều khiển",
+		"exchange": "Tỉ giá",
+		"goToPrevView": "Đi tới Trang Trước",
+		"goToNextView": "Đi tới Trang Tiếp",
+		"logOut": "Đăng Xuất",
+		"settings": "Cài đặt",
+		"swap": "Hoán đổi",
+		"title": "Mục đầu tư",
+		"trades": "Giao dịch"
+	}
+}

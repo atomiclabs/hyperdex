@@ -1,0 +1,13 @@
+{
+	"app": "Aplikasi",
+	"enabledCurrencies": "Aktifkan mata uang",
+	"logOutAppSettings": "<0><0>Log out</0> untuk melihat pengaturan aplikasi lainnya.</0>",
+	"portfolio": "Portfolio",
+	"title": "Pengaturan",
+	"theme": {
+		"theme": "Tema",
+		"dark": "Gelap",
+		"light": "Terang",
+		"system": "Sistem"
+	}
+}

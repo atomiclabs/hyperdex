@@ -1,0 +1,8 @@
+{
+	"settings": {
+		"customUrl": "URL d'animateur de marché personnalisée",
+		"exampleUrl": "Exemple : {{url}}",
+		"invalidUrl": "URL invalide",
+		"title": "Paramètres de l'application"
+	}
+}

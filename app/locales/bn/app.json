@@ -1,0 +1,8 @@
+{
+	"settings": {
+		"customUrl": "কাস্টম মার্কেটার URL",
+		"exampleUrl": "যেমন: {{url}}",
+		"invalidUrl": "ভুল URL",
+		"title": "অ্যাপ সেটিংস"
+	}
+}

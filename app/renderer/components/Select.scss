@@ -29,7 +29,7 @@
 	background: var(--input-background-color);
 	border-radius: 4px;
 	border: 1px solid var(--input-border-color);
-	color: #fff;
+	color: var(--text-color2);
 	display: table;
 	border-spacing: 0;
 	border-collapse: separate;
@@ -85,7 +85,7 @@
 
 .has-value.Select--single > .Select-control .Select-value .Select-value-label,
 .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label {
-	color: #fff;
+	color: var(--text-color2);
 }
 
 .has-value.Select--single > .Select-control .Select-value a.Select-value-label,
@@ -304,7 +304,7 @@
 
 	input {
 		margin-top: 1px;
-		color: #fff;
+		color: var(--text-color2);
 		font-size: 0.9em;
 		line-height: 1.6;
 	}
@@ -318,7 +318,7 @@
 	background-color: var(--select-selection-box-background-color);
 	border-radius: 3px;
 	border: 1px solid var(--select-selection-box-border-color);
-	color: rgba(255, 255, 255, 0.8);
+	color: var(--text-color-faded);
 	display: inline-block;
 	font-size: 0.9em;
 	line-height: 1.6;

@@ -1,0 +1,8 @@
+{
+	"settings": {
+		"customUrl": "自定义做市商 URL",
+		"exampleUrl": "例如：{{url}}",
+		"invalidUrl": "无效的 URL",
+		"title": "应用设置"
+	}
+}

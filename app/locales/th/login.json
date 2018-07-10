@@ -1,0 +1,8 @@
+{
+	"forgotPassword": "ลืมรหัสผ่าน",
+	"incorrectPassword": "รหัสผ่านไม่ถูกต้อง",
+	"login": "เข้าสู่ระบบ",
+	"loggingIn": "กำลังเข้าสู่ระบบ...",
+	"password": "รหัสผ่าน",
+	"selectPortfolio": "เลือกพอร์ต..."
+}

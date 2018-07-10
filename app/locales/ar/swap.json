@@ -1,0 +1,41 @@
+{
+	"tempMessageDescription": "مبادلات بسيطة بتدخلات محدودة من المستخدمين",
+	"tempMessageTitle": "قريباً…",
+	"timedOut": "انتهت مهلة المبادلة",
+	"title": "مبادلة",
+	"details": {
+		"alicepayment": "عملية دفع Alice",
+		"alicespend": "Alice المنفقة",
+		"bobdeposit": "وديعة Bob",
+		"bobpayment": "مدفوعات Bob",
+		"broadcast": "بث",
+		"buy": "شراء",
+		"copyDebugData": "نسخ بيانات اكتشاف مشاكل المبادلة",
+		"exchanging": "تبادل",
+		"executed": "تم التنفيذ",
+		"for": "مقابل",
+		"myfee": "الرسوم",
+		"order": "الأمر",
+		"requested": "المطلوب",
+		"pending": "في الانتظار",
+		"price": "السعر",
+		"sell": "بيع",
+		"stats": "السعر الذي تم تنفيذه كان أرخص بنسبة {{percentCheaperThanRequested}}% عن المطلوب!",
+		"transactions": "المعاملات",
+		"youExchanged": "تم تبادل",
+		"youReceived": "استلمت",
+		"yourOffer": "عرضك",
+		"view": "عرض"
+	},
+	"list": {
+		"cancel": "إلغاء",
+		"empty": "لا توجد مبادلات"
+	},
+	"status": {
+		"completed": "مكتمل",
+		"failed": "فشل",
+		"matched": "مطابق",
+		"pending": "في الانتظار",
+		"unmatched": "غير مطابق"
+	}
+}

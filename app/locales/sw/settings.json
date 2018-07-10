@@ -1,0 +1,13 @@
+{
+	"app": "Programu",
+	"enabledCurrencies": "Sarafu zilizoruhusiwa",
+	"logOutAppSettings": "<0><0>Ondoka</0> uone mipangilio zaidi ya programu.</0>",
+	"portfolio": "Uwekezaji",
+	"title": "Mipangilio",
+	"theme": {
+		"theme": "Mandhari",
+		"dark": "Nyeusi",
+		"light": "Nyeupe",
+		"system": "Mfumo"
+	}
+}

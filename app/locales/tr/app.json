@@ -1,0 +1,8 @@
+{
+	"settings": {
+		"customUrl": "Özel Piyasa Yapıcı URL",
+		"exampleUrl": "Örnek: {{url}}",
+		"invalidUrl": "Geçersiz URL",
+		"title": "Uygulama ayarları"
+	}
+}

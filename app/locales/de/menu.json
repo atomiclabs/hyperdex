@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "Einstellungen…"
+	},
+	"help": {
+		"about": "Über {{appName}}",
+		"reportIssue": "Problem melden…",
+		"sourceCode": "Quellcode",
+		"website": "Website"
+	},
+	"other": {
+		"file": "Datei"
+	},
+	"portfolio": {
+		"dashboard": "Dashboard",
+		"exchange": "Tauschmarkt",
+		"goToPrevView": "Zur vorherigen Ansicht",
+		"goToNextView": "Zur nächsten Ansicht",
+		"logOut": "Ausloggen",
+		"settings": "Einstellungen",
+		"swap": "Tausch",
+		"title": "Portfolio",
+		"trades": "Geschäfte"
+	}
+}

@@ -1,0 +1,8 @@
+{
+	"settings": {
+		"customUrl": "Personalizar enlace del creador del mercado",
+		"exampleUrl": "Ejemplo: {{url}}",
+		"invalidUrl": "Enlace no válido",
+		"title": "Ajustes de la aplicación"
+	}
+}

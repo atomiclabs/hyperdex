@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "অগ্রাধিকারসমূহ…"
+	},
+	"help": {
+		"about": "{{appName}} সম্পর্কে",
+		"reportIssue": "সমস্যা রিপোর্ট করুন…",
+		"sourceCode": "সোর্স কোড",
+		"website": "ওয়েবসাইট"
+	},
+	"other": {
+		"file": "ফাইল"
+	},
+	"portfolio": {
+		"dashboard": "ড্যাশবোর্ড",
+		"exchange": "লেনদেন",
+		"goToPrevView": "পূর্ববর্তী দৃশ্যে যান",
+		"goToNextView": "পরবর্তী দৃশ্যে যান",
+		"logOut": "লগ আউট",
+		"settings": "সেটিংস",
+		"swap": "বিনিময়",
+		"title": "পোর্টফোলিও",
+		"trades": "ট্রেডসমূহ"
+	}
+}

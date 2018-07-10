@@ -1,0 +1,30 @@
+{
+	"create": {
+		"confirm": "Doğrula",
+		"confirmPassword": "Şifreyi Tekrarla",
+		"confirmPasswordNoMatch": "Şifre ile tekrarlanan şifre eşleşmiyor",
+		"confirmSeedPhrase": "Seed Metnini Gir",
+		"exampleSeedPhrase": "Örnek: {{seedPhrase}} …",
+		"name": "Portföy Adı",
+		"next": "Sonraki",
+		"password": "Şifre",
+		"securityDescription": "<0>Çevrimdışı saklamanı öneririz. <1>Daha fazla iyi güvenlik önlemi öğren</1></0>",
+		"securityTitle": "Önemli: lütfen seed metnini şimdi yedekle!",
+		"seedPhrase": "Portföyün için Seed Metnin",
+		"seedPhraseNoMatch": "Seed metnin ilk oluşturulan ile aynı değil",
+		"success": "Yeni portföy eklendi!",
+		"title": "Yeni Portföy Oluştur"
+	},
+	"new": {
+		"createOrRestoreDescription": "Seed metnin yoksa yeni bir tane oluştur.",
+		"createOrRestoreTitle": "<0>Yeni bir portföy oluşturmak<1></1>ya da mevcut olanlardan birini geri yüklemek ister misin?</0>",
+		"createPortfolio": "Yeni Portföy Oluştur",
+		"restorePortfolio": "Portföyü Geri Yükle"
+	},
+	"restore": {
+		"confirm": "Doğrula",
+		"confirmPasswordNoMatch": "Şifre ile tekrarlanan şifre eşleşmiyor",
+		"enterSeedPhrase": "Seed Metnini Gir",
+		"exampleSeedPhrase": "Örnek: {{seedPhrase}} …"
+	}
+}

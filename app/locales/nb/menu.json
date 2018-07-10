@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "Innstillinger…"
+	},
+	"help": {
+		"about": "Om {{appName}}",
+		"reportIssue": "Rapporter et problem…",
+		"sourceCode": "Kildekode",
+		"website": "Nettsted"
+	},
+	"other": {
+		"file": "Fil"
+	},
+	"portfolio": {
+		"dashboard": "Start",
+		"exchange": "Børs",
+		"goToPrevView": "Gå til forrige visning",
+		"goToNextView": "Gå til neste visning",
+		"logOut": "Logg ut",
+		"settings": "Innstillinger",
+		"swap": "Bytte",
+		"title": "Portefølje",
+		"trades": "Handler"
+	}
+}

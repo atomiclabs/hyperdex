@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "Inställningar…"
+	},
+	"help": {
+		"about": "Om {{appName}}",
+		"reportIssue": "Rapportera ett problem…",
+		"sourceCode": "Källkod",
+		"website": "Webbplats"
+	},
+	"other": {
+		"file": "Arkiv"
+	},
+	"portfolio": {
+		"dashboard": "Kontrollpanel",
+		"exchange": "Börs",
+		"goToPrevView": "Gå till föregående vy",
+		"goToNextView": "Gå till nästa vy",
+		"logOut": "Logga ut",
+		"settings": "Inställningar",
+		"swap": "Swap",
+		"title": "Portfölj",
+		"trades": "Handel"
+	}
+}

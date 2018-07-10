@@ -1,0 +1,13 @@
+{
+	"app": "应用",
+	"enabledCurrencies": "已启用的货币",
+	"logOutAppSettings": "<0><0>注销</0>以查看更多应用设置。</0>",
+	"portfolio": "资产组合",
+	"title": "设置",
+	"theme": {
+		"theme": "主题",
+		"dark": "夜间模式",
+		"light": "白天模式",
+		"system": "系统"
+	}
+}

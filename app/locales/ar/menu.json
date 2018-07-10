@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "التفضيلات…"
+	},
+	"help": {
+		"about": "حول {{appName}}",
+		"reportIssue": "الإبلاغ عن مشكلة…",
+		"sourceCode": "الكود المصدر",
+		"website": "الويب"
+	},
+	"other": {
+		"file": "الملف"
+	},
+	"portfolio": {
+		"dashboard": "لوحة المعلومات",
+		"exchange": "تبادل",
+		"goToPrevView": "انتقل إلى العرض السابق",
+		"goToNextView": "انتقل إلى العرض التالي",
+		"logOut": "تسجيل الخروج",
+		"settings": "الإعدادات",
+		"swap": "مبادلة",
+		"title": "الحافظة",
+		"trades": "التداولات"
+	}
+}

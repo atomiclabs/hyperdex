@@ -1,0 +1,30 @@
+{
+	"create": {
+		"confirm": "Xác nhận",
+		"confirmPassword": "Xác nhận Mật khẩu",
+		"confirmPasswordNoMatch": "Mật khẩu được xác nhận không khớp",
+		"confirmSeedPhrase": "Nhập Seed Phrase của bạn",
+		"exampleSeedPhrase": "Ví dụ: {{seedPhrase}} …",
+		"name": "Tên mục Đầu tư",
+		"next": "Tiếp theo",
+		"password": "Mật khẩu",
+		"securityDescription": "<0>Chúng tôi khuyên bạn nên lưu trữ ngoại tuyến. <1>Tìm hiểu thêm các biện pháp bảo mật tốt nhất</1></0>",
+		"securityTitle": "Quan trọng: hãy sao lưu seed phrase của bạn ngay!",
+		"seedPhrase": "Seed Phrase cho mục Đầu tư của Bạn",
+		"seedPhraseNoMatch": "Seed phrase mà bạn nhập không giống một cái đã được tạo",
+		"success": "Mục Đầu tư mới đã được thêm!",
+		"title": "Tạo mục Đầu tư Mới"
+	},
+	"new": {
+		"createOrRestoreDescription": "Tạo một seed phrase mới nếu bạn chưa có.",
+		"createOrRestoreTitle": "<0>Bạn có muốn tạo một mục đầu tư mới<1></1>hoặc khôi phục cái đã có sẵn?</0>",
+		"createPortfolio": "Tạo mục Đầu tư Mới",
+		"restorePortfolio": "Khôi phục mục Đầu tư"
+	},
+	"restore": {
+		"confirm": "Xác nhận",
+		"confirmPasswordNoMatch": "Mật khẩu được xác nhận không khớp",
+		"enterSeedPhrase": "Nhập Seed Phrase của bạn",
+		"exampleSeedPhrase": "Ví dụ: {{seedPhrase}} …"
+	}
+}

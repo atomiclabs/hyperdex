@@ -59,6 +59,10 @@ h6 {
 				min-width: unset;
 				opacity: 0.9;
 
+				[data-theme='light'] & {
+					filter: invert(1) saturate(0);
+				}
+
 				.Button__value {
 					padding: 4px 8px;
 					font-size: 12px;
@@ -79,8 +83,13 @@ h6 {
 					width: 30px;
 					height: 30px;
 					padding: 8px;
-					background-color: #1b2430;
+					background-color: var(--background-color);
 					border-radius: 100%;
+
+					[data-theme='light'] & {
+						background-color: #fff;
+						border: 1px solid rgba(0, 0, 0, 0.1);
+					}
 
 					img {
 						display: block;
@@ -112,13 +121,13 @@ h6 {
 			height: 80px;
 			font-size: 12.5px;
 			font-weight: 500;
-			color: #808fa3;
+			color: var(--text-color);
 
 			.icon {
 				width: 24px;
 				height: 24px;
 				margin-bottom: 8px;
-				background: #8492b4;
+				background: var(--text-color);
 
 				&--dashboard {
 					@include colored-icon-no-size($dashboard-icon);
@@ -141,11 +150,19 @@ h6 {
 				}
 			}
 
+			[data-theme='light'] & {
+				opacity: 0.8;
+			}
+
 			&.active {
-				color: hsla(0, 0, 90%, 1);
+				color: var(--active-text-color);
+
+				[data-theme='light'] & {
+					filter: drop-shadow(0 0 8px var(--primary-color-opacity-0-7));
+				}
 
 				.icon {
-					background: var(--primary-gradient);
+					background: var(--primary-color);
 				}
 			}
 		}

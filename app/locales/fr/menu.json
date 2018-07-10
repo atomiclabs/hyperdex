@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "Préférences…"
+	},
+	"help": {
+		"about": "À propos de {{appName}}",
+		"reportIssue": "Signaler un problème…",
+		"sourceCode": "Code source",
+		"website": "Site internet"
+	},
+	"other": {
+		"file": "Fichier"
+	},
+	"portfolio": {
+		"dashboard": "Tableau de bord",
+		"exchange": "Bourse",
+		"goToPrevView": "Aller à la page précédente",
+		"goToNextView": "Aller à la page suivante",
+		"logOut": "Déconnexion",
+		"settings": "Réglages",
+		"swap": "Échanger",
+		"title": "Portefeuille",
+		"trades": "Transactions"
+	}
+}

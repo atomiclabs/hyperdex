@@ -1,0 +1,30 @@
+{
+	"create": {
+		"confirm": "确认",
+		"confirmPassword": "确认密码",
+		"confirmPasswordNoMatch": "确认的密码与原密码不匹配。",
+		"confirmSeedPhrase": "确认您的助记词",
+		"exampleSeedPhrase": "例如：{{seedPhrase}} …",
+		"name": "资产组合名称",
+		"next": "下一步",
+		"password": "密码",
+		"securityDescription": "<0>我们建议离线保存。<1>了解更多安全保障方法</1></0>",
+		"securityTitle": "重要：请立即备份您的助记词！",
+		"seedPhrase": "您的资产组合的助记词",
+		"seedPhraseNoMatch": "您输入的助记词与生成的不匹配",
+		"success": "新资产组合已添加！",
+		"title": "新建资产组合"
+	},
+	"new": {
+		"createOrRestoreDescription": "如果您还没有助记词，请新建资产组合",
+		"createOrRestoreTitle": "<0>您想要新建资产组合<1></1>还是恢复已有的数据？</0>",
+		"createPortfolio": "新建资产组合",
+		"restorePortfolio": "恢复资产组合"
+	},
+	"restore": {
+		"confirm": "确认",
+		"confirmPasswordNoMatch": "确认的密码与原密码不匹配。",
+		"enterSeedPhrase": "输入您的助记词",
+		"exampleSeedPhrase": "例如：{{seedPhrase}} …"
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"create": {
+		"confirm": "تصدیق کریں",
+		"confirmPassword": "پاس ورڈ کی تصدیق کریں",
+		"confirmPasswordNoMatch": "تصدیق شدہ پاس ورڈ مشابہ نہیں ہے پاس ورڈ سے",
+		"confirmSeedPhrase": "اپنا تفصیلی فقرہ درج کریں",
+		"exampleSeedPhrase": "مثال: {{seedPhrase}}…",
+		"name": "پورٹ فولیو کا نام",
+		"next": "اگلا",
+		"password": "پاس ورڈ",
+		"securityDescription": "<0>ہم تجویز کرتے ہیں اسے آف لائن محفوظ کریں ۔ <1> سیکورٹی کی مزید بہترین پریکٹسز سیکھیں</1></0>",
+		"securityTitle": "اہم: براہ مہربانی اپنا تفصیلی فقرہ اب واپس لائیں!",
+		"seedPhrase": "اپنے پورٹ فولیو کے لئے تفصیلی فقرہ",
+		"seedPhraseNoMatch": "داخل کردہ تفصیلی فقرہ پیدا ہونے والے فقرے جیسا نہیں ہے",
+		"success": "نیا پورٹ فولیو شامل ہو گیا ہے!",
+		"title": "نیا پورٹ فولیو بنائیں"
+	},
+	"new": {
+		"createOrRestoreDescription": "اگر آپ کے پاس ابھی تک تفصیلی فقرہ نہیں ہے تو نیا بنائیں.",
+		"createOrRestoreTitle": "<0>کیا آپ ایک نیا پورٹ فولیو بنانا چاہتے ہیں <1></1> یا موجودہ پورٹ فولیو کو بحال کرنا چاہتے ہیں ؟</0>",
+		"createPortfolio": "نیا پورٹ فولیو بنائیں",
+		"restorePortfolio": "پورٹ فولیو بحال کریں"
+	},
+	"restore": {
+		"confirm": "تصدیق کریں",
+		"confirmPasswordNoMatch": "تصدیق شدہ پاس ورڈ مشابہ نہیں ہے پاس ورڈ سے",
+		"enterSeedPhrase": "اپنا تفصیلی فقرہ درج کریں",
+		"exampleSeedPhrase": "مثال: {{seedPhrase}}…"
+	}
+}

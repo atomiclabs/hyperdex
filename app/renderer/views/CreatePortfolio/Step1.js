@@ -3,7 +3,10 @@ import Button from 'components/Button';
 import Input from 'components/Input';
 import LoginBackButton from 'components/LoginBackButton';
 import container from 'containers/CreatePortfolio';
+import {translate} from '../../translate';
 import './CreatePortfolio.scss';
+
+const t = translate('portfolio');
 
 const CreatePortfolioStep1 = () => {
 	const {state} = container;
@@ -11,12 +14,12 @@ const CreatePortfolioStep1 = () => {
 	return (
 		<div className="CreatePortfolio">
 			<LoginBackButton view="NewPortfolio" progress={0}/>
-			<h1>Create New Portfolio</h1>
+			<h1>{t('create.title')}</h1>
 			<form onSubmit={container.handleStep1Submit} style={{marginTop: '20px'}}>
 				<div className="form-group">
 					<Input
 						onChange={container.handlePortfolioNameInputChange}
-						placeholder="Portfolio Name"
+						placeholder={t('create.name')}
 						value={state.portfolioName}
 						autoFocus
 						required
@@ -28,7 +31,7 @@ const CreatePortfolioStep1 = () => {
 					<Input
 						onChange={container.handlePortfolioPasswordInputChange}
 						type="password"
-						placeholder="Password"
+						placeholder={t('create.password')}
 						value={state.portfolioPassword}
 						required
 					/>
@@ -40,7 +43,7 @@ const CreatePortfolioStep1 = () => {
 						}}
 						onChange={container.handleConfirmPasswordInputChange}
 						type="password"
-						placeholder="Confirm Password"
+						placeholder={t('create.confirmPassword')}
 						value={state.confirmedPassword}
 						required
 						errorMessage={state.confirmedPasswordError}
@@ -49,7 +52,7 @@ const CreatePortfolioStep1 = () => {
 				<div className="form-group">
 					<Button
 						type="submit"
-						value="Next"
+						value={t('create.next')}
 						disabled={!(state.portfolioName && state.portfolioPassword && state.confirmedPassword)}
 						style={{width: '170px', marginTop: '15px'}}
 					/>

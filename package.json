@@ -11,6 +11,7 @@
 		"release": "cd app && np --no-publish"
 	},
 	"dependencies": {
+		"@sindresorhus/to-milliseconds": "^1.0.0",
 		"bip39": "^2.5.0",
 		"coinlist": "^2.0.0",
 		"crypto-hash": "^0.1.0",
@@ -19,22 +20,27 @@
 		"date-fns": "^1.29.0",
 		"delay": "^3.0.0",
 		"emittery": "^0.3.0",
-		"hoist-non-react-statics": "^2.5.0",
+		"hoist-non-react-statics": "^2.5.5",
 		"lodash": "^4.17.10",
+		"mem": "^3.0.1",
 		"modern-normalize": "^0.4.0",
-		"ow": "^0.5.0",
+		"ow": "^0.6.0",
 		"p-any": "^1.1.0",
 		"p-event": "^2.0.0",
 		"p-map": "^1.2.0",
 		"p-queue": "^2.4.2",
-		"pouchdb-browser": "^6.4.3",
-		"pouchdb-find": "^6.4.3",
+		"pouchdb-browser": "^7.0.0",
+		"pouchdb-find": "^7.0.0",
+		"prop-types": "^15.6.2",
 		"qrcode.react": "^0.8.0",
 		"randoma": "^1.2.0",
-		"react": "^16.3.2",
-		"react-dom": "^16.3.2",
+		"react": "^16.4.1",
+		"react-dom": "^16.4.1",
 		"react-extras": "^0.6.0",
+		"react-i18next": "^7.7.0",
+		"react-popper": "^1.0.0",
 		"react-select": "^1.2.1",
+		"react-transition-group": "^2.3.1",
 		"read-blob": "^1.1.0",
 		"recharts": "^1.0.0-beta.10",
 		"round-to": "^3.0.0",
@@ -45,39 +51,111 @@
 		"unstated-debug": "^0.2.0"
 	},
 	"devDependencies": {
+		"ava": "^0.25.0",
 		"babel-core": "^6.26.3",
 		"babel-eslint": "^8.2.3",
 		"babel-loader": "^7.1.4",
 		"babel-plugin-syntax-dynamic-import": "^6.18.0",
 		"babel-plugin-transform-class-properties": "^6.24.1",
+		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+		"babel-plugin-transform-require-ignore": "^0.1.1",
+		"babel-plugin-webpack-alias": "^2.1.2",
 		"babel-preset-react": "^6.24.1",
 		"babel-preset-stage-3": "^6.24.1",
+		"browser-env": "^3.2.5",
 		"clean-webpack-plugin": "^0.1.19",
 		"copy-webpack-plugin": "^4.5.1",
-		"cryptocurrency-icons": "cjdowner/cryptocurrency-icons#64760295b657a6576e1e6a974de501324e62ce1b",
+		"cryptocurrency-icons": "^0.2.0",
 		"css-loader": "^0.28.11",
 		"delay-cli": "^1.0.0",
 		"devtron": "^1.4.0",
-		"electron": "^2.0.0",
+		"electron": "^2.0.3",
 		"electron-builder": "20.13.3",
 		"electron-react-devtools": "^0.5.3",
 		"electron-reloader": "^0.2.0",
+		"enzyme": "^3.3.0",
+		"enzyme-adapter-react-16": "^1.1.1",
 		"eslint-config-xo-react": "^0.16.0",
 		"eslint-plugin-react": "^7.9.1",
 		"file-loader": "^1.1.11",
 		"node-sass": "^4.9.0",
 		"np": "^3.0.4",
 		"npm-run-all": "^4.1.3",
-		"react-hot-loader": "^4.3.0",
+		"proxyquire": "^2.0.1",
+		"react-hot-loader": "^4.3.3",
 		"sass-loader": "^7.0.3",
+		"sinon": "^6.0.1",
 		"style-loader": "^0.21.0",
-		"stylelint": "^9.2.1",
+		"stylelint": "^9.3.0",
 		"stylelint-config-xo-scss": "^0.5.0",
-		"wait-for-localhost": "^1.0.0",
-		"webpack": "^4.12.0",
-		"webpack-cli": "^3.0.3",
+		"wait-for-localhost-cli": "^1.0.0",
+		"webpack": "^4.12.1",
+		"webpack-cli": "^3.0.8",
 		"webpack-dev-server": "^3.1.4",
 		"xo": "^0.21.1"
+	},
+	"ava": {
+		"babel": "inherit",
+		"require": [
+			"babel-register",
+			"./test/_index"
+		]
+	},
+	"babel": {
+		"presets": [
+			"react",
+			"stage-3"
+		],
+		"plugins": [
+			[
+				"styled-jsx/babel",
+				{
+					"vendorPrefixes": false
+				}
+			],
+			"syntax-dynamic-import",
+			[
+				"transform-class-properties",
+				{
+					"spec": true
+				}
+			],
+			"react-hot-loader/babel"
+		],
+		"env": {
+			"test": {
+				"plugins": [
+					[
+						"webpack-alias",
+						{
+							"config": "./webpack.config.js"
+						}
+					],
+					"transform-es2015-modules-commonjs",
+					[
+						"transform-require-ignore",
+						{
+							"extensions": [
+								".scss"
+							]
+						}
+					],
+					[
+						"styled-jsx/babel",
+						{
+							"vendorPrefixes": false
+						}
+					],
+					"syntax-dynamic-import",
+					[
+						"transform-class-properties",
+						{
+							"spec": true
+						}
+					]
+				]
+			}
+		}
 	},
 	"xo": {
 		"nodeVersion": ">=8",

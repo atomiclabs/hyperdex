@@ -1,0 +1,8 @@
+{
+	"settings": {
+		"customUrl": "URL Maalum ya Muuzaji Hisa",
+		"exampleUrl": "Mfano: {{url}}",
+		"invalidUrl": "URL si sahihi",
+		"title": "Mipangilio ya programu"
+	}
+}

@@ -1,0 +1,41 @@
+{
+	"tempMessageDescription": "جابجایی یکپارچه ساده با حداقل تعامل کاربر",
+	"tempMessageTitle": "به زودی…",
+	"timedOut": "مهلت جابجایی تمام شد",
+	"title": "جابجایی",
+	"details": {
+		"alicepayment": "پرداخت آلیس",
+		"alicespend": "مخارج آلیس",
+		"bobdeposit": "سپرده باب",
+		"bobpayment": "پرداخت باب",
+		"broadcast": "ارسال همگانی",
+		"buy": "خرید",
+		"copyDebugData": "کپی اطلاعات دیباگ جابجایی",
+		"exchanging": "تبادل",
+		"executed": "اجرا شده",
+		"for": "برای",
+		"myfee": "هزینه من",
+		"order": "سفارش",
+		"requested": "درخواست شده",
+		"pending": "در حال بررسی",
+		"price": "قیمت",
+		"sell": "فروش",
+		"stats": "قیمت معامله شده {{percentCheaperThanRequested}}% ارزان‌تر از قیمت درخواستی است!",
+		"transactions": "تراکنش‌ها",
+		"youExchanged": "مبادله کردید",
+		"youReceived": "دریافت کردید",
+		"yourOffer": "پیشنهاد شما",
+		"view": "نما"
+	},
+	"list": {
+		"cancel": "لغو",
+		"empty": "بدون معاوضه تا بحال"
+	},
+	"status": {
+		"completed": "کامل شد",
+		"failed": "ناموفق بود",
+		"matched": "مطابق کرد",
+		"pending": "در حال بررسی",
+		"unmatched": "بدون تطابق"
+	}
+}

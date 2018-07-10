@@ -1,0 +1,30 @@
+{
+	"create": {
+		"confirm": "تأكيد",
+		"confirmPassword": "تأكيد كلمة المرور",
+		"confirmPasswordNoMatch": "كلمة المرور المؤكدة غير متطابقة",
+		"confirmSeedPhrase": "تأكيد عبارة Seed",
+		"exampleSeedPhrase": "مثال: {{seedPhrase}} …",
+		"name": "اسم الحافظة",
+		"next": "التالي",
+		"password": "كلمة المرور",
+		"securityDescription": "<0>ننصحك بتخزينها بعيدًا عن الجهاز. <1>اعرف المزيد عن أفضل ممارسات الأمان</1></0>",
+		"securityTitle": "هام: يرجى إجراء نسخ احتياطي لعبارة seed الآن!",
+		"seedPhrase": "عبارة Seed لحافظتك",
+		"seedPhraseNoMatch": "عبارة Seed التي أدخلتها لا تطابق مع تلك التي تم استخراجها",
+		"success": "تمت إضافة حافظة جديدة!",
+		"title": "إنشاء حافظة جديدة"
+	},
+	"new": {
+		"createOrRestoreDescription": "قم بإنشاء حافظة جديدة إذا لم يكن لديك عبارة Seed.",
+		"createOrRestoreTitle": "<0>هل تريد إنشاء حافظة جديدة<1></1>أم استعادة الموجودة؟</0>",
+		"createPortfolio": "إنشاء حافظة جديدة",
+		"restorePortfolio": "استعادة الحافظة"
+	},
+	"restore": {
+		"confirm": "تأكيد",
+		"confirmPasswordNoMatch": "كلمة المرور المؤكدة غير متطابقة",
+		"enterSeedPhrase": "أدخل عبارة Seed",
+		"exampleSeedPhrase": "مثال: {{seedPhrase}} …"
+	}
+}

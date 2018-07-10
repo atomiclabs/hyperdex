@@ -1,0 +1,4 @@
+base_path: 'app/locales'
+files:
+  - source: 'en-US/*.json'
+    translation: '%original_file_name%'

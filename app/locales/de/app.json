@@ -1,0 +1,8 @@
+{
+	"settings": {
+		"customUrl": "Eigene Marktmacher-URL",
+		"exampleUrl": "Beispiel: {{url}}",
+		"invalidUrl": "Ungültige URL",
+		"title": "App-Einstellungen"
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"app": "Aplicación",
+	"enabledCurrencies": "Divisas habilitadas",
+	"logOutAppSettings": "<0><0>Cierra sesión</0> para ver más ajustes de la aplicación.</0>",
+	"portfolio": "Cartera",
+	"title": "Ajustes",
+	"theme": {
+		"theme": "Tema",
+		"dark": "Oscuro",
+		"light": "Claro",
+		"system": "Sistema"
+	}
+}

@@ -5,7 +5,10 @@ import LoginBackButton from 'components/LoginBackButton';
 import loginContainer from 'containers/Login';
 import container from 'containers/ForgotPassword';
 import avatar from '../../avatar';
+import {translate} from '../../translate';
 import './ForgotPassword.scss';
+
+const t = translate('forgot-password');
 
 const ForgotPasswordStep2 = () => {
 	const {selectedPortfolio} = loginContainer;
@@ -14,7 +17,7 @@ const ForgotPasswordStep2 = () => {
 	return (
 		<div className="ForgotPassword">
 			<LoginBackButton view="ForgotPasswordStep1" progress={0.33}/>
-			<h1>Set New Password</h1>
+			<h1>{t('setNewPassword')}</h1>
 			<form onSubmit={container.handleSubmit} style={{marginTop: '20px'}}>
 				<div className="form-group">
 					<Input
@@ -29,7 +32,7 @@ const ForgotPasswordStep2 = () => {
 					<Input
 						onChange={container.handlePasswordInputChange}
 						type="password"
-						placeholder="Password"
+						placeholder={t('password')}
 						value={state.password}
 						autoFocus
 						required
@@ -42,7 +45,7 @@ const ForgotPasswordStep2 = () => {
 						}}
 						onChange={container.handleConfirmPasswordInputChange}
 						type="password"
-						placeholder="Confirm Password"
+						placeholder={t('confirmPassword')}
 						value={state.confirmedPassword}
 						required
 						errorMessage={state.confirmedPasswordError}
@@ -52,7 +55,7 @@ const ForgotPasswordStep2 = () => {
 					<Button
 						primary
 						type="submit"
-						value="Confirm"
+						value={t('confirm')}
 						disabled={!(state.password && state.confirmedPassword)}
 						style={{width: '170px', marginTop: '15px'}}
 					/>

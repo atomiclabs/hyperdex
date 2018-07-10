@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "Preferencje…"
+	},
+	"help": {
+		"about": "O {{appName}}",
+		"reportIssue": "Zgłoś problem…",
+		"sourceCode": "Kod źródłowy",
+		"website": "Strona internetowa"
+	},
+	"other": {
+		"file": "Plik"
+	},
+	"portfolio": {
+		"dashboard": "Pulpit",
+		"exchange": "Wymiana",
+		"goToPrevView": "Przejdź do poprzedniego widoku",
+		"goToNextView": "Przejdź do następnego widoku",
+		"logOut": "Wyloguj się",
+		"settings": "Ustawienia",
+		"swap": "Swap",
+		"title": "Portfolio",
+		"trades": "Transakcje"
+	}
+}

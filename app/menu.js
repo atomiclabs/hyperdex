@@ -2,9 +2,10 @@
 const path = require('path');
 const electron = require('electron');
 const {runJS} = require('electron-util');
+const i18next = require('i18next');
 const config = require('./config');
 const {openGitHubIssue} = require('./util');
-const {websiteUrl, repoUrl, appViews} = require('./constants');
+const {websiteUrl, repoUrl, appViews, supportedLanguagesWithNames} = require('./constants');
 const {isDevelopment} = require('./util-common');
 const {translate} = require('./locale');
 
@@ -68,18 +69,44 @@ const createHelpMenu = () => {
 };
 
 const createDebugMenu = () => {
+	const createLanguageMenu = () => {
+		const menu = {
+			label: 'Language',
+			submenu: [],
+		};
+
+		for (const [language, name] of supportedLanguagesWithNames) {
+			menu.submenu.push({
+				label: `${name} (${language})`,
+				type: 'radio',
+				checked: i18next.language === language,
+				async click() {
+					config.set('debug_forcedLanguage', language);
+					app.relaunch();
+					app.quit();
+				},
+			});
+		}
+
+		return menu;
+	};
+
 	const debugMenu = {
 		label: 'Debug',
 		submenu: [
+			createLanguageMenu(),
 			{
-				label: t('debug.logContainerState'),
+				type: 'separator',
+			},
+			{
+				label: 'Log Container State',
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					await runJS('UNSTATED.logState()', win);
 				},
 			},
 			{
-				label: t('debug.logStateChanges'),
+				label: 'Toggle Logging on State Changes',
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					await runJS('UNSTATED.logStateChanges = !UNSTATED.logStateChanges', win);
@@ -89,14 +116,14 @@ const createDebugMenu = () => {
 				type: 'separator',
 			},
 			{
-				label: t('debug.logSwaps'),
+				label: 'Log Swaps',
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					await runJS('_swapDB.getSwaps().then(console.log)', win);
 				},
 			},
 			{
-				label: t('debug.copySwapsClipboard'),
+				label: 'Copy Swaps to Clipboard',
 				async click() {
 					const [win] = BrowserWindow.getAllWindows();
 					const swaps = await runJS('_swapDB.getSwaps()', win);
@@ -107,19 +134,19 @@ const createDebugMenu = () => {
 				type: 'separator',
 			},
 			{
-				label: t('debug.showPortfolios'),
+				label: 'Show Portfolios',
 				click() {
 					shell.openItem(path.join(app.getPath('userData'), 'portfolios'));
 				},
 			},
 			{
-				label: t('debug.showSettings'),
+				label: 'Show Settings',
 				click() {
 					config.openInEditor();
 				},
 			},
 			{
-				label: t('debug.showAppData'),
+				label: 'Show App Data',
 				click() {
 					shell.openItem(app.getPath('userData'));
 				},
@@ -137,7 +164,7 @@ const createDebugMenu = () => {
 				},
 			},
 			{
-				label: t('debug.deletePortfolios'),
+				label: 'Delete Portfolios',
 				click() {
 					const [win] = BrowserWindow.getAllWindows();
 					shell.moveItemToTrash(path.join(app.getPath('userData'), 'portfolios'));
@@ -145,7 +172,7 @@ const createDebugMenu = () => {
 				},
 			},
 			{
-				label: t('debug.deleteSettings'),
+				label: 'Delete Settings',
 				click() {
 					config.clear();
 					app.relaunch();
@@ -153,7 +180,7 @@ const createDebugMenu = () => {
 				},
 			},
 			{
-				label: t('debug.deleteAppData'),
+				label: 'Delete App Data',
 				click() {
 					shell.moveItemToTrash(app.getPath('userData'));
 					app.relaunch();
@@ -175,7 +202,7 @@ const createAppMenu = options => {
 	const portfolioSubmenu = [];
 	for (const [i, view] of appViews.entries()) {
 		portfolioSubmenu.push({
-			label: view,
+			label: t(`portfolio.${view.toLowerCase()}`),
 			type: 'radio',
 			checked: activeView === view,
 			accelerator: `CommandOrControl+${i + 1}`,
@@ -190,14 +217,14 @@ const createAppMenu = options => {
 			type: 'separator',
 		},
 		{
-			label: 'Go to Next View',
+			label: t('portfolio.goToNextView'),
 			accelerator: 'Control+Tab',
 			click() {
 				sendAction('set-next-view');
 			},
 		},
 		{
-			label: 'Go to Previous View',
+			label: t('portfolio.goToPrevView'),
 			accelerator: 'Control+Shift+Tab',
 			click() {
 				sendAction('set-previous-view');
@@ -207,7 +234,7 @@ const createAppMenu = options => {
 			type: 'separator',
 		},
 		{
-			label: 'Log Out',
+			label: t('portfolio.logOut'),
 			click() {
 				sendAction('log-out');
 			},
@@ -225,7 +252,7 @@ const createAppMenu = options => {
 					type: 'separator',
 				},
 				{
-					label: 'Preferences…',
+					label: t('app.preferences'),
 					accelerator: 'Cmd+,',
 					click() {
 						setActiveView('Settings');
@@ -262,7 +289,7 @@ const createAppMenu = options => {
 			role: 'editMenu',
 		},
 		{
-			label: 'Portfolio',
+			label: t('portfolio.title'),
 			visible: isLoggedIn,
 			submenu: portfolioSubmenu,
 		},
@@ -294,7 +321,7 @@ const createAppMenu = options => {
 
 	const otherTpl = [
 		{
-			label: 'File',
+			label: t('other.file'),
 			submenu: [
 				{
 					role: 'quit',
@@ -305,7 +332,7 @@ const createAppMenu = options => {
 			role: 'editMenu',
 		},
 		{
-			label: 'Portfolio',
+			label: t('portfolio.title'),
 			visible: isLoggedIn,
 			submenu: portfolioSubmenu,
 		},

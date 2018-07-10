@@ -1,0 +1,30 @@
+{
+	"create": {
+		"confirm": "確認",
+		"confirmPassword": "パスワードの確認",
+		"confirmPasswordNoMatch": "確認パスワードが一致しません",
+		"confirmSeedPhrase": "シードフレーズを確認",
+		"exampleSeedPhrase": "例: {{seedPhrase}} …",
+		"name": "ポートフォリオ名",
+		"next": "次",
+		"password": "パスワード",
+		"securityDescription": "<0>オフラインで保管することをお勧めします。<1>推奨のセキュリティプラクティスについてもっと学ぶ</1></0>",
+		"securityTitle": "重要: シードフレーズを今すぐバックアップしてください!",
+		"seedPhrase": "あなたのポートフォリオのシードフレーズ",
+		"seedPhraseNoMatch": "入力したシードフレーズと、生成されたシードフレーズが違います",
+		"success": "新しいポートフォリオが追加されました!",
+		"title": "新しいポートフォリオを作成"
+	},
+	"new": {
+		"createOrRestoreDescription": "シードフレーズがまだない場合は、新たに作成してください。",
+		"createOrRestoreTitle": "<0>新しいポートフォリオを作成<1>しますか、それとも</1>既存のポートフォリオを復元</0>しますか?",
+		"createPortfolio": "新しいポートフォリオを作成",
+		"restorePortfolio": "ポートフォリオを復元"
+	},
+	"restore": {
+		"confirm": "確認",
+		"confirmPasswordNoMatch": "確認パスワードが一致しません",
+		"enterSeedPhrase": "シードフレーズを入力",
+		"exampleSeedPhrase": "例: {{seedPhrase}} …"
+	}
+}

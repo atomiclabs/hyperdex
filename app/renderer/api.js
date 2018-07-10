@@ -8,15 +8,15 @@ import MarketmakerSocket from './marketmaker-socket';
 
 const getPort = electron.remote.require('get-port');
 
-const symbolPredicate = ow.string.matches(/^[A-Z\d]+$/);
-const uuidPredicate = ow.string.matches(/^[a-z\d]+$/);
+const symbolPredicate = ow.string.alphanumeric.uppercase;
+const uuidPredicate = ow.string.alphanumeric.lowercase;
 
 const errorWithObject = (message, object) => new Error(`${message}:\n${util.format(object)}`);
 const genericError = object => errorWithObject('Encountered an error', object);
 
 /* eslint-disable camelcase */
 export default class Api {
-	constructor({endpoint, seedPhrase, concurrency = Infinity}) {
+	constructor({endpoint, seedPhrase, concurrency = 1}) {
 		ow(endpoint, ow.string.label('endpoint'));
 		ow(seedPhrase, ow.string.label('seedPhrase'));
 		ow(concurrency, ow.any(ow.number.integer.label('concurrency'), ow.number.infinite.label('concurrency')));

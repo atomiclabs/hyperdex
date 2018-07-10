@@ -1,0 +1,53 @@
+{
+	"intro": {
+		"title": "✨ HyperDEX'i Test Etmemizde Bize Yardım Ettiğin için Teşekkürler!",
+		"description": "<0>Lütfen unutma <1>bu proje hala test aşamasında</1>.</0><1>Para kaybetmek ihtimali olmasa da bu riski almak istiyorsan sadece gerçek para ile işlem yapmalısın.</1><2>HyperDEX'i sadece test etmek istiyorsan, test para birimleri <1>BİRA</1> ve <3>PİZZA</3> ile işlem yapmayı dene. <7><0>BİRA</0>musluğundan bedava <5>BİRA</5>kazanabilirsin</7>.</2><3>HyperDEX herhangi bir garanti olmadan &qoute;sunulan&qoute; Açık Kaynak bir yazılımdır. Geliştiriciler ya da hak sahipleri bu yazılım kullanımından kaynaklanan herhangi bir zarar için sorumlu tutulamaz.</3><4> HyperDEX kullanarak <1>MIT Lisans</1> şartlarını kabul etmiş olursun.</4>"
+	},
+	"activity": {
+		"noActivity": "Henüz işlem yok",
+		"recentActivity": "Son İşlemler",
+		"swapFailedTitle": "Takas Yapılmadı",
+		"swapTitle": "Takas Edildi",
+		"swapDescription": "{{quoteCurrency}} için {{baseCurrency}}"
+	},
+	"chart": {
+		"noData": "Veri yok",
+		"portfolioValue": "Portföy Değeri",
+		"symbolChart": "{{symbol}} Grafiği"
+	},
+	"deposit": {
+		"copy": "Kopyala",
+		"copied": "Kopyalandı",
+		"label": "Yatır",
+		"title": "{{name}} ({{symbol}}) Cüzdan Adresin",
+		"warning": "Bu adrese sadece {{symbol}} gönderdiğinden emin ol"
+	},
+	"info": {
+		"assets": "varlık",
+		"assets_plural": "varlık",
+		"holdings": "{{symbol}} Tahvil",
+		"price": "{{symbol}} Fiyat",
+		"value": "{{symbol}} Tahvil Değeri"
+	},
+	"list": {
+		"emptyWallet": "Cüzdan boş",
+		"search": "Ara…"
+	},
+	"wallet": {
+		"info": "{{symbol}} Cüzdan",
+		"recentActivity": "Son İşlemler"
+	},
+	"withdraw": {
+		"amountLabel": "Miktar",
+		"confirmNetworkFee": "Ağ Ücreti Onayla",
+		"label": "Çek",
+		"maxAmount": "Maks",
+		"networkFee": "Ağ Ücreti",
+		"recipientLabel": "Alıcı",
+		"recipientPlaceholder": "{{symbol}} Adresini Gir",
+		"remainingBalance": "Kalan bakiye",
+		"successDescription": "{{amount}}{{symbol}} bu {{address}} adrese gönderildi",
+		"successTitle": "Çekim başarılı!",
+		"title": "Çek {{name}} ({{symbol}})"
+	}
+}

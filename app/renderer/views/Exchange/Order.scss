@@ -61,10 +61,9 @@
 
 			tbody tr {
 				border: none;
-				transition: background-color 0.4s ease-in;
 
 				&:hover {
-					background-color: #343d4d;
+					background-color: var(--order-list-item-hover);
 				}
 			}
 
@@ -108,6 +107,8 @@
 
 			.target-price-button,
 			.max-price-button {
+				color: var(--text-color2);
+
 				&[disabled] {
 					opacity: 0.2;
 					pointer-events: none;

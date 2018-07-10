@@ -1,0 +1,30 @@
+{
+	"create": {
+		"confirm": "Confirmer",
+		"confirmPassword": "Confirmer le mot de passe",
+		"confirmPasswordNoMatch": "Les mots de passe ne correspondent pas",
+		"confirmSeedPhrase": "Confirmez votre phrase de récupération",
+		"exampleSeedPhrase": "Exemple : {{seedPhrase}}…",
+		"name": "Nom du portefeuille",
+		"next": "Suivant",
+		"password": "Mot de passe",
+		"securityDescription": "<0>Nous conseillons de le stocker hors-ligne. <1>Apprenez-en plus sur les meilleures pratiques en matière de sécurité</1></0>",
+		"securityTitle": "Important : sauvegardez votre phrase de récupération !",
+		"seedPhrase": "Phrase de récupération pour votre portefeuille",
+		"seedPhraseNoMatch": "La phrase de récupération saisie est différente de celle générée",
+		"success": "Nouveau portefeuille ajouté !",
+		"title": "Créer un nouveau portefeuille"
+	},
+	"new": {
+		"createOrRestoreDescription": "Crée-en un nouveau si tu n'as pas encore de phrase de récupération.",
+		"createOrRestoreTitle": "<0>Veux-tu créer un nouveau portefeuille<1></1>ou récupérer un portefeuille existant ?</0>",
+		"createPortfolio": "Créer un nouveau portefeuille",
+		"restorePortfolio": "Récupérer un portefeuille"
+	},
+	"restore": {
+		"confirm": "Confirmer",
+		"confirmPasswordNoMatch": "Les mots de passe ne correspondent pas",
+		"enterSeedPhrase": "Saisissez votre phrase de récupération",
+		"exampleSeedPhrase": "Exemple : {{seedPhrase}}…"
+	}
+}

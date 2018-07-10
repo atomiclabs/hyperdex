@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "設定…"
+	},
+	"help": {
+		"about": "{{appName}} について",
+		"reportIssue": "問題を報告…",
+		"sourceCode": "ソースコード",
+		"website": "ウェブサイト"
+	},
+	"other": {
+		"file": "ファイル"
+	},
+	"portfolio": {
+		"dashboard": "ダッシュボード",
+		"exchange": "取引所",
+		"goToPrevView": "前のビューに移動",
+		"goToNextView": "次のビューに移動",
+		"logOut": "ログアウト",
+		"settings": "設定",
+		"swap": "スワップ",
+		"title": "ポートフォリオ",
+		"trades": "トレード"
+	}
+}

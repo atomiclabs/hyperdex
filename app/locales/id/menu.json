@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "Preferensi…"
+	},
+	"help": {
+		"about": "Tentang {{appName}}",
+		"reportIssue": "Laporkan masalah…",
+		"sourceCode": "Kode sumber",
+		"website": "Situs web"
+	},
+	"other": {
+		"file": "File"
+	},
+	"portfolio": {
+		"dashboard": "Dasbor",
+		"exchange": "Pertukaran",
+		"goToPrevView": "Pergi ke tampilan sebelumnya",
+		"goToNextView": "Pergi ke tampilan berikutnya",
+		"logOut": "Log out",
+		"settings": "Pengaturan",
+		"swap": "Swap",
+		"title": "Portfolio",
+		"trades": "Trade"
+	}
+}

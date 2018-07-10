@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "Tercihler…"
+	},
+	"help": {
+		"about": "Hakkında {{appName}}",
+		"reportIssue": "Sorun bildir…",
+		"sourceCode": "Kaynak kodu",
+		"website": "Web sitesi"
+	},
+	"other": {
+		"file": "Dosya"
+	},
+	"portfolio": {
+		"dashboard": "Kontrol paneli",
+		"exchange": "Borsa",
+		"goToPrevView": "Bir Önceki Ekrana Git",
+		"goToNextView": "Bir Sonraki Ekrana Git",
+		"logOut": "Çıkış Yap",
+		"settings": "Ayarlar",
+		"swap": "Takas Et",
+		"title": "Portföy",
+		"trades": "Alım satım"
+	}
+}

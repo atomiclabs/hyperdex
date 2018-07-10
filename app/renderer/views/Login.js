@@ -2,6 +2,7 @@ import React from 'react';
 import {Subscribe} from 'unstated';
 import Progress from 'components/Progress';
 import LoginView from 'components/LoginView';
+import appContainer from 'containers/App';
 import loginContainer from 'containers/Login';
 import {setLoginWindowBounds} from '../util';
 import NewPortfolio from './NewPortfolio';
@@ -41,7 +42,12 @@ class Login extends React.Component {
 							<div className="window-draggable-area"/>
 							<Progress className="login-progress" value={login.state.progress}/>
 							<div className="is-centered">
-								<img className="hyperdex-icon" src="/assets/hyperdex-logo-text.svg" width="130" height="113"/>
+								<img
+									className="hyperdex-icon"
+									src={`/assets/hyperdex-logo-text-${appContainer.isDarkTheme ? 'white' : 'black'}.svg`}
+									width="130"
+									height="113"
+								/>
 								<LoginViews/>
 							</div>
 						</div>

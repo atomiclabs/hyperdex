@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "Настройки…"
+	},
+	"help": {
+		"about": "О приложении {{appName}}",
+		"reportIssue": "Сообщить о проблеме…",
+		"sourceCode": "Исходный код",
+		"website": "Веб-сайт"
+	},
+	"other": {
+		"file": "Файл"
+	},
+	"portfolio": {
+		"dashboard": "Панель",
+		"exchange": "Обмен",
+		"goToPrevView": "Перейти к предыдущему виду",
+		"goToNextView": "Перейти к следующему виду",
+		"logOut": "Выйти",
+		"settings": "Настройки",
+		"swap": "Своп",
+		"title": "Портфолио",
+		"trades": "Сделки"
+	}
+}

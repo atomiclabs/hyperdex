@@ -1,0 +1,41 @@
+{
+	"tempMessageDescription": "Swap atomik sederhana dengan interaksi pengguna minimal",
+	"tempMessageTitle": "Segera…",
+	"timedOut": "Waktu swap habis",
+	"title": "Swap",
+	"details": {
+		"alicepayment": "Pembayaran Alice",
+		"alicespend": "Pengeluaran Alice",
+		"bobdeposit": "Deposit Bob",
+		"bobpayment": "Pembayaran Bob",
+		"broadcast": "Siarkan",
+		"buy": "Beli",
+		"copyDebugData": "Salin Data Debug Swap",
+		"exchanging": "Pertukaran",
+		"executed": "Eksekusi",
+		"for": "Untuk",
+		"myfee": "Bayaran saya",
+		"order": "Pesanan",
+		"requested": "Diminta",
+		"pending": "Penundaan",
+		"price": "Harga",
+		"sell": "Jual",
+		"stats": "Harga yang dieksekusi {{percentCheaperThanRequested}}% lebih murah daripada yang diminta!",
+		"transactions": "Transaksi",
+		"youExchanged": "Anda menukarkan",
+		"youReceived": "Anda menerima",
+		"yourOffer": "Tawaran Anda",
+		"view": "Tampilkan"
+	},
+	"list": {
+		"cancel": "Batal",
+		"empty": "Belum ada swap"
+	},
+	"status": {
+		"completed": "Selesai",
+		"failed": "Gagal",
+		"matched": "Sesuai",
+		"pending": "Penundaan",
+		"unmatched": "Tidak sesuai"
+	}
+}

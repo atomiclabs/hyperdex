@@ -1,0 +1,8 @@
+{
+	"settings": {
+		"customUrl": "URL سفارشی Marketmaker",
+		"exampleUrl": "مثال: {{url}}",
+		"invalidUrl": "URL اشتباه است",
+		"title": "تنظیمات برنامه"
+	}
+}

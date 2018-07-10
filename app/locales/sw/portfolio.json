@@ -1,0 +1,30 @@
+{
+	"create": {
+		"confirm": "Thibitisha",
+		"confirmPassword": "Thibitisha Nenosiri",
+		"confirmPasswordNoMatch": "Nenosiri ulilothibitisha halilingani na la kwanza",
+		"confirmSeedPhrase": "Thibitisha Maneno Yako ya Kurejesha Sarafu",
+		"exampleSeedPhrase": "Mfano: {{seedPhrase}}…",
+		"name": "Jina la Uwekezaji",
+		"next": "Mbele",
+		"password": "Nenosiri",
+		"securityDescription": "<0>Tunapendekeza uhifadhi nje ya mtandao. <1>Pata maelezo zaidi kuhusu mbinu za kudumisha usalama</1></0>",
+		"securityTitle": "Muhimu: Tafadhali hifadhi nakala ya maneno yako kurejesha sarafu sasa!",
+		"seedPhrase": "Maneno ya Kurejesha Sarafu ya Uwekezaji Wako",
+		"seedPhraseNoMatch": "Maneno ya kurejesha sarafu uliyoweka hayafanani na yaliyozalishwa",
+		"success": "Uwekezaji mpya umeongezwa!",
+		"title": "Unda Uwekezaji Mpya"
+	},
+	"new": {
+		"createOrRestoreDescription": "Unda maneno ya kurejesha sarafu ikiwa huna.",
+		"createOrRestoreTitle": "<0>Ungependa kuunda uwekezaji mpya <1></1> au kurejesha uliopo?</0>",
+		"createPortfolio": "Unda Uwekezaji Mpya",
+		"restorePortfolio": "Rejesha Uwekezaji"
+	},
+	"restore": {
+		"confirm": "Thibitisha",
+		"confirmPasswordNoMatch": "Nenosiri ulilothibitisha halilingani na la kwanza",
+		"enterSeedPhrase": "Weka Maneno Yako ya Kurejesha Sarafu",
+		"exampleSeedPhrase": "Mfano: {{seedPhrase}}…"
+	}
+}

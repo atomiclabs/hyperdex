@@ -1,0 +1,30 @@
+{
+	"create": {
+		"confirm": "Bekreft",
+		"confirmPassword": "Bekreft passord",
+		"confirmPasswordNoMatch": "Det bekreftede passordet stemmer ikke med the valgte passordet",
+		"confirmSeedPhrase": "Bekreft din \"seed phrase\"",
+		"exampleSeedPhrase": "Eksempel: {{seedPhrase}}…",
+		"name": "Portefølje navn",
+		"next": "Neste",
+		"password": "Passord",
+		"securityDescription": "<0>Vi anbefaler å lagre det lokalt. <1>Lær mer om sikkerhet beste praksiser</1></0>",
+		"securityTitle": "Viktig: Vennligst sikkerhetskopier ditt \"seed phrase\"!",
+		"seedPhrase": "\"Seed phrase\" for din portefølje",
+		"seedPhraseNoMatch": "Den angitte \"seed phrase\"en er ikke den samme som den genererte",
+		"success": "Lagt til ny portefølje!",
+		"title": "Opprett ny portefølje"
+	},
+	"new": {
+		"createOrRestoreDescription": "Opprett en ny \"seed phrase\" hvis du ikke har en.",
+		"createOrRestoreTitle": "<0>Du vil opprette en ny portefølje<1></1> eller gjenopprette en eksisterende?</0>",
+		"createPortfolio": "Opprett ny portefølje",
+		"restorePortfolio": "Gjenopprett portefølje"
+	},
+	"restore": {
+		"confirm": "Bekreft",
+		"confirmPasswordNoMatch": "Det bekreftede passordet stemmer ikke med the valgte passordet",
+		"enterSeedPhrase": "Skriv inn din \"seed phrase\"",
+		"exampleSeedPhrase": "Eksempel: {{seedPhrase}}…"
+	}
+}

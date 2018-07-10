@@ -818,26 +818,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'XSG',
-		name: 'SnowGem',
-		rpcport: 16112,
-		taddr: 28,
-		pubtype: 40,
-		p2shtype: 45,
-		wiftype: 128,
-		txfee: 10000,
-		electrumServers: [
-			{
-				host: '45.77.254.232',
-				port: 10001,
-			},
-			{
-				host: '128.199.233.38',
-				port: 10001,
-			},
-		],
-	},
-	{
 		coin: 'SUPERNET',
 		name: 'Supernet',
 		asset: 'SUPERNET',
@@ -906,6 +886,26 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'XSG',
+		name: 'SnowGem',
+		rpcport: 16112,
+		taddr: 28,
+		pubtype: 40,
+		p2shtype: 45,
+		wiftype: 128,
+		txfee: 10000,
+		electrumServers: [
+			{
+				host: '45.77.254.232',
+				port: 10001,
+			},
+			{
+				host: '128.199.233.38',
+				port: 10001,
+			},
+		],
+	},
+	{
 		coin: 'ZCL',
 		rpcport: 8023,
 		taddr: 28,
@@ -941,6 +941,22 @@ const supportedCurrencies = [
 			{
 				host: 'electrum2.cipig.net',
 				port: 10058,
+			},
+		],
+	},
+	{
+		coin: 'ZILLA',
+		name: 'ChainZilla',
+		asset: 'ZILLA',
+		rpcport: 10041,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10028,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10028,
 			},
 		],
 	},

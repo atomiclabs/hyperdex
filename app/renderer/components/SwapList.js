@@ -4,8 +4,12 @@ import {format as formatDate} from 'date-fns';
 import appContainer from 'containers/App';
 import Empty from 'components/Empty';
 import SwapDetails from 'components/SwapDetails';
+import {translate} from '../translate';
 import './SwapList.scss';
 
+const t = translate('swap');
+
+// eslint-disable-next-line no-unused-vars
 class CancelButton extends React.Component {
 	state = {
 		isCancelling: false,
@@ -32,13 +36,13 @@ class CancelButton extends React.Component {
 				disabled={swap.status !== 'pending' || this.state.isCancelling}
 				onClick={() => this.cancelSwap(swap.uuid)}
 			>
-				Cancel
+				{t('list.cancel')}
 			</button>
 		);
 	}
 }
 
-const SwapItem = ({swap, showCancel}) => (
+const SwapItem = ({swap}) => (
 	<div className={`row ${swap.orderType}`}>
 		<div className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}</div>
 		<div className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</div>
@@ -48,11 +52,13 @@ const SwapItem = ({swap, showCancel}) => (
 			<div className="status__icon" data-status={swap.status}>{swap.statusFormatted}</div>
 		</div>
 		<div className="buttons">
-			{showCancel &&
+			{/* Disabled until marketmaker v2
+				See: https://github.com/hyperdexapp/hyperdex/issues/262#issuecomment-396587751showCancel
+				&&
 				<div className="cancel">
 					<CancelButton swap={swap}/>
 				</div>
-			}
+			*/}
 			<div className="view">
 				<SwapDetails swap={swap}/>
 			</div>
@@ -62,14 +68,18 @@ const SwapItem = ({swap, showCancel}) => (
 
 const SwapList = ({swaps, showCancel}) => {
 	if (swaps.length === 0) {
-		return <Empty show text="No swaps yet"/>;
+		return <Empty show text={t('list.empty')}/>;
 	}
 
 	return (
 		<div className="SwapList">
 			{
 				swaps.map(swap => (
-					<SwapItem key={swap.uuid} swap={swap} showCancel={showCancel}/>
+					<SwapItem
+						key={swap.uuid}
+						swap={swap}
+						showCancel={showCancel}
+					/>
 				))
 			}
 		</div>

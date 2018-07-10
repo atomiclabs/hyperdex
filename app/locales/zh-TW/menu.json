@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "偏好設定..."
+	},
+	"help": {
+		"about": "關於 {{appName}}",
+		"reportIssue": "回報問題…",
+		"sourceCode": "原始碼",
+		"website": "網站"
+	},
+	"other": {
+		"file": "檔案"
+	},
+	"portfolio": {
+		"dashboard": "監控面板",
+		"exchange": "交易",
+		"goToPrevView": "轉到上一視圖",
+		"goToNextView": "轉到下一視圖",
+		"logOut": "登出",
+		"settings": "設定",
+		"swap": "交換",
+		"title": "投資組合",
+		"trades": "交易"
+	}
+}

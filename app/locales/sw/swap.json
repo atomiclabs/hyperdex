@@ -1,0 +1,41 @@
+{
+	"tempMessageDescription": "Mabadilisho atomiki yanayoshughulikiwa kwa urahisi bila shughuli nyingi za mtumiaji",
+	"tempMessageTitle": "Inakuja hivi punde…",
+	"timedOut": "Muda wa badilisho umekwisha",
+	"title": "Badilisho",
+	"details": {
+		"alicepayment": "Malipo ya Alice",
+		"alicespend": "Matumizi ya Alice",
+		"bobdeposit": "Amana ya Bob",
+		"bobpayment": "Malipo ya Bob",
+		"broadcast": "Tangaza",
+		"buy": "Nunua",
+		"copyDebugData": "Nakili Data ya Utatuzi wa Mabadilisho",
+		"exchanging": "Unabadilisha",
+		"executed": "Umetekeleza",
+		"for": "Kwa",
+		"myfee": "Ada Yangu",
+		"order": "Agizo",
+		"requested": "Umeomba",
+		"pending": "Inaendelea",
+		"price": "Bei",
+		"sell": "Uza",
+		"stats": "Bei iliyotekelezwa ilikuwa ya chini kuliko iliyoombwa kwa {{percentCheaperThanRequested}}%!",
+		"transactions": "Miamala",
+		"youExchanged": "Umebadilisha",
+		"youReceived": "Umepokea",
+		"yourOffer": "Bei yako",
+		"view": "Angalia"
+	},
+	"list": {
+		"cancel": "Ghairi",
+		"empty": "Bado hakuna mabadilisho"
+	},
+	"status": {
+		"completed": "Umekamilisha",
+		"failed": "Imeshindwa",
+		"matched": "Zimelingana",
+		"pending": "Inaendelea",
+		"unmatched": "Hazijalingana"
+	}
+}

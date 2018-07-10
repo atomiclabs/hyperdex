@@ -1,13 +1,13 @@
 import _ from 'lodash';
-import plur from 'plur';
 import pMap from 'p-map';
-import delay from 'delay';
 import {Container} from 'unstated';
 import appContainer from 'containers/App';
 import {formatCurrency} from '../util';
 import {ignoreExternalPrice} from '../../constants';
+import {translate} from '../translate';
 import fireEvery from '../fire-every';
 
+const t = translate('dashboard');
 const noPriceHistory = new Set();
 
 class DashboardContainer extends Container {
@@ -66,7 +66,7 @@ class DashboardContainer extends Container {
 
 	get assetCount() {
 		const {length} = appContainer.state.currencies;
-		return `${length} ${plur('asset', length)}`;
+		return `${length} ${t('info.assets', {count: length})}`;
 	}
 
 	get totalAssetValue() {
@@ -211,25 +211,18 @@ class DashboardContainer extends Container {
 	}
 
 	async watchCurrencyHistory() {
-		const THREE_MINUTES = 1000 * 60 * 3;
-
-		// TODO: Add an option to `fireEvery` to only start after the delay
-		await delay(THREE_MINUTES);
-
-		await fireEvery(async () => {
+		await fireEvery({minutes: 3}, async () => {
 			await this.updateCurrencyHistory();
-		}, THREE_MINUTES);
+		}, {fireInstantly: false});
 	}
 
 	async watchAllCurrencyHistory() {
-		const FIFTEEN_MINUTES = 1000 * 60 * 15;
-
 		// We update the active currency more often
 		this.watchCurrencyHistory();
 
-		await fireEvery(async () => {
+		await fireEvery({minutes: 15}, async () => {
 			await this.updateAllCurrencyHistory();
-		}, FIFTEEN_MINUTES);
+		});
 	}
 }
 

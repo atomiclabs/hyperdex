@@ -1,0 +1,13 @@
+{
+	"app": "App",
+	"enabledCurrencies": "Valute abilitate",
+	"logOutAppSettings": "<0><0>Esci</0> per visualizzare ulteriori impostazioni dell'app.</0>",
+	"portfolio": "Portafoglio",
+	"title": "Impostazioni",
+	"theme": {
+		"theme": "Tema",
+		"dark": "Scuro",
+		"light": "Chiaro",
+		"system": "Sistema"
+	}
+}

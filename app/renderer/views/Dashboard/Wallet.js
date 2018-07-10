@@ -2,9 +2,12 @@ import React from 'react';
 import {classNames} from 'react-extras';
 import dashboardContainer from 'containers/Dashboard';
 import View from 'components/View';
+import {translate} from '../../translate';
 import WalletInfo from './WalletInfo';
 import WalletActivity from './WalletActivity';
 import './Wallet.scss';
+
+const t = translate('dashboard');
 
 // TODO(sindresorhus): Refactor all the custom tab components into a shared reusable one
 const TabButton = props => (
@@ -46,13 +49,13 @@ class Wallet extends React.Component {
 				<header>
 					<nav>
 						<TabButton
-							title={`${activeCurrency.symbol} Wallet`}
+							title={t('wallet.info', {symbol: activeCurrency.symbol})}
 							component={WalletInfo}
 							activeView={this.state.activeView}
 							setActiveView={this.setActiveView}
 						/>
 						<TabButton
-							title="Recent Activity"
+							title={t('wallet.recentActivity')}
 							component={WalletActivity}
 							activeView={this.state.activeView}
 							setActiveView={this.setActiveView}

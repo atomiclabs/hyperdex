@@ -1,0 +1,25 @@
+{
+	"app": {
+		"preferences": "ترجیحات…"
+	},
+	"help": {
+		"about": "درباره {{appName}}",
+		"reportIssue": "گزارش دادن مشکل…",
+		"sourceCode": "متن برنامه",
+		"website": "وب‌سایت"
+	},
+	"other": {
+		"file": "فایل"
+	},
+	"portfolio": {
+		"dashboard": "داشبورد",
+		"exchange": "تبادل",
+		"goToPrevView": "رفتن به نمای قبلی",
+		"goToNextView": "رفتن به نمای بعدی",
+		"logOut": "خروج",
+		"settings": "تنظیمات",
+		"swap": "جابجایی",
+		"title": "سبد سهام",
+		"trades": "معاملات"
+	}
+}

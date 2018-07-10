@@ -1,0 +1,8 @@
+{
+	"settings": {
+		"customUrl": "URL เฉพาะของผู้กำหนดตลาด (Marketmaker)",
+		"exampleUrl": "ตัวอย่าง: {{url}}",
+		"invalidUrl": "URL ไม่ถูกต้อง",
+		"title": "การตั้งค่าแอปพลิเคชัน"
+	}
+}

@@ -1,6 +1,9 @@
 import React from 'react';
+import {translate} from '../translate';
 import TabView from './TabView';
 import './Swap.scss';
+
+const t = translate('swap');
 
 class Swap extends React.Component {
 	render() {
@@ -8,8 +11,8 @@ class Swap extends React.Component {
 			<TabView title="Swap" className="Swap--wrapper">
 				<div className="Swap">
 					<div className="temp-message">
-						<h1>Coming soon…</h1>
-						<p>Simple atomic swaps with minimal user interaction</p>
+						<h1>{t('tempMessageTitle')}</h1>
+						<p>{t('tempMessageDescription')}</p>
 					</div>
 				</div>
 			</TabView>

@@ -1,0 +1,41 @@
+{
+	"tempMessageDescription": "Proste atomic swapy z minimalną interakcją użytkowników",
+	"tempMessageTitle": "Już wkrótce…",
+	"timedOut": "Czas swapu wygasł",
+	"title": "Swap",
+	"details": {
+		"alicepayment": "Płatność Alice",
+		"alicespend": "Wydatek Alice",
+		"bobdeposit": "Wpłata Boba",
+		"bobpayment": "Płatność Boba",
+		"broadcast": "Nadane",
+		"buy": "Kup",
+		"copyDebugData": "Kopiuj dane debugowania swapu",
+		"exchanging": "Wymiana",
+		"executed": "Wykonano",
+		"for": "Na",
+		"myfee": "Moja opłata",
+		"order": "Zamówienie",
+		"requested": "Żądane",
+		"pending": "Oczekuje",
+		"price": "Cena",
+		"sell": "Sprzedaj",
+		"stats": "Cena realizacji była o {{percentCheaperThanRequested}}% niższa niż żądana cena!",
+		"transactions": "Transakcje",
+		"youExchanged": "Zamieniono",
+		"youReceived": "Otrzymano",
+		"yourOffer": "Twoja oferta",
+		"view": "Pokaż"
+	},
+	"list": {
+		"cancel": "Anuluj",
+		"empty": "Nie ma jeszcze wymian"
+	},
+	"status": {
+		"completed": "Ukończono",
+		"failed": "Nieudane",
+		"matched": "Dopasowane",
+		"pending": "Oczekujące",
+		"unmatched": "Niedopasowane"
+	}
+}
