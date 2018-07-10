@@ -10,6 +10,16 @@ $ yarn start
 
 ### Release
 
+Ensure the app works without any issues on our supported platforms.
+
+```
+$ yarn dist
+```
+
+And then test the binaries on macOS, Linux, and Windows.
+
+If everything works fine, release it:
+
 ```
 $ yarn release
 ```
