@@ -267,9 +267,11 @@ ipc.on('set-previous-view', () => {
 	appContainer.setPreviousView();
 });
 
-api.systemPreferences.subscribeNotification('AppleInterfaceThemeChangedNotification', () => {
-	appContainer.setTheme(appContainer.state.theme);
-});
+if (is.macos) {
+	api.systemPreferences.subscribeNotification('AppleInterfaceThemeChangedNotification', () => {
+		appContainer.setTheme(appContainer.state.theme);
+	});
+}
 
 if (isDevelopment) {
 	window._config = electron.remote.require('./config');
