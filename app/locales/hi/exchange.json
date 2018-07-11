@@ -21,7 +21,7 @@
 		"price": "कीमत {{symbol}}",
 		"sell": "बेचें",
 		"sellOrders": "ऑर्डर बेचें",
-		"symbolBalance": "बैलेंस: {{balance}} {{symbol}}",
+		"symbolBalance": "बैलेंस",
 		"total": "कुल {{symbol}}",
 		"unexpectedError": "कुछ अप्रत्याशित हुआ। क्या वाकई आपके पास पर्याप्त UTXO हैं?",
 		"worth": "यह स्वैप {{swapWorthInUsd}} मूल्य का है"

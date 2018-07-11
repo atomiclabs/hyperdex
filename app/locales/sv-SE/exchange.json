@@ -21,7 +21,7 @@
 		"price": "Pris {{symbol}}",
 		"sell": "Sälj",
 		"sellOrders": "Säljordrar",
-		"symbolBalance": "Balans: {{balance}} {{symbol}}",
+		"symbolBalance": "Balans",
 		"total": "Totalt {{symbol}}",
 		"unexpectedError": "Något oväntat hände. Är du säker på att du har tillräckligt UTXO?",
 		"worth": "Denna swap är värd {{swapWorthInUsd}}"

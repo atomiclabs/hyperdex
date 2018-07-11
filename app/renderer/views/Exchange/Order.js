@@ -43,10 +43,7 @@ class Top extends React.Component {
 					optionRenderer={CurrencySelectOption}
 				/>
 				<h3 className="balance">
-					{t('order.symbolBalance', {
-						balance: roundTo(selectedCurrency.balance, 8),
-						symbol: selectedCurrency.symbol,
-					})}
+					{t('order.symbolBalance')}: <span>{roundTo(selectedCurrency.balance, 8)} {selectedCurrency.symbol}</span>
 				</h3>
 				<p className="address">{selectedCurrency.address}</p>
 			</div>

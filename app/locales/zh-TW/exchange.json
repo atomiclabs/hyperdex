@@ -21,7 +21,7 @@
 		"price": "{{symbol}} 價格",
 		"sell": "賣出",
 		"sellOrders": "賣單",
-		"symbolBalance": "餘額：{{balance}} {{symbol}}",
+		"symbolBalance": "餘額",
 		"total": "{{symbol}} 總價",
 		"unexpectedError": "有意外事件發生。您確定擁有足夠的 UTXO 嗎？",
 		"worth": "此交換價值為 {{swapWorthInUsd}}"

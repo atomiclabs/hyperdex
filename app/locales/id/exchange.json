@@ -21,7 +21,7 @@
 		"price": "Harga {{symbol}}",
 		"sell": "Jual",
 		"sellOrders": "Jual pesanan",
-		"symbolBalance": "Saldo: {{balance}} {{symbol}}",
+		"symbolBalance": "Saldo",
 		"total": "Total {{symbol}}",
 		"unexpectedError": "Sesuatu yang tidak terduga terjadi. Apakah Anda yakin Anda memiliki UTXO yang cukup?",
 		"worth": "Swap ini sangat berharga {{swapWorthInUsd}}"

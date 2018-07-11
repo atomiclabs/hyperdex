@@ -21,7 +21,7 @@
 		"price": "Giá {{symbol}}",
 		"sell": "Bán",
 		"sellOrders": "Lệnh Bán",
-		"symbolBalance": "Số dư: {{balance}} {{symbol}}",
+		"symbolBalance": "Số dư",
 		"total": "Tổng số {{symbol}}",
 		"unexpectedError": "Có gì đó bất ngờ đã xảy ra. Bạn có chắc có đủ UTXO?",
 		"worth": "Hoán đổi này có giá trị {{swapWorthInUsd}}"

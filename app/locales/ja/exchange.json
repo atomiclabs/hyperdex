@@ -21,7 +21,7 @@
 		"price": "価格 {{symbol}}",
 		"sell": "売り",
 		"sellOrders": "売り注文",
-		"symbolBalance": "残高: {{balance}} {{symbol}}",
+		"symbolBalance": "残高",
 		"total": "合計 {{symbol}}",
 		"unexpectedError": "予期しない問題が発生しました。十分な UTXO があることを確認してください。",
 		"worth": "このスワップの価値は {{swapWorthInUsd}} です"

@@ -21,7 +21,7 @@
 		"price": "ราคา {{symbol}}",
 		"sell": "ขาย",
 		"sellOrders": "คำสั่งขาย",
-		"symbolBalance": "ยอดคงเหลือ: {{balance}} {{symbol}}",
+		"symbolBalance": "ยอดคงเหลือ",
 		"total": "{{symbol}} รวม",
 		"unexpectedError": "เกิดข้อผิดพลาด โปรดตรวจสอบว่าคุณมี UTXO เพียงพอหรือไม่",
 		"worth": "การสวอปนี้มีมูลค่า {{swapWorthInUsd}}"

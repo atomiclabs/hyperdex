@@ -21,7 +21,7 @@
 		"price": "السعر {{symbol}}",
 		"sell": "بيع",
 		"sellOrders": "أوامر البيع",
-		"symbolBalance": "الرصيد: {{balance}} {{symbol}}",
+		"symbolBalance": "الرصيد",
 		"total": "الإجمالي {{symbol}}",
 		"unexpectedError": "حدث شيء غير متوقع. هل أنت متأكد من أن لديك مخرجات تداول غير منفقة؟",
 		"worth": "عملية المبادلة تستحق {{swapWorthInUsd}}"

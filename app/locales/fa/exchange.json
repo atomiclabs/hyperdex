@@ -21,7 +21,7 @@
 		"price": "قیمت {{symbol}}",
 		"sell": "فروش",
 		"sellOrders": "دستور فروش",
-		"symbolBalance": "باقی‌مانده: {{balance}} {{symbol}}",
+		"symbolBalance": "باقی‌مانده",
 		"total": "مجموع {{symbol}}",
 		"unexpectedError": "اتفاق غیرمنتظره‌ای رخ داد. آیا مطمئنید UTXO کافی دارید؟",
 		"worth": "ارزش جابجایی {{swapWorthInUsd}} است"
