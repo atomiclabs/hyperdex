@@ -51,12 +51,10 @@ class SeedPhraseModal extends React.Component {
 		} catch (err) {
 			console.error(err);
 
-			const passwordError = /Authentication failed/.test(err.message) ? 'Incorrect password' : err.message;
-
 			this.setState({
 				isVerifying: false,
 				passwordInputValue: '',
-				passwordError,
+				passwordError: err.message,
 			});
 
 			this.passwordInputRef.current.focus2();

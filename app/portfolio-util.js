@@ -15,6 +15,13 @@ const idToFileName = id => `hyperdex-portfolio-${id}.json`;
 const fileNameToId = fileName => fileName.replace(/^hyperdex-portfolio-/, '').replace(/\.json$/, '');
 const generateId = name => `${slugify(name).slice(0, 40)}-${randomString(6)}`;
 
+class IncorrectPasswordError extends Error {
+	constructor() {
+		super('Incorrect password');
+		Error.captureStackTrace(this, IncorrectPasswordError);
+	}
+}
+
 const createPortfolio = async ({name, seedPhrase, password}) => {
 	const id = generateId(name);
 	const filePath = path.join(portfolioPath, idToFileName(id));
@@ -81,11 +88,23 @@ const getPortfolios = async () => {
 	return portfolios.sort((a, b) => a.fileName.localeCompare(b.fileName));
 };
 
+const decryptSeedPhrase = async (seedPhrase, password) => {
+	try {
+		return await decrypt(seedPhrase, password);
+	} catch (err) {
+		if (/Authentication failed/.test(err.message)) {
+			throw new IncorrectPasswordError();
+		}
+
+		throw err;
+	}
+};
+
 module.exports = {
 	createPortfolio,
 	deletePortfolio,
 	renamePortfolio,
 	changePortfolioPassword,
 	getPortfolios,
-	decryptSeedPhrase: decrypt,
+	decryptSeedPhrase,
 };
