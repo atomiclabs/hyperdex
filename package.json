@@ -225,6 +225,7 @@
 			"createDesktopShortcut": "always"
 		},
 		"publish": {
+			"provider": "github",
 			"publishAutoUpdate": false
 		}
 	}
