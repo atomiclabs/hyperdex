@@ -7,27 +7,26 @@ import WrapWidth from 'components/WrapWidth';
 import './SeedPhraseModal.scss';
 
 class SeedPhraseModal extends React.Component {
-	state = {
-		isOpen: false,
-		isVerifying: false,
-		passwordError: null,
-		passwordInputValue: '',
-		seedPhrase: '',
-	};
+	state = this.initialState;
 
 	passwordInputRef = React.createRef();
+
+	get initialState() {
+		return {
+			isOpen: false,
+			isVerifying: false,
+			passwordError: null,
+			passwordInputValue: '',
+			seedPhrase: '',
+		};
+	}
 
 	handleOpen = () => {
 		this.setState({isOpen: true});
 	}
 
 	handleClose = () => {
-		this.setState({
-			isOpen: false,
-			passwordError: null,
-			passwordInputValue: '',
-			seedPhrase: '',
-		});
+		this.setState(this.initialState);
 	};
 
 	handlePasswordInputChange = passwordInputValue => {
@@ -47,19 +46,17 @@ class SeedPhraseModal extends React.Component {
 		try {
 			this.setState({
 				isVerifying: false,
-				seedPhrase: await appContainer.verifyPassword(passwordInputValue),
+				seedPhrase: await appContainer.getSeedPhrase(passwordInputValue),
 			});
 		} catch (err) {
 			console.error(err);
 
-			this.setState({passwordInputValue: ''});
-
 			const passwordError = /Authentication failed/.test(err.message) ? 'Incorrect password' : err.message;
 
-			await this.setState({
+			this.setState({
 				isVerifying: false,
+				passwordInputValue: '',
 				passwordError,
-				seedPhrase: '',
 			});
 
 			this.passwordInputRef.current.focus2();
