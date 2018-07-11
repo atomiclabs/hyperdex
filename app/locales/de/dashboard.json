@@ -1,7 +1,7 @@
 {
 	"intro": {
 		"title": "✨Danke für deine Hilfe beim Testen von HyperDEX!",
-		"description": "<0>Bitte bedenke, dass <1>sich dieses Projekt noch in der Alpha-Phase befindet</1>.</0><1>Obwohl der Verlust von Kapital unwahrscheinlich ist solltest du nur mit echten Währungen handeln, wenn du das Risiko auf dich nehmen kannst.</1><2>Wenn du HyperDEX nur testen möchtest, handle stattdessen mit den Testwährungen <1>BIER</1> und <3>PIZZA</3>. Du erhältst kostenloses <5>BIER</5> am <7><0>BIER</0>zapfhahn</7>.</2><3>HyperDEX ist eine Open Source Software, zur Verfügung gestellt &qoute;wie sie ist&qoute;, ohne jegliche Garantie. Die Autoren oder Urheberrechtsinhaber haften nicht für etwaige Schäden, die durch Verwendung dieser Software entstehen.</3><4>Indem du HyperDEX verwendest, erklärst du dich mit den Bedingungen der <1>MIT-Lizenz</1> einverstanden.</4>"
+		"description": "<0>Bitte bedenke, dass <1>sich dieses Projekt noch in der Alpha-Phase befindet</1>.</0><1>Obwohl der Verlust von Kapital unwahrscheinlich ist solltest du nur mit echten Währungen handeln, wenn du das Risiko auf dich nehmen kannst.</1><2>Wenn du HyperDEX nur testen möchtest, handle stattdessen mit den Testwährungen <1>BIER</1> und <3>PIZZA</3>. Du erhältst kostenloses <5>BIER</5> am <7><0>BIER</0>zapfhahn</7>.</2><3>HyperDEX ist eine Open Source Software, zur Verfügung gestellt \"wie sie ist\", ohne jegliche Garantie. Die Autoren oder Urheberrechtsinhaber haften nicht für etwaige Schäden, die durch Verwendung dieser Software entstehen.</3><4>Indem du HyperDEX verwendest, erklärst du dich mit den Bedingungen der <1>MIT-Lizenz</1> einverstanden.</4>"
 	},
 	"activity": {
 		"noActivity": "Noch keine Aktivitäten",
