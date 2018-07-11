@@ -8,8 +8,10 @@ const dir = require('node-dir');
 const loadJsonFile = require('load-json-file');
 const del = require('del');
 const {encrypt, decrypt} = require('./encryption');
+const {translate} = require('./locale');
 
 const portfolioPath = path.join(app.getPath('userData'), 'portfolios');
+const t = translate('login');
 
 const idToFileName = id => `hyperdex-portfolio-${id}.json`;
 const fileNameToId = fileName => fileName.replace(/^hyperdex-portfolio-/, '').replace(/\.json$/, '');
@@ -17,7 +19,7 @@ const generateId = name => `${slugify(name).slice(0, 40)}-${randomString(6)}`;
 
 class IncorrectPasswordError extends Error {
 	constructor() {
-		super('Incorrect password');
+		super(t('incorrectPassword'));
 		Error.captureStackTrace(this, IncorrectPasswordError);
 	}
 }

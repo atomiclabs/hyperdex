@@ -4,7 +4,10 @@ import Button from 'components/Button';
 import Input from 'components/Input';
 import Modal from 'components/Modal';
 import WrapWidth from 'components/WrapWidth';
+import {translate} from '../../translate';
 import './SeedPhraseModal.scss';
+
+const t = translate('settings');
 
 class SeedPhraseModal extends React.Component {
 	state = this.initialState;
@@ -64,7 +67,7 @@ class SeedPhraseModal extends React.Component {
 	render() {
 		return (
 			<div className="modal-wrapper">
-				<Modal className="SeedPhraseModal" title="View Seed Phrase" open={this.state.isOpen} onClose={this.handleClose} width="445px">
+				<Modal className="SeedPhraseModal" title={t('seedPhrase.title')} open={this.state.isOpen} onClose={this.handleClose} width="445px">
 					{this.state.seedPhrase.length > 0 ? (
 						<div className="seed-phrase">
 							<WrapWidth wordsPerLine={6}>
@@ -77,7 +80,7 @@ class SeedPhraseModal extends React.Component {
 								<Input
 									disabled={this.state.isVerifying}
 									errorMessage={this.state.passwordError}
-									placeholder="Enter password"
+									placeholder={t('seedPhrase.enterPassword')}
 									type="password"
 									value={this.state.passwordInputValue}
 									onChange={this.handlePasswordInputChange}
@@ -89,13 +92,13 @@ class SeedPhraseModal extends React.Component {
 									fullwidth
 									primary
 									type="submit"
-									value="Submit"
+									value={t('seedPhrase.submit')}
 								/>
 							</div>
 						</form>
 					)}
 				</Modal>
-				<Button value="View Seed Phrase" onClick={this.handleOpen}/>
+				<Button value={t('seedPhrase.title')} onClick={this.handleOpen}/>
 			</div>
 		);
 	}
