@@ -118,12 +118,12 @@ class AppContainer extends Container {
 		});
 	}
 
-	async verifyPassword(password) {
-		return decryptSeedPhrase(this.state.portfolio.encryptedSeedPhrase, password);
-	}
-
 	get isLoggedIn() {
 		return Boolean(this.state.portfolio);
+	}
+
+	async getSeedPhrase(password) {
+		return decryptSeedPhrase(this.state.portfolio.encryptedSeedPhrase, password);
 	}
 
 	updatePortfolio(portfolio) {
