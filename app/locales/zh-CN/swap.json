@@ -22,9 +22,9 @@
 		"sell": "卖出",
 		"stats": "执行价格比请求价格便宜 {{percentCheaperThanRequested}}%！",
 		"transactions": "交易",
-		"youExchanged": "你付出了",
-		"youReceived": "你得到了",
-		"yourOffer": "你的报价",
+		"youExchanged": "您付出了",
+		"youReceived": "您得到了",
+		"yourOffer": "您的报价",
 		"view": "查看"
 	},
 	"list": {
