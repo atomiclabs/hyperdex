@@ -23,12 +23,12 @@ class DeleteModal extends React.Component {
 		this.setState({isOpen: false});
 	};
 
-	handleDelete = () => {
+	handleDeleteClick = () => {
 		deletePortfolio(appContainer.state.portfolio.id);
 		appContainer.logOut();
 	}
 
-	handleValidate = name => {
+	handleNameInputChange = name => {
 		this.setState({name});
 	}
 
@@ -39,7 +39,7 @@ class DeleteModal extends React.Component {
 					<p>Unless you save your seed phrase, this action cannot be undone and will permanently delete the <strong>{appContainer.state.portfolio.name}</strong> portfolio.</p>
 					<p>Please type in the name of the portfolio to confirm.</p>
 					<div className="form-group">
-						<Input value={this.state.name} onChange={this.handleValidate}/>
+						<Input value={this.state.name} onChange={this.handleNameInputChange}/>
 					</div>
 					<div className="form-group">
 						<Button
@@ -47,7 +47,7 @@ class DeleteModal extends React.Component {
 							value="I understand, delete this portfolio"
 							color="red"
 							disabled={this.state.name !== appContainer.state.portfolio.name}
-							onClick={this.handleDelete}
+							onClick={this.handleDeleteClick}
 						/>
 					</div>
 				</Modal>
