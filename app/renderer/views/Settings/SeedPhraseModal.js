@@ -29,8 +29,12 @@ class SeedPhraseModal extends React.Component {
 	};
 
 	handleClose = () => {
-		this.setState(this.initialState);
+		this.setState({isOpen: false});
 	};
+
+	handleDidClose = () => {
+		this.setState(this.initialState);
+	}
 
 	handlePasswordInputChange = passwordInputValue => {
 		this.setState({passwordInputValue});
@@ -67,7 +71,14 @@ class SeedPhraseModal extends React.Component {
 	render() {
 		return (
 			<div className="modal-wrapper">
-				<Modal className="SeedPhraseModal" title={t('seedPhrase.title')} open={this.state.isOpen} onClose={this.handleClose} width="445px">
+				<Modal
+					className="SeedPhraseModal"
+					title={t('seedPhrase.title')}
+					open={this.state.isOpen}
+					onClose={this.handleClose}
+					didClose={this.handleDidClose}
+					width="445px"
+				>
 					{this.state.seedPhrase.length > 0 ? (
 						<div className="seed-phrase">
 							<WrapWidth wordsPerLine={6}>
