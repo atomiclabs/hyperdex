@@ -829,6 +829,25 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'RAP',
+		name: 'Rapture',
+		rpcport: 14476,
+		pubtype: 60,
+		p2shtype: 16,
+		wiftype: 204,
+		txfee: 10000,
+		electrumServers: [
+			{
+				host: 'electrum.our-rapture.com',
+				port: 50001,
+			},
+			{
+				host: 'electrum2.our-rapture.com',
+				port: 50001,
+			},
+		],
+	},
+	{
 		coin: 'REVS',
 		name: 'Revs',
 		asset: 'REVS',
