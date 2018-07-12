@@ -60,7 +60,7 @@ class SeedPhraseModal extends React.Component {
 				passwordError: err.message,
 			});
 
-			this.passwordInputRef.current.focus2();
+			this.passwordInputRef.current.focus();
 		}
 	};
 
