@@ -257,6 +257,22 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'CHAIN',
+		name: 'Chainmakers',
+		asset: 'CHAIN',
+		rpcport: 15587,
+		electrumServers: [
+			{
+				host: 'electrum1.chainmakers.co',
+				port: 55417,
+			},
+			{
+				host: 'electrum2.chainmakers.co',
+				port: 55417,
+			},
+		],
+	},
+	{
 		coin: 'CHIPS',
 		name: 'Chips',
 		rpcport: 57776,
