@@ -191,8 +191,28 @@ const supportedCurrencies = [
 		txfee: 10000,
 		electrumServers: [
 			{
-				host: '173.212.225.176',
-				port: 10052,
+				host: 'electrumx-eu.bitcoingold.org',
+				port: 50001,
+			},
+			{
+				host: 'electrumx-us.bitcoingold.org',
+				port: 50001,
+			},
+			{
+				host: 'electrumx-eu.btcgpu.org',
+				port: 50001,
+			},
+			{
+				host: 'electrumx-us.btcgpu.org',
+				port: 50001,
+			},
+			{
+				host: 'electroncash.ueo.ch',
+				port: 51001,
+			},
+			{
+				host: 'electrum.imaginary.cash',
+				port: 50001,
 			},
 			{
 				host: '94.130.224.11',
@@ -278,12 +298,36 @@ const supportedCurrencies = [
 		txfee: 10000,
 		electrumServers: [
 			{
-				host: 'electrum1.cipig.net',
-				port: 10069,
+				host: 'sgp-crwseed.crowndns.info',
+				port: 50001,
 			},
 			{
-				host: 'electrum2.cipig.net',
-				port: 10069,
+				host: 'blr-crwseed.crowndns.info',
+				port: 50001,
+			},
+			{
+				host: 'sfo-crwseed.crowndns.info',
+				port: 50001,
+			},
+			{
+				host: 'nyc-crwseed.crowndns.info',
+				port: 50001,
+			},
+			{
+				host: 'ams-crwseed.crowndns.info',
+				port: 50001,
+			},
+			{
+				host: 'tor-crwseed.crowndns.info',
+				port: 50001,
+			},
+			{
+				host: 'lon-crwseed.crowndns.info',
+				port: 50001,
+			},
+			{
+				host: 'fra-crwseed.crowndns.info',
+				port: 50001,
 			},
 		],
 	},
@@ -659,12 +703,20 @@ const supportedCurrencies = [
 		txfee: 100000,
 		electrumServers: [
 			{
-				host: 'electrum1.cipig.net',
-				port: 10070,
+				host: 'electrumx1.monacoin.nl',
+				port: 50001,
 			},
 			{
-				host: 'electrum2.cipig.net',
-				port: 10070,
+				host: 'electrumx2.monacoin.nl',
+				port: 50001,
+			},
+			{
+				host: 'electrumx1.monacoin.ninja',
+				port: 50001,
+			},
+			{
+				host: 'electrumx2.monacoin.ninja',
+				port: 50001,
 			},
 		],
 	},
