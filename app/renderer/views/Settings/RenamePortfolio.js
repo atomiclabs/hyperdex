@@ -1,35 +1,46 @@
 import {remote} from 'electron';
 import React from 'react';
+import _ from 'lodash';
 import appContainer from 'containers/App';
 import Input from 'components/Input';
 import {translate} from '../../translate';
 
-const {renamePortfolio} = remote.require('./portfolio-util');
+const renamePortfolio = _.debounce(remote.require('./portfolio-util').renamePortfolio, 500);
 const t = translate('settings');
 
 class RenamePortfolio extends React.Component {
 	state = {
-		isUpdating: false,
+		originalName: appContainer.state.portfolio.name,
 	};
 
-	handleChange = async newName => {
-		this.setState({isUpdating: true});
+	handleBlur = event => {
+		const {value} = event.target;
 
-		const id = await renamePortfolio({newName, id: appContainer.state.portfolio.id});
+		if (value.length === 0) {
+			this.handleChange(this.state.originalName);
+		}
+	}
+
+	handleChange = newName => {
+		const {id} = appContainer.state.portfolio;
 
 		appContainer.updatePortfolio({
 			id,
 			name: newName,
 		});
 
-		this.setState({isUpdating: false});
+		renamePortfolio({newName, id});
 	};
 
 	render() {
 		return (
 			<div className="form-group">
 				<label>{t('name')}</label>
-				<Input value={appContainer.state.portfolio.name} readOnly={this.state.isUpdating} onChange={this.handleChange}/>
+				<Input
+					value={appContainer.state.portfolio.name}
+					onBlur={this.handleBlur}
+					onChange={this.handleChange}
+				/>
 			</div>
 		);
 	}
