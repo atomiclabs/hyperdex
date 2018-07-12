@@ -27,11 +27,11 @@ class DeleteModal extends React.Component {
 	handleDeleteClick = () => {
 		deletePortfolio(appContainer.state.portfolio.id);
 		appContainer.logOut();
-	}
+	};
 
 	handleNameInputChange = name => {
 		this.setState({name});
-	}
+	};
 
 	render() {
 		return (

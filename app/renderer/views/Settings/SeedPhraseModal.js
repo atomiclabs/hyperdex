@@ -26,7 +26,7 @@ class SeedPhraseModal extends React.Component {
 
 	handleOpen = () => {
 		this.setState({isOpen: true});
-	}
+	};
 
 	handleClose = () => {
 		this.setState(this.initialState);
@@ -62,7 +62,7 @@ class SeedPhraseModal extends React.Component {
 
 			this.passwordInputRef.current.focus2();
 		}
-	}
+	};
 
 	render() {
 		return (
