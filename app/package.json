@@ -5,7 +5,7 @@
 	"private": true,
 	"description": "BarterDEX desktop app",
 	"license": "MIT",
-	"repository": "hyperdexapp/hyperdex",
+	"repository": "atomiclabs/hyperdex",
 	"author": {
 		"name": "Luke Childs",
 		"email": "lukechilds123@gmail.com",

@@ -13,7 +13,7 @@
 
 ## Testing
 
-Please download the latest [nightly build](https://github.com/hyperdexapp/hyperdex-nightlies/releases/latest) and report detailed issues with the "Feedback" button in the app.
+Please download the latest [nightly build](https://github.com/atomiclabs/hyperdex-nightlies/releases/latest) and report detailed issues with the "Feedback" button in the app.
 
 ## Install
 
@@ -21,17 +21,17 @@ Please download the latest [nightly build](https://github.com/hyperdexapp/hyperd
 
 ### macOS
 
-[**Download**](https://github.com/hyperdexapp/hyperdex/releases/latest) the `.dmg` file.
+[**Download**](https://github.com/atomiclabs/hyperdex/releases/latest) the `.dmg` file.
 
 ### Linux
 
-[**Download**](https://github.com/hyperdexapp/hyperdex/releases/latest) the `.AppImage` (recommended), `.snap`, `.deb`, or `.rpm` file.
+[**Download**](https://github.com/atomiclabs/hyperdex/releases/latest) the `.AppImage` (recommended), `.snap`, `.deb`, or `.rpm` file.
 
 *The AppImage needs to be [made executable](http://discourse.appimage.org/t/how-to-make-an-appimage-executable/80) after download.*
 
 ### Windows
 
-[**Download**](https://github.com/hyperdexapp/hyperdex/releases/latest) the `.exe` file.
+[**Download**](https://github.com/atomiclabs/hyperdex/releases/latest) the `.exe` file.
 
 
 ## License

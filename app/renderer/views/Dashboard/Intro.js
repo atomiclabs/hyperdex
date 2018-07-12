@@ -31,7 +31,7 @@ class Intro extends React.Component {
 					<p>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</p>
 					<p>If you just want to test HyperDEX, try trading between the test currencies <strong>BEER</strong> and <strong>PIZZA</strong> instead. You can get free <strong>BEER</strong> at the <ExternalLink url="https://www.atomicexplorer.com/#/faucet"><strong>BEER</strong> faucet</ExternalLink>.</p>
 					<p>HyperDEX is Open Source software provided &qoute;as is&qoute;, without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</p>
-					<p>By using HyperDEX you are agreeing to the terms of the <ExternalLink url="https://github.com/hyperdexapp/hyperdex/blob/master/LICENSE">MIT License</ExternalLink>.</p>
+					<p>By using HyperDEX you are agreeing to the terms of the <ExternalLink url="https://github.com/atomiclabs/hyperdex/blob/master/LICENSE">MIT License</ExternalLink>.</p>
 				</Trans>
 			</Modal>
 		);
