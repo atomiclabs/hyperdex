@@ -93,6 +93,7 @@ class SwapDB {
 		});
 	}
 
+	// TODO: We should refactor this into a seperate file
 	_formatSwap(data) {
 		const MATCHED_STEP = 1;
 		const TOTAL_PROGRESS_STEPS = swapTransactions.length + MATCHED_STEP;
