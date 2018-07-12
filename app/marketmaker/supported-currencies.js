@@ -568,6 +568,22 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'GLXT',
+		name: 'GLX Token',
+		asset: 'GLXT',
+		rpcport: 13109,
+		electrumServers: [
+			{
+				host: 'electrum1.glx.co',
+				port: 60012,
+			},
+			{
+				host: 'electrum2.glx.co',
+				port: 60012,
+			},
+		],
+	},
+	{
 		coin: 'GRS',
 		rpcport: 1441,
 		pubtype: 36,
