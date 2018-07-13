@@ -133,8 +133,6 @@ class AppContainer extends Container {
 				...portfolio,
 			},
 		}));
-
-		config.set('lastActivePortfolioId', portfolio.id);
 	}
 
 	async watchCMC() {

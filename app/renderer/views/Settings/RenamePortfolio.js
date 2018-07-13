@@ -25,7 +25,6 @@ class RenamePortfolio extends React.Component {
 		const {id} = appContainer.state.portfolio;
 
 		appContainer.updatePortfolio({
-			id,
 			name: newName,
 		});
 
