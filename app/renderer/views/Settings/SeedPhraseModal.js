@@ -40,7 +40,7 @@ class SeedPhraseModal extends React.Component {
 		this.setState({passwordInputValue});
 	};
 
-	handleSubmit = async event => {
+	handleSubmit = modalRef => async event => {
 		event.preventDefault();
 
 		this.setState({
@@ -55,6 +55,8 @@ class SeedPhraseModal extends React.Component {
 				isVerifying: false,
 				seedPhrase: await appContainer.getSeedPhrase(passwordInputValue),
 			});
+
+			modalRef.current.focus();
 		} catch (err) {
 			console.error(err);
 
@@ -79,14 +81,14 @@ class SeedPhraseModal extends React.Component {
 					didClose={this.handleDidClose}
 					width="445px"
 				>
-					{this.state.seedPhrase.length > 0 ? (
+					{({modalRef}) => this.state.seedPhrase.length > 0 ? (
 						<div className="seed-phrase">
 							<WrapWidth wordsPerLine={6}>
 								{this.state.seedPhrase}
 							</WrapWidth>
 						</div>
 					) : (
-						<form onSubmit={this.handleSubmit}>
+						<form onSubmit={this.handleSubmit(modalRef)}>
 							<div className="form-group">
 								<Input
 									disabled={this.state.isVerifying}
