@@ -86,7 +86,7 @@ class SuperContainer extends Container {
 		super(...args);
 
 		if (this.getInitialState) {
-			this.resetState();
+			this.state = this.getInitialState();
 		}
 	}
 
