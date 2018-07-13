@@ -1,4 +1,5 @@
 /* eslint-disable react/no-access-state-in-setstate */
+import EventEmitter from 'events';
 import {is, api, activeWindow, appLaunchTimestamp} from 'electron-util';
 import _ from 'lodash';
 import SuperContainer from 'containers/SuperContainer';
@@ -24,6 +25,8 @@ class ExchangeContainer extends SuperContainer {
 			isSendingOrder: false,
 		};
 	}
+
+	events = new EventEmitter();
 
 	componentDidInitialMount() {
 		this.setSwapHistory();
@@ -54,6 +57,8 @@ class ExchangeContainer extends SuperContainer {
 	};
 
 	setBaseCurrency(baseCurrency) {
+		this.events.emit('currency-changed');
+
 		// Switch if the same as `quoteCurrency`
 		if (baseCurrency === this.state.quoteCurrency) {
 			this.setState({quoteCurrency: this.state.baseCurrency});
@@ -65,6 +70,8 @@ class ExchangeContainer extends SuperContainer {
 	}
 
 	setQuoteCurrency(quoteCurrency) {
+		this.events.emit('currency-changed');
+
 		if (quoteCurrency === this.state.baseCurrency) {
 			this.setState({baseCurrency: this.state.quoteCurrency});
 		}
