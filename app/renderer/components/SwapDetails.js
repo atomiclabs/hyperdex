@@ -52,33 +52,32 @@ class SwapDetails extends React.Component {
 		const {swap} = this.props;
 		const {baseCurrency, quoteCurrency} = swap;
 
-		let hasTransactions = false;
-		const transactions = swapTransactions.map(stage => {
-			const tx = swap.transactions.find(tx => tx.stage === stage);
+		const transactions = swap.transactions.map(tx => (
+			<React.Fragment key={tx.stage}>
+				<div className="arrow completed">→</div>
+				<div className="item completed" title={tx.txid}>
+					<h6>{t(`details.${tx.stage}`)}</h6>
+					<p>{tx.amount}<br/>{tx.coin}</p>
+				</div>
+			</React.Fragment>
+		));
 
-			if (!tx) {
-				return (
-					<React.Fragment key={stage}>
-						<div className="arrow">→</div>
-						<div className="item">
-							<h6>{t(`details.${stage}`)}</h6>
-						</div>
-					</React.Fragment>
-				);
-			}
+		if (swap.status === 'swapping') {
+			swapTransactions.forEach(stage => {
+				const tx = swap.transactions.find(tx => tx.stage === stage);
 
-			hasTransactions = true;
-
-			return (
-				<React.Fragment key={stage}>
-					<div className="arrow completed">→</div>
-					<div className="item completed" title={tx.txid}>
-						<h6>{t(`details.${stage}`)}</h6>
-						<p>{tx.amount}<br/>{tx.coin}</p>
-					</div>
-				</React.Fragment>
-			);
-		});
+				if (!tx) {
+					transactions.push(
+						<React.Fragment key={stage}>
+							<div className="arrow">→</div>
+							<div className="item">
+								<h6>{t(`details.${stage}`)}</h6>
+							</div>
+						</React.Fragment>
+					);
+				}
+			});
+		}
 
 		const prices = ['requested', 'broadcast', 'executed'].map(value => {
 			if (!swap[value].price) {
@@ -136,6 +135,9 @@ class SwapDetails extends React.Component {
 									</React.Fragment>
 								)}
 							</p>
+							{swap.statusInformation && (
+								<p>{swap.statusInformation}</p>
+							)}
 						</div>
 						<div className="section details">
 							<div className="offer-wrapper">
@@ -151,7 +153,7 @@ class SwapDetails extends React.Component {
 									</p>
 								)}
 							</div>
-							{hasTransactions && (
+							{(transactions.length > 0) && (
 								<React.Fragment>
 									<h4>{t('details.transactions')}</h4>
 									<div className="transactions">

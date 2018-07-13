@@ -1,8 +1,6 @@
 import Emittery from 'emittery';
 import pEvent from 'p-event';
 import readBlob from 'read-blob';
-import pAny from 'p-any';
-import delay from 'delay';
 
 class MarketmakerSocket {
 	constructor(endpoint) {
@@ -32,52 +30,6 @@ class MarketmakerSocket {
 	}
 
 	getResponse = queueId => this._ee.once(`id_${queueId}`);
-
-	// Returns an EventEmitter that will emit events as the status of the swap progresses
-	// Important events:
-	//  - 'progress': All messages related to the swap.
-	//  - 'connected': The swap has been matched.
-	//  - 'update': The atomic swap has advanced a step, the step flag is in the `update` property.
-	//  - 'finished': The atomic swap level has successfully completed.
-	//  - 'failed': The atomic swap has failed, the error code is in the property `error`.
-	//
-	// Any other message with a `method` property will also be emitted via en event of the same name.
-	subscribeToSwap(uuid) {
-		if (typeof uuid === 'undefined') {
-			throw new TypeError(`uuid is required`);
-		}
-
-		const swapEmitter = new Emittery();
-
-		const removeListener = this.on('message', message => {
-			if (message.uuid !== uuid) {
-				return;
-			}
-
-			swapEmitter.emit('progress', message);
-			if (message.method) {
-				swapEmitter.emit(message.method, message);
-			}
-			if (message.method === 'tradestatus' && message.status === 'finished') {
-				swapEmitter.emit('completed', message);
-			}
-		});
-
-		// We should wait for 10 minutes before removing the listener
-		// to handle edge cases where swaps can breifly have an incorrect
-		// status due to communication issues:
-		// https://github.com/jl777/SuperNET/issues/756
-		const TEN_MINUTES = 1000 * 60 * 10;
-		pAny([
-			swapEmitter.once('failed'),
-			swapEmitter.once('completed'),
-		]).then(async () => {
-			await delay(TEN_MINUTES);
-			removeListener();
-		});
-
-		return swapEmitter;
-	}
 }
 
 export default MarketmakerSocket;

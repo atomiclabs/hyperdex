@@ -1,6 +1,7 @@
 /* eslint-disable react/no-access-state-in-setstate */
 import {is, api, activeWindow, appLaunchTimestamp} from 'electron-util';
 import _ from 'lodash';
+import {isPast, addHours} from 'date-fns';
 import SuperContainer from 'containers/SuperContainer';
 import appContainer from 'containers/App';
 import {translate} from '../translate';
@@ -22,12 +23,23 @@ class ExchangeContainer extends SuperContainer {
 				askdepth: 0,
 			},
 			isSendingOrder: false,
+			doneInitialKickstart: false,
 		};
 	}
 
-	componentDidInitialMount() {
-		this.setSwapHistory();
+	async componentDidInitialMount() {
+		await this.setSwapHistory();
 		appContainer.swapDB.on('change', this.setSwapHistory);
+		appContainer.api.socket.on('message', message => {
+			const uuids = this.state.swapHistory.map(swap => swap.uuid);
+			if (uuids.includes(message.uuid)) {
+				appContainer.swapDB.updateSwapData(message);
+			}
+		});
+
+		fireEvery({minutes: 15}, async () => {
+			await this.kickstartStuckSwaps();
+		});
 	}
 
 	constructor() {
@@ -47,6 +59,23 @@ class ExchangeContainer extends SuperContainer {
 				this.setQuoteCurrency(newQuoteCurrency);
 			}
 		});
+	}
+
+	async kickstartStuckSwaps() {
+		const {doneInitialKickstart} = this.state;
+		this.state.swapHistory
+			.filter(swap => (
+				swap.status === 'swapping' &&
+				(!doneInitialKickstart || isPast(addHours(swap.timeStarted, 4)))
+			))
+			.forEach(async swap => {
+				const {requestId, quoteId} = swap;
+				await appContainer.api.kickstart({requestId, quoteId});
+			});
+
+		if (!doneInitialKickstart) {
+			this.setState({doneInitialKickstart: true});
+		}
 	}
 
 	setSwapHistory = async () => {
