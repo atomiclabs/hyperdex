@@ -33,7 +33,6 @@ class ExchangeContainer extends SuperContainer {
 		appContainer.api.socket.on('message', message => {
 			const uuids = this.state.swapHistory.map(swap => swap.uuid);
 			if (uuids.includes(message.uuid)) {
-				console.log(message.method, message);
 				appContainer.swapDB.updateSwapData(message);
 			}
 		});
