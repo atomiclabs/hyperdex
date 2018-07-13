@@ -38,10 +38,9 @@ class ExchangeContainer extends SuperContainer {
 			}
 		});
 
-		const FIFTEEN_MINUTES = 1000 * 60 * 15;
-		fireEvery(async () => {
+		fireEvery({minutes: 15}, async () => {
 			await this.kickstartStuckSwaps();
-		}, FIFTEEN_MINUTES);
+		});
 	}
 
 	constructor() {
