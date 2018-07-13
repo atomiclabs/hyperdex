@@ -288,11 +288,13 @@ const createAppMenu = options => {
 		{
 			role: 'editMenu',
 		},
-		{
+		isLoggedIn ? {
 			label: t('portfolio.title'),
-			visible: isLoggedIn,
+			// TODO: Can't use `visible` because of Electron bug:
+			// https://github.com/electron/electron/issues/8703
+			// visible: isLoggedIn,
 			submenu: portfolioSubmenu,
-		},
+		} : {},
 		{
 			role: 'window',
 			submenu: [

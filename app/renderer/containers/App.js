@@ -290,4 +290,7 @@ appContainer.subscribe(() => {
 	ipc.send('app-container-state-updated', appContainer.state);
 });
 
+// We send an initial event so it can show the correct menu state after logging out
+ipc.send('app-container-state-updated', appContainer.state);
+
 export default appContainer;
