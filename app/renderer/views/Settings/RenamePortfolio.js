@@ -15,20 +15,18 @@ class RenamePortfolio extends React.Component {
 
 	handleBlur = event => {
 		const {value} = event.target;
+		const {id} = appContainer.state.portfolio;
 
 		if (value.length === 0) {
 			this.handleChange(this.state.originalName);
+			return;
 		}
+
+		renamePortfolio({newName: value, id});
 	}
 
 	handleChange = newName => {
-		const {id} = appContainer.state.portfolio;
-
-		appContainer.updatePortfolio({
-			name: newName,
-		});
-
-		renamePortfolio({newName, id});
+		appContainer.updatePortfolio({name: newName});
 	};
 
 	render() {
