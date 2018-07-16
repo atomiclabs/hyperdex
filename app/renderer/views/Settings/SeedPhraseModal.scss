@@ -1,0 +1,20 @@
+.SeedPhraseModal {
+	.seed-phrase {
+		border-radius: 4px;
+		border: 1px solid var(--primary-color);
+		color: var(--primary-color);
+		display: flex;
+		font-size: 17px;
+		justify-content: center;
+		padding: 10px 0;
+		text-align: center;
+	}
+
+	.Input--error {
+		margin-bottom: 20px;
+	}
+
+	.Input__text p {
+		font-size: 12px;
+	}
+}

@@ -35,11 +35,22 @@
 		}
 
 		label {
-			display: inline-block;
+			display: block;
 			font-weight: 600;
 			margin-bottom: 5px;
 			color: var(--text-color);
 			line-height: 1.5;
+		}
+
+		.modal-wrapper {
+			display: inline-flex;
+			margin-right: 10px;
+			margin-top: 5px;
+			margin-bottom: 5px;
+
+			&:last-child {
+				margin-right: 0;
+			}
 		}
 	}
 }

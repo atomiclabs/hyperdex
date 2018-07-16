@@ -136,7 +136,7 @@ class Modal extends React.Component {
 						<h1>{title}</h1>
 					</header>
 					<main>
-						{children}
+						{typeof children === 'function' ? children({modalRef: this.elementRef}) : children}
 					</main>
 				</div>
 			</div>
