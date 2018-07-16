@@ -274,15 +274,17 @@ class Order extends SuperComponent {
 		};
 	}
 
+	currencyChangedListener = () => {
+		this.resetState();
+	};
+
 	componentDidMount() {
-		exchangeContainer.events.on('currency-changed', () => {
-			this.resetState();
-		});
+		exchangeContainer.events.on('currency-changed', this.currencyChangedListener);
 	}
 
 	componentWillUnmount() {
 		// TODO: Use `events.off` here when using Electron 3
-		exchangeContainer.events.removeListener('currency-changed');
+		exchangeContainer.events.removeListener('currency-changed', this.currencyChangedListener);
 	}
 
 	handlePriceChange = price => {
