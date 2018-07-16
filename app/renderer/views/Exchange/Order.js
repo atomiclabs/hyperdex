@@ -1,6 +1,7 @@
 import React from 'react';
 import roundTo from 'round-to';
 import _ from 'lodash';
+import SuperComponent from 'components/SuperComponent';
 import Input from 'components/Input';
 import Button from 'components/Button';
 import Select from 'components/Select';
@@ -262,14 +263,27 @@ class Bottom extends React.Component {
 	}
 }
 
-class Order extends React.Component {
-	state = {
-		// We're using strings and not `input type="number"` because of a React issue:
-		// https://github.com/facebook/react/issues/9402
-		price: '',
-		amount: '',
-		total: '',
-	};
+class Order extends SuperComponent {
+	getInitialState() {
+		return {
+			// We're using strings and not `input type="number"` because of a React issue:
+			// https://github.com/facebook/react/issues/9402
+			price: '',
+			amount: '',
+			total: '',
+		};
+	}
+
+	componentDidMount() {
+		exchangeContainer.events.on('currency-changed', () => {
+			this.resetState();
+		});
+	}
+
+	componentWillUnmount() {
+		// TODO: Use `events.off` here when using Electron 3
+		exchangeContainer.events.removeListener('currency-changed');
+	}
 
 	handlePriceChange = price => {
 		price = String(price);
