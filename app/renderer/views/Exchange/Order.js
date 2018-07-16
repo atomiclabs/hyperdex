@@ -62,7 +62,11 @@ const Center = props => {
 		// This is just a quick fix to increase match rate
 		const percentMoreExpensive = 5 / 100;
 		const pricePercentage = price * percentMoreExpensive;
-		price = props.type === 'buy' ? price + pricePercentage : price - pricePercentage ;
+		if (props.type === 'buy') {
+			price += pricePercentage;
+		} else {
+			price -= pricePercentage;
+		}
 
 		return props.handlePriceChange(price);
 	};
