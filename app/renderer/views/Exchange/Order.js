@@ -56,7 +56,7 @@ const Center = props => {
 	const {state} = exchangeContainer;
 
 	const selectRow = row => {
-		let price = row.price;
+		let {price} = row;
 
 		// TODO: This should be fixed properly in mm or use more sensible logic here
 		// This is just a quick fix to increase match rate
