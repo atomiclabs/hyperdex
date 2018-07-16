@@ -15,6 +15,7 @@ const hasCustomIcon = new Set([
 	'REVS',
 	'SUPERNET',
 	'WLC',
+	'MYTH',
 ]);
 
 const CurrencyIcon = ({symbol, size, ...props}) => {
