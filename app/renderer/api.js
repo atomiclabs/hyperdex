@@ -350,6 +350,17 @@ export default class Api {
 		return getCurrency(opts.symbol).etomic ? this._withdrawEth(opts) : this._withdrawBtcFork(opts);
 	}
 
+	kickstart(opts) {
+		ow(opts.requestId, ow.number.positive.finite.label('requestId'));
+		ow(opts.quoteId, ow.number.positive.finite.label('quoteId'));
+
+		return this.request({
+			method: 'kickstart',
+			requestid: opts.requestId,
+			quoteid: opts.quoteId,
+		});
+	}
+
 	listUnspent(coin, address) {
 		ow(coin, symbolPredicate.label('coin'));
 		ow(address, ow.string.label('address'));
@@ -375,15 +386,5 @@ export default class Api {
 		await this.request({method: 'stop'});
 		this.queue.pause();
 		this.queue.clear();
-	}
-
-	subscribeToSwap(uuid) {
-		ow(uuid, uuidPredicate.label('uuid'));
-
-		if (!this.socket) {
-			throw new Error('Swap subscriptions require the socket to be enabled');
-		}
-
-		return this.socket.subscribeToSwap(uuid);
 	}
 }

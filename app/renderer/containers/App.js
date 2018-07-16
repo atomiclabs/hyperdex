@@ -14,6 +14,7 @@ import {formatCurrency, setLoginWindowBounds} from '../util';
 import {isDevelopment} from '../../util-common';
 
 const config = remote.require('./config');
+const {decryptSeedPhrase} = remote.require('./portfolio-util');
 
 const excludedTestCurrencies = new Set([
 	'PIZZA',
@@ -119,6 +120,19 @@ class AppContainer extends Container {
 
 	get isLoggedIn() {
 		return Boolean(this.state.portfolio);
+	}
+
+	async getSeedPhrase(password) {
+		return decryptSeedPhrase(this.state.portfolio.encryptedSeedPhrase, password);
+	}
+
+	updatePortfolio(portfolio) {
+		this.setState(state => ({
+			portfolio: {
+				...state.portfolio,
+				...portfolio,
+			},
+		}));
 	}
 
 	async watchCMC() {

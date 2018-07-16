@@ -93,6 +93,7 @@ class SwapDB {
 		});
 	}
 
+	// TODO: We should refactor this into a seperate file
 	_formatSwap(data) {
 		const MATCHED_STEP = 1;
 		const TOTAL_PROGRESS_STEPS = swapTransactions.length + MATCHED_STEP;
@@ -108,6 +109,8 @@ class SwapDB {
 
 		const swap = {
 			uuid,
+			requestId: undefined,
+			quoteId: undefined,
 			timeStarted,
 			orderType: isBuyOrder ? 'buy' : 'sell',
 			status: 'pending',
@@ -144,6 +147,13 @@ class SwapDB {
 		};
 
 		messages.forEach(message => {
+			if (message.requestid) {
+				swap.requestId = message.requestid;
+			}
+			if (message.quoteid) {
+				swap.quoteId = message.quoteid;
+			}
+
 			if (message.method === 'connected') {
 				swap.status = 'matched';
 				swap.progress = MATCHED_STEP / TOTAL_PROGRESS_STEPS;
@@ -151,36 +161,130 @@ class SwapDB {
 
 			if (message.method === 'update') {
 				swap.status = 'swapping';
-				swap.transactions.push({
-					stage: message.name,
-					coin: message.coin,
-					txid: message.txid,
-					amount: message.amount,
-				});
+				// Don't push duplicate messages
+				if (!swap.transactions.find(tx => tx.stage === message.name)) {
+					swap.transactions.push({
+						stage: message.name,
+						coin: message.coin,
+						txid: message.txid,
+						amount: message.amount,
+					});
+				}
 			}
 
 			if (message.method === 'tradestatus' && message.status === 'finished') {
 				swap.status = 'completed';
 				swap.progress = 1;
 
-				swap.transactions.push({
-					stage: 'alicespend',
-					coin: message.bob,
-					txid: message.paymentspent,
-					amount: message.srcamount,
-				});
+				// Nuke transaction history and rebuild it from this message.
+				// This will normally result in the same transaction array but
+				// if we were offline and missed some messages this will allow us
+				// to reconstruct what happened.
+				//
+				// It also allows us to correctly rebuild the tx chain of swaps that
+				// didn't quite go to plan like claiming bobdeposit or alicepayment.
+				const amounts = (() => {
+					const [alicespend, bobspend, bobpayment, alicepayment, bobdeposit, otherfee, myfee, bobrefund, bobreclaim, alicereclaim, aliceclaim] = message.values;
+					return {alicespend, bobspend, bobpayment, alicepayment, bobdeposit, otherfee, myfee, bobrefund, bobreclaim, alicereclaim, aliceclaim};
+				})();
 
-				const executedBaseCurrencyAmount = isBuyOrder ? message.srcamount : message.destamount;
-				const executedQuoteCurrencyAmount = isBuyOrder ? message.destamount : message.srcamount;
+				swap.transactions = [];
+				if (message.sentflags.includes('myfee')) {
+					swap.transactions.push({
+						stage: 'myfee',
+						coin: message.alice,
+						txid: message.alicedexfee,
+						amount: amounts.myfee,
+					});
+				}
+				if (message.sentflags.includes('bobdeposit')) {
+					swap.transactions.push({
+						stage: 'bobdeposit',
+						coin: message.bob,
+						txid: message.bobdeposit,
+						amount: amounts.bobdeposit,
+					});
+				}
+				if (message.sentflags.includes('alicepayment')) {
+					swap.transactions.push({
+						stage: 'alicepayment',
+						coin: message.alice,
+						txid: message.alicepayment,
+						amount: amounts.alicepayment,
+					});
+				}
+				if (message.sentflags.includes('bobpayment')) {
+					swap.transactions.push({
+						stage: 'bobpayment',
+						coin: message.bob,
+						txid: message.bobpayment,
+						amount: amounts.bobpayment,
+					});
+				}
+
+				// This is the final tx claiming bobpayment for a trade that completed as expected.
+				if (message.sentflags.includes('alicespend')) {
+					swap.transactions.push({
+						stage: 'alicespend',
+						coin: message.bob,
+						txid: message.paymentspent,
+						amount: amounts.alicespend,
+					});
+				}
+
+				// This is the final tx in the case that bob doesn't send bobpayment.
+				// We can claim bobdeposit which gives us a 12.5% bonus to punish bob.
+				if (message.sentflags.includes('aliceclaim')) {
+					// There is a bug in marketmaker where it doesn't always correctly report
+					// the values. If aliceclaim is 0 we fallback to bobdeposit as it should
+					// be very close (same amount minus our claim txfee)
+					// https://github.com/jl777/SuperNET/issues/920
+					swap.transactions.push({
+						stage: 'aliceclaim',
+						coin: message.bob,
+						txid: message.depositspent,
+						amount: amounts.aliceclaim || amounts.bobdeposit,
+					});
+				}
+
+				// This is the final tx in the case that bob doesn't send anything after
+				// we've already sent alicepayment. We don't get any of the currency we
+				// want, just claim our original payment back.
+				if (message.sentflags.includes('alicereclaim')) {
+					swap.transactions.push({
+						stage: 'alicereclaim',
+						coin: message.alice,
+						txid: message.Apaymentspent,
+						amount: amounts.alicereclaim,
+					});
+				}
+
+				// Overrride status to failed if we don't have a successful completion transaction
+				if (!(
+					message.sentflags.includes('alicespend') ||
+					message.sentflags.includes('aliceclaim')
+				)) {
+					swap.status = 'failed';
+				}
+
+				const startTx = swap.transactions.find(tx => tx.stage === 'alicepayment');
+				const startAmount = startTx ? startTx.amount : 0;
+				const endTx = swap.transactions.find(tx => ['alicespend', 'aliceclaim'].includes(tx.stage));
+				const endAmount = endTx ? endTx.amount : 0;
+				const executedBaseCurrencyAmount = isBuyOrder ? endAmount : startAmount;
+				const executedQuoteCurrencyAmount = isBuyOrder ? startAmount : endAmount;
 				swap.baseCurrencyAmount = roundTo(executedBaseCurrencyAmount, 8);
 				swap.quoteCurrencyAmount = roundTo(executedQuoteCurrencyAmount, 8);
-				swap.price = roundTo(executedQuoteCurrencyAmount / executedBaseCurrencyAmount, 8);
 				swap.executed.baseCurrencyAmount = swap.baseCurrencyAmount;
 				swap.executed.quoteCurrencyAmount = swap.quoteCurrencyAmount;
-				swap.executed.price = swap.price;
-				swap.executed.percentCheaperThanRequested = roundTo(100 - ((swap.executed.price / swap.requested.price) * 100), 2);
-				if (!isBuyOrder) {
-					swap.executed.percentCheaperThanRequested = -swap.executed.percentCheaperThanRequested;
+
+				if (endAmount > 0 && startAmount > 0) {
+					swap.price = roundTo(executedQuoteCurrencyAmount / executedBaseCurrencyAmount, 8);
+					swap.executed.price = swap.price;
+					swap.executed.percentCheaperThanRequested = roundTo(100 - ((swap.executed.price / swap.requested.price) * 100), 2);
+					if (!isBuyOrder) {
+						swap.executed.percentCheaperThanRequested = -swap.executed.percentCheaperThanRequested;
+					}
 				}
 			}
 
@@ -218,8 +322,16 @@ class SwapDB {
 
 			swap.statusFormatted = `swap ${swapProgress}/${swapTransactions.length}`;
 			swap.progress = (swapProgress + MATCHED_STEP) / TOTAL_PROGRESS_STEPS;
-		} else if (swap.status === 'failed' && (swap.error.code === -9999 || timedOut)) {
-			swap.statusFormatted = t('status.unmatched').toLowerCase();
+		}
+
+		if (swap.status === 'failed') {
+			if (swap.error.code === -9999 || timedOut) {
+				swap.statusFormatted = t('status.unmatched').toLowerCase();
+			}
+			if (swap.transactions.find(tx => tx.stage === 'alicereclaim')) {
+				swap.statusFormatted = t('status.reverted').toLowerCase();
+				swap.statusInformation = t('statusInformation.reverted');
+			}
 		}
 
 		return swap;

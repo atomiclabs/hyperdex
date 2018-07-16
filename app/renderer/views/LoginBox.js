@@ -72,10 +72,9 @@ class LoginBox extends React.Component {
 
 			this.setState({passwordInputValue: ''});
 
-			const passwordError = /Authentication failed/.test(err.message) ? t('incorrectPassword') : err.message;
 			await this.setState({
 				isLoggingIn: false,
-				passwordError,
+				passwordError: err.message,
 			});
 			this.passwordInputRef.current.focus();
 		}

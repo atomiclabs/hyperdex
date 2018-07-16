@@ -15,10 +15,7 @@ class ThemeSetting extends React.Component {
 	render() {
 		return (
 			<div className="form-group">
-				<label>
-					{t('theme.theme')}:
-				</label>
-				<br/>
+				<label>{t('theme.theme')}</label>
 				<NativeSelect value={appContainer.state.theme} onChange={this.handleChange}>
 					<option value="dark">{t('theme.dark')}</option>
 					<option value="light">{t('theme.light')}</option>

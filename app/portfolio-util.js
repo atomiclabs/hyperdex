@@ -6,16 +6,26 @@ const randomString = require('crypto-random-string');
 const writeJsonFile = require('write-json-file');
 const dir = require('node-dir');
 const loadJsonFile = require('load-json-file');
+const del = require('del');
 const {encrypt, decrypt} = require('./encryption');
+const {translate} = require('./locale');
 
 const portfolioPath = path.join(app.getPath('userData'), 'portfolios');
+const t = translate('login');
 
 const idToFileName = id => `hyperdex-portfolio-${id}.json`;
 const fileNameToId = fileName => fileName.replace(/^hyperdex-portfolio-/, '').replace(/\.json$/, '');
+const generateId = name => `${slugify(name).slice(0, 40)}-${randomString(6)}`;
+
+class IncorrectPasswordError extends Error {
+	constructor() {
+		super(t('incorrectPassword'));
+		Error.captureStackTrace(this, IncorrectPasswordError);
+	}
+}
 
 const createPortfolio = async ({name, seedPhrase, password}) => {
-	const safeName = slugify(name).slice(0, 40);
-	const id = `${safeName}-${randomString(6)}`;
+	const id = generateId(name);
 	const filePath = path.join(portfolioPath, idToFileName(id));
 
 	const portfolio = {
@@ -27,6 +37,20 @@ const createPortfolio = async ({name, seedPhrase, password}) => {
 	await writeJsonFile(filePath, portfolio);
 
 	return id;
+};
+
+const deletePortfolio = async id => {
+	const filePath = path.join(portfolioPath, idToFileName(id));
+	await del(filePath, {force: true});
+};
+
+const renamePortfolio = async ({id, newName}) => {
+	const filePath = path.join(portfolioPath, idToFileName(id));
+	const portfolio = await loadJsonFile(filePath);
+
+	portfolio.name = newName;
+
+	await writeJsonFile(filePath, portfolio);
 };
 
 const changePortfolioPassword = async ({id, seedPhrase, newPassword}) => {
@@ -61,9 +85,23 @@ const getPortfolios = async () => {
 	return portfolios.sort((a, b) => a.fileName.localeCompare(b.fileName));
 };
 
+const decryptSeedPhrase = async (seedPhrase, password) => {
+	try {
+		return await decrypt(seedPhrase, password);
+	} catch (err) {
+		if (/Authentication failed/.test(err.message)) {
+			throw new IncorrectPasswordError();
+		}
+
+		throw err;
+	}
+};
+
 module.exports = {
 	createPortfolio,
+	deletePortfolio,
+	renamePortfolio,
 	changePortfolioPassword,
 	getPortfolios,
-	decryptSeedPhrase: decrypt,
+	decryptSeedPhrase,
 };
