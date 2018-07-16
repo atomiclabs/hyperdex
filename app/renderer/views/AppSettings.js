@@ -6,7 +6,7 @@ import Input from 'components/Input';
 import BackTextButton from 'components/BackTextButton';
 import {translate} from '../translate';
 import ThemeSetting from './Settings/Theme';
-import './Settings.scss';
+import './Settings/Settings.scss';
 
 const config = remote.require('./config');
 const t = translate('app');
