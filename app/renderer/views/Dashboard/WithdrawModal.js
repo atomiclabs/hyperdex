@@ -7,6 +7,7 @@ import Link from 'components/Link';
 import appContainer from 'containers/App';
 import dashboardContainer from 'containers/Dashboard';
 import {formatCurrency} from '../../util';
+import {getCurrency} from '../../../marketmaker/supported-currencies';
 import {translate} from '../../translate';
 import './WithdrawModal.scss';
 
@@ -19,7 +20,9 @@ const getInitialProps = () => ({
 	amountInUsd: '',
 	isWithdrawing: false,
 	isBroadcasting: false,
+	txFeeCurrencySymbol: '',
 	txFee: 0,
+	txFeeUsd: 0,
 	broadcast: false,
 });
 
@@ -51,18 +54,24 @@ class WithdrawModal extends React.Component {
 			amount: Number(amount),
 		});
 
-		this.setState({txFee, broadcast});
+		const currency = getCurrency(symbol);
+		const txFeeCurrencySymbol = currency.etomic ? 'ETH' : symbol;
+		const {cmcPriceUsd} = appContainer.getCurrencyPrice(txFeeCurrencySymbol);
+		const txFeeUsd = formatCurrency(txFee * cmcPriceUsd);
+
+		this.setState({txFeeCurrencySymbol, txFee, txFeeUsd, broadcast});
 	};
 
 	confirmButtonHandler = async () => {
 		this.setState({isBroadcasting: true});
-		const {amount, currency, address} = await this.state.broadcast();
+		const {txid, amount, symbol, address} = await this.state.broadcast();
+		console.log({txid, amount, symbol, address});
 
 		// TODO: The notification should be clickable and open a block explorer for the currency.
 		// We'll need to have a list of block explorers for each currency.
 		// eslint-disable-next-line no-new
 		new Notification(t('withdraw.successTitle'), {
-			body: t('withdraw.successDescription', {address, amount, symbol: currency}),
+			body: t('withdraw.successDescription', {address, amount, symbol}),
 		});
 
 		this.close();
@@ -154,7 +163,7 @@ class WithdrawModal extends React.Component {
 							</div>
 							<div className={`info ${this.state.broadcast || 'hidden'}`}>
 								<span>{t('withdraw.networkFee')}:</span>
-								<span>{this.state.txFee} {currencyInfo.symbol} ({formatCurrency(this.state.txFee * currencyInfo.cmcPriceUsd)})</span>
+								<span>{this.state.txFee} {this.state.txFeeCurrencySymbol} ({this.state.txFeeUsd})</span>
 							</div>
 						</div>
 						{this.state.broadcast ? (

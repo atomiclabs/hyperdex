@@ -318,7 +318,7 @@ export default class Api {
 			}
 			hasBroadcast = true;
 
-			const {tx_id} = await this.request({
+			const response = await this.request({
 				method: 'eth_withdraw',
 				gas,
 				gas_price: gasPrice,
@@ -328,8 +328,12 @@ export default class Api {
 				broadcast: 1,
 			});
 
+			if (response.error) {
+				throw errorWithObject('Couldn\'t create withdrawal transaction', response);
+			}
+
 			return {
-				txid: tx_id,
+				txid: response.tx_id,
 				symbol: opts.symbol,
 				amount: opts.amount,
 				address: opts.address,
