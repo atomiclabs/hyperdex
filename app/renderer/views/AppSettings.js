@@ -40,7 +40,7 @@ class AppSettings extends React.Component {
 					<ThemeSetting/>
 					<div className="form-group">
 						<label htmlFor="marketmakerUrl">
-							{t('settings.customUrl')}:
+							{t('settings.customUrl')}
 						</label>
 						<Input
 							name="marketmakerUrl"

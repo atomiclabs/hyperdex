@@ -48,6 +48,7 @@ class Settings extends React.Component {
 								<RenamePortfolio/>
 								<CurrencySetting/>
 								<div className="form-group">
+									<label>{t('manage')}</label>
 									<SeedPhraseModal/>
 									<DeleteModal/>
 								</div>
