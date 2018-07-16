@@ -21,7 +21,7 @@
 		"price": "가격 {{symbol}}",
 		"sell": "매도",
 		"sellOrders": "매도 주문",
-		"symbolBalance": "잔고: {{balance}} {{symbol}}",
+		"symbolBalance": "잔고",
 		"total": "총 {{symbol}}",
 		"unexpectedError": "예기치 않은 문제가 발생했습니다. UTXO를 충분히 보유하고 계십니까?",
 		"worth": "이 스왑은 {{swapWorthInUsd}}의 가치가 있습니다"

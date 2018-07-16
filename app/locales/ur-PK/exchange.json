@@ -21,7 +21,7 @@
 		"price": "رقم {{symbol}}",
 		"sell": "بیچیں",
 		"sellOrders": "آرڈرز بیچیں",
-		"symbolBalance": "بیلنس: {{balance}}{{symbol}}",
+		"symbolBalance": "بیلنس",
 		"total": "تمام {{symbol}}",
 		"unexpectedError": "کچھ غیر متوقع ہوا ۔ کیا آپ کو یقین ہے کہ آپ کے پاس کافی UTXO ہے؟",
 		"worth": "یہ تبادلہ بہترین ہے {{swapWorthInUsd}}"

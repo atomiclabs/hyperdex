@@ -53,7 +53,7 @@ const SwapItem = ({swap}) => (
 		</div>
 		<div className="buttons">
 			{/* Disabled until marketmaker v2
-				See: https://github.com/hyperdexapp/hyperdex/issues/262#issuecomment-396587751showCancel
+				See: https://github.com/atomiclabs/hyperdex/issues/262#issuecomment-396587751showCancel
 				&&
 				<div className="cancel">
 					<CancelButton swap={swap}/>

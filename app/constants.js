@@ -2,9 +2,9 @@
 const {is} = require('electron-util');
 
 // TODO: Put website URL here
-exports.websiteUrl = 'https://github.com/hyperdexapp/hyperdex';
+exports.websiteUrl = 'https://github.com/atomiclabs/hyperdex';
 
-exports.repoUrl = 'https://github.com/hyperdexapp/hyperdex';
+exports.repoUrl = 'https://github.com/atomiclabs/hyperdex';
 
 exports.minWindowSize = {
 	width: 1060,

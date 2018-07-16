@@ -21,7 +21,7 @@
 		"price": "মূল্য {{symbol}}",
 		"sell": "বিক্রয় করুন",
 		"sellOrders": "বিক্রয় আদেশ",
-		"symbolBalance": "ব্যালেন্স: {{balance}}{{symbol}}",
+		"symbolBalance": "ব্যালেন্স",
 		"total": "মোট {{symbol}}",
 		"unexpectedError": "অপ্রত্যাশিত কিছু ঘটেছে। আপনি কি নিশ্চিত যে আপনার যথেষ্ট UTXO রয়েছে?",
 		"worth": "এই বিনিময়টির মূল্য {{swapWorthInUsd}}"

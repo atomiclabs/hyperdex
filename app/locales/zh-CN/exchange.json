@@ -21,7 +21,7 @@
 		"price": "{{symbol}} 价格",
 		"sell": "卖出",
 		"sellOrders": "卖单",
-		"symbolBalance": "余额：{{balance}} {{symbol}}",
+		"symbolBalance": "余额",
 		"total": "{{symbol}} 总价",
 		"unexpectedError": "有意外事件发生。你确定拥有足够的 UTXO 吗？",
 		"worth": "此交换价值为 {{swapWorthInUsd}}"

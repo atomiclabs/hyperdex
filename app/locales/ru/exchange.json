@@ -21,7 +21,7 @@
 		"price": "Цена {{symbol}}",
 		"sell": "Продать",
 		"sellOrders": "Ордера на Продажу",
-		"symbolBalance": "Баланс: {{balance}} {{symbol}}",
+		"symbolBalance": "Баланс",
 		"total": "Итого {{symbol}}",
 		"unexpectedError": "Произошло что-то неожиданное. Уверены, что у вас достаточно UTXO?",
 		"worth": "Стоимость этого свопа {{swapWorthInUsd}}"

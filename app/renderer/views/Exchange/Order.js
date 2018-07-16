@@ -43,10 +43,7 @@ class Top extends React.Component {
 					optionRenderer={CurrencySelectOption}
 				/>
 				<h3 className="balance">
-					{t('order.symbolBalance', {
-						balance: roundTo(selectedCurrency.balance, 8),
-						symbol: selectedCurrency.symbol,
-					})}
+					{t('order.symbolBalance')}: <span>{roundTo(selectedCurrency.balance, 8)} {selectedCurrency.symbol}</span>
 				</h3>
 				<p className="address">{selectedCurrency.address}</p>
 			</div>
@@ -144,7 +141,6 @@ class Bottom extends React.Component {
 
 		const swap = result.pending;
 		const {swapDB} = appContainer;
-		api.subscribeToSwap(swap.uuid).on('progress', swapDB.updateSwapData);
 		await swapDB.insertSwapData(swap, requestOpts);
 		exchangeContainer.setIsSendingOrder(false);
 	};
@@ -167,7 +163,7 @@ class Bottom extends React.Component {
 			this.targetPriceButtonHandler();
 		}
 
-		// TODO: Get the txfee: https://github.com/hyperdexapp/hyperdex/issues/104
+		// TODO: Get the txfee: https://github.com/atomiclabs/hyperdex/issues/104
 		// Make sure to convert it to the current base currency.
 		const txfee = 0;
 

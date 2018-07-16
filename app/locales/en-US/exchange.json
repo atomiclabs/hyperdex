@@ -21,7 +21,7 @@
 		"price": "Price {{symbol}}",
 		"sell": "Sell",
 		"sellOrders": "Sell Orders",
-		"symbolBalance": "Balance: {{balance}} {{symbol}}",
+		"symbolBalance": "Balance",
 		"total": "Total {{symbol}}",
 		"unexpectedError": "Something unexpected happened. Are you sure you have enough UTXO?",
 		"worth": "This swap is worth {{swapWorthInUsd}}"

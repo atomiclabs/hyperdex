@@ -1,7 +1,7 @@
 {
 	"intro": {
 		"title": "✨ Cảm ơn bạn đã Giúp Chúng tôi Thử nghiệm HyperDEX!",
-		"description": "<0>Lưu ý<1>đây vẫn là một dự án thử nghiệm</1>.</0><1>Mặc dù mất tiền khó có thể xảy ra, nhưng bạn chỉ nên giao dịch với tiền thật nếu bạn chấp nhận rủi ro.</1> <2>Nếu bạn chỉ muốn thử nghiệm HyperDEX, hãy giao dịch bằng các đồng tiền thử nghiệm <1>BEER</1> và <3>PIZZA</3> trước. Bạn có thể nhận miễn phí tới<5>BEER</5> ở tại <7> vòi <0>BEER</0></7>.</2> <3>HyperDEX là phần mềm mã nguồn mở được cung cấp bởi &qoute; như là &qoute;, mà không có sự bảo đảm của bất kỳ bên nào. Tác giả hoặc chủ tác quyền không chịu trách nhiệm với bất kỳ thiệt hại nào phát sinh từ việc sử dụng phần mềm này.</3><4>Khi sử dụng HyperDEX bạn đồng ý với các điều khoản của <1>Giấy phép MIT</1>.</4>"
+		"description": "<0>Lưu ý<1>đây vẫn là một dự án thử nghiệm</1>.</0><1>Mặc dù mất tiền khó có thể xảy ra, nhưng bạn chỉ nên giao dịch với tiền thật nếu bạn chấp nhận rủi ro.</1> <2>Nếu bạn chỉ muốn thử nghiệm HyperDEX, hãy giao dịch bằng các đồng tiền thử nghiệm <1>BEER</1> và <3>PIZZA</3> trước. Bạn có thể nhận miễn phí tới<5>BEER</5> ở tại <7> vòi <0>BEER</0></7>.</2> <3>HyperDEX là phần mềm mã nguồn mở được cung cấp bởi \"như là\", mà không có sự bảo đảm của bất kỳ bên nào. Tác giả hoặc chủ tác quyền không chịu trách nhiệm với bất kỳ thiệt hại nào phát sinh từ việc sử dụng phần mềm này.</3><4>Khi sử dụng HyperDEX bạn đồng ý với các điều khoản của <1>Giấy phép MIT</1>.</4>"
 	},
 	"activity": {
 		"noActivity": "Chưa có hoạt động nào",

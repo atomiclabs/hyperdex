@@ -1,5 +1,7 @@
 .Settings,
 .AppSettings {
+	display: flex;
+	flex-direction: column;
 	border-radius: 4px;
 	background-color: var(--widget-background-color);
 
@@ -16,6 +18,10 @@
 	}
 
 	main {
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden;
+		overflow-y: auto;
 		padding: 30px;
 
 		h3 {
@@ -35,25 +41,24 @@
 			color: var(--text-color);
 			line-height: 1.5;
 		}
+	}
+}
 
+.Settings {
+	width: 660px;
+	height: 100%;
+	margin: 0 auto;
+
+	main {
 		.enabled-currencies {
+			--dropdown-max-height: 160px;
 			margin: 5px 0;
 		}
 	}
 }
 
-.Settings {
-	width: 600px;
-	height: 100%;
-	margin: 0 auto;
-}
-
 .AppSettings {
-	display: flex;
-	flex-direction: column;
 	margin: 70px 50px;
-	overflow-x: hidden;
-	overflow-y: auto;
 
 	.window-draggable-area {
 		width: 100%;

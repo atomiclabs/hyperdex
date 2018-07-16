@@ -1,7 +1,7 @@
 {
 	"intro": {
 		"title": "✨ Grazie per averci aiutato a testare HyperDEX!",
-		"description": "<0>Per favore nota <1>questo progetto è ancora in versione Alpha</1>.</0><1>Sebbene la perdita di fondi sia improbabile, consigliamo di fare trading con denaro reale solo se si è in grado di assumerne i rischi.</1><2>Se vuoi semplicemente provare HyperDEX, prova a fare del trading con le valute test <1>BIRRA</1> e <3>PIZZA</3>. Puoi ottenere della <5>BIRRA</5> gratis alla <7>spina della <0>BIRRA</0></7>.</2><3>HyperDEX è un software open source fornito &qoute;così com'è&qoute;, senza alcuna garanzia. Gli autori o i titolari del copyright non sono responsabili per qualsiasi danno causato dall'utilizzo del software.</3><4>Utilizzando HyperDEX, accetti i termini della <1>Licenza MIT</1>.</4>"
+		"description": "<0>Per favore nota <1>questo progetto è ancora in versione Alpha</1>.</0><1>Sebbene la perdita di fondi sia improbabile, consigliamo di fare trading con denaro reale solo se si è in grado di assumerne i rischi.</1><2>Se vuoi semplicemente provare HyperDEX, prova a fare del trading con le valute test <1>BIRRA</1> e <3>PIZZA</3>. Puoi ottenere della <5>BIRRA</5> gratis alla <7>spina della <0>BIRRA</0></7>.</2><3>HyperDEX è un software open source fornito \"così com'è\", senza alcuna garanzia. Gli autori o i titolari del copyright non sono responsabili per qualsiasi danno causato dall'utilizzo del software.</3><4>Utilizzando HyperDEX, accetti i termini della <1>Licenza MIT</1>.</4>"
 	},
 	"activity": {
 		"noActivity": "Ancora nessuna attività",

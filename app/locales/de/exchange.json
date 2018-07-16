@@ -21,7 +21,7 @@
 		"price": "Preis {{symbol}}",
 		"sell": "Verkaufen:",
 		"sellOrders": "Verkaufsaufträge",
-		"symbolBalance": "Guthaben: {{balance}} {{symbol}}",
+		"symbolBalance": "Guthaben",
 		"total": "Gesamt {{symbol}}",
 		"unexpectedError": "Unerwarteter Fehler. Bist du sicher, dass du genügend UTXO hast?",
 		"worth": "Dieses Tauschgeschäft hat einen Wert von {{swapWorthInUsd}}"

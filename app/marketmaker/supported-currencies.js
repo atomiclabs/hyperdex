@@ -2,6 +2,7 @@
 
 const coinlist = require('coinlist');
 const _ = require('lodash');
+const {hiddenCurrencies} = require('../constants');
 
 /*
 Info:
@@ -1878,7 +1879,14 @@ const supportedCurrencies = [
 	},
 ].filter(currency => !currency.etomic);
 
-const getCurrencySymbols = () => _.orderBy(supportedCurrencies.map(currency => currency.coin));
+const getCurrencySymbols = () => (
+	_(supportedCurrencies)
+		.chain()
+		.map('coin')
+		.without(...hiddenCurrencies)
+		.orderBy()
+		.value()
+);
 
 const getCurrencyName = symbol => {
 	const coinParams = supportedCurrencies.find(currency => currency.coin === symbol);

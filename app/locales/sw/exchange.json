@@ -21,7 +21,7 @@
 		"price": "Bei {{symbol}}",
 		"sell": "Uza",
 		"sellOrders": "Uza Bidhaa",
-		"symbolBalance": "Salio: {{balance}} {{symbol}}",
+		"symbolBalance": "Salio",
 		"total": "Jumla {{symbol}}",
 		"unexpectedError": "Hitilafu isiyotarajiwa imetokea. Una uhakika una UTXO za kutosha?",
 		"worth": "Badilisho hili lina thamani ya {{swapWorthInUsd}}"

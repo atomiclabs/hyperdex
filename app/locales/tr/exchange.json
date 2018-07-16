@@ -21,7 +21,7 @@
 		"price": "Fiyat {{symbol}}",
 		"sell": "Sat",
 		"sellOrders": "Satış Emirleri",
-		"symbolBalance": "Bakiye: {{balance}} {{symbol}}",
+		"symbolBalance": "Bakiye",
 		"total": "Toplam {{symbol}}",
 		"unexpectedError": "Beklenmeyen bir hata oluştu. Hesabında yeterli UTXO olduğuna emin misin?",
 		"worth": "Bu takas {{swapWorthInUsd}} değerinde"

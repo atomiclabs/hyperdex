@@ -23,6 +23,11 @@
 
 		.balance {
 			margin: 12px 0;
+
+			span {
+				user-select: text;
+				cursor: auto;
+			}
 		}
 
 		.address {
