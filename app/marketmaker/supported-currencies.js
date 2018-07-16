@@ -929,6 +929,42 @@ const supportedCurrencies = [
 		etomic: '0xcbCC0F036ED4788F63FC0fEE32873d6A7487b908',
 		rpcport: 80,
 	},
+	/* Disabled because of #289
+	{
+		coin: 'HODL',
+		asset: 'HODL',
+		rpcport: 14431,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10009,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10009,
+			},
+		],
+	},
+	{
+		coin: 'HODLC',
+		name: 'Hodlcoin',
+		rpcport: 11989,
+		pubtype: 40,
+		p2shtype: 5,
+		wiftype: 168,
+		txfee: 5000,
+		electrumServers: [
+			{
+				host: 'hodl.amit.systems',
+				port: 17989,
+			},
+			{
+				host: 'hodl2.amit.systems',
+				port: 17989,
+			},
+		],
+	},
+	*/
 	{
 		coin: 'HUSH',
 		rpcport: 8822,
