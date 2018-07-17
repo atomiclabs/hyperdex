@@ -35,3 +35,7 @@ $ ./signedchecksum
 ```
 
 It will create a file called `SHASUMS256.txt.asc` that you need to upload to the GitHub release manually.
+
+## Debug-mode in production
+
+Press <kbd>Control</kbd> <kbd>Shift</kbd> <kbd>Alt</kbd> <kbd>D</kbd> to relaunch HyperDEX in debug-mode. You can then access debug features in the Debug menu.
