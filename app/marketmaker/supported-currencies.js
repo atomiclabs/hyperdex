@@ -1920,7 +1920,7 @@ const supportedCurrencies = [
 		etomic: '0xE41d2489571d322189246DaFA5ebDe1F4699F498',
 		rpcport: 80,
 	},
-].filter(currency => !currency.etomic || currency.coin === 'ETH');
+];
 
 const getCurrencySymbols = () => (
 	_(supportedCurrencies)
