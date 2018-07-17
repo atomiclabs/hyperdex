@@ -12,11 +12,11 @@ class Modal extends React.Component {
 	};
 
 	static getDerivedStateFromProps(props, state) {
-		const isClosed = !state.isOpen || (state.isOpen && state.animationType === 'close');
-		const isOpening = isClosed && props.open;
-		const isClosing = !isClosed && !props.open;
+		const isClosed = (!state.isOpen || state.animationType === 'close') && !props.open;
+		const isOpening = !state.isOpen && props.open;
+		const isClosing = state.isOpen && (state.animationType === 'close' || !props.open);
 
-		if (!isClosing && !isOpening) {
+		if (isClosed || (!isClosing && !isOpening)) {
 			return null;
 		}
 
