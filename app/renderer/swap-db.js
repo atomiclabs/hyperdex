@@ -188,11 +188,14 @@ class SwapDB {
 					return {alicespend, bobspend, bobpayment, alicepayment, bobdeposit, otherfee, myfee, bobrefund, bobreclaim, alicereclaim, aliceclaim};
 				})();
 
+				const aliceCurrency = message.alicetomic ? 'ETOMIC' : message.alice;
+				const bobCurrency = message.bobtomic ? 'ETOMIC' : message.bob;
+
 				swap.transactions = [];
 				if (message.sentflags.includes('myfee')) {
 					swap.transactions.push({
 						stage: 'myfee',
-						coin: message.alice,
+						coin: aliceCurrency,
 						txid: message.alicedexfee,
 						amount: amounts.myfee,
 					});
@@ -200,7 +203,7 @@ class SwapDB {
 				if (message.sentflags.includes('bobdeposit')) {
 					swap.transactions.push({
 						stage: 'bobdeposit',
-						coin: message.bob,
+						coin: bobCurrency,
 						txid: message.bobdeposit,
 						amount: amounts.bobdeposit,
 					});
@@ -208,7 +211,7 @@ class SwapDB {
 				if (message.sentflags.includes('alicepayment')) {
 					swap.transactions.push({
 						stage: 'alicepayment',
-						coin: message.alice,
+						coin: aliceCurrency,
 						txid: message.alicepayment,
 						amount: amounts.alicepayment,
 					});
@@ -216,7 +219,7 @@ class SwapDB {
 				if (message.sentflags.includes('bobpayment')) {
 					swap.transactions.push({
 						stage: 'bobpayment',
-						coin: message.bob,
+						coin: bobCurrency,
 						txid: message.bobpayment,
 						amount: amounts.bobpayment,
 					});
@@ -226,7 +229,7 @@ class SwapDB {
 				if (message.sentflags.includes('alicespend')) {
 					swap.transactions.push({
 						stage: 'alicespend',
-						coin: message.bob,
+						coin: bobCurrency,
 						txid: message.paymentspent,
 						amount: amounts.alicespend,
 					});
@@ -241,7 +244,7 @@ class SwapDB {
 					// https://github.com/jl777/SuperNET/issues/920
 					swap.transactions.push({
 						stage: 'aliceclaim',
-						coin: message.bob,
+						coin: bobCurrency,
 						txid: message.depositspent,
 						amount: amounts.aliceclaim || amounts.bobdeposit,
 					});
@@ -253,7 +256,7 @@ class SwapDB {
 				if (message.sentflags.includes('alicereclaim')) {
 					swap.transactions.push({
 						stage: 'alicereclaim',
-						coin: message.alice,
+						coin: aliceCurrency,
 						txid: message.Apaymentspent,
 						amount: amounts.alicereclaim,
 					});
