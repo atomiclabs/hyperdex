@@ -12,13 +12,18 @@ $ yarn start
 
 **Only do a new release when you can be available in the next hours to handle any issues. Prefer doing a new release in the morning your time.**
 
-Ensure the app works without any issues on our supported platforms.
+Ensure the app works without any issues on our supported platforms, by running:
 
 ```
 $ yarn dist
 ```
 
-And then test the binaries on macOS, Linux, and Windows.
+And then test the binaries on macOS, Linux, and Windows:
+
+- Test with the settings and portfolios from the previous version, then do a "Delete App Data" and test it fresh to ensure there are no issues for a first-time user.
+- Test the inputs, modals, etc.
+- Test that you can successfully buy and sell in the exchange.
+- Click random things to ensure no unexpected behavior.
 
 If everything works fine, release it:
 
