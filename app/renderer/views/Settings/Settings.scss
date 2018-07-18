@@ -64,6 +64,11 @@
 		.enabled-currencies {
 			--dropdown-max-height: 160px;
 			margin: 5px 0;
+
+			.SelectOption__label {
+				font-size: 14px;
+				line-height: 1.3;
+			}
 		}
 	}
 }
