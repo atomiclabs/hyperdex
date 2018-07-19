@@ -71,6 +71,10 @@ class Input extends React.Component {
 		return value;
 	}
 
+	_isExponentialNotation(value) {
+		return /(\d+\.?\d*)e\d*(\+|-)(\d+)/.test(value);
+	}
+
 	render() {
 		let {
 			forwardedRef,
@@ -124,9 +128,18 @@ class Input extends React.Component {
 		}
 
 		if (onlyNumeric) {
-			if (this._shouldTruncateFractions(value)) {
-				value = Number.parseFloat(value).toFixed(fractionalDigits);
+			if (this._isExponentialNotation(value)) {
+				value = Number.parseFloat(value).toLocaleString('fullwide', {
+					maximumFractionDigits: 20, // 20 is the maximum, we truncate below instead
+				});
 			}
+
+			if (this._shouldTruncateFractions(value)) {
+				value = Number.parseFloat(value).toLocaleString('fullwide', {
+					maximumFractionDigits: fractionalDigits,
+				});
+			}
+
 			value = this._truncateZeroOnlyFractions(value);
 		}
 
