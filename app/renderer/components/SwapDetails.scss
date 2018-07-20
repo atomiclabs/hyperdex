@@ -9,6 +9,8 @@
 }
 
 .SwapDetails .Modal__dialog {
+	position: relative;
+
 	.section {
 		margin: 10px 0;
 	}
@@ -50,18 +52,17 @@
 		}
 	}
 
+	.Progress {
+		position: absolute;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+	}
+
 	.progress {
 		text-align: center;
-
-		.Progress {
-			box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.2);
-			margin-bottom: 5px;
-			border-radius: 100px;
-
-			&__bar {
-				border-radius: 100px;
-			}
-		}
 	}
 
 	.details {
