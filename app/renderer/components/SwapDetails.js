@@ -125,7 +125,13 @@ class SwapDetails extends React.Component {
 							</div>
 						</div>
 						<div className="section progress">
-							<Progress value={swap.progress}/>
+							<Progress
+								value={swap.progress}
+								color={
+									(swap.status === 'completed' && 'var(--success-color)') ||
+									(swap.status === 'failed' && 'var(--error-color)')
+								}
+							/>
 							<p>
 								{title(swap.statusFormatted)}
 								{(swap.status === 'failed' && swap.error) && (

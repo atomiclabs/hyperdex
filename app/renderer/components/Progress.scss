@@ -10,7 +10,7 @@
 		width: 0;
 		height: 5px;
 		background: var(--progress-gradient);
-		transition: width 0.5s ease-in-out;
+		transition: width 0.5s, background 0.5s;
 	}
 
 	&__label {
