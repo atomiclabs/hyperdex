@@ -294,7 +294,7 @@ const createAppMenu = options => {
 			// https://github.com/electron/electron/issues/8703
 			// visible: isLoggedIn,
 			submenu: portfolioSubmenu,
-		} : {},
+		} : null,
 		{
 			role: 'window',
 			submenu: [
@@ -339,7 +339,7 @@ const createAppMenu = options => {
 			// https://github.com/electron/electron/issues/8703
 			// visible: isLoggedIn,
 			submenu: portfolioSubmenu,
-		} : {},
+		} : null,
 		{
 			role: 'help',
 			submenu: createHelpMenu(),
@@ -352,7 +352,7 @@ const createAppMenu = options => {
 		tpl.push(createDebugMenu());
 	}
 
-	Menu.setApplicationMenu(Menu.buildFromTemplate(tpl));
+	Menu.setApplicationMenu(Menu.buildFromTemplate(tpl.filter(x => x !== null)));
 };
 
 ipc.on('app-container-state-updated', (event, state) => {
