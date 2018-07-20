@@ -1,10 +1,11 @@
 'use strict';
 const {api} = require('electron-util');
+/// const config = require('./config');
 
 const isNightlyBuild = api.app.getName() === 'HyperDEX Nightly';
 
 /// TODO: Change this before the official launch
-/// const isDevelopment = process.argv.slice(1).includes('--debug') || is.development || isNightlyBuild;
+/// const isDevelopment = config.get('isDebugMode') || is.development || isNightlyBuild;
 const isDevelopment = true;
 
 module.exports = {

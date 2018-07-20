@@ -1,8 +1,11 @@
 'use strict';
-const {is} = require('electron-util');
+const {api, is} = require('electron-util');
 const Store = require('electron-store');
 const {minWindowSize} = require('./constants');
-const {isNightlyBuild} = require('./util-common');
+
+// Note: This is hardcoded here instead of being imported
+// from `util-common` to prevent cyclic dependencies
+const isNightlyBuild = api.app.getName() === 'HyperDEX Nightly';
 
 const defaults = {
 	windowState: {

@@ -1,12 +1,12 @@
 'use strict';
 const path = require('path');
 const electron = require('electron');
-const {runJS} = require('electron-util');
+const {runJS, is} = require('electron-util');
 const i18next = require('i18next');
 const config = require('./config');
 const {openGitHubIssue} = require('./util');
 const {websiteUrl, repoUrl, appViews, supportedLanguagesWithNames} = require('./constants');
-const {isDevelopment} = require('./util-common');
+const {isDevelopment, isNightlyBuild} = require('./util-common');
 const {translate} = require('./locale');
 
 const {app, BrowserWindow, shell, clipboard, ipcMain: ipc, Menu} = electron;
@@ -29,6 +29,20 @@ const setActiveView = view => {
 
 const createHelpMenu = () => {
 	const helpSubmenu = [
+		{
+			label: 'Debug Mode',
+			type: 'checkbox',
+			checked: isDevelopment,
+			enabled: !isNightlyBuild && !is.development, // Enable it only in production
+			click() {
+				config.set('isDebugMode', !isDevelopment);
+				app.relaunch();
+				app.quit();
+			},
+		},
+		{
+			type: 'separator',
+		},
 		{
 			label: t('help.website'),
 			click() {

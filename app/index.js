@@ -28,7 +28,7 @@ try {
 	require('electron-reloader')(module, {watchRenderer: false});
 } catch (_) {}
 
-const {app, session, globalShortcut} = electron;
+const {app, session} = electron;
 
 app.setAppUserModelId('com.lukechilds.hyperdex');
 
@@ -145,21 +145,7 @@ if (!is.development) {
 	`);
 }
 
-const registerDebugHotkey = () => {
-	const debugShortcut = 'Control+Shift+Alt+D';
-
-	globalShortcut.register(debugShortcut, () => {
-		globalShortcut.unregister(debugShortcut);
-		app.relaunch({
-			args: process.argv.slice(1).concat(['--debug']),
-		});
-		app.quit();
-	});
-};
-
 app.on('ready', () => {
-	registerDebugHotkey();
-
 	session.defaultSession.setPermissionRequestHandler((webContents, permission, callback) => {
 		if (permission === 'notifications') {
 			callback(true);
