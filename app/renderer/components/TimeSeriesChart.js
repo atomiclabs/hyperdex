@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import {ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip} from 'recharts';
-import {format as formatDate} from 'date-fns';
+import {format as formatDate, subMonths, subDays, subHours, subMinutes, getDaysInMonth} from 'date-fns';
 import {formatCurrency} from '../util';
 import './TimeSeriesChart.scss';
 
@@ -36,7 +36,32 @@ class TimeSeriesChart extends React.Component {
 			resolution,
 		} = this.props;
 
+		console.log(data);
+
 		const labelFormat = resolutionToLabelFormat.get(resolution);
+
+		const getTicks = (resolution) => {
+			const ticks = {
+				"all": undefined,
+				"year": [...Array(13).keys()].map(index => subMonths(new Date(), index)).reverse(),
+				"month": [...Array(getDaysInMonth(new Date()) + 1).keys()].map(index => subDays(new Date(), index)).reverse(),
+				"week": [...Array(8).keys()].map(index => subDays(new Date(), index)).reverse(),
+				"day": [...Array(25).keys()].map(index => subHours(new Date(), index)).reverse(),
+				"hour": [...Array(61).keys()].map(index => subMinutes(new Date(), index)).reverse(),
+			}
+			return ticks[resolution]
+		}
+		const getDomain = (resolution) => {
+			const domain = {
+				"all": ['auto', 'auto'],
+				"year": [subMonths(new Date(), 13), 'auto'],
+				"month": [subDays(new Date(), getDaysInMonth(new Date()) + 1), 'auto'],
+				"week": [subDays(new Date(), 8), 'auto'],
+				"day": [subHours(new Date(), 25), 'auto'],
+				"hour": [subMinutes(new Date(), 61), 'auto']
+			}
+			return domain[resolution]
+		}
 
 		return (
 			<div className="TimeSeriesChart">
@@ -54,10 +79,11 @@ class TimeSeriesChart extends React.Component {
 							dataKey="time"
 							name="Time"
 							scale="time"
-							domain={['auto', 'auto']}
+							domain={getDomain(resolution)}
 							type="number"
 							interval="preserveStartEnd"
 							tickFormatter={unixTime => formatDate(new Date(unixTime), labelFormat)}
+							ticks={getTicks(resolution)}
 							axisLine={{
 								stroke: 'transparent',
 							}}
