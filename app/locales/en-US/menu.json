@@ -5,6 +5,7 @@
 	"help": {
 		"website": "Website",
 		"sourceCode": "Source Code",
+		"reportSecurityIssue": "Report a Security Issue…",
 		"reportIssue": "Report an Issue…",
 		"about": "About {{appName}}"
 	},

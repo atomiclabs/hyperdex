@@ -42,6 +42,12 @@ const createHelpMenu = () => {
 			},
 		},
 		{
+			label: t('help.reportSecurityIssue'),
+			click() {
+				shell.openExternal('mailto:hyperdex@protonmail.com');
+			},
+		},
+		{
 			label: t('help.reportIssue'),
 			click() {
 				openGitHubIssue('<!-- Please succinctly describe your issue and steps to reproduce it -->');

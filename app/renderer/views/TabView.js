@@ -29,7 +29,7 @@ class TabView extends React.Component {
 							className="feedback-button"
 							value={t('feedback')}
 							onClick={() => {
-								openGitHubIssue('<!--\n\nWe appreciate your feedback!\nTry to include as much relevant info as possible.\n\n-->');
+								openGitHubIssue('<!--\n\nWe appreciate your feedback!\nTry to include as much relevant info as possible.\n\nSecurity issues should be reported to hyperdex@protonmail.com, **not** on GitHub.\n\n-->');
 							}}
 						/>
 						<div className="portfolio-dropdown">
