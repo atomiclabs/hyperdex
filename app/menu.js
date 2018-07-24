@@ -42,6 +42,12 @@ const createHelpMenu = () => {
 			},
 		},
 		{
+			label: t('help.reportSecurityIssue'),
+			click() {
+				shell.openExternal('mailto:hyperdex@protonmail.com');
+			},
+		},
+		{
 			label: t('help.reportIssue'),
 			click() {
 				openGitHubIssue('<!-- Please succinctly describe your issue and steps to reproduce it -->');
@@ -294,7 +300,7 @@ const createAppMenu = options => {
 			// https://github.com/electron/electron/issues/8703
 			// visible: isLoggedIn,
 			submenu: portfolioSubmenu,
-		} : {},
+		} : null,
 		{
 			role: 'window',
 			submenu: [
@@ -339,7 +345,7 @@ const createAppMenu = options => {
 			// https://github.com/electron/electron/issues/8703
 			// visible: isLoggedIn,
 			submenu: portfolioSubmenu,
-		} : {},
+		} : null,
 		{
 			role: 'help',
 			submenu: createHelpMenu(),
@@ -352,7 +358,7 @@ const createAppMenu = options => {
 		tpl.push(createDebugMenu());
 	}
 
-	Menu.setApplicationMenu(Menu.buildFromTemplate(tpl));
+	Menu.setApplicationMenu(Menu.buildFromTemplate(tpl.filter(x => x !== null)));
 };
 
 ipc.on('app-container-state-updated', (event, state) => {

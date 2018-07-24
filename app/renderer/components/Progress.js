@@ -2,7 +2,7 @@ import React from 'react';
 import {classNames} from 'react-extras';
 import './Progress.scss';
 
-const Progress = ({value, showLabel, hideWhenZero, ...props}) => {
+const Progress = ({value, color, showLabel, hideWhenZero, ...props}) => {
 	if (value > 1 || value < 0) {
 		throw new TypeError('Expected a value in the range 0...1');
 	}
@@ -17,7 +17,7 @@ const Progress = ({value, showLabel, hideWhenZero, ...props}) => {
 
 	return (
 		<div {...props} className={className}>
-			<div className="Progress__bar" style={{width: percentageFormatted}}>
+			<div className="Progress__bar" style={{width: percentageFormatted, background: color}}>
 				{showLabel &&
 					<div className="Progress__label">{percentageFormatted}</div>
 				}

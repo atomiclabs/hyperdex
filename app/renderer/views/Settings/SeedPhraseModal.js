@@ -91,6 +91,7 @@ class SeedPhraseModal extends React.Component {
 						<form onSubmit={this.handleSubmit(modalRef)}>
 							<div className="form-group">
 								<Input
+									ref={this.passwordInputRef}
 									disabled={this.state.isVerifying}
 									errorMessage={this.state.passwordError}
 									placeholder={t('seedPhrase.enterPassword')}
