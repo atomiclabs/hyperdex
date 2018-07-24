@@ -11,7 +11,12 @@ const fractionCount = string => {
 
 class Input extends React.Component {
 	static getDerivedStateFromProps(props, state) {
-		return props.value === state.value ? null : {value: props.value};
+		console.log(state, 'state');
+
+		return props.value === state.prevValue ? null : {
+			value: props.value,
+			prevValue: props.value,
+		};
 	}
 
 	state = {
