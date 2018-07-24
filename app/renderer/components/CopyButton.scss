@@ -1,19 +1,21 @@
-$color: #f80759;
-
-.CopyButton {
+.CopyButton,
+.ReloadButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 30px;
 	height: 30px;
 	border: none;
 	background-color: transparent;
-	color: $color;
-	transition: background-color 0.3s ease-in-out;
+	color: var(--red-color);
+	transition: opacity 0.3s ease-in-out;
 
 	&:hover {
-		color: shade($color, 15%);
+		opacity: 0.7;
 	}
 
 	&:active {
-		color: shade($color, 25%);
+		opacity: 0.4;
 		transition: none;
 	}
 }
