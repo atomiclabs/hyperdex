@@ -36,32 +36,18 @@ class TimeSeriesChart extends React.Component {
 			resolution,
 		} = this.props;
 
-		console.log(data);
-
 		const labelFormat = resolutionToLabelFormat.get(resolution);
 
-		const getTicks = (resolution) => {
+		const getTicks = resolution => {
 			const ticks = {
-				"all": undefined,
-				"year": [...Array(13).keys()].map(index => subMonths(new Date(), index)).reverse(),
-				"month": [...Array(getDaysInMonth(new Date()) + 1).keys()].map(index => subDays(new Date(), index)).reverse(),
-				"week": [...Array(8).keys()].map(index => subDays(new Date(), index)).reverse(),
-				"day": [...Array(25).keys()].map(index => subHours(new Date(), index)).reverse(),
-				"hour": [...Array(61).keys()].map(index => subMinutes(new Date(), index)).reverse(),
-			}
-			return ticks[resolution]
-		}
-		const getDomain = (resolution) => {
-			const domain = {
-				"all": ['auto', 'auto'],
-				"year": [subMonths(new Date(), 13), 'auto'],
-				"month": [subDays(new Date(), getDaysInMonth(new Date()) + 1), 'auto'],
-				"week": [subDays(new Date(), 8), 'auto'],
-				"day": [subHours(new Date(), 25), 'auto'],
-				"hour": [subMinutes(new Date(), 61), 'auto']
-			}
-			return domain[resolution]
-		}
+				year: [...new Array(13).keys()].map(index => subMonths(new Date(), index)).reverse(),
+				month: [...new Array(getDaysInMonth(new Date()) + 1).keys()].map(index => subDays(new Date(), index)).reverse(),
+				week: [...new Array(8).keys()].map(index => subDays(new Date(), index)).reverse(),
+				day: [...new Array(25).keys()].map(index => subHours(new Date(), index)).reverse(),
+				hour: [...new Array(61).keys()].map(index => subMinutes(new Date(), index)).reverse(),
+			};
+			return ticks[resolution];
+		};
 
 		return (
 			<div className="TimeSeriesChart">
@@ -79,7 +65,7 @@ class TimeSeriesChart extends React.Component {
 							dataKey="time"
 							name="Time"
 							scale="time"
-							domain={getDomain(resolution)}
+							domain={['auto', 'auto']}
 							type="number"
 							interval="preserveStartEnd"
 							tickFormatter={unixTime => formatDate(new Date(unixTime), labelFormat)}
