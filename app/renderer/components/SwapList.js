@@ -66,9 +66,13 @@ const SwapItem = ({swap}) => (
 	</div>
 );
 
-const SwapList = ({swaps, showCancel}) => {
+const SwapList = ({swaps, limit, showCancel}) => {
 	if (swaps.length === 0) {
 		return <Empty show text={t('list.empty')}/>;
+	}
+
+	if (limit) {
+		swaps = swaps.slice(0, limit);
 	}
 
 	return (
