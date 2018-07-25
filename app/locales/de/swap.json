@@ -4,6 +4,8 @@
 	"timedOut": "Tausch abgelaufen",
 	"title": "Tausch",
 	"details": {
+		"aliceclaim": "Alice Claim",
+		"alicereclaim": "Alice Reclaim",
 		"alicepayment": "Alice Zahlung",
 		"alicespend": "Alice Ausgaben",
 		"bobdeposit": "Bob Einzahlung",
@@ -35,7 +37,11 @@
 		"completed": "Abgeschlossen",
 		"failed": "Fehlgeschlagen",
 		"matched": "Übereinstimmung",
+		"reverted": "Reverted",
 		"pending": "Ausstehend",
 		"unmatched": "Nicht Übereingestimmt"
+	},
+	"statusInformation": {
+		"reverted": "The swap was reverted due to connectivity issues."
 	}
 }
