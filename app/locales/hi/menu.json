@@ -3,23 +3,24 @@
 		"preferences": "प्राथमिकताएँ..."
 	},
 	"help": {
-		"about": "{{appName}} के बारे में",
-		"reportIssue": "किसी समस्या की रिपोर्ट करें…",
+		"website": "वेबसाइट",
 		"sourceCode": "सोर्स कोड",
-		"website": "वेबसाइट"
+		"reportSecurityIssue": "Report a Security Issue…",
+		"reportIssue": "किसी समस्या की रिपोर्ट करें…",
+		"about": "{{appName}} के बारे में"
 	},
 	"other": {
 		"file": "फ़ाइल"
 	},
 	"portfolio": {
+		"title": "पोर्टफोलियो",
 		"dashboard": "डैशबोर्ड",
+		"swap": "स्वैप करें",
 		"exchange": "एक्सचेंज",
+		"trades": "ट्रेड",
+		"settings": "सेटिंग",
 		"goToPrevView": "पिछले व्यू पर जाएँ",
 		"goToNextView": "अगले व्यू पर जाएँ",
-		"logOut": "लॉग आउट",
-		"settings": "सेटिंग",
-		"swap": "स्वैप करें",
-		"title": "पोर्टफोलियो",
-		"trades": "ट्रेड"
+		"logOut": "लॉग आउट"
 	}
 }
