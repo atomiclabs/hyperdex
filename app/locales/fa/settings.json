@@ -1,8 +1,20 @@
 {
 	"app": "نرم افزار",
+	"deletePortfolio": {
+		"confirm": "I understand, delete this portfolio",
+		"description": "<0>Unless you save your seed phrase, this action cannot be undone and will permanently delete the <1><0>{{name}}</0></1> portfolio.</0><1>Please type in the name of the portfolio to confirm.</1>",
+		"title": "Delete Portfolio"
+	},
 	"enabledCurrencies": "ارزهای فعال",
 	"logOutAppSettings": "<0><0>خارج شوید</0> تا تنظیمات بیشتری از برنامه را ببینید.</0>",
+	"name": "Name",
+	"manage": "Manage",
 	"portfolio": "سبد سهام",
+	"seedPhrase": {
+		"enterPassword": "Enter password",
+		"submit": "Submit",
+		"title": "View Seed Phrase"
+	},
 	"title": "تنظیمات",
 	"theme": {
 		"theme": "پوسته",
