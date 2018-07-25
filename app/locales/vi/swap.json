@@ -4,6 +4,8 @@
 	"timedOut": "Hết thời gian hoán đổi",
 	"title": "Hoán đổi",
 	"details": {
+		"aliceclaim": "Alice Claim",
+		"alicereclaim": "Alice Reclaim",
 		"alicepayment": "Alice đã thanh toán",
 		"alicespend": "Alice đã Chi tiêu",
 		"bobdeposit": "Bob đã Nạp tiền",
@@ -35,7 +37,11 @@
 		"completed": "Đã hoàn tất",
 		"failed": "Thất bại",
 		"matched": "Đã khớp",
+		"reverted": "Bị trả về",
 		"pending": "Chờ xử lý",
 		"unmatched": "Không khớp"
+	},
+	"statusInformation": {
+		"reverted": "Hoán đổi đã bị trả về do có lỗi kết nối mạng."
 	}
 }
