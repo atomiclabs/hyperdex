@@ -3,23 +3,24 @@
 		"preferences": "偏好設定..."
 	},
 	"help": {
-		"about": "關於 {{appName}}",
-		"reportIssue": "回報問題…",
+		"website": "網站",
 		"sourceCode": "原始碼",
-		"website": "網站"
+		"reportSecurityIssue": "Report a Security Issue…",
+		"reportIssue": "回報問題…",
+		"about": "關於 {{appName}}"
 	},
 	"other": {
 		"file": "檔案"
 	},
 	"portfolio": {
+		"title": "投資組合",
 		"dashboard": "監控面板",
+		"swap": "交換",
 		"exchange": "交易",
+		"trades": "交易",
+		"settings": "設定",
 		"goToPrevView": "轉到上一視圖",
 		"goToNextView": "轉到下一視圖",
-		"logOut": "登出",
-		"settings": "設定",
-		"swap": "交換",
-		"title": "投資組合",
-		"trades": "交易"
+		"logOut": "登出"
 	}
 }
