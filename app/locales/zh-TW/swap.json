@@ -4,6 +4,8 @@
 	"timedOut": "交換超時",
 	"title": "交換",
 	"details": {
+		"aliceclaim": "Alice Claim",
+		"alicereclaim": "Alice Reclaim",
 		"alicepayment": "Alice 支付",
 		"alicespend": "Alice 花費",
 		"bobdeposit": "Bob 存款",
@@ -35,7 +37,11 @@
 		"completed": "已完成",
 		"failed": "失敗",
 		"matched": "已匹配",
+		"reverted": "Reverted",
 		"pending": "未決",
 		"unmatched": "未匹配"
+	},
+	"statusInformation": {
+		"reverted": "The swap was reverted due to connectivity issues."
 	}
 }
