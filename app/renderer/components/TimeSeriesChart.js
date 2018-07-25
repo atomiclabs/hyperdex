@@ -25,25 +25,18 @@ const resolutionToLabelFormat = new Map([
 	['all', 'MMMM YYYY'],
 ]);
 
-const now = new Date();
-const makeTicks = (count, unit) => {
-	const subFunction = {
-		month: (date, index) => subMonths(date, index),
-		day: (date, index) => subDays(date, index),
-		hour: (date, index) => subHours(date, index),
-		minute: (date, index) => subMinutes(date, index),
-	};
-
-	return [...new Array(count).keys()].map(index => subFunction[unit](now, index)).reverse();
+const makeTicks = (count, fn) => {
+	const now = new Date();
+	return [...new Array(count).keys()].map(index => fn(now, index)).reverse();
 };
 
 const getTicks = resolution => {
 	const ticks = {
-		year: makeTicks(13, 'month'),
-		month: makeTicks(getDaysInMonth(now) + 1, 'day'),
-		week: makeTicks(8, 'day'),
-		day: makeTicks(25, 'hour'),
-		hour: makeTicks(61, 'minute'),
+		year: makeTicks(13, subMonths),
+		month: makeTicks(getDaysInMonth(new Date()) + 1, subDays),
+		week: makeTicks(8, subDays),
+		day: makeTicks(25, subHours),
+		hour: makeTicks(61, subMinutes),
 	};
 	return ticks[resolution];
 };
