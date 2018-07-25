@@ -3,23 +3,24 @@
 		"preferences": "환경 설정..."
 	},
 	"help": {
-		"about": "{{appName}} 정보",
-		"reportIssue": "문제 신고...",
+		"website": "웹사이트",
 		"sourceCode": "소스 코드",
-		"website": "웹사이트"
+		"reportSecurityIssue": "Report a Security Issue…",
+		"reportIssue": "문제 신고...",
+		"about": "{{appName}} 정보"
 	},
 	"other": {
 		"file": "파일"
 	},
 	"portfolio": {
+		"title": "포트폴리오",
 		"dashboard": "대시보드",
+		"swap": "스왑",
 		"exchange": "거래소",
+		"trades": "거래",
+		"settings": "설정",
 		"goToPrevView": "이전 보기로 가기",
 		"goToNextView": "다음 보기로 가기",
-		"logOut": "로그아웃",
-		"settings": "설정",
-		"swap": "스왑",
-		"title": "포트폴리오",
-		"trades": "거래"
+		"logOut": "로그아웃"
 	}
 }
