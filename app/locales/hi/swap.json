@@ -4,6 +4,8 @@
 	"timedOut": "स्वैप समय समाप्त हुआ",
 	"title": "स्वैप",
 	"details": {
+		"aliceclaim": "Alice Claim",
+		"alicereclaim": "Alice Reclaim",
 		"alicepayment": "Alice भुगतान",
 		"alicespend": "Alice व्यय",
 		"bobdeposit": "Bob डिपॉजिट",
@@ -35,7 +37,11 @@
 		"completed": "पूरा हो गया",
 		"failed": "विफल रहा",
 		"matched": "मिलान हुआ",
+		"reverted": "Reverted",
 		"pending": "पेंडिंग",
 		"unmatched": "मिलान नहीं हुआ"
+	},
+	"statusInformation": {
+		"reverted": "The swap was reverted due to connectivity issues."
 	}
 }
