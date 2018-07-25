@@ -3,23 +3,24 @@
 		"preferences": "Mapendeleo…"
 	},
 	"help": {
-		"about": "Kuhusu {{appName}}",
-		"reportIssue": "Tuma ripoti kuhusu hitilafu…",
+		"website": "Tovuti",
 		"sourceCode": "Msimbo chanzo",
-		"website": "Tovuti"
+		"reportSecurityIssue": "Report a Security Issue…",
+		"reportIssue": "Tuma ripoti kuhusu hitilafu…",
+		"about": "Kuhusu {{appName}}"
 	},
 	"other": {
 		"file": "Faili"
 	},
 	"portfolio": {
+		"title": "Uwekezaji",
 		"dashboard": "Dashibodi",
+		"swap": "Badilisha",
 		"exchange": "Badilisha",
+		"trades": "Biashara",
+		"settings": "Mipangilio",
 		"goToPrevView": "Nenda kwenye Mwonekano Uliopita",
 		"goToNextView": "Nenda kwenye Mwonekano Unaofuata",
-		"logOut": "Ondoka",
-		"settings": "Mipangilio",
-		"swap": "Badilisha",
-		"title": "Uwekezaji",
-		"trades": "Biashara"
+		"logOut": "Ondoka"
 	}
 }
