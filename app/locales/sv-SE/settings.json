@@ -1,19 +1,19 @@
 {
 	"app": "App",
 	"deletePortfolio": {
-		"confirm": "I understand, delete this portfolio",
-		"description": "<0>Unless you save your seed phrase, this action cannot be undone and will permanently delete the <1><0>{{name}}</0></1> portfolio.</0><1>Please type in the name of the portfolio to confirm.</1>",
-		"title": "Delete Portfolio"
+		"confirm": "Jag förstår, ta bort den här portföljen",
+		"description": "<0>Om du inte sparar din fröfras kan denna åtgärd inte ångras och kommer radera portföljen <1><0>{{name}}</0></1> permanent.</0><1>Skriv in namnet på portföljen för att bekräfta.</1>",
+		"title": "Ta bort portfölj"
 	},
 	"enabledCurrencies": "Aktiverade valutor",
 	"logOutAppSettings": "<0><0>Logga ut</0> för att se fler appinställningar.</0>",
-	"name": "Name",
-	"manage": "Manage",
+	"name": "Namn",
+	"manage": "Hantera",
 	"portfolio": "Portfölj",
 	"seedPhrase": {
-		"enterPassword": "Enter password",
-		"submit": "Submit",
-		"title": "View Seed Phrase"
+		"enterPassword": "Ange lösenord",
+		"submit": "Skicka",
+		"title": "Visa fröfras"
 	},
 	"title": "Inställningar",
 	"theme": {
