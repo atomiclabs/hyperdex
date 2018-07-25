@@ -1,17 +1,22 @@
 import React from 'react';
 import appContainer from 'containers/App';
+import DashboardIcon from 'icons/Dashboard';
+import SwapIcon from 'icons/Swap';
+import ExchangeIcon from 'icons/Exchange';
+import TradesIcon from 'icons/Trades';
+import SettingsIcon from 'icons/Settings';
 import {translate} from '../translate';
 
 const t = translate('nav');
 
-const IconNavItem = props => {
+const IconNavItem = ({icon: Icon, ...props}) => {
 	const setView = () => appContainer.setActiveView(props.to);
 	const active = appContainer.state.activeView === props.to;
 	const title = props.to.toLowerCase();
 
 	return (
 		<div onClick={setView} className={`nav--button ${active ? 'active' : ''}`}>
-			<span className={`icon icon--${title}`}/>
+			<Icon className="icon"/>
 			<span className="title">
 				{t(title)}
 			</span>
@@ -21,11 +26,11 @@ const IconNavItem = props => {
 
 const Nav = () => (
 	<nav className="nav">
-		<IconNavItem to="Dashboard"/>
-		<IconNavItem to="Swap"/>
-		<IconNavItem to="Exchange"/>
-		<IconNavItem to="Trades"/>
-		<IconNavItem to="Settings"/>
+		<IconNavItem to="Dashboard" icon={DashboardIcon}/>
+		<IconNavItem to="Swap" icon={SwapIcon}/>
+		<IconNavItem to="Exchange" icon={ExchangeIcon}/>
+		<IconNavItem to="Trades" icon={TradesIcon}/>
+		<IconNavItem to="Settings" icon={SettingsIcon}/>
 	</nav>
 );
 

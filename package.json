@@ -181,7 +181,10 @@
 		}
 	},
 	"stylelint": {
-		"extends": "stylelint-config-xo-scss"
+		"extends": "stylelint-config-xo-scss",
+		"rules": {
+			"scss/no-dollar-variables": true
+		}
 	},
 	"build": {
 		"files": [

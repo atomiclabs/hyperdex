@@ -127,27 +127,7 @@ h6 {
 				width: 24px;
 				height: 24px;
 				margin-bottom: 8px;
-				background: var(--text-color);
-
-				&--dashboard {
-					@include colored-icon-no-size($dashboard-icon);
-				}
-
-				&--swap {
-					@include colored-icon-no-size($swap-icon);
-				}
-
-				&--exchange {
-					@include colored-icon-no-size($exchange-icon);
-				}
-
-				&--trades {
-					@include colored-icon-no-size($trades-icon);
-				}
-
-				&--settings {
-					@include colored-icon-no-size($settings-icon);
-				}
+				fill: var(--text-color);
 			}
 
 			[data-theme='light'] & {
@@ -162,7 +142,7 @@ h6 {
 				}
 
 				.icon {
-					background: var(--primary-color);
+					fill: var(--primary-color);
 				}
 			}
 		}

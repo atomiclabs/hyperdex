@@ -17,7 +17,7 @@ const CopyButton = ({className, onClick, value, ...props}) => {
 				clipboard.writeText(value);
 			}}
 		>
-			<CopyIcon/>
+			<CopyIcon size="17px"/>
 		</button>
 	);
 };

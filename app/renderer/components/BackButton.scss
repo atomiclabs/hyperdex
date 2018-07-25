@@ -1,13 +1,10 @@
-@import '~sass-extras/index';
 @import '../styles/variables';
-
-$icon: '<svg width="8" height="13" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#path0_fill" transform="rotate(-180 3.505 6)"/><defs><path id="path0_fill" fill-rule="evenodd" d="M6.828 5.368c-.036-.035-.09-.044-.133-.07-.063-.085-.117-.174-.198-.253L1.857.519C1.309-.016.567-.161.2.196c-.366.357-.218 1.08.33 1.616l4.31 4.203-4.308 4.202c-.55.535-.697 1.259-.331 1.616.366.357 1.108.212 1.656-.323l4.64-4.526c.08-.08.135-.168.198-.253.043-.026.097-.035.133-.07.162-.158.208-.393.178-.646.03-.254-.016-.49-.178-.647z"/></defs></svg>';
 
 .BackButton {
 	@include icon-button;
 
-	&::after {
-		@include colored-icon($icon, var(--text-color));
-		top: 1px;
+	svg {
+		width: 8px;
+		height: 12px;
 	}
 }
