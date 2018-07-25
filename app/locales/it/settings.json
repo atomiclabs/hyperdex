@@ -1,8 +1,20 @@
 {
 	"app": "App",
+	"deletePortfolio": {
+		"confirm": "I understand, delete this portfolio",
+		"description": "<0>Unless you save your seed phrase, this action cannot be undone and will permanently delete the <1><0>{{name}}</0></1> portfolio.</0><1>Please type in the name of the portfolio to confirm.</1>",
+		"title": "Delete Portfolio"
+	},
 	"enabledCurrencies": "Valute abilitate",
 	"logOutAppSettings": "<0><0>Esci</0> per visualizzare ulteriori impostazioni dell'app.</0>",
+	"name": "Name",
+	"manage": "Manage",
 	"portfolio": "Portafoglio",
+	"seedPhrase": {
+		"enterPassword": "Enter password",
+		"submit": "Submit",
+		"title": "View Seed Phrase"
+	},
 	"title": "Impostazioni",
 	"theme": {
 		"theme": "Tema",
