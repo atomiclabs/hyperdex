@@ -3,23 +3,24 @@
 		"preferences": "การตั้งค่า..."
 	},
 	"help": {
-		"about": "เกี่ยวกับ {{appName}}",
-		"reportIssue": "รายงานปัญหา",
+		"website": "เว็บไซต์",
 		"sourceCode": "ซอร์สโค้ด",
-		"website": "เว็บไซต์"
+		"reportSecurityIssue": "Report a Security Issue…",
+		"reportIssue": "รายงานปัญหา",
+		"about": "เกี่ยวกับ {{appName}}"
 	},
 	"other": {
 		"file": "ไฟล์"
 	},
 	"portfolio": {
+		"title": "พอร์ตการลงทุน",
 		"dashboard": "หน้าหลัก",
+		"swap": "สวอป",
 		"exchange": "แลกเปลี่ยน",
+		"trades": "การซื้อขาย",
+		"settings": "การตั้งค่า",
 		"goToPrevView": "ไปหน้าก่อนหน้านี้",
 		"goToNextView": "ไปดูหน้าถัดไป",
-		"logOut": "ออกจากระบบ",
-		"settings": "การตั้งค่า",
-		"swap": "สวอป",
-		"title": "พอร์ตการลงทุน",
-		"trades": "การซื้อขาย"
+		"logOut": "ออกจากระบบ"
 	}
 }
