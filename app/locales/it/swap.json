@@ -4,6 +4,8 @@
 	"timedOut": "Scambio scaduto",
 	"title": "Scambio",
 	"details": {
+		"aliceclaim": "Alice Claim",
+		"alicereclaim": "Alice Reclaim",
 		"alicepayment": "Pagamento di Alice",
 		"alicespend": "Alice ha speso",
 		"bobdeposit": "Deposito di Bob",
@@ -35,7 +37,11 @@
 		"completed": "Completato",
 		"failed": "Non riuscito",
 		"matched": "Abbinato",
+		"reverted": "Reverted",
 		"pending": "In attesa",
 		"unmatched": "Non abbinato"
+	},
+	"statusInformation": {
+		"reverted": "The swap was reverted due to connectivity issues."
 	}
 }
