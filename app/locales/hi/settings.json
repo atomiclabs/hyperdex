@@ -1,8 +1,20 @@
 {
 	"app": "ऐप",
+	"deletePortfolio": {
+		"confirm": "I understand, delete this portfolio",
+		"description": "<0>Unless you save your seed phrase, this action cannot be undone and will permanently delete the <1><0>{{name}}</0></1> portfolio.</0><1>Please type in the name of the portfolio to confirm.</1>",
+		"title": "Delete Portfolio"
+	},
 	"enabledCurrencies": "सक्षम मुद्राएँ",
 	"logOutAppSettings": "<0>अधिक ऐप सेटिंग देखने के लिए<0>लॉग आउट</0> करें।</0>",
+	"name": "Name",
+	"manage": "Manage",
 	"portfolio": "पोर्टफोलियो",
+	"seedPhrase": {
+		"enterPassword": "Enter password",
+		"submit": "Submit",
+		"title": "View Seed Phrase"
+	},
 	"title": "सेटिंग",
 	"theme": {
 		"theme": "थीम",
