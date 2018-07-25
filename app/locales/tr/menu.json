@@ -3,23 +3,24 @@
 		"preferences": "Tercihler…"
 	},
 	"help": {
-		"about": "Hakkında {{appName}}",
-		"reportIssue": "Sorun bildir…",
+		"website": "Web sitesi",
 		"sourceCode": "Kaynak kodu",
-		"website": "Web sitesi"
+		"reportSecurityIssue": "Report a Security Issue…",
+		"reportIssue": "Sorun bildir…",
+		"about": "Hakkında {{appName}}"
 	},
 	"other": {
 		"file": "Dosya"
 	},
 	"portfolio": {
+		"title": "Portföy",
 		"dashboard": "Kontrol paneli",
+		"swap": "Takas Et",
 		"exchange": "Borsa",
+		"trades": "Alım satım",
+		"settings": "Ayarlar",
 		"goToPrevView": "Bir Önceki Ekrana Git",
 		"goToNextView": "Bir Sonraki Ekrana Git",
-		"logOut": "Çıkış Yap",
-		"settings": "Ayarlar",
-		"swap": "Takas Et",
-		"title": "Portföy",
-		"trades": "Alım satım"
+		"logOut": "Çıkış Yap"
 	}
 }
