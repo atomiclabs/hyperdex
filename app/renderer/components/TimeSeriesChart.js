@@ -25,6 +25,29 @@ const resolutionToLabelFormat = new Map([
 	['all', 'MMMM YYYY'],
 ]);
 
+const now = new Date();
+const makeTicks = (count, unit) => {
+	const subFunction = {
+		month: (date, index) => subMonths(date, index),
+		day: (date, index) => subDays(date, index),
+		hour: (date, index) => subHours(date, index),
+		minute: (date, index) => subMinutes(date, index),
+	};
+
+	return [...new Array(count).keys()].map(index => subFunction[unit](now, index)).reverse();
+};
+
+const getTicks = resolution => {
+	const ticks = {
+		year: makeTicks(13, 'month'),
+		month: makeTicks(getDaysInMonth(now) + 1, 'day'),
+		week: makeTicks(8, 'day'),
+		day: makeTicks(25, 'hour'),
+		hour: makeTicks(61, 'minute'),
+	};
+	return ticks[resolution];
+};
+
 class TimeSeriesChart extends React.Component {
 	shouldComponentUpdate(nextProps) {
 		return !_.isEqual(nextProps, this.props);
@@ -37,17 +60,6 @@ class TimeSeriesChart extends React.Component {
 		} = this.props;
 
 		const labelFormat = resolutionToLabelFormat.get(resolution);
-
-		const getTicks = resolution => {
-			const ticks = {
-				year: [...new Array(13).keys()].map(index => subMonths(new Date(), index)).reverse(),
-				month: [...new Array(getDaysInMonth(new Date()) + 1).keys()].map(index => subDays(new Date(), index)).reverse(),
-				week: [...new Array(8).keys()].map(index => subDays(new Date(), index)).reverse(),
-				day: [...new Array(25).keys()].map(index => subHours(new Date(), index)).reverse(),
-				hour: [...new Array(61).keys()].map(index => subMinutes(new Date(), index)).reverse(),
-			};
-			return ticks[resolution];
-		};
 
 		return (
 			<div className="TimeSeriesChart">
