@@ -4,6 +4,8 @@
 	"timedOut": "Takas zaman aşımına uğradı",
 	"title": "Takas Et",
 	"details": {
+		"aliceclaim": "Alice Claim",
+		"alicereclaim": "Alice Reclaim",
 		"alicepayment": "Alice Ödeme",
 		"alicespend": "Alice Harcama",
 		"bobdeposit": "Bob Para Yatırma",
@@ -35,7 +37,11 @@
 		"completed": "Tamamlandı",
 		"failed": "Başarısız",
 		"matched": "Eşleşti",
+		"reverted": "Reverted",
 		"pending": "Beklemede",
 		"unmatched": "Eşleşen yok"
+	},
+	"statusInformation": {
+		"reverted": "The swap was reverted due to connectivity issues."
 	}
 }
