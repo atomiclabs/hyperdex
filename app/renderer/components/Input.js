@@ -1,5 +1,6 @@
 import React from 'react';
 import {classNames} from 'react-extras';
+import propTypesRange from 'prop-types-range';
 import './Input.scss';
 
 const stripLeadingZeros = string => string.replace(/^0+(?=\d)/, '');
@@ -17,6 +18,10 @@ const truncateFractions = (value, maximumFractionDigits) => Number.parseFloat(va
 const isExponentialNotation = value => /(\d+\.?\d*)e\d*(\+|-)(\d+)/.test(value);
 
 class Input extends React.Component {
+	static propTypes = {
+		fractionalDigits: propTypesRange(0, 20),
+	}
+
 	static getDerivedStateFromProps(props, state) {
 		return props.value === state.value ? null : {value: props.value};
 	}
