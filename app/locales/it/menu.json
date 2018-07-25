@@ -3,23 +3,24 @@
 		"preferences": "Impostazioni…"
 	},
 	"help": {
-		"about": "Informazioni su {{appName}}",
-		"reportIssue": "Segnala un problema…",
+		"website": "Sito web",
 		"sourceCode": "Codice sorgente",
-		"website": "Sito web"
+		"reportSecurityIssue": "Report a Security Issue…",
+		"reportIssue": "Segnala un problema…",
+		"about": "Informazioni su {{appName}}"
 	},
 	"other": {
 		"file": "File"
 	},
 	"portfolio": {
+		"title": "Portafoglio",
 		"dashboard": "Pannello di controllo",
+		"swap": "Scambia",
 		"exchange": "Scambio",
+		"trades": "Operazioni",
+		"settings": "Impostazioni",
 		"goToPrevView": "Vai alla vista precedente",
 		"goToNextView": "Vai alla vista successiva",
-		"logOut": "Esci",
-		"settings": "Impostazioni",
-		"swap": "Scambia",
-		"title": "Portafoglio",
-		"trades": "Operazioni"
+		"logOut": "Esci"
 	}
 }
