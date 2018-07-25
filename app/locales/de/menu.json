@@ -3,23 +3,24 @@
 		"preferences": "Einstellungen…"
 	},
 	"help": {
-		"about": "Über {{appName}}",
-		"reportIssue": "Problem melden…",
+		"website": "Website",
 		"sourceCode": "Quellcode",
-		"website": "Website"
+		"reportSecurityIssue": "Report a Security Issue…",
+		"reportIssue": "Problem melden…",
+		"about": "Über {{appName}}"
 	},
 	"other": {
 		"file": "Datei"
 	},
 	"portfolio": {
+		"title": "Portfolio",
 		"dashboard": "Dashboard",
+		"swap": "Tausch",
 		"exchange": "Tauschmarkt",
+		"trades": "Geschäfte",
+		"settings": "Einstellungen",
 		"goToPrevView": "Zur vorherigen Ansicht",
 		"goToNextView": "Zur nächsten Ansicht",
-		"logOut": "Ausloggen",
-		"settings": "Einstellungen",
-		"swap": "Tausch",
-		"title": "Portfolio",
-		"trades": "Geschäfte"
+		"logOut": "Ausloggen"
 	}
 }
