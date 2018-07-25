@@ -3,23 +3,24 @@
 		"preferences": "ترجیحات…"
 	},
 	"help": {
-		"about": "درباره {{appName}}",
-		"reportIssue": "گزارش دادن مشکل…",
+		"website": "وب‌سایت",
 		"sourceCode": "متن برنامه",
-		"website": "وب‌سایت"
+		"reportSecurityIssue": "Report a Security Issue…",
+		"reportIssue": "گزارش دادن مشکل…",
+		"about": "درباره {{appName}}"
 	},
 	"other": {
 		"file": "فایل"
 	},
 	"portfolio": {
+		"title": "سبد سهام",
 		"dashboard": "داشبورد",
+		"swap": "جابجایی",
 		"exchange": "تبادل",
+		"trades": "معاملات",
+		"settings": "تنظیمات",
 		"goToPrevView": "رفتن به نمای قبلی",
 		"goToNextView": "رفتن به نمای بعدی",
-		"logOut": "خروج",
-		"settings": "تنظیمات",
-		"swap": "جابجایی",
-		"title": "سبد سهام",
-		"trades": "معاملات"
+		"logOut": "خروج"
 	}
 }
