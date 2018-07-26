@@ -1939,9 +1939,12 @@ const getCurrencyName = symbol => {
 
 const getCurrency = symbol => supportedCurrencies.find(currency => currency.coin === symbol);
 
+const isEtomic = symbol => getCurrency(symbol).etomic;
+
 module.exports = {
 	supportedCurrencies,
 	getCurrencySymbols,
 	getCurrencyName,
 	getCurrency,
+	isEtomic,
 };
