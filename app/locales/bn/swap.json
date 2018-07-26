@@ -4,6 +4,8 @@
 	"timedOut": "বিনিময়ের সময় অতিক্রান্ত হয়েছে",
 	"title": "বিনিময়",
 	"details": {
+		"aliceclaim": "Alice দাবি",
+		"alicereclaim": "Alice Reclaim",
 		"alicepayment": "Alice পেমেন্ট",
 		"alicespend": "Alice ব্যয়",
 		"bobdeposit": "Bob ডিপোজিট",
@@ -35,7 +37,11 @@
 		"completed": "সম্পন্ন হয়েছে",
 		"failed": "ব্যর্থ হয়েছে",
 		"matched": "মিলেছে",
+		"reverted": "প্রত্যাবর্তন",
 		"pending": "বিবেচনাধীন",
 		"unmatched": "মিলেনি"
+	},
+	"statusInformation": {
+		"reverted": "সংযোগ সমস্যাগুলির কারণে বিনিময় প্রত্যাবর্তন করা হয়েছিল।"
 	}
 }

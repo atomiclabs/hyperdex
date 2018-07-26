@@ -4,6 +4,8 @@
 	"timedOut": "مهلت جابجایی تمام شد",
 	"title": "جابجایی",
 	"details": {
+		"aliceclaim": "Alice Claim",
+		"alicereclaim": "Alice Reclaim",
 		"alicepayment": "پرداخت آلیس",
 		"alicespend": "مخارج آلیس",
 		"bobdeposit": "سپرده باب",
@@ -35,7 +37,11 @@
 		"completed": "کامل شد",
 		"failed": "ناموفق بود",
 		"matched": "مطابق کرد",
+		"reverted": "Reverted",
 		"pending": "در حال بررسی",
 		"unmatched": "بدون تطابق"
+	},
+	"statusInformation": {
+		"reverted": "The swap was reverted due to connectivity issues."
 	}
 }

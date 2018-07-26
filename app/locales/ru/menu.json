@@ -3,23 +3,24 @@
 		"preferences": "Настройки…"
 	},
 	"help": {
-		"about": "О приложении {{appName}}",
-		"reportIssue": "Сообщить о проблеме…",
+		"website": "Веб-сайт",
 		"sourceCode": "Исходный код",
-		"website": "Веб-сайт"
+		"reportSecurityIssue": "Report a Security Issue…",
+		"reportIssue": "Сообщить о проблеме…",
+		"about": "О приложении {{appName}}"
 	},
 	"other": {
 		"file": "Файл"
 	},
 	"portfolio": {
+		"title": "Портфолио",
 		"dashboard": "Панель",
+		"swap": "Своп",
 		"exchange": "Обмен",
+		"trades": "Сделки",
+		"settings": "Настройки",
 		"goToPrevView": "Перейти к предыдущему виду",
 		"goToNextView": "Перейти к следующему виду",
-		"logOut": "Выйти",
-		"settings": "Настройки",
-		"swap": "Своп",
-		"title": "Портфолио",
-		"trades": "Сделки"
+		"logOut": "Выйти"
 	}
 }

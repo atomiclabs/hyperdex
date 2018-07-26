@@ -3,23 +3,24 @@
 		"preferences": "設定…"
 	},
 	"help": {
-		"about": "{{appName}} について",
-		"reportIssue": "問題を報告…",
+		"website": "ウェブサイト",
 		"sourceCode": "ソースコード",
-		"website": "ウェブサイト"
+		"reportSecurityIssue": "Report a Security Issue…",
+		"reportIssue": "問題を報告…",
+		"about": "{{appName}} について"
 	},
 	"other": {
 		"file": "ファイル"
 	},
 	"portfolio": {
+		"title": "ポートフォリオ",
 		"dashboard": "ダッシュボード",
+		"swap": "スワップ",
 		"exchange": "取引所",
+		"trades": "トレード",
+		"settings": "設定",
 		"goToPrevView": "前のビューに移動",
 		"goToNextView": "次のビューに移動",
-		"logOut": "ログアウト",
-		"settings": "設定",
-		"swap": "スワップ",
-		"title": "ポートフォリオ",
-		"trades": "トレード"
+		"logOut": "ログアウト"
 	}
 }

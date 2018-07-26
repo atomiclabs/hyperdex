@@ -1,8 +1,20 @@
 {
 	"app": "앱",
+	"deletePortfolio": {
+		"confirm": "I understand, delete this portfolio",
+		"description": "<0>Unless you save your seed phrase, this action cannot be undone and will permanently delete the <1><0>{{name}}</0></1> portfolio.</0><1>Please type in the name of the portfolio to confirm.</1>",
+		"title": "Delete Portfolio"
+	},
 	"enabledCurrencies": "활성화된 화폐",
 	"logOutAppSettings": "<0>더 많은 앱 설정을 보려면 <0>로그아웃</0>하십시오.</0>",
+	"name": "Name",
+	"manage": "Manage",
 	"portfolio": "포트폴리오",
+	"seedPhrase": {
+		"enterPassword": "Enter password",
+		"submit": "Submit",
+		"title": "View Seed Phrase"
+	},
 	"title": "설정",
 	"theme": {
 		"theme": "테마",

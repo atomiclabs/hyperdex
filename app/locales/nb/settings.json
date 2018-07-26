@@ -1,8 +1,20 @@
 {
 	"app": "App",
+	"deletePortfolio": {
+		"confirm": "Jeg forstår, slett denne porteføljen",
+		"description": "<0>Hvis du ikke lagrer din \"Seed Phrase\" kan denne handling ikke angres og vil permanent slette <1><0>{{name}}</0></1> porteføljen.</0> <1>Vennligst skriv i navnet på porteføljen for å bekrefte.</1>",
+		"title": "Slett portefølje"
+	},
 	"enabledCurrencies": "Aktiverte valutaer",
 	"logOutAppSettings": "<0><0>Logg ut</0> for å se flere app innstillinger.</0>",
+	"name": "Navn",
+	"manage": "Administrer",
 	"portfolio": "Portefølje",
+	"seedPhrase": {
+		"enterPassword": "Skriv inn passord",
+		"submit": "Send",
+		"title": "Se din \"Seed Phrase\""
+	},
 	"title": "Innstillinger",
 	"theme": {
 		"theme": "Utseende",

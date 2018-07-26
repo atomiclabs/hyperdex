@@ -3,23 +3,24 @@
 		"preferences": "ترجیحات…"
 	},
 	"help": {
-		"about": "{{appName}} کے بارے میں",
-		"reportIssue": "مسئلے کو رپورٹ کریں…",
+		"website": "ویب سائٹ",
 		"sourceCode": "سورس کوڈ",
-		"website": "ویب سائٹ"
+		"reportSecurityIssue": "Report a Security Issue…",
+		"reportIssue": "مسئلے کو رپورٹ کریں…",
+		"about": "{{appName}} کے بارے میں"
 	},
 	"other": {
 		"file": "فائل"
 	},
 	"portfolio": {
+		"title": "پورٹ فولیو",
 		"dashboard": "ڈیش بورڈ",
+		"swap": "سویپ کریں",
 		"exchange": "تبادلہ",
+		"trades": "ٹریڈز",
+		"settings": "سیٹنگیز",
 		"goToPrevView": "پچھلے منظر پر جائیں",
 		"goToNextView": "اگلے منظر پر جائیں",
-		"logOut": "لاگ آؤٹ",
-		"settings": "سیٹنگیز",
-		"swap": "سویپ کریں",
-		"title": "پورٹ فولیو",
-		"trades": "ٹریڈز"
+		"logOut": "لاگ آؤٹ"
 	}
 }

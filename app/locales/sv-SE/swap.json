@@ -4,6 +4,8 @@
 	"timedOut": "Swap tog för lång tid",
 	"title": "Swap",
 	"details": {
+		"aliceclaim": "Alice krav",
+		"alicereclaim": "Alice återkrav",
 		"alicepayment": "Alice betalning",
 		"alicespend": "Alice utgift",
 		"bobdeposit": "Bob insättning",
@@ -35,7 +37,11 @@
 		"completed": "Slutförd",
 		"failed": "Misslyckades",
 		"matched": "Matchad",
+		"reverted": "Återställd",
 		"pending": "Pågående",
 		"unmatched": "Ej matchad"
+	},
+	"statusInformation": {
+		"reverted": "Swap blev återställd på grund av anslutningsproblem."
 	}
 }

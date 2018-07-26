@@ -3,23 +3,24 @@
 		"preferences": "التفضيلات…"
 	},
 	"help": {
-		"about": "حول {{appName}}",
-		"reportIssue": "الإبلاغ عن مشكلة…",
+		"website": "الويب",
 		"sourceCode": "الكود المصدر",
-		"website": "الويب"
+		"reportSecurityIssue": "Report a Security Issue…",
+		"reportIssue": "الإبلاغ عن مشكلة…",
+		"about": "حول {{appName}}"
 	},
 	"other": {
 		"file": "الملف"
 	},
 	"portfolio": {
+		"title": "الحافظة",
 		"dashboard": "لوحة المعلومات",
+		"swap": "مبادلة",
 		"exchange": "تبادل",
+		"trades": "التداولات",
+		"settings": "الإعدادات",
 		"goToPrevView": "انتقل إلى العرض السابق",
 		"goToNextView": "انتقل إلى العرض التالي",
-		"logOut": "تسجيل الخروج",
-		"settings": "الإعدادات",
-		"swap": "مبادلة",
-		"title": "الحافظة",
-		"trades": "التداولات"
+		"logOut": "تسجيل الخروج"
 	}
 }

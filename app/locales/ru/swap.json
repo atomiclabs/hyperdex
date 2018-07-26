@@ -4,6 +4,8 @@
 	"timedOut": "Время свопа истекло",
 	"title": "Своп",
 	"details": {
+		"aliceclaim": "Alice Claim",
+		"alicereclaim": "Alice Reclaim",
 		"alicepayment": "Платеж Алисы",
 		"alicespend": "Алиса потратила",
 		"bobdeposit": "Депозит Боба",
@@ -35,7 +37,11 @@
 		"completed": "Завершено",
 		"failed": "С ошибкой",
 		"matched": "Совпало",
+		"reverted": "Reverted",
 		"pending": "Ожидание",
 		"unmatched": "Не совпало"
+	},
+	"statusInformation": {
+		"reverted": "The swap was reverted due to connectivity issues."
 	}
 }

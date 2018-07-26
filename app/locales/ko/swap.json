@@ -4,6 +4,8 @@
 	"timedOut": "스왑 시간 초과",
 	"title": "스왑",
 	"details": {
+		"aliceclaim": "Alice Claim",
+		"alicereclaim": "Alice Reclaim",
 		"alicepayment": "Alice 지불",
 		"alicespend": "Alice 소비",
 		"bobdeposit": "Bob 입금",
@@ -35,7 +37,11 @@
 		"completed": "완료됨",
 		"failed": "실패함",
 		"matched": "일치됨",
+		"reverted": "Reverted",
 		"pending": "대기 중",
 		"unmatched": "일치 안 됨"
+	},
+	"statusInformation": {
+		"reverted": "The swap was reverted due to connectivity issues."
 	}
 }

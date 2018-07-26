@@ -4,6 +4,8 @@
 	"timedOut": "Byttehandel utløpte",
 	"title": "Bytte",
 	"details": {
+		"aliceclaim": "Alice krav",
+		"alicereclaim": "Alice tilbakekrav",
 		"alicepayment": "Alice betaling",
 		"alicespend": "Alice brukt",
 		"bobdeposit": "Bob innskudd",
@@ -35,7 +37,11 @@
 		"completed": "Fullført",
 		"failed": "Mislyktes",
 		"matched": "Matchet",
+		"reverted": "Tilbakestilt",
 		"pending": "Ventende",
 		"unmatched": "Umatchet"
+	},
+	"statusInformation": {
+		"reverted": "Byttehandelen ble tilbakestilt på grunn av tilkoblingsproblemer."
 	}
 }

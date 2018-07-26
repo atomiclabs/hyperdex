@@ -4,6 +4,8 @@
 	"timedOut": "การสวอปหมดเวลา",
 	"title": "สวอป",
 	"details": {
+		"aliceclaim": "Alice Claim",
+		"alicereclaim": "Alice Reclaim",
 		"alicepayment": "การชำระเงินของอลิส",
 		"alicespend": "การใช้จ่ายของอลิส",
 		"bobdeposit": "การฝากของบ๊อบ",
@@ -35,7 +37,11 @@
 		"completed": "เสร็จสมบูรณ์",
 		"failed": "ล้มเหลว",
 		"matched": "จับคู่แล้ว",
+		"reverted": "Reverted",
 		"pending": "อยู่ระหว่างดำเนินการ",
 		"unmatched": "ยังไม่ได้จับคู่"
+	},
+	"statusInformation": {
+		"reverted": "The swap was reverted due to connectivity issues."
 	}
 }

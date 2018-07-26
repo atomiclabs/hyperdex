@@ -3,23 +3,24 @@
 		"preferences": "Innstillinger…"
 	},
 	"help": {
-		"about": "Om {{appName}}",
-		"reportIssue": "Rapporter et problem…",
+		"website": "Nettsted",
 		"sourceCode": "Kildekode",
-		"website": "Nettsted"
+		"reportSecurityIssue": "Rapporter et sikkerhetsproblem…",
+		"reportIssue": "Rapporter et problem…",
+		"about": "Om {{appName}}"
 	},
 	"other": {
 		"file": "Fil"
 	},
 	"portfolio": {
+		"title": "Portefølje",
 		"dashboard": "Start",
+		"swap": "Bytte",
 		"exchange": "Børs",
+		"trades": "Handler",
+		"settings": "Innstillinger",
 		"goToPrevView": "Gå til forrige visning",
 		"goToNextView": "Gå til neste visning",
-		"logOut": "Logg ut",
-		"settings": "Innstillinger",
-		"swap": "Bytte",
-		"title": "Portefølje",
-		"trades": "Handler"
+		"logOut": "Logg ut"
 	}
 }

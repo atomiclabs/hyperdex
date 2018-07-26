@@ -1,8 +1,20 @@
 {
 	"app": "App",
+	"deletePortfolio": {
+		"confirm": "Jag förstår, ta bort den här portföljen",
+		"description": "<0>Om du inte sparar din fröfras kan denna åtgärd inte ångras och kommer radera portföljen <1><0>{{name}}</0></1> permanent.</0><1>Skriv in namnet på portföljen för att bekräfta.</1>",
+		"title": "Ta bort portfölj"
+	},
 	"enabledCurrencies": "Aktiverade valutor",
 	"logOutAppSettings": "<0><0>Logga ut</0> för att se fler appinställningar.</0>",
+	"name": "Namn",
+	"manage": "Hantera",
 	"portfolio": "Portfölj",
+	"seedPhrase": {
+		"enterPassword": "Ange lösenord",
+		"submit": "Skicka",
+		"title": "Visa fröfras"
+	},
 	"title": "Inställningar",
 	"theme": {
 		"theme": "Tema",

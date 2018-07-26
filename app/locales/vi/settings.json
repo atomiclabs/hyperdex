@@ -1,8 +1,20 @@
 {
 	"app": "Ứng dụng",
+	"deletePortfolio": {
+		"confirm": "I understand, delete this portfolio",
+		"description": "<0>Unless you save your seed phrase, this action cannot be undone and will permanently delete the <1><0>{{name}}</0></1> portfolio.</0><1>Please type in the name of the portfolio to confirm.</1>",
+		"title": "Delete Portfolio"
+	},
 	"enabledCurrencies": "Đồng tiền đã kích hoạt",
 	"logOutAppSettings": "<0><0>Đăng xuất</0>để xem thêm cài đặt của ứng dụng.</0>",
+	"name": "Name",
+	"manage": "Manage",
 	"portfolio": "Mục đầu tư",
+	"seedPhrase": {
+		"enterPassword": "Enter password",
+		"submit": "Submit",
+		"title": "View Seed Phrase"
+	},
 	"title": "Cài đặt",
 	"theme": {
 		"theme": "Chủ đề",

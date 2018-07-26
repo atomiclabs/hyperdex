@@ -4,6 +4,8 @@
 	"timedOut": "سویپ کا وقت ختم",
 	"title": "سویپ کریں",
 	"details": {
+		"aliceclaim": "ایلس دعوی کرتی ہے",
+		"alicereclaim": "ایلس نے دوبارہ دعوی کیا",
 		"alicepayment": "Alice کی ادائیگی",
 		"alicespend": "Alice خرچ کرتی ہے",
 		"bobdeposit": "Bob ڈپازٹ کرتا ہے",
@@ -35,7 +37,11 @@
 		"completed": "مکمل",
 		"failed": "ناکام",
 		"matched": "مشابہ",
+		"reverted": "واپس آ جائیں",
 		"pending": "زیرالتوا",
 		"unmatched": "مشابہ نہیں ہے"
+	},
+	"statusInformation": {
+		"reverted": "رابطے کے ایشوز کی وجہ سے سویپ کو واپس کر دیا گیا تھا."
 	}
 }

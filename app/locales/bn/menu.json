@@ -3,23 +3,24 @@
 		"preferences": "অগ্রাধিকারসমূহ…"
 	},
 	"help": {
-		"about": "{{appName}} সম্পর্কে",
-		"reportIssue": "সমস্যা রিপোর্ট করুন…",
+		"website": "ওয়েবসাইট",
 		"sourceCode": "সোর্স কোড",
-		"website": "ওয়েবসাইট"
+		"reportSecurityIssue": "একটি নিরাপত্তা সমস্যা রিপোর্ট করুন…",
+		"reportIssue": "সমস্যা রিপোর্ট করুন…",
+		"about": "{{appName}} সম্পর্কে"
 	},
 	"other": {
 		"file": "ফাইল"
 	},
 	"portfolio": {
+		"title": "পোর্টফোলিও",
 		"dashboard": "ড্যাশবোর্ড",
+		"swap": "বিনিময়",
 		"exchange": "লেনদেন",
+		"trades": "ট্রেডসমূহ",
+		"settings": "সেটিংস",
 		"goToPrevView": "পূর্ববর্তী দৃশ্যে যান",
 		"goToNextView": "পরবর্তী দৃশ্যে যান",
-		"logOut": "লগ আউট",
-		"settings": "সেটিংস",
-		"swap": "বিনিময়",
-		"title": "পোর্টফোলিও",
-		"trades": "ট্রেডসমূহ"
+		"logOut": "লগ আউট"
 	}
 }

@@ -3,23 +3,24 @@
 		"preferences": "Tùy chọn…"
 	},
 	"help": {
-		"about": "Về {{appName}}",
-		"reportIssue": "Báo cáo một vấn đề…",
+		"website": "Trang web",
 		"sourceCode": "Mã nguồn",
-		"website": "Trang web"
+		"reportSecurityIssue": "Report a Security Issue…",
+		"reportIssue": "Báo cáo một vấn đề…",
+		"about": "Về {{appName}}"
 	},
 	"other": {
 		"file": "File"
 	},
 	"portfolio": {
+		"title": "Mục đầu tư",
 		"dashboard": "Bảng điều khiển",
+		"swap": "Hoán đổi",
 		"exchange": "Tỉ giá",
+		"trades": "Giao dịch",
+		"settings": "Cài đặt",
 		"goToPrevView": "Đi tới Trang Trước",
 		"goToNextView": "Đi tới Trang Tiếp",
-		"logOut": "Đăng Xuất",
-		"settings": "Cài đặt",
-		"swap": "Hoán đổi",
-		"title": "Mục đầu tư",
-		"trades": "Giao dịch"
+		"logOut": "Đăng Xuất"
 	}
 }

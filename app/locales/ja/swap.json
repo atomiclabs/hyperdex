@@ -4,6 +4,8 @@
 	"timedOut": "スワップがタイムアウトしました",
 	"title": "スワップ",
 	"details": {
+		"aliceclaim": "Alice Claim",
+		"alicereclaim": "Alice Reclaim",
 		"alicepayment": "アリスさんの支払い",
 		"alicespend": "アリスさんの出費",
 		"bobdeposit": "ボブさんの入金",
@@ -35,7 +37,11 @@
 		"completed": "完了",
 		"failed": "失敗",
 		"matched": "一致",
+		"reverted": "Reverted",
 		"pending": "ペンディング",
 		"unmatched": "マッチなし"
+	},
+	"statusInformation": {
+		"reverted": "The swap was reverted due to connectivity issues."
 	}
 }

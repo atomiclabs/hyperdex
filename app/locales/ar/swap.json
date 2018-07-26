@@ -4,6 +4,8 @@
 	"timedOut": "انتهت مهلة المبادلة",
 	"title": "مبادلة",
 	"details": {
+		"aliceclaim": "Alice Claim",
+		"alicereclaim": "Alice Reclaim",
 		"alicepayment": "عملية دفع Alice",
 		"alicespend": "Alice المنفقة",
 		"bobdeposit": "وديعة Bob",
@@ -35,7 +37,11 @@
 		"completed": "مكتمل",
 		"failed": "فشل",
 		"matched": "مطابق",
+		"reverted": "Reverted",
 		"pending": "في الانتظار",
 		"unmatched": "غير مطابق"
+	},
+	"statusInformation": {
+		"reverted": "The swap was reverted due to connectivity issues."
 	}
 }
