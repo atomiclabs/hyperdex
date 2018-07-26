@@ -5,7 +5,7 @@
 	"help": {
 		"website": "Nettsted",
 		"sourceCode": "Kildekode",
-		"reportSecurityIssue": "Report a Security Issue…",
+		"reportSecurityIssue": "Rapporter et sikkerhetsproblem…",
 		"reportIssue": "Rapporter et problem…",
 		"about": "Om {{appName}}"
 	},
