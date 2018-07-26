@@ -5,7 +5,7 @@
 	"help": {
 		"website": "Веб-сайт",
 		"sourceCode": "Исходный код",
-		"reportSecurityIssue": "Report a Security Issue…",
+		"reportSecurityIssue": "Сообщить о проблеме безопасности…",
 		"reportIssue": "Сообщить о проблеме…",
 		"about": "О приложении {{appName}}"
 	},
