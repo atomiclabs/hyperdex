@@ -90,6 +90,6 @@ const SwapList = ({swaps, showCancel}) => {
 SwapList.propTypes = {
 	showCancel: PropTypes.bool,
 	swaps: PropTypes.arrayOf(PropTypes.object),
-}
+};
 
 export default SwapList;
