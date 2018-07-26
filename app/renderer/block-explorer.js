@@ -1,4 +1,5 @@
 // TODO(lukechilds): Extract this into an npm package when it's more mature
+import ow from 'ow';
 import {isEtomic} from '../marketmaker/supported-currencies';
 
 const explorers = {
@@ -166,6 +167,9 @@ const explorers = {
 const blockExplorer = {};
 
 blockExplorer.tx = (symbol, txid) => {
+	ow(symbol, ow.string.label('symbol'));
+	ow(txid, ow.string.label('txid'));
+
 	const explorer = explorers[isEtomic(symbol) ? 'ETH' : symbol];
 	const explorerUrl = explorer.replace('{txid}', txid);
 
