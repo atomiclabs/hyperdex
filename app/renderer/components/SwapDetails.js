@@ -1,6 +1,7 @@
 import {clipboard} from 'electron';
 import title from 'title';
 import React from 'react';
+import PropTypes from 'prop-types';
 import formatDate from 'date-fns/format';
 import Modal from 'components/Modal';
 import Progress from 'components/Progress';
@@ -36,6 +37,10 @@ const getOverview = swap => {
 };
 
 class SwapDetails extends React.Component {
+	static propTypes = {
+		swap: PropTypes.object,
+	}
+
 	state = {
 		isOpen: false,
 	};

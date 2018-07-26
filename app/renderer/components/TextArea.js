@@ -1,8 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {classNames} from 'react-extras';
 import './TextArea.scss';
 
 class TextArea extends React.Component {
+	static propTypes = {
+		className: PropTypes.string,
+		disabled: PropTypes.bool,
+		errorMessage: PropTypes.string,
+		forwardedRef: PropTypes.oneOfType([
+			PropTypes.func,
+			PropTypes.object,
+		]),
+		level: PropTypes.string,
+		message: PropTypes.string,
+		onChange: PropTypes.func,
+		preventNewlines: PropTypes.bool,
+		value: PropTypes.string,
+	}
+
 	static getDerivedStateFromProps(props, state) {
 		return props.value === state.prevValue ? null : {
 			value: props.value,

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import BackArrowIcon from 'icons/BackArrow';
 import './BackButton.scss';
 
@@ -7,5 +8,9 @@ const BackButton = ({className, ...props}) => (
 		<BackArrowIcon/>
 	</button>
 );
+
+BackButton.propTypes = {
+	className: PropTypes.string,
+};
 
 export default BackButton;

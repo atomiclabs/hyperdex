@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip} from 'recharts';
 import roundTo from 'round-to';
 import _ from 'lodash';
@@ -29,10 +30,7 @@ const CustomTooltipContent = ({payload}) => {
 };
 
 const DepthChart = props => {
-	let {
-		bids = [],
-		asks = [],
-	} = props;
+	let {bids, asks} = props;
 
 	const getDepths = orders => orders.map(order => order.depth);
 	const maxDepth = Math.max(...getDepths(asks), ...getDepths(bids));
@@ -156,6 +154,16 @@ const DepthChart = props => {
 			<Empty show={isEmpty} text={t('noData')}/>
 		</div>
 	);
+};
+
+DepthChart.propTypes = {
+	asks: PropTypes.array,
+	bids: PropTypes.array,
+};
+
+DepthChart.defaultProps = {
+	asks: [],
+	bids: [],
 };
 
 export default DepthChart;

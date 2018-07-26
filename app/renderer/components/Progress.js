@@ -1,12 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import propTypesRange from 'prop-types-range';
 import {classNames} from 'react-extras';
 import './Progress.scss';
 
 const Progress = ({value, color, showLabel, hideWhenZero, ...props}) => {
-	if (value > 1 || value < 0) {
-		throw new TypeError('Expected a value in the range 0...1');
-	}
-
 	const className = classNames('Progress', props.className);
 	const percentage = Math.round(value * 100);
 	const percentageFormatted = `${percentage}%`;
@@ -24,6 +22,14 @@ const Progress = ({value, color, showLabel, hideWhenZero, ...props}) => {
 			</div>
 		</div>
 	);
+};
+
+Progress.propTypes = {
+	className: PropTypes.string,
+	color: PropTypes.string,
+	hideWhenZero: PropTypes.bool,
+	showLabel: PropTypes.bool,
+	value: propTypesRange(0, 1),
 };
 
 export default Progress;
