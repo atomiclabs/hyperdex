@@ -37,11 +37,11 @@
 		"completed": "Abgeschlossen",
 		"failed": "Fehlgeschlagen",
 		"matched": "Übereinstimmung",
-		"reverted": "Reverted",
+		"reverted": "Zurückgewiesen",
 		"pending": "Ausstehend",
 		"unmatched": "Nicht Übereingestimmt"
 	},
 	"statusInformation": {
-		"reverted": "The swap was reverted due to connectivity issues."
+		"reverted": "Der Tausch wurde aufgrund von Verbindungsproblemen zurückgewiesen."
 	}
 }
