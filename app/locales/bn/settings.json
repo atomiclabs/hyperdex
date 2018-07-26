@@ -1,7 +1,7 @@
 {
 	"app": "অ্যাপ",
 	"deletePortfolio": {
-		"confirm": "I understand, delete this portfolio",
+		"confirm": "আমি বুঝতে পেরেছি, এই পোর্টফোলিওটি মুছুন",
 		"description": "<0>Unless you save your seed phrase, this action cannot be undone and will permanently delete the <1><0>{{name}}</0></1> portfolio.</0><1>Please type in the name of the portfolio to confirm.</1>",
 		"title": "Delete Portfolio"
 	},
