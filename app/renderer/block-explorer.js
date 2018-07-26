@@ -171,6 +171,12 @@ blockExplorer.tx = (symbol, txid) => {
 	ow(txid, ow.string.label('txid'));
 
 	const explorer = explorers[isEtomic(symbol) ? 'ETH' : symbol];
+
+	// Fallback
+	if (!explorer) {
+		return `https://www.google.com/search?q=${symbol} Transaction ${txid}`;
+	}
+
 	const explorerUrl = explorer.replace('{txid}', txid);
 
 	return explorerUrl;
