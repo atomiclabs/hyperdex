@@ -3,17 +3,17 @@
 	"deletePortfolio": {
 		"confirm": "আমি বুঝতে পেরেছি, এই পোর্টফোলিওটি মুছুন",
 		"description": "<0>Unless you save your seed phrase, this action cannot be undone and will permanently delete the <1><0>{{name}}</0></1> portfolio.</0><1>Please type in the name of the portfolio to confirm.</1>",
-		"title": "Delete Portfolio"
+		"title": "পোর্টফোলিও মুছুন"
 	},
 	"enabledCurrencies": "সক্রিয় মুদ্রাসমূহ",
 	"logOutAppSettings": "<0>আরও অ্যাপ সেটিংস দেখার জন্য <0>লগ আউট</0> করুন।</0>",
-	"name": "Name",
-	"manage": "Manage",
+	"name": "নাম",
+	"manage": "পরিচালনা",
 	"portfolio": "পোর্টফোলিও",
 	"seedPhrase": {
-		"enterPassword": "Enter password",
-		"submit": "Submit",
-		"title": "View Seed Phrase"
+		"enterPassword": "পাসওয়ার্ড লিখুন",
+		"submit": "জমা দিন",
+		"title": "সিড ফ্রেস দেখুন"
 	},
 	"title": "সেটিংস",
 	"theme": {
