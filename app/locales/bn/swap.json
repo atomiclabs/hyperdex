@@ -4,7 +4,7 @@
 	"timedOut": "বিনিময়ের সময় অতিক্রান্ত হয়েছে",
 	"title": "বিনিময়",
 	"details": {
-		"aliceclaim": "এলিস দাবি",
+		"aliceclaim": "Alice দাবি",
 		"alicereclaim": "Alice Reclaim",
 		"alicepayment": "Alice পেমেন্ট",
 		"alicespend": "Alice ব্যয়",
@@ -42,6 +42,6 @@
 		"unmatched": "মিলেনি"
 	},
 	"statusInformation": {
-		"reverted": "The swap was reverted due to connectivity issues."
+		"reverted": "সংযোগ সমস্যাগুলির কারণে বিনিময় প্রত্যাবর্তন করা হয়েছিল।"
 	}
 }
