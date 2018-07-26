@@ -2,7 +2,7 @@
 	"app": "অ্যাপ",
 	"deletePortfolio": {
 		"confirm": "আমি বুঝতে পেরেছি, এই পোর্টফোলিওটি মুছুন",
-		"description": "<0>Unless you save your seed phrase, this action cannot be undone and will permanently delete the <1><0>{{name}}</0></1> portfolio.</0><1>Please type in the name of the portfolio to confirm.</1>",
+		"description": "<0> আপনি আপনার সিড ফ্রেজ সংরক্ষণ না করা পর্যন্ত, এই ক্রিয়াটি পূর্বাবস্থায় ফেরানো যাবে না এবং স্থায়ীভাবে <1> <0> {{name}} </ 0> </ 1> পোর্টফোলিও মুছে যাবে। </0> <1> নিশ্চিত করতে অনুগ্রহ করে পোর্টফোলিও নাম টাইপ করুন। </1>",
 		"title": "পোর্টফোলিও মুছুন"
 	},
 	"enabledCurrencies": "সক্রিয় মুদ্রাসমূহ",
