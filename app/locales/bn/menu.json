@@ -5,7 +5,7 @@
 	"help": {
 		"website": "ওয়েবসাইট",
 		"sourceCode": "সোর্স কোড",
-		"reportSecurityIssue": "Report a Security Issue…",
+		"reportSecurityIssue": "একটি নিরাপত্তা সমস্যা রিপোর্ট করুন…",
 		"reportIssue": "সমস্যা রিপোর্ট করুন…",
 		"about": "{{appName}} সম্পর্কে"
 	},
