@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import {ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip} from 'recharts';
-import {format as formatDate} from 'date-fns';
+import {format as formatDate, subMonths, subDays, subHours, subMinutes, getDaysInMonth} from 'date-fns';
 import {formatCurrency} from '../util';
 import './TimeSeriesChart.scss';
 
@@ -24,6 +24,22 @@ const resolutionToLabelFormat = new Map([
 	['year', 'MMMM'],
 	['all', 'MMMM YYYY'],
 ]);
+
+const makeTicks = (count, fn) => {
+	const now = new Date();
+	return [...new Array(count).keys()].map(index => fn(now, index)).reverse();
+};
+
+const getTicks = resolution => {
+	const ticks = {
+		year: makeTicks(13, subMonths),
+		month: makeTicks(getDaysInMonth(new Date()) + 1, subDays),
+		week: makeTicks(8, subDays),
+		day: makeTicks(25, subHours),
+		hour: makeTicks(61, subMinutes),
+	};
+	return ticks[resolution];
+};
 
 class TimeSeriesChart extends React.Component {
 	shouldComponentUpdate(nextProps) {
@@ -58,6 +74,7 @@ class TimeSeriesChart extends React.Component {
 							type="number"
 							interval="preserveStartEnd"
 							tickFormatter={unixTime => formatDate(new Date(unixTime), labelFormat)}
+							ticks={getTicks(resolution)}
 							axisLine={{
 								stroke: 'transparent',
 							}}
