@@ -9,6 +9,11 @@
 	"logOutAppSettings": "<0><0>Ausloggen,</0> um weitere App-Einstellungen zu sehen.</0>",
 	"name": "Name",
 	"manage": "Verwalten",
+	"export": {
+		"sectionLabel": "Export",
+		"exportTradeHistory": "Export Trade History to CSV",
+		"trades": "trades"
+	},
 	"portfolio": "Portfolio",
 	"seedPhrase": {
 		"enterPassword": "Passwort eingeben",
