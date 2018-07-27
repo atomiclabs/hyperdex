@@ -9,6 +9,11 @@
 	"logOutAppSettings": "<0><0>Ondoka</0> uone mipangilio zaidi ya programu.</0>",
 	"name": "Name",
 	"manage": "Manage",
+	"export": {
+		"sectionLabel": "Export",
+		"exportTradeHistory": "Export Trade History to CSV",
+		"trades": "trades"
+	},
 	"portfolio": "Uwekezaji",
 	"seedPhrase": {
 		"enterPassword": "Enter password",
