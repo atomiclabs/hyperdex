@@ -29,6 +29,7 @@
 	"quit": "Keluar",
 	"swaps": {
 		"all": "Semua",
-		"title": "Swap"
+		"title": "Recent Swaps",
+		"viewAllSwaps": "View all swaps"
 	}
 }
