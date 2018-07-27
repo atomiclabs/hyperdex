@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Image from './Image';
 
 // TODO: Read this list from disk instead. Not a priority though.
@@ -34,6 +35,11 @@ const CurrencyIcon = ({symbol, size, ...props}) => {
 			height={size}
 		/>
 	);
+};
+
+CurrencyIcon.propTypes = {
+	symbol: PropTypes.string,
+	size: PropTypes.string,
 };
 
 export default CurrencyIcon;

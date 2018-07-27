@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 function getTextWidth(text, options) {
@@ -18,6 +19,12 @@ function getTextWidth(text, options) {
 }
 
 class WrapWidth extends React.Component {
+	static propTypes = {
+		children: PropTypes.node,
+		className: PropTypes.string,
+		wordsPerLine: PropTypes.number,
+	}
+
 	state = {};
 
 	containerRef = React.createRef();

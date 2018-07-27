@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {classNames} from 'react-extras';
 import Image from './Image';
 import './SelectOption.scss';
@@ -47,6 +48,15 @@ const SelectOption = ({
 			</span>
 		</div>
 	);
+};
+
+SelectOption.propTypes = {
+	className: PropTypes.string,
+	fallbackImage: PropTypes.string,
+	image: PropTypes.string,
+	imageRenderer: PropTypes.func,
+	label: PropTypes.string,
+	value: PropTypes.string,
 };
 
 export default SelectOption;

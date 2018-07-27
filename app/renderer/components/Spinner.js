@@ -1,10 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Spinner = ({
-	color = '#7f8fa4',
-	size = 40,
-	...props
-}) => (
+const Spinner = ({color, size, ...props}) => (
 	<svg
 		{...props}
 		width={size}
@@ -27,5 +24,15 @@ const Spinner = ({
 		</path>
 	</svg>
 );
+
+Spinner.propTypes = {
+	color: PropTypes.string,
+	size: PropTypes.number,
+};
+
+Spinner.defaultProps = {
+	color: '#7f8fa4',
+	size: 40,
+};
 
 export default Spinner;

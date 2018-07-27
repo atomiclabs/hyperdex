@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import PlusIcon from 'icons/Plus';
 import './PlusButton.scss';
 
@@ -7,5 +8,9 @@ const PlusButton = ({className, ...props}) => (
 		<PlusIcon size="7px"/>
 	</button>
 );
+
+PlusButton.propTypes = {
+	className: PropTypes.string,
+};
 
 export default PlusButton;

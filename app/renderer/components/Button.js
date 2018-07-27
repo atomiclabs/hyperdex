@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {classNames} from 'react-extras';
 import './Button.scss';
 
@@ -18,6 +19,12 @@ const Button = ({primary, fullwidth, color, ...props}) => {
 			</span>
 		</button>
 	);
+};
+
+Button.propTypes = {
+	color: PropTypes.string,
+	fullwidth: PropTypes.bool,
+	primary: PropTypes.bool,
 };
 
 export default Button;

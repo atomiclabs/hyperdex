@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 import {ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip} from 'recharts';
 import {format as formatDate, subMonths, subDays, subHours, subMinutes, getDaysInMonth} from 'date-fns';
@@ -42,6 +43,11 @@ const getTicks = resolution => {
 };
 
 class TimeSeriesChart extends React.Component {
+	static propTypes = {
+		data: PropTypes.array,
+		resolution: PropTypes.string,
+	}
+
 	shouldComponentUpdate(nextProps) {
 		return !_.isEqual(nextProps, this.props);
 	}

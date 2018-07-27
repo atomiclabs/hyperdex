@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Success.scss';
 
 const Success = ({className, children, ...props}) => (
@@ -7,5 +8,10 @@ const Success = ({className, children, ...props}) => (
 		<h1>{children}</h1>
 	</div>
 );
+
+Success.propTypes = {
+	children: PropTypes.node,
+	className: PropTypes.string,
+};
 
 export default Success;

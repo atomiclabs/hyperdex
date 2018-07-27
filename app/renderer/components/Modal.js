@@ -1,8 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import './Modal.scss';
 
 class Modal extends React.Component {
+	static propTypes = {
+		animation: PropTypes.string,
+		animationDuration: PropTypes.number,
+		children: PropTypes.oneOfType([
+			PropTypes.func,
+			PropTypes.node,
+		]),
+		className: PropTypes.string,
+		closeOnEsc: PropTypes.bool,
+		closeOnMaskClick: PropTypes.bool,
+		delay: PropTypes.number,
+		didClose: PropTypes.func,
+		icon: PropTypes.string,
+		onClose: PropTypes.func,
+		open: PropTypes.bool,
+		title: PropTypes.string,
+		width: PropTypes.oneOfType([
+			PropTypes.number,
+			PropTypes.string,
+		]),
+	};
+
 	static defaultProps = {
 		animation: 'slide-up', // `fade`, `slide-up`, `slide-down`, `zoom`
 		animationDuration: 400,

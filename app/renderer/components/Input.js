@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {classNames} from 'react-extras';
 import propTypesRange from 'prop-types-range';
 import './Input.scss';
@@ -19,7 +20,29 @@ const isExponentialNotation = value => /(\d+\.?\d*)e\d*(\+|-)(\d+)/.test(value);
 
 class Input extends React.Component {
 	static propTypes = {
+		button: PropTypes.func,
+		className: PropTypes.string,
+		disabled: PropTypes.bool,
+		errorMessage: PropTypes.string,
+		forwardedRef: PropTypes.oneOfType([
+			PropTypes.func,
+			PropTypes.object,
+		]),
 		fractionalDigits: propTypesRange(0, 20),
+		icon: PropTypes.string,
+		iconName: PropTypes.string,
+		iconSize: PropTypes.number,
+		level: PropTypes.string,
+		message: PropTypes.string,
+		onChange: PropTypes.func,
+		onlyNumeric: PropTypes.bool,
+		readOnly: PropTypes.bool,
+		type: PropTypes.string,
+		view: PropTypes.func,
+	}
+
+	static defaultProps = {
+		type: 'text',
 	}
 
 	static getDerivedStateFromProps(props, state) {
@@ -98,7 +121,7 @@ class Input extends React.Component {
 			onChange,
 			onlyNumeric,
 			fractionalDigits,
-			type = 'text',
+			type,
 			icon,
 			iconSize,
 			iconName,

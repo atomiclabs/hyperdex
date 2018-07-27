@@ -32,17 +32,17 @@ const Svg = ({
 	</svg>
 );
 
-Svg.defaultProps = {
-	fill: 'currentColor',
-};
-
 Svg.propTypes = {
-	size: PropTypes.string,
+	activeFill: PropTypes.string,
+	children: PropTypes.node,
 	fill: PropTypes.string,
 	hoverFill: PropTypes.string,
-	activeFill: PropTypes.string,
 	onClick: PropTypes.func,
-	children: PropTypes.node,
+	size: PropTypes.string,
+};
+
+Svg.defaultProps = {
+	fill: 'currentColor',
 };
 
 export default Svg;

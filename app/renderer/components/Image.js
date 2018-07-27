@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Image = ({url, fallbackUrl, ...props}) => (
 	<img
@@ -15,5 +16,10 @@ const Image = ({url, fallbackUrl, ...props}) => (
 		}}
 	/>
 );
+
+Image.propTypes = {
+	fallbackUrl: PropTypes.string,
+	url: PropTypes.string,
+};
 
 export default Image;

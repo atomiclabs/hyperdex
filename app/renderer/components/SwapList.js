@@ -1,5 +1,6 @@
 import {api} from 'electron-util';
 import React from 'react';
+import PropTypes from 'prop-types';
 import {format as formatDate} from 'date-fns';
 import appContainer from 'containers/App';
 import Empty from 'components/Empty';
@@ -84,6 +85,11 @@ const SwapList = ({swaps, showCancel}) => {
 			}
 		</div>
 	);
+};
+
+SwapList.propTypes = {
+	showCancel: PropTypes.bool,
+	swaps: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default SwapList;

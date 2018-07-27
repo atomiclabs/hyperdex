@@ -1,5 +1,6 @@
 import {clipboard} from 'electron';
 import React from 'react';
+import PropTypes from 'prop-types';
 import CopyIcon from 'icons/Copy';
 import './CopyButton.scss';
 
@@ -20,6 +21,12 @@ const CopyButton = ({className, onClick, value, ...props}) => {
 			<CopyIcon size="17px"/>
 		</button>
 	);
+};
+
+CopyButton.propTypes = {
+	className: PropTypes.string,
+	onClick: PropTypes.func,
+	value: PropTypes.string,
 };
 
 export default CopyButton;

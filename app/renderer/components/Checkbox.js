@@ -1,8 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {classNames} from 'react-extras';
 import './Checkbox.scss';
 
 class Checkbox extends React.Component {
+	static propTypes = {
+		className: PropTypes.string,
+		checked: PropTypes.bool,
+		disabled: PropTypes.bool,
+		forwardedRef: PropTypes.oneOfType([
+			PropTypes.func,
+			PropTypes.object,
+		]),
+		label: PropTypes.string,
+		onChange: PropTypes.func,
+		value: PropTypes.string,
+	}
+
 	state = {
 		checked: Boolean(this.props.checked),
 	};
