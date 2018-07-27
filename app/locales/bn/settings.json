@@ -9,6 +9,11 @@
 	"logOutAppSettings": "<0>আরও অ্যাপ সেটিংস দেখার জন্য <0>লগ আউট</0> করুন।</0>",
 	"name": "নাম",
 	"manage": "পরিচালনা",
+	"export": {
+		"sectionLabel": "Export",
+		"exportTradeHistory": "Export Trade History to CSV",
+		"trades": "trades"
+	},
 	"portfolio": "পোর্টফোলিও",
 	"seedPhrase": {
 		"enterPassword": "পাসওয়ার্ড লিখুন",
