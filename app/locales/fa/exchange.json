@@ -29,6 +29,7 @@
 	"quit": "خروج",
 	"swaps": {
 		"all": "همه",
-		"title": "جابجایی‌ها"
+		"title": "Recent Swaps",
+		"viewAllSwaps": "View all swaps"
 	}
 }
