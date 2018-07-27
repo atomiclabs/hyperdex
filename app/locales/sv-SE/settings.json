@@ -9,6 +9,11 @@
 	"logOutAppSettings": "<0><0>Logga ut</0> för att se fler appinställningar.</0>",
 	"name": "Namn",
 	"manage": "Hantera",
+	"export": {
+		"sectionLabel": "Export",
+		"exportTradeHistory": "Export Trade History to CSV",
+		"trades": "trades"
+	},
 	"portfolio": "Portfölj",
 	"seedPhrase": {
 		"enterPassword": "Ange lösenord",
