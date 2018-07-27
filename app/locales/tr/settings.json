@@ -9,6 +9,11 @@
 	"logOutAppSettings": "<0><0>Daha fazla uygulama ayarı görmek için</0>çıkış yap.</0>",
 	"name": "Name",
 	"manage": "Manage",
+	"export": {
+		"sectionLabel": "Export",
+		"exportTradeHistory": "Export Trade History to CSV",
+		"trades": "trades"
+	},
 	"portfolio": "Portföy",
 	"seedPhrase": {
 		"enterPassword": "Enter password",
