@@ -26,6 +26,7 @@ const defaults = {
 		'KMD',
 		'LTC',
 		'MSHARK',
+		'MYTH',
 		'OOT',
 		'PIZZA',
 		'REVS',
