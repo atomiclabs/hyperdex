@@ -9,6 +9,11 @@
 	"logOutAppSettings": "<0><0>تسجيل الخروج</0> لمعرفة المزيد من إعدادات التطبيق.</0>",
 	"name": "Name",
 	"manage": "Manage",
+	"export": {
+		"sectionLabel": "Export",
+		"exportTradeHistory": "Export Trade History to CSV",
+		"trades": "trades"
+	},
 	"portfolio": "الحافظة",
 	"seedPhrase": {
 		"enterPassword": "Enter password",
