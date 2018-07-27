@@ -29,6 +29,7 @@
 	"quit": "Avslutt",
 	"swaps": {
 		"all": "Alle",
-		"title": "Bytter"
+		"title": "Recent Swaps",
+		"viewAllSwaps": "View all swaps"
 	}
 }
