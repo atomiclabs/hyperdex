@@ -1939,9 +1939,20 @@ const getCurrencyName = symbol => {
 
 const getCurrency = symbol => supportedCurrencies.find(currency => currency.coin === symbol);
 
+const isEtomic = symbol => {
+	const currency = getCurrency(symbol);
+
+	if (!currency) {
+		throw new Error(`Unsupported currency: "${symbol}"`);
+	}
+
+	return currency.etomic;
+};
+
 module.exports = {
 	supportedCurrencies,
 	getCurrencySymbols,
 	getCurrencyName,
 	getCurrency,
+	isEtomic,
 };

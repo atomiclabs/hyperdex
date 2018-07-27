@@ -7,8 +7,10 @@ import Modal from 'components/Modal';
 import Progress from 'components/Progress';
 import CurrencyIcon from 'components/CurrencyIcon';
 import Button from 'components/Button';
+import ExternalLink from 'components/ExternalLink';
 import {isDevelopment} from '../../util-common';
 import swapTransactions from '../swap-transactions';
+import blockExplorer from '../block-explorer';
 import {zeroPadFraction} from '../util';
 import {translate} from '../translate';
 import './SwapDetails.scss';
@@ -60,10 +62,12 @@ class SwapDetails extends React.Component {
 		const transactions = swap.transactions.map(tx => (
 			<React.Fragment key={tx.stage}>
 				<div className="arrow completed">→</div>
-				<div className="item completed" title={tx.txid}>
-					<h6>{t(`details.${tx.stage}`)}</h6>
-					<p>{tx.amount}<br/>{tx.coin}</p>
-				</div>
+				<ExternalLink url={tx.txid && blockExplorer.tx(tx.coin, tx.txid)}>
+					<div className="item completed">
+						<h6>{t(`details.${tx.stage}`)}</h6>
+						<p>{tx.amount}<br/>{tx.coin}</p>
+					</div>
+				</ExternalLink>
 			</React.Fragment>
 		));
 
