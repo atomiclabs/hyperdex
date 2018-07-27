@@ -12,6 +12,7 @@ import ThemeSetting from './Theme';
 import DeleteModal from './DeleteModal';
 import RenamePortfolio from './RenamePortfolio';
 import SeedPhraseModal from './SeedPhraseModal';
+import Export from './Export';
 import './Settings.scss';
 
 const config = electron.remote.require('./config');
@@ -47,6 +48,7 @@ class Settings extends React.Component {
 								<h3>{t('portfolio')}</h3>
 								<RenamePortfolio/>
 								<CurrencySetting/>
+								<Export/>
 								<div className="form-group">
 									<label>{t('manage')}</label>
 									<SeedPhraseModal/>
