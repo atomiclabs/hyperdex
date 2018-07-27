@@ -2,7 +2,7 @@
 import ow from 'ow';
 import {isEtomic} from '../marketmaker/supported-currencies';
 
-const explorers = {
+const explorers = new Map(Object.entries({
 	888: 'https://chainz.cryptoid.info/octo/tx.dws?{txid}',
 	ABY: 'http://explorer.artbyte.me/tx/{txid}',
 	ANC: 'http://abe.darkgamex.ch:2751/tx/{txid}',
@@ -162,7 +162,7 @@ const explorers = {
 	ZET: 'https://chainz.cryptoid.info/zet/tx.dws?{txid}',
 	ZILLA: 'https://www.zillaexplorer.io/tx/{txid}',
 	ZOI: 'https://chainz.cryptoid.info/zoi/tx.dws?{txid}',
-};
+}));
 
 const blockExplorer = {};
 
@@ -170,7 +170,7 @@ blockExplorer.tx = (symbol, txid) => {
 	ow(symbol, ow.string.label('symbol'));
 	ow(txid, ow.string.label('txid'));
 
-	const explorer = explorers[isEtomic(symbol) ? 'ETH' : symbol];
+	const explorer = explorers.get(isEtomic(symbol) ? 'ETH' : symbol);
 
 	// Fallback
 	if (!explorer) {
