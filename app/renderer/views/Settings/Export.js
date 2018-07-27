@@ -24,7 +24,15 @@ const generateCSV = async () => {
 		'Base Amount',
 		'Quote Amount',
 		'Status',
+		'My Fee TXID',
+		'Alice Payment TXID',
+		'Alice Spend TXID',
 	];
+
+	const getTXID = (swap, stage) => {
+		const transaction = swap.transactions.find(x => x.stage === stage);
+		return transaction ? transaction.txid : '';
+	};
 
 	const rows = swaps.map(swap => [
 		formatDate(swap.timeStarted, 'YYYY-MM-DD HH:mm:ss'), // The most Excel compatible datetime format
@@ -33,6 +41,9 @@ const generateCSV = async () => {
 		`${swap.baseCurrencyAmount} ${swap.baseCurrency}`,
 		`${swap.quoteCurrencyAmount} ${swap.quoteCurrency}`,
 		title(swap.statusFormatted),
+		getTXID(swap, 'myfee'),
+		getTXID(swap, 'alicepayment'),
+		getTXID(swap, 'alicespend'),
 	]);
 
 	// Cannot use `,` as separator as it's not compatible with Excel
