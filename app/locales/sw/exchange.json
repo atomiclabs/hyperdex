@@ -29,6 +29,7 @@
 	"quit": "Ondoka",
 	"swaps": {
 		"all": "Yote",
-		"title": "Mabadilisho"
+		"title": "Recent Swaps",
+		"viewAllSwaps": "View all swaps"
 	}
 }
