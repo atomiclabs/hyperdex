@@ -8,6 +8,8 @@ import './Swaps.scss';
 
 const t = translate('exchange');
 
+const swapLimit = 50;
+
 const TabButton = props => (
 	<span
 		className={
@@ -31,7 +33,7 @@ const TabView = ({component}) => (
 );
 
 const All = () => (
-	<SwapList swaps={exchangeContainer.state.swapHistory}/>
+	<SwapList swaps={exchangeContainer.state.swapHistory} limit={swapLimit}/>
 );
 
 const Split = () => {
@@ -43,7 +45,7 @@ const Split = () => {
 	);
 
 	return (
-		<SwapList swaps={filteredData}/>
+		<SwapList swaps={filteredData} limit={swapLimit}/>
 	);
 };
 
