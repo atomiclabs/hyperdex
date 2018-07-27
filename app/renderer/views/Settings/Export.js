@@ -21,12 +21,12 @@ const generateCSV = async () => {
 		'Timestamp',
 		'Pairs',
 		'Type',
-		'Base Amount',
-		'Quote Amount',
+		'Sent Amount',
+		'Received Amount',
 		'Status',
-		'My Fee TXID',
-		'Alice Payment TXID',
-		'Alice Spend TXID',
+		'Fee TXID',
+		'Sent TXID',
+		'Recieved TXID',
 	];
 
 	const getTXID = (swap, stage) => {
