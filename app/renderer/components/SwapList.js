@@ -2,12 +2,14 @@ import {api} from 'electron-util';
 import React from 'react';
 import {format as formatDate} from 'date-fns';
 import appContainer from 'containers/App';
+import tradesContainer from 'containers/Trades';
 import Empty from 'components/Empty';
+import Link from 'components/Link';
 import SwapDetails from 'components/SwapDetails';
 import {translate} from '../translate';
 import './SwapList.scss';
 
-const t = translate('swap');
+const t = translate(['swap', 'exchange']);
 
 // eslint-disable-next-line no-unused-vars
 class CancelButton extends React.Component {
@@ -85,6 +87,17 @@ const SwapList = ({swaps, limit, showCancel}) => {
 						showCancel={showCancel}
 					/>
 				))
+			}
+			{limit &&
+				<Link
+					className="view-all-swaps"
+					onClick={() => {
+						appContainer.setActiveView('Trades');
+						tradesContainer.setActiveView('SwapHistory');
+					}}
+				>
+					{t('swaps.viewAllSwaps')}
+				</Link>
 			}
 		</div>
 	);
