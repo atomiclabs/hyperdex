@@ -9,6 +9,11 @@
 	"logOutAppSettings": "<0><0>Выйти,</0> чтобы видеть больше настроек приложения.</0>",
 	"name": "Имя",
 	"manage": "Управлять",
+	"export": {
+		"sectionLabel": "Export",
+		"exportTradeHistory": "Export Trade History to CSV",
+		"trades": "trades"
+	},
 	"portfolio": "Портфель",
 	"seedPhrase": {
 		"enterPassword": "Введите пароль",
