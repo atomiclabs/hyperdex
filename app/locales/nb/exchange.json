@@ -29,7 +29,7 @@
 	"quit": "Avslutt",
 	"swaps": {
 		"all": "Alle",
-		"title": "Recent Swaps",
-		"viewAllSwaps": "View all swaps"
+		"title": "Siste byttehandler",
+		"viewAllSwaps": "Vis alle byttehandler"
 	}
 }
