@@ -29,7 +29,7 @@
 	"quit": "Завершить",
 	"swaps": {
 		"all": "Все",
-		"title": "Recent Swaps",
-		"viewAllSwaps": "View all swaps"
+		"title": "Последние свопы",
+		"viewAllSwaps": "Посмотреть все свопы"
 	}
 }
