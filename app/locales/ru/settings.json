@@ -12,7 +12,7 @@
 	"export": {
 		"sectionLabel": "Export",
 		"exportTradeHistory": "Export Trade History to CSV",
-		"trades": "trades"
+		"trades": "сделки"
 	},
 	"portfolio": "Портфель",
 	"seedPhrase": {
