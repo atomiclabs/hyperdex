@@ -109,11 +109,19 @@ class SwapDetails extends React.Component {
 
 		const overview = getOverview(swap);
 
+		const titleComponent = (
+			<div className="title">
+				<div>{title(swap.statusFormatted)}</div>
+				<div className="title__main">{baseCurrency}/{quoteCurrency} {t(`details.${swap.orderType}`)} {t('details.order')}</div>
+				<div>{formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}</div>
+			</div>
+		);
+
 		return (
 			<div className="modal-wrapper">
 				<Modal
 					className="SwapDetails"
-					title={`${baseCurrency}/${quoteCurrency} ${t(`details.${swap.orderType}`)} ${t('details.order')} \u{00A0}• \u{00A0}${formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}`}
+					title={titleComponent}
 					icon="/assets/swap-icon.svg"
 					open={this.state.isOpen}
 					onClose={this.close}
@@ -142,12 +150,8 @@ class SwapDetails extends React.Component {
 						</div>
 						<div className="section progress">
 							<p>
-								{title(swap.statusFormatted)}
 								{(swap.status === 'failed' && swap.error) && (
-									<React.Fragment>
-										<br/>
-										{swap.error.message}
-									</React.Fragment>
+									swap.error.message
 								)}
 							</p>
 							{swap.statusInformation && (
