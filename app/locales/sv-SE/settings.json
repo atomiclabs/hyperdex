@@ -10,9 +10,9 @@
 	"name": "Namn",
 	"manage": "Hantera",
 	"export": {
-		"sectionLabel": "Export",
-		"exportTradeHistory": "Export Trade History to CSV",
-		"trades": "trades"
+		"sectionLabel": "Exportera",
+		"exportTradeHistory": "Exportera handelshistorik till CSV",
+		"trades": "handel"
 	},
 	"portfolio": "Portfölj",
 	"seedPhrase": {
