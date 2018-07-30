@@ -10,9 +10,9 @@
 	"name": "Navn",
 	"manage": "Administrer",
 	"export": {
-		"sectionLabel": "Export",
+		"sectionLabel": "Eksporter",
 		"exportTradeHistory": "Export Trade History to CSV",
-		"trades": "trades"
+		"trades": "handler"
 	},
 	"portfolio": "Portefølje",
 	"seedPhrase": {
