@@ -74,7 +74,8 @@ const SwapList = ({swaps, limit, showCancel}) => {
 		return <Empty show text={t('list.empty')}/>;
 	}
 
-	if (limit) {
+	const shouldLimit = limit && limit < swaps.length;
+	if (shouldLimit) {
 		swaps = swaps.slice(0, limit);
 	}
 
@@ -89,7 +90,7 @@ const SwapList = ({swaps, limit, showCancel}) => {
 					/>
 				))
 			}
-			{limit &&
+			{shouldLimit &&
 				<Link
 					className="view-all-swaps"
 					onClick={() => {
