@@ -11,7 +11,7 @@
 	"manage": "Administrer",
 	"export": {
 		"sectionLabel": "Eksporter",
-		"exportTradeHistory": "Export Trade History to CSV",
+		"exportTradeHistory": "Eksporter handel historikk til CSV",
 		"trades": "handler"
 	},
 	"portfolio": "Portefølje",
