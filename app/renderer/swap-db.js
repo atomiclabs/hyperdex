@@ -216,6 +216,7 @@ class SwapDB {
 
 			if (message.method === 'failed') {
 				swap.status = 'failed';
+				swap.progress = 1;
 
 				// TODO: Add error messages once we have errors documented
 				// https://github.com/atomiclabs/hyperdex/issues/180
