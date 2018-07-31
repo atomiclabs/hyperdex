@@ -8,12 +8,12 @@ exports.repoUrl = 'https://github.com/atomiclabs/hyperdex';
 
 exports.minWindowSize = {
 	width: 1060,
-	height: is.windows ? 650 : 600,
+	height: is.macos ? 600 : 650,
 };
 
 exports.loginWindowSize = {
 	width: 680,
-	height: is.windows ? 550 : 500,
+	height: is.macos ? 500 : 550,
 };
 
 exports.appViews = [
