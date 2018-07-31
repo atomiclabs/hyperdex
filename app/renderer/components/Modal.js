@@ -19,7 +19,7 @@ class Modal extends React.Component {
 		icon: PropTypes.string,
 		onClose: PropTypes.func,
 		open: PropTypes.bool,
-		title: PropTypes.string,
+		title: PropTypes.node,
 		width: PropTypes.oneOfType([
 			PropTypes.number,
 			PropTypes.string,
