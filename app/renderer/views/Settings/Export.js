@@ -51,6 +51,8 @@ const generateCSV = async () => {
 };
 
 class Export extends React.Component {
+	state = {}
+
 	handleClick = async () => {
 		const portfolioNameSlug = slugify(appContainer.state.portfolio.name).slice(0, 20);
 		const filename = `hyperdex-${t('export.trades')}-${portfolioNameSlug}-${formatDate(Date.now(), 'YYYY-MM-DD')}`;
@@ -76,12 +78,20 @@ class Export extends React.Component {
 	};
 
 	render() {
+		/// TODO: Use async rendering here when it's out in React
+		if (this.state.swapCount === undefined) {
+			(async () => {
+				this.setState({swapCount: await appContainer.swapDB.getSwapCount()});
+			})();
+		}
+
 		return (
 			<div className="form-group">
 				<label style={{marginBottom: '10px'}}>{t('export.sectionLabel')}</label>
 				<Button
 					value={t('export.exportTradeHistory')}
 					onClick={this.handleClick}
+					disabled={!(this.state.swapCount > 0)}
 				/>
 			</div>
 		);

@@ -298,6 +298,11 @@ class SwapDB {
 		return swapData.map(this._formatSwap);
 	}
 
+	async getSwapCount() {
+		const entries = await this.db.allDocs();
+		return entries.rows.length - 1; // We don't count the `_design` doc
+	}
+
 	async destroy() {
 		await this.db.destroy();
 	}
