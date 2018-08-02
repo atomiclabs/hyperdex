@@ -3,6 +3,7 @@
 		"preferences": "ترجیحات…"
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "ویب سائٹ",
 		"sourceCode": "سورس کوڈ",
 		"reportSecurityIssue": "Report a Security Issue…",
