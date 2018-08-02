@@ -70,9 +70,9 @@ buffer-from@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.0.0.tgz#4cb8832d23612589b0406e9e2956c17f06fdf531"
 
-builder-util-runtime@~4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/builder-util-runtime/-/builder-util-runtime-4.4.0.tgz#1f486819df12a04abfa128fe082e7c54edda0ef7"
+builder-util-runtime@~4.4.1:
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/builder-util-runtime/-/builder-util-runtime-4.4.1.tgz#2770d03241e51fde46acacc7ed3ed8a9f45f02cb"
   dependencies:
     bluebird-lst "^1.0.5"
     debug "^3.1.0"
@@ -277,12 +277,12 @@ electron-unhandled@^1.1.0:
     ensure-error "^1.0.0"
     lodash.debounce "^4.0.8"
 
-electron-updater@^2.23.3:
-  version "2.23.3"
-  resolved "https://registry.yarnpkg.com/electron-updater/-/electron-updater-2.23.3.tgz#7bf054075f0cef2cd832cb533cf21adcdd5780b8"
+electron-updater@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/electron-updater/-/electron-updater-3.0.3.tgz#67f7edd578d260f9351ccd46ff23c2789c2a5a4f"
   dependencies:
     bluebird-lst "^1.0.5"
-    builder-util-runtime "~4.4.0"
+    builder-util-runtime "~4.4.1"
     electron-is-dev "^0.3.0"
     fs-extra-p "^4.6.1"
     js-yaml "^3.12.0"
@@ -367,9 +367,9 @@ fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
 
-get-port@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/get-port/-/get-port-3.2.0.tgz#dd7ce7de187c06c8bf353796ac71e099f0980ebc"
+get-port@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/get-port/-/get-port-4.0.0.tgz#373c85960138ee20027c070e3cb08019fea29816"
 
 glob@^7.0.3, glob@^7.0.5:
   version "7.1.2"
@@ -414,9 +414,9 @@ i18next-sync-fs-backend@^1.1.0:
     js-yaml "3.5.4"
     json5 "0.5.0"
 
-i18next@^11.3.6:
-  version "11.3.6"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-11.3.6.tgz#a8e5aff413f5440b3526ebb38e1b7dc605f50faf"
+i18next@^11.5.0:
+  version "11.5.0"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-11.5.0.tgz#1e8df15d5d7e96b27da964abde6e7367169fb4c1"
 
 imurmurhash@^0.1.4:
   version "0.1.4"
