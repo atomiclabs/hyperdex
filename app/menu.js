@@ -30,7 +30,7 @@ const setActiveView = view => {
 const createHelpMenu = () => {
 	const helpSubmenu = [
 		{
-			label: 'Debug Mode',
+			label: t('help.debugMode'),
 			type: 'checkbox',
 			checked: isDevelopment,
 			// TODO: Uncomment the commented line for the official launch
