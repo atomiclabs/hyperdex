@@ -3,6 +3,7 @@
 		"preferences": "Inställningar…"
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "Webbplats",
 		"sourceCode": "Källkod",
 		"reportSecurityIssue": "Rapportera ett säkerhetsproblem…",
