@@ -3,6 +3,7 @@
 		"preferences": "ترجیحات…"
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "وب‌سایت",
 		"sourceCode": "متن برنامه",
 		"reportSecurityIssue": "Report a Security Issue…",
