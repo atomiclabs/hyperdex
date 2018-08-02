@@ -3,6 +3,7 @@
 		"preferences": "التفضيلات…"
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "الويب",
 		"sourceCode": "الكود المصدر",
 		"reportSecurityIssue": "Report a Security Issue…",
