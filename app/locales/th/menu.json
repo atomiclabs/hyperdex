@@ -3,6 +3,7 @@
 		"preferences": "การตั้งค่า..."
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "เว็บไซต์",
 		"sourceCode": "ซอร์สโค้ด",
 		"reportSecurityIssue": "Report a Security Issue…",
