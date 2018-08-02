@@ -3,6 +3,7 @@
 		"preferences": "Preferensi…"
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "Situs web",
 		"sourceCode": "Kode sumber",
 		"reportSecurityIssue": "Report a Security Issue…",
