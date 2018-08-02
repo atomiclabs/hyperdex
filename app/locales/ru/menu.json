@@ -3,6 +3,7 @@
 		"preferences": "Настройки…"
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "Веб-сайт",
 		"sourceCode": "Исходный код",
 		"reportSecurityIssue": "Сообщить о проблеме безопасности…",
