@@ -3,6 +3,7 @@
 		"preferences": "Tùy chọn…"
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "Trang web",
 		"sourceCode": "Mã nguồn",
 		"reportSecurityIssue": "Report a Security Issue…",
