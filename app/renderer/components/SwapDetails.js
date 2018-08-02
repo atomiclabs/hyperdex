@@ -132,7 +132,8 @@ class SwapDetails extends React.Component {
 							value={swap.progress}
 							color={
 								(swap.status === 'completed' && 'var(--success-color)') ||
-								(swap.status === 'failed' && 'var(--error-color)')
+								(swap.status === 'failed' && 'var(--error-color)') ||
+								null
 							}
 						/>
 						<div className="section overview">
