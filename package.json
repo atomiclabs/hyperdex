@@ -73,7 +73,7 @@
 		"delay-cli": "^1.1.0",
 		"devtron": "^1.4.0",
 		"electron": "^2.0.6",
-		"electron-builder": "20.26.1",
+		"electron-builder": "20.20.4",
 		"electron-react-devtools": "^0.5.3",
 		"electron-reloader": "^0.2.0",
 		"enzyme": "^3.3.0",
