@@ -62,7 +62,7 @@ class SwapDetails extends React.Component {
 		const transactions = swap.transactions.map(tx => (
 			<React.Fragment key={tx.stage}>
 				<div className="arrow completed">→</div>
-				<ExternalLink url={tx.txid && blockExplorer.tx(tx.coin, tx.txid)}>
+				<ExternalLink url={tx.txid ? blockExplorer.tx(tx.coin, tx.txid) : null}>
 					<div className="item completed">
 						<h6>{t(`details.${tx.stage}`)}</h6>
 						<p>{tx.amount}<br/>{tx.coin}</p>
