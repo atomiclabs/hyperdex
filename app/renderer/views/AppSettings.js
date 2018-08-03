@@ -55,7 +55,7 @@ class AppSettings extends React.Component {
 								url: 'http://localhost:7783',
 								interpolation: {escapeValue: false},
 							})}
-							errorMessage={!isValidMarketmakerUrl && t('settings.invalidUrl')}
+							errorMessage={isValidMarketmakerUrl ? null : t('settings.invalidUrl')}
 						/>
 					</div>
 				</main>
