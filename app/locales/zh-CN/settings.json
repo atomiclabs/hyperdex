@@ -9,6 +9,11 @@
 	"logOutAppSettings": "<0><0>注销</0>以查看更多应用设置。</0>",
 	"name": "Name",
 	"manage": "Manage",
+	"export": {
+		"sectionLabel": "Export",
+		"exportTradeHistory": "Export Trade History to CSV",
+		"trades": "trades"
+	},
 	"portfolio": "资产组合",
 	"seedPhrase": {
 		"enterPassword": "Enter password",

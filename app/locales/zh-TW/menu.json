@@ -3,6 +3,7 @@
 		"preferences": "偏好設定..."
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "網站",
 		"sourceCode": "原始碼",
 		"reportSecurityIssue": "Report a Security Issue…",

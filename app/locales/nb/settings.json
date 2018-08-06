@@ -9,6 +9,11 @@
 	"logOutAppSettings": "<0><0>Logg ut</0> for å se flere app innstillinger.</0>",
 	"name": "Navn",
 	"manage": "Administrer",
+	"export": {
+		"sectionLabel": "Eksporter",
+		"exportTradeHistory": "Eksporter handel historikk til CSV",
+		"trades": "handler"
+	},
 	"portfolio": "Portefølje",
 	"seedPhrase": {
 		"enterPassword": "Skriv inn passord",

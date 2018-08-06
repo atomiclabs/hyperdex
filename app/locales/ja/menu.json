@@ -3,6 +3,7 @@
 		"preferences": "設定…"
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "ウェブサイト",
 		"sourceCode": "ソースコード",
 		"reportSecurityIssue": "Report a Security Issue…",

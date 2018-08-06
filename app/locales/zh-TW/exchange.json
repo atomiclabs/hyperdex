@@ -29,6 +29,7 @@
 	"quit": "退出",
 	"swaps": {
 		"all": "全部",
-		"title": "交換"
+		"title": "Recent Swaps",
+		"viewAllSwaps": "View all swaps"
 	}
 }

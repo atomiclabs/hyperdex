@@ -3,6 +3,7 @@
 		"preferences": "प्राथमिकताएँ..."
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "वेबसाइट",
 		"sourceCode": "सोर्स कोड",
 		"reportSecurityIssue": "Report a Security Issue…",

@@ -9,6 +9,11 @@
 	"logOutAppSettings": "<0><0>Đăng xuất</0>để xem thêm cài đặt của ứng dụng.</0>",
 	"name": "Name",
 	"manage": "Manage",
+	"export": {
+		"sectionLabel": "Export",
+		"exportTradeHistory": "Export Trade History to CSV",
+		"trades": "trades"
+	},
 	"portfolio": "Mục đầu tư",
 	"seedPhrase": {
 		"enterPassword": "Enter password",

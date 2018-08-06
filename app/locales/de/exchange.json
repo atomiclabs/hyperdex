@@ -29,6 +29,7 @@
 	"quit": "Beenden",
 	"swaps": {
 		"all": "Alle",
-		"title": "Tauschgeschäfte"
+		"title": "Recent Swaps",
+		"viewAllSwaps": "View all swaps"
 	}
 }

@@ -29,6 +29,7 @@
 	"quit": "بند کریں",
 	"swaps": {
 		"all": "سب",
-		"title": "تبادلہ"
+		"title": "Recent Swaps",
+		"viewAllSwaps": "View all swaps"
 	}
 }

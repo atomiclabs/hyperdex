@@ -9,6 +9,11 @@
 	"logOutAppSettings": "さらにアプリ設定を表示するには<0><0>ログアウト</0>してください。</0>",
 	"name": "Name",
 	"manage": "Manage",
+	"export": {
+		"sectionLabel": "Export",
+		"exportTradeHistory": "Export Trade History to CSV",
+		"trades": "trades"
+	},
 	"portfolio": "ポートフォリオ",
 	"seedPhrase": {
 		"enterPassword": "Enter password",

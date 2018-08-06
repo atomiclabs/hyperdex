@@ -9,6 +9,11 @@
 	"logOutAppSettings": "<0><0>ออกจากระบบ</0>เพื่อดูการตั้งค่าแอปเพิ่มเติม</0>",
 	"name": "Name",
 	"manage": "Manage",
+	"export": {
+		"sectionLabel": "Export",
+		"exportTradeHistory": "Export Trade History to CSV",
+		"trades": "trades"
+	},
 	"portfolio": "พอร์ตการลงทุน",
 	"seedPhrase": {
 		"enterPassword": "Enter password",
