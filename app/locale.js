@@ -11,7 +11,6 @@ const config = require('./config');
 i18next
 	.use(i18nextBackend)
 	.init({
-		debug: isDevelopment,
 		fallbackLng: 'en-US',
 		ns: [
 			'app',
