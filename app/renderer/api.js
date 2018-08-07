@@ -57,11 +57,22 @@ export default class Api {
 	async request(data) {
 		ow(data, ow.object.label('data'));
 
-		return this._request({
-			needjson: 1,
-			...data,
-			...{userpass: await this.token},
-		});
+		let result;
+		try {
+			result = await this._request({
+				needjson: 1,
+				...data,
+				...{userpass: await this.token},
+			});
+		} catch (err) {
+			if (err.message === 'Failed to fetch') {
+				err.message = 'Could not connect to Marketmaker';
+			}
+
+			throw err;
+		}
+
+		return result;
 	}
 
 	async debug(data) {
