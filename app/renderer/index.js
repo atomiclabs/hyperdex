@@ -4,6 +4,7 @@ import {render} from 'react-dom';
 import {Provider} from 'unstated';
 import UNSTATED from 'unstated-debug';
 import App from './views/App';
+import touchBar from './touch-bar';
 
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = true;
 
@@ -23,3 +24,5 @@ render((
 		<App/>
 	</Provider>
 ), document.querySelector('#root'));
+
+touchBar();
