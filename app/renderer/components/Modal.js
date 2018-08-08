@@ -152,7 +152,9 @@ class Modal extends React.Component {
 					}}
 				>
 					<header>
-						<span className="Modal__close" onClick={this.closeHandler}/>
+						<div className="Modal__close" onClick={this.closeHandler}>
+							<div className="Modal__close__icon"/>
+						</div>
 						{icon &&
 							<img className="Modal__icon" src={icon}/>
 						}

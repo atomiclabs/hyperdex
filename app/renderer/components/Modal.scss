@@ -120,7 +120,7 @@
 			display: flex;
 			align-items: center;
 			position: relative;
-			padding: 22px 30px;
+			padding: 22px 32px;
 			border-bottom: 1px solid var(--section-border-color);
 
 			.Modal__icon {
@@ -132,7 +132,7 @@
 				width: 100%;
 				font-size: 17px;
 				margin: 0;
-				margin-right: 20px;
+				margin-right: 30px;
 				padding: 0;
 				line-height: 1;
 			}
@@ -156,37 +156,46 @@
 
 	&__close {
 		position: absolute;
-		right: 20px;
+		right: 18px;
 		top: 50%;
 		transform: translateY(-50%);
-		width: 16px;
-		height: 16px;
-	}
+		width: 38px;
+		height: 40px;
+		padding: 10px;
 
-	&__close::before,
-	&__close::after {
-		position: absolute;
-		content: '';
-		width: 100%;
-		height: 2px;
-		top: 50%;
-		left: 0;
-		margin-top: -1px;
-		background: var(--modal-close-button-color);
-		transition: background 0.2s;
-		border-radius: 50%;
-	}
+		&__icon {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
 
-	&__close::before {
-		transform: rotate(45deg);
-	}
+			&::before,
+			&::after {
+				position: absolute;
+				content: '';
+				width: 100%;
+				height: 2px;
+				top: 50%;
+				left: 0;
+				margin-top: -1px;
+				background: var(--modal-close-button-color);
+				transition: background 0.2s;
+				border-radius: 50%;
+			}
 
-	&__close::after {
-		transform: rotate(-45deg);
-	}
+			&::before {
+				transform: rotate(45deg);
+			}
 
-	&__close:hover::before,
-	&__close:hover::after {
-		background: var(--text-color-faded);
+			&::after {
+				transform: rotate(-45deg);
+			}
+		}
+
+		&:hover {
+			.Modal__close__icon::before,
+			.Modal__close__icon::after {
+				background: var(--text-color-faded);
+			}
+		}
 	}
 }
