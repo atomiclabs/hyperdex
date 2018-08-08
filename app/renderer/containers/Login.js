@@ -12,6 +12,16 @@ import appContainer from './App';
 const config = remote.require('./config');
 const {getPortfolios, decryptSeedPhrase} = remote.require('./portfolio-util');
 
+const setAppWindowBounds = () => {
+	const win = remote.getCurrentWindow();
+	win.setResizable(true);
+	win.setMaximizable(true);
+	win.setFullScreenable(true);
+	win.setMinimumSize(minWindowSize.width, minWindowSize.height);
+	setWindowBounds(config.get('windowState'));
+	win.center(); // TODO: Remove this when `setWindowBounds` handles positioning the window inside the window bounds
+};
+
 const initApi = async seedPhrase => {
 	let url = config.get('marketmakerUrl');
 	if (url) {
@@ -27,14 +37,48 @@ const initApi = async seedPhrase => {
 	});
 };
 
-const setAppWindowBounds = () => {
-	const win = remote.getCurrentWindow();
-	win.setResizable(true);
-	win.setMaximizable(true);
-	win.setFullScreenable(true);
-	win.setMinimumSize(minWindowSize.width, minWindowSize.height);
-	setWindowBounds(config.get('windowState'));
-	win.center(); // TODO: Remove this when `setWindowBounds` handles positioning the window inside the window bounds
+const createApi = async seedPhrase => {
+	console.time('create-api');
+	const api = await initApi(seedPhrase);
+	await api.enableSocket();
+	appContainer.api = api;
+	if (isDevelopment) {
+		// Exposes the API for debugging in DevTools
+		// Example: `_api.debug({method: 'portfolio'})`
+		window._api = api;
+	}
+	console.time('create-api');
+	return api;
+};
+
+const enableCurrencies = async api => {
+	console.time('enable-currencies');
+	// ETOMIC needs to be enabled first otherwise ETH/ERC20 tokens will fail
+	await api.enableCurrency('ETOMIC');
+	await Promise.all(appContainer.state.enabledCoins.map(x => api.enableCurrency(x)));
+	console.timeEnd('enable-currencies');
+};
+
+const watchFiatPrice = async () => {
+	console.time('watch-fiat-price');
+	await appContainer.watchFiatPrice();
+	console.timeEnd('watch-fiat-price');
+};
+
+const watchCurrencies = async () => {
+	console.time('watch-currencies');
+	await appContainer.watchCurrencies();
+	console.timeEnd('watch-currencies');
+};
+
+const watchAllCurrencyHistory = async () => {
+	console.time('watch-currency-history');
+	// We have to use dynamic import here as Webpack is unable to resolve circular
+	// dependencies. Better to handle it here so that it's possible to import the
+	// App container in the Dashboard container.
+	const {default: dashboardContainer} = await import('./Dashboard');
+	await dashboardContainer.watchAllCurrencyHistory();
+	console.timeEnd('watch-currency-history');
 };
 
 class LoginContainer extends Container {
@@ -75,42 +119,41 @@ class LoginContainer extends Container {
 	}
 
 	async handleLogin(portfolioId, password) {
+		console.group('login');
+		console.time('login-total');
+
+		console.time('decrypt');
 		const portfolio = this.portfolioFromId(portfolioId);
 		const seedPhrase = await decryptSeedPhrase(portfolio.encryptedSeedPhrase, password);
+		console.timeEnd('decrypt');
 
+		console.time('swap-db');
 		const swapDB = new SwapDB(portfolioId, seedPhrase);
 		appContainer.swapDB = swapDB;
+		if (isDevelopment) {
+			window._swapDB = swapDB;
+		}
+		console.timeEnd('swap-db');
 
 		this.setActiveView('LoggingIn');
 
-		const api = await initApi(seedPhrase);
-		await api.enableSocket();
-		appContainer.api = api;
-		if (isDevelopment) {
-			// Exposes the API for debugging in DevTools
-			// Example: `_api.debug({method: 'portfolio'})`
-			window._api = api;
-			window._swapDB = swapDB;
-		}
+		const api = await createApi(seedPhrase);
 
-		// ETOMIC needs to be enabled first otherwise ETH/ERC20 tokens will fail
-		await api.enableCurrency('ETOMIC');
-		await Promise.all(appContainer.state.enabledCoins.map(x => api.enableCurrency(x)));
+		await Promise.all([
+			enableCurrencies(api),
+			watchFiatPrice(),
+			watchAllCurrencyHistory(),
+		]);
 
-		await appContainer.watchFiatPrice();
-		await appContainer.watchCurrencies();
-
-		// We have to use dynamic import here as Webpack is unable to resolve circular
-		// dependencies. Better to handle it here so that it's possible to import the
-		// App container in the Dashboard container.
-		const {default: dashboardContainer} = await import('./Dashboard');
-		await dashboardContainer.watchAllCurrencyHistory();
+		// This method depends on the data from `enableCurrencies()` and `watchFiatPrice()`
+		await watchCurrencies();
 
 		config.set('lastActivePortfolioId', portfolio.id);
-
 		setAppWindowBounds();
-
 		appContainer.logIn(portfolio);
+
+		console.timeEnd('login-total');
+		console.groupEnd('login');
 	}
 }
 
