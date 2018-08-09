@@ -46,7 +46,7 @@ const getTickerData = async symbols => {
 		const currency = data.find(currency => currency.symbol.toUpperCase() === symbol);
 		return {
 			symbol,
-			price: currency ? currency.high_24h : 0,
+			price: currency ? currency.current_price : 0,
 		};
 	});
 
@@ -128,7 +128,7 @@ class AppContainer extends Container {
 		}));
 	}
 
-	async watchCoinGecko() {
+	async watchFiatPrice() {
 		await fireEvery({minutes: 1}, async () => {
 			this.coinPrices = await getTickerData(this.state.enabledCoins);
 		});
