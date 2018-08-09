@@ -118,6 +118,10 @@ class SwapList extends React.Component {
 		keyMapper: () => 1, // Only measure height on first item and assume rest has the same
 	});
 
+	handleResize = () => {
+		this.cache.clearAll();
+	}
+
 	handleSort = (sortBy, isSorting) => () => {
 		this.setState(state => {
 			if (!isSorting) {
@@ -177,7 +181,7 @@ class SwapList extends React.Component {
 			<div className="SwapList">
 				{showHeader && <SwapHeader onClick={this.handleSort} sortBy={sortBy} sortDirection={sortDirection}/>}
 				<div className="container">
-					<AutoSizer>
+					<AutoSizer onResize={this.handleResize}>
 						{({width, height}) => (
 							<List
 								deferredMeasurementCache={this.cache}
