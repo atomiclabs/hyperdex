@@ -8,6 +8,43 @@
 	height: 0;
 	min-height: 100%;
 
+	.container {
+		position: relative;
+		flex: 1;
+	}
+
+	.header {
+		> * {
+			position: relative;
+			color: var(--text-color);
+			cursor: pointer;
+		}
+
+		.sort {
+			position: absolute;
+			top: calc(50% + 1px);
+			margin-left: 10px;
+			transform: rotate(45deg);
+		}
+
+		.sort::after {
+			content: '';
+			position: absolute;
+			width: 5px;
+			height: 5px;
+			margin: -3px 0 0 -3px;
+			border-left: none;
+			border-top: none;
+			border-right: 1px var(--text-color) solid;
+			border-bottom: 1px var(--text-color) solid;
+		}
+
+		.asc {
+			top: calc(50% + 2px);
+			transform: rotate(225deg);
+		}
+	}
+
 	.row {
 		display: grid;
 		grid-template-areas:

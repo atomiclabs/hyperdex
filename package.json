@@ -44,6 +44,7 @@
 		"react-popper": "^1.0.0",
 		"react-select": "^1.2.1",
 		"react-transition-group": "^2.4.0",
+		"react-virtualized": "^9.20.1",
 		"read-blob": "^1.1.0",
 		"recharts": "^1.1.0",
 		"round-to": "^3.0.0",

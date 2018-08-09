@@ -40,13 +40,13 @@ const TabView = ({component}) => (
 const OpenOrders = () => {
 	const {state} = exchangeContainer;
 	const filteredData = state.swapHistory.filter(x => !['completed', 'failed'].includes(x.status));
-	return <SwapList swaps={filteredData} showCancel/>;
+	return <SwapList swaps={filteredData} showCancel showHeader/>;
 };
 
 const SwapHistory = () => {
 	const {state} = exchangeContainer;
 	const filteredData = state.swapHistory.filter(x => ['completed', 'failed'].includes(x.status));
-	return <SwapList swaps={filteredData} showCancel/>;
+	return <SwapList swaps={filteredData} showCancel showHeader/>;
 };
 
 const Trades = props => (
