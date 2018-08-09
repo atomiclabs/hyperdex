@@ -98,9 +98,9 @@ clean-stack@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/clean-stack/-/clean-stack-1.3.0.tgz#9e821501ae979986c46b1d66d2d432db2fd4ae31"
 
-coinlist@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/coinlist/-/coinlist-2.0.0.tgz#6d0e8ed255e06610cb47e5cd5661e804842afef3"
+coinlist@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/coinlist/-/coinlist-3.0.0.tgz#cdb6cd3c7d0ce1cf86a48217bd66ac479c75ba6f"
 
 color-convert@^1.9.0, color-convert@^1.9.1:
   version "1.9.1"
