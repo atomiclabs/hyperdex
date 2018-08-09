@@ -2014,9 +2014,9 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-coinlist@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/coinlist/-/coinlist-2.0.0.tgz#6d0e8ed255e06610cb47e5cd5661e804842afef3"
+coinlist@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/coinlist/-/coinlist-3.0.0.tgz#cdb6cd3c7d0ce1cf86a48217bd66ac479c75ba6f"
 
 collapse-white-space@^1.0.2:
   version "1.0.4"

@@ -8,7 +8,7 @@ import coinlist from 'coinlist';
 import roundTo from 'round-to';
 import {Container} from 'unstated';
 import {appViews, alwaysEnabledCurrencies, ignoreExternalPrice, hiddenCurrencies} from '../../constants';
-import {getCurrencySymbols, getCurrencyName} from '../../marketmaker/supported-currencies';
+import {getCurrencyName} from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
 import {formatCurrency, setLoginWindowBounds} from '../util';
 import {isDevelopment} from '../../util-common';
@@ -21,43 +21,36 @@ const excludedTestCurrencies = new Set([
 	'BEER',
 ]);
 
-const getTickerData = async symbol => {
-	const fallback = {
-		symbol,
-		price: 0,
-	};
+const getTickerData = async symbols => {
+	const baseURL = 'https://api.coingecko.com/api/v3';
 
-	if (ignoreExternalPrice.has(symbol)) {
-		return fallback;
-	}
+	const filteredSymbols = symbols.filter(symbol => !ignoreExternalPrice.has(symbol));
 
-	const id = coinlist.get(symbol, 'id');
-	if (!id) { // For example, SUPERNET
-		return fallback;
-	}
+	const ids = filteredSymbols
+		.map(symbol => coinlist.get(symbol, 'id'))
+		.filter(symbol => symbol !== undefined); // For example, SUPERNET
 
-	// Docs: https://coinmarketcap.com/api/
-	// Example: https://api.coinmarketcap.com/v2/ticker/99/
-	let response;
+	// Docs: https://www.coingecko.com/api/docs/v3#/coins/get_coins_markets
+	let data;
 	try {
-		response = await fetch(`https://api.coinmarketcap.com/v2/ticker/${id}/`);
-	} catch (_) {
-		return fallback;
+		const response = await fetch(`${baseURL}/coins/markets?vs_currency=usd&ids=${ids.join(',')}`);
+		data = await response.json();
+	} catch (error) {
+		console.error('Failed to fetch from CoinGecko API:', error);
+		data = [];
 	}
 
-	const json = await response.json();
+	// The API just ignores IDs it doesn't support, so we need to iterate
+	// our list of symbols instead of the result so we can add the fallbacks.
+	const currencies = symbols.map(symbol => {
+		const currency = data.find(currency => currency.symbol.toUpperCase() === symbol);
+		return {
+			symbol,
+			price: currency ? currency.current_price : 0,
+		};
+	});
 
-	if (json.metadata.error) {
-		return fallback;
-	}
-
-	const {data} = json;
-	const quotes = data.quotes.USD;
-	return {
-		symbol,
-		price: quotes.price,
-		percentChange24h: quotes.percent_change_24h,
-	};
+	return currencies;
 };
 
 class AppContainer extends Container {
@@ -135,9 +128,9 @@ class AppContainer extends Container {
 		}));
 	}
 
-	async watchCMC() {
-		await fireEvery({minutes: 5}, async () => {
-			this.coinPrices = await Promise.all(getCurrencySymbols().map(getTickerData));
+	async watchFiatPrice() {
+		await fireEvery({minutes: 1}, async () => {
+			this.coinPrices = await getTickerData(this.state.enabledCoins);
 		});
 	}
 
