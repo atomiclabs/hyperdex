@@ -307,4 +307,8 @@ appContainer.subscribe(() => {
 // We send an initial event so it can show the correct menu state after logging out
 ipc.send('app-container-state-updated', appContainer.state);
 
+window.addEventListener('beforeunload', () => {
+	ipc.callMain('stop-marketmaker');
+});
+
 export default appContainer;
