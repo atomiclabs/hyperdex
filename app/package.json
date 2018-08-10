@@ -1,7 +1,7 @@
 {
 	"name": "hyperdex",
 	"productName": "HyperDEX",
-	"version": "0.1.0-alpha.11",
+	"version": "0.1.0-alpha.12",
 	"private": true,
 	"description": "BarterDEX desktop app",
 	"license": "MIT",
