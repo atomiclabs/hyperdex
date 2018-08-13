@@ -1,33 +1,16 @@
 .DepositModal main {
-	display: flex;
-	flex-direction: column;
-
 	.section {
 		margin: 10px 0;
-	}
 
-	.section:last-of-type {
-		margin-bottom: 0;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
 	}
 
 	.qrcode {
 		align-self: center;
 		background: #fff;
 		padding: 20px;
-	}
-
-	.address-input {
-		input {
-			color: var(--text-color2);
-			font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-			font-size: 13px;
-			font-weight: normal;
-			caret-color: transparent;
-		}
-	}
-
-	.CopyButton {
-		color: var(--text-color2);
 	}
 
 	.infobox {

@@ -26,7 +26,7 @@ const CopyButton = ({className, onClick, value, ...props}) => {
 CopyButton.propTypes = {
 	className: PropTypes.string,
 	onClick: PropTypes.func,
-	value: PropTypes.string,
+	value: PropTypes.string.isRequired,
 };
 
 export default CopyButton;

@@ -3,6 +3,7 @@ import {is, activeWindow} from 'electron-util';
 import React from 'react';
 import Button from 'components/Button';
 import Avatar from 'components/Avatar';
+import DonateButton from 'components/DonateButton';
 import {translate} from '../translate';
 import Nav from './Nav';
 import './TabView.scss';
@@ -32,6 +33,7 @@ class TabView extends React.Component {
 								openGitHubIssue('<!--\n\nWe appreciate your feedback!\nTry to include as much relevant info as possible.\n\nSecurity issues should be reported to hyperdex@protonmail.com, **not** on GitHub.\n\n-->');
 							}}
 						/>
+						<DonateButton/>
 						<div className="portfolio-dropdown">
 							<div className="avatar-wrapper">
 								<Avatar/>
