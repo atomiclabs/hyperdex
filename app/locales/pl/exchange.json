@@ -29,6 +29,7 @@
 	"quit": "Opuść aplikację",
 	"swaps": {
 		"all": "Wszystkie",
-		"title": "Swapy"
+		"title": "Recent Swaps",
+		"viewAllSwaps": "View all swaps"
 	}
 }

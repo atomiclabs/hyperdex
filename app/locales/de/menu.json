@@ -3,9 +3,10 @@
 		"preferences": "Einstellungen…"
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "Website",
 		"sourceCode": "Quellcode",
-		"reportSecurityIssue": "Report a Security Issue…",
+		"reportSecurityIssue": "Sicherheitsproblem melden…",
 		"reportIssue": "Problem melden…",
 		"about": "Über {{appName}}"
 	},

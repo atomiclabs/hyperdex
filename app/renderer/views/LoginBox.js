@@ -1,3 +1,4 @@
+import {remote} from 'electron';
 import React from 'react';
 import Button from 'components/Button';
 import Input from 'components/Input';
@@ -13,6 +14,7 @@ import {translate} from '../translate';
 import './LoginBox.scss';
 
 const t = translate('login');
+const {dialog} = remote;
 
 const SettingsButton = () => (
 	<CogIcon
@@ -68,17 +70,30 @@ class LoginBox extends React.Component {
 		try {
 			await loginContainer.handleLogin(selectedPortfolioId, passwordInputValue);
 		} catch (err) {
+			if (this._isMounted) {
+				await this.setState({
+					isLoggingIn: false,
+					passwordInputValue: '',
+					passwordError: err.message,
+				});
+
+				this.passwordInputRef.current.focus();
+				return;
+			}
+
 			console.error(err);
-
-			this.setState({passwordInputValue: ''});
-
-			await this.setState({
-				isLoggingIn: false,
-				passwordError: err.message,
-			});
-			this.passwordInputRef.current.focus();
+			loginContainer.setActiveView(LoginBox.name);
+			dialog.showErrorBox('Login Failed', err.message || err || 'Unknown reason');
 		}
 	};
+
+	componentDidMount() {
+		this._isMounted = true;
+	}
+
+	componentWillUnmount() {
+		this._isMounted = false;
+	}
 
 	render() {
 		const {portfolios, selectedPortfolioId} = loginContainer.state;

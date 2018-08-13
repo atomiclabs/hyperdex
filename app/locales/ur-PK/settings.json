@@ -9,6 +9,11 @@
 	"logOutAppSettings": "<0>مزید ایپ سیٹنگز دیکھنے کے لیے <0>لاگ آؤٹ</0> کریں.</0>",
 	"name": "Name",
 	"manage": "Manage",
+	"export": {
+		"sectionLabel": "Export",
+		"exportTradeHistory": "Export Trade History to CSV",
+		"trades": "trades"
+	},
 	"portfolio": "پورٹ فولیو",
 	"seedPhrase": {
 		"enterPassword": "Enter password",

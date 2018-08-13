@@ -63,8 +63,9 @@ class Marketmaker {
 	}
 
 	async start(options) {
-		this.isStarting = true;
+		this.isKillingPreviousMarketmaker = true;
 		await this._killProcess();
+		this.isKillingPreviousMarketmaker = false;
 
 		options = Object.assign({}, options, {
 			client: 1,
@@ -94,12 +95,12 @@ class Marketmaker {
 		});
 
 		this.cp.on('exit', () => {
-			if (this.isStarting || !this.isRunning) {
+			if (this.isKillingPreviousMarketmaker || !this.isRunning) {
 				return;
 			}
 
 			this.isRunning = false;
-			electron.dialog.showErrorBox('Marketmaker crashed', 'HyperDEX will now relaunch.');
+			electron.dialog.showErrorBox('Marketmaker Crashed', 'HyperDEX will now relaunch.');
 			electron.app.relaunch();
 			electron.app.quit();
 		});
@@ -116,7 +117,6 @@ class Marketmaker {
 
 		// `marketmaker` takes ~500ms to get ready to accepts requests
 		await this._isReady();
-		this.isStarting = false;
 	}
 
 	async stop() {

@@ -97,7 +97,7 @@ class LoginContainer extends Container {
 		await api.enableCurrency('ETOMIC');
 		await Promise.all(appContainer.state.enabledCoins.map(x => api.enableCurrency(x)));
 
-		await appContainer.watchCMC();
+		await appContainer.watchFiatPrice();
 		await appContainer.watchCurrencies();
 
 		// We have to use dynamic import here as Webpack is unable to resolve circular

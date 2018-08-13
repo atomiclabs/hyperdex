@@ -3,6 +3,7 @@
 		"preferences": "偏好设置..."
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "网站",
 		"sourceCode": "源代码",
 		"reportSecurityIssue": "Report a Security Issue…",

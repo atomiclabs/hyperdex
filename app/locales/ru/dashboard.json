@@ -12,7 +12,7 @@
 	},
 	"chart": {
 		"noData": "Нет даты",
-		"portfolioValue": "Стоимость портфолио",
+		"portfolioValue": "Стоимость портфеля",
 		"symbolChart": "График {{symbol}}"
 	},
 	"deposit": {

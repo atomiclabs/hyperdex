@@ -1,18 +1,23 @@
 {
 	"app": "Приложение",
 	"deletePortfolio": {
-		"confirm": "I understand, delete this portfolio",
+		"confirm": "Я понимаю, удалите этот портфель",
 		"description": "<0>Unless you save your seed phrase, this action cannot be undone and will permanently delete the <1><0>{{name}}</0></1> portfolio.</0><1>Please type in the name of the portfolio to confirm.</1>",
-		"title": "Delete Portfolio"
+		"title": "Удалить Портфолио"
 	},
 	"enabledCurrencies": "Активные валюты",
 	"logOutAppSettings": "<0><0>Выйти,</0> чтобы видеть больше настроек приложения.</0>",
-	"name": "Name",
-	"manage": "Manage",
-	"portfolio": "Портфолио",
+	"name": "Имя",
+	"manage": "Управлять",
+	"export": {
+		"sectionLabel": "Export",
+		"exportTradeHistory": "Export Trade History to CSV",
+		"trades": "сделки"
+	},
+	"portfolio": "Портфель",
 	"seedPhrase": {
-		"enterPassword": "Enter password",
-		"submit": "Submit",
+		"enterPassword": "Введите пароль",
+		"submit": "Отправить",
 		"title": "View Seed Phrase"
 	},
 	"title": "Настройки",

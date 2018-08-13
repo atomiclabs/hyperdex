@@ -29,6 +29,7 @@
 	"quit": "Esci",
 	"swaps": {
 		"all": "Tutti",
-		"title": "Scambi"
+		"title": "Recent Swaps",
+		"viewAllSwaps": "View all swaps"
 	}
 }

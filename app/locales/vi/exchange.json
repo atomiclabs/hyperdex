@@ -29,6 +29,7 @@
 	"quit": "Thoát",
 	"swaps": {
 		"all": "Tất cả",
-		"title": "Hoán đổi"
+		"title": "Recent Swaps",
+		"viewAllSwaps": "View all swaps"
 	}
 }

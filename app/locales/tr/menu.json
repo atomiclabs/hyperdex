@@ -3,6 +3,7 @@
 		"preferences": "Tercihler…"
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "Web sitesi",
 		"sourceCode": "Kaynak kodu",
 		"reportSecurityIssue": "Report a Security Issue…",

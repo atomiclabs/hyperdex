@@ -3,6 +3,7 @@
 		"preferences": "Innstillinger…"
 	},
 	"help": {
+		"debugMode": "Feilsøkingsmodus",
 		"website": "Nettsted",
 		"sourceCode": "Kildekode",
 		"reportSecurityIssue": "Rapporter et sikkerhetsproblem…",

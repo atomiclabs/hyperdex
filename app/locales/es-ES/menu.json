@@ -3,6 +3,7 @@
 		"preferences": "Preferencias…"
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "Página web",
 		"sourceCode": "Código fuente",
 		"reportSecurityIssue": "Report a Security Issue…",

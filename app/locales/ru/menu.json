@@ -3,9 +3,10 @@
 		"preferences": "Настройки…"
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "Веб-сайт",
 		"sourceCode": "Исходный код",
-		"reportSecurityIssue": "Report a Security Issue…",
+		"reportSecurityIssue": "Сообщить о проблеме безопасности…",
 		"reportIssue": "Сообщить о проблеме…",
 		"about": "О приложении {{appName}}"
 	},
@@ -13,7 +14,7 @@
 		"file": "Файл"
 	},
 	"portfolio": {
-		"title": "Портфолио",
+		"title": "Портфель",
 		"dashboard": "Панель",
 		"swap": "Своп",
 		"exchange": "Обмен",

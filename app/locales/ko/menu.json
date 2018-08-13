@@ -3,6 +3,7 @@
 		"preferences": "환경 설정..."
 	},
 	"help": {
+		"debugMode": "Debug Mode",
 		"website": "웹사이트",
 		"sourceCode": "소스 코드",
 		"reportSecurityIssue": "Report a Security Issue…",

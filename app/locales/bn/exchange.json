@@ -29,6 +29,7 @@
 	"quit": "প্রস্থান",
 	"swaps": {
 		"all": "সকল",
-		"title": "বিনিময়"
+		"title": "Recent Swaps",
+		"viewAllSwaps": "View all swaps"
 	}
 }

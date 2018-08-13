@@ -11,6 +11,10 @@
 .SwapDetails .Modal__dialog {
 	position: relative;
 
+	h1 {
+		line-height: 1.3; // Give it slightly taller modal header than the default
+	}
+
 	.title {
 		display: flex;
 		justify-content: space-between;

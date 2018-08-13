@@ -29,6 +29,7 @@
 	"quit": "छोड़ें",
 	"swaps": {
 		"all": "सभी",
-		"title": "स्वैप"
+		"title": "Recent Swaps",
+		"viewAllSwaps": "View all swaps"
 	}
 }
