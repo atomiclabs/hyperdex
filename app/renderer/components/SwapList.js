@@ -109,8 +109,8 @@ const SwapItem = ({style, swap}) => (
 
 class SwapList extends React.Component {
 	state = {
-		sortBy: null,
-		sortDirection: null,
+		sortBy: this.props.sortBy,
+		sortDirection: this.props.sortDirection,
 	};
 
 	cache = new CellMeasurerCache({
@@ -212,7 +212,18 @@ class SwapList extends React.Component {
 
 SwapList.propTypes = {
 	showCancel: PropTypes.bool,
+	sortBy: PropTypes.arrayOf(PropTypes.string),
+	sortDirection: PropTypes.symbol,
 	swaps: PropTypes.arrayOf(PropTypes.object),
 };
 
+SwapList.defaultProps = {
+	sortBy: ['timeStarted'],
+	sortDirection: SortDirections.DESC,
+};
+
 export default SwapList;
+
+export {
+	SortDirections,
+};
