@@ -68,16 +68,16 @@ const SwapHeader = props => (
 		<SwapHeaderColumn {...props} className="timestamp" sortKeys={['timeStarted']}>
 			{t('list.date')}
 		</SwapHeaderColumn>
-		<SwapHeaderColumn {...props} className="pairs" sortKeys={['baseCurrency', 'quoteCurrency']}>
+		<SwapHeaderColumn {...props} className="pairs" sortKeys={['baseCurrency', 'quoteCurrency', 'timeStarted']}>
 			{t('list.pair')}
 		</SwapHeaderColumn>
-		<SwapHeaderColumn {...props} className="base-amount" sortKeys={['baseCurrency', 'baseCurrencyAmount']}>
+		<SwapHeaderColumn {...props} className="base-amount" sortKeys={['baseCurrency', 'baseCurrencyAmount', 'timeStarted']}>
 			{t('list.baseAmount')}
 		</SwapHeaderColumn>
-		<SwapHeaderColumn {...props} className="quote-amount" sortKeys={['quoteCurrency', 'quoteCurrencyAmount']}>
+		<SwapHeaderColumn {...props} className="quote-amount" sortKeys={['quoteCurrency', 'quoteCurrencyAmount', 'timeStarted']}>
 			{t('list.quoteAmount')}
 		</SwapHeaderColumn>
-		<SwapHeaderColumn {...props} className="status" sortKeys={['status']}>
+		<SwapHeaderColumn {...props} className="status" sortKeys={['status', 'timeStarted']}>
 			{t('list.status')}
 		</SwapHeaderColumn>
 	</div>
