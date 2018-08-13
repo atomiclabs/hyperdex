@@ -17,7 +17,16 @@
 		> * {
 			position: relative;
 			color: var(--text-color);
-			cursor: pointer;
+			cursor: default;
+			user-select: none;
+
+			&:hover {
+				color: var(--active-text-color);
+
+				.sort::after {
+					border-color: var(--active-text-color);
+				}
+			}
 		}
 
 		.sort {
