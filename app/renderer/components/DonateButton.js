@@ -30,7 +30,7 @@ class DonateButton extends React.Component {
 			<React.Fragment>
 				<Modal
 					className="DonateModal"
-					title={t('donate.title')}
+					title={`${t('donate.title')} ❤️`}
 					open={this.state.isOpen}
 					onClose={this.close}
 					width="500px"
