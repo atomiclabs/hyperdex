@@ -38,6 +38,7 @@
 	--timeseries-chart-background-color: #313b5e;
 	--timeseries-chart-stroke: #8050ef;
 	--swap-status-border-color: rgba(255, 255, 255, 0.2);
+	--swap-header-hover-color: hsla(216, 27%, 80%, 1);
 	--depth-chart-buy-background-color: #275049;
 	--depth-chart-buy-stroke-color: #28af60;
 	--depth-chart-sell-background-color: #5a2947;
@@ -68,6 +69,7 @@ html[data-theme='light'] {
 	--modal-close-button-color: hsla(216, 15%, 44%, 1);
 	--timeseries-chart-background-color: var(--primary-color-opacity-0-5);
 	--swap-status-border-color: rgba(0, 0, 0, 0.2);
+	--swap-header-hover-color: hsla(216, 27%, 20%, 1);
 	--depth-chart-buy-background-color: #e3f2ee;
 	--depth-chart-buy-stroke-color: #7ac89b;
 	--depth-chart-sell-background-color: #f6e1ed;

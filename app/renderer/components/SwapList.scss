@@ -17,14 +17,15 @@
 		> * {
 			position: relative;
 			color: var(--text-color);
+			transition: color 0.3s;
 			cursor: default;
 			user-select: none;
 
 			&:hover {
-				color: var(--active-text-color);
+				color: var(--swap-header-hover-color);
 
 				.sort::after {
-					border-color: var(--active-text-color);
+					border-color: var(--swap-header-hover-color);
 				}
 			}
 		}
@@ -46,6 +47,7 @@
 			border-top: none;
 			border-right: 1px var(--text-color) solid;
 			border-bottom: 1px var(--text-color) solid;
+			transition: border-color 0.3s;
 		}
 
 		.asc {
