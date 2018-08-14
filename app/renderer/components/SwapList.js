@@ -71,10 +71,10 @@ const SwapHeader = props => (
 		<SwapHeaderColumn {...props} className="pairs" sortKeys={['baseCurrency', 'quoteCurrency', 'timeStarted']}>
 			{t('list.pair')}
 		</SwapHeaderColumn>
-		<SwapHeaderColumn {...props} className="base-amount" sortKeys={['baseCurrency', 'baseCurrencyAmount', 'timeStarted']}>
+		<SwapHeaderColumn {...props} className="base-amount" sortKeys={['baseCurrencyAmount', 'baseCurrency', 'timeStarted']}>
 			{t('list.baseAmount')}
 		</SwapHeaderColumn>
-		<SwapHeaderColumn {...props} className="quote-amount" sortKeys={['quoteCurrency', 'quoteCurrencyAmount', 'timeStarted']}>
+		<SwapHeaderColumn {...props} className="quote-amount" sortKeys={['quoteCurrencyAmount', 'quoteCurrency', 'timeStarted']}>
 			{t('list.quoteAmount')}
 		</SwapHeaderColumn>
 		<SwapHeaderColumn {...props} className="status" sortKeys={['status', 'timeStarted']}>
