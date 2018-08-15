@@ -4,7 +4,7 @@ import cryptoPouch from 'crypto-pouch';
 import Emittery from 'emittery';
 import PQueue from 'p-queue';
 import roundTo from 'round-to';
-import {subDays, isPast, addMinutes} from 'date-fns';
+import {subDays} from 'date-fns';
 import appContainer from 'containers/App';
 import swapTransactions from './swap-transactions';
 import {translate} from './translate';
@@ -227,17 +227,6 @@ class SwapDB {
 			}
 		});
 
-		// Treat swaps pending for more than 5 minutes as failed.
-		// https://github.com/jl777/SuperNET/issues/775#issuecomment-397557568
-		const timedOut = swap.status === 'pending' && isPast(addMinutes(swap.timeStarted, 5));
-		if (timedOut) {
-			swap.status = 'failed';
-			swap.error = {
-				code: undefined,
-				message: t('timedOut'),
-			};
-		}
-
 		swap.statusFormatted = t(`status.${swap.status}`).toLowerCase();
 		if (swap.status === 'swapping') {
 			const swapProgress = swap.transactions
@@ -252,7 +241,7 @@ class SwapDB {
 		}
 
 		if (swap.status === 'failed') {
-			if (swap.error.code === -9999 || timedOut) {
+			if (swap.error.code === -9999) {
 				swap.statusFormatted = t('status.unmatched').toLowerCase();
 			}
 			if (swap.transactions.find(tx => tx.stage === 'alicereclaim')) {
