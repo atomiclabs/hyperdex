@@ -62,8 +62,8 @@ const List = () => {
 							appContainer.setActiveView('Settings');
 						}}
 						>
-							<h2>Add Currency <PlusIcon size="8px"/></h2>
-							<p>You can choose between 100+ currencies!</p>
+							<h2>{t('list.addCurrency')} <PlusIcon size="8px"/></h2>
+							<p>{t('list.addCurrencyDescription')}</p>
 						</div>
 					</div>
 				)}
