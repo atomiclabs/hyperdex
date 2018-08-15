@@ -11,6 +11,8 @@ import {translate} from '../../translate';
 const t = translate('settings');
 
 class CurrencySetting extends React.Component {
+	wrapperRef = React.createRef();
+
 	handleSelectChange = options => {
 		const enabledCurrencies = appContainer.state.enabledCoins;
 		const newCurrencies = options.map(x => x.value);
@@ -36,7 +38,7 @@ class CurrencySetting extends React.Component {
 		}));
 
 		return (
-			<div className="form-group">
+			<div ref={this.wrapperRef} className="form-group">
 				<label>
 					{t('enabledCurrencies')}
 				</label>
@@ -50,11 +52,10 @@ class CurrencySetting extends React.Component {
 					valueRenderer={CurrencySelectOption}
 					optionRenderer={CurrencySelectOption}
 					onOpen={() => {
-						// TODO: This is very ugly, but not worth doing better since
+						// TODO: This is ugly, but not worth doing better since
 						// React Select v2 will soon be out and will be completely different.
 						// We can perfect it more then.
-						const mainElement = document.body.querySelector('.Settings main');
-						mainElement.scrollTop = mainElement.scrollHeight;
+						this.wrapperRef.current.scrollIntoView();
 					}}
 				/>
 			</div>

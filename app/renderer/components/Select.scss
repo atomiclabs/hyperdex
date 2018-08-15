@@ -353,7 +353,7 @@
 }
 
 .Select--multi .Select-value-icon {
-	cursor: pointer;
+	cursor: default;
 	border-bottom-left-radius: 2px;
 	border-top-left-radius: 2px;
 	border-right: 1px solid var(--select-selection-box-border-color);
