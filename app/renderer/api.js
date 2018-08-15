@@ -190,6 +190,7 @@ export default class Api {
 
 		return this.request({
 			method: opts.type,
+			gtc: 1,
 			base: opts.baseCurrency,
 			rel: opts.quoteCurrency,
 			basevolume: opts.amount,
