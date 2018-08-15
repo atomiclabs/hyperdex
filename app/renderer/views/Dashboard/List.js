@@ -55,7 +55,7 @@ const List = () => {
 						<p>{dashboardContainer.assetCount} ≈ {dashboardContainer.totalAssetValueFormatted}</p>
 					</div>
 				</div>
-				{hasChangedCurrencies && (
+				{!hasChangedCurrencies && (
 					<div className="add-currencies">
 						<div className="button" onClick={() => {
 							settingsContainer.setIsUpdatingCurrencies(true);
