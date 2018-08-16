@@ -30,11 +30,11 @@
 		"view": "Visa"
 	},
 	"list": {
-		"baseAmount": "Base amount",
-		"date": "Date",
+		"baseAmount": "Basbelopp",
+		"date": "Datum",
 		"cancel": "Avbryt",
 		"empty": "Inga swaps än",
-		"pair": "Pair",
+		"pair": "Par",
 		"quoteAmount": "Quote amount",
 		"status": "Status"
 	},
