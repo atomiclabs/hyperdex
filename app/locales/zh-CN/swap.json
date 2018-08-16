@@ -30,8 +30,13 @@
 		"view": "查看"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "取消",
-		"empty": "没有交换"
+		"empty": "没有交换",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "已完成",
