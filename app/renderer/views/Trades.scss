@@ -36,6 +36,15 @@
 				font-size: 14px;
 			}
 
+			.header {
+				padding-top: 0;
+				padding-bottom: 0;
+
+				> * {
+					padding: 12px 0;
+				}
+			}
+
 			.view,
 			.cancel {
 				&__button {
@@ -62,7 +71,7 @@
 					}
 
 					.status {
-						justify-self: center;
+						justify-self: start;
 					}
 
 					.buttons {

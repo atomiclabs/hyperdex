@@ -30,8 +30,13 @@
 		"view": "View"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "Cancel",
-		"empty": "No swaps yet"
+		"empty": "No swaps yet",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Completed",
