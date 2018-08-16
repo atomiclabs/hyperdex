@@ -30,8 +30,13 @@
 		"view": "দেখুন"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "বাতিল করুন",
-		"empty": "এখনও কোনো বিনিময় হয়নি"
+		"empty": "এখনও কোনো বিনিময় হয়নি",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "সম্পন্ন হয়েছে",
