@@ -16,6 +16,7 @@ class CreatePortfolioContainer extends Container {
 		generatedSeedPhrase: '',
 		confirmedSeedPhrase: '',
 		seedPhraseError: null,
+		isCreatingPortfolio: false,
 	};
 
 	constructor() {
@@ -86,6 +87,8 @@ class CreatePortfolioContainer extends Container {
 			this.confirmSeedPhraseTextArea.focus();
 			return;
 		}
+
+		await this.setState({isCreatingPortfolio: true});
 
 		const portfolioId = await createPortfolio({
 			name: this.state.portfolioName,

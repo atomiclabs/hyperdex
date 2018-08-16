@@ -37,7 +37,11 @@ const CreatePortfolioStep3 = () => {
 						primary
 						type="submit"
 						value={t('create.confirm')}
-						disabled={!state.confirmedSeedPhrase || state.seedPhraseError}
+						disabled={
+							!state.confirmedSeedPhrase ||
+							state.seedPhraseError ||
+							state.isCreatingPortfolio
+						}
 						style={{
 							width: '172px',
 							marginTop: '18px',
