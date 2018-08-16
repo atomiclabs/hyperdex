@@ -30,8 +30,13 @@
 		"view": "Pokaż"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "Anuluj",
-		"empty": "Nie ma jeszcze wymian"
+		"empty": "Nie ma jeszcze wymian",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Ukończono",

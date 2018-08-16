@@ -30,8 +30,13 @@
 		"view": "Angalia"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "Ghairi",
-		"empty": "Bado hakuna mabadilisho"
+		"empty": "Bado hakuna mabadilisho",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Umekamilisha",

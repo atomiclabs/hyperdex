@@ -30,8 +30,13 @@
 		"view": "Visa"
 	},
 	"list": {
+		"baseAmount": "Basbelopp",
+		"date": "Datum",
 		"cancel": "Avbryt",
-		"empty": "Inga swaps än"
+		"empty": "Inga swaps än",
+		"pair": "Par",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Slutförd",

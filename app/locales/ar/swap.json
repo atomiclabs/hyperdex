@@ -30,8 +30,13 @@
 		"view": "عرض"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "إلغاء",
-		"empty": "لا توجد مبادلات"
+		"empty": "لا توجد مبادلات",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "مكتمل",

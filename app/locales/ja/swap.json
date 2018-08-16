@@ -30,8 +30,13 @@
 		"view": "表示"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "キャンセル",
-		"empty": "スワップはまだありません"
+		"empty": "スワップはまだありません",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "完了",

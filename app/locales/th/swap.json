@@ -30,8 +30,13 @@
 		"view": "ดู"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "ยกเลิก",
-		"empty": "ยังไม่มีรายการสวอป"
+		"empty": "ยังไม่มีรายการสวอป",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "เสร็จสมบูรณ์",

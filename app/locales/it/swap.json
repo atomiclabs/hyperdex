@@ -30,8 +30,13 @@
 		"view": "Visualizza"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "Annulla",
-		"empty": "Ancora nessuno scambio"
+		"empty": "Ancora nessuno scambio",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Completato",

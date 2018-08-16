@@ -30,8 +30,13 @@
 		"view": "보기"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "취소",
-		"empty": "아직 스왑 없음"
+		"empty": "아직 스왑 없음",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "완료됨",

@@ -30,8 +30,13 @@
 		"view": "Vis"
 	},
 	"list": {
+		"baseAmount": "Grunnbeløp",
+		"date": "Dato",
 		"cancel": "Avbryt",
-		"empty": "Ingen byttehandler ennå"
+		"empty": "Ingen byttehandler ennå",
+		"pair": "Par",
+		"quoteAmount": "Sitatbeløp",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Fullført",

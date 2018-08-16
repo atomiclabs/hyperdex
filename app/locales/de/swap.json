@@ -30,8 +30,13 @@
 		"view": "Ansehen"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "Abbrechen",
-		"empty": "Noch keine Tauschgeschäfte"
+		"empty": "Noch keine Tauschgeschäfte",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Abgeschlossen",
