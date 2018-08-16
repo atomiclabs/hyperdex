@@ -30,12 +30,12 @@
 		"view": "Vis"
 	},
 	"list": {
-		"baseAmount": "Base amount",
-		"date": "Date",
+		"baseAmount": "Grunnbeløp",
+		"date": "Dato",
 		"cancel": "Avbryt",
 		"empty": "Ingen byttehandler ennå",
-		"pair": "Pair",
-		"quoteAmount": "Quote amount",
+		"pair": "Par",
+		"quoteAmount": "Sitatbeløp",
 		"status": "Status"
 	},
 	"status": {
