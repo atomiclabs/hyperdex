@@ -30,8 +30,13 @@
 		"view": "Göster"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "İptal",
-		"empty": "Henüz takas yok"
+		"empty": "Henüz takas yok",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Tamamlandı",
