@@ -31,18 +31,18 @@
 	},
 	"list": {
 		"baseAmount": "Base amount",
-		"date": "Date",
+		"date": "Дата",
 		"cancel": "Отменить",
 		"empty": "Свопов еще не было",
-		"pair": "Pair",
+		"pair": "Пара",
 		"quoteAmount": "Quote amount",
-		"status": "Status"
+		"status": "Статус"
 	},
 	"status": {
 		"completed": "Завершено",
 		"failed": "С ошибкой",
 		"matched": "Совпало",
-		"reverted": "Reverted",
+		"reverted": "Возвращено к исходному состоянию",
 		"pending": "Ожидание",
 		"unmatched": "Не совпало"
 	},
