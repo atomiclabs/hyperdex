@@ -30,8 +30,13 @@
 		"view": "دیکھیں"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "منسوخ کریں",
-		"empty": "ابھی تک کوئی سویپ نہیں"
+		"empty": "ابھی تک کوئی سویپ نہیں",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "مکمل",
