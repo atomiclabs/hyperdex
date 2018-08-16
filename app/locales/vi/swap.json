@@ -30,8 +30,13 @@
 		"view": "Xem"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "Hủy",
-		"empty": "Chưa có hoán đổi nào"
+		"empty": "Chưa có hoán đổi nào",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Đã hoàn tất",
