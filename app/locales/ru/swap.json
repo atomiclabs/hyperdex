@@ -30,8 +30,13 @@
 		"view": "Смотреть"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "Отменить",
-		"empty": "Свопов еще не было"
+		"empty": "Свопов еще не было",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Завершено",
