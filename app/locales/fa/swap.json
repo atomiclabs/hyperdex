@@ -30,8 +30,13 @@
 		"view": "نما"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "لغو",
-		"empty": "بدون معاوضه تا بحال"
+		"empty": "بدون معاوضه تا بحال",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "کامل شد",
