@@ -33,9 +33,7 @@ const createHelpMenu = () => {
 			label: t('help.debugMode'),
 			type: 'checkbox',
 			checked: isDevelopment,
-			// TODO: Uncomment the commented line for the official launch
-			enabled: false && !isNightlyBuild && !is.development,
-			/// enabled: !isNightlyBuild && !is.development, // Enable it only in production
+			enabled: !isNightlyBuild && !is.development, // Enable it only in production
 			click() {
 				config.set('isDebugMode', !isDevelopment);
 				app.relaunch();
