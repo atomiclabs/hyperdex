@@ -30,8 +30,13 @@
 		"view": "Tampilkan"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "Batal",
-		"empty": "Belum ada swap"
+		"empty": "Belum ada swap",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Selesai",
