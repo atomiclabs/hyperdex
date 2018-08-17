@@ -30,6 +30,8 @@
 		"value": "{{symbol}} مالیات کی ویلیو"
 	},
 	"list": {
+		"addCurrency": "Add Currency",
+		"addCurrencyDescription": "You can choose between 100+ currencies!",
 		"emptyWallet": "خالی والٹ",
 		"search": "تلاش کریں…"
 	},
