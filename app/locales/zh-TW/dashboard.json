@@ -30,6 +30,8 @@
 		"value": "{{symbol}} 持有價值"
 	},
 	"list": {
+		"addCurrency": "Add Currency",
+		"addCurrencyDescription": "You can choose between 100+ currencies!",
 		"emptyWallet": "空錢包",
 		"search": "搜尋..."
 	},
