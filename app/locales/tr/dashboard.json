@@ -30,6 +30,8 @@
 		"value": "{{symbol}} Tahvil Değeri"
 	},
 	"list": {
+		"addCurrency": "Add Currency",
+		"addCurrencyDescription": "You can choose between 100+ currencies!",
 		"emptyWallet": "Cüzdan boş",
 		"search": "Ara…"
 	},
