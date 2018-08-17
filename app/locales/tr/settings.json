@@ -12,7 +12,7 @@
 	"export": {
 		"sectionLabel": "Dışa aktar",
 		"exportTradeHistory": "Ticaret geçmiş CSV dosyasına çıkar",
-		"trades": "trades"
+		"trades": "takas"
 	},
 	"portfolio": "Portföy",
 	"seedPhrase": {
