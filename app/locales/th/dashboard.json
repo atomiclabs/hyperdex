@@ -30,6 +30,8 @@
 		"value": "มูลค่า {{symbol}} ที่ถืออยู่"
 	},
 	"list": {
+		"addCurrency": "Add Currency",
+		"addCurrencyDescription": "You can choose between 100+ currencies!",
 		"emptyWallet": "กระเป๋าสตางค์ว่างเปล่า",
 		"search": "ค้นหา..."
 	},
