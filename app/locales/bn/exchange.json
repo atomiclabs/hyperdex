@@ -29,7 +29,7 @@
 	"quit": "প্রস্থান",
 	"swaps": {
 		"all": "সকল",
-		"title": "Recent Swaps",
-		"viewAllSwaps": "View all swaps"
+		"title": "সাম্প্রতিক Swaps",
+		"viewAllSwaps": "সব swaps প্রদর্শন করুন"
 	}
 }
