@@ -34,8 +34,8 @@
 		"date": "Tarih",
 		"cancel": "İptal",
 		"empty": "Henüz takas yok",
-		"pair": "Pair",
-		"quoteAmount": "Quote amount",
+		"pair": "Eşleştir",
+		"quoteAmount": "Teklif edilen tutar",
 		"status": "Durum"
 	},
 	"status": {
