@@ -30,6 +30,8 @@
 		"value": "{{symbol}} ارزش هلدینگ"
 	},
 	"list": {
+		"addCurrency": "Add Currency",
+		"addCurrencyDescription": "You can choose between 100+ currencies!",
 		"emptyWallet": "کیف پول خالی",
 		"search": "جستجو…"
 	},
