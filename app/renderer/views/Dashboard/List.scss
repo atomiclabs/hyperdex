@@ -95,4 +95,36 @@
 			background-color: rgba(104, 123, 247, 0.05);
 		}
 	}
+
+	.add-currencies {
+		padding: 20px;
+		text-align: center;
+		border-top: 1px solid var(--section-border-color);
+
+		.button {
+			padding: 10px;
+			background-color: var(--background-color);
+			border: 1px solid var(--border-color);
+			border-radius: 8px;
+			box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+			transition: 0.1s ease-in;
+			transition-property: border-color, box-shadow;
+			user-select: none;
+			cursor: default;
+
+			&:hover {
+				border-color: hsl(216, 23%, 30%);
+				box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+			}
+		}
+
+		h2 {
+			margin: 0;
+		}
+
+		p {
+			margin: 0;
+			font-size: 12px;
+		}
+	}
 }

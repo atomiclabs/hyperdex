@@ -1,16 +1,20 @@
+import {remote} from 'electron';
 import React from 'react';
 import roundTo from 'round-to';
 import _ from 'lodash';
 import appContainer from 'containers/App';
+import settingsContainer from 'containers/Settings';
 import dashboardContainer from 'containers/Dashboard';
 import CurrencyIcon from 'components/CurrencyIcon';
 import Avatar from 'components/Avatar';
 import Input from 'components/Input';
 import Progress from 'components/Progress';
+import PlusIcon from 'icons/Plus';
 import {formatCurrency} from '../../util';
 import {translate} from '../../translate';
 import './List.scss';
 
+const config = remote.require('./config');
 const t = translate('dashboard');
 
 const handleCurrencies = currencies => {
@@ -32,6 +36,7 @@ const List = () => {
 	const {state} = dashboardContainer;
 	const {currencies} = appState;
 	const filteredCurrencies = handleCurrencies(currencies);
+	const showAddCurrency = !config.get('hasChangedCurrencies');
 
 	return (
 		<div className="Dashboard--List">
@@ -50,6 +55,18 @@ const List = () => {
 						<p>{dashboardContainer.assetCount} ≈ {dashboardContainer.totalAssetValueFormatted}</p>
 					</div>
 				</div>
+				{showAddCurrency && (
+					<div className="add-currencies">
+						<div className="button" onClick={() => {
+							settingsContainer.setIsUpdatingCurrencies(true);
+							appContainer.setActiveView('Settings');
+						}}
+						>
+							<h2>{t('list.addCurrency')} <PlusIcon size="8px"/></h2>
+							<p>{t('list.addCurrencyDescription')}</p>
+						</div>
+					</div>
+				)}
 			</div>
 			<div className="center">
 				{(() => (
