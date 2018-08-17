@@ -30,6 +30,8 @@
 		"value": "{{symbol}} হোল্ডিংসের মান"
 	},
 	"list": {
+		"addCurrency": "Add Currency",
+		"addCurrencyDescription": "You can choose between 100+ currencies!",
 		"emptyWallet": "শূণ্য ওয়ালেট",
 		"search": "অনুসন্ধান…"
 	},
