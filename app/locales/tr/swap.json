@@ -12,7 +12,7 @@
 		"bobpayment": "Bob Ödeme",
 		"broadcast": "Sunulan",
 		"buy": "Satın Alınan",
-		"copyDebugData": "Takas Ayıklama Datasını Kopyala",
+		"copyDebugData": "Takas Ayıklama Verisini Kopyala",
 		"exchanging": "Verilen",
 		"executed": "Gerçekleştirilen",
 		"for": "İstenen",
@@ -31,18 +31,18 @@
 	},
 	"list": {
 		"baseAmount": "Base amount",
-		"date": "Date",
+		"date": "Tarih",
 		"cancel": "İptal",
 		"empty": "Henüz takas yok",
 		"pair": "Pair",
 		"quoteAmount": "Quote amount",
-		"status": "Status"
+		"status": "Durum"
 	},
 	"status": {
 		"completed": "Tamamlandı",
 		"failed": "Başarısız",
 		"matched": "Eşleşti",
-		"reverted": "Reverted",
+		"reverted": "Geri alındı",
 		"pending": "Beklemede",
 		"unmatched": "Eşleşen yok"
 	},
