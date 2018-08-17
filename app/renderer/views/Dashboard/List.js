@@ -36,7 +36,7 @@ const List = () => {
 	const {state} = dashboardContainer;
 	const {currencies} = appState;
 	const filteredCurrencies = handleCurrencies(currencies);
-	const hasChangedCurrencies = config.get('hasChangedCurrencies');
+	const showAddCurrency = !config.get('hasChangedCurrencies');
 
 	return (
 		<div className="Dashboard--List">
@@ -55,7 +55,7 @@ const List = () => {
 						<p>{dashboardContainer.assetCount} ≈ {dashboardContainer.totalAssetValueFormatted}</p>
 					</div>
 				</div>
-				{!hasChangedCurrencies && (
+				{showAddCurrency && (
 					<div className="add-currencies">
 						<div className="button" onClick={() => {
 							settingsContainer.setIsUpdatingCurrencies(true);
