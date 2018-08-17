@@ -30,6 +30,8 @@
 		"value": "{{symbol}} 보유 가치"
 	},
 	"list": {
+		"addCurrency": "Add Currency",
+		"addCurrencyDescription": "You can choose between 100+ currencies!",
 		"emptyWallet": "빈 지갑",
 		"search": "검색..."
 	},
