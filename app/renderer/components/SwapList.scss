@@ -147,7 +147,6 @@
 
 	@media (min-width: 1480px) {
 		.row {
-			grid-template-areas: 'timestamp pairs base-amount quote-amount status buttons';
 			grid-template-columns: 14% 15% 21% 21%;
 
 			.pairs {
