@@ -4,10 +4,11 @@ import cryptoPouch from 'crypto-pouch';
 import Emittery from 'emittery';
 import PQueue from 'p-queue';
 import roundTo from 'round-to';
-import {subDays} from 'date-fns';
+import {subDays, isAfter} from 'date-fns';
 import appContainer from 'containers/App';
 import swapTransactions from './swap-transactions';
 import {translate} from './translate';
+import {appTimeStarted} from '../constants';
 
 const t = translate('swap');
 
@@ -227,6 +228,16 @@ class SwapDB {
 			}
 		});
 
+		// Show open orders from previous session as unmatched
+		const unmatched = swap.status === 'pending' && isAfter(appTimeStarted, swap.timeStarted);
+		if (unmatched) {
+				swap.status = 'failed';
+				swap.error = {
+						code: undefined,
+						message: t('unmatched'),
+				};
+		}
+
 		swap.statusFormatted = t(`status.${swap.status}`).toLowerCase();
 		if (swap.status === 'swapping') {
 			const swapProgress = swap.transactions
@@ -241,7 +252,7 @@ class SwapDB {
 		}
 
 		if (swap.status === 'failed') {
-			if (swap.error.code === -9999) {
+			if (swap.error.code === -9999 || unmatched) {
 				swap.statusFormatted = t('status.unmatched').toLowerCase();
 			}
 			if (swap.transactions.find(tx => tx.stage === 'alicereclaim')) {

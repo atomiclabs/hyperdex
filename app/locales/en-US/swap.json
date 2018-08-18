@@ -2,6 +2,7 @@
 	"tempMessageDescription": "Simple atomic swaps with minimal user interaction",
 	"tempMessageTitle": "Coming soon…",
 	"timedOut": "Swap timed out",
+	"unmatched": "Swap didn't match",
 	"title": "Swap",
 	"details": {
 		"aliceclaim": "Alice Claim",
