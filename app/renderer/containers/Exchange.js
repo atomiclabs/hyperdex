@@ -40,8 +40,6 @@ class ExchangeContainer extends SuperContainer {
 			}
 		});
 
-
-
 		fireEvery({minutes: 15}, async () => {
 			await this.kickstartStuckSwaps();
 		});

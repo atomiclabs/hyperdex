@@ -6,9 +6,9 @@ import PQueue from 'p-queue';
 import roundTo from 'round-to';
 import {subDays, isAfter} from 'date-fns';
 import appContainer from 'containers/App';
+import {appTimeStarted} from '../constants';
 import swapTransactions from './swap-transactions';
 import {translate} from './translate';
-import {appTimeStarted} from '../constants';
 
 const t = translate('swap');
 
@@ -231,11 +231,11 @@ class SwapDB {
 		// Show open orders from previous session as unmatched
 		const unmatched = swap.status === 'pending' && isAfter(appTimeStarted, swap.timeStarted);
 		if (unmatched) {
-				swap.status = 'failed';
-				swap.error = {
-						code: undefined,
-						message: t('unmatched'),
-				};
+			swap.status = 'failed';
+			swap.error = {
+				code: undefined,
+				message: t('unmatched'),
+			};
 		}
 
 		swap.statusFormatted = t(`status.${swap.status}`).toLowerCase();
