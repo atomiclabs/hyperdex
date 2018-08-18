@@ -33,7 +33,7 @@ const TabView = ({component}) => (
 );
 
 const All = () => (
-	<SwapList swaps={exchangeContainer.state.swapHistory} limit={swapLimit}/>
+	<SwapList swaps={exchangeContainer.state.swapHistory} limit={swapLimit} showCancel/>
 );
 
 const Split = () => {
@@ -45,7 +45,7 @@ const Split = () => {
 	);
 
 	return (
-		<SwapList swaps={filteredData} limit={swapLimit}/>
+		<SwapList swaps={filteredData} limit={swapLimit} showCancel/>
 	);
 };
 
