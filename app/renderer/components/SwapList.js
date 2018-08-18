@@ -83,7 +83,7 @@ const SwapHeader = props => (
 	</div>
 );
 
-const SwapItem = ({style, swap}) => (
+const SwapItem = ({style, swap, showCancel}) => (
 	<div className={`row ${swap.orderType}`} style={style}>
 		<div className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}</div>
 		<div className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</div>
@@ -93,13 +93,11 @@ const SwapItem = ({style, swap}) => (
 			<div className="status__icon" data-status={swap.status}>{swap.statusFormatted}</div>
 		</div>
 		<div className="buttons">
-			{/* Disabled until marketmaker v2
-				See: https://github.com/atomiclabs/hyperdex/issues/262#issuecomment-396587751showCancel
-				&&
+			{showCancel && (
 				<div className="cancel">
 					<CancelButton swap={swap}/>
 				</div>
-			*/}
+			)}
 			<div className="view">
 				<SwapDetails swap={swap}/>
 			</div>
