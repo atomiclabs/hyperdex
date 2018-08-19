@@ -228,13 +228,13 @@ class SwapDB {
 			}
 		});
 
-		// Show open orders from previous session as unmatched
-		const unmatched = swap.status === 'pending' && isAfter(appTimeStarted, swap.timeStarted);
-		if (unmatched) {
+		// Show open orders from previous session as cancelled
+		const cancelled = swap.status === 'pending' && isAfter(appTimeStarted, swap.timeStarted);
+		if (cancelled) {
 			swap.status = 'failed';
 			swap.error = {
 				code: undefined,
-				message: t('unmatched'),
+				message: undefined,
 			};
 		}
 
@@ -252,10 +252,10 @@ class SwapDB {
 		}
 
 		if (swap.status === 'failed') {
-			if (swap.error.code === -9999 || unmatched) {
+			if (swap.error.code === -9999) {
 				swap.statusFormatted = t('status.unmatched').toLowerCase();
 			}
-			if (swap.error.code === -9998) {
+			if (swap.error.code === -9998 || cancelled) {
 				swap.statusFormatted = t('status.cancelled').toLowerCase();
 			}
 			if (swap.transactions.find(tx => tx.stage === 'alicereclaim')) {
