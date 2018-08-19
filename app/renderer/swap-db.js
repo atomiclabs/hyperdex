@@ -264,6 +264,10 @@ class SwapDB {
 			}
 		}
 
+		if (swap.status === 'pending') {
+			swap.statusFormatted = t('status.open').toLowerCase();
+		}
+
 		return swap;
 	}
 
