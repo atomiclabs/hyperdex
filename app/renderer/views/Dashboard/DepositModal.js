@@ -2,35 +2,12 @@ import React from 'react';
 import QRCode from 'qrcode.react';
 import Modal from 'components/Modal';
 import Button from 'components/Button';
-import CopyButton from 'components/CopyButton';
-import Input from 'components/Input';
-import Tooltip from 'components/Tooltip';
+import CopyCurrencyAddress from 'components/CopyCurrencyAddress';
 import dashboardContainer from 'containers/Dashboard';
-import {withState} from 'containers/SuperContainer';
 import {translate} from '../../translate';
 import './DepositModal.scss';
 
-const t = translate(['dashboard', 'common']);
-
-const CopyIconButton = withState(
-	({setState, state, ...props}) => (
-		<Tooltip
-			content={state.isCopied ? t('copied') : t('copy')}
-			onClose={() => {
-				setState({isCopied: false});
-			}}
-		>
-			<CopyButton
-				{...props}
-				value={dashboardContainer.activeCurrency.address}
-				onClick={() => {
-					setState({isCopied: true});
-				}}
-			/>
-		</Tooltip>
-	),
-	{isCopied: false}
-);
+const t = translate('dashboard');
 
 class DepositModal extends React.Component {
 	state = {
@@ -62,7 +39,7 @@ class DepositModal extends React.Component {
 							<QRCode value={currencyInfo.address}/>
 						</div>
 						<div className="section">
-							<Input className="address-input" value={currencyInfo.address} button={CopyIconButton}/>
+							<CopyCurrencyAddress value={currencyInfo.address}/>
 						</div>
 						<div className="section infobox">
 							<img src="/assets/info-icon.svg" width="26" height="26"/>

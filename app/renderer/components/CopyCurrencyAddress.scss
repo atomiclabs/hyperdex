@@ -1,0 +1,13 @@
+.CopyCurrencyAddress {
+	input {
+		color: var(--text-color2);
+		font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+		font-size: 13px;
+		font-weight: normal;
+		caret-color: transparent;
+	}
+
+	.CopyButton {
+		color: var(--text-color2);
+	}
+}

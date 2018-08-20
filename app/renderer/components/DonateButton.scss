@@ -1,0 +1,19 @@
+.DonateModal main {
+	.section {
+		margin: 10px 0;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		label {
+			font-size: 13px;
+			font-weight: 600;
+			color: var(--text-color);
+		}
+	}
+
+	.text {
+		text-align: center;
+	}
+}
