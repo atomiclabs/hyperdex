@@ -8,8 +8,8 @@ import './DonateButton.scss';
 const t = translate('app');
 
 const donationAddresses = {
-	kmd: 'TODO KMD address',
-	btc: 'TODO BTC address',
+	kmd: 'RHyper8TJyHK6uZ3AXzUwC2uVRdt7cfxEC',
+	btc: '1HyperGKWtpLFoNLcwLfpaA95DoN4br45Z',
 };
 
 class DonateButton extends React.Component {
