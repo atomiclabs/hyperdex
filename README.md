@@ -11,9 +11,6 @@
 	<a title="Crowdin" target="_blank" href="https://crowdin.com/project/hyperdex">
 		<img src="https://d322cqt584bo4o.cloudfront.net/hyperdex/localized.svg">
 	</a>
-	<a title="Discord" target="_blank" href="https://discord.gg/gBhBg6E">
-		<img src="https://img.shields.io/discord/<server-id>.svg">
-	</a>
 	<a title="MIT License" href="LICENSE">
 		<img src="https://img.shields.io/github/license/atomiclabs/hyperdex.svg">
 	</a>
