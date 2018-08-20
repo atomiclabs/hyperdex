@@ -1,8 +1,7 @@
 'use strict';
 const {is} = require('electron-util');
 
-// TODO: Put website URL here
-exports.websiteUrl = 'https://github.com/atomiclabs/hyperdex';
+exports.websiteUrl = 'https://hyperdex.app';
 
 exports.repoUrl = 'https://github.com/atomiclabs/hyperdex';
 
