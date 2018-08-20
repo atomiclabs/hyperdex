@@ -4,5 +4,9 @@
 		"exampleUrl": "例如：{{url}}",
 		"invalidUrl": "无效的 URL",
 		"title": "应用设置"
+	},
+	"donate": {
+		"title": "Donate",
+		"bodyText": "HyperDEX is a free and open source project. You can help support its development by donating to the below addresses."
 	}
 }
