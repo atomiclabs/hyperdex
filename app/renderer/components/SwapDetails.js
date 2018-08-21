@@ -1,4 +1,4 @@
-import {clipboard} from 'electron';
+import {remote, clipboard} from 'electron';
 import title from 'title';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -8,6 +8,8 @@ import Progress from 'components/Progress';
 import CurrencyIcon from 'components/CurrencyIcon';
 import Button from 'components/Button';
 import ExternalLink from 'components/ExternalLink';
+import Link from 'components/Link';
+import RightArrowIcon from 'icons/RightArrow';
 import {isDevelopment} from '../../util-common';
 import swapTransactions from '../swap-transactions';
 import blockExplorer from '../block-explorer';
@@ -15,6 +17,7 @@ import {zeroPadFraction} from '../util';
 import {translate} from '../translate';
 import './SwapDetails.scss';
 
+const config = remote.require('./config');
 const t = translate('swap');
 
 const getOverview = swap => {
@@ -45,6 +48,12 @@ class SwapDetails extends React.Component {
 
 	state = {
 		isOpen: false,
+		showAdvanced: config.get('swapModalShowAdvanced'),
+	};
+
+	setShowAdvanced = showAdvanced => {
+		this.setState({showAdvanced});
+		config.set('swapModalShowAdvanced', showAdvanced);
 	};
 
 	open = () => {
@@ -138,59 +147,82 @@ class SwapDetails extends React.Component {
 						/>
 						<div className="section overview">
 							<div className="from">
+								{swap.isActive && (
+									<div className="currency-animation">
+										<div className="scale-wrapper">
+											<CurrencyIcon className="to" symbol={overview.forCurrency}/>
+											<CurrencyIcon className="from" symbol={overview.fromCurrency}/>
+										</div>
+									</div>
+								)}
 								<CurrencyIcon symbol={overview.fromCurrency}/>
 								<p>{overview.fromTitle}</p>
 								<p className="amount">{overview.fromAmount} {overview.fromCurrency}</p>
 							</div>
-							<div className="arrow">→</div>
-							<div className="for">
+							{!swap.isActive && (
+								<RightArrowIcon className="RightArrow" size="20px"/>
+							)}
+							<div className="to">
 								<CurrencyIcon symbol={overview.forCurrency}/>
 								<p>{overview.forTitle}</p>
 								<p className="amount">{overview.forAmount} {overview.forCurrency}</p>
 							</div>
 						</div>
-						<div className="section progress">
-							<p>
-								{(swap.status === 'failed' && swap.error) && (
-									swap.error.message
-								)}
-							</p>
-							{swap.statusInformation && (
-								<p>{swap.statusInformation}</p>
-							)}
-						</div>
-						<div className="section details">
-							<div className="offer-wrapper">
-								<h4>{t('details.yourOffer')}</h4>
-								<div className="offer">
-									{prices}
-								</div>
-								{swap.executed.percentCheaperThanRequested > 0 && (
+						<Link
+							className={`toggle-advanced ${this.state.showAdvanced && 'is-shown'}`}
+							onClick={() => {
+								this.setShowAdvanced(!this.state.showAdvanced);
+							}}
+						>
+							<RightArrowIcon className="toggle-advanced__arrow" size="8px"/>
+							{this.state.showAdvanced ? t('toggleAdvancedButton.less') : t('toggleAdvancedButton.more')}
+						</Link>
+						{this.state.showAdvanced && (
+							<div className="details">
+								<div className="section progress">
 									<p>
-										{t('details.stats', {
-											percentCheaperThanRequested: swap.executed.percentCheaperThanRequested,
-										})}
+										{(swap.status === 'failed' && swap.error) && (
+											swap.error.message
+										)}
 									</p>
-								)}
-							</div>
-							{(transactions.length > 0) && (
-								<React.Fragment>
-									<h4>{t('details.transactions')}</h4>
-									<div className="transactions">
-										{transactions}
+									{swap.statusInformation && (
+										<p>{swap.statusInformation}</p>
+									)}
+								</div>
+								<div className="section details">
+									<div className="offer-wrapper">
+										<h4>{t('details.yourOffer')}</h4>
+										<div className="offer">
+											{prices}
+										</div>
+										{swap.executed.percentCheaperThanRequested > 0 && (
+											<p>
+												{t('details.stats', {
+													percentCheaperThanRequested: swap.executed.percentCheaperThanRequested,
+												})}
+											</p>
+										)}
 									</div>
-								</React.Fragment>
-							)}
-							<p>ID: {swap.uuid}</p>
-							{isDevelopment &&
-								<Button
-									value={t('details.copyDebugData')}
-									onClick={() => {
-										clipboard.writeText(JSON.stringify(swap, null, '\t'));
-									}}
-								/>
-							}
-						</div>
+									{(transactions.length > 0) && (
+										<React.Fragment>
+											<h4>{t('details.transactions')}</h4>
+											<div className="transactions">
+												{transactions}
+											</div>
+										</React.Fragment>
+									)}
+									<p>ID: {swap.uuid}</p>
+									{isDevelopment &&
+										<Button
+											value={t('details.copyDebugData')}
+											onClick={() => {
+												clipboard.writeText(JSON.stringify(swap, null, '\t'));
+											}}
+										/>
+									}
+								</div>
+							</div>
+						)}
 					</React.Fragment>
 				</Modal>
 				<button type="button" className="view__button" onClick={this.open}>{t('details.view')}</button>
