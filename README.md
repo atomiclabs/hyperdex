@@ -5,6 +5,19 @@
 	<br>
 	<p>Desktop App for <a href="https://barterdex.supernet.org">BarterDEX</a></p>
 	<br>
+	<a title="Downloads" href="https://github.com/atomiclabs/hyperdex/releases/latest">
+		<img src="https://img.shields.io/github/downloads/atomiclabs/hyperdex/total.svg">
+	</a>
+	<a title="Crowdin" target="_blank" href="https://crowdin.com/project/hyperdex">
+		<img src="https://d322cqt584bo4o.cloudfront.net/hyperdex/localized.svg">
+	</a>
+	<a title="MIT License" href="LICENSE">
+		<img src="https://img.shields.io/github/license/atomiclabs/hyperdex.svg">
+	</a>
+	<a href="Follow on Twitter" href="https://twitter.com/HyperDEXApp">
+		<img src="https://img.shields.io/twitter/follow/HyperDexApp.svg?style=social&label=Follow">
+	</a>
+	<br>
 	<br>
 	<br>
 </div>
