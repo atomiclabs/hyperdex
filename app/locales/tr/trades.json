@@ -1,6 +1,6 @@
 {
 	"openOrders": "Açık Siparişler",
-	"swapHistory": "Takas geçmişi",
+	"tradeHistory": "Trade History",
 	"stats": "Geçen ay içerisinde toplamda {{totalSwapsWorthInUsd}} olmak üzere; {{currencyCount}} değerinde {{count}} kadar başarılı takas yaptınız",
 	"stats_plural": "Geçen ay {{currencyCount}} ile toplamda {{totalSwapsWorthInUsd}} değerinde {{count}} başarılı takas yaptın"
 }
