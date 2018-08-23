@@ -43,7 +43,7 @@ const OpenOrders = () => {
 	return <SwapList swaps={filteredData} showCancel showHeader/>;
 };
 
-const SwapHistory = () => {
+const TradeHistory = () => {
 	const {state} = exchangeContainer;
 	const filteredData = state.swapHistory.filter(x => ['completed', 'failed'].includes(x.status));
 	return <SwapList swaps={filteredData} showCancel showHeader/>;
@@ -64,8 +64,8 @@ const Trades = props => (
 								component={OpenOrders}
 							/>
 							<TabButton
-								title={t('swapHistory')}
-								component={SwapHistory}
+								title={t('tradeHistory')}
+								component={TradeHistory}
 							/>
 						</nav>
 						<div className="stats">
@@ -82,7 +82,7 @@ const Trades = props => (
 					</header>
 					<main>
 						<TabView component={OpenOrders}/>
-						<TabView component={SwapHistory}/>
+						<TabView component={TradeHistory}/>
 					</main>
 				</AppTabView>
 			);
