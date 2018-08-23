@@ -1,6 +1,6 @@
 {
 	"openOrders": "คำสั่งซื้อเปิด",
-	"swapHistory": "ประวัติการสวอป",
+	"tradeHistory": "Trade History",
 	"stats": "ในเดือนที่แล้ว คุณได้ซื้อขาย {{count}} ครั้งด้วยสกุลเงิน {{currencyCount}} สกุลที่มีมูลค่ารวม {{totalSwapsWorthInUsd}}",
 	"stats_plural": "ในเดือนที่แล้ว คุณได้ซื้อขาย {{count}} ครั้งด้วยสกุลเงิน {{currencyCount}} สกุลที่มีมูลค่ารวม {{totalSwapsWorthInUsd}}"
 }
