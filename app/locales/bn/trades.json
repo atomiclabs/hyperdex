@@ -1,6 +1,6 @@
 {
 	"openOrders": "খোলা অর্ডারসমূহ",
-	"swapHistory": "বিনিময়ের ইতিহাস",
+	"tradeHistory": "Trade History",
 	"stats": "গত মাসে আপনি সফলভাবে {{currencyCount}} মুদ্রায় {{count}}টি ট্রেড করেছেন যার মোট মূল্য {{totalSwapsWorthInUsd}}",
 	"stats_plural": "গত মাসে আপনি সফলভাবে {{currencyCount}} মুদ্রায় {{count}}টি ট্রেড করেছেন যার মোট মূল্য {{totalSwapsWorthInUsd}}"
 }
