@@ -99,8 +99,6 @@ class Modal extends React.Component {
 			if (input) {
 				input.focus();
 			}
-
-			element.dataset.isOpen = true;
 		}
 	}
 
