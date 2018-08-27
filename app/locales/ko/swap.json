@@ -33,7 +33,7 @@
 		"baseAmount": "Base amount",
 		"date": "Date",
 		"cancel": "취소",
-		"empty": "No open orders",
+		"empty": "No orders",
 		"pair": "Pair",
 		"quoteAmount": "Quote amount",
 		"status": "Status"
