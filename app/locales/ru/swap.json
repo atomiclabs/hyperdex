@@ -44,7 +44,9 @@
 		"matched": "Совпало",
 		"reverted": "Возвращено к исходному состоянию",
 		"pending": "Ожидание",
-		"unmatched": "Не совпало"
+		"open": "Open",
+		"unmatched": "Не совпало",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
