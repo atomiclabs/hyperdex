@@ -29,7 +29,7 @@
 	"quit": "Avslutt",
 	"swaps": {
 		"all": "Alle",
-		"title": "Siste byttehandler",
+		"title": "Open Orders",
 		"viewAllSwaps": "Vis alle byttehandler"
 	}
 }
