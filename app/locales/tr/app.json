@@ -1,8 +1,12 @@
 {
 	"settings": {
-		"customUrl": "Özel Piyasa Yapıcı URL",
+		"customUrl": "Özel Piyasa Yapıcı Linki",
 		"exampleUrl": "Örnek: {{url}}",
 		"invalidUrl": "Geçersiz URL",
 		"title": "Uygulama ayarları"
+	},
+	"donate": {
+		"title": "Bağış yap",
+		"bodyText": "HyperDEX is a free and open source project. You can help support its development by donating to the below addresses."
 	}
 }
