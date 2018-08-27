@@ -33,7 +33,7 @@
 		"baseAmount": "Base amount",
 		"date": "Tarih",
 		"cancel": "İptal",
-		"empty": "No open orders",
+		"empty": "No orders",
 		"pair": "Eşleştir",
 		"quoteAmount": "Teklif edilen tutar",
 		"status": "Durum"
