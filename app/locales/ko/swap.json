@@ -44,7 +44,9 @@
 		"matched": "일치됨",
 		"reverted": "Reverted",
 		"pending": "대기 중",
-		"unmatched": "일치 안 됨"
+		"open": "Open",
+		"unmatched": "일치 안 됨",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
