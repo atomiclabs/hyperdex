@@ -44,7 +44,9 @@
 		"matched": "Sesuai",
 		"reverted": "Reverted",
 		"pending": "Penundaan",
-		"unmatched": "Tidak sesuai"
+		"open": "Open",
+		"unmatched": "Tidak sesuai",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
