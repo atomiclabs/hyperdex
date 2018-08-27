@@ -33,7 +33,7 @@
 		"baseAmount": "Base amount",
 		"date": "Date",
 		"cancel": "Cancel",
-		"empty": "No open orders",
+		"empty": "No orders",
 		"pair": "Pair",
 		"quoteAmount": "Quote amount",
 		"status": "Status"
