@@ -33,7 +33,7 @@
 		"baseAmount": "Basbelopp",
 		"date": "Datum",
 		"cancel": "Avbryt",
-		"empty": "No open orders",
+		"empty": "No orders",
 		"pair": "Par",
 		"quoteAmount": "Citatbelopp",
 		"status": "Status"
