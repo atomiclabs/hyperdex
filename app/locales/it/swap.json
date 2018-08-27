@@ -44,7 +44,9 @@
 		"matched": "Abbinato",
 		"reverted": "Reverted",
 		"pending": "In attesa",
-		"unmatched": "Non abbinato"
+		"open": "Open",
+		"unmatched": "Non abbinato",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
