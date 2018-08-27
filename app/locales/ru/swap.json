@@ -33,7 +33,7 @@
 		"baseAmount": "Base amount",
 		"date": "Дата",
 		"cancel": "Отменить",
-		"empty": "No open orders",
+		"empty": "No orders",
 		"pair": "Пара",
 		"quoteAmount": "Quote amount",
 		"status": "Статус"
