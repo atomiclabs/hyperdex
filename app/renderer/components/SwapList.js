@@ -83,7 +83,7 @@ const SwapHeader = props => (
 	</div>
 );
 
-const SwapItem = ({style, swap, showCancel}) => (
+const SwapItem = ({style, swap, showCancel, openSwap}) => (
 	<div className={`row ${swap.orderType}`} style={style}>
 		<div className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}</div>
 		<div className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</div>
@@ -99,7 +99,7 @@ const SwapItem = ({style, swap, showCancel}) => (
 				</div>
 			)}
 			<div className="view">
-				<SwapDetails swap={swap}/>
+				<button type="button" className="view__button" onClick={openSwap}>{t('details.view')}</button>
 			</div>
 		</div>
 	</div>
@@ -109,6 +109,15 @@ class SwapList extends React.Component {
 	state = {
 		sortBy: this.props.sortBy,
 		sortDirection: this.props.sortDirection,
+		openedSwapId: null,
+	};
+
+	openSwap = swapId => {
+		this.setState({openedSwapId: swapId});
+	};
+
+	closeSwap = () => {
+		this.setState({openedSwapId: null});
 	};
 
 	cache = new CellMeasurerCache({
@@ -146,20 +155,35 @@ class SwapList extends React.Component {
 	renderRow = swaps => ({index, key, parent, style}) => {
 		const {showCancel} = this.props;
 		const swap = swaps[index];
+		const openSwap = () => this.openSwap(swap.uuid);
 
 		return (
 			<CellMeasurer key={key} cache={this.cache} parent={parent} rowIndex={index}>
-				<SwapItem showCancel={showCancel} style={style} swap={swap}/>
+				<SwapItem showCancel={showCancel} style={style} swap={swap} openSwap={openSwap}/>
 			</CellMeasurer>
 		);
 	};
 
+	Details = () => (
+		<SwapDetails
+			swapId={this.state.openedSwapId}
+			open={Boolean(this.state.openedSwapId)}
+			didClose={this.closeSwap}
+		/>
+	);
+
 	render() {
+		const {Details} = this;
 		let {showHeader, swaps, limit} = this.props;
 		const {sortBy, sortDirection} = this.state;
 
 		if (swaps.length === 0) {
-			return <Empty show text={t('list.empty')}/>;
+			return (
+				<>
+					<Details/>
+					<Empty show text={t('list.empty')}/>
+				</>
+			);
 		}
 
 		const shouldLimit = limit && limit < swaps.length;
@@ -177,7 +201,14 @@ class SwapList extends React.Component {
 
 		return (
 			<div className="SwapList">
-				{showHeader && <SwapHeader onClick={this.handleSort} sortBy={sortBy} sortDirection={sortDirection}/>}
+				<Details/>
+				{showHeader && (
+					<SwapHeader
+						onClick={this.handleSort}
+						sortBy={sortBy}
+						sortDirection={sortDirection}
+					/>
+				)}
 				<div className="container">
 					<AutoSizer onResize={this.handleResize}>
 						{({width, height}) => (
