@@ -44,7 +44,9 @@
 		"matched": "已匹配",
 		"reverted": "Reverted",
 		"pending": "待定",
-		"unmatched": "未匹配"
+		"open": "Open",
+		"unmatched": "未匹配",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
