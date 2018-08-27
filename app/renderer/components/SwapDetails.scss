@@ -1,3 +1,81 @@
+@mixin center($width, $height) {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: $width;
+	height: $height;
+	margin-top: -($height / 2);
+	margin-left: -($width / 2);
+}
+
+@keyframes currency-animation-move {
+	0% {
+		opacity: 0;
+		transform: translate(-120px);
+	}
+
+	40% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	90% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 0;
+		transform: translate(120px);
+	}
+}
+
+@keyframes currency-animation-scale {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(0.5);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes currency-animation-opacity {
+	0% {
+		opacity: 0;
+	}
+
+	30% {
+		opacity: 0.4;
+		filter: saturate(0%);
+	}
+
+	50% {
+		opacity: 1;
+		filter: saturate(100%);
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fade-in-right-arrow {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 0.2;
+	}
+}
+
 @keyframes fadeIn {
 	0% {
 		opacity: 0;
@@ -31,22 +109,55 @@
 	}
 
 	.overview {
+		position: relative;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		padding: 0 0 20px; /* TODO: Figure out why this has to be set to so much */
 
-		.arrow {
-			color: var(--text-color);
-			font-size: 24px;
-			margin: 0 50px;
+		.currency-animation {
+			@include center(60px, 60px);
+			animation: currency-animation-move 2s 0.5s infinite normal ease-in-out forwards;
+			z-index: -999;
+			margin-top: -63px;
+
+			.scale-wrapper {
+				@include center(60px, 60px);
+				animation: currency-animation-scale 2s 0.5s infinite normal ease-in-out forwards;
+
+				.from,
+				.to {
+					position: absolute;
+					top: -5px;
+				}
+
+				.to {
+					animation: currency-animation-opacity 2s 0.5s infinite normal ease-in-out forwards;
+					z-index: 10;
+				}
+			}
+		}
+
+		.RightArrow {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			opacity: 0.2;
+			animation: fade-in-right-arrow 0.5s linear;
+			margin-top: -10px;
+		}
+
+		.from {
+			margin-right: 100px;
 		}
 
 		.from,
-		.for {
+		.to {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			width: 160px;
 
 			img {
 				display: block;
@@ -78,6 +189,44 @@
 
 	.progress {
 		text-align: center;
+	}
+
+	.toggle-advanced {
+		position: absolute;
+		bottom: 13px;
+		left: 50%;
+		transform: translate(-50%, 0);
+		font-size: 12px;
+		opacity: 0.6;
+		cursor: default;
+		transition: 0.2s ease-out;
+
+		&:hover {
+			opacity: 1;
+		}
+
+		&::after,
+		&::before {
+			content: none;
+		}
+
+		&__arrow {
+			position: absolute;
+			left: 50%;
+			bottom: -8px;
+			transform: translate(-50%, 0) rotate(90deg);
+		}
+	}
+
+	.toggle-advanced.is-shown {
+		bottom: 5px;
+
+		.toggle-advanced__arrow {
+			position: absolute;
+			left: 50%;
+			top: -6px;
+			transform: translate(-50%, 0) rotate(270deg);
+		}
 	}
 
 	.details {

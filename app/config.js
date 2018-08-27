@@ -13,6 +13,7 @@ const defaults = {
 		height: minWindowSize.height,
 	},
 	theme: is.macos ? 'system' : 'dark',
+	swapModalShowAdvanced: false,
 	enabledCoins: [
 		'BCH',
 		'BEER',

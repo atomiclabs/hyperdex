@@ -116,6 +116,9 @@ class SwapDB {
 			orderType: isBuyOrder ? 'buy' : 'sell',
 			status: 'pending',
 			statusFormatted: t('status.pending').toLowerCase(),
+			get isActive() {
+				return !['completed', 'failed'].includes(this.status);
+			},
 			error: false,
 			progress: 0,
 			baseCurrency: request.baseCurrency,
