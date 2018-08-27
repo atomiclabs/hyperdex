@@ -10,9 +10,9 @@
 	"name": "নাম",
 	"manage": "পরিচালনা",
 	"export": {
-		"sectionLabel": "Export",
-		"exportTradeHistory": "Export Trade History to CSV",
-		"trades": "trades"
+		"sectionLabel": "এক্সপোর্ট",
+		"exportTradeHistory": "CSV তে ট্রেড ইতিহাস এক্সপোর্ট করুন",
+		"trades": "ট্রেডসমূহ"
 	},
 	"portfolio": "পোর্টফোলিও",
 	"seedPhrase": {
