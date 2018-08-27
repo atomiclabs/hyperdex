@@ -29,7 +29,7 @@
 	"quit": "Arrêter",
 	"swaps": {
 		"all": "Tous",
-		"title": "Recent Swaps",
+		"title": "Open Orders",
 		"viewAllSwaps": "View all swaps"
 	}
 }
