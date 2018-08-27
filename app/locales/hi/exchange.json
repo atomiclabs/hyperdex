@@ -29,7 +29,7 @@
 	"quit": "छोड़ें",
 	"swaps": {
 		"all": "सभी",
-		"title": "Recent Swaps",
+		"title": "Open Orders",
 		"viewAllSwaps": "View all swaps"
 	}
 }
