@@ -44,7 +44,9 @@
 		"matched": "মিলেছে",
 		"reverted": "প্রত্যাবর্তন",
 		"pending": "বিবেচনাধীন",
-		"unmatched": "মিলেনি"
+		"open": "Open",
+		"unmatched": "মিলেনি",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "সংযোগ সমস্যাগুলির কারণে বিনিময় প্রত্যাবর্তন করা হয়েছিল।"
