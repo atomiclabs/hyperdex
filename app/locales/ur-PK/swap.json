@@ -50,5 +50,9 @@
 	},
 	"statusInformation": {
 		"reverted": "رابطے کے ایشوز کی وجہ سے سویپ کو واپس کر دیا گیا تھا."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }
