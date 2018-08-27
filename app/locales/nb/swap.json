@@ -44,7 +44,9 @@
 		"matched": "Matchet",
 		"reverted": "Tilbakestilt",
 		"pending": "Ventende",
-		"unmatched": "Umatchet"
+		"open": "Open",
+		"unmatched": "Umatchet",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "Byttehandelen ble tilbakestilt på grunn av tilkoblingsproblemer."
