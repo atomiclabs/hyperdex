@@ -50,5 +50,9 @@
 	},
 	"statusInformation": {
 		"reverted": "Hoán đổi đã bị trả về do có lỗi kết nối mạng."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }
