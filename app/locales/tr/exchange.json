@@ -29,7 +29,7 @@
 	"quit": "Çık",
 	"swaps": {
 		"all": "Tümü",
-		"title": "Recent Swaps",
-		"viewAllSwaps": "View all swaps"
+		"title": "Open Orders",
+		"viewAllSwaps": "Tüm Takasları Görüntüle"
 	}
 }
