@@ -50,5 +50,9 @@
 	},
 	"statusInformation": {
 		"reverted": "Swap blev återställd på grund av anslutningsproblem."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }
