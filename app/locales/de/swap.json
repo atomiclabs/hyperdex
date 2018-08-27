@@ -44,7 +44,9 @@
 		"matched": "Übereinstimmung",
 		"reverted": "Zurückgewiesen",
 		"pending": "Ausstehend",
-		"unmatched": "Nicht Übereingestimmt"
+		"open": "Open",
+		"unmatched": "Nicht Übereingestimmt",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "Der Tausch wurde aufgrund von Verbindungsproblemen zurückgewiesen."
