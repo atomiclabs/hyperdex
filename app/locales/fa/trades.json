@@ -1,6 +1,6 @@
 {
 	"openOrders": "سفارش‌های باز",
-	"swapHistory": "تاریخچه جابجایی",
+	"tradeHistory": "Trade History",
 	"stats": "در ماه گذشته شما {{count}} معامله موفق با ارز {{currencyCount}} به ارزش کلی {{totalSwapsWorthInUsd}} انجام داده‌اید",
 	"stats_plural": "در ماه گذشته شما {{count}} معامله موفق با ارز {{currencyCount}} به ارزش کلی {{totalSwapsWorthInUsd}} انجام داده‌اید"
 }
