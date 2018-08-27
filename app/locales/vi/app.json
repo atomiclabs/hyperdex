@@ -4,5 +4,9 @@
 		"exampleUrl": "Ví dụ: {{url}}",
 		"invalidUrl": "URL không hợp lệ",
 		"title": "Cài đặt ứng dụng"
+	},
+	"donate": {
+		"title": "Donate",
+		"bodyText": "HyperDEX is a free and open source project. You can help support its development by donating to the below addresses."
 	}
 }
