@@ -1,6 +1,6 @@
 {
 	"openOrders": "オープン注文",
-	"swapHistory": "スワップ履歴",
+	"tradeHistory": "Trade History",
 	"stats": "先月、あなたは {{currencyCount}} 個の通貨を合計 {{totalSwapsWorthInUsd}} 分、{{count}} 回トレードしました。",
 	"stats_plural": "先月、あなたは {{currencyCount}} 個の通貨を合計 {{totalSwapsWorthInUsd}} 分、{{count}} 回トレードしました。"
 }
