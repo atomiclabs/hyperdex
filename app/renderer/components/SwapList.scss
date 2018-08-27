@@ -116,12 +116,16 @@
 		}
 	}
 
-	@media (min-width: 1260px) {
+	@media (min-width: 1280px) {
 		.row {
 			grid-template-areas: 'timestamp pairs base-amount quote-amount status buttons';
-			grid-template-columns: 16% 14% 23% 20%;
+			grid-template-columns: 14% 0% 23% 23%;
 			justify-content: unset;
 			white-space: unset;
+
+			.pairs {
+				display: none;
+			}
 
 			.base-amount {
 				justify-self: start;
@@ -132,11 +136,21 @@
 			}
 
 			.status {
-				justify-self: center;
+				justify-self: end;
 			}
 
 			.buttons {
 				justify-self: end;
+			}
+		}
+	}
+
+	@media (min-width: 1480px) {
+		.row {
+			grid-template-columns: 14% 15% 21% 21%;
+
+			.pairs {
+				display: block;
 			}
 		}
 	}

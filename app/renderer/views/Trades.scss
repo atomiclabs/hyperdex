@@ -62,6 +62,10 @@
 					justify-content: unset;
 					white-space: unset;
 
+					.pairs {
+						display: block;
+					}
+
 					.base-amount {
 						justify-self: start;
 					}

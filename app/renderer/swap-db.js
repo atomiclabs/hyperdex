@@ -4,8 +4,9 @@ import cryptoPouch from 'crypto-pouch';
 import Emittery from 'emittery';
 import PQueue from 'p-queue';
 import roundTo from 'round-to';
-import {subDays, isPast, addMinutes} from 'date-fns';
+import {subDays, isAfter} from 'date-fns';
 import appContainer from 'containers/App';
+import {appTimeStarted} from '../constants';
 import swapTransactions from './swap-transactions';
 import {translate} from './translate';
 
@@ -227,14 +228,13 @@ class SwapDB {
 			}
 		});
 
-		// Treat swaps pending for more than 5 minutes as failed.
-		// https://github.com/jl777/SuperNET/issues/775#issuecomment-397557568
-		const timedOut = swap.status === 'pending' && isPast(addMinutes(swap.timeStarted, 5));
-		if (timedOut) {
+		// Show open orders from previous session as cancelled
+		const cancelled = swap.status === 'pending' && isAfter(appTimeStarted, swap.timeStarted);
+		if (cancelled) {
 			swap.status = 'failed';
 			swap.error = {
 				code: undefined,
-				message: t('timedOut'),
+				message: undefined,
 			};
 		}
 
@@ -252,13 +252,20 @@ class SwapDB {
 		}
 
 		if (swap.status === 'failed') {
-			if (swap.error.code === -9999 || timedOut) {
+			if (swap.error.code === -9999) {
 				swap.statusFormatted = t('status.unmatched').toLowerCase();
+			}
+			if (swap.error.code === -9998 || cancelled) {
+				swap.statusFormatted = t('status.cancelled').toLowerCase();
 			}
 			if (swap.transactions.find(tx => tx.stage === 'alicereclaim')) {
 				swap.statusFormatted = t('status.reverted').toLowerCase();
 				swap.statusInformation = t('statusInformation.reverted');
 			}
+		}
+
+		if (swap.status === 'pending') {
+			swap.statusFormatted = t('status.open').toLowerCase();
 		}
 
 		return swap;
