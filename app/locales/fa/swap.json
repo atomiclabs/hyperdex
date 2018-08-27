@@ -44,7 +44,9 @@
 		"matched": "مطابق کرد",
 		"reverted": "Reverted",
 		"pending": "در حال بررسی",
-		"unmatched": "بدون تطابق"
+		"open": "Open",
+		"unmatched": "بدون تطابق",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
