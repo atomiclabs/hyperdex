@@ -30,6 +30,8 @@
 		"value": "Wartość holdingów {{symbol}}"
 	},
 	"list": {
+		"addCurrency": "Add Currency",
+		"addCurrencyDescription": "You can choose between 100+ currencies!",
 		"emptyWallet": "Pusty portfel",
 		"search": "Wyszukiwanie…"
 	},
