@@ -50,5 +50,9 @@
 	},
 	"statusInformation": {
 		"reverted": "সংযোগ সমস্যাগুলির কারণে বিনিময় প্রত্যাবর্তন করা হয়েছিল।"
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }
