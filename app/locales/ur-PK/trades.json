@@ -1,6 +1,6 @@
 {
 	"openOrders": "آرڈرز کھولیں",
-	"swapHistory": "تاریخ ادل بدل کریں",
+	"tradeHistory": "Trade History",
 	"stats": "گذشتہ ایک ماہ میں آپ نے {{count}} کامیاب ٹریڈ کیا {{currencyCount}} کرنسیز کی کل مالیت {{totalSwapsWorthInUsd}}",
 	"stats_plural": "گذشتہ ایک ماہ میں آپ نے {{count}} کامیاب ٹریڈ کیا {{currencyCount}} کرنسیز کی کل مالیت {{totalSwapsWorthInUsd}}"
 }
