@@ -44,7 +44,9 @@
 		"matched": "一致",
 		"reverted": "Reverted",
 		"pending": "ペンディング",
-		"unmatched": "マッチなし"
+		"open": "Open",
+		"unmatched": "マッチなし",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
