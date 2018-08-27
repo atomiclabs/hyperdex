@@ -30,6 +30,8 @@
 		"value": "{{symbol}}-innehavsvärde"
 	},
 	"list": {
+		"addCurrency": "Lägg till valuta",
+		"addCurrencyDescription": "Du kan välja bland 100+ valutor!",
 		"emptyWallet": "Tom plånbok",
 		"search": "Sök…"
 	},
