@@ -1,6 +1,6 @@
 {
 	"openOrders": "진행 중인 주문",
-	"swapHistory": "스왑 기록",
+	"tradeHistory": "Trade History",
 	"stats": "지난 달 {{currencyCount}}종의 화폐로 {{count}}번의 거래에 성공했으며, 총 가치는 {{totalSwapsWorthInUsd}}이었습니다.",
 	"stats_plural": "지난 달 {{currencyCount}}종의 화폐로 {{count}}번의 거래에 성공했으며, 총 가치는 {{totalSwapsWorthInUsd}}이었습니다."
 }
