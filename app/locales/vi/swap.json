@@ -44,7 +44,9 @@
 		"matched": "Đã khớp",
 		"reverted": "Bị trả về",
 		"pending": "Chờ xử lý",
-		"unmatched": "Không khớp"
+		"open": "Open",
+		"unmatched": "Không khớp",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "Hoán đổi đã bị trả về do có lỗi kết nối mạng."
