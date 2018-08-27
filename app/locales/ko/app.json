@@ -4,5 +4,9 @@
 		"exampleUrl": "예: {{url}}",
 		"invalidUrl": "유효하지 않은 URL",
 		"title": "앱 설정"
+	},
+	"donate": {
+		"title": "Donate",
+		"bodyText": "HyperDEX is a free and open source project. You can help support its development by donating to the below addresses."
 	}
 }
