@@ -86,7 +86,7 @@ const Activity = () => {
 	const {activeCurrency} = dashboardContainer;
 
 	const swaps = exchangeContainer.state.swapHistory.filter(swap =>
-		['completed', 'failed'].includes(swap.status) &&
+		!swap.isActive &&
 		[swap.baseCurrency, swap.quoteCurrency].includes(activeCurrency.symbol)
 	);
 

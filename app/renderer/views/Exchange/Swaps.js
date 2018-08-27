@@ -10,7 +10,7 @@ const t = translate('exchange');
 
 const swapLimit = 50;
 
-const getOpenOrders = () => exchangeContainer.state.swapHistory.filter(swap => !['completed', 'failed'].includes(swap.status));
+const getOpenOrders = () => exchangeContainer.state.swapHistory.filter(swap => swap.isActive);
 
 const TabButton = props => (
 	<span

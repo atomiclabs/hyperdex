@@ -157,7 +157,7 @@ window.addEventListener('beforeunload', event => {
 	}
 
 	const hasInProgressSwaps = exchangeContainer.state.swapHistory.find(swap => {
-		return swap.timeStarted > appLaunchTimestamp && !['completed', 'failed'].includes(swap.status);
+		return swap.timeStarted > appLaunchTimestamp && swap.isActive;
 	});
 
 	if (hasInProgressSwaps) {
