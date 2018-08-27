@@ -29,7 +29,7 @@
 	"quit": "종료",
 	"swaps": {
 		"all": "모두",
-		"title": "Recent Swaps",
+		"title": "Open Orders",
 		"viewAllSwaps": "View all swaps"
 	}
 }
