@@ -33,7 +33,7 @@
 		"baseAmount": "Base amount",
 		"date": "Date",
 		"cancel": "Cancel",
-		"empty": "No swaps yet",
+		"empty": "No open orders",
 		"pair": "Pair",
 		"quoteAmount": "Quote amount",
 		"status": "Status"
