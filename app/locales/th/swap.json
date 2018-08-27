@@ -44,7 +44,9 @@
 		"matched": "จับคู่แล้ว",
 		"reverted": "Reverted",
 		"pending": "อยู่ระหว่างดำเนินการ",
-		"unmatched": "ยังไม่ได้จับคู่"
+		"open": "Open",
+		"unmatched": "ยังไม่ได้จับคู่",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
