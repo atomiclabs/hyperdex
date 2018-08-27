@@ -33,7 +33,7 @@
 		"baseAmount": "Grunnbeløp",
 		"date": "Dato",
 		"cancel": "Avbryt",
-		"empty": "No orders",
+		"empty": "Ingen ordrer",
 		"pair": "Par",
 		"quoteAmount": "Sitatbeløp",
 		"status": "Status"
@@ -44,15 +44,15 @@
 		"matched": "Matchet",
 		"reverted": "Tilbakestilt",
 		"pending": "Ventende",
-		"open": "Open",
+		"open": "Åpen",
 		"unmatched": "Umatchet",
-		"cancelled": "Cancelled"
+		"cancelled": "Avbrutt"
 	},
 	"statusInformation": {
 		"reverted": "Byttehandelen ble tilbakestilt på grunn av tilkoblingsproblemer."
 	},
 	"toggleAdvancedButton": {
-		"more": "More",
-		"less": "Less"
+		"more": "Mer",
+		"less": "Mindre"
 	}
 }
