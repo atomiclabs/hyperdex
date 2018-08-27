@@ -50,5 +50,9 @@
 	},
 	"statusInformation": {
 		"reverted": "Byttehandelen ble tilbakestilt på grunn av tilkoblingsproblemer."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }
