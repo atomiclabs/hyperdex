@@ -21,12 +21,9 @@ const SortDirections = {
 
 // eslint-disable-next-line no-unused-vars
 class CancelButton extends React.Component {
-	state = {
-		isCancelling: false,
-	}
-
 	cancelSwap = async swapUuid => {
-		this.setState({isCancelling: true});
+		await tradesContainer.setIsSwapCancelling(swapUuid, true);
+		this.forceUpdate();
 
 		try {
 			await appContainer.api.cancelOrder(swapUuid);
@@ -43,7 +40,10 @@ class CancelButton extends React.Component {
 			<button
 				type="button"
 				className="cancel__button"
-				disabled={swap.status !== 'pending' || this.state.isCancelling}
+				disabled={
+					swap.status !== 'pending' ||
+					tradesContainer.state.isSwapCancelling[swap.uuid]
+				}
 				onClick={() => this.cancelSwap(swap.uuid)}
 			>
 				{t('list.cancel')}
