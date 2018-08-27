@@ -10,6 +10,8 @@ const t = translate('exchange');
 
 const swapLimit = 50;
 
+const getOpenOrders = () => exchangeContainer.state.swapHistory.filter(swap => !['completed', 'failed'].includes(swap.status));
+
 const TabButton = props => (
 	<span
 		className={
@@ -32,16 +34,20 @@ const TabView = ({component}) => (
 	<View component={component} activeView={exchangeContainer.state.activeSwapsView}/>
 );
 
-const All = () => (
-	<SwapList swaps={exchangeContainer.state.swapHistory} limit={swapLimit} showCancel/>
-);
+const OpenOrders = () => {
+	const openOrders = getOpenOrders();
 
-const Split = () => {
+	return (
+		<SwapList swaps={openOrders} limit={swapLimit} showCancel/>
+	);
+};
+
+const CurrentPairOpenOrders = () => {
 	const {state} = exchangeContainer;
 
-	const filteredData = state.swapHistory.filter(x =>
-		x.baseCurrency === state.baseCurrency &&
-		x.quoteCurrency === state.quoteCurrency
+	const filteredData = getOpenOrders().filter(swap =>
+		swap.baseCurrency === state.baseCurrency &&
+		swap.quoteCurrency === state.quoteCurrency
 	);
 
 	return (
@@ -59,17 +65,17 @@ const Swaps = () => {
 				<nav>
 					<TabButton
 						title={t('swaps.all')}
-						component={All}
+						component={OpenOrders}
 					/>
 					<TabButton
 						title={`${state.baseCurrency}/${state.quoteCurrency}`}
-						component={Split}
+						component={CurrentPairOpenOrders}
 					/>
 				</nav>
 			</header>
 			<main>
-				<TabView component={All}/>
-				<TabView component={Split}/>
+				<TabView component={OpenOrders}/>
+				<TabView component={CurrentPairOpenOrders}/>
 			</main>
 		</div>
 	);
