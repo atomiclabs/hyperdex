@@ -33,7 +33,7 @@
 		"baseAmount": "Grunnbeløp",
 		"date": "Dato",
 		"cancel": "Avbryt",
-		"empty": "No open orders",
+		"empty": "No orders",
 		"pair": "Par",
 		"quoteAmount": "Sitatbeløp",
 		"status": "Status"
