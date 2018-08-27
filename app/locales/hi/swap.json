@@ -44,7 +44,9 @@
 		"matched": "मिलान हुआ",
 		"reverted": "Reverted",
 		"pending": "पेंडिंग",
-		"unmatched": "मिलान नहीं हुआ"
+		"open": "Open",
+		"unmatched": "मिलान नहीं हुआ",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
