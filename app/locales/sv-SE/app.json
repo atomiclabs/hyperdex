@@ -4,5 +4,9 @@
 		"exampleUrl": "Exempel: {{url}}",
 		"invalidUrl": "Ogiltig webbadress",
 		"title": "Appinställningar"
+	},
+	"donate": {
+		"title": "Donera",
+		"bodyText": "HyperDEX är ett gratis och öppen källkod-projekt. Du kan stödja dess utveckling genom att donera till adresserna nedan."
 	}
 }

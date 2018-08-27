@@ -30,8 +30,13 @@
 		"view": "Visa"
 	},
 	"list": {
+		"baseAmount": "Basbelopp",
+		"date": "Datum",
 		"cancel": "Avbryt",
-		"empty": "Inga swaps än"
+		"empty": "No orders",
+		"pair": "Par",
+		"quoteAmount": "Citatbelopp",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Slutförd",
@@ -39,9 +44,15 @@
 		"matched": "Matchad",
 		"reverted": "Återställd",
 		"pending": "Pågående",
-		"unmatched": "Ej matchad"
+		"open": "Open",
+		"unmatched": "Ej matchad",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "Swap blev återställd på grund av anslutningsproblem."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }

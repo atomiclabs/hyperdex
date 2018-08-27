@@ -30,8 +30,13 @@
 		"view": "Tampilkan"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "Batal",
-		"empty": "Belum ada swap"
+		"empty": "No orders",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Selesai",
@@ -39,9 +44,15 @@
 		"matched": "Sesuai",
 		"reverted": "Reverted",
 		"pending": "Penundaan",
-		"unmatched": "Tidak sesuai"
+		"open": "Open",
+		"unmatched": "Tidak sesuai",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }

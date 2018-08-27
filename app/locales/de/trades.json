@@ -1,6 +1,6 @@
 {
 	"openOrders": "Offene Aufträge",
-	"swapHistory": "Tauschverlauf",
+	"tradeHistory": "Trade History",
 	"stats": "Im letzten Monat hast du {{count}} erfolgreichen Tausch in {{currencyCount}} Währungen im Gesamtwert von {{totalSwapsWorthInUsd}} getätigt",
 	"stats_plural": "Im letzten Monat hast du {{count}} erfolgreiche Tauschgeschäfte in {{currencyCount}} Währungen im Gesamtwert von {{totalSwapsWorthInUsd}} getätigt"
 }

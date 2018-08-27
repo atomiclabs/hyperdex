@@ -1,6 +1,6 @@
 {
 	"openOrders": "أوامر مفتوحة",
-	"swapHistory": "سجل المبادلة",
+	"tradeHistory": "Trade History",
 	"stats": "في الشهر الماضي قمت بعدد{{count}} تبادل ناجح بعملات {{currencyCount}} تساوي {{totalSwapsWorthInUsd}} في إجمالها",
 	"stats_plural": "في الشهر الماضي قمت بعدد{{count}} تبادل ناجح بعملات {{currencyCount}} تساوي {{totalSwapsWorthInUsd}} في إجمالها"
 }

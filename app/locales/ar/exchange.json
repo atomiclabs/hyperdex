@@ -29,7 +29,7 @@
 	"quit": "خروج",
 	"swaps": {
 		"all": "الكل",
-		"title": "Recent Swaps",
+		"title": "Open Orders",
 		"viewAllSwaps": "View all swaps"
 	}
 }

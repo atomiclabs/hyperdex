@@ -30,8 +30,13 @@
 		"view": "Angalia"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "Ghairi",
-		"empty": "Bado hakuna mabadilisho"
+		"empty": "No orders",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Umekamilisha",
@@ -39,9 +44,15 @@
 		"matched": "Zimelingana",
 		"reverted": "Reverted",
 		"pending": "Inaendelea",
-		"unmatched": "Hazijalingana"
+		"open": "Open",
+		"unmatched": "Hazijalingana",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }

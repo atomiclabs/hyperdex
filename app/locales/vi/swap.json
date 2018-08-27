@@ -30,8 +30,13 @@
 		"view": "Xem"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "Hủy",
-		"empty": "Chưa có hoán đổi nào"
+		"empty": "No orders",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Đã hoàn tất",
@@ -39,9 +44,15 @@
 		"matched": "Đã khớp",
 		"reverted": "Bị trả về",
 		"pending": "Chờ xử lý",
-		"unmatched": "Không khớp"
+		"open": "Open",
+		"unmatched": "Không khớp",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "Hoán đổi đã bị trả về do có lỗi kết nối mạng."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }

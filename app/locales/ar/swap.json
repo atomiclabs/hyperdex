@@ -30,8 +30,13 @@
 		"view": "عرض"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "إلغاء",
-		"empty": "لا توجد مبادلات"
+		"empty": "No orders",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "مكتمل",
@@ -39,9 +44,15 @@
 		"matched": "مطابق",
 		"reverted": "Reverted",
 		"pending": "في الانتظار",
-		"unmatched": "غير مطابق"
+		"open": "Open",
+		"unmatched": "غير مطابق",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }

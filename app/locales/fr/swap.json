@@ -30,8 +30,13 @@
 		"view": "Afficher"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "Annuler",
-		"empty": "Aucun échange pour le moment"
+		"empty": "No orders",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Terminé",
@@ -39,9 +44,15 @@
 		"matched": "Correspondant",
 		"reverted": "Reverted",
 		"pending": "En attente",
-		"unmatched": "Sans correspondance"
+		"open": "Open",
+		"unmatched": "Sans correspondance",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }

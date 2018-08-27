@@ -1,6 +1,6 @@
 {
 	"openOrders": "ओपन ऑर्डर",
-	"swapHistory": "स्वैप हिस्ट्री",
+	"tradeHistory": "Trade History",
 	"stats": "पिछले महीने आपने कुल {{totalSwapsWorthInUsd}} मूल्य की {{currencyCount}} मुद्राओं में {{count}} सफल ट्रेड किया",
 	"stats_plural": "पिछले महीने आपने कुल {{totalSwapsWorthInUsd}} मूल्य की {{currencyCount}} मुद्राओं में {{count}} सफल ट्रेड किए"
 }

@@ -30,8 +30,13 @@
 		"view": "دیکھیں"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "منسوخ کریں",
-		"empty": "ابھی تک کوئی سویپ نہیں"
+		"empty": "No orders",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "مکمل",
@@ -39,9 +44,15 @@
 		"matched": "مشابہ",
 		"reverted": "واپس آ جائیں",
 		"pending": "زیرالتوا",
-		"unmatched": "مشابہ نہیں ہے"
+		"open": "Open",
+		"unmatched": "مشابہ نہیں ہے",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "رابطے کے ایشوز کی وجہ سے سویپ کو واپس کر دیا گیا تھا."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }

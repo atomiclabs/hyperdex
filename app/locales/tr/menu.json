@@ -3,12 +3,12 @@
 		"preferences": "Tercihler…"
 	},
 	"help": {
-		"debugMode": "Debug Mode",
+		"debugMode": "Hata ayıklama modu",
 		"website": "Web sitesi",
 		"sourceCode": "Kaynak kodu",
-		"reportSecurityIssue": "Report a Security Issue…",
+		"reportSecurityIssue": "Güvenlik sorunlarını raporla…",
 		"reportIssue": "Sorun bildir…",
-		"about": "Hakkında {{appName}}"
+		"about": "{{appName}} Hakkında"
 	},
 	"other": {
 		"file": "Dosya"
@@ -17,7 +17,7 @@
 		"title": "Portföy",
 		"dashboard": "Kontrol paneli",
 		"swap": "Takas Et",
-		"exchange": "Borsa",
+		"exchange": "Bozdur",
 		"trades": "Alım satım",
 		"settings": "Ayarlar",
 		"goToPrevView": "Bir Önceki Ekrana Git",

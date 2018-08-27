@@ -4,5 +4,9 @@
 		"exampleUrl": "उदाहरण: {{url}}",
 		"invalidUrl": "अमान्य URL",
 		"title": "ऐप सेटिंग"
+	},
+	"donate": {
+		"title": "Donate",
+		"bodyText": "HyperDEX is a free and open source project. You can help support its development by donating to the below addresses."
 	}
 }

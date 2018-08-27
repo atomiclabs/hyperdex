@@ -30,8 +30,13 @@
 		"view": "দেখুন"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "বাতিল করুন",
-		"empty": "এখনও কোনো বিনিময় হয়নি"
+		"empty": "No orders",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "সম্পন্ন হয়েছে",
@@ -39,9 +44,15 @@
 		"matched": "মিলেছে",
 		"reverted": "প্রত্যাবর্তন",
 		"pending": "বিবেচনাধীন",
-		"unmatched": "মিলেনি"
+		"open": "Open",
+		"unmatched": "মিলেনি",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "সংযোগ সমস্যাগুলির কারণে বিনিময় প্রত্যাবর্তন করা হয়েছিল।"
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }

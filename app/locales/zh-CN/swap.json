@@ -30,8 +30,13 @@
 		"view": "查看"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "取消",
-		"empty": "没有交换"
+		"empty": "No orders",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "已完成",
@@ -39,9 +44,15 @@
 		"matched": "已匹配",
 		"reverted": "Reverted",
 		"pending": "待定",
-		"unmatched": "未匹配"
+		"open": "Open",
+		"unmatched": "未匹配",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }

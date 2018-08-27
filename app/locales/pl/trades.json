@@ -1,6 +1,6 @@
 {
 	"openOrders": "Otwórz zamówienia",
-	"swapHistory": "Historia swapów",
+	"tradeHistory": "Trade History",
 	"stats": "W ciągu ostatniego miesiąca dokonałeś\/aś {{count}} udanej transakcji w {{currencyCount}} walutach łącznie wartej {{totalSwapsWorthInUsd}}",
 	"stats_plural": "W ciągu ostatniego miesiąca dokonałeś\/aś {{count}} udanych transakcji w {{currencyCount}} walutach łącznie wartych {{totalSwapsWorthInUsd}}"
 }

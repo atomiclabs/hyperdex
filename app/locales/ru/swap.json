@@ -30,18 +30,29 @@
 		"view": "Смотреть"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Дата",
 		"cancel": "Отменить",
-		"empty": "Свопов еще не было"
+		"empty": "No orders",
+		"pair": "Пара",
+		"quoteAmount": "Quote amount",
+		"status": "Статус"
 	},
 	"status": {
 		"completed": "Завершено",
 		"failed": "С ошибкой",
 		"matched": "Совпало",
-		"reverted": "Reverted",
+		"reverted": "Возвращено к исходному состоянию",
 		"pending": "Ожидание",
-		"unmatched": "Не совпало"
+		"open": "Open",
+		"unmatched": "Не совпало",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }

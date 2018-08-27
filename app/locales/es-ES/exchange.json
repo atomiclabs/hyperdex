@@ -29,7 +29,7 @@
 	"quit": "Salir",
 	"swaps": {
 		"all": "Todo",
-		"title": "Recent Swaps",
+		"title": "Open Orders",
 		"viewAllSwaps": "View all swaps"
 	}
 }

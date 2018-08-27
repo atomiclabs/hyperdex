@@ -30,6 +30,8 @@
 		"value": "Valeur du portefeuille d'actions {{symbol}}"
 	},
 	"list": {
+		"addCurrency": "Add Currency",
+		"addCurrencyDescription": "You can choose between 100+ currencies!",
 		"emptyWallet": "Portefeuille vide",
 		"search": "Rechercher…"
 	},

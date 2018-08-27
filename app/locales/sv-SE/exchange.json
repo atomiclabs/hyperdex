@@ -29,7 +29,7 @@
 	"quit": "Avsluta",
 	"swaps": {
 		"all": "Alla",
-		"title": "Senaste swaps",
+		"title": "Open Orders",
 		"viewAllSwaps": "Visa alla swaps"
 	}
 }

@@ -30,8 +30,13 @@
 		"view": "ดู"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "ยกเลิก",
-		"empty": "ยังไม่มีรายการสวอป"
+		"empty": "No orders",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "เสร็จสมบูรณ์",
@@ -39,9 +44,15 @@
 		"matched": "จับคู่แล้ว",
 		"reverted": "Reverted",
 		"pending": "อยู่ระหว่างดำเนินการ",
-		"unmatched": "ยังไม่ได้จับคู่"
+		"open": "Open",
+		"unmatched": "ยังไม่ได้จับคู่",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }

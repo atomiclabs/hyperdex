@@ -29,7 +29,7 @@
 	"quit": "Завершить",
 	"swaps": {
 		"all": "Все",
-		"title": "Последние свопы",
+		"title": "Open Orders",
 		"viewAllSwaps": "Посмотреть все свопы"
 	}
 }

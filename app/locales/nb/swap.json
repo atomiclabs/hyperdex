@@ -30,8 +30,13 @@
 		"view": "Vis"
 	},
 	"list": {
+		"baseAmount": "Grunnbeløp",
+		"date": "Dato",
 		"cancel": "Avbryt",
-		"empty": "Ingen byttehandler ennå"
+		"empty": "Ingen ordrer",
+		"pair": "Par",
+		"quoteAmount": "Sitatbeløp",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Fullført",
@@ -39,9 +44,15 @@
 		"matched": "Matchet",
 		"reverted": "Tilbakestilt",
 		"pending": "Ventende",
-		"unmatched": "Umatchet"
+		"open": "Åpen",
+		"unmatched": "Umatchet",
+		"cancelled": "Avbrutt"
 	},
 	"statusInformation": {
 		"reverted": "Byttehandelen ble tilbakestilt på grunn av tilkoblingsproblemer."
+	},
+	"toggleAdvancedButton": {
+		"more": "Mer",
+		"less": "Mindre"
 	}
 }

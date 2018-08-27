@@ -6,7 +6,7 @@
 	"activity": {
 		"noActivity": "Henüz işlem yok",
 		"recentActivity": "Son İşlemler",
-		"swapFailedTitle": "Takas Yapılmadı",
+		"swapFailedTitle": "Takas Yapılamadı",
 		"swapTitle": "Takas Edildi",
 		"swapDescription": "{{quoteCurrency}} için {{baseCurrency}}"
 	},
@@ -30,8 +30,10 @@
 		"value": "{{symbol}} Tahvil Değeri"
 	},
 	"list": {
+		"addCurrency": "Para birimi Ekle",
+		"addCurrencyDescription": "100 + para birimi arasından seçim yapabilirsiniz!",
 		"emptyWallet": "Cüzdan boş",
-		"search": "Ara…"
+		"search": "Arama…"
 	},
 	"wallet": {
 		"info": "{{symbol}} Cüzdan",

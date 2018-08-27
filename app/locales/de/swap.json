@@ -30,8 +30,13 @@
 		"view": "Ansehen"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Date",
 		"cancel": "Abbrechen",
-		"empty": "Noch keine Tauschgeschäfte"
+		"empty": "No orders",
+		"pair": "Pair",
+		"quoteAmount": "Quote amount",
+		"status": "Status"
 	},
 	"status": {
 		"completed": "Abgeschlossen",
@@ -39,9 +44,15 @@
 		"matched": "Übereinstimmung",
 		"reverted": "Zurückgewiesen",
 		"pending": "Ausstehend",
-		"unmatched": "Nicht Übereingestimmt"
+		"open": "Open",
+		"unmatched": "Nicht Übereingestimmt",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "Der Tausch wurde aufgrund von Verbindungsproblemen zurückgewiesen."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }

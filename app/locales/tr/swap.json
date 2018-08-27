@@ -12,7 +12,7 @@
 		"bobpayment": "Bob Ödeme",
 		"broadcast": "Sunulan",
 		"buy": "Satın Alınan",
-		"copyDebugData": "Takas Ayıklama Datasını Kopyala",
+		"copyDebugData": "Takas Ayıklama Verisini Kopyala",
 		"exchanging": "Verilen",
 		"executed": "Gerçekleştirilen",
 		"for": "İstenen",
@@ -30,18 +30,29 @@
 		"view": "Göster"
 	},
 	"list": {
+		"baseAmount": "Base amount",
+		"date": "Tarih",
 		"cancel": "İptal",
-		"empty": "Henüz takas yok"
+		"empty": "No orders",
+		"pair": "Eşleştir",
+		"quoteAmount": "Teklif edilen tutar",
+		"status": "Durum"
 	},
 	"status": {
 		"completed": "Tamamlandı",
 		"failed": "Başarısız",
 		"matched": "Eşleşti",
-		"reverted": "Reverted",
+		"reverted": "Geri alındı",
 		"pending": "Beklemede",
-		"unmatched": "Eşleşen yok"
+		"open": "Open",
+		"unmatched": "Eşleşen yok",
+		"cancelled": "Cancelled"
 	},
 	"statusInformation": {
 		"reverted": "The swap was reverted due to connectivity issues."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }

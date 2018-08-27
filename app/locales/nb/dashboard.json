@@ -30,6 +30,8 @@
 		"value": "{{symbol}} beholdningsverdi"
 	},
 	"list": {
+		"addCurrency": "Legg til valuta",
+		"addCurrencyDescription": "Du kan velge mellom 100+ valutaer!",
 		"emptyWallet": "Tom lommebok",
 		"search": "Søk…"
 	},

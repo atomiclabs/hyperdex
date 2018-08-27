@@ -1,6 +1,6 @@
 {
 	"openOrders": "开放订单",
-	"swapHistory": "交换历史记录",
+	"tradeHistory": "Trade History",
 	"stats": "上个月您在 {{currencyCount}} 种货币间成功进行了 {{count}} 笔交易，总价值 {{totalSwapsWorthInUsd}}。",
 	"stats_plural": "上个月您在 {{currencyCount}} 种货币间成功进行了 {{count}} 笔交易，总价值 {{totalSwapsWorthInUsd}}。"
 }

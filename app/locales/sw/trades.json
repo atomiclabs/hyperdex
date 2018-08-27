@@ -1,6 +1,6 @@
 {
 	"openOrders": "Maagizo Yaliyofunguliwa",
-	"swapHistory": "Historia ya Kubadilisha",
+	"tradeHistory": "Trade History",
 	"stats": "Katika mwezi uliopita ulikamilisha biashara {{count}} kwa sarafu ya {{currencyCount}} yenye thamani ya jumla ya {{totalSwapsWorthInUsd}}",
 	"stats_plural": "Katika mwezi uliopita ulikamilisha biashara {{count}} kwa sarafu ya {{currencyCount}} zenye thamani ya jumla ya {{totalSwapsWorthInUsd}}"
 }

@@ -29,7 +29,7 @@
 	"quit": "ออกจากระบบ",
 	"swaps": {
 		"all": "ทั้งหมด",
-		"title": "Recent Swaps",
+		"title": "Open Orders",
 		"viewAllSwaps": "View all swaps"
 	}
 }
