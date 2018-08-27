@@ -30,6 +30,8 @@
 		"value": "Valore dei pacchetti di {{symbol}}"
 	},
 	"list": {
+		"addCurrency": "Add Currency",
+		"addCurrencyDescription": "You can choose between 100+ currencies!",
 		"emptyWallet": "Portafoglio vuoto",
 		"search": "Ricerca…"
 	},
