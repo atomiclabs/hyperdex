@@ -29,7 +29,7 @@
 	"quit": "退出",
 	"swaps": {
 		"all": "全部",
-		"title": "Recent Swaps",
+		"title": "Open Orders",
 		"viewAllSwaps": "View all swaps"
 	}
 }
