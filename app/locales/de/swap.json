@@ -50,5 +50,9 @@
 	},
 	"statusInformation": {
 		"reverted": "Der Tausch wurde aufgrund von Verbindungsproblemen zurückgewiesen."
+	},
+	"toggleAdvancedButton": {
+		"more": "More",
+		"less": "Less"
 	}
 }
