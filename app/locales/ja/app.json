@@ -4,5 +4,9 @@
 		"exampleUrl": "例: {{url}}",
 		"invalidUrl": "無効な URL",
 		"title": "アプリの設定"
+	},
+	"donate": {
+		"title": "Donate",
+		"bodyText": "HyperDEX is a free and open source project. You can help support its development by donating to the below addresses."
 	}
 }
