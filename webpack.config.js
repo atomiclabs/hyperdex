@@ -36,21 +36,12 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			// Works around lack of object spread support in Webpack…
-			{
-				test: /\.js$/,
-				include: /node_modules[/\\]unstated-debug/,
-				loader: 'babel-loader',
-				options: {
-					presets: [
-						'stage-3',
-					],
-				},
-			},
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
 				loader: 'babel-loader',
+				// Workaround for https://github.com/babel/babel/issues/7788
+				options: require('./package.json').babel,
 			},
 			{
 				test: /\.scss$/,
