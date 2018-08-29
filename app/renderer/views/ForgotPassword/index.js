@@ -9,11 +9,11 @@ import Step3 from './Step3';
 const ForgotPassword = () => (
 	<Subscribe to={[forgotPasswordContainer]}>
 		{() => (
-			<React.Fragment>
+			<>
 				<LoginView component={Step1}/>
 				<LoginView component={Step2}/>
 				<LoginView component={Step3}/>
-			</React.Fragment>
+			</>
 		)}
 	</Subscribe>
 );

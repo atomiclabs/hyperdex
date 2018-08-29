@@ -27,14 +27,14 @@ class Login extends React.Component {
 					}
 
 					const LoginViews = () => (
-						<React.Fragment>
+						<>
 							<LoginView component={NewPortfolio}/>
 							<LoginView component={LoginBox}/>
 							<LoginView component={LoggingIn}/>
 							<CreatePortfolio/>
 							<RestorePortfolio/>
 							<ForgotPassword/>
-						</React.Fragment>
+						</>
 					);
 
 					return (

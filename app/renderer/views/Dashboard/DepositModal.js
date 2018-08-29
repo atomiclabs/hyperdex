@@ -34,7 +34,7 @@ class DepositModal extends React.Component {
 					onClose={this.close}
 					width="445px"
 				>
-					<React.Fragment>
+					<>
 						<div className="section qrcode">
 							<QRCode value={currencyInfo.address}/>
 						</div>
@@ -45,7 +45,7 @@ class DepositModal extends React.Component {
 							<img src="/assets/info-icon.svg" width="26" height="26"/>
 							<p>{t('deposit.warning', {symbol: currencyInfo.symbol})}</p>
 						</div>
-					</React.Fragment>
+					</>
 				</Modal>
 				<Button className="OpenModalButton" value={t('deposit.label')} onClick={this.open}/>
 			</div>

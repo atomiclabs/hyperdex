@@ -27,7 +27,7 @@ class DonateButton extends React.Component {
 
 	render() {
 		return (
-			<React.Fragment>
+			<>
 				<Modal
 					className="DonateModal"
 					title={`${t('donate.title')} ❤️`}
@@ -35,7 +35,7 @@ class DonateButton extends React.Component {
 					onClose={this.close}
 					width="500px"
 				>
-					<React.Fragment>
+					<>
 						<div className="section text">
 							<p>{t('donate.bodyText')}</p>
 						</div>
@@ -47,10 +47,10 @@ class DonateButton extends React.Component {
 							<label>BTC:</label>
 							<CopyCurrencyAddress value={donationAddresses.btc}/>
 						</div>
-					</React.Fragment>
+					</>
 				</Modal>
 				<Button className="DonateButton" value={t('donate.title')} onClick={this.open}/>
-			</React.Fragment>
+			</>
 		);
 	}
 }

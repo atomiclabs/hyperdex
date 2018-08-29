@@ -136,7 +136,7 @@ class SwapDetails extends React.Component {
 					onClose={this.close}
 					width="660px"
 				>
-					<React.Fragment>
+					<>
 						<Progress
 							value={swap.progress}
 							color={
@@ -204,12 +204,12 @@ class SwapDetails extends React.Component {
 										)}
 									</div>
 									{(transactions.length > 0) && (
-										<React.Fragment>
+										<>
 											<h4>{t('details.transactions')}</h4>
 											<div className="transactions">
 												{transactions}
 											</div>
-										</React.Fragment>
+										</>
 									)}
 									<p>ID: {swap.uuid}</p>
 									{isDevelopment &&
@@ -223,7 +223,7 @@ class SwapDetails extends React.Component {
 								</div>
 							</div>
 						)}
-					</React.Fragment>
+					</>
 				</Modal>
 				<button type="button" className="view__button" onClick={this.open}>{t('details.view')}</button>
 			</div>

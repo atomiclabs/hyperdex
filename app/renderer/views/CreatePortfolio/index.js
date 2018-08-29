@@ -10,12 +10,12 @@ import Step4 from './Step4';
 const CreatePortfolio = () => (
 	<Subscribe to={[createPortfolioContainer]}>
 		{() => (
-			<React.Fragment>
+			<>
 				<LoginView component={Step1}/>
 				<LoginView component={Step2}/>
 				<LoginView component={Step3}/>
 				<LoginView component={Step4}/>
-			</React.Fragment>
+			</>
 		)}
 	</Subscribe>
 );

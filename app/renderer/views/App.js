@@ -16,7 +16,7 @@ import ComponentsPreview from './ComponentsPreview';
 const App = () => (
 	<Subscribe to={[appContainer]}>
 		{() => (
-			<React.Fragment>
+			<>
 				<AppView component={Login}/>
 				<AppView component={AppSettings}/>
 				<AppView component={Dashboard}/>
@@ -25,7 +25,7 @@ const App = () => (
 				<AppView component={Trades}/>
 				<AppView component={Settings}/>
 				<AppView component={ComponentsPreview}/>
-			</React.Fragment>
+			</>
 		)}
 	</Subscribe>
 );

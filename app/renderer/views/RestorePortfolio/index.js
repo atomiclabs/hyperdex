@@ -9,11 +9,11 @@ import Step3 from './Step3';
 const RestorePortfolio = () => (
 	<Subscribe to={[restorePortfolioContainer]}>
 		{() => (
-			<React.Fragment>
+			<>
 				<LoginView component={Step1}/>
 				<LoginView component={Step2}/>
 				<LoginView component={Step3}/>
-			</React.Fragment>
+			</>
 		)}
 	</Subscribe>
 );

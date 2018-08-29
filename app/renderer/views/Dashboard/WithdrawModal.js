@@ -97,7 +97,7 @@ class WithdrawModal extends React.Component {
 					open={this.state.isOpen}
 					onClose={this.close}
 				>
-					<React.Fragment>
+					<>
 						<div className="section">
 							<label>{t('withdraw.recipientLabel')}:</label>
 							<Input
@@ -188,7 +188,7 @@ class WithdrawModal extends React.Component {
 								onClick={this.withdrawButtonHandler}
 							/>
 						)}
-					</React.Fragment>
+					</>
 				</Modal>
 				<Button
 					className="OpenModalButton"

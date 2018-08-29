@@ -14,7 +14,7 @@ const Exchange = () => {
 	return (
 		<Subscribe to={[exchangeContainer]}>
 			{() => (
-				<React.Fragment>
+				<>
 					<Intro/>
 					<TabView className="Exchange">
 						<Order type="buy"/>
@@ -22,7 +22,7 @@ const Exchange = () => {
 						<Chart/>
 						<Swaps/>
 					</TabView>
-				</React.Fragment>
+				</>
 			)}
 		</Subscribe>
 	);
