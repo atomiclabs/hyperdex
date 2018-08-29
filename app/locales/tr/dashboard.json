@@ -6,8 +6,7 @@
 	"activity": {
 		"noActivity": "Henüz işlem yok",
 		"recentActivity": "Son İşlemler",
-		"swapFailedTitle": "Takas Yapılamadı",
-		"swapTitle": "Takas Edildi",
+		"swapTitle": "Trade",
 		"swapDescription": "{{quoteCurrency}} için {{baseCurrency}}"
 	},
 	"chart": {
