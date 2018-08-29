@@ -27,11 +27,7 @@ const ActivityItem = ({swap}) => {
 			</td>
 			<td className="type">
 				<div>
-					{/*
-						TODO: Use something more proper than `Did Not Swap`
-						https://github.com/atomiclabs/hyperdex/pull/160#discussion_r185178958
-					*/}
-					<div className="type-title">{swap.status === 'failed' ? t('activity.swapFailedTitle') : t('activity.swapTitle')}</div>
+					<div className="type-title">{t('activity.swapTitle')}</div>
 					<div className="type-description">
 						{t('activity.swapDescription', {
 							baseCurrency: swap.baseCurrency,

@@ -6,8 +6,7 @@
 	"activity": {
 		"noActivity": "No activity yet",
 		"recentActivity": "Recent Activity",
-		"swapFailedTitle": "Did Not Swap",
-		"swapTitle": "Swapped",
+		"swapTitle": "Trade",
 		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
 	},
 	"chart": {
