@@ -6,8 +6,7 @@
 	"activity": {
 		"noActivity": "Chưa có hoạt động nào",
 		"recentActivity": "Hoạt động Gần đây",
-		"swapFailedTitle": "Không Hoán đổi",
-		"swapTitle": "Đã hoán đổi",
+		"swapTitle": "Trade",
 		"swapDescription": "{{quoteCurrency}} cho {{baseCurrency}}"
 	},
 	"chart": {
