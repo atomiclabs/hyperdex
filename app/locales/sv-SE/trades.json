@@ -1,6 +1,6 @@
 {
 	"openOrders": "Öppna ordrar",
-	"tradeHistory": "Trade History",
+	"tradeHistory": "Handelshistorik",
 	"stats": "Under den senaste månaden genomförde du {{count}} lyckad handelstransaktion i {{currencyCount}} valutor värd {{totalSwapsWorthInUsd}} totalt",
 	"stats_plural": "Under den senaste månaden genomförde du {{count}} lyckade handelstransaktioner i {{currencyCount}} valutor värd {{totalSwapsWorthInUsd}} totalt"
 }
