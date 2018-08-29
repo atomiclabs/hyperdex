@@ -6,8 +6,7 @@
 	"activity": {
 		"noActivity": "ยังไม่มีกิจกรรม",
 		"recentActivity": "กิจกรรมล่าสุด",
-		"swapFailedTitle": "ไม่ได้สวอป",
-		"swapTitle": "สวอปแล้ว",
+		"swapTitle": "Trade",
 		"swapDescription": "{{quoteCurrency}} สำหรับ {{baseCurrency}}"
 	},
 	"chart": {
