@@ -6,8 +6,7 @@
 	"activity": {
 		"noActivity": "ابھی تک کوئی سرگرمی نہیں ہے",
 		"recentActivity": "حالیہ سرگرمی",
-		"swapFailedTitle": "تبدیل نہیں کیا",
-		"swapTitle": "تبدیل کیا",
+		"swapTitle": "Trade",
 		"swapDescription": "{{quoteCurrency}} کیے لیے {{baseCurrency}}"
 	},
 	"chart": {
