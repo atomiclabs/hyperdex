@@ -6,8 +6,7 @@
 	"activity": {
 		"noActivity": "아직 활동 없음",
 		"recentActivity": "최근 활동",
-		"swapFailedTitle": "스왑되지 않음",
-		"swapTitle": "스왑됨",
+		"swapTitle": "Trade",
 		"swapDescription": "{{baseCurrency}}에 대한 {{quoteCurrency}}"
 	},
 	"chart": {
