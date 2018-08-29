@@ -33,7 +33,7 @@
 		"baseAmount": "Basbelopp",
 		"date": "Datum",
 		"cancel": "Avbryt",
-		"empty": "No orders",
+		"empty": "Inga ordrar",
 		"pair": "Par",
 		"quoteAmount": "Citatbelopp",
 		"status": "Status"
@@ -44,15 +44,15 @@
 		"matched": "Matchad",
 		"reverted": "Återställd",
 		"pending": "Pågående",
-		"open": "Open",
+		"open": "Öppen",
 		"unmatched": "Ej matchad",
-		"cancelled": "Cancelled"
+		"cancelled": "Avbruten"
 	},
 	"statusInformation": {
 		"reverted": "Swap blev återställd på grund av anslutningsproblem."
 	},
 	"toggleAdvancedButton": {
-		"more": "More",
-		"less": "Less"
+		"more": "Mer",
+		"less": "Mindre"
 	}
 }
