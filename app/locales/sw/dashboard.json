@@ -6,8 +6,7 @@
 	"activity": {
 		"noActivity": "Bado hamna shughuli",
 		"recentActivity": "Shughuli za Hivi Majuzi",
-		"swapFailedTitle": "Hukubadilisha",
-		"swapTitle": "Umebadilisha",
+		"swapTitle": "Trade",
 		"swapDescription": "{{quoteCurrency}} kwa {{baseCurrency}}"
 	},
 	"chart": {
