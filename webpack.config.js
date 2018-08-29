@@ -8,7 +8,7 @@ const PATHS = {
 	dist: path.join(__dirname, 'app/renderer-dist'),
 };
 
-module.exports = {
+module.exports = (env, options) => ({
 	mode: 'development',
 	entry: './app/renderer',
 	output: {
@@ -16,7 +16,7 @@ module.exports = {
 		filename: 'bundle.js',
 	},
 	target: 'electron-renderer',
-	devtool: 'cheap-module-source-map',
+	devtool: options.mode === 'production' ? 'source-map' : 'cheap-module-eval-source-map',
 	devServer: {
 		historyApiFallback: true,
 		overlay: true,
@@ -80,4 +80,4 @@ module.exports = {
 			},
 		]),
 	],
-};
+});
