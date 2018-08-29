@@ -6,8 +6,7 @@
 	"activity": {
 		"noActivity": "Belum ada aktivitas",
 		"recentActivity": "Aktivitas Terbaru",
-		"swapFailedTitle": "Tidak diswap",
-		"swapTitle": "Diswap",
+		"swapTitle": "Trade",
 		"swapDescription": "{{quoteCurrency}} untuk {{baseCurrency}}"
 	},
 	"chart": {
