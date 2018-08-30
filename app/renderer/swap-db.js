@@ -219,15 +219,20 @@ class SwapDB {
 			}
 
 			if (message.method === 'failed') {
-				swap.status = 'failed';
-				swap.progress = 1;
+				// This check is to ignore cancel events when the trade is no longer pending
+				// It's most likely caused by this mm bug
+				// https://github.com/jl777/SuperNET/issues/956
+				if (!(swap.status !== 'pending' && [-9998, -9997].includes(message.error))) {
+					swap.status = 'failed';
+					swap.progress = 1;
 
-				// TODO: Add error messages once we have errors documented
-				// https://github.com/atomiclabs/hyperdex/issues/180
-				swap.error = {
-					code: message.error,
-					message: `Error Code: ${message.error}`,
-				};
+					// TODO: Add error messages once we have errors documented
+					// https://github.com/atomiclabs/hyperdex/issues/180
+					swap.error = {
+						code: message.error,
+						message: `Error Code: ${message.error}`,
+					};
+				}
 			}
 		});
 
