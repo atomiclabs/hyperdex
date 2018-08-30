@@ -6,7 +6,7 @@
 	"activity": {
 		"noActivity": "Ingen aktivitet",
 		"recentActivity": "Nylig aktivitet",
-		"swapTitle": "Trade",
+		"swapTitle": "Handel",
 		"swapDescription": "{{quoteCurrency}} for {{baseCurrency}}"
 	},
 	"chart": {
