@@ -30,6 +30,6 @@
 	"swaps": {
 		"all": "Alle",
 		"title": "Åpne ordrer",
-		"viewAllSwaps": "Vis alle byttehandler"
+		"historyButtonTitle": "History"
 	}
 }
