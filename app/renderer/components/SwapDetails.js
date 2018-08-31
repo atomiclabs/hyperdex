@@ -1,8 +1,10 @@
 import {remote, clipboard} from 'electron';
 import title from 'title';
 import React from 'react';
+import {Subscribe} from 'unstated';
 import PropTypes from 'prop-types';
 import formatDate from 'date-fns/format';
+import exchangeContainer from 'containers/Exchange';
 import Modal from 'components/Modal';
 import Progress from 'components/Progress';
 import CurrencyIcon from 'components/CurrencyIcon';
@@ -43,11 +45,12 @@ const getOverview = swap => {
 
 class SwapDetails extends React.Component {
 	static propTypes = {
-		swap: PropTypes.object,
+		swapId: PropTypes.string,
+		open: PropTypes.bool,
+		didClose: PropTypes.func,
 	}
 
 	state = {
-		isOpen: false,
 		showAdvanced: config.get('swapModalShowAdvanced'),
 	};
 
@@ -56,16 +59,19 @@ class SwapDetails extends React.Component {
 		config.set('swapModalShowAdvanced', showAdvanced);
 	};
 
-	open = () => {
-		this.setState({isOpen: true});
-	};
-
-	close = () => {
-		this.setState({isOpen: false});
-	};
-
 	render() {
-		const {swap} = this.props;
+		const {
+			exchangeContainer,
+			swapId,
+			open,
+			didClose,
+		} = this.props;
+
+		if (!swapId) {
+			return null;
+		}
+
+		const swap = exchangeContainer.state.swapHistory.find(swap => swap.uuid === swapId);
 		const {baseCurrency, quoteCurrency} = swap;
 
 		const transactions = swap.transactions.map(tx => (
@@ -132,8 +138,8 @@ class SwapDetails extends React.Component {
 					className="SwapDetails"
 					title={titleComponent}
 					icon="/assets/swap-icon.svg"
-					open={this.state.isOpen}
-					onClose={this.close}
+					open={open}
+					didClose={didClose}
 					width="660px"
 				>
 					<>
@@ -225,10 +231,15 @@ class SwapDetails extends React.Component {
 						)}
 					</>
 				</Modal>
-				<button type="button" className="view__button" onClick={this.open}>{t('details.view')}</button>
 			</div>
 		);
 	}
 }
 
-export default SwapDetails;
+export default props => (
+	<Subscribe to={[exchangeContainer]}>
+		{container => (
+			<SwapDetails {...props} exchangeContainer={container}/>
+		)}
+	</Subscribe>
+);
