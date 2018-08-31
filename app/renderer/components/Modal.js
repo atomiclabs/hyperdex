@@ -28,7 +28,7 @@ class Modal extends React.Component {
 
 	static defaultProps = {
 		animation: 'slide-up', // `fade`, `slide-up`, `slide-down`, `zoom`
-		animationDuration: 400,
+		animationDuration: 300,
 		closeOnEsc: true,
 		closeOnMaskClick: true,
 		delay: 400,
