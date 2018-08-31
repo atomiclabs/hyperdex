@@ -8,8 +8,6 @@ import './Swaps.scss';
 
 const t = translate('exchange');
 
-const swapLimit = 50;
-
 const getOpenOrders = () => exchangeContainer.state.swapHistory.filter(swap => swap.isActive);
 
 const TabButton = props => (
@@ -38,7 +36,7 @@ const OpenOrders = () => {
 	const openOrders = getOpenOrders();
 
 	return (
-		<SwapList swaps={openOrders} limit={swapLimit} showCancel/>
+		<SwapList swaps={openOrders} showCancel/>
 	);
 };
 
@@ -51,7 +49,7 @@ const CurrentPairOpenOrders = () => {
 	);
 
 	return (
-		<SwapList swaps={filteredData} limit={swapLimit} showCancel/>
+		<SwapList swaps={filteredData} showCancel/>
 	);
 };
 
