@@ -30,6 +30,6 @@
 	"swaps": {
 		"all": "Tümü",
 		"title": "Open Orders",
-		"viewAllSwaps": "Tüm Takasları Görüntüle"
+		"historyButtonTitle": "History"
 	}
 }
