@@ -30,6 +30,6 @@
 	"swaps": {
 		"all": "Alla",
 		"title": "Öppna ordrar",
-		"viewAllSwaps": "Visa alla swaps"
+		"historyButtonTitle": "History"
 	}
 }
