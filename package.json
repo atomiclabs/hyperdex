@@ -70,7 +70,7 @@
 		"browser-env": "^3.2.5",
 		"clean-webpack-plugin": "^0.1.19",
 		"copy-webpack-plugin": "^4.5.2",
-		"cryptocurrency-icons": "^0.3.0",
+		"cryptocurrency-icons": "^0.4.0",
 		"css-loader": "^1.0.0",
 		"delay-cli": "^1.1.0",
 		"devtron": "^1.4.0",
