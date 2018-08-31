@@ -30,6 +30,6 @@
 	"swaps": {
 		"all": "همه",
 		"title": "Open Orders",
-		"viewAllSwaps": "View all swaps"
+		"historyButtonTitle": "History"
 	}
 }
