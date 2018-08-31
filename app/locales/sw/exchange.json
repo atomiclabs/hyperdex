@@ -30,6 +30,6 @@
 	"swaps": {
 		"all": "Yote",
 		"title": "Open Orders",
-		"viewAllSwaps": "View all swaps"
+		"historyButtonTitle": "History"
 	}
 }
