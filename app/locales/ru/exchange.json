@@ -30,6 +30,6 @@
 	"swaps": {
 		"all": "Все",
 		"title": "Open Orders",
-		"viewAllSwaps": "Посмотреть все свопы"
+		"historyButtonTitle": "History"
 	}
 }
