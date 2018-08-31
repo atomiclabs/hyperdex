@@ -250,13 +250,6 @@
 	.cancel :not([disabled]) {
 		filter: hue-rotate(130deg) saturate(160%);
 	}
-
-	.view-all-swaps {
-		align-self: center;
-		margin: 20px 0;
-		font-size: 14px;
-		opacity: 0.8;
-	}
 }
 
 @media (min-width: 1400px) {

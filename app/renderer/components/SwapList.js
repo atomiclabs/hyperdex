@@ -7,12 +7,11 @@ import _ from 'lodash';
 import appContainer from 'containers/App';
 import tradesContainer from 'containers/Trades';
 import Empty from 'components/Empty';
-import Link from 'components/Link';
 import SwapDetails from 'components/SwapDetails';
 import {translate} from '../translate';
 import './SwapList.scss';
 
-const t = translate(['swap', 'exchange']);
+const t = translate('swap');
 
 const SortDirections = {
 	ASC: Symbol('asc'),
@@ -223,17 +222,6 @@ class SwapList extends React.Component {
 						)}
 					</AutoSizer>
 				</div>
-				{shouldLimit &&
-					<Link
-						className="view-all-swaps"
-						onClick={() => {
-							appContainer.setActiveView('Trades');
-							tradesContainer.setActiveView('SwapHistory');
-						}}
-					>
-						{t('swaps.viewAllSwaps')}
-					</Link>
-				}
 			</div>
 		);
 	}

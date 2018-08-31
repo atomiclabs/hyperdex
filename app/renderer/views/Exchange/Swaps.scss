@@ -13,7 +13,7 @@
 
 		h3,
 		nav span {
-			padding: 20px 0;
+			padding: 16px 0;
 		}
 
 		h3 {
@@ -42,5 +42,11 @@
 		display: flex;
 		flex: 1;
 		padding: 10px 20px;
+	}
+
+	.history-button {
+		align-self: center;
+		margin-left: 10px;
+		font-size: 12px;
 	}
 }

@@ -1,8 +1,11 @@
 import React from 'react';
 import {classNames} from 'react-extras';
+import appContainer from 'containers/App';
 import exchangeContainer from 'containers/Exchange';
+import tradesContainer from 'containers/Trades';
 import View from 'components/View';
 import SwapList from 'components/SwapList';
+import Link from 'components/Link';
 import {translate} from '../../translate';
 import './Swaps.scss';
 
@@ -59,7 +62,18 @@ const Swaps = () => {
 	return (
 		<div className="Exchange--Swaps">
 			<header>
-				<h3>{t('swaps.title')}</h3>
+				<h3>
+					{t('swaps.title')}
+					<Link
+						className="history-button"
+						onClick={() => {
+							appContainer.setActiveView('Trades');
+							tradesContainer.setActiveView('TradeHistory');
+						}}
+					>
+						{t('swaps.historyButtonTitle')}
+					</Link>
+				</h3>
 				<nav>
 					<TabButton
 						title={t('swaps.all')}
