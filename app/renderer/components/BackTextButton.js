@@ -5,7 +5,7 @@ import {translate} from '../translate';
 const t = translate('common');
 
 const BackTextButton = props => (
-	<>
+	<React.Fragment>
 		<div {...props}>
 			<BackArrow size="14px"/>
 			<span>{t('back')}</span>
@@ -36,7 +36,7 @@ const BackTextButton = props => (
 				}
 			`}
 		</style>
-	</>
+	</React.Fragment>
 );
 
 export default BackTextButton;
