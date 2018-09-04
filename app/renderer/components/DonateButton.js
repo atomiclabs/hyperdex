@@ -9,7 +9,7 @@ const t = translate('app');
 
 const donationAddresses = {
 	kmd: 'RHyper8TJyHK6uZ3AXzUwC2uVRdt7cfxEC',
-	btc: '1HyperGKWtpLFoNLcwLfpaA95DoN4br45Z',
+	btc: '1HyperDEXfMx459ZFh6Ram5uymS8AiRAQf',
 };
 
 class DonateButton extends React.Component {
