@@ -47,6 +47,7 @@ const getTickerData = async symbols => {
 		return {
 			symbol,
 			price: currency ? currency.current_price : 0,
+			percentChange24h: currency ? roundTo(Number(currency.price_change_percentage_24h), 1) : 0,
 		};
 	});
 
