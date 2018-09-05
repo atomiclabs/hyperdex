@@ -15,7 +15,7 @@
 		<img src="https://img.shields.io/github/license/atomiclabs/hyperdex.svg">
 	</a>
 	<a title="Keybase" target="_blank" href="https://keybase.io/hyperdex">
-		<img src="https://img.shields.io/badge/PGP-31DB%20EB37%20BF19%209A3C-green.svg">
+		<img src="https://badgen.net/keybase/pgp/hyperdex">
 	</a>
 	<a href="Follow on Twitter" href="https://twitter.com/HyperDEXApp">
 		<img src="https://img.shields.io/twitter/follow/HyperDexApp.svg?style=social&label=Follow">
