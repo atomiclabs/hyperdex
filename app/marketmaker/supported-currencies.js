@@ -334,31 +334,15 @@ const supportedCurrencies = [
 		txfee: 10000,
 		electrumServers: [
 			{
-				host: 'electrumx-eu.bitcoingold.org',
-				port: 50001,
+				host: 'electrum1.cipig.net',
+				port: 10052,
 			},
 			{
-				host: 'electrumx-us.bitcoingold.org',
-				port: 50001,
+				host: 'electrum2.cipig.net',
+				port: 10052,
 			},
 			{
-				host: 'electrumx-eu.btcgpu.org',
-				port: 50001,
-			},
-			{
-				host: 'electrumx-us.btcgpu.org',
-				port: 50001,
-			},
-			{
-				host: 'electroncash.ueo.ch',
-				port: 51001,
-			},
-			{
-				host: 'electrum.imaginary.cash',
-				port: 50001,
-			},
-			{
-				host: '94.130.224.11',
+				host: 'electrum3.cipig.net',
 				port: 10052,
 			},
 		],
@@ -2134,12 +2118,12 @@ const supportedCurrencies = [
 		txfee: 10000,
 		electrumServers: [
 			{
-				host: '45.77.254.232',
-				port: 10001,
+				host: 'electrumsvr.snowgem.org',
+				port: 50001,
 			},
 			{
-				host: '128.199.233.38',
-				port: 10001,
+				host: 'electrumsvr2.snowgem.org',
+				port: 50001,
 			},
 		],
 	},
