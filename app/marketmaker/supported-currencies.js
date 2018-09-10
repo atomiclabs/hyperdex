@@ -1638,6 +1638,28 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
+		coin: 'POLIS',
+		rpcport: 24127,
+		pubtype: 55,
+		p2shtype: 56,
+		wiftype: 60,
+		txfee: 10000,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10075,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10075,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10075,
+			},
+		],
+	},
+	{
 		coin: 'POLY',
 		name: 'Polymath',
 		etomic: '0x9992ec3cf6a55b00978cddf2b27bc6882d88d1ec',
