@@ -200,6 +200,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10054,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10054,
+			},
 		],
 	},
 	{
