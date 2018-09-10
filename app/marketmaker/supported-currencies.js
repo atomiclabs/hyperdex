@@ -519,10 +519,6 @@ const supportedCurrencies = [
 		txfee: 10000,
 		electrumServers: [
 			{
-				host: 'sgp-crwseed.crowndns.info',
-				port: 50001,
-			},
-			{
 				host: 'blr-crwseed.crowndns.info',
 				port: 50001,
 			},
