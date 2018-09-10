@@ -914,6 +914,28 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
+		coin: 'FTC',
+		rpcport: 9337,
+		pubtype: 14,
+		p2shtype: 5,
+		wiftype: 142,
+		txfee: 1000000,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10074,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10074,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10074,
+			},
+		],
+	},
+	{
 		coin: 'FUN',
 		name: 'FunFair',
 		etomic: '0x419D0d8BdD9aF5e606Ae2232ed285Aff190E711b',
