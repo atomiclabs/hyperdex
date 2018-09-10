@@ -398,6 +398,22 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'CALL',
+		name: 'Capital',
+		asset: 'CALL',
+		rpcport: 19609,
+		electrumServers: [
+			{
+				host: 'electrum1.mycapitalco.in',
+				port: 10000,
+			},
+			{
+				host: 'electrum2.mycapitalco.in',
+				port: 10000,
+			},
+		],
+	},
+	{
 		coin: 'CDT',
 		name: 'Blox',
 		etomic: '0x177d39AC676ED1C67A2b268AD7F1E58826E5B0af',
@@ -928,6 +944,28 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'GBX',
+		rpcport: 12454,
+		pubtype: 38,
+		p2shtype: 10,
+		wiftype: 198,
+		txfee: 10000,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10073,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10073,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10073,
+			},
+		],
+	},
+	{
 		coin: 'GLXT',
 		name: 'GLX Token',
 		asset: 'GLXT',
@@ -1247,6 +1285,28 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
+		coin: 'MAC',
+		rpcport: 40332,
+		pubtype: 50,
+		p2shtype: 5,
+		wiftype: 178,
+		txfee: 50000,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10077,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10077,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10077,
+			},
+		],
+	},
+	{
 		coin: 'MAN',
 		name: 'Matrix AI Network',
 		etomic: '0xe25bcec5d3801ce3a794079bf94adf1b8ccd802d',
@@ -1287,6 +1347,28 @@ const supportedCurrencies = [
 		name: 'Mechanix Token',
 		etomic: '0xe7c33a0e04f2316bb321c4ad2976873d09538b56',
 		rpcport: 80,
+	},
+	{
+		coin: 'MNX',
+		rpcport: 17786,
+		pubtype: 75,
+		p2shtype: 5,
+		wiftype: 128,
+		txfee: 10000,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10079,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10079,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10079,
+			},
+		],
 	},
 	{
 		coin: 'MNZ',
@@ -1743,6 +1825,32 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'SMART',
+		rpcport: 9679,
+		pubtype: 63,
+		p2shtype: 18,
+		wiftype: 191,
+		txfee: 200000,
+		electrumServers: [
+			{
+				host: 'electrum1.smartcash.cc',
+				port: 50001,
+			},
+			{
+				host: 'electrum2.smartcash.cc',
+				port: 50001,
+			},
+			{
+				host: 'electrum3.smartcash.cc',
+				port: 50001,
+			},
+			{
+				host: 'electrum4.smartcash.cc',
+				port: 50001,
+			},
+		],
+	},
+	{
 		coin: 'SNGLS',
 		name: 'SingularDTV',
 		etomic: '0xaeC2E87E0A235266D9C5ADc9DEb4b2E29b54D009',
@@ -1765,6 +1873,28 @@ const supportedCurrencies = [
 		name: 'SIRIN LABS Token',
 		etomic: '0x68d57c9a1c35f63e2c83ee8e49a64e9d70528d25',
 		rpcport: 80,
+	},
+	{
+		coin: 'STAK',
+		rpcport: 7574,
+		pubtype: 63,
+		p2shtype: 5,
+		wiftype: 204,
+		txfee: 10000,
+		electrumServers: [
+			{
+				host: 'ex001-stak.qxu.io',
+				port: 50001,
+			},
+			{
+				host: 'ex002-stak.qxu.io',
+				port: 50001,
+			},
+			{
+				host: 'electrumx.straks.info',
+				port: 50001,
+			},
+		],
 	},
 	{
 		coin: 'STORJ',
