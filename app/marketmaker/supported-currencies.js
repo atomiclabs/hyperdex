@@ -2029,6 +2029,22 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'VRSC',
+		name: 'VerusCoin',
+		asset: 'VRSC',
+		rpcport: 27486,
+		electrumServers: [
+			{
+				host: 'el0.vrsc.0x03.services',
+				port: 10000,
+			},
+			{
+				host: 'el1.vrsc.0x03.services',
+				port: 10000,
+			},
+		],
+	},
+	{
 		coin: 'VSL',
 		name: 'vSlice',
 		etomic: '0x5c543e7AE0A1104f78406C340E9C64FD9fCE5170',
