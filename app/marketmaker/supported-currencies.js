@@ -2166,6 +2166,28 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
+		coin: 'XMCC',
+		rpcport: 24156,
+		pubtype: 50,
+		p2shtype: 73,
+		wiftype: 77,
+		txfee: 10000,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10076,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10076,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10076,
+			},
+		],
+	},
+	{
 		coin: 'XOV',
 		name: 'XOVBank',
 		etomic: '0x153eD9CC1b792979d2Bde0BBF45CC2A7e436a5F9',
@@ -2187,6 +2209,24 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrumsvr2.snowgem.org',
+				port: 50001,
+			},
+		],
+	},
+	{
+		coin: 'XZC',
+		rpcport: 8888,
+		pubtype: 82,
+		p2shtype: 7,
+		wiftype: 210,
+		txfee: 10000,
+		electrumServers: [
+			{
+				host: 'electrumx01.zcoin.io',
+				port: 50001,
+			},
+			{
+				host: 'electrumx02.zcoin.io',
 				port: 50001,
 			},
 		],
