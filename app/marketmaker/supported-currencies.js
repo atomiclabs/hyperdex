@@ -86,6 +86,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10068,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10068,
+			},
 		],
 	},
 	{
@@ -147,6 +151,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10051,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10051,
+			},
 		],
 	},
 	{
@@ -161,6 +169,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10022,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10022,
 			},
 		],
@@ -216,6 +228,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10007,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10007,
+			},
 		],
 	},
 	{
@@ -235,6 +251,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10000,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10000,
+			},
 		],
 	},
 	{
@@ -249,6 +269,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10020,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10020,
 			},
 		],
@@ -293,6 +317,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10056,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10056,
 			},
 		],
@@ -363,6 +391,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10057,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10057,
+			},
 		],
 	},
 	{
@@ -416,6 +448,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10053,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10053,
+			},
 		],
 	},
 	{
@@ -442,6 +478,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10011,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10011,
 			},
 		],
@@ -502,6 +542,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10008,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10008,
+			},
 		],
 	},
 	{
@@ -538,6 +582,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10061,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10061,
+			},
 		],
 	},
 	{
@@ -572,6 +620,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10006,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10006,
+			},
 		],
 	},
 	{
@@ -588,6 +640,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10059,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10059,
 			},
 		],
@@ -652,6 +708,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10060,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10060,
+			},
 		],
 	},
 	{
@@ -704,6 +764,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10062,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10062,
 			},
 		],
@@ -767,6 +831,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10025,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10025,
+			},
 		],
 	},
 	{
@@ -783,6 +851,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10063,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10063,
 			},
 		],
@@ -847,6 +919,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10072,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10072,
 			},
 		],
@@ -943,6 +1019,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10009,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10009,
+			},
 		],
 	},
 	{
@@ -980,6 +1060,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10064,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10064,
 			},
 		],
@@ -1042,6 +1126,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10004,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10004,
+			},
 		],
 	},
 	{
@@ -1059,6 +1147,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10001,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10001,
 			},
 		],
@@ -1081,6 +1173,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10016,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10016,
 			},
 		],
@@ -1130,6 +1226,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10065,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10065,
 			},
 		],
@@ -1202,6 +1302,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10002,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10002,
+			},
 		],
 	},
 	{
@@ -1242,6 +1346,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10013,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10013,
 			},
 		],
@@ -1291,6 +1399,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10066,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10066,
 			},
 		],
@@ -1367,6 +1479,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10010,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10010,
+			},
 		],
 	},
 	{
@@ -1399,6 +1515,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10024,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10024,
 			},
 		],
@@ -1552,6 +1672,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10003,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10003,
+			},
 		],
 	},
 	{
@@ -1610,6 +1734,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10050,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10050,
 			},
 		],
@@ -1680,6 +1808,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10005,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10005,
 			},
 		],
@@ -1760,6 +1892,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10067,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10067,
+			},
 		],
 	},
 	{
@@ -1783,6 +1919,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10071,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10071,
 			},
 		],
@@ -1811,6 +1951,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10014,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10014,
 			},
 		],
@@ -1870,6 +2014,10 @@ const supportedCurrencies = [
 				host: 'electrum2.cipig.net',
 				port: 10055,
 			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10055,
+			},
 		],
 	},
 	{
@@ -1888,6 +2036,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10058,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10058,
 			},
 		],
@@ -1910,6 +2062,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum2.cipig.net',
+				port: 10028,
+			},
+			{
+				host: 'electrum3.cipig.net',
 				port: 10028,
 			},
 		],
