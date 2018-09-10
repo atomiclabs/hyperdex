@@ -33,6 +33,7 @@ const explorers = new Map(Object.entries({
 	BTX: 'https://chainz.cryptoid.info/btx/tx.dws?{txid}',
 	BUCK: 'https://explorer.buck.red/tx/{txid}',
 	CARB: 'https://chainz.cryptoid.info/carbon/tx.dws?{txid}',
+	CC: 'http://ccl.explorer.dexstats.info/tx/{txid}',
 	CEAL: 'https://ceal.kmdexplorer.io/tx/{txid}',
 	CHAIN: 'https://explorer.chainmakers.co/tx/{txid}',
 	CHC: 'http://104.238.153.140:3001/tx/{txid}',

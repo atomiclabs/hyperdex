@@ -467,6 +467,26 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
+		coin: 'CC',
+		name: 'CoinCollect',
+		asset: 'CCL',
+		rpcport: 20849,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10029,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10029,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10029,
+			},
+		],
+	},
+	{
 		coin: 'COQUI',
 		name: 'Coqui Cash',
 		asset: 'COQUI',
