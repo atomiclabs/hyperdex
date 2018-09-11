@@ -32,6 +32,7 @@ const explorers = new Map(Object.entries({
 	BTNX: 'http://explorer.bitnexus.online/tx/{txid}',
 	BTX: 'https://chainz.cryptoid.info/btx/tx.dws?{txid}',
 	BUCK: 'https://explorer.buck.red/tx/{txid}',
+	CALL: 'https://call.explorer.mycapitalco.in/tx/{txid}',
 	CARB: 'https://chainz.cryptoid.info/carbon/tx.dws?{txid}',
 	CC: 'http://ccl.explorer.dexstats.info/tx/{txid}',
 	CEAL: 'https://ceal.kmdexplorer.io/tx/{txid}',
