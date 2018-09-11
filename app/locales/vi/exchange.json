@@ -30,6 +30,6 @@
 	"swaps": {
 		"all": "Tất cả",
 		"title": "Open Orders",
-		"viewAllSwaps": "View all swaps"
+		"historyButtonTitle": "History"
 	}
 }

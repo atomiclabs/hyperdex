@@ -30,6 +30,6 @@
 	"swaps": {
 		"all": "সকল",
 		"title": "Open Orders",
-		"viewAllSwaps": "সব swaps প্রদর্শন করুন"
+		"historyButtonTitle": "History"
 	}
 }

@@ -29,7 +29,7 @@
 	"quit": "Avsluta",
 	"swaps": {
 		"all": "Alla",
-		"title": "Open Orders",
-		"viewAllSwaps": "Visa alla swaps"
+		"title": "Öppna ordrar",
+		"historyButtonTitle": "Historik"
 	}
 }

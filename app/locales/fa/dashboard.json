@@ -6,8 +6,7 @@
 	"activity": {
 		"noActivity": "هنوز بدون فعالیت",
 		"recentActivity": "فعالیت اخیر",
-		"swapFailedTitle": "مبادل انجام نشد",
-		"swapTitle": "جابجا شد",
+		"swapTitle": "Trade",
 		"swapDescription": "{{quoteCurrency}} برای {{baseCurrency}}"
 	},
 	"chart": {

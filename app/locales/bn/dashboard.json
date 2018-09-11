@@ -6,8 +6,7 @@
 	"activity": {
 		"noActivity": "এখনও কোনো কার্যক্রম নেই",
 		"recentActivity": "সাম্প্রতিক কার্যক্রম",
-		"swapFailedTitle": "বিনিময় হয়নি",
-		"swapTitle": "বিনিময় হয়েছে",
+		"swapTitle": "Trade",
 		"swapDescription": "{{baseCurrency}} এর {{quoteCurrency}}"
 	},
 	"chart": {

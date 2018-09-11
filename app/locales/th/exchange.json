@@ -30,6 +30,6 @@
 	"swaps": {
 		"all": "ทั้งหมด",
 		"title": "Open Orders",
-		"viewAllSwaps": "View all swaps"
+		"historyButtonTitle": "History"
 	}
 }

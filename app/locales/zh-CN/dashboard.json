@@ -6,8 +6,7 @@
 	"activity": {
 		"noActivity": "暂无动态",
 		"recentActivity": "近期动态",
-		"swapFailedTitle": "未交换",
-		"swapTitle": "已交换",
+		"swapTitle": "Trade",
 		"swapDescription": "{{quoteCurrency}} 兑换 {{baseCurrency}}"
 	},
 	"chart": {
