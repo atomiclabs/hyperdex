@@ -1547,6 +1547,13 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
+		coin: 'OCALL',
+		name: 'OLD Capital',
+		decimals: 18,
+		etomic: '0x2c02c801a3324b371ad285c64af372ff1e23f460',
+		rpcport: 80,
+	},
+	{
 		coin: 'OCC',
 		name: 'Original Crypto Coin',
 		etomic: '0x0235fe624e044a05eed7a43e16e3083bc8a4287a',
