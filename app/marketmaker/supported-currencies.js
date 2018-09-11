@@ -402,13 +402,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'OCALL',
-		name: 'OLD Capital',
-		decimals: 18,
-		etomic: '0x2c02c801a3324b371ad285c64af372ff1e23f460',
-		rpcport: 80,
-	},
-	{
 		coin: 'CALLG',
 		name: 'Capital GAS',
 		decimals: 18,
@@ -1545,6 +1538,13 @@ const supportedCurrencies = [
 		coin: 'NULS',
 		name: 'Nuls',
 		etomic: '0xb91318f35bdb262e9423bc7c7c2a3a93dd93c92c',
+		rpcport: 80,
+	},
+	{
+		coin: 'OCALL',
+		name: 'OLD Capital',
+		decimals: 18,
+		etomic: '0x2c02c801a3324b371ad285c64af372ff1e23f460',
 		rpcport: 80,
 	},
 	{
