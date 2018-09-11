@@ -1,0 +1,58 @@
+{
+	"tempMessageDescription": "Schimb simplu cu un numar mic de interacțiuni din partea utilizatorilor",
+	"tempMessageTitle": "În dezvoltare, reveniți la următoarea actualizare a aplicației…",
+	"timedOut": "Schimbul a expirat",
+	"title": "Schimbă",
+	"details": {
+		"aliceclaim": "Alice Cere",
+		"alicereclaim": "Alice Revendică",
+		"alicepayment": "Alice Plătește",
+		"alicespend": "Alice Consumă",
+		"bobdeposit": "Bob Depune",
+		"bobpayment": "Bob Plătește",
+		"broadcast": "Difuzează tranzacțiile",
+		"buy": "Cumpară",
+		"copyDebugData": "Copiază datele de jurnal ale schimbului",
+		"exchanging": "Schimbul este în curs",
+		"executed": "Executat",
+		"for": "Pentru",
+		"myfee": "Comisionul meu",
+		"order": "Comanda",
+		"requested": "Solicitat",
+		"pending": "În aștepatare",
+		"price": "Preț",
+		"sell": "Vinde",
+		"stats": "Prețul din momentul execuției tranzacției a fost cu {{percentCheaperThanRequested}}% mai mic decât cel specificat!",
+		"transactions": "Tranzacții",
+		"youExchanged": "Ai schimbat",
+		"youReceived": "Ai primit",
+		"yourOffer": "Comanda ta",
+		"view": "Vizualizează"
+	},
+	"list": {
+		"baseAmount": "Suma de bază",
+		"date": "Data",
+		"cancel": "Anulează",
+		"empty": "Nicio comandă",
+		"pair": "Pereche",
+		"quoteAmount": "Valoarea comenzii",
+		"status": "Stare"
+	},
+	"status": {
+		"completed": "Completă",
+		"failed": "Eșuată",
+		"matched": "Potrivită",
+		"reverted": "Restituită",
+		"pending": "În așteptare",
+		"open": "Deschisă",
+		"unmatched": "Neîmperechetă",
+		"cancelled": "Anulată"
+	},
+	"statusInformation": {
+		"reverted": "Schimbul a fost anulat din cauza unei probleme de conectivitate la Internet."
+	},
+	"toggleAdvancedButton": {
+		"more": "Mai multe",
+		"less": "Mai puține"
+	}
+}
