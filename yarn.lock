@@ -2105,9 +2105,9 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-coinlist@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/coinlist/-/coinlist-3.0.0.tgz#cdb6cd3c7d0ce1cf86a48217bd66ac479c75ba6f"
+coinlist@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/coinlist/-/coinlist-3.1.0.tgz#86a0a5e721fa3cc9ed70e25358a72185b0a3b83d"
 
 collapse-white-space@^1.0.2:
   version "1.0.4"
