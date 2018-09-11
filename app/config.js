@@ -34,7 +34,7 @@ const defaults = {
 		'SUPERNET',
 		'VTC',
 		'ZEC',
-		'CALL'
+		'CALL',
 	],
 };
 
