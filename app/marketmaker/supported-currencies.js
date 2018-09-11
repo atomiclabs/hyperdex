@@ -1064,6 +1064,13 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
+		coin: 'GUSD',
+		name: 'Gemini dollar',
+		decimals: 2,
+		etomic: '0x056fd409e1d7a124bd7017459dfea2f387b6d5cd',
+		rpcport: 80,
+	},
+	{
 		coin: 'HGT',
 		name: 'HelloGold',
 		etomic: '0xba2184520A1cC49a6159c57e61E1844E085615B6',
