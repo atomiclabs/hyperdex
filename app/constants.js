@@ -34,6 +34,7 @@ exports.ignoreExternalPrice = new Set([
 	'PIZZA',
 	'BEER',
 	'EQL',
+	'CALL',
 ]);
 
 exports.hiddenCurrencies = [
