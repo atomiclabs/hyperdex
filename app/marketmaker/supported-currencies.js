@@ -402,6 +402,12 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'CALLG',
+		name: 'Capital GAS',
+		etomic: '0x6c28f85eb1dbc7651ce02f7af1f29890ad084b94',
+		rpcport: 80,
+	},
+	{
 		coin: 'CDT',
 		name: 'Blox',
 		etomic: '0x177d39AC676ED1C67A2b268AD7F1E58826E5B0af',
