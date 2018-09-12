@@ -1,7 +1,7 @@
 {
 	"intro": {
 		"title": "✨Takk for at du hjelper oss med å teste HyperDEX!",
-		"description": "<0>Vær oppmerksom på at <1>dette prosjektet er fortsatt i alpha-versjon</1>.</0><1>Selv om tap av midler er usannsynlig, bør du bare handle med ekte valuta hvis du kan ta den risikoen.</1><2>Hvis du bare vil teste HyperDEX, kan du prøve å handle mellom testvalutaene <1>BEER</1> og <3>PIZZA</3> i stedet. Du kan få gratis <5>BEER</5> på <7><0>BEER</0> kranen</7>.</2><3>HyperDEX er åpen kildekode programvare levert \"som den er\", uten garanti av noe slag. Forfatterne eller rettighetshaverne er ikke ansvarlige for eventuelle skader forårsaket som følge av bruk av denne programvaren.</3><4>Ved å bruke HyperDEX godtar du vilkårene i <1>MIT-lisensen </1>.</4>"
+		"description": "<0>Vær oppmerksom på at <1>dette prosjektet er fortsatt i beta-versjon</1>.</0><1>Selv om tap av midler er usannsynlig, bør du bare handle med ekte valuta hvis du kan ta den risikoen.</1><2>Hvis du bare vil teste HyperDEX, kan du prøve å handle mellom testvalutaene <1>BEER</1> og <3>PIZZA</3> i stedet. Du kan få gratis <5>BEER</5> på <7><0>BEER</0> kranen</7>.</2><3>HyperDEX er åpen kildekode programvare levert \"som den er\", uten garanti av noe slag. Forfatterne eller rettighetshaverne er ikke ansvarlige for eventuelle skader forårsaket som følge av bruk av denne programvaren.</3><4>Ved å bruke HyperDEX godtar du vilkårene i <1>MIT-lisensen </1>.</4>"
 	},
 	"activity": {
 		"noActivity": "Ingen aktivitet",
