@@ -41,4 +41,4 @@ const Dashboard = () => {
 	);
 };
 
-export default Dashboard;
+export default dashboardContainer.connect(Dashboard);

@@ -1,7 +1,8 @@
 import _ from 'lodash';
 import pMap from 'p-map';
-import {Container} from 'unstated';
 import appContainer from 'containers/App';
+import exchangeContainer from 'containers/Exchange';
+import SuperContainer from 'containers/SuperContainer';
 import {formatCurrency} from '../util';
 import {ignoreExternalPrice} from '../../constants';
 import {translate} from '../translate';
@@ -10,7 +11,7 @@ import fireEvery from '../fire-every';
 const t = translate('dashboard');
 const noPriceHistory = new Set();
 
-class DashboardContainer extends Container {
+class DashboardContainer extends SuperContainer {
 	state = {
 		activeView: 'Portfolio',
 		currencyHistoryResolution: 'month',
@@ -43,6 +44,10 @@ class DashboardContainer extends Container {
 
 			this.updateAllCurrencyHistory();
 		});
+	}
+
+	async componentDidInitialMount() {
+		await exchangeContainer.setSwapHistory();
 	}
 
 	setActiveView = async activeView => {
