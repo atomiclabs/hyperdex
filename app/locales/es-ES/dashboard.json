@@ -1,7 +1,7 @@
 {
 	"intro": {
 		"title": "✨ ¡Gracias por ayudarnos a probar HyperDEX!",
-		"description": "<0>Ten en cuenta <1>que este proyecto está todavía en fase Alpha</1>.</0><1>Aunque no es probable que pierdas tus fondos, solo deberás comerciar con una divisa real si quieres asumir este riesgo.</1><2>Si, de lo contrario, solo quieres probar HyperDEX, intenta comerciar con las divisas de prueba <1>BEER</1> y <3>PIZZA</3>. Puedes conseguir <5>BEER</5> gratis en el grifo de <7><0>BEER</0></7>.</2><3>HyperDEX es un software de código abierto prestado \"al igual que\", sin garantía de ningún tipo. Los autores o titulares de los derechos de autor no están sujetos a daños causados como consecuencia del uso de este software.</3><4>Al usar HyperDEX, aceptas los términos de la <1>licencia MIT</1>.</4>"
+		"description": "<0>Ten en cuenta <1>que este proyecto está todavía en fase Beta</1>.</0><1>Aunque no es probable que pierdas tus fondos, solo deberás comerciar con una divisa real si quieres asumir este riesgo.</1><2>Si, de lo contrario, solo quieres probar HyperDEX, intenta comerciar con las divisas de prueba <1>BEER</1> y <3>PIZZA</3>. Puedes conseguir <5>BEER</5> gratis en el grifo de <7><0>BEER</0></7>.</2><3>HyperDEX es un software de código abierto prestado \"al igual que\", sin garantía de ningún tipo. Los autores o titulares de los derechos de autor no están sujetos a daños causados como consecuencia del uso de este software.</3><4>Al usar HyperDEX, aceptas los términos de la <1>licencia MIT</1>.</4>"
 	},
 	"activity": {
 		"noActivity": "Aún sin actividad",
