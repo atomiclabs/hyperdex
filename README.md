@@ -25,6 +25,10 @@
 	<img src="media/screenshots/exchange-view.png" width="800">
 </div>
 
+## HyperDEX is a truly decentralised cryptocurrency exchange.
+
+Built on the Komodo Platform's <a href="https://barterdex.supernet.org">BarterDEX</a> network, HyperDEX is entirely peer-to-peer and all trades are made via on-chain atomic swaps. As a result, you are in full custody of your funds the entire time, your private keys never leave your machine.
+
 ## Install
 
 *macOS 10.9+, Linux, and Windows 7+ are supported (64-bit only).*
