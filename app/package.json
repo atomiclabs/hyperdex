@@ -3,7 +3,7 @@
 	"productName": "HyperDEX",
 	"version": "0.1.0",
 	"private": true,
-	"description": "BarterDEX desktop app",
+	"description": "Grandma-Friendly Atomic Swaps",
 	"license": "MIT",
 	"repository": "atomiclabs/hyperdex",
 	"author": {
