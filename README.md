@@ -47,6 +47,15 @@
 
 Please download the latest [nightly build](https://github.com/atomiclabs/hyperdex-nightlies/releases/latest) and report detailed issues with the "Feedback" button in the app.
 
+## Donate
+
+HyperDEX is a free and open source project. You can help support its development by donating to the below addresses:
+
+| Symbol  | Address                             |
+| ------- | ----------------------------------- |
+| **BTC** | `1HyperDEXfMx459ZFh6Ram5uymS8AiRAQf`|
+| **KMD** | `RHyper8TJyHK6uZ3AXzUwC2uVRdt7cfxEC`|
+
 ## License
 
 MIT
