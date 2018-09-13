@@ -25,10 +25,6 @@
 	<br>
 </div>
 
-## Testing
-
-Please download the latest [nightly build](https://github.com/atomiclabs/hyperdex-nightlies/releases/latest) and report detailed issues with the "Feedback" button in the app.
-
 ## Install
 
 *macOS 10.9+, Linux, and Windows 7+ are supported (64-bit only).*
@@ -47,6 +43,9 @@ Please download the latest [nightly build](https://github.com/atomiclabs/hyperde
 
 [**Download**](https://github.com/atomiclabs/hyperdex/releases/latest) the `.exe` file.
 
+## Testing
+
+Please download the latest [nightly build](https://github.com/atomiclabs/hyperdex-nightlies/releases/latest) and report detailed issues with the "Feedback" button in the app.
 
 ## License
 
