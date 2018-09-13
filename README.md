@@ -3,7 +3,7 @@
 	<img src="media/Logo-Black-Text.png" height="260">
 	<br>
 	<br>
-	<p>Desktop App for <a href="https://barterdex.supernet.org">BarterDEX</a></p>
+	<p>Grandma-Friendly Atomic Swaps</p>
 	<br>
 	<a title="Downloads" href="https://github.com/atomiclabs/hyperdex/releases/latest">
 		<img src="https://img.shields.io/github/downloads/atomiclabs/hyperdex/total.svg">
