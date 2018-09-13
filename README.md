@@ -14,6 +14,9 @@
 	<a title="MIT License" href="LICENSE">
 		<img src="https://img.shields.io/github/license/atomiclabs/hyperdex.svg">
 	</a>
+	<a title="Release" href="https://github.com/atomiclabs/hyperdex/releases/latest">
+		<img src="https://badgen.net/github/release/atomiclabs/hyperdex/">
+	</a>
 	<a title="Keybase" target="_blank" href="https://keybase.io/hyperdex">
 		<img src="https://badgen.net/keybase/pgp/hyperdex">
 	</a>
