@@ -25,8 +25,6 @@
 	<br>
 </div>
 
-**This app is still in private testing phase. The repo has been made public for convenience. Please do not share it.**
-
 ## Testing
 
 Please download the latest [nightly build](https://github.com/atomiclabs/hyperdex-nightlies/releases/latest) and report detailed issues with the "Feedback" button in the app.
