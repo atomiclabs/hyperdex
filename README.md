@@ -22,7 +22,7 @@
 	</a>
 	<br>
 	<br>
-	<img src="media/screenshots/exchange-view.png" width="800">
+	<img src="media/screenshots/exchange-view.png" width="898">
 </div>
 
 ## HyperDEX is a truly decentralised cryptocurrency exchange.
