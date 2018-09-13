@@ -22,7 +22,7 @@
 	</a>
 	<br>
 	<br>
-	<br>
+	<img src="media/screenshots/exchange-view.png" width="800">
 </div>
 
 ## Install
