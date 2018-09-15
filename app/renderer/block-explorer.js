@@ -163,6 +163,7 @@ const explorers = new Map(Object.entries({
 	ZET: 'https://chainz.cryptoid.info/zet/tx.dws?{txid}',
 	ZILLA: 'https://www.zillaexplorer.io/tx/{txid}',
 	ZOI: 'https://chainz.cryptoid.info/zoi/tx.dws?{txid}',
+	TGCH: 'http://explorer.galaxycash.info/tx/{txid}',
 }));
 
 const blockExplorer = {};
