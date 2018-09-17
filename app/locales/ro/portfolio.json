@@ -1,0 +1,30 @@
+{
+	"create": {
+		"confirm": "Confirmă",
+		"confirmPassword": "Confirmă Parola",
+		"confirmPasswordNoMatch": "Parola de confirmare nu corespunde cu parola introdusă anterior.",
+		"confirmSeedPhrase": "Introdu secvența de cuvinte unice ce corepund portofelului tău",
+		"exampleSeedPhrase": "Exemplu: {{seedPhrase}} …",
+		"name": "Nume portofel",
+		"next": "Următorul",
+		"password": "Parola",
+		"securityDescription": "<0>Este recomandat să îl stocați intr-un mediu sigur deconectat de la Internet. <1>Citește cele mai bune practici de securitate.</1></0>",
+		"securityTitle": "Important: salvează secevența de cuvinte!",
+		"seedPhrase": "Secvența de cuvinte unice ce corepund portofelului tău",
+		"seedPhraseNoMatch": "Secvența de cuvinte introdusă nu este asemănătoare cu cea generată anterior",
+		"success": "Portofel nou adaugat cu success!",
+		"title": "Creează un nou portofel"
+	},
+	"new": {
+		"createOrRestoreDescription": "Creează un nou portofel fără o secvență de cuvinte",
+		"createOrRestoreTitle": "<0>Doriți să creați un portofel nou <1></1>sau să restaurați unul existent?</0>",
+		"createPortfolio": "Creează un nou portofel",
+		"restorePortfolio": "Restaurează un nou portofel"
+	},
+	"restore": {
+		"confirm": "Confirmă",
+		"confirmPasswordNoMatch": "Parola de confirmare nu corespunde cu parola introdusă anterior.",
+		"enterSeedPhrase": "Introdu secvența de cuvinte unice ce corepund portofelului tău",
+		"exampleSeedPhrase": "Exemplu: {{seedPhrase}} …"
+	}
+}
