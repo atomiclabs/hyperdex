@@ -1,0 +1,6 @@
+{
+	"openOrders": "Comenzi deschise",
+	"tradeHistory": "Isoric tranzacții",
+	"stats": "În ultima luna ai efectuat un număr de {{count}} tranzacții reușite cu {{currencyCount}} monede însumând un total de {{totalSwapsWorthInUsd}}",
+	"stats_plural": "În ultima luna ai efectuat un număr de {{count}} tranzacții reușite cu {{currencyCount}} monede însumând un total de {{totalSwapsWorthInUsd}}"
+}

@@ -1,0 +1,35 @@
+{
+	"cancel": "Anulează",
+	"chart": {
+		"depth": "Grafic pereche {{baseCurrency}}/{{quoteCurrency}}"
+	},
+	"confirmQuitTitle": "Ești sigur că dorești să închizi aplicația?",
+	"confirmQuitDescription": "Ai tranzacții în desfășurare. HyperDEX o să reia tranzacțiile dumneavoastră, dar este recomandat să așteptați finalizrea acestora înainte ca să închideți aplicația.",
+	"intro": {
+		"description": " <0>HyperDEX este o casă de schimb de sine stătătoare fără nicio parte terță implicată. Tranzacțiile dumneavoastră se efectuează cu destinatarii prin <1>schimburi directe între blockchain-uri</1>. Acest lucru este puțin diferit față de restul caselor de schimb tradiționale (centralizate).</0><1>Tranzacțiile dumneavoastră durează o vreme până când acestea se propagă în rețea. O să dureze o vreme până când vă puteți vizualiza comenzile în lista comenzilor așa că vă rugăm să așteptați.</1><2>HyperDEX necesită ca tranzacțiile dumneavoastră (<1>UTXOs</1>) să fie făcute corect pentru a finaliza schimbul. Pentru fiecare tranzactie (UTXO) puteți face un singur schimb. Cea mai simplă cât și cea mai sigură cale pentru participarea la un schimb este aceea de a face mai multe depozite mai mici în detrimentul unui singur depozit mare.</2><3>Un schimb atomic este alcătuit din 6 tranzacții în cadrul aceluiași blockchain. Când tranzacționați cu un comision mare, este important să țineți cont de aceastea pentru a nu depășii balanța dumneavoastră curentă. Această informație este importantă pentru utilizatorii cu o balanță mică.</3>",
+		"title": "Cum tranzacționez pe HyperDEX"
+	},
+	"order": {
+		"amount": "Cantitate {{symbol}}",
+		"averageVolume": "Volum mediu",
+		"buy": "Cumpără",
+		"buyOrders": "Comenzi de cumpărare",
+		"failedTrade": "Nu se poate finaliza comanda de {{type}} pentru {{baseCurrency}}",
+		"maxOnePendingSwap": "Este posibil să aveți doar o comandă în așteptare, reîncercați în {{wait}} secunde.",
+		"maxPrice": "MAX",
+		"maxVolume": "Vârf de volum",
+		"price": "Preț {{symbol}}",
+		"sell": "Vinde",
+		"sellOrders": "Comenzi vânzare",
+		"symbolBalance": "Balanță",
+		"total": "Total {{symbol}}",
+		"unexpectedError": "S-a întâmplat ceva neobișnuit. Ești sigur că ai destule tranzacții (UTXO)?",
+		"worth": "Schimbul valorează {{swapWorthInUsd}}"
+	},
+	"quit": "Închide",
+	"swaps": {
+		"all": "Toate",
+		"title": "Comenzi în așteptare",
+		"historyButtonTitle": "Istoric"
+	}
+}
