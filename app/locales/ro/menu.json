@@ -1,0 +1,27 @@
+{
+	"app": {
+		"preferences": "Preferințe…"
+	},
+	"help": {
+		"debugMode": "Mod dezvoltator",
+		"website": "Site web",
+		"sourceCode": "Codul sursă",
+		"reportSecurityIssue": "Raportează o problemă de securitate…",
+		"reportIssue": "Raportează o problemă…",
+		"about": "Despre {{appName}}"
+	},
+	"other": {
+		"file": "Fișiere"
+	},
+	"portfolio": {
+		"title": "Portofel",
+		"dashboard": "Panou de bord",
+		"swap": "Schimbă",
+		"exchange": "Schimb valutar",
+		"trades": "Tranzacții",
+		"settings": "Setări",
+		"goToPrevView": "Întoarce-te la meniul anterior",
+		"goToNextView": "Meniul următor",
+		"logOut": "Deconectați-vă"
+	}
+}
