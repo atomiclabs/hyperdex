@@ -220,6 +220,7 @@
 			border: 1px solid var(--border-color);
 			transition: 0.2s ease-out;
 			font-size: 11px;
+			border-radius: 3px;
 
 			&:hover {
 				border-color: rgba(255, 255, 255, 0.2);
@@ -248,7 +249,7 @@
 	}
 
 	.cancel :not([disabled]) {
-		filter: hue-rotate(130deg) saturate(160%);
+		filter: hue-rotate(120deg);
 	}
 }
 
