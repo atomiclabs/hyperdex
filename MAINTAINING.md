@@ -40,3 +40,12 @@ $ ./signedchecksum
 ```
 
 It will create a file called `SHASUMS256.txt.asc` that you need to upload to the GitHub release manually.
+
+## External Contributions
+
+We need to be very careful accepting external contributions, especially adding new currencies and Electrum servers. An imposter could add what appears to be an official token or coin. If it's an ERC20 token and the contract address is fake, they could sell worthless tokens as what appear to be an established token. If it's a standalone currency and the Electrum servers are malicious, they could essentially reverse swaps by only fulfilling them on their fake Electrum chain but not on the real chain.
+
+Before accepting external contributions adding new currencies we should:
+
+- Verify the ERC20 contract address is genuine.
+- Verify the Electrum servers are genuine.
