@@ -47,5 +47,5 @@ We need to be very careful accepting external contributions, especially adding n
 
 Before accepting external contributions adding new currencies we should:
 
-- Verify the ERC20 contract address is genuine
-- Verify the Electrum servers are genuine
+- Verify the ERC20 contract address is genuine.
+- Verify the Electrum servers are genuine.
