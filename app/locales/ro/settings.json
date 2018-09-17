@@ -1,0 +1,30 @@
+{
+	"app": "Aplicație",
+	"deletePortfolio": {
+		"confirm": "Sunt sigur că doresc eliminarea portofelului.",
+		"description": "<0>Dacă nu ai salvat secvența de cuvinte corespunzătoare portofelului tau, această acțiune poate duce la pierderea definitivă a bunurilor dumneavoastră corespunzătoare portofelului tau <1><0>{{name}}</0></1>.</0><1>Introdu numele portofelului pentru a confirma acțiunea.</1>",
+		"title": "Șterge portofel"
+	},
+	"enabledCurrencies": "Monede activate",
+	"logOutAppSettings": "<0><0>Deconectați-vă</0> pentru a avea access la toate setările aplicației.</0>",
+	"name": "Nume",
+	"manage": "Administrează",
+	"export": {
+		"sectionLabel": "Exportă",
+		"exportTradeHistory": "Exportă istoricul tranzactiilor dumneavoastră în format CSV",
+		"trades": "tranzacții"
+	},
+	"portfolio": "Portofel",
+	"seedPhrase": {
+		"enterPassword": "Introdu parola",
+		"submit": "Trimite",
+		"title": "Vezi secvența de cuvinte corespunzatoare portofelului"
+	},
+	"title": "Setări",
+	"theme": {
+		"theme": "Temă",
+		"dark": "Întunecată (mod noapte)",
+		"light": "Luminată (mod zi)",
+		"system": "Sistem"
+	}
+}
