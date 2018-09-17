@@ -1,0 +1,12 @@
+{
+	"settings": {
+		"customUrl": "Link URL personalizat al server-ului de împerechere al tranzacțiilor",
+		"exampleUrl": "Exemplu: {{url}}",
+		"invalidUrl": "Link URL invalid",
+		"title": "Setări aplicație"
+	},
+	"donate": {
+		"title": "Donează",
+		"bodyText": "HyperDEX este un produs gratuit susținut în totalitate din ajutorul membrilor comunității. Și tu poți susține proiectul printr-o donație la una dintre adresele de mai jos:"
+	}
+}
