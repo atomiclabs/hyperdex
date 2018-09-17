@@ -138,6 +138,7 @@ const explorers = new Map(Object.entries({
 	SXC: 'http://blockexplorer.lavajumper.com/tx/{txid}',
 	SYS: 'https://chainz.cryptoid.info/sys/tx.dws?{txid}',
 	TRC: 'https://explorer.terracoin.io/tx/{txid}',
+	TGCH: 'https://explorer.galaxycash.info/tx/{txid}',
 	UFO: 'https://chainz.cryptoid.info/ufo/tx.dws?{txid}',
 	UIS: 'https://explorer.unitus.online/tx/{txid}',
 	UNO: 'https://chainz.cryptoid.info/uno/tx.dws?{txid}',
@@ -163,7 +164,6 @@ const explorers = new Map(Object.entries({
 	ZET: 'https://chainz.cryptoid.info/zet/tx.dws?{txid}',
 	ZILLA: 'https://www.zillaexplorer.io/tx/{txid}',
 	ZOI: 'https://chainz.cryptoid.info/zoi/tx.dws?{txid}',
-	TGCH: 'https://explorer.galaxycash.info/tx/{txid}',
 }));
 
 const blockExplorer = {};

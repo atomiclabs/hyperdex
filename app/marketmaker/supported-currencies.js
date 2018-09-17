@@ -2050,6 +2050,24 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
+		coin: 'TGCH',
+		rpcport: 5604,
+		pubtype: 38,
+		p2shtype: 99,
+		wiftype: 89,
+		txfee: 100,
+		electrumServers: [
+			{
+				host: '195.133.145.160',
+				port: 50001,
+			},
+			{
+				host: '95.179.133.119',
+				port: 50001,
+			},
+		],
+	},
+	{
 		coin: 'UCASH',
 		name: 'U.CASH',
 		etomic: '0x92e52a1a235d9a103d970901066ce910aacefd37',
@@ -2322,20 +2340,6 @@ const supportedCurrencies = [
 		name: '0x',
 		etomic: '0xE41d2489571d322189246DaFA5ebDe1F4699F498',
 		rpcport: 80,
-	},
-	{
-		coin: 'TGCH',
-		rpcport: 5604,
-		pubtype: 38,
-		p2shtype: 99,
-		wiftype: 89,
-		txfee: 100,
-		electrumServers: [
-			{
-				host: '195.133.145.160',
-				port: 50001,
-			},
-		],
 	},
 ];
 
