@@ -38,9 +38,24 @@ Built on the Komodo Platform's <a href="https://barterdex.supernet.org">BarterDE
 
 There is a risk of loss of funds. Only trade in real currency if you can take that risk. We recommend trading the test currencies `BEER` and `PIZZA` instead. You can get free `BEER` at the `BEER` [faucet](https://www.atomicexplorer.com/#/faucet).
 
-### All communication is currently unencrypted
 
-Currently HyperDEX is vulnerable to MITM attacks and your actions and addresses are broadcast in plain text. Do not use HyperDEX on a public network other than for testing.
+### HyperDEX is just a GUI
+
+HyperDEX is only a GUI layer on top of the `marketmaker` daemon which connects to the Komodo Platform's BarterDEX network. `marketmaker` is an [independent project](https://github.com/jl777/SuperNET/blob/master/iguana/exchanges/mm.c).
+
+`marketmaker` is currently in the prototype stage and as a result can be quite buggy and unreliable, which will affect HyperDEX usage.
+
+There are some known `marketmaker` issues:
+- Order matching doesn't always succeed.
+- Trades can sometimes get stuck.
+- Poor single threaded performance. (makes the GUI appear laggy)
+- Trades don't always cancel.
+
+There is a rewrite of `marketmaker` in progress which we are expecting to resolve many of these issues.
+
+### All marketmaker communication is currently unencrypted
+
+Currently marketmaker is vulnerable to MITM attacks and your actions and addresses are broadcast in plain text. Do not use HyperDEX on a public network other than for testing.
 
 Encrypted communication is planned for our first stable release.
 
