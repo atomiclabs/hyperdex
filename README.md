@@ -55,11 +55,11 @@ There is a rewrite of `marketmaker` in progress which we are expecting to resolv
 
 ### All marketmaker communication is currently unencrypted
 
-Currently marketmaker is vulnerable to MITM attacks and your actions and addresses are broadcast in plain text. Do not use HyperDEX on a public network other than for testing.
+Your actions and addresses are broadcast in plain text. Do not use HyperDEX on a public network other than for testing.
 
 Encrypted communication is planned for our first stable release.
 
-### Most electrum servers are currently ran by community members
+### Most electrum servers are currently run by community members
 
 This means there is an element of trust involved. It's technically possible for a malicious electrum server operator to double spend and therefore reverse swaps.
 
