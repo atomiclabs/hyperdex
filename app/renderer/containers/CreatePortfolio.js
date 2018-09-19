@@ -44,7 +44,7 @@ class CreatePortfolioContainer extends Container {
 		event.preventDefault();
 
 		if (this.state.portfolioPassword !== this.state.confirmedPassword) {
-			this.setState({
+			await this.setState({
 				confirmedPassword: '',
 				confirmedPasswordError: t('create.confirmPasswordNoMatch'),
 			});
@@ -52,7 +52,7 @@ class CreatePortfolioContainer extends Container {
 			return;
 		}
 
-		this.setState({confirmedPasswordError: null});
+		await this.setState({confirmedPasswordError: null});
 
 		loginContainer.setActiveView('CreatePortfolioStep2');
 		loginContainer.setProgress(0.50);

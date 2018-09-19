@@ -64,12 +64,12 @@ export default class Api {
 				...data,
 				...{userpass: await this.token},
 			});
-		} catch (err) {
-			if (err.message === 'Failed to fetch') {
-				err.message = 'Could not connect to Marketmaker';
+		} catch (error) {
+			if (error.message === 'Failed to fetch') {
+				error.message = 'Could not connect to Marketmaker';
 			}
 
-			throw err;
+			throw error;
 		}
 
 		return result;

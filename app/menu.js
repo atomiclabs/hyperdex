@@ -100,7 +100,7 @@ const createDebugMenu = () => {
 				label: `${name} (${language})`,
 				type: 'radio',
 				checked: i18next.language === language,
-				async click() {
+				click() {
 					config.set('debug_forcedLanguage', language);
 					app.relaunch();
 					app.quit();

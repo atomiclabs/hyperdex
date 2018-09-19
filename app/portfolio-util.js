@@ -64,12 +64,12 @@ const getPortfolios = async () => {
 	let portfolioFiles;
 	try {
 		portfolioFiles = await dir.promiseFiles(portfolioPath);
-	} catch (err) {
-		if (err.code === 'ENOENT') {
+	} catch (error) {
+		if (error.code === 'ENOENT') {
 			return [];
 		}
 
-		throw err;
+		throw error;
 	}
 
 	portfolioFiles = portfolioFiles.filter(x => x.endsWith('.json'));
@@ -88,12 +88,12 @@ const getPortfolios = async () => {
 const decryptSeedPhrase = async (seedPhrase, password) => {
 	try {
 		return await decrypt(seedPhrase, password);
-	} catch (err) {
-		if (/Authentication failed/.test(err.message)) {
+	} catch (error) {
+		if (/Authentication failed/.test(error.message)) {
 			throw new IncorrectPasswordError();
 		}
 
-		throw err;
+		throw error;
 	}
 };
 

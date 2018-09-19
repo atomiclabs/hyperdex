@@ -19,7 +19,7 @@ class RestorePortfolioContainer extends Container {
 		this.setState({seedPhrase: value});
 	};
 
-	handleStep1Submit = async event => {
+	handleStep1Submit = event => {
 		event.preventDefault();
 
 		if (!this.state.seedPhrase) {

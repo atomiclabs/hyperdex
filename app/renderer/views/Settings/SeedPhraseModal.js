@@ -57,13 +57,13 @@ class SeedPhraseModal extends React.Component {
 			});
 
 			modalRef.current.focus();
-		} catch (err) {
-			console.error(err);
+		} catch (error) {
+			console.error(error);
 
 			this.setState({
 				isVerifying: false,
 				passwordInputValue: '',
-				passwordError: err.message,
+				passwordError: error.message,
 			});
 
 			this.passwordInputRef.current.focus();

@@ -77,12 +77,12 @@ class ExchangeContainer extends SuperContainer {
 			});
 
 		if (!doneInitialKickstart) {
-			this.setState({doneInitialKickstart: true});
+			await this.setState({doneInitialKickstart: true});
 		}
 	}
 
 	setSwapHistory = async () => {
-		this.setState({swapHistory: await appContainer.swapDB.getSwaps()});
+		await this.setState({swapHistory: await appContainer.swapDB.getSwaps()});
 	};
 
 	setBaseCurrency(baseCurrency) {

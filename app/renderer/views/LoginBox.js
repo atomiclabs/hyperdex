@@ -69,21 +69,21 @@ class LoginBox extends React.Component {
 
 		try {
 			await loginContainer.handleLogin(selectedPortfolioId, passwordInputValue);
-		} catch (err) {
+		} catch (error) {
 			if (this._isMounted) {
 				await this.setState({
 					isLoggingIn: false,
 					passwordInputValue: '',
-					passwordError: err.message,
+					passwordError: error.message,
 				});
 
 				this.passwordInputRef.current.focus();
 				return;
 			}
 
-			console.error(err);
+			console.error(error);
 			loginContainer.setActiveView(LoginBox.name);
-			dialog.showErrorBox('Login Failed', err.message || err || 'Unknown reason');
+			dialog.showErrorBox('Login Failed', error.message || error || 'Unknown reason');
 		}
 	};
 

@@ -116,7 +116,7 @@ class AppContainer extends Container {
 		return Boolean(this.state.portfolio);
 	}
 
-	async getSeedPhrase(password) {
+	getSeedPhrase(password) {
 		return decryptSeedPhrase(this.state.portfolio.encryptedSeedPhrase, password);
 	}
 
