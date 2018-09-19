@@ -33,7 +33,6 @@ exports.ignoreExternalPrice = new Set([
 	'SUPERNET',
 	'PIZZA',
 	'BEER',
-	'EQL',
 	'CALL',
 ]);
 

@@ -817,7 +817,7 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'EQL',
+		coin: 'EQLI',
 		name: 'Equaliser',
 		asset: 'EQL',
 		rpcport: 10306,
