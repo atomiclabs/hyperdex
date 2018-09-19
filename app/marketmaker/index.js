@@ -8,6 +8,7 @@ const util = require('electron-util');
 const getPort = require('get-port');
 const logger = require('electron-timber');
 const makeDir = require('make-dir');
+const _ = require('lodash');
 const {supportedCurrencies} = require('./supported-currencies');
 
 // `electron-builder` uses different names
@@ -73,7 +74,9 @@ class Marketmaker {
 			gui: 'hyperdex',
 			userhome: os.homedir(),
 			rpcport: await getPort(),
-			coins: supportedCurrencies,
+			// We leave out `electrumServers` since it's not needed
+			// and to prevent issues on Windows with too long arguments
+			coins: supportedCurrencies.map(currency => _.omit(currency, ['electrumServers'])),
 		};
 
 		this.port = options.rpcport;
