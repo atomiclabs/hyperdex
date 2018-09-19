@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 function getTextWidth(text, options) {
-	options = Object.assign({}, options);
+	options = {...options};
 
 	if (options.font && options.element) {
 		throw new TypeError('The `font` and `element` options are mutually exclusive');

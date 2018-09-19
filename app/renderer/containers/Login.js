@@ -47,7 +47,7 @@ const createApi = async seedPhrase => {
 		// Example: `_api.debug({method: 'portfolio'})`
 		window._api = api;
 	}
-	console.time('create-api');
+	console.timeEnd('create-api');
 	return api;
 };
 

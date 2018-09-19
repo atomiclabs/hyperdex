@@ -6,7 +6,7 @@ require('strict-import')(module, {
 });
 const electron = require('electron');
 const {autoUpdater} = require('electron-updater');
-const {is, disableZoom, appReady} = require('electron-util');
+const {is, disableZoom} = require('electron-util');
 const serve = require('electron-serve');
 const logger = require('electron-timber');
 const ipc = require('electron-better-ipc');
@@ -54,7 +54,12 @@ if (!is.development) {
 
 let mainWindow;
 
-const isAlreadyRunning = app.makeSingleInstance(() => {
+const gotTheLock = app.requestSingleInstanceLock();
+if (!gotTheLock) {
+	app.quit();
+}
+
+app.on('second-instance', () => {
 	if (mainWindow) {
 		if (mainWindow.isMinimized()) {
 			mainWindow.restore();
@@ -63,10 +68,6 @@ const isAlreadyRunning = app.makeSingleInstance(() => {
 		mainWindow.show();
 	}
 });
-
-if (isAlreadyRunning) {
-	app.quit();
-}
 
 const loadUrl = serve({directory: 'renderer-dist'});
 
@@ -85,7 +86,7 @@ function createMainWindow() {
 		darkTheme: config.get('theme') === 'dark', // GTK+3
 		webPreferences: {
 			webviewTag: false, // Disabled for security reasons since we don't use it
-			blinkFeatures: 'CSSBackdropFilter',
+			enableBlinkFeatures: 'CSSBackdropFilter',
 		},
 	});
 
@@ -106,11 +107,12 @@ function createMainWindow() {
 
 // TODO(sindresorhus): Move this to `electron-util`
 const setContentSecuriyPolicy = async (policy, options) => {
-	await appReady;
+	await app.whenReady();
 
-	options = Object.assign({
+	options = {
 		session: session.defaultSession,
-	}, options);
+		...options,
+	};
 
 	options.session.webRequest.onHeadersReceived((details, callback) => {
 		let policyString = typeof policy === 'function' ? policy(details) : policy;
@@ -145,7 +147,9 @@ if (!is.development) {
 	`);
 }
 
-app.on('ready', () => {
+(async () => {
+	await app.whenReady();
+
 	session.defaultSession.setPermissionRequestHandler((webContents, permission, callback) => {
 		if (permission === 'notifications') {
 			callback(true);
@@ -161,7 +165,7 @@ app.on('ready', () => {
 	appMenu();
 
 	mainWindow = createMainWindow();
-});
+})();
 
 app.on('activate', () => {
 	if (!mainWindow) {

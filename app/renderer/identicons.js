@@ -33,13 +33,14 @@ const createIconData = options => {
 const createSvgElement = name => document.createElementNS('http://www.w3.org/2000/svg', name);
 
 module.exports = options => {
-	options = Object.assign({
+	options = {
 		size: 10,
 		scale: 10,
 		seed: Math.random().toString(36).slice(2),
 		color: '#fff',
 		outputFormat: 'svg',
-	}, options);
+		...options,
+	};
 
 	if (Array.isArray(options.color)) {
 		const random = new Randoma({seed: options.seed});

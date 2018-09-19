@@ -6,7 +6,10 @@ const fireEvery = async (delay, cb, options) => {
 		delay = toMilliseconds(delay);
 	}
 
-	options = Object.assign({fireInstantly: true}, options);
+	options = {
+		fireInstantly: true,
+		...options,
+	};
 
 	if (!options.fireInstantly) {
 		await delayModule(delay);

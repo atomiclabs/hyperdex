@@ -295,8 +295,7 @@ class Order extends SuperComponent {
 	}
 
 	componentWillUnmount() {
-		// TODO: Use `events.off` here when using Electron 3
-		exchangeContainer.events.removeListener('currency-changed', this.currencyChangedListener);
+		exchangeContainer.events.off('currency-changed', this.currencyChangedListener);
 	}
 
 	handlePriceChange = price => {

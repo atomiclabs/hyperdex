@@ -67,13 +67,14 @@ class Marketmaker {
 		await this._killProcess();
 		this.isKillingPreviousMarketmaker = false;
 
-		options = Object.assign({}, options, {
+		options = {
+			...options,
 			client: 1,
 			gui: 'hyperdex',
 			userhome: os.homedir(),
 			rpcport: await getPort(),
 			coins: supportedCurrencies,
-		});
+		};
 
 		this.port = options.rpcport;
 

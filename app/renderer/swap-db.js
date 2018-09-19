@@ -61,7 +61,10 @@ class SwapDB {
 	}
 
 	queue(fn) {
-		this.pQueue.add(() => this.ready.then(fn));
+		this.pQueue.add(async () => {
+			await this.ready;
+			fn();
+		});
 	}
 
 	insertSwapData(swap, requestOpts) {

@@ -214,10 +214,11 @@ const createDebugMenu = () => {
 };
 
 const createAppMenu = options => {
-	const {isLoggedIn, activeView} = Object.assign({
+	const {isLoggedIn, activeView} = {
 		isLoggedIn: false,
 		activeView: 'Login',
-	}, options);
+		...options,
+	};
 
 	const portfolioSubmenu = [];
 	for (const [i, view] of appViews.entries()) {
