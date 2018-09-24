@@ -1,5 +1,6 @@
 import PouchDB from 'pouchdb-browser';
 import pouchDBFind from 'pouchdb-find';
+import pouchDBUpsert from 'pouchdb-upsert';
 import cryptoPouch from 'crypto-pouch';
 import Emittery from 'emittery';
 import PQueue from 'p-queue';
@@ -13,6 +14,7 @@ import {translate} from './translate';
 const t = translate('swap');
 
 PouchDB.plugin(pouchDBFind);
+PouchDB.plugin(pouchDBUpsert);
 PouchDB.plugin(cryptoPouch);
 
 class SwapDB {
@@ -91,9 +93,11 @@ class SwapDB {
 	updateSwapData = message => {
 		return this.queue(async () => {
 			const swap = await this._getSwapData(message.uuid);
-			swap.messages.push(message);
 
-			return this.db.put(swap);
+			await this.db.upsert(swap._id, doc => {
+				doc.messages.push(message);
+				return doc;
+			});
 		});
 	}
 
