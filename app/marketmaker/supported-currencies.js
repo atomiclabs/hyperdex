@@ -2058,11 +2058,11 @@ const supportedCurrencies = [
 		txfee: 100,
 		electrumServers: [
 			{
-				host: '195.133.145.160',
+				host: 'electrum1.galaxycash.info',
 				port: 50001,
 			},
 			{
-				host: '95.179.133.119',
+				host: 'electrum2.galaxycash.info',
 				port: 50001,
 			},
 		],
