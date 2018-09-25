@@ -3,7 +3,6 @@ import roundTo from 'round-to';
 import Modal from 'components/Modal';
 import Button from 'components/Button';
 import Input from 'components/Input';
-import Link from 'components/Link';
 import appContainer from 'containers/App';
 import dashboardContainer from 'containers/Dashboard';
 import {formatCurrency} from '../../util';
@@ -111,6 +110,10 @@ class WithdrawModal extends React.Component {
 							/>
 						</div>
 						<div className="section">
+							<p>
+								{/* TODO: Remove this when #302 is fixed */}
+								<small>{'Note: HyperDEX doesn\'t yet calculate the TX fee, so you can\'t withdraw the whole balance. Try withdrawing slightly less.'}</small>
+							</p>
 							<label>{t('withdraw.amountLabel')}:</label>
 							<div className="amount-inputs">
 								<Input
@@ -147,6 +150,7 @@ class WithdrawModal extends React.Component {
 										<span>USD</span>
 									)}
 								/>
+								{/* Hidden because of #302
 								<Link
 									onClick={() => {
 										setAmount(maxAmount);
@@ -154,6 +158,7 @@ class WithdrawModal extends React.Component {
 								>
 									({t('withdraw.maxAmount')})
 								</Link>
+								*/}
 							</div>
 						</div>
 						<div className="section">
