@@ -68,6 +68,7 @@ class AppContainer extends Container {
 		super();
 		this.views = new Cycled(appViews);
 		this.setTheme(this.state.theme);
+		this.coinPrices = [];
 	}
 
 	setActiveView(activeView) {
