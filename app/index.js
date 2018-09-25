@@ -140,7 +140,7 @@ if (!is.development) {
 		img-src 'self' data:;
 		style-src 'self' 'unsafe-inline';
 		font-src 'self';
-		connect-src 'self' http://127.0.0.1:* ws://127.0.0.1:* https://api.coinmarketcap.com https://min-api.cryptocompare.com;
+		connect-src 'self' http://127.0.0.1:* ws://127.0.0.1:* https://api.coingecko.com https://min-api.cryptocompare.com;
 		base-uri 'none';
 		form-action 'none';
 		frame-ancestors 'none';
