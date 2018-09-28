@@ -1,4 +1,8 @@
 'use strict';
+
+// Silence `new Buffer()` deprecation warnings in dependencies
+process.env.NODE_NO_WARNINGS = '1';
+
 require('strict-import')(module, {
 	_allowedModules: [
 		'electron-debug',
