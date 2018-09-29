@@ -19,6 +19,7 @@ const config = require('./config');
 const marketmaker = require('./marketmaker');
 const {loginWindowSize} = require('./constants');
 const {isDevelopment} = require('./util-common');
+const rendererState = require('./renderer-state');
 
 require('electron-unhandled')({
 	showDialog: !isDevelopment,
@@ -182,8 +183,9 @@ app.on('window-all-closed', () => {
 });
 
 app.on('before-quit', () => {
-	// TODO: Only save this when logged in.
-	// config.set('windowState', mainWindow.getBounds());
+	if (rendererState.isLoggedIn) {
+		config.set('windowState', mainWindow.getBounds());
+	}
 });
 
 ipc.answerRenderer('start-marketmaker', async seedPhrase => {
