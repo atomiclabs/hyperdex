@@ -13,7 +13,7 @@
 	},
 	"dependencies": {
 		"@sindresorhus/slugify": "^0.3.0",
-		"coinlist": "^3.1.0",
+		"coinlist": "^3.1.1",
 		"crypto-random-string": "^1.0.0",
 		"del": "^3.0.0",
 		"delay": "^3.1.0",

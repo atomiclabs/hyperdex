@@ -115,10 +115,10 @@ clean-stack@^1.3.0:
   resolved "https://registry.yarnpkg.com/clean-stack/-/clean-stack-1.3.0.tgz#9e821501ae979986c46b1d66d2d432db2fd4ae31"
   integrity sha1-noIVAa6XmYbEax1m0tQy2y/UrjE=
 
-coinlist@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/coinlist/-/coinlist-3.1.0.tgz#86a0a5e721fa3cc9ed70e25358a72185b0a3b83d"
-  integrity sha512-UsXJcRwBm4o3Py+d7mMvGvDB55NG87M+B67pa/kuEUz9LFMqXOQ8SEulH0+u6oTW3TOp8k1wXtimW4GOFaIRGA==
+coinlist@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/coinlist/-/coinlist-3.1.1.tgz#4de9b401ec74bdf9a86d4c7d2d7e7a2e883e0e8e"
+  integrity sha512-If8gEhRNPaUXx60wAyCWHUNkaiB86ZGf7H61JnJTSulM0ijA3C9+3MPJ+Jgoq63eFqW4IXeCONrHQJHQgvOtbA==
 
 color-convert@^1.9.0, color-convert@^1.9.1:
   version "1.9.1"

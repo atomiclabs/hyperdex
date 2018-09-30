@@ -2414,10 +2414,10 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
-coinlist@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/coinlist/-/coinlist-3.1.0.tgz#86a0a5e721fa3cc9ed70e25358a72185b0a3b83d"
-  integrity sha512-UsXJcRwBm4o3Py+d7mMvGvDB55NG87M+B67pa/kuEUz9LFMqXOQ8SEulH0+u6oTW3TOp8k1wXtimW4GOFaIRGA==
+coinlist@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/coinlist/-/coinlist-3.1.1.tgz#4de9b401ec74bdf9a86d4c7d2d7e7a2e883e0e8e"
+  integrity sha512-If8gEhRNPaUXx60wAyCWHUNkaiB86ZGf7H61JnJTSulM0ijA3C9+3MPJ+Jgoq63eFqW4IXeCONrHQJHQgvOtbA==
 
 collapse-white-space@^1.0.2:
   version "1.0.4"
