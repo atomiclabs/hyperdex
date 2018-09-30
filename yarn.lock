@@ -2417,7 +2417,8 @@ code-point-at@^1.0.0:
 coinlist@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/coinlist/-/coinlist-3.1.1.tgz#4de9b401ec74bdf9a86d4c7d2d7e7a2e883e0e8e"
-  
+  integrity sha512-If8gEhRNPaUXx60wAyCWHUNkaiB86ZGf7H61JnJTSulM0ijA3C9+3MPJ+Jgoq63eFqW4IXeCONrHQJHQgvOtbA==
+
 collapse-white-space@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/collapse-white-space/-/collapse-white-space-1.0.4.tgz#ce05cf49e54c3277ae573036a26851ba430a0091"
