@@ -17,7 +17,7 @@ exports.loginWindowSize = {
 
 exports.appViews = [
 	'Dashboard',
-	'Swap',
+	// 'Swap',
 	'Exchange',
 	'Trades',
 	'Settings',

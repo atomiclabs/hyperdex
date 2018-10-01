@@ -1,7 +1,7 @@
 import React from 'react';
 import appContainer from 'containers/App';
 import DashboardIcon from 'icons/Dashboard';
-import SwapIcon from 'icons/Swap';
+/// import SwapIcon from 'icons/Swap';
 import ExchangeIcon from 'icons/Exchange';
 import TradesIcon from 'icons/Trades';
 import SettingsIcon from 'icons/Settings';
@@ -27,7 +27,7 @@ const IconNavItem = ({icon: Icon, ...props}) => {
 const Nav = () => (
 	<nav className="nav">
 		<IconNavItem to="Dashboard" icon={DashboardIcon}/>
-		<IconNavItem to="Swap" icon={SwapIcon}/>
+		{/* <IconNavItem to="Swap" icon={SwapIcon}/> */}
 		<IconNavItem to="Exchange" icon={ExchangeIcon}/>
 		<IconNavItem to="Trades" icon={TradesIcon}/>
 		<IconNavItem to="Settings" icon={SettingsIcon}/>
