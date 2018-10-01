@@ -1,7 +1,4 @@
 {
-	"engines": {
-		"node": ">=10"
-	},
 	"scripts": {
 		"postinstall": "electron-builder install-app-deps",
 		"lint": "xo && stylelint 'app/renderer/**/*.scss'",
@@ -169,6 +166,7 @@
 		}
 	},
 	"xo": {
+		"nodeVersion": ">=10",
 		"parser": "babel-eslint",
 		"envs": [
 			"node",
