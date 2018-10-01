@@ -22,7 +22,7 @@ const defaults = {
 		'DASH',
 		'DNR',
 		'DOGE',
-		'EQL',
+		'EQLI',
 		'HUSH',
 		'KMD',
 		'LTC',
@@ -41,4 +41,19 @@ if (isNightlyBuild) {
 	defaults.enabledCoins.push('PIZZA', 'BEER');
 }
 
-module.exports = new Store({defaults});
+const renameEqlToEqli = store => {
+	let enabledCoins = store.get('enabledCoins');
+	if (enabledCoins.includes('EQL')) {
+		enabledCoins = enabledCoins.filter(x => x !== 'EQL' && x !== 'EQLI');
+		enabledCoins.push('EQLI');
+		store.set('enabledCoins', enabledCoins);
+	}
+};
+
+const migrate = store => {
+	renameEqlToEqli(store);
+};
+
+const store = new Store({defaults});
+migrate(store);
+module.exports = store;
