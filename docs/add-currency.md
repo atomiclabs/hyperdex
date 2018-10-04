@@ -20,8 +20,8 @@ Examples:
 ## Steps
 
 - Add the currency to https://github.com/jl777/coins. *(We use this repo as the source of truth)*
-- Open an issue on https://github.com/atomiclabs/cryptocurrency-icons the currency's icon is not already there. We will make an icon for the currency.
-- When your pull request to `jl777/coins` has been merged, you can open a pull request on https://github.com/atomiclabs/hyperdex
-	- Add the currency info [here](https://github.com/atomiclabs/hyperdex/blob/master/app/marketmaker/supported-currencies.js). Note that the list is ordered alphabetically.
-	- Add the block explorer [here](https://github.com/atomiclabs/hyperdex/blob/master/app/renderer/block-explorer.js). Note that the list is ordered alphabetically.
+- Open an issue on https://github.com/atomiclabs/cryptocurrency-icons if the currency's icon is not already there. We will make an icon for the currency.
+- When your pull request to `jl777/coins` has been merged, you can open a pull request on https://github.com/atomiclabs/hyperdex.
+	- Add the currency info [here](https://github.com/atomiclabs/hyperdex/blob/master/app/marketmaker/supported-currencies.js). *Note that the list is ordered alphabetically.*
+	- Add the block explorer [here](https://github.com/atomiclabs/hyperdex/blob/master/app/renderer/block-explorer.js). *Note that the list is ordered alphabetically.*
 	- In the pull request description, include information about the currency, like official website, CoinMarketCap page, Twitter, etc. Also include a link to your `jl777/coins` pull request.
