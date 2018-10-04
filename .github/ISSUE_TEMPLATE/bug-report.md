@@ -1,7 +1,6 @@
 ---
-name: Bug report
-about: Report an issue with HyperDEX
-
+name: '🐛 Bug report'
+about: 'Report an issue with HyperDEX'
 ---
 
 **Describe the bug**
