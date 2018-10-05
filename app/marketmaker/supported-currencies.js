@@ -1734,6 +1734,24 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
+		coin: 'QMC',
+		rpcport: 55777,
+		pubtype: 58,
+		p2shtype: 120,
+		wiftype: 1,
+		txfee: 10000,
+		electrumServers: [
+			{
+				host: '45.32.185.157',
+				port: 50001,
+			},
+			{
+				host: '95.179.134.215',
+				port: 50001,
+			},
+		],
+	},
+	{
 		coin: 'QTUM',
 		rpcport: 3889,
 		pubtype: 58,
