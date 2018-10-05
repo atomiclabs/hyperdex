@@ -1742,11 +1742,11 @@ const supportedCurrencies = [
 		txfee: 10000,
 		electrumServers: [
 			{
-				host: '45.32.185.157',
+				host: 'electrum.qmcoin.gq',
 				port: 50001,
 			},
 			{
-				host: '95.179.134.215',
+				host: 'electrum.qmcoin.ga',
 				port: 50001,
 			},
 		],
