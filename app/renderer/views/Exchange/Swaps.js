@@ -1,35 +1,17 @@
 import React from 'react';
-import {classNames} from 'react-extras';
 import appContainer from 'containers/App';
 import exchangeContainer from 'containers/Exchange';
 import tradesContainer from 'containers/Trades';
 import View from 'components/View';
 import SwapList from 'components/SwapList';
 import Link from 'components/Link';
+import TabButton from 'components/TabButton';
 import {translate} from '../../translate';
 import './Swaps.scss';
 
 const t = translate('exchange');
 
 const getOpenOrders = () => exchangeContainer.state.swapHistory.filter(swap => swap.isActive);
-
-const TabButton = props => (
-	<span
-		className={
-			classNames(
-				'button',
-				{
-					active: exchangeContainer.state.activeSwapsView === props.component.name,
-				}
-			)
-		}
-		onClick={() => {
-			exchangeContainer.setActiveSwapsView(props.component.name);
-		}}
-	>
-		{props.title}
-	</span>
-);
 
 const TabView = ({component}) => (
 	<View component={component} activeView={exchangeContainer.state.activeSwapsView}/>
@@ -58,6 +40,7 @@ const CurrentPairOpenOrders = () => {
 
 const Swaps = () => {
 	const {state} = exchangeContainer;
+	const [openOrdersComponentName, currentPairOpenOrdersComponentName] = [OpenOrders.name, CurrentPairOpenOrders.name];
 
 	return (
 		<div className="Exchange--Swaps">
@@ -76,13 +59,17 @@ const Swaps = () => {
 				</h3>
 				<nav>
 					<TabButton
-						title={t('swaps.all')}
-						component={OpenOrders}
-					/>
+						active={state.activeSwapsView === openOrdersComponentName}
+						onClick={() => exchangeContainer.setActiveSwapsView(openOrdersComponentName)}
+					>
+						{t('swaps.all')}
+					</TabButton>
 					<TabButton
-						title={`${state.baseCurrency}/${state.quoteCurrency}`}
-						component={CurrentPairOpenOrders}
-					/>
+						active={state.activeSwapsView === currentPairOpenOrdersComponentName}
+						onClick={() => exchangeContainer.setActiveSwapsView(currentPairOpenOrdersComponentName)}
+					>
+						{`${state.baseCurrency}/${state.quoteCurrency}`}
+					</TabButton>
 				</nav>
 			</header>
 			<main>

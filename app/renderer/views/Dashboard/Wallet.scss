@@ -14,25 +14,14 @@
 		border-bottom: 1px solid var(--section-border-color);
 
 		nav {
-			.button {
+			.TabButton {
 				display: inline-block;
 				padding: 20px 0;
 				margin-bottom: -1px;
 				font-size: 18px;
-				user-select: none;
-				cursor: default;
 			}
 
-			.button:first-child {
-				margin-right: 20px;
-			}
-
-			.button.active {
-				color: var(--primary-color);
-				border-bottom: 1px solid var(--primary-color);
-			}
-
-			.button:hover {
+			.TabButton:hover {
 				.Button__helper {
 					opacity: 0 !important; // stylelint-disable-line
 				}
