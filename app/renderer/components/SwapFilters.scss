@@ -4,7 +4,7 @@
 	color: var(--text-color);
 }
 
-.SwapFilters-section {
+.SwapFilters__section {
 	& + & {
 		margin-left: 15px;
 	}
@@ -19,7 +19,7 @@
 		width: auto;
 		margin: 0;
 
-		input[value]:not([value=""]) {
+		input[value]:not([value='']) {
 			color: var(--text-color2);
 		}
 	}
@@ -39,8 +39,9 @@
 		}
 	}
 
+	/* stylelint-disable selector-class-pattern */
 	.DayPickerInput .DayPicker-Day {
-		border-radius: 0;
+		border-radius: none;
 	}
 
 	.DayPickerInput .DayPicker-Day--start {
@@ -54,6 +55,6 @@
 	}
 
 	.DayPickerInput .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
-		background-color: var(--primary-color-opacity-0-2)
+		background-color: var(--primary-color-opacity-0-2);
 	}
 }

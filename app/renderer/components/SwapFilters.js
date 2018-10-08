@@ -78,7 +78,7 @@ class SwapFilters extends React.Component {
 		return (
 			<React.Fragment>
 				<div className="SwapFilters">
-					<div className="SwapFilters-section">
+					<div className="SwapFilters__section">
 						<label>{t('filter.date')}:</label>
 						<DateInput
 							clickUnselectsDay
@@ -117,7 +117,7 @@ class SwapFilters extends React.Component {
 						/>
 					</div>
 					{selectFilters.map(filter => (
-						<div key={filter.name} className="SwapFilters-section">
+						<div key={filter.name} className="SwapFilters__section">
 							<label>{t(`filter.${filter.name}`)}:</label>
 							<Select
 								clearable
