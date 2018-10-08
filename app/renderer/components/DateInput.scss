@@ -16,7 +16,7 @@
 }
 
 .DayPicker:not(.DayPicker--interactionDisabled) .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
-	color: #fff;
+	color: var(--text-color2);
 	background-color: var(--primary-color);
 }
 
@@ -25,12 +25,12 @@
 	font-weight: normal;
 
 	&:hover:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
-		color: #fff;
+		color: var(--text-color2);
 	}
 }
 
 .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
-	color: #fff;
+	color: var(--text-color2);
 	background-color: var(--primary-color);
 
 	&:hover {
