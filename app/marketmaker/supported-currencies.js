@@ -1735,6 +1735,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'QMC',
+		name: 'QMCoin',
 		rpcport: 55777,
 		pubtype: 58,
 		p2shtype: 120,
