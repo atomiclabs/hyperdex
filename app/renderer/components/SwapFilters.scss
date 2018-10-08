@@ -1,0 +1,59 @@
+.SwapFilters {
+	display: flex;
+	flex-shrink: 0;
+	color: var(--text-color);
+}
+
+.SwapFilters-section {
+	& + & {
+		margin-left: 15px;
+	}
+
+	label {
+		margin-right: 5px;
+		font-size: 14px;
+		color: var(--text-color);
+	}
+
+	.Input {
+		width: auto;
+		margin: 0;
+
+		input[value]:not([value=""]) {
+			color: var(--text-color2);
+		}
+	}
+
+	.Select {
+		display: inline-flex;
+		min-width: 169px;
+
+		.Select-placeholder,
+		.Select-value {
+			padding-left: 10px;
+		}
+
+		.Select-placeholder {
+			font-weight: normal;
+			opacity: 0.5;
+		}
+	}
+
+	.DayPickerInput .DayPicker-Day {
+		border-radius: 0;
+	}
+
+	.DayPickerInput .DayPicker-Day--start {
+		border-top-left-radius: 50%;
+		border-bottom-left-radius: 50%;
+	}
+
+	.DayPickerInput .DayPicker-Day--end {
+		border-top-right-radius: 50%;
+		border-bottom-right-radius: 50%;
+	}
+
+	.DayPickerInput .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+		background-color: var(--primary-color-opacity-0-2)
+	}
+}

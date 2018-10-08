@@ -7,6 +7,7 @@ import exchangeContainer from 'containers/Exchange'; // TODO(sindresorhus): Find
 import tradesContainer from 'containers/Trades';
 import View from 'components/View';
 import SwapList from 'components/SwapList';
+import SwapFilters from 'components/SwapFilters';
 import {formatCurrency} from '../util';
 import {translate} from '../translate';
 import AppTabView from './TabView';
@@ -46,7 +47,12 @@ const OpenOrders = () => {
 const TradeHistory = () => {
 	const {state} = exchangeContainer;
 	const filteredData = state.swapHistory.filter(swap => !swap.isActive);
-	return <SwapList swaps={filteredData} showCancel showHeader/>;
+
+	return (
+		<SwapFilters swaps={filteredData}>
+			{swaps => <SwapList swaps={swaps} showCancel showHeader/>}
+		</SwapFilters>
+	);
 };
 
 const Trades = props => (
