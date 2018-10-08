@@ -44,7 +44,7 @@ module.exports = (env, options) => ({
 				options: require('./package.json').babel,
 			},
 			{
-				test: /\.(s)?css$/,
+				test: /\.(css|scss)$/,
 				exclude: /node_modules(?!\/react-day-picker)/,
 				use: [
 					{
