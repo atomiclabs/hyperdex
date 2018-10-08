@@ -106,7 +106,12 @@
 		"require": [
 			"@babel/register",
 			"./test/_index"
-		]
+		],
+		"babel": {
+			"testOptions": {
+				"configFile": "./babel.config.js"
+			}
+		}
 	},
 	"xo": {
 		"nodeVersion": ">=10",
