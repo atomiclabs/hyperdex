@@ -81,7 +81,6 @@ class SwapFilters extends React.Component {
 					<div className="SwapFilters__section">
 						<label>{t('filter.date')}:</label>
 						<DateInput
-							clickUnselectsDay
 							name="dateFrom"
 							placeholder={`${t('filter.dateFrom')}...`}
 							value={dateFrom}
@@ -100,7 +99,6 @@ class SwapFilters extends React.Component {
 						{' - '}
 						<DateInput
 							ref={this.dateToInput}
-							clickUnselectsDay
 							name="dateTo"
 							placeholder={`${t('filter.dateTo')}...`}
 							value={dateTo}
