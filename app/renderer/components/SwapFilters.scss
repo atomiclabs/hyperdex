@@ -15,13 +15,13 @@
 		color: var(--text-color);
 	}
 
+	input {
+		color: var(--text-color2);
+	}
+
 	.Input {
 		width: auto;
 		margin: 0;
-
-		input[value]:not([value='']) {
-			color: var(--text-color2);
-		}
 	}
 
 	.Select {
@@ -29,7 +29,8 @@
 		min-width: 169px;
 
 		.Select-placeholder,
-		.Select-value {
+		.Select-value,
+		.Select-input {
 			padding-left: 10px;
 		}
 
