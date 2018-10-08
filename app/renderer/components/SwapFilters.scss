@@ -41,7 +41,7 @@
 
 	/* stylelint-disable selector-class-pattern */
 	.DayPickerInput .DayPicker-Day {
-		border-radius: none;
+		border-radius: unset;
 	}
 
 	.DayPickerInput .DayPicker-Day--start {
