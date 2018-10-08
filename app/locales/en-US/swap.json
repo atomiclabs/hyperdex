@@ -56,7 +56,6 @@
 		"less": "Less"
 	},
 	"filter": {
-		"all": "All",
 		"buy": "Buy",
 		"date": "Date",
 		"dateFrom": "From",
