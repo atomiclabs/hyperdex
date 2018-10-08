@@ -24,7 +24,7 @@
 	color: var(--secondary-color);
 	font-weight: normal;
 
-	&:hover {
+	&:hover:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
 		color: #fff;
 	}
 }
@@ -36,4 +36,10 @@
 	&:hover {
 		background-color: var(--primary-color);
 	}
+}
+
+.DayPicker-Day--disabled:not(.DayPicker-Day--today),
+.DayPicker-Day--outside:not(.DayPicker-Day--today) {
+	color: var(--text-color);
+	opacity: 0.5;
 }
