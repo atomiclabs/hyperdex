@@ -30,3 +30,7 @@ const DateInput = ({forwardedRef, ...props}) => (
 export default React.forwardRef((props, ref) => (
 	<DateInput {...props} forwardedRef={ref}/>
 ));
+
+export {
+	WrappedInput,
+};

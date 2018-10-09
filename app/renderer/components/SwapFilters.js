@@ -138,4 +138,9 @@ SwapFilters.propTypes = {
 	swaps: PropTypes.arrayOf(PropTypes.object),
 };
 
+SwapFilters.defaultProps = {
+	children: () => {},
+	swaps: [],
+};
+
 export default SwapFilters;
