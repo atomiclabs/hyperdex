@@ -6,11 +6,16 @@ import Input from 'components/Input';
 import {instance} from '../translate';
 import './DateInput.scss';
 
+const WrappedInput = props => {
+	const onChange = (value, event) => props.onChange(event);
+	return <Input {...props} onChange={onChange}/>;
+};
+
 const DateInput = ({forwardedRef, ...props}) => (
 	<DayPickerInput
 		{...props}
 		ref={forwardedRef}
-		component={Input}
+		component={WrappedInput}
 		dayPickerProps={{
 			...props.dayPickerProps,
 			locale: instance.language,
