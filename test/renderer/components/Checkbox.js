@@ -2,76 +2,76 @@ import test from 'ava';
 import React from 'react';
 import {spy} from 'sinon';
 import {shallow} from 'enzyme';
-import Checkbox from '../../../app/renderer/components/Checkbox';
+import Checkbox from 'components/Checkbox';
 
 test('render `div`', t => {
-	const m = shallow(<Checkbox/>);
-	t.is(m.dive().type(), 'div');
+	const component = shallow(<Checkbox/>);
+	t.is(component.dive().type(), 'div');
 });
 
 test('forwards `ref`', t => {
 	const ref = React.createRef();
-	const m = shallow(<Checkbox ref={ref}/>);
-	t.is(m.prop('forwardedRef'), ref);
+	const component = shallow(<Checkbox ref={ref}/>);
+	t.is(component.prop('forwardedRef'), ref);
 });
 
 test('pass `props` to `input`', t => {
 	const foo = 'foo';
-	const m = shallow(<Checkbox foo={foo}/>).dive();
-	t.is(m.find('input').prop('foo'), foo);
+	const component = shallow(<Checkbox foo={foo}/>).dive();
+	t.is(component.find('input').prop('foo'), foo);
 });
 
 test('set `className` prop', t => {
-	const m = shallow(<Checkbox/>).dive();
-	t.true(m.prop('className').includes('Checkbox'));
+	const component = shallow(<Checkbox/>).dive();
+	t.true(component.prop('className').includes('Checkbox'));
 });
 
 test('set `type` prop on `input`', t => {
-	const m = shallow(<Checkbox/>).dive();
-	t.is(m.find('input').prop('type'), 'checkbox');
+	const component = shallow(<Checkbox/>).dive();
+	t.is(component.find('input').prop('type'), 'checkbox');
 });
 
 test('has `className` prop', t => {
 	const className = 'foo';
-	const m = shallow(<Checkbox className={className}/>).dive();
-	t.true(m.prop('className').includes(className));
+	const component = shallow(<Checkbox className={className}/>).dive();
+	t.true(component.prop('className').includes(className));
 });
 
 test('has `checked` prop', t => {
-	const m = shallow(<Checkbox checked/>).dive();
-	t.true(m.prop('className').includes('Checkbox--checked'));
+	const component = shallow(<Checkbox checked/>).dive();
+	t.true(component.prop('className').includes('Checkbox--checked'));
 });
 
 test('has `disabled` prop', t => {
-	const m = shallow(<Checkbox disabled/>).dive();
-	t.true(m.prop('className').includes('Checkbox--disabled'));
-	t.true(m.find('input').prop('disabled'));
+	const component = shallow(<Checkbox disabled/>).dive();
+	t.true(component.prop('className').includes('Checkbox--disabled'));
+	t.true(component.find('input').prop('disabled'));
 });
 
 test('has `value` prop', t => {
 	const value = 'foo';
-	const m = shallow(<Checkbox value={value}/>).dive();
-	t.is(m.find('input').prop('value'), value);
+	const component = shallow(<Checkbox value={value}/>).dive();
+	t.is(component.find('input').prop('value'), value);
 });
 
 test('has `onChange` prop', t => {
 	const event = {};
 	const onChange = spy();
-	const m = shallow(<Checkbox onChange={onChange}/>).dive();
-	const checked = m.state('checked');
-	m.find('input').simulate('change', event);
+	const component = shallow(<Checkbox onChange={onChange}/>).dive();
+	const checked = component.state('checked');
+	component.find('input').simulate('change', event);
 	t.true(onChange.calledWith(!checked, event));
-	t.is(m.state('checked'), !checked);
+	t.is(component.state('checked'), !checked);
 });
 
 test('has `label` prop', t => {
 	const label = 'foo';
-	const m = shallow(<Checkbox label={label}/>).dive();
-	t.is(m.find('.Checkbox__label').text(), label);
+	const component = shallow(<Checkbox label={label}/>).dive();
+	t.is(component.find('.Checkbox__label').text(), label);
 });
 
 test('show checkmark icon when `checked` prop is `true`', t => {
-	const m = shallow(<Checkbox/>).dive();
-	m.find('input').simulate('change');
-	t.is(m.find('.checkmark-icon').length, 1);
+	const component = shallow(<Checkbox/>).dive();
+	component.find('input').simulate('change');
+	t.is(component.find('.checkmark-icon').length, 1);
 });
