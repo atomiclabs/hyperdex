@@ -2,7 +2,7 @@
 	"scripts": {
 		"postinstall": "electron-builder install-app-deps",
 		"lint": "xo && stylelint 'app/renderer/**/*.scss'",
-		"test": "yarn lint",
+		"test": "yarn lint && ava",
 		"start:watch": "webpack-dev-server --hot",
 		"start:launch": "wait-for-localhost 8080 && run-electron app",
 		"start": "yarn && run-p start:*",
@@ -11,6 +11,7 @@
 		"release": "cd app && np --no-publish"
 	},
 	"dependencies": {
+		"@babel/register": "^7.0.0",
 		"@sindresorhus/slugify": "^0.3.0",
 		"@sindresorhus/to-milliseconds": "^1.0.0",
 		"bip39": "^2.5.0",
@@ -57,17 +58,17 @@
 		"unstated-debug": "^0.2.0"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.0.0",
-		"@babel/plugin-proposal-class-properties": "^7.0.0",
+		"@babel/core": "^7.1.2",
+		"@babel/plugin-proposal-class-properties": "^7.1.0",
 		"@babel/plugin-proposal-object-rest-spread": "^7.0.0",
 		"@babel/plugin-syntax-dynamic-import": "^7.0.0",
-		"@babel/plugin-transform-modules-commonjs": "^7.0.0",
+		"@babel/plugin-transform-modules-commonjs": "^7.1.0",
 		"@babel/preset-react": "^7.0.0",
-		"ava": "^0.25.0",
+		"ava": "^1.0.0-beta.8",
 		"babel-eslint": "^9.0.0",
 		"babel-loader": "^8.0.2",
+		"babel-plugin-module-resolver": "^3.1.1",
 		"babel-plugin-transform-require-ignore": "^0.1.1",
-		"babel-plugin-webpack-alias": "^2.1.2",
 		"browser-env": "^3.2.5",
 		"clean-webpack-plugin": "^0.1.19",
 		"copy-webpack-plugin": "^4.5.2",
@@ -101,67 +102,13 @@
 		"xo": "^0.23.0"
 	},
 	"ava": {
-		"babel": "inherit",
 		"require": [
-			"babel-register",
+			"@babel/register",
 			"./test/_index"
-		]
-	},
-	"babel": {
-		"presets": [
-			"@babel/preset-react"
 		],
-		"plugins": [
-			[
-				"styled-jsx/babel",
-				{
-					"vendorPrefixes": false
-				}
-			],
-			"@babel/plugin-transform-modules-commonjs",
-			"@babel/plugin-syntax-dynamic-import",
-			"@babel/plugin-proposal-object-rest-spread",
-			[
-				"@babel/plugin-proposal-class-properties",
-				{
-					"loose": false
-				}
-			],
-			"react-hot-loader/babel"
-		],
-		"env": {
-			"test": {
-				"plugins": [
-					[
-						"webpack-alias",
-						{
-							"config": "./webpack.config.js"
-						}
-					],
-					[
-						"transform-require-ignore",
-						{
-							"extensions": [
-								".scss"
-							]
-						}
-					],
-					[
-						"styled-jsx/babel",
-						{
-							"vendorPrefixes": false
-						}
-					],
-					"@babel/plugin-transform-modules-commonjs",
-					"@babel/plugin-syntax-dynamic-import",
-					"@babel/plugin-proposal-object-rest-spread",
-					[
-						"@babel/plugin-proposal-class-properties",
-						{
-							"loose": false
-						}
-					]
-				]
+		"babel": {
+			"testOptions": {
+				"configFile": "./babel.config.js"
 			}
 		}
 	},
