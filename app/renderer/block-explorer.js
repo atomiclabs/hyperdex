@@ -118,6 +118,7 @@ const explorers = new Map(Object.entries({
 	POLIS: 'https://explorer.polispay.org/tx/{txid}',
 	PURA: 'https://chainz.cryptoid.info/pura/tx.dws?{txid}',
 	PYRO: 'http://138.68.246.198:3001/tx/{txid}',
+	QMC: 'http://explorer.qmcoin.gq/tx/{txid}',
 	QTUM: 'https://explorer.qtum.org/tx/{txid}',
 	RADIUS: 'http://explorer.radiuscrypto.online/tx/{txid}',
 	RAP: 'http://explorer.our-rapture.com/tx/{txid}',

@@ -26,14 +26,6 @@ module.exports = (env, options) => ({
 	optimization: {
 		minimize: false,
 	},
-	resolve: {
-		alias: {
-			components: path.join(PATHS.src, 'components'),
-			containers: path.join(PATHS.src, 'containers'),
-			views: path.join(PATHS.src, 'views'),
-			icons: path.join(PATHS.src, 'icons'),
-		},
-	},
 	module: {
 		rules: [
 			{

@@ -93,6 +93,12 @@ We are planning to add an option to specify the number of confirmations your are
 
 Please download the latest [nightly build](https://github.com/atomiclabs/hyperdex-nightlies/releases/latest) and report detailed issues with the "Feedback" button in the app.
 
+## FAQ
+
+#### How can I add a new currency?
+
+[See the guide for adding a new currency.](docs/add-currency.md)
+
 ## Donate
 
 HyperDEX is a free and open source project. You can help support its development by donating to the below addresses:
