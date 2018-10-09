@@ -1,6 +1,6 @@
 import React from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
-import MomentLocaleUtils from 'react-day-picker/moment';
+import MomentLocaleUtils, {formatDate, parseDate} from 'react-day-picker/moment';
 import 'react-day-picker/lib/style.css';
 import Input from 'components/Input';
 import {instance} from '../translate';
@@ -16,6 +16,9 @@ const DateInput = ({forwardedRef, ...props}) => (
 		{...props}
 		ref={forwardedRef}
 		component={WrappedInput}
+		format="YYYY-MM-DD"
+		formatDate={formatDate}
+		parseDate={parseDate}
 		dayPickerProps={{
 			...props.dayPickerProps,
 			locale: instance.language,
