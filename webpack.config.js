@@ -32,8 +32,10 @@ module.exports = (env, options) => ({
 				test: /\.js$/,
 				exclude: /node_modules/,
 				loader: 'babel-loader',
-				// Workaround for https://github.com/babel/babel/issues/7788
-				options: require('./package.json').babel,
+				options: {
+					cacheDirectory: true,
+					cacheCompression: false,
+				},
 			},
 			{
 				test: /\.scss$/,
