@@ -20,6 +20,7 @@
 	}
 
 	.recharts-responsive-container:nth-child(2) {
+		position: relative;
 		left: -10px;
 
 		.recharts-xAxis .recharts-cartesian-axis-tick:first-child {
