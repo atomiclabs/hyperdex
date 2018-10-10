@@ -160,7 +160,10 @@
 		"appId": "com.lukechilds.hyperdex",
 		"mac": {
 			"category": "public.app-category.finance",
-			"electronUpdaterCompatibility": ">=2.15.0"
+			"electronUpdaterCompatibility": ">=2.15.0",
+			"extendInfo": {
+				"NSRequiresAquaSystemAppearance": false
+			}
 		},
 		"dmg": {
 			"iconSize": 160,
