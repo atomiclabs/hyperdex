@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {classNames} from 'react-extras';
 import './TabButton.scss';
 
-const TabButton = ({onClick, children, active, className, ...props}) => (
+const TabButton = ({onClick, children, isActive, className, ...props}) => (
 	<span
 		{...props}
 		role="button"
@@ -13,7 +13,7 @@ const TabButton = ({onClick, children, active, className, ...props}) => (
 			}
 		}}
 		className={
-			classNames('TabButton', {active}, className)
+			classNames('TabButton', {active: isActive}, className)
 		}
 	>
 		{children}
@@ -22,7 +22,7 @@ const TabButton = ({onClick, children, active, className, ...props}) => (
 
 TabButton.propTypes = {
 	className: PropTypes.string,
-	active: PropTypes.bool,
+	isActive: PropTypes.bool,
 	children: PropTypes.node,
 	onClick: PropTypes.func,
 };

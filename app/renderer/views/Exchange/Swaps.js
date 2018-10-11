@@ -40,7 +40,6 @@ const CurrentPairOpenOrders = () => {
 
 const Swaps = () => {
 	const {state} = exchangeContainer;
-	const [openOrdersComponentName, currentPairOpenOrdersComponentName] = [OpenOrders.name, CurrentPairOpenOrders.name];
 
 	return (
 		<div className="Exchange--Swaps">
@@ -59,14 +58,14 @@ const Swaps = () => {
 				</h3>
 				<nav>
 					<TabButton
-						active={state.activeSwapsView === openOrdersComponentName}
-						onClick={() => exchangeContainer.setActiveSwapsView(openOrdersComponentName)}
+						isActive={state.activeSwapsView === OpenOrders.name}
+						onClick={() => exchangeContainer.setActiveSwapsView(OpenOrders.name)}
 					>
 						{t('swaps.all')}
 					</TabButton>
 					<TabButton
-						active={state.activeSwapsView === currentPairOpenOrdersComponentName}
-						onClick={() => exchangeContainer.setActiveSwapsView(currentPairOpenOrdersComponentName)}
+						isActive={state.activeSwapsView === CurrentPairOpenOrders.name}
+						onClick={() => exchangeContainer.setActiveSwapsView(CurrentPairOpenOrders.name)}
 					>
 						{`${state.baseCurrency}/${state.quoteCurrency}`}
 					</TabButton>

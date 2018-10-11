@@ -36,21 +36,20 @@ const Trades = props => (
 		{() => {
 			const {state} = props;
 			const {stats} = state;
-			const [openOrdersComponentName, tradeHistoryComponentName] = [OpenOrders.name, TradeHistory.name];
 
 			return (
 				<AppTabView title="Trades" className="Trades">
 					<header>
 						<nav>
 							<TabButton
-								active={tradesContainer.state.activeView === openOrdersComponentName}
-								onClick={() => tradesContainer.setActiveView(openOrdersComponentName)}
+								isActive={tradesContainer.state.activeView === OpenOrders.name}
+								onClick={() => tradesContainer.setActiveView(OpenOrders.name)}
 							>
 								{t('openOrders')}
 							</TabButton>
 							<TabButton
-								active={tradesContainer.state.activeView === tradeHistoryComponentName}
-								onClick={() => tradesContainer.setActiveView(tradeHistoryComponentName)}
+								isActive={tradesContainer.state.activeView === TradeHistory.name}
+								onClick={() => tradesContainer.setActiveView(TradeHistory.name)}
 							>
 								{t('tradeHistory')}
 							</TabButton>

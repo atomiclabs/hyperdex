@@ -24,21 +24,20 @@ class Wallet extends React.Component {
 
 	render() {
 		const {activeCurrency} = dashboardContainer;
-		const [walletInfoComponentName, walletActivityComponentName] = [WalletInfo.name, WalletActivity.name];
 
 		return (
 			<div className="Dashboard--Wallet">
 				<header>
 					<nav>
 						<TabButton
-							active={this.state.activeView === walletInfoComponentName}
-							onClick={() => this.setActiveView(walletInfoComponentName)}
+							isActive={this.state.activeView === WalletInfo.name}
+							onClick={() => this.setActiveView(WalletInfo.name)}
 						>
 							{t('wallet.info', {symbol: activeCurrency.symbol})}
 						</TabButton>
 						<TabButton
-							active={this.state.activeView === walletActivityComponentName}
-							onClick={() => this.setActiveView(walletActivityComponentName)}
+							isActive={this.state.activeView === WalletActivity.name}
+							onClick={() => this.setActiveView(WalletActivity.name)}
 						>
 							{t('wallet.recentActivity')}
 						</TabButton>
