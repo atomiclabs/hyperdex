@@ -1,6 +1,5 @@
 /* stylelint-disable selector-class-pattern */
 .DayPickerInput-Overlay {
-	width: 540px;
 	margin-top: 4px;
 	text-align: center;
 	color: var(--text-color);
@@ -8,6 +7,10 @@
 	border: 1px solid var(--input-border-color);
 	border-radius: 4px;
 	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18);
+}
+
+.DayPicker-Months {
+	flex-wrap: unset;
 }
 
 .DayPicker-NavButton,
