@@ -117,7 +117,7 @@ class SwapFilters extends React.Component {
 							value={dateTo}
 							onDayChange={this.handleDateChange}
 							dayPickerProps={{
-								disabledDays: {before: dateFrom},
+								disabledDays: {after: new Date(), before: dateFrom},
 								fromMonth: dateFrom,
 								modifiers,
 								month: dateFrom,
