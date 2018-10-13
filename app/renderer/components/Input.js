@@ -60,6 +60,10 @@ class Input extends React.Component {
 		let {value} = event.target;
 		const {onlyNumeric, onChange} = this.props;
 
+		if (!event.target.checkValidity()) {
+			value = this.state.value;
+		}
+
 		if (onlyNumeric) {
 			if (Number.isNaN(Number(value))) {
 				return;
