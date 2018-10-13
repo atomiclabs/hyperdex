@@ -8,7 +8,7 @@ import './DateInput.scss';
 
 const WrappedInput = React.forwardRef((props, ref) => {
 	const onChange = (value, event) => props.onChange(event);
-	return <Input {...props} ref={ref} onChange={onChange}/>;
+	return <Input {...props} ref={ref} pattern="(\d{1,4}){1}(-\d{1,2}){0,1}(-\d{0,2}){0,1}" onChange={onChange}/>;
 });
 
 const DateInput = ({forwardedRef, ...props}) => (
