@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import title from 'title';
+import moment from 'moment';
 import DateInput from 'components/DateInput';
 import Select from 'components/Select';
 import {translate} from '../translate';
@@ -9,8 +10,20 @@ import './SwapFilters.scss';
 
 const t = translate('swap');
 
+const getFromDate = swaps => {
+	const oldestSwap = swaps.reduce((timeStarted, swap) => swap.timeStarted < timeStarted ? swap.timeStarted : timeStarted, Date.now());
+	const yearAgo = moment().startOf('day').subtract(1, 'year').valueOf();
+
+	return new Date((oldestSwap > yearAgo ? oldestSwap : yearAgo));
+};
+
 class SwapFilters extends React.Component {
-	state = {};
+	state = {
+		dateFrom: getFromDate(this.props.swaps),
+		dateTo: new Date(),
+		pair: null,
+		type: null,
+	};
 
 	dateToInput = React.createRef();
 
