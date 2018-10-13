@@ -3,6 +3,7 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import proxyquire from 'proxyquire';
 import {spy, stub} from 'sinon';
+import moment from 'moment';
 import Select from 'components/Select';
 
 const t = stub();
@@ -57,6 +58,25 @@ test('render `Select`', t => {
 		t.truthy(select.prop('onChange'));
 		t.is(select.prop('value'), component.state(filters[index]));
 	});
+});
+
+test('set initial `state`', t => {
+	const yearAgo = moment().startOf('day').valueOf();
+	const timeStarted = moment().startOf('day').valueOf();
+	const swaps = [{
+		baseCurrency: 'FOO',
+		quoteCurrency: 'BAR',
+		orderType: 'buy',
+		timeStarted,
+	}];
+	const component = shallow(<SwapFilters swaps={swaps}/>);
+	const {dateFrom, dateTo, pair, type} = component.state();
+	t.is(dateFrom.getTime(), timeStarted);
+	t.is(moment(dateTo).startOf('day').valueOf(), moment().startOf('day').valueOf());
+	t.is(pair, null);
+	t.is(type, null);
+	component.setProps({swaps: []});
+	t.is(moment(dateFrom).startOf('day').valueOf(), yearAgo);
 });
 
 test('return filtered `swaps` as `children`', t => {
