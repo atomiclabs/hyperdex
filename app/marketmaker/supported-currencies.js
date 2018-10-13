@@ -338,16 +338,20 @@ const supportedCurrencies = [
 		txfee: 10000,
 		electrumServers: [
 			{
-				host: 'electrum1.cipig.net',
-				port: 10052,
+				host: 'electrumx-eu.bitcoingold.org',
+				port: 50001,
 			},
 			{
-				host: 'electrum2.cipig.net',
-				port: 10052,
+				host: 'electrumx-us.bitcoingold.org',
+				port: 50001,
 			},
 			{
-				host: 'electrum3.cipig.net',
-				port: 10052,
+				host: 'electrumx-eu.btcgpu.org',
+				port: 50001,
+			},
+			{
+				host: 'electrumx-us.btcgpu.org',
+				port: 50001,
 			},
 		],
 	},
@@ -2102,16 +2106,16 @@ const supportedCurrencies = [
 		txfee: 100000,
 		electrumServers: [
 			{
-				host: 'electrum1.cipig.net',
-				port: 10067,
+				host: 'viax1.bitops.me',
+				port: 50001,
 			},
 			{
-				host: 'electrum2.cipig.net',
-				port: 10067,
+				host: 'viax2.bitops.me',
+				port: 50001,
 			},
 			{
-				host: 'electrum3.cipig.net',
-				port: 10067,
+				host: 'viax3.bitops.me',
+				port: 50001,
 			},
 		],
 	},
@@ -2147,16 +2151,20 @@ const supportedCurrencies = [
 		txfee: 100000,
 		electrumServers: [
 			{
-				host: 'electrum1.cipig.net',
-				port: 10071,
+				host: 'fr1.vtconline.org',
+				port: 55001,
 			},
 			{
-				host: 'electrum2.cipig.net',
-				port: 10071,
+				host: 'uk1.vtconline.org',
+				port: 55001,
 			},
 			{
-				host: 'electrum3.cipig.net',
-				port: 10071,
+				host: 'vtc-cce-1.coinomi.net',
+				port: 5028,
+			},
+			{
+				host: 'vtc-cce-2.coinomi.net',
+				port: 5028,
 			},
 		],
 	},
