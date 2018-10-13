@@ -21,6 +21,7 @@
 .DayPicker:not(.DayPicker--interactionDisabled) .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
 	color: var(--text-color2);
 	background-color: var(--primary-color);
+	border-radius: 2px;
 }
 
 .DayPicker-Day--today {
