@@ -7,11 +7,7 @@ const TabButton = ({onClick, children, isActive, className, ...props}) => (
 	<span
 		{...props}
 		role="button"
-		onClick={event => {
-			if (typeof onClick === 'function') {
-				onClick(event);
-			}
-		}}
+		onClick={onClick}
 		className={
 			classNames('TabButton', {active: isActive}, className)
 		}

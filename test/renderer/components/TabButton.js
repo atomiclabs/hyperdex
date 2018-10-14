@@ -1,14 +1,14 @@
 import test from 'ava';
 import React from 'react';
 import {shallow} from 'enzyme';
-import TabButton from '../../../app/renderer/components/TabButton';
+import TabButton from 'components/TabButton';
 
 test('render `span`', t => {
 	const tabButton = shallow(<TabButton/>);
 	t.is(tabButton.type(), 'span');
 });
 
-test('has `role` prop', t => {
+test('set `role` prop', t => {
 	const tabButton = shallow(<TabButton/>);
 	t.is(tabButton.prop('role'), 'button');
 });
@@ -24,7 +24,7 @@ test('pass `props`', t => {
 	t.is(tabButton.prop('foo'), foo);
 });
 
-test('has `active` className', t => {
+test('has `isActive` prop', t => {
 	const tabButton = shallow(<TabButton isActive/>);
 	t.true(tabButton.prop('className').includes('active'));
 });
