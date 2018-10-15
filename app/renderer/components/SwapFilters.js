@@ -64,7 +64,12 @@ class SwapFilters extends React.Component {
 	render() {
 		const {children, swaps} = this.props;
 		const {dateFrom, dateTo} = this.state;
-		const modifiers = {start: dateFrom, end: dateTo};
+		const modifiers = {
+			start: dateFrom,
+			end: dateTo,
+			startAfter: day => moment(day).isSame(moment(dateFrom).add(1, 'day'), 'day'),
+			endBefore: day => moment(day).isSame(moment(dateTo).subtract(1, 'day'), 'day'),
+		};
 		const selectFilters = [
 			{
 				name: 'pair',
@@ -101,9 +106,10 @@ class SwapFilters extends React.Component {
 							dayPickerProps={{
 								disabledDays: {after: dateTo},
 								modifiers,
+								month: dateFrom || dateTo,
 								numberOfMonths: 2,
 								pagedNavigation: true,
-								selectedDays: [dateFrom, {from: dateFrom, to: dateTo}],
+								selectedDays: [dateFrom || dateTo, {from: dateFrom, to: dateTo}],
 								onDayClick: () => {
 									this.dateToInput.current.getInput().focus();
 								},
@@ -120,10 +126,10 @@ class SwapFilters extends React.Component {
 								disabledDays: {after: new Date(), before: dateFrom},
 								fromMonth: dateFrom,
 								modifiers,
-								month: dateFrom,
+								month: dateFrom || dateTo,
 								numberOfMonths: 2,
 								pagedNavigation: true,
-								selectedDays: [dateFrom, {from: dateFrom, to: dateTo}],
+								selectedDays: [dateFrom || dateTo, {from: dateFrom, to: dateTo}],
 							}}
 						/>
 					</div>
