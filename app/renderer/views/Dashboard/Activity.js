@@ -1,7 +1,6 @@
 import React from 'react';
 import {format as formatDate} from 'date-fns';
 import appContainer from 'containers/App';
-import exchangeContainer from 'containers/Exchange';
 import Empty from 'components/Empty';
 import {formatCurrency} from '../../util';
 import {translate} from '../../translate';
@@ -63,7 +62,7 @@ const ActivityList = ({items}) => {
 };
 
 const Activity = () => {
-	const successfulSwaps = exchangeContainer.state.swapHistory.filter(x => x.status === 'completed');
+	const successfulSwaps = appContainer.state.swapHistory.filter(x => x.status === 'completed');
 
 	return (
 		<div className="Dashboard--Activity">

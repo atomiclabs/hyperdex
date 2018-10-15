@@ -2,7 +2,6 @@ import React from 'react';
 import {Subscribe} from 'unstated';
 import {withState} from 'containers/SuperContainer';
 import appContainer from 'containers/App';
-import exchangeContainer from 'containers/Exchange'; // TODO(sindresorhus): Find a better place to have the SwapDB data, since both the Exchange and Trades view uses it
 import tradesContainer from 'containers/Trades';
 import View from 'components/View';
 import SwapList from 'components/SwapList';
@@ -20,19 +19,19 @@ const TabView = ({component}) => (
 );
 
 const OpenOrders = () => {
-	const {state} = exchangeContainer;
+	const {state} = appContainer;
 	const filteredData = state.swapHistory.filter(swap => swap.isActive);
 	return <SwapList swaps={filteredData} showCancel showHeader/>;
 };
 
 const TradeHistory = () => {
-	const {state} = exchangeContainer;
+	const {state} = appContainer;
 	const filteredData = state.swapHistory.filter(swap => !swap.isActive);
 	return <SwapList swaps={filteredData} showCancel showHeader/>;
 };
 
 const Trades = props => (
-	<Subscribe to={[tradesContainer, /* Temp => */exchangeContainer]}>
+	<Subscribe to={[tradesContainer]}>
 		{() => {
 			const {state} = props;
 			const {stats} = state;
@@ -78,9 +77,6 @@ const Trades = props => (
 
 export default withState(Trades, {}, {
 	async componentDidMount() {
-		/// TODO: This is only here temporarily until we move the swap stuff to the App container
-		exchangeContainer.setSwapHistory();
-
 		this.setState({
 			stats: await appContainer.swapDB.statsSinceLastMonth(),
 		});

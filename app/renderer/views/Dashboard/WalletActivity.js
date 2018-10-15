@@ -1,7 +1,6 @@
 import React from 'react';
 import {format as formatDate} from 'date-fns';
 import appContainer from 'containers/App';
-import exchangeContainer from 'containers/Exchange';
 import dashboardContainer from 'containers/Dashboard';
 import SwapDetails from 'components/SwapDetails';
 import Empty from 'components/Empty';
@@ -81,7 +80,7 @@ const ActivityList = ({items}) => {
 const Activity = () => {
 	const {activeCurrency} = dashboardContainer;
 
-	const swaps = exchangeContainer.state.swapHistory.filter(swap =>
+	const swaps = appContainer.state.swapHistory.filter(swap =>
 		!swap.isActive &&
 		[swap.baseCurrency, swap.quoteCurrency].includes(activeCurrency.symbol)
 	);

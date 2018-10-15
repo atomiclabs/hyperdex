@@ -3,7 +3,6 @@ import {appLaunchTimestamp} from 'electron-util';
 import title from 'title';
 import appContainer from 'containers/App';
 import dashboardContainer from 'containers/Dashboard';
-import exchangeContainer from 'containers/Exchange';
 import {translate} from './translate';
 
 const t = translate('swap');
@@ -14,7 +13,7 @@ const {TouchBarLabel, TouchBarSpacer} = TouchBar;
 const portfolioValue = new TouchBarLabel();
 const latestSwap = new TouchBarLabel();
 
-const getLatestSwap = () => exchangeContainer.state.swapHistory.find(swap => swap.timeStarted > appLaunchTimestamp);
+const getLatestSwap = () => appContainer.state.swapHistory.find(swap => swap.timeStarted > appLaunchTimestamp);
 
 const updateTouchBar = () => {
 	portfolioValue.label = `${appContainer.state.portfolio.name}: ${dashboardContainer.assetCount} ≈ ${dashboardContainer.totalAssetValueFormatted}`;
@@ -42,8 +41,6 @@ const initTouchBar = () => {
 			updateTouchBar();
 		}
 	});
-
-	exchangeContainer.subscribe(updateTouchBar);
 };
 
 export default initTouchBar;

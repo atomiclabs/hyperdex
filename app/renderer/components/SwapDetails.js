@@ -1,10 +1,9 @@
 import {remote, clipboard} from 'electron';
 import title from 'title';
 import React from 'react';
-import {Subscribe} from 'unstated';
 import PropTypes from 'prop-types';
 import formatDate from 'date-fns/format';
-import exchangeContainer from 'containers/Exchange';
+import appContainer from 'containers/App';
 import Modal from 'components/Modal';
 import Progress from 'components/Progress';
 import CurrencyIcon from 'components/CurrencyIcon';
@@ -61,7 +60,6 @@ class SwapDetails extends React.Component {
 
 	render() {
 		const {
-			exchangeContainer,
 			swapId,
 			open,
 			didClose,
@@ -71,7 +69,7 @@ class SwapDetails extends React.Component {
 			return null;
 		}
 
-		const swap = exchangeContainer.state.swapHistory.find(swap => swap.uuid === swapId);
+		const swap = appContainer.state.swapHistory.find(swap => swap.uuid === swapId);
 		const {baseCurrency, quoteCurrency} = swap;
 
 		const transactions = swap.transactions.map(tx => (
@@ -236,10 +234,4 @@ class SwapDetails extends React.Component {
 	}
 }
 
-export default props => (
-	<Subscribe to={[exchangeContainer]}>
-		{container => (
-			<SwapDetails {...props} exchangeContainer={container}/>
-		)}
-	</Subscribe>
-);
+export default SwapDetails;

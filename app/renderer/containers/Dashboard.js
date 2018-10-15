@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import pMap from 'p-map';
 import appContainer from 'containers/App';
-import exchangeContainer from 'containers/Exchange';
 import SuperContainer from 'containers/SuperContainer';
 import {formatCurrency} from '../util';
 import {ignoreExternalPrice} from '../../constants';
@@ -44,10 +43,6 @@ class DashboardContainer extends SuperContainer {
 
 			this.updateAllCurrencyHistory();
 		});
-	}
-
-	async componentDidInitialMount() {
-		await exchangeContainer.setSwapHistory();
 	}
 
 	setActiveView = async activeView => {
