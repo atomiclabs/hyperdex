@@ -1,5 +1,4 @@
 import React from 'react';
-import {classNames} from 'react-extras';
 import {Subscribe} from 'unstated';
 import {withState} from 'containers/SuperContainer';
 import appContainer from 'containers/App';
@@ -7,6 +6,7 @@ import exchangeContainer from 'containers/Exchange'; // TODO(sindresorhus): Find
 import tradesContainer from 'containers/Trades';
 import View from 'components/View';
 import SwapList from 'components/SwapList';
+import TabButton from 'components/TabButton';
 import {formatCurrency} from '../util';
 import {translate} from '../translate';
 import AppTabView from './TabView';
@@ -14,24 +14,6 @@ import './Exchange/Swaps.scss';
 import './Trades.scss';
 
 const t = translate('trades');
-
-const TabButton = props => (
-	<span
-		className={
-			classNames(
-				'button',
-				{
-					active: tradesContainer.state.activeView === props.component.name,
-				}
-			)
-		}
-		onClick={() => {
-			tradesContainer.setActiveView(props.component.name);
-		}}
-	>
-		{props.title}
-	</span>
-);
 
 const TabView = ({component}) => (
 	<View component={component} activeView={tradesContainer.state.activeView}/>
@@ -60,13 +42,17 @@ const Trades = props => (
 					<header>
 						<nav>
 							<TabButton
-								title={t('openOrders')}
-								component={OpenOrders}
-							/>
+								isActive={tradesContainer.state.activeView === OpenOrders.name}
+								onClick={() => tradesContainer.setActiveView(OpenOrders.name)}
+							>
+								{t('openOrders')}
+							</TabButton>
 							<TabButton
-								title={t('tradeHistory')}
-								component={TradeHistory}
-							/>
+								isActive={tradesContainer.state.activeView === TradeHistory.name}
+								onClick={() => tradesContainer.setActiveView(TradeHistory.name)}
+							>
+								{t('tradeHistory')}
+							</TabButton>
 						</nav>
 						<div className="stats">
 							{stats &&
