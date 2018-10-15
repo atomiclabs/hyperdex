@@ -1,0 +1,14 @@
+.TabButton {
+	user-select: none;
+	cursor: default;
+	font-size: 15px;
+
+	&.active {
+		color: var(--primary-color);
+		border-bottom: 1px solid var(--primary-color);
+	}
+
+	&:first-child {
+		margin-right: 20px;
+	}
+}
