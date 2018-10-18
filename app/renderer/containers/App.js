@@ -4,14 +4,14 @@ import {is, api} from 'electron-util';
 import ipc from 'electron-better-ipc';
 import _ from 'lodash';
 import Cycled from 'cycled';
-import coinlist from 'coinlist';
 import roundTo from 'round-to';
 import SuperContainer from 'containers/SuperContainer';
 import {isPast, addHours} from 'date-fns';
-import {appViews, alwaysEnabledCurrencies, ignoreExternalPrice, hiddenCurrencies} from '../../constants';
+import {appViews, alwaysEnabledCurrencies, hiddenCurrencies} from '../../constants';
 import {getCurrencyName} from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
 import {formatCurrency, setLoginWindowBounds} from '../util';
+import fetchCurrencyInfo from '../fetch-currency-info';
 import {isDevelopment} from '../../util-common';
 
 const config = remote.require('./config');
@@ -21,39 +21,6 @@ const excludedTestCurrencies = new Set([
 	'PIZZA',
 	'BEER',
 ]);
-
-const getTickerData = async symbols => {
-	const baseURL = 'https://api.coingecko.com/api/v3';
-
-	const filteredSymbols = symbols.filter(symbol => !ignoreExternalPrice.has(symbol));
-
-	const ids = filteredSymbols
-		.map(symbol => coinlist.get(symbol, 'id'))
-		.filter(symbol => symbol !== undefined); // For example, SUPERNET
-
-	// Docs: https://www.coingecko.com/api/docs/v3#/coins/get_coins_markets
-	let data;
-	try {
-		const response = await fetch(`${baseURL}/coins/markets?vs_currency=usd&ids=${ids.join(',')}`);
-		data = await response.json();
-	} catch (error) {
-		console.error('Failed to fetch from CoinGecko API:', error);
-		data = [];
-	}
-
-	// The API just ignores IDs it doesn't support, so we need to iterate
-	// our list of symbols instead of the result so we can add the fallbacks.
-	const currencies = symbols.map(symbol => {
-		const currency = data.find(currency => currency.symbol.toUpperCase() === symbol);
-		return {
-			symbol,
-			price: currency ? currency.current_price : 0,
-			percentChange24h: currency ? roundTo(Number(currency.price_change_percentage_24h), 1) : 0,
-		};
-	});
-
-	return currencies;
-};
 
 class AppContainer extends SuperContainer {
 	state = {
@@ -175,7 +142,7 @@ class AppContainer extends SuperContainer {
 
 	async watchFiatPrice() {
 		await fireEvery({minutes: 1}, async () => {
-			this.coinPrices = await getTickerData(this.state.enabledCoins);
+			this.coinPrices = await fetchCurrencyInfo(this.state.enabledCoins);
 		});
 	}
 
