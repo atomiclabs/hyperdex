@@ -44,6 +44,7 @@
 	--depth-chart-sell-background-color: #5a2947;
 	--depth-chart-sell-stroke-color: #f80759;
 	--order-list-item-hover: rgba(255, 255, 255, 0.05);
+	--table-row-hover-color: hsla(216, 27%, 24%, 1);
 }
 
 html[data-theme='light'] {
@@ -75,6 +76,7 @@ html[data-theme='light'] {
 	--depth-chart-sell-background-color: #f6e1ed;
 	--depth-chart-sell-stroke-color: #f53f78;
 	--order-list-item-hover: rgba(0, 0, 0, 0.05);
+	--table-row-hover-color: hsla(0, 0%, 91%, 1);
 }
 
 @mixin icon-button {
