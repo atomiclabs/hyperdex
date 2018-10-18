@@ -1,7 +1,6 @@
 import React from 'react';
 import {Subscribe} from 'unstated';
 import dashboardContainer from 'containers/Dashboard';
-import exchangeContainer from 'containers/Exchange';
 import TabView from 'views/TabView';
 import Intro from './Intro';
 import List from './List';
@@ -13,7 +12,7 @@ import './Dashboard.scss';
 
 const Dashboard = () => {
 	return (
-		<Subscribe to={[dashboardContainer, /* Temp => */exchangeContainer]}>
+		<Subscribe to={[dashboardContainer]}>
 			{container => {
 				const {state} = container;
 
@@ -41,4 +40,4 @@ const Dashboard = () => {
 	);
 };
 
-export default dashboardContainer.connect(Dashboard);
+export default Dashboard;

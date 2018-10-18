@@ -11,7 +11,7 @@ import './Swaps.scss';
 
 const t = translate('exchange');
 
-const getOpenOrders = () => exchangeContainer.state.swapHistory.filter(swap => swap.isActive);
+const getOpenOrders = () => appContainer.state.swapHistory.filter(swap => swap.isActive);
 
 const TabView = ({component}) => (
 	<View component={component} activeView={exchangeContainer.state.activeSwapsView}/>

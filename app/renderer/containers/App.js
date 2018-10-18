@@ -6,7 +6,8 @@ import _ from 'lodash';
 import Cycled from 'cycled';
 import coinlist from 'coinlist';
 import roundTo from 'round-to';
-import {Container} from 'unstated';
+import SuperContainer from 'containers/SuperContainer';
+import {isPast, addHours} from 'date-fns';
 import {appViews, alwaysEnabledCurrencies, ignoreExternalPrice, hiddenCurrencies} from '../../constants';
 import {getCurrencyName} from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
@@ -54,12 +55,14 @@ const getTickerData = async symbols => {
 	return currencies;
 };
 
-class AppContainer extends Container {
+class AppContainer extends SuperContainer {
 	state = {
 		theme: config.get('theme'),
 		activeView: 'Login',
 		enabledCoins: _.union(alwaysEnabledCurrencies, config.get('enabledCoins')),
 		currencies: [],
+		swapHistory: [],
+		doneInitialKickstart: false,
 	};
 
 	events = new EventEmitter();
@@ -69,6 +72,44 @@ class AppContainer extends Container {
 		this.views = new Cycled(appViews);
 		this.setTheme(this.state.theme);
 		this.coinPrices = [];
+	}
+
+	async kickstartStuckSwaps() {
+		const {doneInitialKickstart} = this.state;
+		this.state.swapHistory
+			.filter(swap => (
+				swap.status === 'swapping' &&
+				(!doneInitialKickstart || isPast(addHours(swap.timeStarted, 4)))
+			))
+			.forEach(async swap => {
+				const {requestId, quoteId} = swap;
+				await this.api.kickstart({requestId, quoteId});
+			});
+
+		if (!doneInitialKickstart) {
+			await this.setState({doneInitialKickstart: true});
+		}
+	}
+
+	initSwapHistoryListener() {
+		const setSwapHistory = async () => {
+			await this.setState({swapHistory: await this.swapDB.getSwaps()});
+		};
+
+		setSwapHistory();
+
+		this.swapDB.on('change', setSwapHistory);
+
+		this.api.socket.on('message', message => {
+			const uuids = this.state.swapHistory.map(swap => swap.uuid);
+			if (uuids.includes(message.uuid)) {
+				this.swapDB.updateSwapData(message);
+			}
+		});
+
+		fireEvery({minutes: 15}, async () => {
+			await this.kickstartStuckSwaps();
+		});
 	}
 
 	setActiveView(activeView) {
@@ -111,6 +152,8 @@ class AppContainer extends Container {
 			activeView: 'Dashboard',
 			portfolio,
 		});
+
+		this.initSwapHistoryListener();
 	}
 
 	get isLoggedIn() {
