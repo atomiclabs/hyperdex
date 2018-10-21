@@ -16,7 +16,7 @@ module.exports = (env, options) => ({
 		filename: 'bundle.js',
 	},
 	target: 'electron-renderer',
-	devtool: options.mode === 'production' ? 'source-map' : 'cheap-module-eval-source-map',
+	devtool: options.mode === 'production' ? 'source-map' : 'cheap-module-source-map',
 	devServer: {
 		historyApiFallback: true,
 		overlay: true,

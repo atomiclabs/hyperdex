@@ -4,13 +4,14 @@ import {is, api} from 'electron-util';
 import ipc from 'electron-better-ipc';
 import _ from 'lodash';
 import Cycled from 'cycled';
-import coinlist from 'coinlist';
 import roundTo from 'round-to';
-import {Container} from 'unstated';
-import {appViews, alwaysEnabledCurrencies, ignoreExternalPrice, hiddenCurrencies} from '../../constants';
+import SuperContainer from 'containers/SuperContainer';
+import {isPast, addHours} from 'date-fns';
+import {appViews, alwaysEnabledCurrencies, hiddenCurrencies} from '../../constants';
 import {getCurrencyName} from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
 import {formatCurrency, setLoginWindowBounds} from '../util';
+import fetchCurrencyInfo from '../fetch-currency-info';
 import {isDevelopment} from '../../util-common';
 
 const config = remote.require('./config');
@@ -21,45 +22,14 @@ const excludedTestCurrencies = new Set([
 	'BEER',
 ]);
 
-const getTickerData = async symbols => {
-	const baseURL = 'https://api.coingecko.com/api/v3';
-
-	const filteredSymbols = symbols.filter(symbol => !ignoreExternalPrice.has(symbol));
-
-	const ids = filteredSymbols
-		.map(symbol => coinlist.get(symbol, 'id'))
-		.filter(symbol => symbol !== undefined); // For example, SUPERNET
-
-	// Docs: https://www.coingecko.com/api/docs/v3#/coins/get_coins_markets
-	let data;
-	try {
-		const response = await fetch(`${baseURL}/coins/markets?vs_currency=usd&ids=${ids.join(',')}`);
-		data = await response.json();
-	} catch (error) {
-		console.error('Failed to fetch from CoinGecko API:', error);
-		data = [];
-	}
-
-	// The API just ignores IDs it doesn't support, so we need to iterate
-	// our list of symbols instead of the result so we can add the fallbacks.
-	const currencies = symbols.map(symbol => {
-		const currency = data.find(currency => currency.symbol.toUpperCase() === symbol);
-		return {
-			symbol,
-			price: currency ? currency.current_price : 0,
-			percentChange24h: currency ? roundTo(Number(currency.price_change_percentage_24h), 1) : 0,
-		};
-	});
-
-	return currencies;
-};
-
-class AppContainer extends Container {
+class AppContainer extends SuperContainer {
 	state = {
 		theme: config.get('theme'),
 		activeView: 'Login',
 		enabledCoins: _.union(alwaysEnabledCurrencies, config.get('enabledCoins')),
 		currencies: [],
+		swapHistory: [],
+		doneInitialKickstart: false,
 	};
 
 	events = new EventEmitter();
@@ -69,6 +39,44 @@ class AppContainer extends Container {
 		this.views = new Cycled(appViews);
 		this.setTheme(this.state.theme);
 		this.coinPrices = [];
+	}
+
+	async kickstartStuckSwaps() {
+		const {doneInitialKickstart} = this.state;
+		this.state.swapHistory
+			.filter(swap => (
+				swap.status === 'swapping' &&
+				(!doneInitialKickstart || isPast(addHours(swap.timeStarted, 4)))
+			))
+			.forEach(async swap => {
+				const {requestId, quoteId} = swap;
+				await this.api.kickstart({requestId, quoteId});
+			});
+
+		if (!doneInitialKickstart) {
+			await this.setState({doneInitialKickstart: true});
+		}
+	}
+
+	initSwapHistoryListener() {
+		const setSwapHistory = async () => {
+			await this.setState({swapHistory: await this.swapDB.getSwaps()});
+		};
+
+		setSwapHistory();
+
+		this.swapDB.on('change', setSwapHistory);
+
+		this.api.socket.on('message', message => {
+			const uuids = this.state.swapHistory.map(swap => swap.uuid);
+			if (uuids.includes(message.uuid)) {
+				this.swapDB.updateSwapData(message);
+			}
+		});
+
+		fireEvery({minutes: 15}, async () => {
+			await this.kickstartStuckSwaps();
+		});
 	}
 
 	setActiveView(activeView) {
@@ -111,6 +119,8 @@ class AppContainer extends Container {
 			activeView: 'Dashboard',
 			portfolio,
 		});
+
+		this.initSwapHistoryListener();
 	}
 
 	get isLoggedIn() {
@@ -132,7 +142,7 @@ class AppContainer extends Container {
 
 	async watchFiatPrice() {
 		await fireEvery({minutes: 1}, async () => {
-			this.coinPrices = await getTickerData(this.state.enabledCoins);
+			this.coinPrices = await fetchCurrencyInfo(this.state.enabledCoins);
 		});
 	}
 
