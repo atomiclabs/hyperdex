@@ -850,6 +850,12 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
+		coin: 'ETA',
+		name: 'Etheera',
+		etomic: '0x9195e00402abe385f2d00a32af40b271f2e87925',
+		rpcport: 80,
+	},
+	{
 		coin: 'ETHOS',
 		name: 'Ethos',
 		etomic: '0x5Af2Be193a6ABCa9c8817001F45744777Db30756',
