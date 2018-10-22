@@ -2141,6 +2141,10 @@ const supportedCurrencies = [
 				host: 'el1.vrsc.0x03.services',
 				port: 10000,
 			},
+			{
+				host: 'el2.vrsc.0x03.services',
+				port: 10000,
+			},
 		],
 	},
 	{
