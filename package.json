@@ -23,6 +23,7 @@
 		"date-fns": "^1.29.0",
 		"delay": "^4.1.0",
 		"electron-unhandled": "^1.1.0",
+		"electron-util": "^0.10.1",
 		"emittery": "^0.4.1",
 		"filter-console": "^0.1.0",
 		"hoist-non-react-statics": "^3.0.1",

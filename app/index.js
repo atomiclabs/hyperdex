@@ -10,7 +10,7 @@ require('strict-import')(module, {
 });
 const electron = require('electron');
 const {autoUpdater} = require('electron-updater');
-const {is, disableZoom} = require('electron-util');
+const {is, disableZoom, setContentSecurityPolicy} = require('electron-util');
 const serve = require('electron-serve');
 const logger = require('electron-timber');
 const ipc = require('electron-better-ipc');
@@ -110,36 +110,9 @@ function createMainWindow() {
 	return win;
 }
 
-// TODO(sindresorhus): Move this to `electron-util`
-const setContentSecuriyPolicy = async (policy, options) => {
-	await app.whenReady();
-
-	options = {
-		session: session.defaultSession,
-		...options,
-	};
-
-	options.session.webRequest.onHeadersReceived((details, callback) => {
-		let policyString = typeof policy === 'function' ? policy(details) : policy;
-
-		if (!policyString.split('\n').filter(x => x.trim()).every(x => x.endsWith(';'))) {
-			throw new Error('Each line must end in a semicolon');
-		}
-
-		policyString = policyString.replace(/[\t\n]/g, '').trim();
-
-		callback({
-			responseHeaders: {
-				...details.responseHeaders,
-				'Content-Security-Policy': [policyString],
-			},
-		});
-	});
-};
-
 if (!is.development) {
-	/// Note: Validate it with https://csp-evaluator.withgoogle.com after doing changes
-	setContentSecuriyPolicy(`
+	// Note: Validate it with https://csp-evaluator.withgoogle.com after doing changes
+	setContentSecurityPolicy(`
 		default-src 'none';
 		script-src 'self';
 		img-src 'self' data:;

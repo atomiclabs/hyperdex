@@ -1,6 +1,6 @@
 import EventEmitter from 'events';
 import electron, {remote} from 'electron';
-import {is, api} from 'electron-util';
+import {is, darkMode} from 'electron-util';
 import ipc from 'electron-better-ipc';
 import _ from 'lodash';
 import Cycled from 'cycled';
@@ -39,6 +39,10 @@ class AppContainer extends SuperContainer {
 		this.views = new Cycled(appViews);
 		this.setTheme(this.state.theme);
 		this.coinPrices = [];
+
+		darkMode.onChange(() => {
+			this.setTheme(this.state.theme);
+		});
 	}
 
 	async kickstartStuckSwaps() {
@@ -97,7 +101,7 @@ class AppContainer extends SuperContainer {
 
 		let cssTheme = theme;
 		if (theme === 'system' && is.macos) {
-			cssTheme = api.systemPreferences.isDarkMode() ? 'dark' : 'light';
+			cssTheme = darkMode.isEnabled ? 'dark' : 'light';
 		}
 		document.documentElement.dataset.theme = cssTheme;
 
@@ -108,7 +112,7 @@ class AppContainer extends SuperContainer {
 		const {theme} = this.state;
 
 		if (theme === 'system' && is.macos) {
-			return api.systemPreferences.isDarkMode();
+			return darkMode.isEnabled;
 		}
 
 		return theme === 'dark';
@@ -285,12 +289,6 @@ ipc.on('set-next-view', () => {
 ipc.on('set-previous-view', () => {
 	appContainer.setPreviousView();
 });
-
-if (is.macos) {
-	api.systemPreferences.subscribeNotification('AppleInterfaceThemeChangedNotification', () => {
-		appContainer.setTheme(appContainer.state.theme);
-	});
-}
 
 if (isDevelopment) {
 	window._config = electron.remote.require('./config');
