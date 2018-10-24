@@ -100,7 +100,7 @@ function createMainWindow() {
 	});
 
 	if (is.development) {
-		win.loadURL('http://localhost:8080');
+		win.loadURL('http://localhost:80800/dev.html');
 	} else {
 		loadUrl(win);
 	}
