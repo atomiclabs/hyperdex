@@ -43,7 +43,10 @@ class CancelButton extends React.Component {
 					swap.status !== 'pending' ||
 					tradesContainer.state.isSwapCancelling[swap.uuid]
 				}
-				onClick={() => this.cancelSwap(swap.uuid)}
+				onClick={event => {
+					event.stopPropagation();
+					this.cancelSwap(swap.uuid);
+				}}
 			>
 				{t('list.cancel')}
 			</button>
@@ -83,7 +86,7 @@ const SwapHeader = props => (
 );
 
 const SwapItem = ({style, swap, showCancel, openSwap}) => (
-	<div className={`row ${swap.orderType}`} style={style}>
+	<div className={`row ${swap.orderType}`} style={style} onClick={openSwap}>
 		<div className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}</div>
 		<div className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</div>
 		<div className="base-amount">{swap.baseCurrencyAmount} {swap.baseCurrency}</div>
@@ -97,9 +100,6 @@ const SwapItem = ({style, swap, showCancel, openSwap}) => (
 					<CancelButton swap={swap}/>
 				</div>
 			)}
-			<div className="view">
-				<button type="button" className="view__button" onClick={openSwap}>{t('details.view')}</button>
-			</div>
 		</div>
 	</div>
 );
