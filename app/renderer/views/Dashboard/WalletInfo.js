@@ -21,11 +21,14 @@ const WalletInfo = () => {
 				<div className="item">
 					<h6>{t('info.price', {symbol: activeCurrency.symbol})}</h6>
 					<span>{activeCurrency.cmcPriceUsdFormatted}</span>
-					{activeCurrency.cmcPercentChange24h &&
-						<div className={`price-change ${priceChangeClass}`}>
-							<span className="arrow"/>
-							<span className="percentage">{Math.abs(activeCurrency.cmcPercentChange24h)}% (24h)</span>
-						</div>
+					{activeCurrency.cmcPercentChange24h ?
+						(
+							<div className={`price-change ${priceChangeClass}`}>
+								<span className="arrow"/>
+								<span className="percentage">{Math.abs(activeCurrency.cmcPercentChange24h)}% (24h)</span>
+							</div>
+						) :
+						null
 					}
 				</div>
 				<div className="item">
