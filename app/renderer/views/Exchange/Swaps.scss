@@ -24,12 +24,12 @@
 	main {
 		display: flex;
 		flex: 1;
-		padding: 10px 20px;
 	}
 
 	.history-button {
 		align-self: center;
 		margin-left: 10px;
 		font-size: 12px;
+		cursor: default;
 	}
 }

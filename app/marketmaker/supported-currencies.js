@@ -436,12 +436,16 @@ const supportedCurrencies = [
 		rpcport: 15587,
 		electrumServers: [
 			{
-				host: 'electrum1.chainmakers.co',
-				port: 55417,
+				host: 'electrum1.cipig.net',
+				port: 10032,
 			},
 			{
-				host: 'electrum2.chainmakers.co',
-				port: 55417,
+				host: 'electrum2.cipig.net',
+				port: 10032,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10032,
 			},
 		],
 	},
@@ -529,31 +533,35 @@ const supportedCurrencies = [
 		txfee: 10000,
 		electrumServers: [
 			{
-				host: 'blr-crwseed.crowndns.info',
+				host: 'blr-crwseed.infernopool.com',
 				port: 50001,
 			},
 			{
-				host: 'sfo-crwseed.crowndns.info',
+				host: 'sfo-crwseed.infernopool.com',
 				port: 50001,
 			},
 			{
-				host: 'nyc-crwseed.crowndns.info',
+				host: 'nyc-crwseed.infernopool.com',
 				port: 50001,
 			},
 			{
-				host: 'ams-crwseed.crowndns.info',
+				host: 'ams-crwseed.infernopool.com',
 				port: 50001,
 			},
 			{
-				host: 'tor-crwseed.crowndns.info',
+				host: 'tor-crwseed.infernopool.com',
 				port: 50001,
 			},
 			{
-				host: 'lon-crwseed.crowndns.info',
+				host: 'lon-crwseed.infernopool.com',
 				port: 50001,
 			},
 			{
-				host: 'fra-crwseed.crowndns.info',
+				host: 'fra-crwseed.infernopool.com',
+				port: 50001,
+			},
+			{
+				host: 'sgp-crwseed.infernopool.com',
 				port: 50001,
 			},
 		],
@@ -839,6 +847,12 @@ const supportedCurrencies = [
 	{
 		coin: 'ETH',
 		etomic: '0x0000000000000000000000000000000000000000',
+		rpcport: 80,
+	},
+	{
+		coin: 'ETA',
+		name: 'Etheera',
+		etomic: '0x9195e00402abe385f2d00a32af40b271f2e87925',
 		rpcport: 80,
 	},
 	{
@@ -2131,6 +2145,10 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'el1.vrsc.0x03.services',
+				port: 10000,
+			},
+			{
+				host: 'el2.vrsc.0x03.services',
 				port: 10000,
 			},
 		],
