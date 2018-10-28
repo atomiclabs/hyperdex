@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {classNames} from 'react-extras';
 import propTypesRange from 'prop-types-range';
+import _ from 'lodash';
 import './Input.scss';
 
 const stripLeadingZeros = string => string.replace(/^0+(?=\d)/, '');
@@ -46,23 +47,33 @@ class Input extends React.Component {
 	}
 
 	static getDerivedStateFromProps(props, state) {
-		return props.value === state.prevValue ? null : {
-			value: props.value,
-			prevValue: props.value,
+		const isValueChanged = props.value !== state.prevValue;
+		const isLevelChanged = props.level !== state.prevLevel;
+
+		if (!isValueChanged && !isLevelChanged) {
+			return null;
+		}
+
+		return {
+			...isValueChanged && {
+				value: props.value,
+				prevValue: props.value,
+			},
+			...isLevelChanged && {
+				level: props.level,
+				prevLevel: props.level,
+			},
 		};
 	}
 
 	state = {
+		level: this.props.level,
 		value: this.props.value || '',
 	};
 
 	handleChange = event => {
 		let {value} = event.target;
 		const {onlyNumeric, onChange} = this.props;
-
-		if (!event.target.checkValidity()) {
-			value = this.state.value;
-		}
 
 		if (onlyNumeric) {
 			if (Number.isNaN(Number(value))) {
@@ -80,12 +91,18 @@ class Input extends React.Component {
 			event.persist();
 		}
 
+		this._checkValidity(event);
+
 		this.setState({value}, () => {
 			if (onChange) {
 				onChange(value, event);
 			}
 		});
 	};
+
+	_checkValidity = _.debounce(event => {
+		this.setState({level: event.target.checkValidity() ? null : 'error'});
+	}, 500);
 
 	_shouldTruncateFractions(value) {
 		const {fractionalDigits} = this.props;
@@ -117,7 +134,6 @@ class Input extends React.Component {
 		let {
 			forwardedRef,
 			className,
-			level,
 			message,
 			errorMessage,
 			disabled,
@@ -133,6 +149,7 @@ class Input extends React.Component {
 			button: Button,
 			...props
 		} = this.props;
+		let {level} = this.state;
 
 		if (errorMessage) {
 			level = 'error';
