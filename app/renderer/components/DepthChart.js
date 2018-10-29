@@ -37,8 +37,8 @@ const DepthChart = props => {
 	const isEmpty = bids.length === 0 && asks.length === 0;
 
 	// We still supply values when it's empty so it will show the left/right border
-	bids = bids.length > 0 ? bids : [{price: 1, depth: 1}];
-	asks = asks.length > 0 ? asks : [{price: 1, depth: 1}];
+	bids = bids.length > 0 ? bids : [{price: 0, depth: 0}];
+	asks = asks.length > 0 ? asks : [{price: 0, depth: 0}];
 
 	bids = _.orderBy(bids, ['depth'], ['desc']);
 	asks = _.orderBy(asks, ['depth'], ['asc']);
