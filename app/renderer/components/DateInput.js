@@ -77,6 +77,7 @@ class DateInput extends React.Component {
 					localeUtils: MomentLocaleUtils,
 				}}
 				inputProps={{
+					...props.inputProps,
 					className: hasError ? 'shake-animation' : '',
 					onBlur: this.handleBlur,
 				}}
