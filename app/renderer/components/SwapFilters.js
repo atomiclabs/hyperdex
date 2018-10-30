@@ -111,6 +111,7 @@ class SwapFilters extends React.Component {
 								numberOfMonths: 2,
 								pagedNavigation: true,
 								selectedDays: [dateFrom || dateTo, {from: dateFrom, to: dateTo}],
+								toMonth: dateTo,
 								onDayClick: () => {
 									this.dateToInput.current.getInput().focus();
 								},
@@ -132,6 +133,7 @@ class SwapFilters extends React.Component {
 								numberOfMonths: 2,
 								pagedNavigation: true,
 								selectedDays: [dateFrom || dateTo, {from: dateFrom, to: dateTo}],
+								toMonth: new Date(),
 							}}
 						/>
 					</div>
