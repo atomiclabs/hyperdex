@@ -162,7 +162,14 @@ app.on('before-quit', () => {
 });
 
 ipc.answerRenderer('start-marketmaker', async seedPhrase => {
-	await marketmaker.start({seedPhrase});
+	// We have to do this dance as IPC doesn't correctly serialize errors.
+	try {
+		await marketmaker.start({seedPhrase});
+	} catch (error) {
+		logger.error('Failed to start Marketmaker:', error);
+		throw error;
+	}
+
 	return marketmaker.port;
 });
 
