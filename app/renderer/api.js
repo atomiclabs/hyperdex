@@ -38,6 +38,8 @@ export default class Api {
 			...data,
 		};
 
+		console.log('Request data:', data);
+
 		const response = await this.queue.add(() => fetch(this.endpoint, {
 			method: 'post',
 			body: JSON.stringify(body),

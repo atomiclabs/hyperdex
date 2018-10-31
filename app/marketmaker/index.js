@@ -100,7 +100,7 @@ class Marketmaker {
 		// NOTE: It's very important that this is a different directory than mm v1, as the database is not compatible
 		const cwd = await makeDir(path.join(electron.app.getPath('userData'), 'marketmaker2-test'));
 
-		logger.log('Spawning Marketmaker with options:', JSON.stringify(options));
+		logger.log('Spawning Marketmaker with options:', JSON.stringify({...options, passphrase: '<redacted>'}));
 
 		this.cp = childProcess.spawn(binPath, [JSON.stringify(options)], {cwd});
 
