@@ -92,6 +92,7 @@ function createMainWindow() {
 		webPreferences: {
 			webviewTag: false, // Disabled for security reasons since we don't use it
 			enableBlinkFeatures: 'CSSBackdropFilter',
+			webSecurity: false, // Because mm v2 doesn't send the correct CORS headers: https://github.com/artemii235/SuperNET/issues/219
 		},
 	});
 

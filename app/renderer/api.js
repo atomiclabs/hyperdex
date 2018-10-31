@@ -43,6 +43,8 @@ export default class Api {
 			body: JSON.stringify(body),
 		}));
 
+		console.log('Response:', response);
+
 		return (this.useQueue && this.socket) ? this.socket.getResponse(queueId) : response.json();
 	}
 
@@ -72,6 +74,13 @@ export default class Api {
 			}
 
 			throw error;
+		}
+
+		console.log('Result:', result);
+
+		// Some requests, like the `portfolio` command, have 200 status code even when it returns an error...
+		if (result.error) {
+			throw new Error(result.error);
 		}
 
 		return result;

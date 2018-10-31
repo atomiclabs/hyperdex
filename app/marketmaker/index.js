@@ -31,24 +31,30 @@ const mmLogger = logger.create({
 class Marketmaker {
 	_isReady() {
 		return new Promise((resolve, reject) => {
-			const interval = setInterval(() => {
-				const request = electron.net.request(`http://127.0.0.1:${this.port}`);
-
-				request.on('response', response => {
-					if (response.statusCode === 200) {
-						clearInterval(interval);
-
-						// Give it a little more time to avoid issues
-						setTimeout(resolve, 500);
-					}
-				});
-				request.on('error', () => {});
-				request.end();
-			}, 100);
+			// Disabled because mm v2 requires `post` requests and I didn't bother to fix this yet
+//  			const interval = setInterval(() => {
+//  				const request = electron.net.request({
+//  					method: 'post',
+//  					url: `http://127.0.0.1:${this.port}`,
+//  				});
+//
+//  				request.on('response', response => {
+//  					console.log('Response:', response);
+//  					if (response.statusCode === 200) {
+//  						clearInterval(interval);
+//
+//  						// Give it a little more time to avoid issues
+//  						setTimeout(resolve, 500);
+//  					}
+//  				});
+//  				request.on('error', () => {});
+//  				request.end();
+//  			}, 100);
 
 			setTimeout(() => {
-				clearInterval(interval);
-				reject(new Error('Giving up trying to connect to marketmaker'));
+				//clearInterval(interval);
+				//reject(new Error('Giving up trying to connect to marketmaker'));
+				resolve();
 			}, 10000);
 		});
 	}
@@ -91,7 +97,10 @@ class Marketmaker {
 		}
 
 		// Marketmaker writes a lot of files directly to CWD, so we make CWD the data directory
-		const cwd = await makeDir(path.join(electron.app.getPath('userData'), 'marketmaker'));
+		// NOTE: It's very important that this is a different directory than mm v1, as the database is not compatible
+		const cwd = await makeDir(path.join(electron.app.getPath('userData'), 'marketmaker2-test'));
+
+		logger.log('Spawning Marketmaker with options:', JSON.stringify(options));
 
 		this.cp = childProcess.spawn(binPath, [JSON.stringify(options)], {cwd});
 
