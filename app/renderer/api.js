@@ -38,7 +38,7 @@ export default class Api {
 			...data,
 		};
 
-		console.log('Request data:', data);
+		console.log('Request body:', {...body, userpass: '<redacted>'});
 
 		const response = await this.queue.add(() => fetch(this.endpoint, {
 			method: 'post',
@@ -78,9 +78,10 @@ export default class Api {
 			throw error;
 		}
 
-		console.log('Result:', result);
+		console.log('Response body:', result);
 
-		// Some requests, like the `portfolio` command, have 200 status code even when it returns an error...
+		// Some requests, like the `portfolio` command, have 200 status code even when it returns an error.
+		// https://github.com/artemii235/SuperNET/issues/220
 		if (result.error) {
 			throw new Error(result.error);
 		}
