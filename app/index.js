@@ -91,7 +91,7 @@ function createMainWindow() {
 		darkTheme: config.get('theme') === 'dark', // GTK+3
 		webPreferences: {
 			webviewTag: false, // Disabled for security reasons since we don't use it
-			enableBlinkFeatures: 'CSSBackdropFilter'
+			enableBlinkFeatures: 'CSSBackdropFilter',
 		},
 	});
 
