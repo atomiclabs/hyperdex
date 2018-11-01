@@ -82,6 +82,7 @@ class Marketmaker {
 			gui: 'hyperdex',
 			userhome: os.homedir(),
 			rpcport: port,
+			rpccors: is.development ? 'http://localhost:8080' : 'app://-',
 			// We leave out `electrumServers` since it's not needed
 			// and to prevent issues on Windows with too long arguments
 			coins: supportedCurrencies.map(currency => _.omit(currency, ['electrumServers'])),
