@@ -93,6 +93,9 @@ class Marketmaker {
 		// Marketmaker writes a lot of files directly to CWD, so we make CWD the data directory
 		const cwd = await makeDir(path.join(electron.app.getPath('userData'), 'marketmaker'));
 
+		// Uncomment this to get the command to run Marketmaker manually
+		// logger.log(`Run Marketmaker manually:\n'${binPath}' '${JSON.stringify(options)}'`);
+
 		this.cp = childProcess.spawn(binPath, [JSON.stringify(options)], {cwd});
 
 		this.cp.on('error', error => {

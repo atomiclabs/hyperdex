@@ -3,7 +3,9 @@ import electron from 'electron';
 import {sha256} from 'crypto-hash';
 import PQueue from 'p-queue';
 import ow from 'ow';
+import _ from 'lodash';
 import {getCurrency} from '../marketmaker/supported-currencies';
+import {isDevelopment} from '../util-common';
 import MarketmakerSocket from './marketmaker-socket';
 
 const getPort = electron.remote.require('get-port');
@@ -30,22 +32,6 @@ export default class Api {
 		this.queue = new PQueue({concurrency});
 	}
 
-	async _request(data) {
-		const queueId = (this.useQueue && this.socket) ? ++this.currentQueueId : 0;
-
-		const body = {
-			...{queueid: queueId},
-			...data,
-		};
-
-		const response = await this.queue.add(() => fetch(this.endpoint, {
-			method: 'post',
-			body: JSON.stringify(body),
-		}));
-
-		return (this.useQueue && this.socket) ? this.socket.getResponse(queueId) : response.json();
-	}
-
 	async enableSocket() {
 		const port = await getPort();
 		const {endpoint} = await this.request({method: 'getendpoint', port});
@@ -59,13 +45,39 @@ export default class Api {
 	async request(data) {
 		ow(data, ow.object.label('data'));
 
+		const queueId = (this.useQueue && this.socket) ? ++this.currentQueueId : 0;
+
+		const body = {
+			...data,
+			needjson: 1,
+			queueid: queueId,
+			userpass: await this.token,
+		};
+
 		let result;
 		try {
-			result = await this._request({
-				needjson: 1,
-				...data,
-				...{userpass: await this.token},
+			let requestTime;
+
+			const response = await this.queue.add(() => {
+				requestTime = Date.now();
+
+				return fetch(this.endpoint, {
+					method: 'post',
+					body: JSON.stringify(body),
+				});
 			});
+
+			result = await ((this.useQueue && this.socket) ? this.socket.getResponse(queueId) : response.json());
+
+			if (isDevelopment) {
+				// TODO: Use `Intl.RelativeTimeFormat` here when we use an Electron version with Chrome 71
+				const requestDuration = (Date.now() - requestTime) / 1000;
+				const groupLabel = `API method: ${body.method} (${requestDuration}s)`;
+				console.groupCollapsed(groupLabel);
+				console.log('Request:', _.omit(body, ['needjson', 'userpass', this.useQueue ? null : 'queueid']));
+				console.log('Response:', response.status, result);
+				console.groupEnd(groupLabel);
+			}
 		} catch (error) {
 			if (error.message === 'Failed to fetch') {
 				error.message = 'Could not connect to Marketmaker';
