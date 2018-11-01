@@ -170,7 +170,14 @@ class DashboardContainer extends SuperContainer {
 			console.error('Failed to get price history:', error);
 		}
 
-		if (!json || json.Data.length === 0) {
+		if (!json || json.Response === 'Error') {
+			noPriceHistory.add(symbol);
+			return;
+		}
+
+		const data = json.Data;
+
+		if (!(Array.isArray(data) && data.length > 0)) {
 			noPriceHistory.add(symbol);
 			return;
 		}
