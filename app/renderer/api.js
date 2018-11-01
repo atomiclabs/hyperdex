@@ -19,7 +19,7 @@ export default class Api {
 	constructor({endpoint, seedPhrase, concurrency = 1}) {
 		ow(endpoint, ow.string.label('endpoint'));
 		ow(seedPhrase, ow.string.label('seedPhrase'));
-		ow(concurrency, ow.any(ow.number.integer.label('concurrency'), ow.number.infinite.label('concurrency')));
+		ow(concurrency, ow.number.integerOrInfinite.positive.label('concurrency'));
 
 		this.endpoint = endpoint;
 		this.token = sha256(seedPhrase);

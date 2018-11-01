@@ -7824,10 +7824,10 @@ ow@^0.6.0:
   resolved "https://registry.yarnpkg.com/ow/-/ow-0.6.0.tgz#1371352713192a8dd54ec13ab0f0f1464b58941f"
   integrity sha512-CJRcySlsICcZoVH5L259wYecV7JRiGOGyxTpMF0YL2QIaETrl75ZhNpvn+jJN19HlCcUS2QyPpWJmOMya8kwCw==
 
-ow@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/ow/-/ow-0.7.0.tgz#2c1a7f44ed4a1e3cf0eca5e2012daa20a29ccb74"
-  integrity sha512-GGEubNkXj0G+anoT3KyAyARRURF9Uwq+5TdlZgKuEpXoRhm7lM7ywq/41hALH8tCNBaFKhF9nlEixZRoUHP3CA==
+ow@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/ow/-/ow-0.8.0.tgz#d360d779c996f4132941a596c87f86ce8e812e62"
+  integrity sha512-hYgYZNcRfIZ2JppSTqh6mxdU1zkUXsGlwy4eBsRG91R6CiZk7cB+AfHl+SVKBdynQvAnNHNfu0ZrtJN1jj7Mow==
 
 p-any@^1.1.0:
   version "1.1.0"
