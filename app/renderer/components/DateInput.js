@@ -22,21 +22,29 @@ class DateInput extends React.Component {
 		onDayChange: PropTypes.func,
 	}
 
-	state = {
-		hasError: false,
-		isInvalid: false,
-		value: this.props.value,
-	};
+	constructor(props) {
+		super(props);
+		this.inputRef = this.props.forwardedRef || React.createRef();
+		this.state = {
+			hasError: false,
+			isInvalid: false,
+			value: this.props.value,
+		};
+	}
 
 	handleBlur = event => {
-		const {autoCorrect, forwardedRef, onBlur, onDayChange} = this.props;
+		const {autoCorrect, onBlur, onDayChange} = this.props;
 		const {value} = this.state;
 
 		if (autoCorrect && this.state.isInvalid) {
 			this.setState({hasError: true});
 
 			setTimeout(() => {
-				onDayChange(value, {}, forwardedRef.current);
+				onDayChange(value, {}, this.inputRef.current);
+
+				// Special case handling for the input since `react-day-picker` doesn't update it when an invalid value is entered
+				// https://github.com/gpbl/react-day-picker/issues/815
+				this.inputRef.current.state.typedValue = this.inputRef.current.state.value;
 			}, 1000);
 		}
 
@@ -59,25 +67,24 @@ class DateInput extends React.Component {
 	};
 
 	render() {
-		const {forwardedRef, ...props} = this.props;
 		const {hasError} = this.state;
 
 		return (
 			<DayPickerInput
-				{...props}
-				ref={forwardedRef}
+				{...this.props}
+				ref={this.inputRef}
 				component={WrappedInput}
 				format="YYYY-MM-DD"
 				formatDate={formatDate}
 				onDayChange={this.handleDayChange}
 				parseDate={parseDate}
 				dayPickerProps={{
-					...props.dayPickerProps,
+					...this.props.dayPickerProps,
 					locale: instance.language,
 					localeUtils: MomentLocaleUtils,
 				}}
 				inputProps={{
-					...props.inputProps,
+					...this.props.inputProps,
 					className: hasError ? 'shake-animation' : '',
 					onBlur: this.handleBlur,
 				}}
@@ -86,7 +93,7 @@ class DateInput extends React.Component {
 	}
 }
 
-export default React.forwardRef((props, ref = React.createRef()) => (
+export default React.forwardRef((props, ref) => (
 	<DateInput {...props} forwardedRef={ref}/>
 ));
 

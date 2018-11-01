@@ -55,7 +55,7 @@ test('set `dayPickerProps` prop', t => {
 });
 
 test('has `autoCorrect` prop', async t => {
-	const ref = {current: 'ref'};
+	const ref = {current: {state: {}, input: {}}};
 	const value = 'foo';
 	const invalidValue = 'bar';
 	const modifiers = {disabled: true};
