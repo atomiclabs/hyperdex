@@ -34,7 +34,7 @@ export default class Api {
 		const queueId = (this.useQueue && this.socket) ? ++this.currentQueueId : 0;
 
 		const body = {
-			...{queueid: queueId},
+			// ...{queueid: queueId},
 			...data,
 		};
 
