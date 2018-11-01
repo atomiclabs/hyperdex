@@ -1,10 +1,10 @@
 'use strict';
-const nodeUtil = require('util');
+const {promisify} = require('util');
 const os = require('os');
 const path = require('path');
 const childProcess = require('child_process');
 const electron = require('electron');
-const util = require('electron-util');
+const {is, fixPathForAsarUnpack} = require('electron-util');
 const getPort = require('get-port');
 const logger = require('electron-timber');
 const makeDir = require('make-dir');
@@ -18,10 +18,10 @@ const platformMapping = new Map([
 	['win32', 'win'],
 ]);
 
-let binPath = path.join(__dirname, 'bin', platformMapping.get(process.platform), `marketmaker${util.is.windows ? '.exe' : ''}`);
-binPath = util.fixPathForAsarUnpack(binPath);
+let binPath = path.join(__dirname, 'bin', platformMapping.get(process.platform), `marketmaker${is.windows ? '.exe' : ''}`);
+binPath = fixPathForAsarUnpack(binPath);
 
-const execFile = nodeUtil.promisify(childProcess.execFile);
+const execFile = promisify(childProcess.execFile);
 
 const mmLogger = logger.create({
 	name: 'mm',
@@ -68,12 +68,14 @@ class Marketmaker {
 		await this._killProcess();
 		this.isKillingPreviousMarketmaker = false;
 
+		const port = await getPort();
+
 		options = {
 			...options,
 			client: 1,
 			gui: 'hyperdex',
 			userhome: os.homedir(),
-			rpcport: await getPort(),
+			rpcport: port,
 			// We leave out `electrumServers` since it's not needed
 			// and to prevent issues on Windows with too long arguments
 			coins: supportedCurrencies.map(currency => _.omit(currency, ['electrumServers'])),

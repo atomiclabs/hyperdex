@@ -33,12 +33,14 @@ export default class Api {
 	async _request(data) {
 		const queueId = (this.useQueue && this.socket) ? ++this.currentQueueId : 0;
 
+		const body = {
+			...{queueid: queueId},
+			...data,
+		};
+
 		const response = await this.queue.add(() => fetch(this.endpoint, {
 			method: 'post',
-			body: JSON.stringify({
-				...{queueid: queueId},
-				...data},
-			),
+			body: JSON.stringify(body),
 		}));
 
 		return (this.useQueue && this.socket) ? this.socket.getResponse(queueId) : response.json();
