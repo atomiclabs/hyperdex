@@ -31,30 +31,29 @@ const mmLogger = logger.create({
 class Marketmaker {
 	_isReady() {
 		return new Promise((resolve, reject) => {
-			// Disabled because mm v2 requires `post` requests and I didn't bother to fix this yet
-//  			const interval = setInterval(() => {
-//  				const request = electron.net.request({
-//  					method: 'post',
-//  					url: `http://127.0.0.1:${this.port}`,
-//  				});
-//
-//  				request.on('response', response => {
-//  					console.log('Response:', response);
-//  					if (response.statusCode === 200) {
-//  						clearInterval(interval);
-//
-//  						// Give it a little more time to avoid issues
-//  						setTimeout(resolve, 500);
-//  					}
-//  				});
-//  				request.on('error', () => {});
-//  				request.end();
-//  			}, 100);
+			const interval = setInterval(() => {
+				const request = electron.net.request({
+					method: 'post',
+					url: `http://127.0.0.1:${this.port}`,
+				});
+
+				request.on('response', response => {
+					if (response.statusCode === 200) {
+						clearInterval(interval);
+
+						// Give it a little more time to avoid issues
+						setTimeout(resolve, 500);
+					}
+				});
+
+				request.on('error', () => {});
+
+				request.end(JSON.stringify({method: 'help'}));
+			}, 100);
 
 			setTimeout(() => {
-				//clearInterval(interval);
-				//reject(new Error('Giving up trying to connect to marketmaker'));
-				resolve();
+				clearInterval(interval);
+				reject(new Error('Giving up trying to connect to Marketmaker'));
 			}, 10000);
 		});
 	}
