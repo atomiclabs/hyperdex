@@ -173,12 +173,10 @@ export default class Api {
 		});
 
 		const formatOrders = orders => orders
-			.filter(order => order.numutxos > 0)
 			.map(order => ({
 				address: order.address,
 				depth: order.depth,
 				price: order.price,
-				utxoCount: order.numutxos,
 				averageVolume: order.avevolume,
 				maxVolume: order.maxvolume,
 				zCredits: order.zcredits,
