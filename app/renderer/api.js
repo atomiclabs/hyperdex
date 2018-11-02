@@ -179,7 +179,8 @@ export default class Api {
 		});
 
 		const formatOrders = orders => orders
-			.filter(order => order.numutxos > 0)
+			// In mm v2, `numutxos` is always `0`
+			// .filter(order => order.numutxos > 0)
 			.map(order => ({
 				address: order.address,
 				depth: order.depth,
