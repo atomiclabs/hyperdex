@@ -32,7 +32,11 @@ class Marketmaker {
 	_isReady() {
 		return new Promise((resolve, reject) => {
 			const interval = setInterval(() => {
-				const request = electron.net.request(`http://127.0.0.1:${this.port}`);
+				const request = electron.net.request({
+					method: 'post',
+					hostname: '127.0.0.1',
+					port: this.port,
+				});
 
 				request.on('response', response => {
 					if (response.statusCode === 200) {
@@ -42,13 +46,15 @@ class Marketmaker {
 						setTimeout(resolve, 500);
 					}
 				});
+
 				request.on('error', () => {});
-				request.end();
+
+				request.end(JSON.stringify({method: 'help'}));
 			}, 100);
 
 			setTimeout(() => {
 				clearInterval(interval);
-				reject(new Error('Giving up trying to connect to marketmaker'));
+				reject(new Error('Giving up trying to connect to Marketmaker'));
 			}, 10000);
 		});
 	}
