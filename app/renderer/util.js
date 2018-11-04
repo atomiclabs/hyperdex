@@ -9,7 +9,7 @@ export const formatCurrency = number => {
 	};
 
 	if (number < 1 && number > 0) {
-		options.minimumFractionDigits = 4;
+		options.minimumFractionDigits = 6;
 	}
 
 	let result = new Intl.NumberFormat('en-US', options).format(number);

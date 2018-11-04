@@ -1,10 +1,10 @@
 'use strict';
-const nodeUtil = require('util');
+const {promisify} = require('util');
 const os = require('os');
 const path = require('path');
 const childProcess = require('child_process');
 const electron = require('electron');
-const util = require('electron-util');
+const {is, fixPathForAsarUnpack} = require('electron-util');
 const getPort = require('get-port');
 const logger = require('electron-timber');
 const makeDir = require('make-dir');
@@ -18,10 +18,10 @@ const platformMapping = new Map([
 	['win32', 'win'],
 ]);
 
-let binPath = path.join(__dirname, 'bin', platformMapping.get(process.platform), `marketmaker${util.is.windows ? '.exe' : ''}`);
-binPath = util.fixPathForAsarUnpack(binPath);
+let binPath = path.join(__dirname, 'bin', platformMapping.get(process.platform), `marketmaker${is.windows ? '.exe' : ''}`);
+binPath = fixPathForAsarUnpack(binPath);
 
-const execFile = nodeUtil.promisify(childProcess.execFile);
+const execFile = promisify(childProcess.execFile);
 
 const mmLogger = logger.create({
 	name: 'mm',
@@ -32,7 +32,11 @@ class Marketmaker {
 	_isReady() {
 		return new Promise((resolve, reject) => {
 			const interval = setInterval(() => {
-				const request = electron.net.request(`http://127.0.0.1:${this.port}`);
+				const request = electron.net.request({
+					method: 'post',
+					hostname: '127.0.0.1',
+					port: this.port,
+				});
 
 				request.on('response', response => {
 					if (response.statusCode === 200) {
@@ -42,13 +46,15 @@ class Marketmaker {
 						setTimeout(resolve, 500);
 					}
 				});
+
 				request.on('error', () => {});
-				request.end();
+
+				request.end(JSON.stringify({method: 'help'}));
 			}, 100);
 
 			setTimeout(() => {
 				clearInterval(interval);
-				reject(new Error('Giving up trying to connect to marketmaker'));
+				reject(new Error('Giving up trying to connect to Marketmaker'));
 			}, 10000);
 		});
 	}
@@ -68,12 +74,14 @@ class Marketmaker {
 		await this._killProcess();
 		this.isKillingPreviousMarketmaker = false;
 
+		const port = await getPort();
+
 		options = {
 			...options,
 			client: 1,
 			gui: 'hyperdex',
 			userhome: os.homedir(),
-			rpcport: await getPort(),
+			rpcport: port,
 			// We leave out `electrumServers` since it's not needed
 			// and to prevent issues on Windows with too long arguments
 			coins: supportedCurrencies.map(currency => _.omit(currency, ['electrumServers'])),
@@ -90,6 +98,9 @@ class Marketmaker {
 
 		// Marketmaker writes a lot of files directly to CWD, so we make CWD the data directory
 		const cwd = await makeDir(path.join(electron.app.getPath('userData'), 'marketmaker'));
+
+		// Uncomment this to get the command to run Marketmaker manually
+		// logger.log(`Run Marketmaker manually:\n'${binPath}' '${JSON.stringify(options)}'`);
 
 		this.cp = childProcess.spawn(binPath, [JSON.stringify(options)], {cwd});
 
