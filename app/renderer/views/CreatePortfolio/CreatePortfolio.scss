@@ -1,37 +1,6 @@
 @import '../../styles/variables';
 
 .CreatePortfolio {
-	.generated-seed-phrase-container {
-		align-items: center;
-		background-color: rgba(248, 7, 89, 0.05);
-		border: 1px solid var(--error-color);
-		color: var(--error-color);
-		display: flex;
-		border-radius: 4px;
-		padding: 10px 0;
-
-		.button {
-			display: flex;
-			flex-basis: 60px;
-			padding: 0 12px;
-		}
-
-		.button--reload {
-			justify-content: flex-start;
-		}
-
-		.button--copy {
-			justify-content: flex-end;
-		}
-
-		.seed-phrase {
-			display: flex;
-			flex: 1;
-			font-size: 17px;
-			justify-content: center;
-		}
-	}
-
 	.warning-box {
 		display: flex;
 		margin-top: 18px;
