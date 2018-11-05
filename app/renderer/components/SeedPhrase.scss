@@ -1,0 +1,31 @@
+.SeedPhrase {
+	align-items: center;
+	background-color: rgba(248, 7, 89, 0.05);
+	border: 1px solid var(--error-color);
+	color: var(--error-color);
+	display: flex;
+	border-radius: 4px;
+	padding: 10px 0;
+	text-align: center;
+
+	.section {
+		display: flex;
+		flex-basis: 30px;
+	}
+
+	.section--value {
+		flex: 1;
+		font-size: 17px;
+		justify-content: center;
+	}
+
+	.section--reload {
+		padding-left: 12px;
+		justify-content: flex-start;
+	}
+
+	.section--copy {
+		justify-content: flex-end;
+		padding-right: 12px;
+	}
+}

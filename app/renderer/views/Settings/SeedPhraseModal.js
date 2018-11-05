@@ -3,7 +3,7 @@ import appContainer from 'containers/App';
 import Button from 'components/Button';
 import Input from 'components/Input';
 import Modal from 'components/Modal';
-import WrapWidth from 'components/WrapWidth';
+import SeedPhrase from 'components/SeedPhrase';
 import {translate} from '../../translate';
 import './SeedPhraseModal.scss';
 
@@ -79,14 +79,10 @@ class SeedPhraseModal extends React.Component {
 					open={this.state.isOpen}
 					onClose={this.handleClose}
 					didClose={this.handleDidClose}
-					width="445px"
+					width="470px"
 				>
 					{({modalRef}) => this.state.seedPhrase.length > 0 ? (
-						<div className="seed-phrase">
-							<WrapWidth wordsPerLine={6}>
-								{this.state.seedPhrase}
-							</WrapWidth>
-						</div>
+						<SeedPhrase value={this.state.seedPhrase}/>
 					) : (
 						<form onSubmit={this.handleSubmit(modalRef)}>
 							<div className="form-group">
