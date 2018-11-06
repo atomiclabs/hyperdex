@@ -45,7 +45,7 @@ class DateInput extends React.Component {
 				// Special case handling for the input since `react-day-picker` doesn't update it when an invalid value is entered
 				// https://github.com/gpbl/react-day-picker/issues/815
 				this.inputRef.current.state.typedValue = this.inputRef.current.state.value;
-			}, 1000);
+			}, 600);
 		}
 
 		if (typeof onBlur === 'function') {
