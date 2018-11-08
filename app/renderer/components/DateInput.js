@@ -56,7 +56,8 @@ class DateInput extends React.Component {
 
 	handleDayChange = (day, modifiers, input) => {
 		const {onDayChange} = this.props;
-		const isInvalid = modifiers.disabled || !day;
+		const inputValue = input.getInput().value;
+		const isInvalid = modifiers.disabled || (!day && inputValue);
 
 		this.setState(state => ({
 			hasError: false,

@@ -102,7 +102,8 @@ class Input extends React.Component {
 
 	_checkValidity = _.debounce(event => {
 		const {pattern} = this.props;
-		const isValid = typeof pattern === 'function' ? pattern(event.target.value) : event.target.checkValidity();
+		const {value} = event.target;
+		const isValid = typeof pattern === 'function' ? (!value || pattern(value)) : event.target.checkValidity();
 
 		this.setState({level: isValid ? null : 'error'});
 	}, 500);

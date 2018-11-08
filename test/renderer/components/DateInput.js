@@ -64,7 +64,7 @@ test('has `autoCorrect` prop', async t => {
 	const locale = 'locale';
 	const format = 'format';
 	const formatDate = stub().returns(value);
-	const ref = {current: {props: {dayPickerProps: {locale}, format, formatDate}}};
+	const ref = {current: {props: {dayPickerProps: {locale}, format, formatDate}, getInput: () => ({value: invalidValue})}};
 	const modifiers = {disabled: true};
 	const onDayChange = spy();
 	const event = {target: 'unicorn', persist: () => {}};
