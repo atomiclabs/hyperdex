@@ -101,7 +101,10 @@ class Input extends React.Component {
 	};
 
 	_checkValidity = _.debounce(event => {
-		this.setState({level: event.target.checkValidity() ? null : 'error'});
+		const {pattern} = this.props;
+		const isValid = typeof pattern === 'function' ? pattern(event.target.value) : event.target.checkValidity();
+
+		this.setState({level: isValid ? null : 'error'});
 	}, 500);
 
 	_shouldTruncateFractions(value) {
@@ -145,6 +148,7 @@ class Input extends React.Component {
 			icon,
 			iconSize,
 			iconName,
+			pattern,
 			view: View,
 			button: Button,
 			...props
@@ -162,6 +166,10 @@ class Input extends React.Component {
 
 		if (iconName) {
 			icon = `/assets/${iconName}-icon.svg`;
+		}
+
+		if (typeof pattern === 'function') {
+			pattern = null;
 		}
 
 		const containerClassName = classNames(
@@ -203,6 +211,7 @@ class Input extends React.Component {
 						value={value}
 						type={type}
 						disabled={disabled}
+						pattern={pattern}
 						readOnly={readOnly}
 						onChange={this.handleChange}
 					/>

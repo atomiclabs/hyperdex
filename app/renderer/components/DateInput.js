@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
+import moment from 'moment';
 import MomentLocaleUtils, {formatDate, parseDate} from 'react-day-picker/moment';
 import 'react-day-picker/lib/style.css';
 import Input from 'components/Input';
@@ -10,7 +11,9 @@ import './DateInput.scss';
 
 const WrappedInput = React.forwardRef((props, ref) => {
 	const onChange = (value, event) => props.onChange(event);
-	return <Input {...props} ref={ref} pattern="(\d{1,4}){1}(-\d{1,2}){0,1}(-\d{0,2}){0,1}" onChange={onChange}/>;
+	const validateInput = value => moment(value).isValid();
+
+	return <Input {...props} ref={ref} pattern={validateInput} onChange={onChange}/>;
 });
 
 class DateInput extends React.Component {
