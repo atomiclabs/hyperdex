@@ -5,6 +5,7 @@ import MomentLocaleUtils, {formatDate, parseDate} from 'react-day-picker/moment'
 import 'react-day-picker/lib/style.css';
 import Input from 'components/Input';
 import {instance} from '../translate';
+import {setInputValue} from '../util';
 import './DateInput.scss';
 
 const WrappedInput = React.forwardRef((props, ref) => {
@@ -33,18 +34,15 @@ class DateInput extends React.Component {
 	}
 
 	handleBlur = event => {
-		const {autoCorrect, onBlur, onDayChange} = this.props;
+		const {autoCorrect, onBlur} = this.props;
 		const {value} = this.state;
 
 		if (autoCorrect && this.state.isInvalid) {
 			this.setState({hasError: true});
 
 			setTimeout(() => {
-				onDayChange(value, {}, this.inputRef.current);
-
-				// Special case handling for the input since `react-day-picker` doesn't update it when an invalid value is entered
-				// https://github.com/gpbl/react-day-picker/issues/815
-				this.inputRef.current.state.typedValue = this.inputRef.current.state.value;
+				const {dayPickerProps, format, formatDate} = this.inputRef.current.props;
+				setInputValue(event.target, formatDate(value, format, dayPickerProps.locale));
 			}, 600);
 		}
 
