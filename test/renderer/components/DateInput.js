@@ -3,17 +3,21 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import delay from 'delay';
 import proxyquire from 'proxyquire';
-import {spy} from 'sinon';
+import {spy, stub} from 'sinon';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import MomentLocaleUtils, {formatDate, parseDate} from 'react-day-picker/moment';
 
 const language = 'foo';
+const setInputValue = spy();
 
 const dateInput = proxyquire.noCallThru()('../../../app/renderer/components/DateInput', {
 	'../../../app/renderer/translate': {
 		instance: {
 			language,
 		},
+	},
+	'../../../app/renderer/util': {
+		setInputValue,
 	},
 });
 
@@ -55,16 +59,21 @@ test('set `dayPickerProps` prop', t => {
 });
 
 test('has `autoCorrect` prop', async t => {
-	const ref = {current: {state: {}, input: {}}};
 	const value = 'foo';
 	const invalidValue = 'bar';
+	const locale = 'locale';
+	const format = 'format';
+	const formatDate = stub().returns(value);
+	const ref = {current: {props: {dayPickerProps: {locale}, format, formatDate}}};
 	const modifiers = {disabled: true};
 	const onDayChange = spy();
+	const event = {target: 'unicorn', persist: () => {}};
 	const component = shallow(<DateInput autoCorrect ref={ref} value={value} onDayChange={onDayChange}/>).dive();
 	const input = component.dive().find(WrappedInput);
 	component.simulate('dayChange', invalidValue, modifiers, ref.current);
-	input.simulate('blur', {persist: () => {}});
-	await delay(1000);
-	t.true(onDayChange.firstCall.calledWith(invalidValue, modifiers, ref.current));
-	t.true(onDayChange.secondCall.calledWith(value, {}, ref.current));
+	input.simulate('blur', event);
+	await delay(600);
+	t.true(onDayChange.calledWith(invalidValue, modifiers, ref.current));
+	t.true(formatDate.calledWith(component.state('value'), format, locale));
+	t.true(setInputValue.calledWith(event.target, value));
 });

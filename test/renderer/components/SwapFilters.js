@@ -16,6 +16,9 @@ const DateInput = proxyquire.noCallThru()('../../../app/renderer/components/Date
 	'../../../app/renderer/translate': {
 		instance: {},
 	},
+	'../../../app/renderer/util': {
+		setInputValue: () => {},
+	},
 }).default;
 
 const SwapFilters = proxyquire.noCallThru()('../../../app/renderer/components/SwapFilters', {
