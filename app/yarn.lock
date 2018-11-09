@@ -342,12 +342,13 @@ electron-updater@^2.23.3:
     semver "^5.5.0"
     source-map-support "^0.5.6"
 
-electron-util@^0.10.1:
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/electron-util/-/electron-util-0.10.1.tgz#3318134cafdef7c15bb69ac5dc8e80d0f23f9049"
-  integrity sha512-fuuI357P0F7zMiGo6NsO2j6SQ9mI2HtOTiAN0ZxvSNpLoe1fjQEDzyMBMXsqtHfOzyfsokue6534MdzJihbksw==
+electron-util@^0.10.2:
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/electron-util/-/electron-util-0.10.2.tgz#a4f61ebe6305a526d348d034475023089d65c43a"
+  integrity sha512-m9CLQeG+PnxYJw77R+60ztRaoVs0pzqhQrOQ4kR+LVUBxHtOQXiOL3/TwAPf8LTTyxxn+OdfrjmaNkUl1mpIHg==
   dependencies:
     electron-is-dev "^1.0.0"
+    new-github-issue-url "^0.1.2"
 
 electron-util@^0.8.2:
   version "0.8.2"
@@ -694,6 +695,11 @@ ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
   integrity sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
+
+new-github-issue-url@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/new-github-issue-url/-/new-github-issue-url-0.1.2.tgz#43f852cbf4f5eaa128e0850ea527d9c103fd3b1c"
+  integrity sha512-FmF8JH2dGczrnY4cVKB7BjpaKFpySvZvPNZOhuMevY4+a1jSlI/me95rdulg9C5/74P/i02G+3WqpXN1Fhcoow==
 
 node-dir@^0.1.17:
   version "0.1.17"

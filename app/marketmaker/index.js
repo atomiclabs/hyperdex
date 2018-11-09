@@ -61,7 +61,7 @@ class Marketmaker {
 
 	async _killProcess() {
 		try {
-			if (process.platform === 'win32') {
+			if (is.windows) {
 				await execFile('taskkill', ['/f', '/im', 'marketmaker.exe']);
 			} else {
 				await execFile('killall', ['-9', 'marketmaker']);

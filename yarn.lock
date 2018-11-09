@@ -3515,12 +3515,13 @@ electron-unhandled@^1.1.0:
     ensure-error "^1.0.0"
     lodash.debounce "^4.0.8"
 
-electron-util@^0.10.1:
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/electron-util/-/electron-util-0.10.1.tgz#3318134cafdef7c15bb69ac5dc8e80d0f23f9049"
-  integrity sha512-fuuI357P0F7zMiGo6NsO2j6SQ9mI2HtOTiAN0ZxvSNpLoe1fjQEDzyMBMXsqtHfOzyfsokue6534MdzJihbksw==
+electron-util@^0.10.2:
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/electron-util/-/electron-util-0.10.2.tgz#a4f61ebe6305a526d348d034475023089d65c43a"
+  integrity sha512-m9CLQeG+PnxYJw77R+60ztRaoVs0pzqhQrOQ4kR+LVUBxHtOQXiOL3/TwAPf8LTTyxxn+OdfrjmaNkUl1mpIHg==
   dependencies:
     electron-is-dev "^1.0.0"
+    new-github-issue-url "^0.1.2"
 
 electron@^3.0.5:
   version "3.0.5"
@@ -7249,6 +7250,11 @@ neo-async@^2.5.0:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.5.1.tgz#acb909e327b1e87ec9ef15f41b8a269512ad41ee"
   integrity sha512-3KL3fvuRkZ7s4IFOMfztb7zJp3QaVWnBeGoJlgB38XnCRPj/0tLzzLG5IB8NYOHbJ8g8UGrgZv44GLDk6CxTxA==
+
+new-github-issue-url@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/new-github-issue-url/-/new-github-issue-url-0.1.2.tgz#43f852cbf4f5eaa128e0850ea527d9c103fd3b1c"
+  integrity sha512-FmF8JH2dGczrnY4cVKB7BjpaKFpySvZvPNZOhuMevY4+a1jSlI/me95rdulg9C5/74P/i02G+3WqpXN1Fhcoow==
 
 nice-try@^1.0.4:
   version "1.0.4"

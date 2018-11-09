@@ -1,7 +1,5 @@
-/* eslint-disable import/prefer-default-export */
 'use strict';
-const os = require('os');
-const {app, shell} = require('electron');
+const {debugInfo, openNewGitHubIssue} = require('electron-util');
 const {repoUrl} = require('./constants');
 
 exports.openGitHubIssue = message => {
@@ -13,10 +11,7 @@ ${message}
 
 ---
 
-${app.getName()} ${app.getVersion()}
-Electron ${process.versions.electron}
-${process.platform} ${os.release()}
-Locale: ${app.getLocale()}`;
+${debugInfo()}`;
 
-	shell.openExternal(`${repoUrl}/issues/new?body=${encodeURIComponent(body)}`);
+	openNewGitHubIssue({repoUrl, body});
 };
