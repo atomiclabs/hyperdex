@@ -111,15 +111,13 @@ const createDebugMenu = () => {
 			},
 			{
 				label: 'Log Container State',
-				async click() {
-					const [win] = BrowserWindow.getAllWindows();
+				async click(menuItem, win) {
 					await runJS('UNSTATED.logState()', win);
 				},
 			},
 			{
 				label: 'Toggle Logging on State Changes',
-				async click() {
-					const [win] = BrowserWindow.getAllWindows();
+				async click(menuItem, win) {
 					await runJS('UNSTATED.logStateChanges = !UNSTATED.logStateChanges', win);
 				},
 			},
@@ -128,15 +126,13 @@ const createDebugMenu = () => {
 			},
 			{
 				label: 'Log Swaps',
-				async click() {
-					const [win] = BrowserWindow.getAllWindows();
-					await runJS('_swapDB.getSwaps().then(console.log)', win);
+				async click(menuItem, win) {
+					await runJS('console.log(await _swapDB.getSwaps())', win);
 				},
 			},
 			{
 				label: 'Copy Swaps to Clipboard',
-				async click() {
-					const [win] = BrowserWindow.getAllWindows();
+				async click(menuItem, win) {
 					const swaps = await runJS('_swapDB.getSwaps()', win);
 					clipboard.writeText(JSON.stringify(swaps, null, '\t'));
 				},
@@ -167,8 +163,7 @@ const createDebugMenu = () => {
 			},
 			{
 				label: 'Delete Swap History',
-				async click() {
-					const [win] = BrowserWindow.getAllWindows();
+				async click(menuItem, win) {
 					await runJS('_swapDB.destroy()', win);
 					app.relaunch();
 					app.quit();
@@ -176,8 +171,7 @@ const createDebugMenu = () => {
 			},
 			{
 				label: 'Delete Portfolios',
-				click() {
-					const [win] = BrowserWindow.getAllWindows();
+				click(menuItem, win) {
 					shell.moveItemToTrash(path.join(app.getPath('userData'), 'portfolios'));
 					win.webContents.reload();
 				},
