@@ -1,0 +1,71 @@
+.SwapFilters {
+	display: flex;
+	flex-shrink: 0;
+	color: var(--text-color);
+}
+
+.SwapFilters__section {
+	& + & {
+		margin-left: 15px;
+	}
+
+	label {
+		margin-right: 5px;
+		font-size: 14px;
+		color: var(--text-color);
+	}
+
+	input {
+		color: var(--text-color2);
+	}
+
+	.Input {
+		width: auto;
+		margin: 0;
+	}
+
+	.Select {
+		display: inline-flex;
+		min-width: 169px;
+
+		.Select-placeholder,
+		.Select-value,
+		.Select-input {
+			padding-left: 10px;
+		}
+
+		.Select-placeholder {
+			font-weight: normal;
+			opacity: 0.5;
+		}
+	}
+
+	/* stylelint-disable selector-class-pattern */
+	.DayPickerInput .DayPicker-Day {
+		border-radius: unset;
+	}
+
+	.DayPickerInput .DayPicker-Day--start {
+		border-top-left-radius: 50%;
+		border-bottom-left-radius: 50%;
+	}
+
+	.DayPicker:not(.DayPicker--interactionDisabled) .DayPicker-Day--startAfter:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside) {
+		border-top-left-radius: unset;
+		border-bottom-left-radius: unset;
+	}
+
+	.DayPickerInput .DayPicker-Day--end {
+		border-top-right-radius: 50%;
+		border-bottom-right-radius: 50%;
+	}
+
+	.DayPicker:not(.DayPicker--interactionDisabled) .DayPicker-Day--endBefore:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside) {
+		border-top-right-radius: unset;
+		border-bottom-right-radius: unset;
+	}
+
+	.DayPickerInput .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+		background-color: var(--primary-color-opacity-0-2);
+	}
+}

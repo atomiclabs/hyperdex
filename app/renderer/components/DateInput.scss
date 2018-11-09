@@ -1,0 +1,49 @@
+/* stylelint-disable selector-class-pattern */
+.DayPickerInput-Overlay {
+	margin-top: 4px;
+	text-align: center;
+	color: var(--text-color);
+	background-color: var(--input-background-color);
+	border: 1px solid var(--input-border-color);
+	border-radius: 4px;
+	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18);
+}
+
+.DayPicker-Months {
+	flex-wrap: unset;
+}
+
+.DayPicker-NavButton,
+.DayPicker-Day {
+	cursor: default;
+}
+
+.DayPicker:not(.DayPicker--interactionDisabled) .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
+	color: var(--text-color2);
+	background-color: var(--primary-color);
+	border-radius: 2px;
+}
+
+.DayPicker-Day--today {
+	color: var(--secondary-color);
+	font-weight: normal;
+
+	&:hover:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+		color: var(--text-color2);
+	}
+}
+
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+	color: var(--text-color2);
+	background-color: var(--primary-color);
+
+	&:hover {
+		background-color: var(--primary-color);
+	}
+}
+
+.DayPicker-Day--disabled:not(.DayPicker-Day--today),
+.DayPicker-Day--outside:not(.DayPicker-Day--today) {
+	color: var(--text-color);
+	opacity: 0.5;
+}

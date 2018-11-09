@@ -38,8 +38,8 @@ module.exports = (env, options) => ({
 				},
 			},
 			{
-				test: /\.scss$/,
-				exclude: /node_modules/,
+				test: /\.(css|scss)$/,
+				exclude: /node_modules(?!\/react-day-picker)/,
 				use: [
 					{
 						loader: 'style-loader',

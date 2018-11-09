@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {classNames} from 'react-extras';
 import propTypesRange from 'prop-types-range';
+import _ from 'lodash';
 import './Input.scss';
 
 const stripLeadingZeros = string => string.replace(/^0+(?=\d)/, '');
@@ -46,13 +47,27 @@ class Input extends React.Component {
 	}
 
 	static getDerivedStateFromProps(props, state) {
-		return props.value === state.prevValue ? null : {
-			value: props.value,
-			prevValue: props.value,
+		const isValueChanged = props.value !== state.prevValue;
+		const isLevelChanged = props.level !== state.prevLevel;
+
+		if (!isValueChanged && !isLevelChanged) {
+			return null;
+		}
+
+		return {
+			...isValueChanged && {
+				value: props.value,
+				prevValue: props.value,
+			},
+			...isLevelChanged && {
+				level: props.level,
+				prevLevel: props.level,
+			},
 		};
 	}
 
 	state = {
+		level: this.props.level,
 		value: this.props.value || '',
 	};
 
@@ -76,12 +91,22 @@ class Input extends React.Component {
 			event.persist();
 		}
 
+		this._checkValidity(event);
+
 		this.setState({value}, () => {
 			if (onChange) {
 				onChange(value, event);
 			}
 		});
 	};
+
+	_checkValidity = _.debounce(event => {
+		const {pattern} = this.props;
+		const {value} = event.target;
+		const isValid = typeof pattern === 'function' ? (!value || pattern(value)) : event.target.checkValidity();
+
+		this.setState({level: isValid ? null : 'error'});
+	}, 500);
 
 	_shouldTruncateFractions(value) {
 		const {fractionalDigits} = this.props;
@@ -113,7 +138,6 @@ class Input extends React.Component {
 		let {
 			forwardedRef,
 			className,
-			level,
 			message,
 			errorMessage,
 			disabled,
@@ -125,10 +149,12 @@ class Input extends React.Component {
 			icon,
 			iconSize,
 			iconName,
+			pattern,
 			view: View,
 			button: Button,
 			...props
 		} = this.props;
+		let {level} = this.state;
 
 		if (errorMessage) {
 			level = 'error';
@@ -141,6 +167,10 @@ class Input extends React.Component {
 
 		if (iconName) {
 			icon = `/assets/${iconName}-icon.svg`;
+		}
+
+		if (typeof pattern === 'function') {
+			pattern = null;
 		}
 
 		const containerClassName = classNames(
@@ -182,6 +212,7 @@ class Input extends React.Component {
 						value={value}
 						type={type}
 						disabled={disabled}
+						pattern={pattern}
 						readOnly={readOnly}
 						onChange={this.handleChange}
 					/>

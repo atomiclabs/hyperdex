@@ -30,6 +30,15 @@
 	}
 
 	main {
+		display: flex;
+		flex-direction: column;
+
+		.SwapFilters {
+			padding: 15px 20px;
+			background-color: var(--filter-background-color);
+			border-bottom: 1px solid var(--section-border-color);
+		}
+
 		.SwapList {
 			.row {
 				padding: 12px 25px 12px 20px;

@@ -5,6 +5,7 @@ import appContainer from 'containers/App';
 import tradesContainer from 'containers/Trades';
 import View from 'components/View';
 import SwapList from 'components/SwapList';
+import SwapFilters from 'components/SwapFilters';
 import TabButton from 'components/TabButton';
 import {formatCurrency} from '../util';
 import {translate} from '../translate';
@@ -27,7 +28,12 @@ const OpenOrders = () => {
 const TradeHistory = () => {
 	const {state} = appContainer;
 	const filteredData = state.swapHistory.filter(swap => !swap.isActive);
-	return <SwapList swaps={filteredData} showCancel showHeader/>;
+
+	return (
+		<SwapFilters swaps={filteredData}>
+			{swaps => <SwapList swaps={swaps} showCancel showHeader/>}
+		</SwapFilters>
+	);
 };
 
 const Trades = props => (

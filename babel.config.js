@@ -46,6 +46,7 @@ module.exports = {
 					'transform-require-ignore',
 					{
 						extensions: [
+							'.css',
 							'.scss',
 						],
 					},
