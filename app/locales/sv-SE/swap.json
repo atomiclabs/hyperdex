@@ -56,12 +56,12 @@
 		"less": "Mindre"
 	},
 	"filter": {
-		"buy": "Buy",
-		"date": "Date",
-		"dateFrom": "From",
-		"dateTo": "To",
-		"pair": "Pair",
-		"sell": "Sell",
-		"type": "Type"
+		"buy": "Köp",
+		"date": "Datum",
+		"dateFrom": "Från",
+		"dateTo": "Till",
+		"pair": "Par",
+		"sell": "Sälj",
+		"type": "Typ"
 	}
 }
