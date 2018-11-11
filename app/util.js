@@ -15,3 +15,7 @@ ${debugInfo()}`;
 
 	openNewGitHubIssue({repoUrl, body});
 };
+
+exports.reportError = errorStack => {
+	exports.openGitHubIssue(`\`\`\`\n${errorStack}\n\`\`\`\n\n<!-- Please succinctly describe your issue and steps to reproduce it -->`);
+};

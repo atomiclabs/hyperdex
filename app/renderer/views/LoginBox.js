@@ -1,4 +1,4 @@
-import {remote} from 'electron';
+import unhandled from 'electron-unhandled';
 import React from 'react';
 import Button from 'components/Button';
 import Input from 'components/Input';
@@ -14,7 +14,6 @@ import {translate} from '../translate';
 import './LoginBox.scss';
 
 const t = translate('login');
-const {dialog} = remote;
 
 const SettingsButton = () => (
 	<CogIcon
@@ -81,9 +80,8 @@ class LoginBox extends React.Component {
 				return;
 			}
 
-			console.error(error);
 			loginContainer.setActiveView(LoginBox.name);
-			dialog.showErrorBox('Login Failed', error.message || error || 'Unknown reason');
+			unhandled.logError(error, {title: 'Login Failed'});
 		}
 	};
 

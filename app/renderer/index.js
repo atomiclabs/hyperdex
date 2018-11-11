@@ -1,4 +1,6 @@
+import {remote} from 'electron';
 import {is} from 'electron-util';
+import unhandled from 'electron-unhandled';
 import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'unstated';
@@ -16,8 +18,12 @@ filterConsole([
 UNSTATED.isEnabled = is.development;
 UNSTATED.logStateChanges = false;
 
-require('electron-unhandled')({
-	showDialog: !is.development,
+unhandled({
+	reportButton: error => {
+		const {reportError} = remote.require('./util');
+		// FIXME: Have to pass the stack as Electron doesn't correctly serialize errors
+		reportError(error.stack);
+	},
 });
 
 // Enable OS specific styles
