@@ -14,19 +14,25 @@ const {is, disableZoom, setContentSecurityPolicy} = require('electron-util');
 const serve = require('electron-serve');
 const logger = require('electron-timber');
 const ipc = require('electron-better-ipc');
+const unhandled = require('electron-unhandled');
 const appMenu = require('./menu');
 const config = require('./config');
 const marketmaker = require('./marketmaker');
 const {loginWindowSize} = require('./constants');
 const {isDevelopment} = require('./util-common');
+const {reportError} = require('./util');
 const rendererState = require('./renderer-state');
 
-require('electron-unhandled')({
-	showDialog: !isDevelopment,
+unhandled({
+	reportButton: error => {
+		reportError(error.stack);
+	},
 });
+
 require('electron-debug')({
 	enabled: isDevelopment,
 });
+
 require('electron-context-menu')();
 
 try {

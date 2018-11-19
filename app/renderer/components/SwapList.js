@@ -1,4 +1,4 @@
-import {api} from 'electron-util';
+import unhandled from 'electron-unhandled';
 import React from 'react';
 import PropTypes from 'prop-types';
 import {format as formatDate} from 'date-fns';
@@ -27,8 +27,7 @@ class CancelButton extends React.Component {
 		try {
 			await appContainer.api.cancelOrder(swapUuid);
 		} catch (error) {
-			console.error(error);
-			api.dialog.showErrorBox('Error', error.message);
+			unhandled.logError(error);
 		}
 	};
 
