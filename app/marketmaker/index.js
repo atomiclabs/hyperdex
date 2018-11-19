@@ -100,6 +100,7 @@ class Marketmaker {
 		const cwd = await makeDir(path.join(electron.app.getPath('userData'), 'marketmaker'));
 
 		// Uncomment this to get the command to run Marketmaker manually
+		// options.coins = supportedCurrencies;
 		// logger.log(`Run Marketmaker manually:\n'${binPath}' '${JSON.stringify(options)}'`);
 
 		this.cp = childProcess.spawn(binPath, [JSON.stringify(options)], {cwd});
