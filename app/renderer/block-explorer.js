@@ -113,6 +113,7 @@ const explorers = new Map(Object.entries({
 	PANGEA: 'https://pangea.kmdexplorer.io/tx/{txid}',
 	PEW: 'http://explorer.brofist.online/tx/{txid}',
 	PGN: 'http://explorer.pigeoncoin.org/tx/{txid}',
+	PGT: 'https://pgt.komodo.build/tx/{txid}',
 	PIVX: 'https://chainz.cryptoid.info/pivx/tx.dws?{txid}',
 	PIZZA: 'https://pizza.kmdexplorer.io/tx/{txid}',
 	POLIS: 'https://explorer.polispay.org/tx/{txid}',
