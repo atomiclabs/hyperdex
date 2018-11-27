@@ -32,9 +32,20 @@ const Chart = () => {
 	const {portfolioHistory, currencyHistory, activeView} = state;
 	const symbol = dashboardContainer.activeCurrencySymbol;
 
-	const data = activeView === 'Portfolio' ?
-		portfolioHistory[state.currencyHistoryResolution] :
-		currencyHistory[state.currencyHistoryResolution][symbol];
+	// TODO: Add a indicator for when the stats are loading when React supports Suspense fetching
+
+	const getHistory = resolution => {
+		return activeView === 'Portfolio' ?
+			portfolioHistory[resolution] :
+			currencyHistory[resolution][symbol];
+	};
+
+	const data = getHistory(state.currencyHistoryResolution);
+
+	const hasDataInAtLeastOneResolution = Object.keys(currencyHistory).some(resolution => {
+		const history = getHistory(resolution);
+		return history && history.length > 0;
+	});
 
 	return (
 		<div className="Dashboard--Chart">
@@ -44,7 +55,7 @@ const Chart = () => {
 			/>
 			<div className="overlay">
 				<h3>{activeView === 'Portfolio' ? t('chart.portfolioValue') : t('chart.symbolChart', {symbol})}</h3>
-				{data &&
+				{hasDataInAtLeastOneResolution &&
 					<div className="resolution-buttons">
 						<ResolutionButton title="1h" resolution="hour"/>
 						<ResolutionButton title="1d" resolution="day"/>

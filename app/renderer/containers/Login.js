@@ -144,14 +144,16 @@ class LoginContainer extends Container {
 
 		const api = await createApi(seedPhrase);
 
-		await Promise.all([
-			enableCurrencies(api),
-			watchFiatPrice(),
-			watchAllCurrencyHistory(),
-		]);
+		await enableCurrencies(api);
 
-		// This method depends on the data from `enableCurrencies()` and `watchFiatPrice()`
+		// Depends on the data from `enableCurrencies()`
+		await watchFiatPrice();
+
+		// Depends on the data from `enableCurrencies()` and `watchFiatPrice()`
 		await watchCurrencies();
+
+		// Depends on data from `enableCurrencies() and `watchFiatPrice()`
+		await watchAllCurrencyHistory();
 
 		config.set('lastActivePortfolioId', portfolio.id);
 		setAppWindowBounds();

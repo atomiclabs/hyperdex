@@ -107,7 +107,7 @@ class DashboardContainer extends SuperContainer {
 			case 'year':
 				return getUrlForDays(365);
 			case 'all':
-				return getUrlForDays(100000, 7);
+				return getUrlForDays(2000, 7);
 			default:
 				throw new Error('Unsupported resolution');
 		}
@@ -194,7 +194,7 @@ class DashboardContainer extends SuperContainer {
 		const symbol = this.activeCurrencySymbol;
 		const prices = await this.getCurrencyHistory(symbol);
 
-		this.setState(prevState => {
+		await this.setState(prevState => {
 			prevState.currencyHistory[prevState.currencyHistoryResolution][symbol] = prices;
 			return prevState;
 		});
