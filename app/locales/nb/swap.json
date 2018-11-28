@@ -54,5 +54,14 @@
 	"toggleAdvancedButton": {
 		"more": "Mer",
 		"less": "Mindre"
+	},
+	"filter": {
+		"buy": "Kjøp",
+		"date": "Dato",
+		"dateFrom": "Fra",
+		"dateTo": "Til",
+		"pair": "Par",
+		"sell": "Salg",
+		"type": "Type"
 	}
 }
