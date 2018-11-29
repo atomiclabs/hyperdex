@@ -1650,6 +1650,22 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
+		coin: 'PGT',
+		name: 'Pungo Token',
+		asset: 'PGT',
+		rpcport: 46705,
+		electrumServers: [
+			{
+				host: 'agama.komodo.build',
+				port: 10002,
+			},
+			{
+				host: 'agama2.komodo.build',
+				port: 10002,
+			},
+		],
+	},
+	{
 		coin: 'PIZZA',
 		name: 'Pizza',
 		asset: 'PIZZA',
