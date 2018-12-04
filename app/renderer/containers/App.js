@@ -12,10 +12,10 @@ import {getCurrencyName} from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
 import {formatCurrency, setLoginWindowBounds} from '../util';
 import fetchCurrencyInfo from '../fetch-currency-info';
-import {isDevelopment} from '../../util-common';
+import {isDevelopment, isNightlyBuild} from '../../util-common';
 
 const config = remote.require('./config');
-const {decryptSeedPhrase} = remote.require('./portfolio-util');
+const {decryptSeedPhrase, setCurrencies} = remote.require('./portfolio-util');
 
 const excludedTestCurrencies = new Set([
 	'PIZZA',
@@ -26,7 +26,7 @@ class AppContainer extends SuperContainer {
 	state = {
 		theme: config.get('theme'),
 		activeView: 'Login',
-		enabledCoins: _.union(alwaysEnabledCurrencies, config.get('enabledCoins')),
+		enabledCoins: alwaysEnabledCurrencies,
 		currencies: [],
 		swapHistory: [],
 		doneInitialKickstart: false,
@@ -94,6 +94,18 @@ class AppContainer extends SuperContainer {
 
 	setPreviousView() {
 		this.setActiveView(this.views.previous());
+	}
+
+	setEnabledCurrencies(currencies) {
+		currencies = currencies.slice();
+
+		if (isNightlyBuild) {
+			currencies.push('PIZZA', 'BEER');
+		}
+
+		this.setState({
+			enabledCoins: _.union(alwaysEnabledCurrencies, currencies),
+		});
 	}
 
 	setTheme(theme) {
@@ -226,7 +238,7 @@ class AppContainer extends SuperContainer {
 		this.setState(prevState => {
 			this.api.enableCurrency(coin);
 			const enabledCoins = [...prevState.enabledCoins, coin];
-			config.set('enabledCoins', enabledCoins);
+			setCurrencies(prevState.portfolio.id, enabledCoins);
 			return {enabledCoins};
 		}, () => {
 			this.events.emit('enabled-currencies-changed');
@@ -237,7 +249,7 @@ class AppContainer extends SuperContainer {
 		this.setState(prevState => {
 			this.api.disableCoin(coin);
 			const enabledCoins = prevState.enabledCoins.filter(enabledCoin => enabledCoin !== coin);
-			config.set('enabledCoins', enabledCoins);
+			setCurrencies(prevState.portfolio.id, enabledCoins);
 			return {enabledCoins};
 		}, () => {
 			this.events.emit('enabled-currencies-changed');
