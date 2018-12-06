@@ -127,6 +127,8 @@ export default class Api {
 				new Notification(error);
 			}
 
+			console.log('Enabled Electrum for currency:', symbol);
+
 			return success;
 		}
 
