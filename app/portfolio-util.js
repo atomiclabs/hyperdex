@@ -112,6 +112,10 @@ const getPortfolios = async () => {
 	return portfolios.sort((a, b) => a.fileName.localeCompare(b.fileName));
 };
 
+// This is part of the migration of currencies from app config to portfolio. We run this as early as possible to do the migration before the data is used.
+// TODO: Remove this when the migration is removed.
+getPortfolios();
+
 const decryptSeedPhrase = async (seedPhrase, password) => {
 	try {
 		return await decrypt(seedPhrase, password);
