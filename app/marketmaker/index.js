@@ -81,6 +81,7 @@ class Marketmaker {
 			client: 1,
 			gui: 'hyperdex',
 			userhome: os.homedir(),
+			netid: 9999, // Since Marketmaker v2 is not yet compatible with v1
 			rpcport: port,
 			// We leave out `electrumServers` since it's not needed
 			// and to prevent issues on Windows with too long arguments
