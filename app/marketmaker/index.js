@@ -80,6 +80,7 @@ class Marketmaker {
 			client: 1,
 			gui: 'hyperdex',
 			userhome: os.homedir(),
+			netid: 9999,
 			rpcport: port,
 			rpccors: is.development ? 'http://localhost:8080' : 'app://-',
 			// We leave out `electrumServers` since it's not needed
