@@ -112,6 +112,10 @@ class LoginContainer extends Container {
 	}
 
 	async loadPortfolios() {
+		// We need to do this twice because of the migration of currencies from app config to portfolio.
+		// TODO: Remove this when the migration is removed.
+		await getPortfolios();
+
 		await this.setState({portfolios: await getPortfolios()});
 	}
 
@@ -141,6 +145,8 @@ class LoginContainer extends Container {
 		console.timeEnd('swap-db');
 
 		this.setActiveView('LoggingIn');
+
+		await appContainer.setEnabledCurrencies(portfolio.currencies);
 
 		const api = await createApi(seedPhrase);
 
