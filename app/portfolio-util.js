@@ -84,6 +84,13 @@ const migrateEnabledCurrencies = async id => {
 	});
 };
 
+// TODO: Remove this sometime far in the future when everyone has migrated
+const removeDnrCurrency = async id => {
+	await modifyPortfolio(id, portfolio => {
+		portfolio.currencies = portfolio.currencies.filter(currency => currency !== 'DNR');
+	});
+};
+
 const getPortfolios = async () => {
 	let portfolioFiles;
 	try {
@@ -105,6 +112,8 @@ const getPortfolios = async () => {
 
 		// TODO: Remove this sometime far in the future when everyone has migrated
 		await migrateEnabledCurrencies(portfolio.id);
+
+		await removeDnrCurrency(portfolio.id);
 
 		return portfolio;
 	}));

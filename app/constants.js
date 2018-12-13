@@ -29,7 +29,6 @@ exports.defaultEnabledCurrencies = [
 	'BTC',
 	'CHIPS',
 	'DASH',
-	'DNR',
 	'DOGE',
 	'EQLI',
 	'HUSH',
