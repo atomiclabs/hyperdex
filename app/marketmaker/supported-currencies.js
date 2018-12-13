@@ -71,28 +71,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'ARG',
-		rpcport: 13581,
-		pubtype: 23,
-		p2shtype: 5,
-		wiftype: 151,
-		txfee: 50000,
-		electrumServers: [
-			{
-				host: 'electrum1.cipig.net',
-				port: 10068,
-			},
-			{
-				host: 'electrum2.cipig.net',
-				port: 10068,
-			},
-			{
-				host: 'electrum3.cipig.net',
-				port: 10068,
-			},
-		],
-	},
-	{
 		coin: 'AST',
 		name: 'AirSwap',
 		etomic: '0x27054b13b1B798B345b591a4d22e6562d47eA75a',
@@ -144,16 +122,16 @@ const supportedCurrencies = [
 		txfee: 1000,
 		electrumServers: [
 			{
-				host: 'electrum1.cipig.net',
-				port: 10051,
+				host: 'bch.imaginary.cash',
+				port: 50001,
 			},
 			{
-				host: 'electrum2.cipig.net',
-				port: 10051,
+				host: 'electroncash.dk',
+				port: 50001,
 			},
 			{
-				host: 'electrum3.cipig.net',
-				port: 10051,
+				host: 'wallet.satoshiscoffeehouse.com',
+				port: 50001,
 			},
 		],
 	},
@@ -388,28 +366,6 @@ const supportedCurrencies = [
 				port: 10057,
 			},
 		],
-	},
-	{
-		coin: 'CALL',
-		name: 'Capital',
-		asset: 'CALL',
-		rpcport: 19609,
-		electrumServers: [
-			{
-				host: 'electrum1.mycapitalco.in',
-				port: 10000,
-			},
-			{
-				host: 'electrum2.mycapitalco.in',
-				port: 10000,
-			},
-		],
-	},
-	{
-		coin: 'CALLG',
-		name: 'Capital GAS',
-		etomic: '0x6c28f85eb1dbc7651ce02f7af1f29890ad084b94',
-		rpcport: 80,
 	},
 	{
 		coin: 'CDT',
@@ -704,25 +660,6 @@ const supportedCurrencies = [
 		name: 'Etheroll',
 		etomic: '0x2e071D2966Aa7D8dECB1005885bA1977D6038A65',
 		rpcport: 80,
-	},
-	{
-		coin: 'DNR',
-		isPoS: 1,
-		rpcport: 32339,
-		pubtype: 30,
-		p2shtype: 90,
-		wiftype: 158,
-		txfee: 10000,
-		electrumServers: [
-			{
-				host: '144.202.95.223',
-				port: 50001,
-			},
-			{
-				host: '45.77.137.111',
-				port: 50001,
-			},
-		],
 	},
 	{
 		coin: 'DNT',
@@ -1316,16 +1253,20 @@ const supportedCurrencies = [
 		txfee: 100000,
 		electrumServers: [
 			{
-				host: 'electrum1.cipig.net',
-				port: 10065,
+				host: 'electrum-ltc.bysh.me',
+				port: 50001,
 			},
 			{
-				host: 'electrum2.cipig.net',
-				port: 10065,
+				host: 'electrum-ltc.ddns.net',
+				port: 50001,
 			},
 			{
-				host: 'electrum3.cipig.net',
-				port: 10065,
+				host: 'electrum-ltc.wilv.in',
+				port: 50001,
+			},
+			{
+				host: 'electrum.ltc.xurious.com',
+				port: 50001,
 			},
 		],
 	},
@@ -1340,28 +1281,6 @@ const supportedCurrencies = [
 		name: 'Lightyears',
 		etomic: '0xdd41fbd1ae95c5d9b198174a28e04be6b3d1aa27',
 		rpcport: 80,
-	},
-	{
-		coin: 'MAC',
-		rpcport: 40332,
-		pubtype: 50,
-		p2shtype: 5,
-		wiftype: 178,
-		txfee: 50000,
-		electrumServers: [
-			{
-				host: 'electrum1.cipig.net',
-				port: 10077,
-			},
-			{
-				host: 'electrum2.cipig.net',
-				port: 10077,
-			},
-			{
-				host: 'electrum3.cipig.net',
-				port: 10077,
-			},
-		],
 	},
 	{
 		coin: 'MAN',
@@ -1562,13 +1481,6 @@ const supportedCurrencies = [
 		coin: 'NULS',
 		name: 'Nuls',
 		etomic: '0xb91318f35bdb262e9423bc7c7c2a3a93dd93c92c',
-		rpcport: 80,
-	},
-	{
-		coin: 'OCALL',
-		name: 'OLD Capital',
-		decimals: 18,
-		etomic: '0x2c02c801a3324b371ad285c64af372ff1e23f460',
 		rpcport: 80,
 	},
 	{
@@ -2337,12 +2249,12 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'ZEC',
-		active: 0,
 		rpcport: 8232,
 		taddr: 28,
 		pubtype: 184,
 		p2shtype: 189,
 		wiftype: 128,
+		txversion: 3,
 		txfee: 10000,
 		electrumServers: [
 			{
