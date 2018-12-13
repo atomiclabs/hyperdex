@@ -2,14 +2,16 @@
 const path = require('path');
 const electron = require('electron');
 const {runJS, is, appMenu, openUrlMenuItem, aboutMenuItem} = require('electron-util');
+const ipc = require('electron-better-ipc');
 const i18next = require('i18next');
 const config = require('./config');
 const {openGitHubIssue} = require('./util');
 const {websiteUrl, repoUrl, appViews, supportedLanguagesWithNames} = require('./constants');
 const {isDevelopment, isNightlyBuild} = require('./util-common');
 const {translate} = require('./locale');
+const {portfoliosDirectoryPath, getPortfolioFilePath} = require('./portfolio-util');
 
-const {app, BrowserWindow, shell, clipboard, ipcMain: ipc, Menu} = electron;
+const {app, BrowserWindow, shell, clipboard, Menu} = electron;
 const t = translate('menu');
 
 const sendAction = (action, data) => {
@@ -141,15 +143,22 @@ const createDebugMenu = () => {
 				type: 'separator',
 			},
 			{
-				label: 'Show Portfolios',
-				click() {
-					shell.openItem(path.join(app.getPath('userData'), 'portfolios'));
-				},
-			},
-			{
 				label: 'Show Settings',
 				click() {
 					config.openInEditor();
+				},
+			},
+			{
+				label: 'Show Current Portfolio',
+				async click(menuItem, win) {
+					const id = await ipc.callRenderer(win, 'current-portfolio-id');
+					shell.openItem(getPortfolioFilePath(id));
+				},
+			},
+			{
+				label: 'Show Portfolios',
+				click() {
+					shell.openItem(portfoliosDirectoryPath);
 				},
 			},
 			{
