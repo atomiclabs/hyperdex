@@ -96,8 +96,12 @@ function createMainWindow() {
 		backgroundColor: '#1b232f', // Same as `--background-color`
 		darkTheme: config.get('theme') === 'dark', // GTK+3
 		webPreferences: {
-			webviewTag: false, // Disabled for security reasons since we don't use it
+			contextIsolation: false,
+			nodeIntegration: true,
 			enableBlinkFeatures: 'CSSBackdropFilter',
+
+			// TODO: Remove this when using Electron 5 as it will be the default value
+			webviewTag: false, // Disabled for security reasons since we don't use it
 		},
 	});
 
