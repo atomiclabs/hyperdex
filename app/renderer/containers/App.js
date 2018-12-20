@@ -258,7 +258,7 @@ class AppContainer extends SuperContainer {
 
 	async logOut(options = {}) {
 		await this.stopMarketmaker();
-		config.set('windowState', remote.getCurrentWindow().getBounds());
+		config.set('windowState', remote.getCurrentWindow().getNormalBounds());
 		this.setActiveView('');
 		this.setState({portfolio: null});
 		await Promise.resolve(); // Ensure the window is blank before changing the size

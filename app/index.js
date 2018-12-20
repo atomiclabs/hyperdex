@@ -163,7 +163,7 @@ app.on('window-all-closed', () => {
 
 app.on('before-quit', () => {
 	if (rendererState.isLoggedIn) {
-		config.set('windowState', mainWindow.getBounds());
+		config.set('windowState', mainWindow.getNormalBounds());
 	}
 });
 
