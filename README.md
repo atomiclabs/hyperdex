@@ -73,7 +73,7 @@ We are planning to add an option to specify the number of confirmations your are
 
 ## Install
 
-*macOS 10.9+, Linux, and Windows 7+ are supported (64-bit only).*
+*macOS 10.10+, Linux, and Windows 7+ are supported (64-bit only).*
 
 ### macOS
 
