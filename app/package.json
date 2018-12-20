@@ -27,7 +27,7 @@
 		"electron-updater": "^3.2.2",
 		"electron-util": "^0.10.2",
 		"get-port": "^4.0.0",
-		"i18next": "^12.0.0",
+		"i18next": "^13.0.0",
 		"i18next-sync-fs-backend": "^1.1.0",
 		"iocane": "^1.0.2",
 		"load-json-file": "^5.1.0",
