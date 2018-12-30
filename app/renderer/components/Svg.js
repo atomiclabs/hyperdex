@@ -33,16 +33,20 @@ const Svg = ({
 );
 
 Svg.propTypes = {
-	activeFill: PropTypes.string,
-	children: PropTypes.node,
+	children: PropTypes.node.isRequired,
+	size: PropTypes.string,
 	fill: PropTypes.string,
 	hoverFill: PropTypes.string,
+	activeFill: PropTypes.string,
 	onClick: PropTypes.func,
-	size: PropTypes.string,
 };
 
 Svg.defaultProps = {
+	size: undefined,
 	fill: 'currentColor',
+	hoverFill: undefined,
+	activeFill: undefined,
+	onClick: undefined,
 };
 
 export default Svg;

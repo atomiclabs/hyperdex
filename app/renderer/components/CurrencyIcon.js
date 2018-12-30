@@ -38,8 +38,12 @@ const CurrencyIcon = ({symbol, size, ...props}) => {
 };
 
 CurrencyIcon.propTypes = {
-	symbol: PropTypes.string,
+	symbol: PropTypes.string.isRequired,
 	size: PropTypes.string,
+};
+
+CurrencyIcon.defaultProps = {
+	size: undefined,
 };
 
 export default CurrencyIcon;

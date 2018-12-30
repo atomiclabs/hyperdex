@@ -15,13 +15,14 @@ Select.propTypes = {
 	]),
 };
 
-// Rule disabled because of https://github.com/yannickcr/eslint-plugin-react/issues/1674
-/* eslint-disable react/default-props-match-prop-types */
 Select.defaultProps = {
+	// Rule disabled because of https://github.com/yannickcr/eslint-plugin-react/issues/1674
+	/* eslint-disable react/default-props-match-prop-types */
 	clearable: false,
 	searchable: false,
+	/* eslint-enable react/default-props-match-prop-types */
+	forwardedRef: undefined,
 };
-/* eslint-enable react/default-props-match-prop-types */
 
 export default React.forwardRef((props, ref) => (
 	<Select {...props} forwardedRef={ref}/>

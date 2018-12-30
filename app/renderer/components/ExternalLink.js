@@ -8,7 +8,7 @@ const {openExternal} = electron.shell;
 const ExternalLink = ({url, ...props}) => <Link {...props} onClick={() => openExternal(url)}/>;
 
 ExternalLink.propTypes = {
-	url: PropTypes.string,
+	url: PropTypes.string.isRequired,
 };
 
 export default ExternalLink;

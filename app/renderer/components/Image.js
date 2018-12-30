@@ -18,8 +18,12 @@ const Image = ({url, fallbackUrl, ...props}) => (
 );
 
 Image.propTypes = {
+	url: PropTypes.string.isRequired,
 	fallbackUrl: PropTypes.string,
-	url: PropTypes.string,
+};
+
+Image.defaultProps = {
+	fallbackUrl: undefined,
 };
 
 export default Image;

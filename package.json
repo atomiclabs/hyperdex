@@ -136,7 +136,6 @@
 			],
 			"unicorn/filename-case": "off",
 			"import/exports-last": "error",
-			"react/require-default-props": "off",
 			"react/jsx-sort-props": "off"
 		}
 	},

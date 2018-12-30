@@ -4,17 +4,14 @@ import PropTypes from 'prop-types';
 import CopyIcon from 'icons/Copy';
 import './CopyButton.scss';
 
-const CopyButton = ({className, onClick, value, ...props}) => {
+const CopyButton = ({value, className, onClick, ...props}) => {
 	return (
 		<button
 			{...props}
 			type="button"
 			className={`${className} CopyButton`}
 			onClick={event => {
-				if (typeof onClick === 'function') {
-					onClick(event);
-				}
-
+				onClick(event);
 				clipboard.writeText(value);
 			}}
 		>
@@ -24,9 +21,14 @@ const CopyButton = ({className, onClick, value, ...props}) => {
 };
 
 CopyButton.propTypes = {
+	value: PropTypes.string.isRequired,
 	className: PropTypes.string,
 	onClick: PropTypes.func,
-	value: PropTypes.string.isRequired,
+};
+
+CopyButton.defaultProps = {
+	className: '',
+	onClick: () => {},
 };
 
 export default CopyButton;

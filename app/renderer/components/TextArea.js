@@ -5,19 +5,30 @@ import './TextArea.scss';
 
 class TextArea extends React.Component {
 	static propTypes = {
-		className: PropTypes.string,
-		disabled: PropTypes.bool,
-		errorMessage: PropTypes.string,
 		forwardedRef: PropTypes.oneOfType([
 			PropTypes.func,
 			PropTypes.object,
 		]),
+		value: PropTypes.string.isRequired,
+		className: PropTypes.string,
+		disabled: PropTypes.bool,
 		level: PropTypes.string,
 		message: PropTypes.string,
-		onChange: PropTypes.func,
+		errorMessage: PropTypes.string,
 		preventNewlines: PropTypes.bool,
-		value: PropTypes.string,
+		onChange: PropTypes.func,
 	}
+
+	static defaultProps = {
+		forwardedRef: undefined,
+		className: '',
+		disabled: false,
+		level: undefined,
+		message: undefined,
+		errorMessage: undefined,
+		preventNewlines: false,
+		onChange: undefined,
+	};
 
 	static getDerivedStateFromProps(props, state) {
 		return props.value === state.prevValue ? null : {
@@ -31,7 +42,7 @@ class TextArea extends React.Component {
 	};
 
 	handleChange = event => {
-		const {onChange, preventNewlines} = this.props;
+		const {preventNewlines, onChange} = this.props;
 		const {target} = event;
 		let {value} = target;
 

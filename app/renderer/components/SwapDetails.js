@@ -49,6 +49,12 @@ class SwapDetails extends React.Component {
 		didClose: PropTypes.func,
 	}
 
+	static defaultProps = {
+		swapId: undefined,
+		open: false,
+		didClose: undefined,
+	};
+
 	state = {
 		showAdvanced: config.get('swapModalShowAdvanced'),
 	};

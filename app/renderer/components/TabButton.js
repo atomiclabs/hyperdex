@@ -3,24 +3,28 @@ import PropTypes from 'prop-types';
 import {classNames} from 'react-extras';
 import './TabButton.scss';
 
-const TabButton = ({onClick, children, isActive, className, ...props}) => (
+const TabButton = ({children, className, isActive, onClick, ...props}) => (
 	<span
 		{...props}
 		role="button"
-		onClick={onClick}
 		className={
 			classNames('TabButton', {active: isActive}, className)
 		}
+		onClick={onClick}
 	>
 		{children}
 	</span>
 );
 
 TabButton.propTypes = {
+	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
-	isActive: PropTypes.bool,
-	children: PropTypes.node,
-	onClick: PropTypes.func,
+	isActive: PropTypes.bool.isRequired,
+	onClick: PropTypes.func.isRequired,
+};
+
+TabButton.defaultProps = {
+	className: '',
 };
 
 export default TabButton;

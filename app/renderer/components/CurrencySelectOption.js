@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import CurrencyIcon from './CurrencyIcon';
 import SelectOption from './SelectOption';
 
@@ -10,11 +9,6 @@ const CurrencySelectOption = option => (
 	/>
 );
 
-CurrencySelectOption.propTypes = {
-	option: PropTypes.shape({
-		label: PropTypes.string,
-		value: PropTypes.string,
-	}),
-};
+CurrencySelectOption.propTypes = SelectOption.propTypes;
 
 export default CurrencySelectOption;

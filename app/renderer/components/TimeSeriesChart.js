@@ -46,9 +46,18 @@ const getTicks = resolution => {
 
 class TimeSeriesChart extends React.Component {
 	static propTypes = {
-		data: PropTypes.array,
-		resolution: PropTypes.string,
+		data: PropTypes.arrayOf(
+			PropTypes.shape({
+				time: PropTypes.number.isRequired,
+				value: PropTypes.number.isRequired,
+			}).isRequired
+		),
+		resolution: PropTypes.string.isRequired,
 	}
+
+	static defaultProps = {
+		data: [],
+	};
 
 	shouldComponentUpdate(nextProps) {
 		return !_.isEqual(nextProps, this.props);

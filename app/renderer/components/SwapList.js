@@ -256,14 +256,17 @@ class SwapList extends React.Component {
 }
 
 SwapList.propTypes = {
+	swaps: PropTypes.arrayOf(PropTypes.object).isRequired,
 	showCancel: PropTypes.bool,
 	sortBy: PropTypes.arrayOf(PropTypes.string),
 	sortDirection: PropTypes.symbol,
-	swaps: PropTypes.arrayOf(PropTypes.object),
 };
 
 SwapList.defaultProps = {
-	sortBy: ['timeStarted'],
+	showCancel: false,
+	sortBy: [
+		'timeStarted',
+	],
 	sortDirection: SortDirections.DESC,
 };
 

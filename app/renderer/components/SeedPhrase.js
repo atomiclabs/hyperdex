@@ -11,14 +11,16 @@ const t = translate(['common']);
 
 class SeedPhrase extends React.Component {
 	static propTypes = {
-		onReload: PropTypes.func,
+		value: PropTypes.string.isRequired,
 		showCopy: PropTypes.bool,
 		showReload: PropTypes.bool,
-		value: PropTypes.string,
+		onReload: PropTypes.func,
 	}
 
 	static defaultProps = {
 		showCopy: true,
+		showReload: false,
+		onReload: () => {},
 	}
 
 	state = {
@@ -35,16 +37,12 @@ class SeedPhrase extends React.Component {
 
 	handleReload = event => {
 		const {onReload} = this.props;
-
 		this.setState({isCopied: false});
-
-		if (typeof onReload === 'function') {
-			onReload(event);
-		}
+		onReload(event);
 	}
 
 	render() {
-		const {showCopy, showReload, value} = this.props;
+		const {value, showCopy, showReload} = this.props;
 		const {isCopied} = this.state;
 
 		return (
