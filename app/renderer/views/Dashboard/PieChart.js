@@ -18,6 +18,8 @@ const CustomTooltip = ({payload}) => {
 	);
 };
 
+CustomTooltip.propTypes = Tooltip.propTypes;
+
 const PieChart = () => {
 	const {state: appState} = appContainer;
 	const {currencies} = appState;

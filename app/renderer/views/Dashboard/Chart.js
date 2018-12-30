@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {classNames} from 'react-extras';
 import TimeSeriesChart from 'components/TimeSeriesChart';
 import dashboardContainer from 'containers/Dashboard';
@@ -25,6 +26,11 @@ const ResolutionButton = props => {
 			{props.title}
 		</button>
 	);
+};
+
+ResolutionButton.propTypes = {
+	resolution: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
 };
 
 const Chart = () => {

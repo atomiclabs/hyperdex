@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Subscribe} from 'unstated';
 import {withState} from 'containers/SuperContainer';
 import appContainer from 'containers/App';
@@ -18,6 +19,10 @@ const t = translate('trades');
 const TabView = ({component}) => (
 	<View component={component} activeView={tradesContainer.state.activeView}/>
 );
+
+TabView.propTypes = {
+	component: PropTypes.func.isRequired,
+};
 
 const OpenOrders = () => {
 	const {state} = appContainer;
@@ -80,6 +85,10 @@ const Trades = props => (
 		}}
 	</Subscribe>
 );
+
+Trades.propTypes = {
+	state: PropTypes.object.isRequired,
+};
 
 export default withState(Trades, {}, {
 	async componentDidMount() {
