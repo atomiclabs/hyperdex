@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import roundTo from 'round-to';
 import _ from 'lodash';
 import SuperComponent from 'components/SuperComponent';
@@ -16,6 +17,11 @@ import './Order.scss';
 const t = translate('exchange');
 
 class Top extends React.Component {
+	static propTypes = {
+		type: PropTypes.string.isRequired,
+		getSelectedCurrency: PropTypes.func.isRequired,
+	};
+
 	handleSelectChange = selectedOption => {
 		if (this.props.type === 'buy') {
 			exchangeContainer.setBaseCurrency(selectedOption.value);
@@ -101,7 +107,24 @@ const Center = props => {
 	);
 };
 
+Center.propTypes = {
+	type: PropTypes.string.isRequired,
+	handlePriceChange: PropTypes.func.isRequired,
+	getOrderBook: PropTypes.func.isRequired,
+};
+
 class Bottom extends React.Component {
+	static propTypes = {
+		type: PropTypes.string.isRequired,
+		getOrderBook: PropTypes.func.isRequired,
+		handlePriceChange: PropTypes.func.isRequired,
+		handleTotalChange: PropTypes.func.isRequired,
+		handleAmountChange: PropTypes.func.isRequired,
+		price: PropTypes.string.isRequired,
+		amount: PropTypes.string.isRequired,
+		total: PropTypes.string.isRequired,
+	};
+
 	state = {
 		hasError: false,
 	};

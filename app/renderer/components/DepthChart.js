@@ -29,6 +29,8 @@ const CustomTooltipContent = ({payload}) => {
 	);
 };
 
+CustomTooltipContent.propTypes = Tooltip.propTypes;
+
 const DepthChart = props => {
 	let {bids, asks} = props;
 

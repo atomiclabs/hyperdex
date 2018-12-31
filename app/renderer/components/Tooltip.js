@@ -8,21 +8,22 @@ import './Tooltip.scss';
 
 class Tooltip extends React.PureComponent {
 	static propTypes = {
+		children: PropTypes.node.isRequired,
+		content: PropTypes.node.isRequired,
 		animationDuration: PropTypes.number,
-		children: PropTypes.node,
-		content: PropTypes.node,
 		margin: PropTypes.oneOfType([
 			PropTypes.number,
 			PropTypes.string,
 		]),
-		onClose: PropTypes.func,
 		position: PropTypes.oneOf(placements),
+		onClose: PropTypes.func,
 	}
 
 	static defaultProps = {
 		animationDuration: 300,
 		margin: 0,
 		position: 'top',
+		onClose: undefined,
 	}
 
 	state = {
@@ -38,7 +39,15 @@ class Tooltip extends React.PureComponent {
 	}
 
 	render() {
-		const {animationDuration, children, content, margin, onClose, position} = this.props;
+		const {
+			children,
+			content,
+			animationDuration,
+			margin,
+			position,
+			onClose,
+		} = this.props;
+
 		const {isOpen} = this.state;
 
 		if (typeof this.updatePopper === 'function') {

@@ -13,10 +13,6 @@ const SelectOption = ({
 	imageRenderer,
 	...props
 }) => {
-	if (typeof label !== 'string') {
-		throw new TypeError('Prop `label` is required');
-	}
-
 	const hasImage = Boolean(image || imageRenderer);
 
 	const containerClassName = classNames(
@@ -52,11 +48,19 @@ const SelectOption = ({
 
 SelectOption.propTypes = {
 	className: PropTypes.string,
-	fallbackImage: PropTypes.string,
-	image: PropTypes.string,
-	imageRenderer: PropTypes.func,
-	label: PropTypes.string,
+	label: PropTypes.string.isRequired,
 	value: PropTypes.string,
+	image: PropTypes.string,
+	fallbackImage: PropTypes.string,
+	imageRenderer: PropTypes.func,
+};
+
+SelectOption.defaultProps = {
+	className: '',
+	value: '',
+	image: undefined,
+	fallbackImage: undefined,
+	imageRenderer: undefined,
 };
 
 export default SelectOption;

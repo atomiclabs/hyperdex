@@ -13,4 +13,8 @@ BackButton.propTypes = {
 	className: PropTypes.string,
 };
 
+BackButton.defaultProps = {
+	className: '',
+};
+
 export default BackButton;

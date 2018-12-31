@@ -13,4 +13,8 @@ PlusButton.propTypes = {
 	className: PropTypes.string,
 };
 
+PlusButton.defaultProps = {
+	className: '',
+};
+
 export default PlusButton;

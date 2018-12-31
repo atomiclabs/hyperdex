@@ -4,7 +4,7 @@ import propTypesRange from 'prop-types-range';
 import {classNames} from 'react-extras';
 import './Progress.scss';
 
-const Progress = ({value, color, showLabel, hideWhenZero, ...props}) => {
+const Progress = ({value, color, hideWhenZero, showLabel, ...props}) => {
 	const className = classNames('Progress', props.className);
 	const percentage = Math.round(value * 100);
 	const percentageFormatted = `${percentage}%`;
@@ -25,11 +25,19 @@ const Progress = ({value, color, showLabel, hideWhenZero, ...props}) => {
 };
 
 Progress.propTypes = {
+	value: propTypesRange(0, 1),
 	className: PropTypes.string,
 	color: PropTypes.string,
 	hideWhenZero: PropTypes.bool,
 	showLabel: PropTypes.bool,
-	value: propTypesRange(0, 1),
+};
+
+Progress.defaultProps = {
+	value: 0,
+	className: '',
+	color: '',
+	hideWhenZero: false,
+	showLabel: false,
 };
 
 export default Progress;

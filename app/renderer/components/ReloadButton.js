@@ -13,4 +13,8 @@ ReloadButton.propTypes = {
 	className: PropTypes.string,
 };
 
+ReloadButton.defaultProps = {
+	className: '',
+};
+
 export default ReloadButton;

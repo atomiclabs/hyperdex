@@ -18,13 +18,18 @@ const WrappedInput = React.forwardRef((props, ref) => {
 
 class DateInput extends React.Component {
 	static propTypes = {
-		autoCorrect: PropTypes.bool,
 		forwardedRef: PropTypes.oneOfType([
 			PropTypes.func,
 			PropTypes.object,
 		]),
-		onDayChange: PropTypes.func,
+		autoCorrect: PropTypes.bool,
+		onDayChange: PropTypes.func.isRequired,
 	}
+
+	static defaultProps = {
+		forwardedRef: undefined,
+		autoCorrect: false,
+	};
 
 	constructor(props) {
 		super(props);

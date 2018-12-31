@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Empty.scss';
 
-const Empty = ({show, text}) => {
+const Empty = ({text, show}) => {
 	if (!show) {
 		return null;
 	}
@@ -15,8 +15,12 @@ const Empty = ({show, text}) => {
 };
 
 Empty.propTypes = {
+	text: PropTypes.string.isRequired,
 	show: PropTypes.bool,
-	text: PropTypes.string,
+};
+
+Empty.defaultProps = {
+	show: false,
 };
 
 export default Empty;

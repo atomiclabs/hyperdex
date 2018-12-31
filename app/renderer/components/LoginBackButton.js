@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import loginContainer from 'containers/Login';
 import BackButton from './BackButton';
 import './LoginBackButton.scss';
@@ -9,5 +10,15 @@ const LoginBackButton = props => (
 		loginContainer.setProgress(props.progress);
 	}}/>
 );
+
+LoginBackButton.propTypes = {
+	className: PropTypes.string,
+	view: PropTypes.string.isRequired,
+	progress: PropTypes.number.isRequired,
+};
+
+LoginBackButton.defaultProps = {
+	className: '',
+};
 
 export default LoginBackButton;

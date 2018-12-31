@@ -8,13 +8,20 @@ const Select = ({searchable, clearable, forwardedRef, ...props}) => {
 };
 
 Select.propTypes = {
-	clearable: PropTypes.bool,
-	searchable: PropTypes.bool,
+	...ReactSelect.propTypes,
+	forwardedRef: PropTypes.oneOfType([
+		PropTypes.func,
+		PropTypes.object,
+	]),
 };
 
 Select.defaultProps = {
+	// Rule disabled because of https://github.com/yannickcr/eslint-plugin-react/issues/1674
+	/* eslint-disable react/default-props-match-prop-types */
 	clearable: false,
 	searchable: false,
+	/* eslint-enable react/default-props-match-prop-types */
+	forwardedRef: undefined,
 };
 
 export default React.forwardRef((props, ref) => (

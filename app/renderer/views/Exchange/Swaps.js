@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import appContainer from 'containers/App';
 import exchangeContainer from 'containers/Exchange';
 import tradesContainer from 'containers/Trades';
@@ -16,6 +17,10 @@ const getOpenOrders = () => appContainer.state.swapHistory.filter(swap => swap.i
 const TabView = ({component}) => (
 	<View component={component} activeView={exchangeContainer.state.activeSwapsView}/>
 );
+
+TabView.propTypes = {
+	component: PropTypes.func.isRequired,
+};
 
 const OpenOrders = () => {
 	const openOrders = getOpenOrders();

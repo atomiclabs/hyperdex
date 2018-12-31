@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import dashboardContainer from 'containers/Dashboard';
 import TabButton from 'components/TabButton';
 import View from 'components/View';
@@ -12,6 +13,11 @@ const t = translate('dashboard');
 const TabView = ({component, activeView}) => (
 	<View component={component} activeView={activeView}/>
 );
+
+TabView.propTypes = {
+	component: PropTypes.func.isRequired,
+	activeView: PropTypes.string.isRequired,
+};
 
 class Wallet extends React.Component {
 	state = {

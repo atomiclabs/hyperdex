@@ -20,6 +20,10 @@ const SortDirections = {
 
 // eslint-disable-next-line no-unused-vars
 class CancelButton extends React.Component {
+	static propTypes = {
+		swap: PropTypes.object.isRequired,
+	};
+
 	cancelSwap = async swapUuid => {
 		await tradesContainer.setIsSwapCancelling(swapUuid, true);
 		this.forceUpdate();
@@ -64,6 +68,14 @@ const SwapHeaderColumn = ({children, onClick, sortBy, sortDirection, sortKeys, .
 	);
 };
 
+SwapHeaderColumn.propTypes = {
+	children: PropTypes.node.isRequired,
+	onClick: PropTypes.func.isRequired,
+	sortBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+	sortDirection: PropTypes.symbol.isRequired,
+	sortKeys: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
 const SwapHeader = props => (
 	<div className="row header">
 		<SwapHeaderColumn {...props} className="timestamp" sortKeys={['timeStarted']}>
@@ -103,7 +115,24 @@ const SwapItem = ({style, swap, showCancel, openSwap}) => (
 	</div>
 );
 
+SwapItem.propTypes = {
+	style: PropTypes.object.isRequired,
+	swap: PropTypes.object.isRequired,
+	showCancel: PropTypes.bool.isRequired,
+	openSwap: PropTypes.func.isRequired,
+};
+
 class SwapList extends React.Component {
+	static propTypes = {
+		showHeader: PropTypes.bool,
+		limit: PropTypes.number,
+	};
+
+	static defaultProps = {
+		showHeader: false,
+		limit: undefined,
+	};
+
 	state = {
 		sortBy: this.props.sortBy,
 		sortDirection: this.props.sortDirection,
@@ -227,14 +256,17 @@ class SwapList extends React.Component {
 }
 
 SwapList.propTypes = {
+	swaps: PropTypes.arrayOf(PropTypes.object).isRequired,
 	showCancel: PropTypes.bool,
 	sortBy: PropTypes.arrayOf(PropTypes.string),
 	sortDirection: PropTypes.symbol,
-	swaps: PropTypes.arrayOf(PropTypes.object),
 };
 
 SwapList.defaultProps = {
-	sortBy: ['timeStarted'],
+	showCancel: false,
+	sortBy: [
+		'timeStarted',
+	],
 	sortDirection: SortDirections.DESC,
 };
 

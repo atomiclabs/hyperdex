@@ -20,10 +20,14 @@ function getTextWidth(text, options) {
 
 class WrapWidth extends React.Component {
 	static propTypes = {
-		children: PropTypes.node,
+		children: PropTypes.node.isRequired,
 		className: PropTypes.string,
-		wordsPerLine: PropTypes.number,
+		wordsPerLine: PropTypes.number.isRequired,
 	}
+
+	static defaultProps = {
+		className: '',
+	};
 
 	state = {};
 

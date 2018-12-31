@@ -5,17 +5,25 @@ import './Checkbox.scss';
 
 class Checkbox extends React.Component {
 	static propTypes = {
-		className: PropTypes.string,
-		checked: PropTypes.bool,
-		disabled: PropTypes.bool,
 		forwardedRef: PropTypes.oneOfType([
 			PropTypes.func,
 			PropTypes.object,
 		]),
-		label: PropTypes.string,
+		label: PropTypes.string.isRequired,
+		value: PropTypes.string.isRequired,
+		className: PropTypes.string,
+		checked: PropTypes.bool,
+		disabled: PropTypes.bool,
 		onChange: PropTypes.func,
-		value: PropTypes.string,
 	}
+
+	static defaultProps = {
+		forwardedRef: undefined,
+		className: '',
+		checked: false,
+		disabled: false,
+		onChange: () => {},
+	};
 
 	state = {
 		checked: Boolean(this.props.checked),
@@ -23,13 +31,13 @@ class Checkbox extends React.Component {
 
 	render() {
 		const {
+			forwardedRef,
+			label,
+			value,
 			className,
 			checked,
 			disabled,
-			label,
-			value,
 			onChange,
-			forwardedRef,
 			...props
 		} = this.props;
 
@@ -55,11 +63,7 @@ class Checkbox extends React.Component {
 						onChange={event => {
 							this.setState(prevState => {
 								const checked = !prevState.checked;
-
-								if (onChange) {
-									onChange(checked, event);
-								}
-
+								onChange(checked, event);
 								return {checked};
 							});
 						}}

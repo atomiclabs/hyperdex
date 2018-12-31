@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {format as formatDate} from 'date-fns';
 import appContainer from 'containers/App';
 import dashboardContainer from 'containers/Dashboard';
@@ -55,6 +56,10 @@ const ActivityItem = ({swap}) => {
 	);
 };
 
+ActivityItem.propTypes = {
+	swap: PropTypes.object.isRequired,
+};
+
 const ActivityList = ({items}) => {
 	if (items.length === 0) {
 		return <Empty show text={t('activity.noActivity')}/>;
@@ -75,6 +80,10 @@ const ActivityList = ({items}) => {
 			</table>
 		</div>
 	);
+};
+
+ActivityList.propTypes = {
+	items: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const Activity = () => {

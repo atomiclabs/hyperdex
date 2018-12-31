@@ -22,9 +22,15 @@ const Button = ({primary, fullwidth, color, ...props}) => {
 };
 
 Button.propTypes = {
-	color: PropTypes.string,
-	fullwidth: PropTypes.bool,
 	primary: PropTypes.bool,
+	fullwidth: PropTypes.bool,
+	color: PropTypes.string,
+};
+
+Button.defaultProps = {
+	primary: false,
+	fullwidth: false,
+	color: undefined,
 };
 
 export default Button;

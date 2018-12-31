@@ -5,33 +5,39 @@ import './Modal.scss';
 
 class Modal extends React.Component {
 	static propTypes = {
-		animation: PropTypes.string,
-		animationDuration: PropTypes.number,
 		children: PropTypes.oneOfType([
 			PropTypes.func,
 			PropTypes.node,
-		]),
-		className: PropTypes.string,
-		closeOnEsc: PropTypes.bool,
-		closeOnMaskClick: PropTypes.bool,
-		delay: PropTypes.number,
-		didClose: PropTypes.func,
+		]).isRequired,
+		title: PropTypes.node.isRequired,
 		icon: PropTypes.string,
-		onClose: PropTypes.func,
 		open: PropTypes.bool,
-		title: PropTypes.node,
+		delay: PropTypes.number,
 		width: PropTypes.oneOfType([
 			PropTypes.number,
 			PropTypes.string,
 		]),
+		className: PropTypes.string,
+		animation: PropTypes.string,
+		animationDuration: PropTypes.number,
+		closeOnEsc: PropTypes.bool,
+		closeOnMaskClick: PropTypes.bool,
+		onClose: PropTypes.func,
+		didClose: PropTypes.func,
 	};
 
 	static defaultProps = {
+		icon: undefined,
+		open: false,
+		delay: 400,
+		width: undefined,
+		className: '',
 		animation: 'slide-up', // `fade`, `slide-up`, `slide-down`, `zoom`
 		animationDuration: 300,
 		closeOnEsc: true,
 		closeOnMaskClick: true,
-		delay: 400,
+		onClose: () => {},
+		didClose: () => {},
 	};
 
 	static getDerivedStateFromProps(props, state) {
@@ -43,7 +49,7 @@ class Modal extends React.Component {
 			return null;
 		}
 
-		if (isClosing && props.onClose) {
+		if (isClosing) {
 			props.onClose();
 		}
 
@@ -61,10 +67,7 @@ class Modal extends React.Component {
 	elementRef = React.createRef();
 
 	closeHandler = () => {
-		if (this.props.onClose) {
-			this.props.onClose();
-		}
-
+		this.props.onClose();
 		this.setState({animationType: 'close'});
 	};
 
@@ -84,11 +87,7 @@ class Modal extends React.Component {
 
 		if (this.state.animationType === 'close') {
 			await this.setState({isOpen: false});
-
-			const {didClose} = this.props;
-			if (didClose) {
-				didClose();
-			}
+			this.props.didClose();
 		} else {
 			if (this.props.closeOnEsc) {
 				element.focus();

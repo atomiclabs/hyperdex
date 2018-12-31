@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import appContainer from 'containers/App';
 import DashboardIcon from 'icons/Dashboard';
 /// import SwapIcon from 'icons/Swap';
@@ -22,6 +23,11 @@ const IconNavItem = ({icon: Icon, ...props}) => {
 			</span>
 		</div>
 	);
+};
+
+IconNavItem.propTypes = {
+	icon: PropTypes.func.isRequired,
+	to: PropTypes.string.isRequired,
 };
 
 const Nav = () => (
