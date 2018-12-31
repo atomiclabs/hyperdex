@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {classNames} from 'react-extras';
-import Image from './Image';
+import {classNames, Image} from 'react-extras';
 import './SelectOption.scss';
 
 const SelectOption = ({

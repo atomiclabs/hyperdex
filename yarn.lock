@@ -1395,11 +1395,6 @@ atob@^2.0.0:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.1.tgz#ae2d5a729477f289d60dd7f96a6314a22dd6c22a"
   integrity sha1-ri1acpR38onWDdf5amMUoi3Wwio=
 
-auto-bind@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/auto-bind/-/auto-bind-1.2.0.tgz#8b7e318aad53d43ba8a8ecaf0066d85d5f798cd6"
-  integrity sha512-Zw7pZp7tztvKnWWtoII4AmqH5a2PV3ZN5F0BPRTGcc1kpRm4b6QXQnPU7Znbl6BfPfqOVOV29g4JeMqZQaqqOA==
-
 autoprefixer@^9.0.0:
   version "9.0.2"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-9.0.2.tgz#c41947aa155038b3614414dbc58b4e70908af6e0"
@@ -9048,13 +9043,12 @@ react-dom@^16.7.0:
     prop-types "^15.6.2"
     scheduler "^0.12.0"
 
-react-extras@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/react-extras/-/react-extras-0.7.1.tgz#e41850a1fbd7ecd30a02c74a386a3ceee6a31815"
-  integrity sha512-GW9qJjrZo5iTbcH6Dg1S6v4BJWhiShCd0IeNXrPTnkfMttLFK8JAO6eWrS2LCJu6w9tyB4iQpPEyi44SyAlCAA==
+react-extras@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/react-extras/-/react-extras-0.9.0.tgz#2f8199c05504ff7d5fa8e19cba62029eba554a28"
+  integrity sha512-Vpv4Oo5k2nW6qLfTB3ITVgWEx4lWN66tk64kdnLFppL78yYTP5yAnYw1FEdjC5aFXtv2XVoXxJh6H6PW7pczqQ==
   dependencies:
-    auto-bind "^1.2.0"
-    prop-types "^15.6.0"
+    prop-types "^15.6.2"
 
 react-hot-loader@^4.6.3:
   version "4.6.3"

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Image from './Image';
+import {Image} from 'react-extras';
 
 // TODO: Read this list from disk instead. Not a priority though.
 const hasCustomIcon = new Set([
