@@ -89,6 +89,11 @@ const removeDnrCurrency = async id => {
 		portfolio.currencies = portfolio.currencies.filter(currency => currency !== 'DNR');
 	});
 };
+const removeBcbcCurrency = async id => {
+	await modifyPortfolio(id, portfolio => {
+		portfolio.currencies = portfolio.currencies.filter(currency => currency !== 'BCBC');
+	});
+};
 
 const getPortfolios = async () => {
 	let portfolioFiles;
@@ -113,6 +118,7 @@ const getPortfolios = async () => {
 		await migrateEnabledCurrencies(portfolio.id);
 
 		await removeDnrCurrency(portfolio.id);
+		await removeBcbcCurrency(portfolio.id);
 
 		return portfolio;
 	}));
