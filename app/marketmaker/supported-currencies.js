@@ -95,25 +95,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'BCBC',
-		name: 'Bitcoin@CBC',
-		rpcport: 8340,
-		pubtype: 0,
-		p2shtype: 5,
-		wiftype: 128,
-		txfee: 10000,
-		electrumServers: [
-			{
-				host: 'bsmn0.cleanblockchain.io',
-				port: 50001,
-			},
-			{
-				host: 'bsmn1.cleanblockchain.org',
-				port: 50001,
-			},
-		],
-	},
-	{
 		coin: 'BCH',
 		rpcport: 33333,
 		pubtype: 0,
@@ -130,8 +111,12 @@ const supportedCurrencies = [
 				port: 50001,
 			},
 			{
-				host: 'wallet.satoshiscoffeehouse.com',
+				host: 'electrum.imaginary.cash',
 				port: 50001,
+			},
+			{
+				host: 'abc1.hsmiths.com',
+				port: 60001,
 			},
 		],
 	},
@@ -445,6 +430,7 @@ const supportedCurrencies = [
 		name: 'CoinCollect',
 		asset: 'CCL',
 		rpcport: 20849,
+		txversion: 4,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -1257,8 +1243,8 @@ const supportedCurrencies = [
 				port: 50001,
 			},
 			{
-				host: 'electrum-ltc.ddns.net',
-				port: 50001,
+				host: 'ltc01.knas.systems',
+				port: 50003,
 			},
 			{
 				host: 'electrum-ltc.wilv.in',
@@ -1707,19 +1693,19 @@ const supportedCurrencies = [
 		txfee: 400000,
 		electrumServers: [
 			{
-				host: 's1.qtum.info',
-				port: 50001,
-			},
-			{
-				host: 's2.qtum.info',
-				port: 50001,
-			},
-			{
-				host: 's3.qtum.info',
-				port: 50001,
-			},
-			{
 				host: 's4.qtum.info',
+				port: 50001,
+			},
+			{
+				host: 's5.qtum.info',
+				port: 50001,
+			},
+			{
+				host: 's7.qtum.info',
+				port: 50001,
+			},
+			{
+				host: 's8.qtum.info',
 				port: 50001,
 			},
 		],
@@ -2066,6 +2052,7 @@ const supportedCurrencies = [
 		name: 'VerusCoin',
 		asset: 'VRSC',
 		rpcport: 27486,
+		txversion: 4,
 		electrumServers: [
 			{
 				host: 'el0.vrsc.0x03.services',
@@ -2254,7 +2241,7 @@ const supportedCurrencies = [
 		pubtype: 184,
 		p2shtype: 189,
 		wiftype: 128,
-		txversion: 3,
+		txversion: 4,
 		txfee: 10000,
 		electrumServers: [
 			{

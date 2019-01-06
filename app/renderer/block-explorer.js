@@ -11,7 +11,6 @@ const explorers = new Map(Object.entries({
 	AXE: 'http://207.246.65.114:3001/tx/{txid}',
 	AXO: 'https://axo.kmdexplorer.io/tx/{txid}',
 	BAY: 'https://chainz.cryptoid.info/bay/tx.dws?{txid}',
-	BCBC: 'http://be.cleanblockchain.org/tx/{txid}',
 	BCH: 'https://blockchair.com/bitcoin-cash/transaction/{txid}',
 	BCO: 'https://explorer.bridgecoin.org/tx/{txid}',
 	BDL: 'https://explorer.bitdeal.co.in/tx/{txid}',

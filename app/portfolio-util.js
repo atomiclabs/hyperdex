@@ -26,6 +26,12 @@ class IncorrectPasswordError extends Error {
 	}
 }
 
+// Currencies that are removed from the app and should be removed from the user's portfolio
+const removedCurrencies = [
+	'DNR',
+	'BCBC',
+];
+
 const createPortfolio = async ({name, seedPhrase, password}) => {
 	const id = generateId(name);
 	const filePath = idToFilePath(id);
@@ -83,10 +89,9 @@ const migrateEnabledCurrencies = async id => {
 	});
 };
 
-// TODO: Remove this sometime far in the future when everyone has migrated
-const removeDnrCurrency = async id => {
+const removeCurrenciesMigration = async id => {
 	await modifyPortfolio(id, portfolio => {
-		portfolio.currencies = portfolio.currencies.filter(currency => currency !== 'DNR');
+		portfolio.currencies = portfolio.currencies.filter(currency => !removedCurrencies.includes(currency));
 	});
 };
 
@@ -112,7 +117,7 @@ const getPortfolios = async () => {
 		// TODO: Remove this sometime far in the future when everyone has migrated
 		await migrateEnabledCurrencies(portfolio.id);
 
-		await removeDnrCurrency(portfolio.id);
+		await removeCurrenciesMigration(portfolio.id);
 
 		return portfolio;
 	}));
