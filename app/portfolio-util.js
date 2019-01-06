@@ -30,6 +30,7 @@ class IncorrectPasswordError extends Error {
 const removedCurrencies = [
 	'DNR',
 	'BCBC',
+	'QMC',
 ];
 
 const createPortfolio = async ({name, seedPhrase, password}) => {
