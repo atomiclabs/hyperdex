@@ -9,7 +9,7 @@ require('strict-import')(module, {
 	],
 });
 const electron = require('electron');
-const {autoUpdater} = require('electron-updater');
+/// const {autoUpdater} = require('electron-updater');
 const {is, disableZoom, setContentSecurityPolicy} = require('electron-util');
 const serve = require('electron-serve');
 const logger = require('electron-timber');
@@ -48,25 +48,24 @@ app.commandLine.appendSwitch('disable-color-correct-rendering');
 
 app.setAppUserModelId('com.lukechilds.hyperdex');
 
-if (!is.development) {
-	autoUpdater.logger = logger.log;
-
-	autoUpdater.on('update-available', () => {
-		const notification = new electron.Notification({
-			title: `${app.getName()} Update Available!`,
-			body: 'Click to view the latest version.',
-		});
-
-		notification.on('click', () => {
-			electron.shell.openExternal('https://github.com/atomiclabs/hyperdex/releases/latest');
-		});
-
-		notification.show();
-	});
-
-	autoUpdater.autoDownload = false;
-	autoUpdater.checkForUpdates();
-}
+// TODO: Figure out why it throws at launch
+/// if (!is.development) {
+// 	autoUpdater.on('update-available', () => {
+// 		const notification = new electron.Notification({
+// 			title: `${app.getName()} Update Available!`,
+// 			body: 'Click to view the latest version.',
+// 		});
+//
+// 		notification.on('click', () => {
+// 			electron.shell.openExternal('https://github.com/atomiclabs/hyperdex/releases/latest');
+// 		});
+//
+// 		notification.show();
+// 	});
+//
+// 	autoUpdater.autoDownload = false;
+// 	autoUpdater.checkForUpdates();
+// }
 
 let mainWindow;
 

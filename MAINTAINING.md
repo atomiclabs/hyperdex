@@ -31,9 +31,9 @@ If everything works fine, release it:
 $ yarn release
 ```
 
-Then edit the automatically created GitHub Releases draft and publish.
+Then edit the automatically created GitHub Releases draft, remove the `*.blockmap` files, and publish.
 
-Once the release is published you can automatically generate a signed checksum file with:
+Once the release is published, you can automatically generate a signed checksum file with:
 
 ```
 $ ./signedchecksum

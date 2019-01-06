@@ -158,10 +158,8 @@
 		"appId": "com.lukechilds.hyperdex",
 		"mac": {
 			"category": "public.app-category.finance",
-			"electronUpdaterCompatibility": ">=2.15.0",
-			"extendInfo": {
-				"NSRequiresAquaSystemAppearance": false
-			}
+			"electronUpdaterCompatibility": ">=4",
+			"darkModeSupport": true
 		},
 		"dmg": {
 			"iconSize": 160,
@@ -188,10 +186,6 @@
 		},
 		"nsis": {
 			"createDesktopShortcut": "always"
-		},
-		"publish": {
-			"provider": "github",
-			"publishAutoUpdate": false
 		}
 	}
 }
