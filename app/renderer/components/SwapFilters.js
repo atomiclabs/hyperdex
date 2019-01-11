@@ -103,7 +103,6 @@ class SwapFilters extends React.Component {
 							name="dateFrom"
 							placeholder={`${t('filter.dateFrom')}...`}
 							value={dateFrom}
-							onDayChange={this.handleDateChange}
 							dayPickerProps={{
 								disabledDays: {after: dateTo},
 								modifiers,
@@ -116,6 +115,7 @@ class SwapFilters extends React.Component {
 									this.dateToInput.current.getInput().focus();
 								},
 							}}
+							onDayChange={this.handleDateChange}
 						/>
 						{' - '}
 						<DateInput
@@ -124,7 +124,6 @@ class SwapFilters extends React.Component {
 							name="dateTo"
 							placeholder={`${t('filter.dateTo')}...`}
 							value={dateTo}
-							onDayChange={this.handleDateChange}
 							dayPickerProps={{
 								disabledDays: {after: new Date(), before: dateFrom},
 								fromMonth: dateFrom,
@@ -135,6 +134,7 @@ class SwapFilters extends React.Component {
 								selectedDays: [dateFrom || dateTo, {from: dateFrom, to: dateTo}],
 								toMonth: new Date(),
 							}}
+							onDayChange={this.handleDateChange}
 						/>
 					</div>
 					{selectFilters.map(filter => (
@@ -142,10 +142,10 @@ class SwapFilters extends React.Component {
 							<label>{t(`filter.${filter.name}`)}:</label>
 							<Select
 								clearable
-								onChange={this.handleSelectChange(filter.name)}
 								options={filter.options}
 								searchable={filter.searchable}
 								value={this.state[filter.name]}
+								onChange={this.handleSelectChange(filter.name)}
 							/>
 						</div>
 					))}

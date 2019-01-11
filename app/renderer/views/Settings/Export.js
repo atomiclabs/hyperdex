@@ -90,8 +90,8 @@ class Export extends React.Component {
 				<label style={{marginBottom: '10px'}}>{t('export.sectionLabel')}</label>
 				<Button
 					value={t('export.exportTradeHistory')}
-					onClick={this.handleClick}
 					disabled={!(this.state.swapCount > 0)}
+					onClick={this.handleClick}
 				/>
 			</div>
 		);

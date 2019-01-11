@@ -135,8 +135,7 @@
 				"always-multiline"
 			],
 			"unicorn/filename-case": "off",
-			"import/exports-last": "error",
-			"react/jsx-sort-props": "off"
+			"import/exports-last": "error"
 		}
 	},
 	"stylelint": {

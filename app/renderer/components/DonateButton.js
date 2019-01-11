@@ -32,8 +32,8 @@ class DonateButton extends React.Component {
 					className="DonateModal"
 					title={`${t('donate.title')} ❤️`}
 					open={this.state.isOpen}
-					onClose={this.close}
 					width="500px"
+					onClose={this.close}
 				>
 					<>
 						<div className="section text">
@@ -49,7 +49,11 @@ class DonateButton extends React.Component {
 						</div>
 					</>
 				</Modal>
-				<Button className="DonateButton" value={t('donate.title')} onClick={this.open}/>
+				<Button
+					className="DonateButton"
+					value={t('donate.title')}
+					onClick={this.open}
+				/>
 			</>
 		);
 	}

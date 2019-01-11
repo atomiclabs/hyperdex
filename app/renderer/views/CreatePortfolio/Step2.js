@@ -39,8 +39,11 @@ const CreatePortfolioStep2 = () => {
 			<div className="form-group">
 				<Button
 					value={t('create.next')}
+					style={{
+						width: '172px',
+						marginTop: '7px',
+					}}
 					onClick={container.handleStep2ClickNext}
-					style={{width: '172px', marginTop: '7px'}}
 				/>
 			</div>
 		</div>

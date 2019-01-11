@@ -100,8 +100,8 @@ class WithdrawModal extends React.Component {
 						<div className="section">
 							<label>{t('withdraw.recipientLabel')}:</label>
 							<Input
-								value={this.state.recipientAddress}
 								required
+								value={this.state.recipientAddress}
 								placeholder={t('withdraw.recipientPlaceholder', {symbol: currencyInfo.symbol})}
 								disabled={this.state.isWithdrawing}
 								onChange={value => {
@@ -117,14 +117,11 @@ class WithdrawModal extends React.Component {
 							<label>{t('withdraw.amountLabel')}:</label>
 							<div className="amount-inputs">
 								<Input
-									value={this.state.amount}
 									required
 									onlyNumeric
+									value={this.state.amount}
 									fractionalDigits={8}
 									disabled={this.state.isWithdrawing}
-									onChange={value => {
-										setAmount(value);
-									}}
 									view={() => (
 										<span
 											className={currencyInfo.symbol.length > 3 ? 'long-symbol' : ''}
@@ -132,23 +129,26 @@ class WithdrawModal extends React.Component {
 											{currencyInfo.symbol}
 										</span>
 									)}
+									onChange={value => {
+										setAmount(value);
+									}}
 								/>
 								<span className="separator">≈</span>
 								<Input
-									value={this.state.amountInUsd}
 									required
 									onlyNumeric
+									value={this.state.amountInUsd}
 									fractionalDigits={4}
 									disabled={this.state.isWithdrawing}
+									view={() => (
+										<span>USD</span>
+									)}
 									onChange={value => {
 										this.setState({
 											amountInUsd: value,
 											amount: String(Number.parseFloat(value || '0') * currencyInfo.cmcPriceUsd),
 										});
 									}}
-									view={() => (
-										<span>USD</span>
-									)}
 								/>
 								{/* Hidden because of #302
 								<Link
@@ -173,16 +173,16 @@ class WithdrawModal extends React.Component {
 						</div>
 						{this.state.broadcast ? (
 							<Button
-								className="confirm-button"
 								primary
+								className="confirm-button"
 								value={t('withdraw.confirmNetworkFee')}
 								disabled={this.state.isBroadcasting}
 								onClick={this.confirmButtonHandler}
 							/>
 						) : (
 							<Button
-								className="withdraw-button"
 								primary
+								className="withdraw-button"
 								value={t('withdraw.label')}
 								disabled={
 									!this.state.recipientAddress ||

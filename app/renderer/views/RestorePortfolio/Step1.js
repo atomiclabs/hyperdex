@@ -15,16 +15,16 @@ const RestorePortfolioStep1 = () => {
 			<LoginBackButton view="NewPortfolio" progress={0}/>
 			<h1>{t('restore.enterSeedPhrase')}</h1>
 			<p>TODO: Put some explanation here on what to do.</p>
-			<form onSubmit={container.handleStep1Submit} style={{marginTop: '20px'}}>
+			<form style={{marginTop: '20px'}} onSubmit={container.handleStep1Submit}>
 				<div className="form-group" style={{width: '460px'}}>
 					<TextArea
-						value={state.seedPhrase}
-						onChange={container.handleSeedPhraseInputChange}
-						placeholder={t('restore.exampleSeedPhrase', {seedPhrase: 'advanced generous profound'})}
-						autoFocus
 						required
+						autoFocus
 						preventNewlines
+						value={state.seedPhrase}
+						placeholder={t('restore.exampleSeedPhrase', {seedPhrase: 'advanced generous profound'})}
 						style={{padding: '15px'}}
+						onChange={container.handleSeedPhraseInputChange}
 					/>
 				</div>
 				<div className="form-group">

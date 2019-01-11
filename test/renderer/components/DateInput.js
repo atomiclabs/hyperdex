@@ -68,7 +68,7 @@ test('has `autoCorrect` prop', async t => {
 	const modifiers = {disabled: true};
 	const onDayChange = spy();
 	const event = {target: 'unicorn', persist: () => {}};
-	const component = shallow(<DateInput autoCorrect ref={ref} value={value} onDayChange={onDayChange}/>).dive();
+	const component = shallow(<DateInput ref={ref} autoCorrect value={value} onDayChange={onDayChange}/>).dive();
 	const input = component.dive().find(WrappedInput);
 	component.simulate('dayChange', invalidValue, modifiers, ref.current);
 	input.simulate('blur', event);

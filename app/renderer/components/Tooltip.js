@@ -62,9 +62,9 @@ class Tooltip extends React.PureComponent {
 					return (
 						<div ref={ref} className="Tooltip__container" style={style}>
 							<CSSTransition
+								mountOnEnter
 								classNames="Tooltip"
 								in={isOpen}
-								mountOnEnter
 								timeout={{
 									enter: 0, // Start animation immediately
 									exit: animationDuration,

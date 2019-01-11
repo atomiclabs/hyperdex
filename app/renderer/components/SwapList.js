@@ -231,9 +231,9 @@ class SwapList extends React.Component {
 				<Details/>
 				{showHeader && (
 					<SwapHeader
-						onClick={this.handleSort}
 						sortBy={sortBy}
 						sortDirection={sortDirection}
+						onClick={this.handleSort}
 					/>
 				)}
 				<div className="container">

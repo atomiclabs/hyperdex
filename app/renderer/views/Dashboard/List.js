@@ -94,7 +94,11 @@ const List = () => {
 								<div className="right">
 									<h2>{currency.name} ({currency.symbol})</h2>
 									<p>{balance}</p>
-									<Progress value={percentageOfTotalBalance} showLabel hideWhenZero/>
+									<Progress
+										showLabel
+										hideWhenZero
+										value={percentageOfTotalBalance}
+									/>
 								</div>
 							</div>
 						);
@@ -106,6 +110,9 @@ const List = () => {
 					<Input
 						placeholder={t('list.search')}
 						value={state.listSearchQuery}
+						view={() => (
+							<img src="/assets/search-icon.svg" width="12" height="12"/>
+						)}
 						onChange={dashboardContainer.setListSearchQuery}
 						onBlur={() => {
 							if (filteredCurrencies.length === 0) {
@@ -117,9 +124,6 @@ const List = () => {
 								dashboardContainer.setListSearchQuery('');
 							}
 						}}
-						view={() => (
-							<img src="/assets/search-icon.svg" width="12" height="12"/>
-						)}
 					/>
 				</div>
 			}

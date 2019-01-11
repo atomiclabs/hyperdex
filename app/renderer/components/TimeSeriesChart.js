@@ -104,12 +104,16 @@ class TimeSeriesChart extends React.Component {
 							}}
 						/>
 						<YAxis
+							hide
 							domain={['auto', 'auto']}
 							padding={{top: 5}}
-							hide
 						/>
 						{data &&
-							<Tooltip content={<CustomTooltip/>} isAnimationActive={false} animationDuration={0}/>
+							<Tooltip
+								content={<CustomTooltip/>}
+								isAnimationActive={false}
+								animationDuration={0}
+							/>
 						}
 					</AreaChart>
 				</ResponsiveContainer>

@@ -18,24 +18,24 @@ const ForgotPasswordStep2 = () => {
 		<div className="ForgotPassword">
 			<LoginBackButton view="ForgotPasswordStep1" progress={0.33}/>
 			<h1>{t('setNewPassword')}</h1>
-			<form onSubmit={container.handleSubmit} style={{marginTop: '20px'}}>
+			<form style={{marginTop: '20px'}} onSubmit={container.handleSubmit}>
 				<div className="form-group">
 					<Input
+						readOnly
 						className="portfolio-name"
 						value={selectedPortfolio.name}
 						icon={avatar(selectedPortfolio.id)}
 						iconSize={18}
-						readOnly
 					/>
 				</div>
 				<div className="form-group">
 					<Input
-						onChange={container.handlePasswordInputChange}
+						autoFocus
+						required
 						type="password"
 						placeholder={t('password')}
 						value={state.password}
-						autoFocus
-						required
+						onChange={container.handlePasswordInputChange}
 					/>
 				</div>
 				<div className="form-group">
@@ -43,12 +43,12 @@ const ForgotPasswordStep2 = () => {
 						ref={input => {
 							container.confirmPasswordInput = input;
 						}}
-						onChange={container.handleConfirmPasswordInputChange}
+						required
 						type="password"
 						placeholder={t('confirmPassword')}
 						value={state.confirmedPassword}
-						required
 						errorMessage={state.confirmedPasswordError}
+						onChange={container.handleConfirmPasswordInputChange}
 					/>
 				</div>
 				<div className="form-group">

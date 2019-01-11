@@ -26,7 +26,7 @@ const OpenOrders = () => {
 	const openOrders = getOpenOrders();
 
 	return (
-		<SwapList swaps={openOrders} showCancel/>
+		<SwapList showCancel swaps={openOrders}/>
 	);
 };
 
@@ -39,7 +39,7 @@ const CurrentPairOpenOrders = () => {
 	);
 
 	return (
-		<SwapList swaps={filteredData} showCancel/>
+		<SwapList showCancel swaps={filteredData}/>
 	);
 };
 

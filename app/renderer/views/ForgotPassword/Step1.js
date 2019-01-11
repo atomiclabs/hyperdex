@@ -18,14 +18,14 @@ const ForgotPasswordStep1 = () => {
 			<p>TODO: Put some explanation here on what to do.</p>
 			<div className="form-group" style={{width: '460px'}}>
 				<TextArea
-					value={state.seedPhrase}
-					onChange={container.handleSeedPhraseInputChange}
-					placeholder={t('exampleSeedPhrase', {seedPhrase: 'advanced generous profound'})}
-					autoFocus
 					required
+					autoFocus
 					preventNewlines
+					value={state.seedPhrase}
+					placeholder={t('exampleSeedPhrase', {seedPhrase: 'advanced generous profound'})}
 					errorMessage={state.seedPhraseError}
 					style={{padding: '15px'}}
+					onChange={container.handleSeedPhraseInputChange}
 				/>
 			</div>
 			<div className="form-group">
@@ -33,8 +33,11 @@ const ForgotPasswordStep1 = () => {
 					primary
 					value={t('confirm')}
 					disabled={!state.seedPhrase}
+					style={{
+						width: '172px',
+						marginTop: '18px',
+					}}
 					onClick={container.handleClickConfirmSeedPhrase}
-					style={{width: '172px', marginTop: '18px'}}
 				/>
 			</div>
 		</div>

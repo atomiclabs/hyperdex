@@ -14,25 +14,25 @@ const RestorePortfolioStep2 = () => {
 		<div className="RestorePortfolio">
 			<LoginBackButton view="RestorePortfolioStep1" progress={0.33}/>
 			<h1>{t('create.title')}</h1>
-			<form onSubmit={container.handleStep2Submit} style={{marginTop: '20px'}}>
+			<form style={{marginTop: '20px'}} onSubmit={container.handleStep2Submit}>
 				<div className="form-group">
 					<Input
-						onChange={container.handlePortfolioNameInputChange}
+						required
+						autoFocus
 						placeholder={t('create.name')}
 						value={state.portfolioName}
-						autoFocus
-						required
 						maxLength="50"
 						iconName="person"
+						onChange={container.handlePortfolioNameInputChange}
 					/>
 				</div>
 				<div className="form-group">
 					<Input
-						onChange={container.handlePortfolioPasswordInputChange}
+						required
 						type="password"
 						placeholder={t('create.password')}
 						value={state.portfolioPassword}
-						required
+						onChange={container.handlePortfolioPasswordInputChange}
 					/>
 				</div>
 				<div className="form-group">
@@ -40,12 +40,12 @@ const RestorePortfolioStep2 = () => {
 						ref={input => {
 							container.confirmPasswordInput = input;
 						}}
-						onChange={container.handleConfirmPasswordInputChange}
+						required
 						type="password"
 						placeholder={t('create.confirmPassword')}
 						value={state.confirmedPassword}
-						required
 						errorMessage={state.confirmedPasswordError}
+						onChange={container.handleConfirmPasswordInputChange}
 					/>
 				</div>
 				<div className="form-group">

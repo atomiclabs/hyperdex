@@ -45,9 +45,9 @@ class Top extends React.Component {
 					className="currency-selector"
 					value={selectedCurrency.symbol}
 					options={selectData}
-					onChange={this.handleSelectChange}
 					valueRenderer={CurrencySelectOption}
 					optionRenderer={CurrencySelectOption}
+					onChange={this.handleSelectChange}
 				/>
 				<h3 className="balance">
 					{t('order.symbolBalance')}: <span>{roundTo(selectedCurrency.balance, 8)} {selectedCurrency.symbol}</span>
@@ -222,17 +222,17 @@ class Bottom extends React.Component {
 		const TargetPriceButton = () => (
 			<CrosshairIcon
 				className="target-price-button"
-				onClick={this.targetPriceButtonHandler}
 				disabled={orderBook.length === 0}
 				size="13px"
+				onClick={this.targetPriceButtonHandler}
 			/>
 		);
 
 		const MaxPriceButton = () => (
 			<div
 				className="max-price-button"
-				onClick={this.maxPriceButtonHandler}
 				disabled={orderBook.length === 0}
+				onClick={this.maxPriceButtonHandler}
 			>
 				{t('order.maxPrice')}
 			</div>
@@ -247,13 +247,13 @@ class Bottom extends React.Component {
 					<div className="form-section">
 						<label>{t('order.price', {symbol: state.quoteCurrency})}</label>
 						<Input
-							className="price-input"
 							required
 							onlyNumeric
+							className="price-input"
 							fractionalDigits={8}
 							value={this.props.price}
-							onChange={this.props.handlePriceChange}
 							button={TargetPriceButton}
+							onChange={this.props.handlePriceChange}
 						/>
 					</div>
 					<div className="form-section">
@@ -263,8 +263,8 @@ class Bottom extends React.Component {
 							onlyNumeric
 							fractionalDigits={8}
 							value={this.props.amount}
-							onChange={this.props.handleAmountChange}
 							button={MaxPriceButton}
+							onChange={this.props.handleAmountChange}
 						/>
 					</div>
 					<div className="form-section total-section">
@@ -284,9 +284,9 @@ class Bottom extends React.Component {
 					</div>
 					<div className="form-section">
 						<Button
+							fullwidth
 							className={this.state.hasError ? 'shake-animation' : ''}
 							color={this.props.type === 'buy' ? 'green' : 'red'}
-							fullwidth
 							type="submit"
 							value={`${typeTitled} ${state.baseCurrency}`}
 							disabled={exchangeContainer.state.isSendingOrder}

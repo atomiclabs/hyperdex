@@ -38,12 +38,12 @@ test('has `className` prop', t => {
 });
 
 test('has `checked` prop', t => {
-	const m = shallow(<Checkbox label="x" value="x" checked/>).dive();
+	const m = shallow(<Checkbox checked label="x" value="x"/>).dive();
 	t.true(m.prop('className').includes('Checkbox--checked'));
 });
 
 test('has `disabled` prop', t => {
-	const m = shallow(<Checkbox label="x" value="x" disabled/>).dive();
+	const m = shallow(<Checkbox disabled label="x" value="x"/>).dive();
 	t.true(m.prop('className').includes('Checkbox--disabled'));
 	t.true(m.find('input').prop('disabled'));
 });

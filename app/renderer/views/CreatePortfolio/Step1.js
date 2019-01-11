@@ -15,25 +15,25 @@ const CreatePortfolioStep1 = () => {
 		<div className="CreatePortfolio">
 			<LoginBackButton view="NewPortfolio" progress={0}/>
 			<h1>{t('create.title')}</h1>
-			<form onSubmit={container.handleStep1Submit} style={{marginTop: '20px'}}>
+			<form style={{marginTop: '20px'}} onSubmit={container.handleStep1Submit}>
 				<div className="form-group">
 					<Input
-						onChange={container.handlePortfolioNameInputChange}
-						placeholder={t('create.name')}
-						value={state.portfolioName}
 						autoFocus
 						required
+						placeholder={t('create.name')}
+						value={state.portfolioName}
 						maxLength="50"
 						iconName="person"
+						onChange={container.handlePortfolioNameInputChange}
 					/>
 				</div>
 				<div className="form-group">
 					<Input
-						onChange={container.handlePortfolioPasswordInputChange}
+						required
 						type="password"
 						placeholder={t('create.password')}
 						value={state.portfolioPassword}
-						required
+						onChange={container.handlePortfolioPasswordInputChange}
 					/>
 				</div>
 				<div className="form-group">
@@ -41,12 +41,12 @@ const CreatePortfolioStep1 = () => {
 						ref={input => {
 							container.confirmPasswordInput = input;
 						}}
-						onChange={container.handleConfirmPasswordInputChange}
+						required
 						type="password"
 						placeholder={t('create.confirmPassword')}
 						value={state.confirmedPassword}
-						required
 						errorMessage={state.confirmedPasswordError}
+						onChange={container.handleConfirmPasswordInputChange}
 					/>
 				</div>
 				<div className="form-group">
@@ -54,7 +54,10 @@ const CreatePortfolioStep1 = () => {
 						type="submit"
 						value={t('create.next')}
 						disabled={!(state.portfolioName && state.portfolioPassword && state.confirmedPassword)}
-						style={{width: '170px', marginTop: '15px'}}
+						style={{
+							width: '170px',
+							marginTop: '15px',
+						}}
 					/>
 				</div>
 			</form>

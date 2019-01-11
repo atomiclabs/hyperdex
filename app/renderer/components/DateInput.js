@@ -84,7 +84,6 @@ class DateInput extends React.Component {
 				component={WrappedInput}
 				format="YYYY-MM-DD"
 				formatDate={formatDate}
-				onDayChange={this.handleDayChange}
 				parseDate={parseDate}
 				dayPickerProps={{
 					...this.props.dayPickerProps,
@@ -96,6 +95,7 @@ class DateInput extends React.Component {
 					className: hasError ? 'shake-animation' : '',
 					onBlur: this.handleBlur,
 				}}
+				onDayChange={this.handleDayChange}
 			/>
 		);
 	}

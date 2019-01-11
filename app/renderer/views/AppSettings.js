@@ -45,17 +45,17 @@ class AppSettings extends React.Component {
 						<Input
 							name="marketmakerUrl"
 							value={this.state.marketmakerUrl}
+							placeholder={t('settings.exampleUrl', {
+								url: 'http://localhost:7783',
+								interpolation: {escapeValue: false},
+							})}
+							errorMessage={isValidMarketmakerUrl ? null : t('settings.invalidUrl')}
 							onChange={this.handleChange}
 							onBlur={() => {
 								if (!isValidMarketmakerUrl) {
 									this.setState({marketmakerUrl: ''});
 								}
 							}}
-							placeholder={t('settings.exampleUrl', {
-								url: 'http://localhost:7783',
-								interpolation: {escapeValue: false},
-							})}
-							errorMessage={isValidMarketmakerUrl ? null : t('settings.invalidUrl')}
 						/>
 					</div>
 				</main>

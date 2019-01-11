@@ -16,20 +16,20 @@ const CreatePortfolioStep3 = () => {
 			<LoginBackButton view="CreatePortfolioStep2" progress={0.50}/>
 			<h1>{t('create.confirmSeedPhrase')}</h1>
 			<p>TODO: Put some explanation here on what to do.</p>
-			<form onSubmit={container.handleStep3Submit} style={{marginTop: '20px'}}>
+			<form style={{marginTop: '20px'}} onSubmit={container.handleStep3Submit}>
 				<div className="form-group" style={{width: '460px'}}>
 					<TextArea
 						ref={textarea => {
 							container.confirmSeedPhraseTextArea = textarea;
 						}}
+						required
+						autoFocus
+						preventNewlines
 						value={state.confirmedSeedPhrase}
-						onChange={container.handleConfirmSeedPhraseInputChange}
 						placeholder={t('create.exampleSeedPhrase', {seedPhrase: 'advanced generous profound'})}
 						errorMessage={state.seedPhraseError}
-						autoFocus
-						required
-						preventNewlines
 						style={{padding: '15px'}}
+						onChange={container.handleConfirmSeedPhraseInputChange}
 					/>
 				</div>
 				<div className="form-group">

@@ -77,9 +77,9 @@ class SeedPhraseModal extends React.Component {
 					className="SeedPhraseModal"
 					title={t('seedPhrase.title')}
 					open={this.state.isOpen}
-					onClose={this.handleClose}
-					didClose={this.handleDidClose}
 					width="470px"
+					didClose={this.handleDidClose}
+					onClose={this.handleClose}
 				>
 					{({modalRef}) => this.state.seedPhrase.length > 0 ? (
 						<SeedPhrase value={this.state.seedPhrase}/>
@@ -98,9 +98,9 @@ class SeedPhraseModal extends React.Component {
 							</div>
 							<div className="form-group">
 								<Button
-									disabled={this.state.passwordInputValue.length === 0 || this.state.isVerifying}
 									fullwidth
 									primary
+									disabled={this.state.passwordInputValue.length === 0 || this.state.isVerifying}
 									type="submit"
 									value={t('seedPhrase.submit')}
 								/>

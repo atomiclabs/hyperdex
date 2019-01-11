@@ -16,7 +16,10 @@ const IconNavItem = ({icon: Icon, ...props}) => {
 	const title = props.to.toLowerCase();
 
 	return (
-		<div onClick={setView} className={`nav--button ${active ? 'active' : ''}`}>
+		<div
+			className={`nav--button ${active ? 'active' : ''}`}
+			onClick={setView}
+		>
 			<Icon className="icon"/>
 			<span className="title">
 				{t(title)}

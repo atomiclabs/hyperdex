@@ -31,8 +31,8 @@ class DepositModal extends React.Component {
 					className="DepositModal"
 					title={t('deposit.title', {name: currencyInfo.name, symbol: currencyInfo.symbol})}
 					open={this.state.isOpen}
-					onClose={this.close}
 					width="445px"
+					onClose={this.close}
 				>
 					<>
 						<div className="section qrcode">
@@ -47,7 +47,11 @@ class DepositModal extends React.Component {
 						</div>
 					</>
 				</Modal>
-				<Button className="OpenModalButton" value={t('deposit.label')} onClick={this.open}/>
+				<Button
+					className="OpenModalButton"
+					value={t('deposit.label')}
+					onClick={this.open}
+				/>
 			</div>
 		);
 	}

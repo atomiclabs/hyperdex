@@ -36,13 +36,21 @@ class DeleteModal extends React.Component {
 	render() {
 		return (
 			<div className="modal-wrapper">
-				<Modal title={t('deletePortfolio.title')} open={this.state.isOpen} onClose={this.handleClose} width="445px">
+				<Modal
+					title={t('deletePortfolio.title')}
+					width="445px"
+					open={this.state.isOpen}
+					onClose={this.handleClose}
+				>
 					<Trans i18n={instance} i18nKey="deletePortfolio.description" t={t}>
 						<p>Unless you save your seed phrase, this action cannot be undone and will permanently delete the <strong>{{name: appContainer.state.portfolio.name}}</strong> portfolio.</p>
 						<p>Please type in the name of the portfolio to confirm.</p>
 					</Trans>
 					<div className="form-group">
-						<Input value={this.state.name} onChange={this.handleNameInputChange}/>
+						<Input
+							value={this.state.name}
+							onChange={this.handleNameInputChange}
+						/>
 					</div>
 					<div className="form-group">
 						<Button
@@ -54,7 +62,11 @@ class DeleteModal extends React.Component {
 						/>
 					</div>
 				</Modal>
-				<Button value={t('deletePortfolio.title')} color="red" onClick={this.handleOpen}/>
+				<Button
+					value={t('deletePortfolio.title')}
+					color="red"
+					onClick={this.handleOpen}
+				/>
 			</div>
 		);
 	}
