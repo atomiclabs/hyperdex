@@ -23,12 +23,13 @@ class DateInput extends React.Component {
 			PropTypes.object,
 		]),
 		autoCorrect: PropTypes.bool,
-		onDayChange: PropTypes.func.isRequired,
+		onDayChange: PropTypes.func,
 	}
 
 	static defaultProps = {
 		forwardedRef: undefined,
 		autoCorrect: false,
+		onDayChange: () => {},
 	};
 
 	constructor(props) {

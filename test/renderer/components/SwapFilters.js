@@ -83,7 +83,7 @@ test('set initial `state`', t => {
 });
 
 test('return filtered `swaps` as `children`', t => {
-	const dateFrom = new Date('2019-01-01Z');
+	const dateFrom = new Date('2017-01-01Z');
 	const swaps = [{
 		baseCurrency: 'FOO',
 		quoteCurrency: 'BAR',
