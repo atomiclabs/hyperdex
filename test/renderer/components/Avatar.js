@@ -16,17 +16,17 @@ const Avatar = proxyquire.noCallThru()('../../../app/renderer/components/Avatar'
 }).default;
 
 test('render `img`', t => {
-	const m = shallow(<Avatar/>);
-	t.is(m.type(), 'img');
+	const component = shallow(<Avatar/>);
+	t.is(component.type(), 'img');
 });
 
 test('set `src` prop', t => {
-	const m = shallow(<Avatar/>);
-	t.is(m.prop('src'), avatar(id));
+	const component = shallow(<Avatar/>);
+	t.is(component.prop('src'), avatar(id));
 });
 
 test('pass `props`', t => {
 	const foo = 'foo';
-	const m = shallow(<Avatar foo={foo}/>);
-	t.is(m.prop('foo'), foo);
+	const component = shallow(<Avatar foo={foo}/>);
+	t.is(component.prop('foo'), foo);
 });

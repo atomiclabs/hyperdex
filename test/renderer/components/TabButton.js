@@ -4,33 +4,33 @@ import {shallow} from 'enzyme';
 import TabButton from 'components/TabButton';
 
 test('render `span`', t => {
-	const tabButton = shallow(<TabButton isActive onClick={() => {}}>0</TabButton>);
-	t.is(tabButton.type(), 'span');
+	const component = shallow(<TabButton isActive onClick={() => {}}>0</TabButton>);
+	t.is(component.type(), 'span');
 });
 
 test('set `role` prop', t => {
-	const tabButton = shallow(<TabButton isActive onClick={() => {}}>0</TabButton>);
-	t.is(tabButton.prop('role'), 'button');
+	const component = shallow(<TabButton isActive onClick={() => {}}>0</TabButton>);
+	t.is(component.prop('role'), 'button');
 });
 
 test('set `className` prop', t => {
-	const tabButton = shallow(<TabButton isActive onClick={() => {}}>0</TabButton>);
-	t.true(tabButton.prop('className').includes('TabButton'));
+	const component = shallow(<TabButton isActive onClick={() => {}}>0</TabButton>);
+	t.true(component.prop('className').includes('TabButton'));
 });
 
 test('pass `props`', t => {
 	const foo = 'foo';
-	const tabButton = shallow(<TabButton isActive foo={foo} onClick={() => {}}>0</TabButton>);
-	t.is(tabButton.prop('foo'), foo);
+	const component = shallow(<TabButton isActive foo={foo} onClick={() => {}}>0</TabButton>);
+	t.is(component.prop('foo'), foo);
 });
 
 test('has `isActive` prop', t => {
-	const tabButton = shallow(<TabButton isActive onClick={() => {}}>0</TabButton>);
-	t.true(tabButton.prop('className').includes('active'));
+	const component = shallow(<TabButton isActive onClick={() => {}}>0</TabButton>);
+	t.true(component.prop('className').includes('active'));
 });
 
 test('has `className` prop', t => {
 	const className = 'foo';
-	const tabButton = shallow(<TabButton isActive className={className} onClick={() => {}}>0</TabButton>);
-	t.true(tabButton.prop('className').includes(className));
+	const component = shallow(<TabButton isActive className={className} onClick={() => {}}>0</TabButton>);
+	t.true(component.prop('className').includes(className));
 });
