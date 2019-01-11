@@ -7,7 +7,7 @@
 		"start:launch": "wait-for-localhost 8080 && run-electron app",
 		"start": "yarn && run-p --race start:*",
 		"pack": "webpack && electron-builder --dir",
-		"dist": "webpack --mode=production && electron-builder --mac --linux --win",
+		"dist": "webpack --mode=production && electron-builder --macos --linux --windows",
 		"release": "cd app && np --no-publish"
 	},
 	"dependencies": {
