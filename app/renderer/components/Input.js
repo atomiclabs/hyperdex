@@ -40,6 +40,11 @@ class Input extends React.Component {
 		view: PropTypes.func,
 		button: PropTypes.func,
 		onChange: PropTypes.func,
+		value: PropTypes.string,
+		pattern: PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.func,
+		]),
 	}
 
 	static defaultProps = {
@@ -59,6 +64,8 @@ class Input extends React.Component {
 		view: undefined,
 		button: undefined,
 		onChange: undefined,
+		value: '',
+		pattern: undefined,
 	}
 
 	static getDerivedStateFromProps(props, state) {
@@ -83,7 +90,7 @@ class Input extends React.Component {
 
 	state = {
 		level: this.props.level,
-		value: this.props.value || '',
+		value: this.props.value,
 	};
 
 	handleChange = event => {

@@ -99,6 +99,7 @@ const Center = props => {
 									<td>{roundTo(row.maxVolume, 8)}</td>
 								</tr>
 							));
+							/* eslint-enable react/no-array-index-key */
 						})()}
 					</tbody>
 				</table>
@@ -165,6 +166,7 @@ class Bottom extends React.Component {
 			if (error === 'only one pending request at a time') {
 				error = t('order.maxOnePendingSwap', {wait: result.wait});
 			}
+
 			orderError(error);
 			return;
 		}

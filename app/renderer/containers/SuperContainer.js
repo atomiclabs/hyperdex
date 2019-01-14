@@ -55,6 +55,7 @@ const addLifeCycleHooks = (self, lifecycleHooks) => {
 			if (typeof originalMethod === 'function') {
 				originalMethod.call(this, ...args);
 			}
+
 			hook.call(this, ...args);
 		};
 	}
@@ -106,6 +107,7 @@ class SuperContainer extends Container {
 		if (this._connectedComponent) {
 			throw new Error(`The container is already connected to the \`${this._connectedComponent}\` component`);
 		}
+
 		this._connectedComponent = component.displayName || component.name;
 
 		const self = this;

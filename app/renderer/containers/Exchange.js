@@ -37,6 +37,7 @@ class ExchangeContainer extends SuperContainer {
 				});
 				this.setBaseCurrency(newBaseCurrency);
 			}
+
 			if (!appContainer.state.enabledCoins.includes(this.state.quoteCurrency)) {
 				const newQuoteCurrency = appContainer.state.enabledCoins.find(enabledCoin => {
 					return enabledCoin !== this.state.baseCurrency;

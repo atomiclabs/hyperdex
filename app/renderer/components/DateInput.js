@@ -16,6 +16,14 @@ const WrappedInput = React.forwardRef((props, ref) => {
 	return <Input {...props} ref={ref} pattern={validateInput} onChange={onChange}/>;
 });
 
+WrappedInput.propTypes = {
+	onChange: PropTypes.func,
+};
+
+WrappedInput.defaultProps = {
+	onChange: () => {},
+};
+
 class DateInput extends React.Component {
 	static propTypes = {
 		forwardedRef: PropTypes.oneOfType([
@@ -24,12 +32,18 @@ class DateInput extends React.Component {
 		]),
 		autoCorrect: PropTypes.bool,
 		onDayChange: PropTypes.func,
+		onBlur: PropTypes.func,
+		inputProps: PropTypes.object,
+		dayPickerProps: PropTypes.object.isRequired,
+		value: PropTypes.any.isRequired, // TODO: Validate it as a `Date`. PropTypes doesn't have support for that.
 	}
 
 	static defaultProps = {
 		forwardedRef: undefined,
 		autoCorrect: false,
 		onDayChange: () => {},
+		onBlur: () => {},
+		inputProps: undefined,
 	};
 
 	constructor(props) {
@@ -55,9 +69,7 @@ class DateInput extends React.Component {
 			}, 600);
 		}
 
-		if (typeof onBlur === 'function') {
-			onBlur(event);
-		}
+		onBlur(event);
 	}
 
 	handleDayChange = (day, modifiers, input) => {

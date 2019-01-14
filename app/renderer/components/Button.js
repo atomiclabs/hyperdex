@@ -25,12 +25,17 @@ Button.propTypes = {
 	primary: PropTypes.bool,
 	fullwidth: PropTypes.bool,
 	color: PropTypes.string,
+	disabled: PropTypes.bool,
+	className: PropTypes.string,
+	value: PropTypes.string.isRequired,
 };
 
 Button.defaultProps = {
 	primary: false,
 	fullwidth: false,
 	color: undefined,
+	disabled: false,
+	className: '',
 };
 
 export default Button;

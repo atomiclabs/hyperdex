@@ -52,6 +52,7 @@ const createApi = async seedPhrase => {
 		// Example: `_api.debug({method: 'portfolio'})`
 		window._api = api;
 	}
+
 	console.timeEnd('create-api');
 	return api;
 };
@@ -142,6 +143,7 @@ class LoginContainer extends Container {
 		if (isDevelopment) {
 			window._swapDB = swapDB;
 		}
+
 		console.timeEnd('swap-db');
 
 		this.setActiveView('LoggingIn');

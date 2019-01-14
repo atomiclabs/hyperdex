@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import util from 'util';
 import electron from 'electron';
 import {sha256} from 'crypto-hash';
@@ -16,7 +17,6 @@ const uuidPredicate = ow.string.alphanumeric.lowercase;
 const errorWithObject = (message, object) => new Error(`${message}:\n${util.format(object)}`);
 const genericError = object => errorWithObject('Encountered an error', object);
 
-/* eslint-disable camelcase */
 export default class Api {
 	constructor({endpoint, seedPhrase, concurrency = 1}) {
 		ow(endpoint, ow.string.label('endpoint'));
@@ -344,6 +344,7 @@ export default class Api {
 			if (hasBroadcast) {
 				throw new Error('Transaction has already been broadcast');
 			}
+
 			hasBroadcast = true;
 
 			const response = await this.request({

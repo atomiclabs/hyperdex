@@ -115,6 +115,7 @@ class AppContainer extends SuperContainer {
 		if (theme === 'system' && is.macos) {
 			cssTheme = darkMode.isEnabled ? 'dark' : 'light';
 		}
+
 		document.documentElement.dataset.theme = cssTheme;
 
 		this.setState({theme});

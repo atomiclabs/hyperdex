@@ -161,6 +161,7 @@ class SwapDB {
 			if (message.requestid) {
 				swap.requestId = message.requestid;
 			}
+
 			if (message.quoteid) {
 				swap.quoteId = message.quoteid;
 			}
@@ -270,9 +271,11 @@ class SwapDB {
 			if (swap.error.code === -9999) {
 				swap.statusFormatted = t('status.unmatched').toLowerCase();
 			}
+
 			if (swap.error.code === -9998 || cancelled) {
 				swap.statusFormatted = t('status.cancelled').toLowerCase();
 			}
+
 			if (swap.transactions.find(tx => tx.stage === 'alicereclaim')) {
 				swap.statusFormatted = t('status.reverted').toLowerCase();
 				swap.statusInformation = t('statusInformation.reverted');

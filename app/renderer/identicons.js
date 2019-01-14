@@ -59,10 +59,10 @@ module.exports = options => {
 	svg.setAttribute('viewBox', `0 0 ${actualSideLength} ${actualSideLength}`);
 
 	const defs = createSvgElement('defs');
-	svg.appendChild(defs);
+	svg.append(defs);
 
 	const group = createSvgElement('g');
-	svg.appendChild(group);
+	svg.append(group);
 
 	if (typeof options.color === 'string') {
 		group.setAttribute('fill', options.color);
@@ -71,17 +71,17 @@ module.exports = options => {
 		gradient.setAttribute('id', 'gradient');
 		gradient.setAttribute('gradientUnits', 'userSpaceOnUse');
 		gradient.setAttribute('gradientTransform', `rotate(${options.color.angle})`);
-		defs.appendChild(gradient);
+		defs.append(gradient);
 
 		const stop1 = createSvgElement('stop');
 		stop1.setAttribute('offset', '0%');
 		stop1.setAttribute('style', `stop-color:${options.color.from};stop-opacity:1`);
-		gradient.appendChild(stop1);
+		gradient.append(stop1);
 
 		const stop2 = createSvgElement('stop');
 		stop2.setAttribute('offset', '100%');
 		stop2.setAttribute('style', `stop-color:${options.color.to};stop-opacity:1`);
-		gradient.appendChild(stop2);
+		gradient.append(stop2);
 
 		group.setAttribute('fill', 'url(#gradient)');
 	}
@@ -99,7 +99,7 @@ module.exports = options => {
 		rect.setAttribute('y', row * scale);
 		rect.setAttribute('width', scale);
 		rect.setAttribute('height', scale);
-		group.appendChild(rect);
+		group.append(rect);
 	}
 
 	if (options.outputFormat === 'dataUrl') {

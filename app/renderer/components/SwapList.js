@@ -18,7 +18,6 @@ const SortDirections = {
 	DESC: Symbol('desc'),
 };
 
-// eslint-disable-next-line no-unused-vars
 class CancelButton extends React.Component {
 	static propTypes = {
 		swap: PropTypes.object.isRequired,
