@@ -121,11 +121,6 @@
 			"browser"
 		],
 		"extends": "xo-react",
-		"settings": {
-			"react": {
-				"version": "16.5"
-			}
-		},
 		"rules": {
 			"import/no-extraneous-dependencies": "off",
 			"import/no-unassigned-import": "off",
