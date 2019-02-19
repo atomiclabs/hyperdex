@@ -8091,15 +8091,15 @@ osenv@0, osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
+ow@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/ow/-/ow-0.12.0.tgz#ce3b53a81af78171a21478bd684bd9862b152b35"
+  integrity sha512-GWAoq5RiK3HpMbwvM/aszyYYm7UvZzNfx5QPDbCXd52lROiDVBn6x6M06DhsL/Y8BTl42djQAPWhu6adaWwZyQ==
+
 ow@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/ow/-/ow-0.6.0.tgz#1371352713192a8dd54ec13ab0f0f1464b58941f"
   integrity sha512-CJRcySlsICcZoVH5L259wYecV7JRiGOGyxTpMF0YL2QIaETrl75ZhNpvn+jJN19HlCcUS2QyPpWJmOMya8kwCw==
-
-ow@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/ow/-/ow-0.8.0.tgz#d360d779c996f4132941a596c87f86ce8e812e62"
-  integrity sha512-hYgYZNcRfIZ2JppSTqh6mxdU1zkUXsGlwy4eBsRG91R6CiZk7cB+AfHl+SVKBdynQvAnNHNfu0ZrtJN1jj7Mow==
 
 p-any@^1.1.0:
   version "1.1.0"
