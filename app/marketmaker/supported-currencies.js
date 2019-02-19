@@ -1333,26 +1333,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'MNZ',
-		name: 'Monaize',
-		asset: 'MNZ',
-		rpcport: 14337,
-		electrumServers: [
-			{
-				host: 'electrum1.cipig.net',
-				port: 10002,
-			},
-			{
-				host: 'electrum2.cipig.net',
-				port: 10002,
-			},
-			{
-				host: 'electrum3.cipig.net',
-				port: 10002,
-			},
-		],
-	},
-	{
 		coin: 'MONA',
 		rpcport: 9402,
 		pubtype: 50,
