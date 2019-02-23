@@ -31,6 +31,7 @@ const removedCurrencies = [
 	'DNR',
 	'BCBC',
 	'QMC',
+	'MNZ',
 ];
 
 const createPortfolio = async ({name, seedPhrase, password}) => {

@@ -93,7 +93,6 @@ const explorers = new Map(Object.entries({
 	MGW: 'https://mgw.kmdexplorer.io/tx/{txid}',
 	MLM: 'https://info.mktcoin.org/tx/{txid}',
 	MNX: 'https://minexexplorer.com/?r=explorer/tx&hash={txid}',
-	MNZ: 'https://www.mnzexplorer.com/tx/{txid}',
 	MONA: 'https://mona.chainsight.info/tx/{txid}',
 	MOON: 'https://chainz.cryptoid.info/moon/tx.dws?{txid}',
 	MSHARK: 'https://mshark.kmdexplorer.io/tx/{txid}',
