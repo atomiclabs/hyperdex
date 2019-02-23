@@ -6,7 +6,7 @@ import {ignoreExternalPrice} from '../constants';
 const baseURL = 'https://api.coingecko.com/api/v3';
 
 const fetchCurrencyInfo = async symbols => {
-	ow(symbols, ow.array.ofType(ow.string.uppercase));
+	ow(symbols, 'symbols', ow.array.ofType(ow.string.uppercase));
 
 	const filteredSymbols = symbols.filter(symbol => !ignoreExternalPrice.has(symbol));
 

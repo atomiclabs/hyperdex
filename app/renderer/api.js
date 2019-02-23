@@ -19,9 +19,9 @@ const genericError = object => errorWithObject('Encountered an error', object);
 
 export default class Api {
 	constructor({endpoint, seedPhrase, concurrency = 1}) {
-		ow(endpoint, ow.string.label('endpoint'));
-		ow(seedPhrase, ow.string.label('seedPhrase'));
-		ow(concurrency, ow.number.integerOrInfinite.positive.label('concurrency'));
+		ow(endpoint, 'endpoint', ow.string);
+		ow(seedPhrase, 'seedPhrase', ow.string);
+		ow(concurrency, 'concurrency', ow.number.positive.integerOrInfinite);
 
 		this.endpoint = endpoint;
 		this.token = sha256(seedPhrase);
@@ -43,7 +43,7 @@ export default class Api {
 	}
 
 	async request(data) {
-		ow(data, ow.object.label('data'));
+		ow(data, 'data', ow.object);
 
 		const queueId = (this.useQueue && this.socket) ? ++this.currentQueueId : 0;
 
@@ -100,7 +100,7 @@ export default class Api {
 	}
 
 	async enableCurrency(symbol) {
-		ow(symbol, symbolPredicate.label('symbol'));
+		ow(symbol, 'symbol', symbolPredicate);
 
 		const currency = getCurrency(symbol);
 
@@ -137,7 +137,7 @@ export default class Api {
 	}
 
 	disableCoin(coin) {
-		ow(coin, symbolPredicate.label('coin'));
+		ow(coin, 'coin', symbolPredicate);
 
 		return this.request({
 			method: 'disable',
@@ -150,8 +150,8 @@ export default class Api {
 	}
 
 	balance(coin, address) {
-		ow(coin, symbolPredicate.label('coin'));
-		ow(address, ow.string.label('address'));
+		ow(coin, 'coin', symbolPredicate);
+		ow(address, 'address', ow.string);
 
 		return this.request({
 			method: 'balance',
@@ -165,8 +165,8 @@ export default class Api {
 	}
 
 	async orderBook(base, rel) {
-		ow(base, symbolPredicate.label('base'));
-		ow(rel, symbolPredicate.label('rel'));
+		ow(base, 'base', symbolPredicate);
+		ow(rel, 'rel', symbolPredicate);
 
 		const response = await this.request({
 			method: 'orderbook',
@@ -197,12 +197,14 @@ export default class Api {
 	}
 
 	order(opts) {
-		ow(opts.type, ow.string.oneOf(['buy', 'sell']).label('type'));
-		ow(opts.baseCurrency, symbolPredicate.label('baseCurrency'));
-		ow(opts.quoteCurrency, symbolPredicate.label('quoteCurrency'));
-		ow(opts.amount, ow.number.finite.label('amount'));
-		ow(opts.total, ow.number.finite.label('total'));
-		ow(opts.price, ow.number.finite.label('price'));
+		ow(opts, 'opts', ow.object.exactShape({
+			type: ow.string.oneOf(['buy', 'sell']),
+			baseCurrency: symbolPredicate,
+			quoteCurrency: symbolPredicate,
+			amount: ow.number.finite,
+			total: ow.number.finite,
+			price: ow.number.finite,
+		}));
 
 		return this.request({
 			method: opts.type,
@@ -216,7 +218,7 @@ export default class Api {
 	}
 
 	async cancelOrder(uuid) {
-		ow(uuid, uuidPredicate.label('uuid'));
+		ow(uuid, 'uuid', uuidPredicate);
 
 		const response = await this.request({
 			method: 'cancel',
@@ -239,7 +241,7 @@ export default class Api {
 	}
 
 	async getFee(coin) {
-		ow(coin, symbolPredicate.label('coin'));
+		ow(coin, 'coin', symbolPredicate);
 
 		const response = await this.request({
 			method: 'getfee',
@@ -254,9 +256,11 @@ export default class Api {
 	}
 
 	async _createTransaction(opts) {
-		ow(opts.symbol, symbolPredicate.label('symbol'));
-		ow(opts.address, ow.string.label('address'));
-		ow(opts.amount, ow.number.positive.finite.label('amount'));
+		ow(opts, 'opts', ow.object.exactShape({
+			symbol: symbolPredicate,
+			address: ow.string,
+			amount: ow.number.positive.finite,
+		}));
 
 		const result = await this.request({
 			method: 'withdraw',
@@ -276,8 +280,8 @@ export default class Api {
 	}
 
 	async _broadcastTransaction(symbol, rawTransaction) {
-		ow(symbol, symbolPredicate.label('symbol'));
-		ow(rawTransaction, ow.string.label('rawTransaction'));
+		ow(symbol, 'symbol', symbolPredicate);
+		ow(rawTransaction, 'rawTransaction', ow.string);
 
 		const response = await this.request({
 			method: 'sendrawtransaction',
@@ -293,9 +297,11 @@ export default class Api {
 	}
 
 	async _withdrawBtcFork(opts) {
-		ow(opts.symbol, symbolPredicate.label('symbol'));
-		ow(opts.address, ow.string.label('address'));
-		ow(opts.amount, ow.number.positive.finite.label('amount'));
+		ow(opts, 'opts', ow.object.exactShape({
+			symbol: symbolPredicate,
+			address: ow.string,
+			amount: ow.number.positive.finite,
+		}));
 
 		const {
 			hex: rawTransaction,
@@ -323,9 +329,11 @@ export default class Api {
 	}
 
 	async _withdrawEth(opts) {
-		ow(opts.symbol, symbolPredicate.label('symbol'));
-		ow(opts.address, ow.string.label('address'));
-		ow(opts.amount, ow.number.positive.finite.label('amount'));
+		ow(opts, 'opts', ow.object.exactShape({
+			symbol: symbolPredicate,
+			address: ow.string,
+			amount: ow.number.positive.finite,
+		}));
 
 		const {
 			eth_fee: txFee,
@@ -376,16 +384,20 @@ export default class Api {
 	}
 
 	withdraw(opts) {
-		ow(opts.symbol, symbolPredicate.label('symbol'));
-		ow(opts.address, ow.string.label('address'));
-		ow(opts.amount, ow.number.positive.finite.label('amount'));
+		ow(opts, 'opts', ow.object.exactShape({
+			symbol: symbolPredicate,
+			address: ow.string,
+			amount: ow.number.positive.finite,
+		}));
 
 		return getCurrency(opts.symbol).etomic ? this._withdrawEth(opts) : this._withdrawBtcFork(opts);
 	}
 
 	kickstart(opts) {
-		ow(opts.requestId, ow.number.positive.finite.label('requestId'));
-		ow(opts.quoteId, ow.number.positive.finite.label('quoteId'));
+		ow(opts, 'opts', ow.object.exactShape({
+			requestId: ow.number.positive.finite,
+			quoteId: ow.number.positive.finite,
+		}));
 
 		return this.request({
 			method: 'kickstart',
@@ -395,8 +407,8 @@ export default class Api {
 	}
 
 	listUnspent(coin, address) {
-		ow(coin, symbolPredicate.label('coin'));
-		ow(address, ow.string.label('address'));
+		ow(coin, 'coin', symbolPredicate);
+		ow(address, 'address', ow.string);
 
 		return this.request({
 			method: 'listunspent',

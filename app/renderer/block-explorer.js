@@ -163,8 +163,8 @@ const explorers = new Map(Object.entries({
 const blockExplorer = {};
 
 blockExplorer.tx = (symbol, txid) => {
-	ow(symbol, ow.string.label('symbol'));
-	ow(txid, ow.string.label('txid'));
+	ow(symbol, 'symbol', ow.string.uppercase);
+	ow(txid, 'txid', ow.string);
 
 	const explorer = explorers.get(isEtomic(symbol) ? 'ETH' : symbol);
 
