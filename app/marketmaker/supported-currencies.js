@@ -1026,7 +1026,9 @@ const supportedCurrencies = [
 	/* Disabled because of #289
 	{
 		coin: 'HODL',
+		name: 'HODL (Komodo Asset)',
 		asset: 'HODL',
+		cmcticker: 'HODLKA',
 		rpcport: 14431,
 		electrumServers: [
 			{
@@ -1043,9 +1045,11 @@ const supportedCurrencies = [
 			},
 		],
 	},
+	*/
 	{
 		coin: 'HODLC',
-		name: 'Hodlcoin',
+		cmcticker: 'HODL',
+		name: 'HOdlcoin',
 		rpcport: 11989,
 		pubtype: 40,
 		p2shtype: 5,
@@ -1062,7 +1066,7 @@ const supportedCurrencies = [
 			},
 		],
 	},
-	*/
+	
 	{
 		coin: 'HUSH',
 		rpcport: 8822,
@@ -2268,6 +2272,11 @@ const getCurrencyName = symbol => {
 	return coinParams.name || coinlist.get(symbol, 'name') || symbol;
 };
 
+const getCurrencyCMCTicker = symbol => {
+	const coinParams = supportedCurrencies.find(currency => currency.coin === symbol);
+	return coinParams.cmcticker || symbol;
+};
+
 const getCurrency = symbol => supportedCurrencies.find(currency => currency.coin === symbol);
 
 const isEtomic = symbol => {
@@ -2284,6 +2293,7 @@ module.exports = {
 	supportedCurrencies,
 	getCurrencySymbols,
 	getCurrencyName,
+	getCurrencyCMCTicker,
 	getCurrency,
 	isEtomic,
 };

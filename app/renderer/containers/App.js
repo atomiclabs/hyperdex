@@ -8,7 +8,7 @@ import roundTo from 'round-to';
 import SuperContainer from 'containers/SuperContainer';
 import {isPast, addHours} from 'date-fns';
 import {appViews, alwaysEnabledCurrencies, hiddenCurrencies} from '../../constants';
-import {getCurrencyName} from '../../marketmaker/supported-currencies';
+import {getCurrencyName, getCurrencyCMCTicker} from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
 import {formatCurrency, setLoginWindowBounds} from '../util';
 import fetchCurrencyInfo from '../fetch-currency-info';
@@ -178,7 +178,7 @@ class AppContainer extends SuperContainer {
 					.map(currency => {
 						currency.symbol = currency.coin; // For readability
 
-						const {cmcPriceUsd, cmcPercentChange24h} = this.getCurrencyPrice(currency.symbol);
+						const {cmcPriceUsd, cmcPercentChange24h} = this.getCurrencyPrice(getCurrencyCMCTicker(currency.symbol));
 
 						if (cmcPriceUsd) {
 							currency.cmcPriceUsd = cmcPriceUsd;
