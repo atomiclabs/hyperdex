@@ -1066,7 +1066,6 @@ const supportedCurrencies = [
 			},
 		],
 	},
-	
 	{
 		coin: 'HUSH',
 		rpcport: 8822,
