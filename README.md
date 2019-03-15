@@ -20,7 +20,7 @@
 	<a title="Keybase" target="_blank" href="https://keybase.io/hyperdex">
 		<img src="https://badgen.net/keybase/pgp/hyperdex">
 	</a>
-	<a href="Follow on Twitter" href="https://twitter.com/HyperDEXApp">
+	<a title="Follow on Twitter" target="_blank" href="https://twitter.com/HyperDEXApp">
 		<img src="https://img.shields.io/twitter/follow/HyperDexApp.svg?style=social&label=Follow">
 	</a>
 	<br>
