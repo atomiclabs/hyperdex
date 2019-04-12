@@ -44,6 +44,7 @@ const explorers = new Map(Object.entries({
 	CREA: 'https://chainz.cryptoid.info/crea/tx.dws?{txid}',
 	CRW: 'https://chainz.cryptoid.info/crw/tx.dws?{txid}',
 	CRYPTO: 'https://crypto.kmdexplorer.io/tx/{txid}',
+	D: 'https://chainz.cryptoid.info/d/tx.dws?{txid}',
 	DASH: 'https://chainz.cryptoid.info/dash/tx.dws?{txid}',
 	DEX: 'https://dex.kmdexplorer.io/tx/{txid}',
 	DGB: 'https://digiexplorer.info/tx/{txid}',

@@ -547,6 +547,29 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
+        coin: 'D',
+		name: 'Denarius',
+        rpcport: 32369,
+        pubtype: 30,
+        p2shtype: 90,
+        wiftype: 158,
+        txfee: 10000,
+        electrumServers: [
+            {
+                host: 'electrumx1.denarius.pro',
+                port: 50001,
+            },
+            {
+                host: 'electrumx2.denarius.pro',
+                port: 50001,
+            },
+            {
+                host: '51.158.98.28',
+                port: 50001,
+            },
+        ],
+	},
+	{
 		coin: 'DASH',
 		rpcport: 9998,
 		pubtype: 76,
