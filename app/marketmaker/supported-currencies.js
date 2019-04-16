@@ -564,7 +564,11 @@ const supportedCurrencies = [
 				port: 50001,
 			},
 			{
-				host: '51.158.98.28',
+				host: 'electrum.denariuspool.info',
+				port: 50001,
+			},
+			{
+				host: 'electrum.denarius.vip',
 				port: 50001,
 			},
 		],
