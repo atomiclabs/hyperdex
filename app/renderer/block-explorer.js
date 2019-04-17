@@ -87,7 +87,6 @@ const explorers = new Map(Object.entries({
 	KV: 'https://ceal.kmdexplorer.io/tx/{txid}',
 	LBC: 'https://explorer.lbry.io/tx/{txid}',
 	LTC: 'https://bchain.info/LTC/tx/{txid}',
-	LTZ: 'https://explorer.litecoinz.info/tx/{txid}',
 	MESH: 'https://mesh.kmdexplorer.io/tx/{txid}',
 	MGW: 'https://mgw.kmdexplorer.io/tx/{txid}',
 	MLM: 'https://info.mktcoin.org/tx/{txid}',
