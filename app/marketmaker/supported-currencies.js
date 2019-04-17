@@ -1110,13 +1110,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'ICX',
-		name: 'ICON',
-		etomic: '0xb5a5f22694352c15b00323844ad545abb2b11028',
-		decimals: 18,
-		rpcport: 80,
-	},
-	{
 		coin: 'IND',
 		name: 'Indorse Token',
 		etomic: '0xf8e386EDa857484f5a12e4B5DAa9984E06E73705',
