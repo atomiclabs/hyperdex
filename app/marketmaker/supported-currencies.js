@@ -47,12 +47,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'AION',
-		name: 'Aion',
-		etomic: '0x4CEdA7906a5Ed2179785Cd3A40A69ee8bc99C466',
-		rpcport: 80,
-	},
-	{
 		coin: 'AMB',
 		name: 'Ambrosus',
 		etomic: '0x4DC3643DbC642b72C158E7F3d2ff232df61cb6CE',
