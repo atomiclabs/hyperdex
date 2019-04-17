@@ -1939,12 +1939,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'VEN',
-		name: 'VeChain',
-		etomic: '0xd850942ef8811f2a866692a623011bde52a462c1',
-		rpcport: 80,
-	},
-	{
 		coin: 'VIA',
 		rpcport: 5222,
 		pubtype: 71,
