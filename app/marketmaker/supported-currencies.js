@@ -434,7 +434,7 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'CC',
+		coin: 'CCL',
 		name: 'CoinCollect',
 		asset: 'CCL',
 		rpcport: 20849,
