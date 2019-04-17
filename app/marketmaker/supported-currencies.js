@@ -1934,12 +1934,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'THETA',
-		name: 'Theta Token',
-		etomic: '0x3883f5e181fccaF8410FA61e12b59BAd963fb645',
-		rpcport: 80,
-	},
-	{
 		coin: 'TIME',
 		name: 'Chronobank',
 		etomic: '0x6531f133e6DeeBe7F2dcE5A0441aA7ef330B4e53',
