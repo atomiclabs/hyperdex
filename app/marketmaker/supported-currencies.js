@@ -769,12 +769,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'EOS',
-		name: 'EOS',
-		etomic: '0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0',
-		rpcport: 80,
-	},
-	{
 		coin: 'EQLI',
 		name: 'Equaliser',
 		asset: 'EQL',
