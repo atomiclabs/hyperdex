@@ -1286,12 +1286,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'MAN',
-		name: 'Matrix AI Network',
-		etomic: '0xe25bcec5d3801ce3a794079bf94adf1b8ccd802d',
-		rpcport: 80,
-	},
-	{
 		coin: 'MANA',
 		name: 'Decentraland',
 		etomic: '0x0F5D2fB29fb7d3CFeE444a200298f468908cC942',

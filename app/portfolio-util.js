@@ -38,6 +38,7 @@ const removedCurrencies = [
 	'PGT',
 	'CC',
 	'THETA',
+	'MAN',
 ];
 
 const createPortfolio = async ({name, seedPhrase, password}) => {
