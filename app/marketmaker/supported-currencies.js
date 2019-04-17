@@ -428,12 +428,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'CMT',
-		name: 'CyberMiles',
-		etomic: '0xf85feea2fdd81d51177f6b8f35f0e6734ce45f5f',
-		rpcport: 80,
-	},
-	{
 		coin: 'CCL',
 		name: 'CoinCollect',
 		asset: 'CCL',
