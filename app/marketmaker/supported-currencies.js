@@ -103,7 +103,7 @@ const supportedCurrencies = [
 		txfee: 1000,
 		electrumServers: [
 			{
-				host: 'bch.imaginary.cash',
+				host: 'electron.coinucopia.io',
 				port: 50001,
 			},
 			{
@@ -115,7 +115,11 @@ const supportedCurrencies = [
 				port: 50001,
 			},
 			{
-				host: 'abc1.hsmiths.com',
+				host: 'electron-cash.dragon.zone',
+				port: 60001,
+			},
+			{
+				host: 'wallet.satoshiscoffeehouse.com',
 				port: 60001,
 			},
 		],
@@ -339,16 +343,20 @@ const supportedCurrencies = [
 		txfee: 50000,
 		electrumServers: [
 			{
-				host: 'electrum1.cipig.net',
-				port: 10057,
+				host: 'ele1.bitcore.cc',
+				port: 50001,
 			},
 			{
-				host: 'electrum2.cipig.net',
-				port: 10057,
+				host: 'ele2.bitcore.cc',
+				port: 50001,
 			},
 			{
-				host: 'electrum3.cipig.net',
-				port: 10057,
+				host: 'ele3.bitcore.cc',
+				port: 50001,
+			},
+			{
+				host: 'ele4.bitcore.cc',
+				port: 50001,
 			},
 		],
 	},
@@ -896,16 +904,20 @@ const supportedCurrencies = [
 		txfee: 1000000,
 		electrumServers: [
 			{
-				host: 'electrum1.cipig.net',
-				port: 10074,
+				host: 'electrumx-gb-1.feathercoin.network',
+				port: 50001,
 			},
 			{
-				host: 'electrum2.cipig.net',
-				port: 10074,
+				host: 'electrumx-gb-2.feathercoin.network',
+				port: 50001,
 			},
 			{
-				host: 'electrum3.cipig.net',
-				port: 10074,
+				host: 'electrumx-ch-1.feathercoin.ch',
+				port: 50001,
+			},
+			{
+				host: 'electrumx-de-2.feathercoin.ch',
+				port: 50001,
 			},
 		],
 	},
@@ -1248,7 +1260,7 @@ const supportedCurrencies = [
 				port: 50001,
 			},
 			{
-				host: 'ltc01.knas.systems',
+				host: 'node.ispol.sk',
 				port: 50003,
 			},
 			{
@@ -1256,7 +1268,7 @@ const supportedCurrencies = [
 				port: 50001,
 			},
 			{
-				host: 'electrum.ltc.xurious.com',
+				host: 'backup.electrum-ltc.org',
 				port: 50001,
 			},
 		],
@@ -1977,6 +1989,14 @@ const supportedCurrencies = [
 		wiftype: 199,
 		txfee: 100000,
 		electrumServers: [
+			{
+				host: 'server.vialectrum.org',
+				port: 50001,
+			},
+			{
+				host: 'server2.vialectrum.org',
+				port: 50001,
+			},
 			{
 				host: 'viax1.bitops.me',
 				port: 50001,
