@@ -1886,7 +1886,7 @@ const supportedCurrencies = [
 	{
 		coin: 'SUB',
 		name: 'Substratum',
-		etomic: '0x12480e24eb5bec1a9d4369cab6a80cad3c0a377a',
+		etomic: '0x8D75959f1E61EC2571aa72798237101F084DE63a',
 		rpcport: 80,
 	},
 	{
