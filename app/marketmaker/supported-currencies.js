@@ -944,28 +944,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'GBX',
-		rpcport: 12454,
-		pubtype: 38,
-		p2shtype: 10,
-		wiftype: 198,
-		txfee: 10000,
-		electrumServers: [
-			{
-				host: 'electrum1.cipig.net',
-				port: 10073,
-			},
-			{
-				host: 'electrum2.cipig.net',
-				port: 10073,
-			},
-			{
-				host: 'electrum3.cipig.net',
-				port: 10073,
-			},
-		],
-	},
-	{
 		coin: 'GLXT',
 		name: 'GLX Token',
 		asset: 'GLXT',
@@ -1597,28 +1575,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'POLIS',
-		rpcport: 24127,
-		pubtype: 55,
-		p2shtype: 56,
-		wiftype: 60,
-		txfee: 10000,
-		electrumServers: [
-			{
-				host: 'electrum1.cipig.net',
-				port: 10075,
-			},
-			{
-				host: 'electrum2.cipig.net',
-				port: 10075,
-			},
-			{
-				host: 'electrum3.cipig.net',
-				port: 10075,
-			},
-		],
-	},
-	{
 		coin: 'POLY',
 		name: 'Polymath',
 		etomic: '0x9992ec3cf6a55b00978cddf2b27bc6882d88d1ec',
@@ -2132,28 +2088,6 @@ const supportedCurrencies = [
 		name: 'Xarum',
 		etomic: '0x4DF812F6064def1e5e029f1ca858777CC98D2D81',
 		rpcport: 80,
-	},
-	{
-		coin: 'XMCC',
-		rpcport: 24156,
-		pubtype: 50,
-		p2shtype: 73,
-		wiftype: 77,
-		txfee: 10000,
-		electrumServers: [
-			{
-				host: 'electrum1.cipig.net',
-				port: 10076,
-			},
-			{
-				host: 'electrum2.cipig.net',
-				port: 10076,
-			},
-			{
-				host: 'electrum3.cipig.net',
-				port: 10076,
-			},
-		],
 	},
 	{
 		coin: 'XOV',
