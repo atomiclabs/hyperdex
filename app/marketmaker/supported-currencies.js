@@ -1449,12 +1449,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'NULS',
-		name: 'Nuls',
-		etomic: '0xb91318f35bdb262e9423bc7c7c2a3a93dd93c92c',
-		rpcport: 80,
-	},
-	{
 		coin: 'OCC',
 		name: 'Original Crypto Coin',
 		etomic: '0x0235fe624e044a05eed7a43e16e3083bc8a4287a',
