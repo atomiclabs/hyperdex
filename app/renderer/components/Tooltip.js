@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {classNames} from 'react-extras';
-import CSSTransition from 'react-transition-group/CSSTransition';
 import {Manager, Popper, Reference, placements} from 'react-popper';
+import CSSTransition from 'react-transition-group/CSSTransition';
 import './Tooltip.scss';
 
 class Tooltip extends React.PureComponent {
