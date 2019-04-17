@@ -1625,7 +1625,7 @@ const supportedCurrencies = [
 	{
 		coin: 'QBIT',
 		name: 'Qubitica',
-		etomic: '0xcb5ea3c190d8f82deadf7ce5af855ddbf33e3962',
+		etomic: '0x1602af2C782cC03F9241992E243290Fccf73Bb13',
 		rpcport: 80,
 	},
 	{
