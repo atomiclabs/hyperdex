@@ -833,7 +833,7 @@ const supportedCurrencies = [
 		pubtype: 95,
 		p2shtype: 36,
 		wiftype: 223,
-		txfee: 1000000,
+		txfee: 2000000,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
