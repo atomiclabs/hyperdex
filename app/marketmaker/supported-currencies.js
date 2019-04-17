@@ -1948,7 +1948,7 @@ const supportedCurrencies = [
 	{
 		coin: 'TUSD',
 		name: 'TrueUSD',
-		etomic: '0x8dd5fbce2f6a956c3022ba3663759011dd51e73e',
+		etomic: '0x0000000000085d4780B73119b644AE5ecd22b376',
 		rpcport: 80,
 	},
 	{
