@@ -1545,17 +1545,17 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'PGT',
+		coin: 'PUNGO',
 		name: 'Pungo Token',
 		asset: 'PGT',
 		rpcport: 46705,
 		electrumServers: [
 			{
-				host: 'agama.komodo.build',
+				host: 'electrum1.pungo.cloud',
 				port: 10002,
 			},
 			{
-				host: 'agama2.komodo.build',
+				host: 'electrum2.pungo.cloud',
 				port: 10002,
 			},
 		],
