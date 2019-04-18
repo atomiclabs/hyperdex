@@ -32,6 +32,19 @@ const removedCurrencies = [
 	'BCBC',
 	'QMC',
 	'MNZ',
+	'GBX',
+	'XMCC',
+	'POLIS',
+	'PGT',
+	'CC',
+	'THETA',
+	'MAN',
+	'CMT',
+	'NULS',
+	'ICX',
+	'AION',
+	'VEN',
+	'EOS',
 ];
 
 const createPortfolio = async ({name, seedPhrase, password}) => {
