@@ -6,7 +6,7 @@ import './Modal.scss';
 class Modal extends React.Component {
 	static propTypes = {
 		children: PropTypes.oneOfType([
-			PropTypes.func,
+			PropTypes.elementType,
 			PropTypes.node,
 		]).isRequired,
 		title: PropTypes.node.isRequired,
