@@ -10,7 +10,7 @@ const Select = ({searchable, clearable, forwardedRef, ...props}) => {
 Select.propTypes = {
 	...ReactSelect.propTypes,
 	forwardedRef: PropTypes.oneOfType([
-		PropTypes.func,
+		PropTypes.elementType,
 		PropTypes.object,
 	]),
 };

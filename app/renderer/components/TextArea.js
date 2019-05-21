@@ -6,7 +6,7 @@ import './TextArea.scss';
 class TextArea extends React.Component {
 	static propTypes = {
 		forwardedRef: PropTypes.oneOfType([
-			PropTypes.func,
+			PropTypes.elementType,
 			PropTypes.object,
 		]),
 		value: PropTypes.string.isRequired,
