@@ -45,7 +45,11 @@ const initApi = async seedPhrase => {
 const createApi = async seedPhrase => {
 	console.time('create-api');
 	const api = await initApi(seedPhrase);
+
+	// Socket doesn't seem to be supported on mm2?
+	// `Error: Failed to construct 'WebSocket': The URL 'undefined' is invalid.`
 	await api.enableSocket();
+
 	appContainer.api = api;
 	if (isDevelopment) {
 		// Exposes the API for debugging in DevTools
@@ -59,8 +63,11 @@ const createApi = async seedPhrase => {
 
 const enableCurrencies = async api => {
 	console.time('enable-currencies');
+
+	// TODO: ERC20 is not yet supported with mm2
 	// ETOMIC needs to be enabled first otherwise ETH/ERC20 tokens will fail
-	await api.enableCurrency('ETOMIC');
+	// await api.enableCurrency('ETOMIC');
+
 	await Promise.all(appContainer.state.enabledCoins.map(x => api.enableCurrency(x)));
 	console.timeEnd('enable-currencies');
 };

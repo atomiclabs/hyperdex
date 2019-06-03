@@ -110,15 +110,15 @@ export default class Api {
 		}
 
 		if (currency.electrumServers) {
-			const requests = currency.electrumServers.map(server => this.request({
+			const urls = currency.electrumServers.map(server => `${server.host}:${server.port}`);
+
+			const response = await this.request({
 				method: 'electrum',
 				coin: symbol,
-				ipaddr: server.host,
-				port: server.port,
-			}));
+				urls,
+			});
 
-			const responses = await Promise.all(requests);
-			const success = responses.filter(response => response.result === 'success').length > 0;
+			const success = response.result === 'success';
 
 			if (!success) {
 				const error = `Could not connect to ${symbol} Electrum server`;

@@ -1951,6 +1951,11 @@ const supportedCurrencies = [
 	},
 ];
 
+// TODO: Update the `mm2` compatibility info for individual currencies
+for (const currency of supportedCurrencies) {
+	currency.mm2 = 1;
+}
+
 const getCurrencySymbols = () => (
 	_(supportedCurrencies)
 		.chain()
