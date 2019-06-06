@@ -41,11 +41,6 @@ try {
 
 const {app, session} = electron;
 
-// Disables broken color space correction in Chromium.
-// You can see differing background color on the login screen.
-// https://github.com/electron/electron/issues/9671
-app.commandLine.appendSwitch('disable-color-correct-rendering');
-
 app.setAppUserModelId('com.lukechilds.hyperdex');
 
 // TODO: Figure out why it throws at launch
