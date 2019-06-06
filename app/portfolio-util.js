@@ -17,7 +17,7 @@ const portfoliosDirectoryPath = path.join(app.getPath('userData'), 'portfolios')
 const idToFileName = id => `hyperdex-portfolio-${id}.json`;
 const fileNameToId = fileName => fileName.replace(/^hyperdex-portfolio-/, '').replace(/\.json$/, '');
 const idToFilePath = id => path.join(portfoliosDirectoryPath, idToFileName(id));
-const generateId = name => `${slugify(name).slice(0, 40)}-${randomString(6)}`;
+const generateId = name => `${slugify(name).slice(0, 40)}-${randomString({length: 6})}`;
 
 class IncorrectPasswordError extends Error {
 	constructor() {
