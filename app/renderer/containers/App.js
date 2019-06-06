@@ -170,6 +170,10 @@ class AppContainer extends SuperContainer {
 				const {price: kmdPriceInUsd} = this.coinPrices.find(x => x.symbol === 'KMD');
 				let {portfolio: currencies} = await this.api.portfolio();
 
+				if (!currencies) {
+					throw new Error('Could not fetch the portfolio from Marketmaker');
+				}
+
 				// TODO(sindresorhus): Move the returned `mm` currency info to a sub-property and only have cleaned-up top-level properties. For example, `mm` has too many properties for just the balance.
 
 				// Mixin useful data for the currencies
