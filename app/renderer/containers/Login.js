@@ -48,7 +48,7 @@ const createApi = async seedPhrase => {
 
 	// Socket doesn't seem to be supported on mm2?
 	// `Error: Failed to construct 'WebSocket': The URL 'undefined' is invalid.`
-	await api.enableSocket();
+	// await api.enableSocket();
 
 	appContainer.api = api;
 	if (isDevelopment) {
