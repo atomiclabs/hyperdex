@@ -8,7 +8,7 @@ import {getCurrency} from '../marketmaker/supported-currencies';
 import {isDevelopment} from '../util-common';
 
 const symbolPredicate = ow.string.uppercase;
-const uuidPredicate = ow.string.alphanumeric.lowercase;
+const uuidPredicate = ow.string.matches(/[a-z\d-]/);
 
 const errorWithObject = (message, object) => new Error(`${message}:\n${util.format(object)}`);
 const genericError = object => errorWithObject('Encountered an error', object);
@@ -227,24 +227,42 @@ export default class Api {
 		return formattedResponse;
 	}
 
-	order(opts) {
+	async order(opts) {
 		ow(opts, 'opts', ow.object.exactShape({
 			type: ow.string.oneOf(['buy', 'sell']),
 			baseCurrency: symbolPredicate,
 			quoteCurrency: symbolPredicate,
-			amount: ow.number.finite,
-			total: ow.number.finite,
 			price: ow.number.finite,
+			volume: ow.number.finite,
 		}));
 
-		return this.request({
+		const {result} = await this.request({
 			method: opts.type,
 			gtc: 1, // TODO: Looks like this is missing from mm v2
 			base: opts.baseCurrency,
 			rel: opts.quoteCurrency,
 			price: opts.price,
-			volume: opts.amount
+			volume: opts.volume,
 		});
+
+		result.baseAmount = Number(result.base_amount);
+		delete result.base_amount;
+
+		result.quoteAmount = Number(result.rel_amount);
+		delete result.rel_amount;
+
+		return result;
+	}
+
+	async orderStatus(uuid) {
+		ow(uuid, 'uuid', uuidPredicate);
+
+		const {result} = await this.request({
+			method: 'order_status',
+			uuid,
+		});
+
+		return result;
 	}
 
 	async cancelOrder(uuid) {

@@ -71,13 +71,16 @@ class AppContainer extends SuperContainer {
 
 		this.swapDB.on('change', setSwapHistory);
 
-		// TODO: Make this use the HTTP API.
-		// this.api.socket.on('message', message => {
-		// 	const uuids = this.state.swapHistory.map(swap => swap.uuid);
-		// 	if (uuids.includes(message.uuid)) {
-		// 		this.swapDB.updateSwapData(message);
-		// 	}
-		// });
+		fireEvery({seconds: 1}, async () => {
+			const uuids = this.state.swapHistory.map(swap => swap.uuid);
+
+			await Promise.all(uuids.map(async uuid => {
+				const status = await this.api.orderStatus(uuid);
+				console.log('update', status);
+				// TODO: Finish this
+				// this.swapDB.updateSwapData(message);
+			}));
+		});
 
 		fireEvery({minutes: 15}, async () => {
 			await this.kickstartStuckSwaps();

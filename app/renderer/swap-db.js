@@ -103,17 +103,32 @@ class SwapDB {
 
 	// TODO: We should refactor this into a seperate file
 	_formatSwap(data) {
+		console.log('swap data', data);
 		const MATCHED_STEP = 1;
 		const TOTAL_PROGRESS_STEPS = swapTransactions.length + MATCHED_STEP;
 
-		const {uuid, timeStarted, request, response, messages} = data;
+		const {
+			uuid,
+			timeStarted,
+			request,
+			response,
+			messages,
+		} = data;
+
+		const {
+			action,
+			base: baseCurrency,
+			rel: quoteCurrency,
+			baseAmount,
+			quoteAmount,
+		} = response;
 
 		// If we place a sell order marketmaker just inverts the values and places a buy
 		// on the opposite pair. We need to normalise this otherwise we'll show the
 		// wrong base/quote currencies.
-		const isBuyOrder = (request.baseCurrency === response.base);
-		const responseBaseCurrencyAmount = isBuyOrder ? response.basevalue : response.relvalue;
-		const responseQuoteCurrencyAmount = isBuyOrder ? response.relvalue : response.basevalue;
+		const isBuyOrder = action === 'Buy';
+		const responseBaseCurrencyAmount = isBuyOrder ? baseAmount : quoteAmount;
+		const responseQuoteCurrencyAmount = isBuyOrder ? quoteAmount : baseAmount;
 
 		const swap = {
 			uuid,
@@ -128,8 +143,8 @@ class SwapDB {
 			},
 			error: false,
 			progress: 0,
-			baseCurrency: request.baseCurrency,
-			quoteCurrency: request.quoteCurrency,
+			baseCurrency,
+			quoteCurrency,
 			baseCurrencyAmount: roundTo(responseBaseCurrencyAmount, 8),
 			quoteCurrencyAmount: roundTo(responseQuoteCurrencyAmount, 8),
 			price: roundTo(responseQuoteCurrencyAmount / responseBaseCurrencyAmount, 8),
