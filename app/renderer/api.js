@@ -89,12 +89,16 @@ export default class Api {
 		}
 
 		if (currency.electrumServers) {
-			const urls = currency.electrumServers.map(server => `${server.host}:${server.port}`);
+			const servers = currency.electrumServers.map(server => ({
+				url: `${server.host}:${server.port}`,
+				// TODO: Use HTTPS for the Electrum servers that supports it.
+				// protocol: 'SSL',
+			}));
 
 			const response = await this.request({
 				method: 'electrum',
 				coin: symbol,
-				urls,
+				servers,
 			});
 
 			const success = response.result === 'success';
