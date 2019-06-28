@@ -1,15 +1,11 @@
 /* eslint-disable camelcase */
 import util from 'util';
-import electron from 'electron';
 import {sha256} from 'crypto-hash';
 import PQueue from 'p-queue';
 import ow from 'ow';
 import _ from 'lodash';
 import {getCurrency} from '../marketmaker/supported-currencies';
 import {isDevelopment} from '../util-common';
-import MarketmakerSocket from './marketmaker-socket';
-
-const getPort = electron.remote.require('get-port');
 
 const symbolPredicate = ow.string.uppercase;
 const uuidPredicate = ow.string.alphanumeric.lowercase;
@@ -25,32 +21,15 @@ export default class Api {
 
 		this.endpoint = endpoint;
 		this.token = sha256(seedPhrase);
-		this.socket = false;
-		this.useQueue = false;
-		this.currentQueueId = 0;
-
 		this.queue = new PQueue({concurrency});
-	}
-
-	async enableSocket() {
-		const port = await getPort();
-		const {endpoint} = await this.request({method: 'getendpoint', port});
-		const socket = new MarketmakerSocket(endpoint);
-		await socket.connected;
-		this.socket = socket;
-
-		return this.socket;
 	}
 
 	async request(data) {
 		ow(data, 'data', ow.object);
 
-		const queueId = (this.useQueue && this.socket) ? ++this.currentQueueId : 0;
-
 		const body = {
 			...data,
 			needjson: 1,
-			queueid: queueId,
 			userpass: await this.token,
 		};
 
@@ -67,14 +46,14 @@ export default class Api {
 				});
 			});
 
-			result = await ((this.useQueue && this.socket) ? this.socket.getResponse(queueId) : response.json());
+			result = await response.json();
 
 			if (isDevelopment) {
 				// TODO: Use `Intl.RelativeTimeFormat` here when we use an Electron version with Chrome 71
 				const requestDuration = (Date.now() - requestTime) / 1000;
 				const groupLabel = `API method: ${body.method} (${requestDuration}s)`;
 				console.groupCollapsed(groupLabel);
-				console.log('Request:', _.omit(body, ['needjson', 'userpass', this.useQueue ? null : 'queueid']));
+				console.log('Request:', _.omit(body, ['needjson', 'userpass']));
 				console.log('Response:', response.status, result);
 				console.groupEnd(groupLabel);
 			}
@@ -145,8 +124,58 @@ export default class Api {
 		});
 	}
 
-	portfolio() {
-		return this.request({method: 'portfolio'});
+	async portfolio() {
+		// FIXME: Fake the API for now.
+		return {
+			portfolio: [
+				{
+					address: 'RK6C9LJyPpEpqpW9zG3VhbUo6gMLwz6iWm',
+					aliceutil: 100,
+					amount: 6.14032191,
+					balance: 6.14032191,
+					balanceA: 6.14032191,
+					balanceB: 6.14032191,
+					balanceFormatted: 6.14032191,
+					bobutil: 100,
+					coin: 'KMD',
+					force: 0,
+					goal: 0,
+					goalperc: 0,
+					kmd_equiv: 6.14032191,
+					name: 'Komodo',
+					perc: 100,
+					price: 1,
+					relvolume: 0,
+					symbol: 'KMD',
+					valuesumA: 6.14032191,
+					valuesumB: 6.14032191,
+				},
+				{
+					address: 'RK6C9LJyPpEpqpW9zG3VhbUo6gMLwz6iWm',
+					aliceutil: 100,
+					amount: 6.14032191,
+					balance: 6.14032191,
+					balanceA: 6.14032191,
+					balanceB: 6.14032191,
+					balanceFormatted: 6.14032191,
+					bobutil: 100,
+					coin: 'CHIPS',
+					force: 0,
+					goal: 0,
+					goalperc: 0,
+					kmd_equiv: 6.14032191,
+					name: 'CHIPS',
+					perc: 100,
+					price: 1,
+					relvolume: 0,
+					symbol: 'CHIPS',
+					valuesumA: 6.14032191,
+					valuesumB: 6.14032191,
+				},
+			],
+		};
+
+		// Return this.request({method: 'portfolio'});
 	}
 
 	balance(coin, address) {
