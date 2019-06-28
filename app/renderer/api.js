@@ -235,12 +235,11 @@ export default class Api {
 
 		return this.request({
 			method: opts.type,
-			gtc: 1,
+			gtc: 1, // TODO: Looks like this is missing from mm v2
 			base: opts.baseCurrency,
 			rel: opts.quoteCurrency,
-			basevolume: opts.amount,
-			relvolume: opts.total,
 			price: opts.price,
+			volume: opts.amount
 		});
 	}
 
