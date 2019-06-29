@@ -71,13 +71,19 @@ class AppContainer extends SuperContainer {
 
 		this.swapDB.on('change', setSwapHistory);
 
-		fireEvery({seconds: 1}, async () => {
+		// TODO: Change this to `1` second.
+		fireEvery({seconds: 10}, async () => {
 			const uuids = this.state.swapHistory.map(swap => swap.uuid);
 
 			await Promise.all(uuids.map(async uuid => {
-				const status = await this.api.orderStatus(uuid);
+				const status = await this.api.mySwapStatus(uuid);
 				console.log('update', status);
-				// TODO: Finish this
+				// TODO: Finish this. It's for tracking swap status.
+				// Blocked by https://github.com/artemii235/SuperNET/issues/451
+				//
+				// We *could* use `my_swap_status` instead of `order_status`, but it's very low-level. Would be nicer to be able to use `order_status`.
+				// From Artem: As of now you have to follow these steps: create order -> check order_status -> if there's no order check my_swap_status with same uuid -> if swap is not found there's something unexpected.
+				//
 				// this.swapDB.updateSwapData(message);
 			}));
 		});
@@ -172,7 +178,19 @@ class AppContainer extends SuperContainer {
 		if (!this.stopWatchingCurrencies) {
 			this.stopWatchingCurrencies = await fireEvery({seconds: 1}, async () => {
 				const {price: kmdPriceInUsd} = this.coinPrices.find(x => x.symbol === 'KMD');
-				let {portfolio: currencies} = await this.api.portfolio();
+
+				// TODO: When https://github.com/artemii235/SuperNET/issues/449 is implemented, use that API instead to get the list of enabled currencies.
+				// This imitates the `portfolio` endpoint which is no longer available in mm v2
+				let currencies = await Promise.all(this.state.enabledCoins.map(async currency => {
+					const {address, balance} = await this.api.myBalance(currency);
+
+					return {
+						coin: currency,
+						address,
+						balance,
+						price: 0, // TODO: No way to get this with mm v2 yet: https://github.com/artemii235/SuperNET/issues/450
+					};
+				}));
 
 				if (!currencies) {
 					throw new Error('Could not fetch the portfolio from Marketmaker');

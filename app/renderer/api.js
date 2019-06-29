@@ -128,60 +128,6 @@ export default class Api {
 		});
 	}
 
-	async portfolio() {
-		// FIXME: Fake the API for now.
-		return {
-			portfolio: [
-				{
-					address: 'RK6C9LJyPpEpqpW9zG3VhbUo6gMLwz6iWm',
-					aliceutil: 100,
-					amount: 6.14032191,
-					balance: 6.14032191,
-					balanceA: 6.14032191,
-					balanceB: 6.14032191,
-					balanceFormatted: 6.14032191,
-					bobutil: 100,
-					coin: 'KMD',
-					force: 0,
-					goal: 0,
-					goalperc: 0,
-					kmd_equiv: 6.14032191,
-					name: 'Komodo',
-					perc: 100,
-					price: 1,
-					relvolume: 0,
-					symbol: 'KMD',
-					valuesumA: 6.14032191,
-					valuesumB: 6.14032191,
-				},
-				{
-					address: 'RK6C9LJyPpEpqpW9zG3VhbUo6gMLwz6iWm',
-					aliceutil: 100,
-					amount: 6.14032191,
-					balance: 6.14032191,
-					balanceA: 6.14032191,
-					balanceB: 6.14032191,
-					balanceFormatted: 6.14032191,
-					bobutil: 100,
-					coin: 'CHIPS',
-					force: 0,
-					goal: 0,
-					goalperc: 0,
-					kmd_equiv: 6.14032191,
-					name: 'CHIPS',
-					perc: 100,
-					price: 1,
-					relvolume: 0,
-					symbol: 'CHIPS',
-					valuesumA: 6.14032191,
-					valuesumB: 6.14032191,
-				},
-			],
-		};
-
-		// Return this.request({method: 'portfolio'});
-	}
-
 	balance(coin, address) {
 		ow(coin, 'coin', symbolPredicate);
 		ow(address, 'address', ow.string);
@@ -227,6 +173,7 @@ export default class Api {
 		return formattedResponse;
 	}
 
+	// Mm v2
 	async order(opts) {
 		ow(opts, 'opts', ow.object.exactShape({
 			type: ow.string.oneOf(['buy', 'sell']),
@@ -254,12 +201,25 @@ export default class Api {
 		return result;
 	}
 
+	// Mm v2
 	async orderStatus(uuid) {
 		ow(uuid, 'uuid', uuidPredicate);
 
 		const {result} = await this.request({
 			method: 'order_status',
 			uuid,
+		});
+
+		return result;
+	}
+
+	// Mm v2
+	async mySwapStatus(uuid) {
+		ow(uuid, 'uuid', uuidPredicate);
+
+		const {result} = await this.request({
+			method: 'my_swap_status',
+			params: {uuid},
 		});
 
 		return result;
@@ -301,6 +261,22 @@ export default class Api {
 		}
 
 		return response.txfee;
+	}
+
+	// Mm v2
+	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#my_balance
+	async myBalance(currency) {
+		ow(currency, 'currency', symbolPredicate);
+
+		const response = await this.request({
+			method: 'my_balance',
+			coin: currency,
+		});
+
+		return {
+			address: response.address,
+			balance: Number(response.balance),
+		};
 	}
 
 	async _createTransaction(opts) {
