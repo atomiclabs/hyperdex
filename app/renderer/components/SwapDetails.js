@@ -12,11 +12,13 @@ import ExternalLink from 'components/ExternalLink';
 import Link from 'components/Link';
 import RightArrowIcon from 'icons/RightArrow';
 import {isDevelopment} from '../../util-common';
-import swapTransactions from '../swap-transactions';
 import blockExplorer from '../block-explorer';
 import {zeroPadFraction} from '../util';
 import {translate} from '../translate';
 import './SwapDetails.scss';
+
+// TODO
+const swapTransactions = [];
 
 const config = remote.require('./config');
 const t = translate('swap');

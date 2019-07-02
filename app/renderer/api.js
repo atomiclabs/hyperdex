@@ -226,10 +226,21 @@ export default class Api {
 	}
 
 	// Mm v2
+	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#my_recent_swaps
+	// TODO: Add support for the input arguments it supports.
+	async myRecentSwaps() {
+		const {result} = await this.request({
+			method: 'my_recent_swaps',
+		});
+
+		return result.swaps;
+	}
+
+	// Mm v2
 	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#get_enabled_coins
 	async getEnabledCurrencies() {
 		const {result} = await this.request({
-			method: 'get_enabled_coins'
+			method: 'get_enabled_coins',
 		});
 
 		return result;
