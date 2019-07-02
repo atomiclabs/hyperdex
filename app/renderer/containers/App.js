@@ -178,10 +178,10 @@ class AppContainer extends SuperContainer {
 		if (!this.stopWatchingCurrencies) {
 			this.stopWatchingCurrencies = await fireEvery({seconds: 1}, async () => {
 				const {price: kmdPriceInUsd} = this.coinPrices.find(x => x.symbol === 'KMD');
+				const enabledCurrencies = (await this.api.getEnabledCurrencies()).map(x => x.ticker);
 
-				// TODO: When https://github.com/artemii235/SuperNET/issues/449 is implemented, use that API instead to get the list of enabled currencies.
 				// This imitates the `portfolio` endpoint which is no longer available in mm v2
-				let currencies = await Promise.all(this.state.enabledCoins.map(async currency => {
+				let currencies = await Promise.all(enabledCurrencies.map(async currency => {
 					const {address, balance} = await this.api.myBalance(currency);
 
 					return {
@@ -191,10 +191,6 @@ class AppContainer extends SuperContainer {
 						price: 0, // TODO: No way to get this with mm v2 yet: https://github.com/artemii235/SuperNET/issues/450
 					};
 				}));
-
-				if (!currencies) {
-					throw new Error('Could not fetch the portfolio from Marketmaker');
-				}
 
 				// TODO(sindresorhus): Move the returned `mm` currency info to a sub-property and only have cleaned-up top-level properties. For example, `mm` has too many properties for just the balance.
 
