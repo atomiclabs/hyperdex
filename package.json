@@ -1,6 +1,7 @@
 {
 	"scripts": {
-		"postinstall": "electron-builder install-app-deps",
+		"get-marketmaker": "node scripts/get-marketmaker.js",
+		"postinstall": "electron-builder install-app-deps && npm run get-marketmaker",
 		"lint": "xo && stylelint 'app/renderer/**/*.scss'",
 		"test": "yarn lint && ava",
 		"start:watch": "webpack-dev-server --hot",
@@ -182,6 +183,14 @@
 		},
 		"nsis": {
 			"createDesktopShortcut": "always"
+		}
+	},
+	"marketmaker": {
+		"version": "2e8e36b7d",
+		"hashes": {
+			"macos": "6dd354033a37a60c0ce147e1135189aebba63f6c626a8b8b431c7ea7f5cd799fdd921d6159f7f00f4b1a98dcde9abd2df66f0b49546814b9942f0d6d1f21ff46",
+			"linux": "f09fd78c73c5e7274b1c816916c9256613b445afa000f833c8cdd931ff3a701257b771d9e9fd6734b8406f8237db2a8f6dd639b2b7104e86666712b6ac70c6b1",
+			"windows": "35a609b7ce9a449aaf7ac48f5697669a18b35a94a4e5d8108a4841b4efdb41d7617f8d9db04efd0f158b19a452f8dd45c5806be69d017fa513c370640fffa252"
 		}
 	}
 }
