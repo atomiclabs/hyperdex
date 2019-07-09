@@ -1,7 +1,0 @@
-{
-	"dependencies": {
-		"decompress": "^4.2.0",
-		"got": "^9.6.0",
-		"hasha": "^5.0.0"
-	}
-}

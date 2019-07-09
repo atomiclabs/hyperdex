@@ -40,7 +40,7 @@ const checkHash = (filename, hash, expectedHash) => {
 };
 
 const unzip = async (osName, cachedBuildPath) => {
-	const rootDirectory = path.resolve(__dirname, '..');
+	const rootDirectory = path.resolve(__dirname, '../..');
 	const destinationDirectory = path.join(rootDirectory, 'app', 'marketmaker', 'bin', osNameToDirectory.get(osName));
 
 	await decompress(cachedBuildPath, destinationDirectory);
@@ -54,6 +54,8 @@ const unzip = async (osName, cachedBuildPath) => {
 const main = async () => {
 	const {version, hashes} = pkgConf.sync('marketmaker');
 
+	console.log('Fetching marketmaker binaries…');
+
 	await Promise.all(osNames.map(async osName => {
 		const expectedHash = hashes[osNameMap.get(osName)];
 		const filename = `mm2-${version}-${osName}.zip`;
@@ -61,6 +63,7 @@ const main = async () => {
 
 		if (fs.existsSync(cachedBuildPath)) {
 			checkHash(filename, await hasha.fromFile(cachedBuildPath), expectedHash);
+			console.log(`Using cached build: ${cachedBuildPath}`);
 			await unzip(osName, cachedBuildPath);
 			return;
 		}
@@ -69,7 +72,7 @@ const main = async () => {
 		console.log(`Downloading: ${downloadUrl}`);
 		const {body} = await got(downloadUrl, {encoding: 'buffer'});
 
-		checkHash(filename, await hasha(body), expectedHash);
+		checkHash(filename, hasha(body), expectedHash);
 		try {
 			fs.mkdirSync(cacheDirectory);
 		} catch (_) {}
