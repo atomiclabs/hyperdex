@@ -4,12 +4,6 @@
 	"timedOut": "Swap timed out",
 	"title": "Swap",
 	"details": {
-		"aliceclaim": "Alice Claim",
-		"alicereclaim": "Alice Reclaim",
-		"alicepayment": "Alice Payment",
-		"alicespend": "Alice Spend",
-		"bobdeposit": "Bob Deposit",
-		"bobpayment": "Bob Payment",
 		"broadcast": "Broadcast",
 		"buy": "Buy",
 		"copyDebugData": "Copy Swap Debug Data",
@@ -28,6 +22,22 @@
 		"youReceived": "You received",
 		"yourOffer": "Your offer",
 		"view": "View"
+	},
+	"swapStages": {
+		"TakerFeeSent": "Taker fee sent",
+		"MakerPaymentReceived": "Maker payment received",
+		"MakerPaymentWaitConfirmStarted": "Maker payment confirmation started",
+		"MakerPaymentValidatedAndConfirmed": "Maker payment validated and confirmed",
+		"TakerPaymentSent": "Taker payment sent",
+		"TakerPaymentSpent": "Taker payment spent",
+		"MakerPaymentSpent": "Maker payment spent",
+
+		"TakerFeeValidated": "Taker free validated",
+		"MakerPaymentSent": "Maker payment sent",
+		"TakerPaymentReceived": "Taker payment received",
+		"TakerPaymentWaitConfirmStarted": "Taker payment confirmation started",
+		"TakerPaymentValidatedAndConfirmed": "Taker payment validated and confirmed",
+		"TakerPaymentSpent": "Taker payment spent"
 	},
 	"list": {
 		"baseAmount": "Base amount",

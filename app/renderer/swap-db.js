@@ -120,17 +120,10 @@ class SwapDB {
 			quoteAmount,
 		} = response;
 
-		// If we place a sell order marketmaker just inverts the values and places a buy
-		// on the opposite pair. We need to normalise this otherwise we'll show the
-		// wrong base/quote currencies.
-		const isBuyOrder = action === 'Buy';
-		const responseBaseCurrencyAmount = isBuyOrder ? baseAmount : quoteAmount;
-		const responseQuoteCurrencyAmount = isBuyOrder ? quoteAmount : baseAmount;
-
 		const swap = {
 			uuid,
 			timeStarted,
-			orderType: isBuyOrder ? 'buy' : 'sell',
+			orderType: action === 'Buy' ? 'buy' : 'sell',
 			status: 'pending',
 			statusFormatted: t('status.open').toLowerCase(),
 			get isActive() {
@@ -140,18 +133,18 @@ class SwapDB {
 			progress: 0,
 			baseCurrency,
 			quoteCurrency,
-			baseCurrencyAmount: roundTo(responseBaseCurrencyAmount, 8),
-			quoteCurrencyAmount: roundTo(responseQuoteCurrencyAmount, 8),
-			price: roundTo(responseQuoteCurrencyAmount / responseBaseCurrencyAmount, 8),
+			baseCurrencyAmount: roundTo(baseAmount, 8),
+			quoteCurrencyAmount: roundTo(quoteAmount, 8),
+			price: roundTo(quoteAmount / baseAmount, 8),
 			requested: {
 				baseCurrencyAmount: roundTo(request.amount, 8),
 				quoteCurrencyAmount: roundTo(request.total, 8),
 				price: roundTo(request.price, 8),
 			},
 			broadcast: {
-				baseCurrencyAmount: roundTo(responseBaseCurrencyAmount, 8),
-				quoteCurrencyAmount: roundTo(responseQuoteCurrencyAmount, 8),
-				price: roundTo(responseQuoteCurrencyAmount / responseBaseCurrencyAmount, 8),
+				baseCurrencyAmount: roundTo(baseAmount, 8),
+				quoteCurrencyAmount: roundTo(quoteAmount, 8),
+				price: roundTo(quoteAmount / baseAmount, 8),
 			},
 			executed: {
 				baseCurrencyAmount: undefined,
@@ -159,38 +152,14 @@ class SwapDB {
 				price: undefined,
 				percentCheaperThanRequested: undefined,
 			},
-			transactions: [],
+			totalStages: [],
+			stages: [],
 			_debug: {
 				request,
 				response,
 				swapData,
 			},
 		};
-
-		// TODO: We shoud not hard-code these. Just doing it for now.
-		// 		const errorEvents = [
-		// 			'StartFailed',
-		// 			'NegotiateFailed',
-		// 			'TakerFeeValidateFailed',
-		// 			'MakerPaymentTransactionFailed',
-		// 			'MakerPaymentDataSendFailed',
-		// 			'TakerPaymentValidateFailed',
-		// 			'TakerPaymentSpendFailed',
-		// 			'MakerPaymentRefunded',
-		// 			'MakerPaymentRefundFailed',
-		// 		];
-		//
-		// 		const successEvents = [
-		// 			'Started',
-		// 			'Negotiated',
-		// 			'TakerFeeValidated',
-		// 			'MakerPaymentSent',
-		// 			'TakerPaymentReceived',
-		// 			'TakerPaymentWaitConfirmStarted',
-		// 			'TakerPaymentValidatedAndConfirmed',
-		// 			'TakerPaymentSpent',
-		// 			'Finished',
-		// 		];
 
 		console.log('swapData', swapData);
 
@@ -218,6 +187,9 @@ class SwapDB {
 			console.log('isFinished', isFinished);
 			console.log('isSwapping', isSwapping);
 
+			swap.totalStages = totalSwapEvents;
+			swap.stages = swapEvents;
+
 			if (failedEvent) {
 				swap.status = 'failed';
 				swap.progress = 1;
@@ -231,7 +203,6 @@ class SwapDB {
 				console.log('FINISHED!!!');
 				swap.status = 'completed';
 				swap.progress = 1;
-				swap.transactions = []; // TODO
 			} else if (isSwapping) {
 				swap.status = 'swapping';
 				swap.statusFormatted = `swap ${swapEvents.length}/${totalSwapEvents.length}`;
@@ -264,22 +235,6 @@ class SwapDB {
 		}
 
 		console.log('progress', swap.progress);
-
-		// TODO
-		if (swap.status === 'failed') {
-			if (swap.error.code === -9999) {
-				swap.statusFormatted = t('status.unmatched').toLowerCase();
-			}
-
-			if (swap.error.code === -9998 || cancelled) {
-				swap.statusFormatted = t('status.cancelled').toLowerCase();
-			}
-
-			if (swap.transactions.find(tx => tx.stage === 'alicereclaim')) {
-				swap.statusFormatted = t('status.reverted').toLowerCase();
-				swap.statusInformation = t('statusInformation.reverted');
-			}
-		}
 
 		return swap;
 	}
