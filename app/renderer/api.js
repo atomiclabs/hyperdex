@@ -246,27 +246,19 @@ export default class Api {
 		return result;
 	}
 
+	// Mm v2
+	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#cancel_order
 	async cancelOrder(uuid) {
 		ow(uuid, 'uuid', uuidPredicate);
 
 		const response = await this.request({
-			method: 'cancel',
+			method: 'cancel_order',
 			uuid,
 		});
 
 		if (response.error) {
-			if (/uuid not cancellable/.test(response.error)) {
-				throw new Error('Order cannot be cancelled');
-			}
-
 			throw new Error(response.error);
 		}
-
-		if (response.result !== 'success') {
-			throw genericError(response);
-		}
-
-		return response.status;
 	}
 
 	async getFee(coin) {
