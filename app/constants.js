@@ -30,7 +30,6 @@ exports.defaultEnabledCurrencies = [
 	'CHIPS',
 	'DASH',
 	'DOGE',
-	'EQLI',
 	'HUSH',
 	'KMD',
 	'LTC',
