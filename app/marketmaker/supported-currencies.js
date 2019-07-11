@@ -1502,25 +1502,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'RAP',
-		name: 'Rapture',
-		rpcport: 14476,
-		pubtype: 60,
-		p2shtype: 16,
-		wiftype: 204,
-		txfee: 10000,
-		electrumServers: [
-			{
-				host: 'electrum.our-rapture.com',
-				port: 50001,
-			},
-			{
-				host: 'electrum2.our-rapture.com',
-				port: 50001,
-			},
-		],
-	},
-	{
 		coin: 'RCN',
 		name: 'Ripio Credit Network',
 		etomic: '0xF970b8E36e23F7fC3FD752EeA86f8Be8D83375A6',

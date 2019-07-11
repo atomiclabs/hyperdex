@@ -106,7 +106,6 @@ const explorers = new Map(Object.entries({
 	PYRO: 'http://138.68.246.198:3001/tx/{txid}',
 	QTUM: 'https://explorer.qtum.org/tx/{txid}',
 	RADIUS: 'http://explorer.radiuscrypto.online/tx/{txid}',
-	RAP: 'http://explorer.our-rapture.com/tx/{txid}',
 	REVS: 'https://revs.kmdexplorer.io/tx/{txid}',
 	ROGER: 'https://explorer.theholyroger.com/tx/{txid}',
 	ROI: 'https://roi-coin-blockexplorer.roi-coin.com/tx/{txid}',
