@@ -26,7 +26,6 @@ const explorers = new Map(Object.entries({
 	BTG: 'https://btgexp.com/tx/{txid}',
 	BTM: 'http://explorer.bitmark.io/tx/{txid}',
 	BTNX: 'http://explorer.bitnexus.online/tx/{txid}',
-	BTX: 'https://chainz.cryptoid.info/btx/tx.dws?{txid}',
 	BUCK: 'https://explorer.buck.red/tx/{txid}',
 	CARB: 'https://chainz.cryptoid.info/carbon/tx.dws?{txid}',
 	CCL: 'http://ccl.explorer.dexstats.info/tx/{txid}',

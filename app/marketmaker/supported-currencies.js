@@ -279,32 +279,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'BTX',
-		rpcport: 8556,
-		pubtype: 0,
-		p2shtype: 5,
-		wiftype: 128,
-		txfee: 50000,
-		electrumServers: [
-			{
-				host: 'ele1.bitcore.cc',
-				port: 50001,
-			},
-			{
-				host: 'ele2.bitcore.cc',
-				port: 50001,
-			},
-			{
-				host: 'ele3.bitcore.cc',
-				port: 50001,
-			},
-			{
-				host: 'ele4.bitcore.cc',
-				port: 50001,
-			},
-		],
-	},
-	{
 		coin: 'CDT',
 		name: 'Blox',
 		etomic: '0x177d39AC676ED1C67A2b268AD7F1E58826E5B0af',
