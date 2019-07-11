@@ -804,22 +804,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'GLXT',
-		name: 'GLX Token',
-		asset: 'GLXT',
-		rpcport: 13109,
-		electrumServers: [
-			{
-				host: 'electrum1.glx.co',
-				port: 60012,
-			},
-			{
-				host: 'electrum2.glx.co',
-				port: 60012,
-			},
-		],
-	},
-	{
 		coin: 'GNO',
 		name: 'Gnosis',
 		etomic: '0x6810e776880C02933D47DB1b9fc05908e5386b96',

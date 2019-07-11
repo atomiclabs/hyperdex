@@ -65,7 +65,6 @@ const explorers = new Map(Object.entries({
 	GAME: 'https://blockexplorer.gamecredits.com/transactions/{txid}',
 	GLD: 'https://chainz.cryptoid.info/gld/tx.dws?{txid}',
 	GLT: 'https://explorer.globaltoken.org/tx/{txid}',
-	GLXT: 'http://glx.info/tx/{txid}',
 	GRLC: 'https://garli.co.in/tx/{txid}',
 	GRS: 'http://groestlsight.groestlcoin.org/tx/{txid}',
 	HODL: 'https://hodl.kmdexplorer.io/tx/{txid}',
