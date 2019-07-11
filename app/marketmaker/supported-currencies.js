@@ -249,25 +249,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'BTCP',
-		rpcport: 7932,
-		taddr: 19,
-		pubtype: 37,
-		p2shtype: 175,
-		wiftype: 128,
-		txfee: 10000,
-		electrumServers: [
-			{
-				host: 'electrum.btcprivate.org',
-				port: 5222,
-			},
-			{
-				host: 'electrum2.btcprivate.org',
-				port: 5222,
-			},
-		],
-	},
-	{
 		coin: 'BTG',
 		rpcport: 12332,
 		pubtype: 38,

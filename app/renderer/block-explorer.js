@@ -23,7 +23,6 @@ const explorers = new Map(Object.entries({
 	BTA: 'https://chainz.cryptoid.info/bta/tx.dws?{txid}',
 	BTC: 'https://www.blocktrail.com/BTC/tx/{txid}',
 	BTCH: 'https://btch.kmdexplorer.io/tx/{txid}',
-	BTCP: 'https://explorer.btcprivate.org/tx/{txid}',
 	BTG: 'https://btgexp.com/tx/{txid}',
 	BTM: 'http://explorer.bitmark.io/tx/{txid}',
 	BTNX: 'http://explorer.bitnexus.online/tx/{txid}',

@@ -47,6 +47,7 @@ const removedCurrencies = [
 	'EOS',
 	'BTCZ',
 	'ZCL',
+	'BTCP',
 ];
 
 const createPortfolio = async ({name, seedPhrase, password}) => {
