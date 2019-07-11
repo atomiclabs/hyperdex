@@ -2103,29 +2103,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'ZCL',
-		rpcport: 8023,
-		taddr: 28,
-		pubtype: 184,
-		p2shtype: 189,
-		wiftype: 128,
-		txfee: 1000,
-		electrumServers: [
-			{
-				host: 'electrum1.cipig.net',
-				port: 10055,
-			},
-			{
-				host: 'electrum2.cipig.net',
-				port: 10055,
-			},
-			{
-				host: 'electrum3.cipig.net',
-				port: 10055,
-			},
-		],
-	},
-	{
 		coin: 'ZEC',
 		rpcport: 8232,
 		taddr: 28,

@@ -145,7 +145,6 @@ const explorers = new Map(Object.entries({
 	XSG: 'https://explorer.snowgem.org/tx/{txid}',
 	XSN: 'https://xsnexplorer.io/transactions/{txid}',
 	XZC: 'http://explorer.zcoin.io/tx/{txid}',
-	ZCL: 'http://explorer.zclmine.pro/tx/{txid}',
 	ZEC: 'https://explorer.zcha.in/transactions/{txid}',
 	ZEL: 'http://explorer.zel.cash/tx/{txid}',
 	ZER: 'http://zeroexplorer.forgetop.com/tx/{txid}',
