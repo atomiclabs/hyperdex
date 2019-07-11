@@ -1668,28 +1668,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'STAK',
-		rpcport: 7574,
-		pubtype: 63,
-		p2shtype: 5,
-		wiftype: 204,
-		txfee: 10000,
-		electrumServers: [
-			{
-				host: 'ex001-stak.qxu.io',
-				port: 50001,
-			},
-			{
-				host: 'ex002-stak.qxu.io',
-				port: 50001,
-			},
-			{
-				host: 'electrumx.straks.info',
-				port: 50001,
-			},
-		],
-	},
-	{
 		coin: 'STORJ',
 		name: 'Storj',
 		etomic: '0xB64ef51C888972c908CFacf59B47C1AfBC0Ab8aC',
