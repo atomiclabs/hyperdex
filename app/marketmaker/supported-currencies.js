@@ -1766,36 +1766,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'VIA',
-		rpcport: 5222,
-		pubtype: 71,
-		p2shtype: 33,
-		wiftype: 199,
-		txfee: 100000,
-		electrumServers: [
-			{
-				host: 'server.vialectrum.org',
-				port: 50001,
-			},
-			{
-				host: 'server2.vialectrum.org',
-				port: 50001,
-			},
-			{
-				host: 'viax1.bitops.me',
-				port: 50001,
-			},
-			{
-				host: 'viax2.bitops.me',
-				port: 50001,
-			},
-			{
-				host: 'viax3.bitops.me',
-				port: 50001,
-			},
-		],
-	},
-	{
 		coin: 'VRSC',
 		name: 'VerusCoin',
 		asset: 'VRSC',

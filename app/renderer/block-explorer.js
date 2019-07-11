@@ -125,7 +125,6 @@ const explorers = new Map(Object.entries({
 	UFO: 'https://chainz.cryptoid.info/ufo/tx.dws?{txid}',
 	UIS: 'https://explorer.unitus.online/tx/{txid}',
 	UNO: 'https://chainz.cryptoid.info/uno/tx.dws?{txid}',
-	VIA: 'https://chainz.cryptoid.info/via/tx.dws?{txid}',
 	VIVO: 'https://chainz.cryptoid.info/vivo/tx.dws?{txid}',
 	VOT: 'http://explorer.votecoin.site/tx/{txid}',
 	VRSC: 'https://explorer.veruscoin.io/tx/{txid}',
