@@ -39,7 +39,6 @@ const explorers = new Map(Object.entries({
 	CRC: 'http://explorer.cryptopros.us/tx/{txid}',
 	CRDS: 'http://explorer.crds.co/tx/{txid}',
 	CREA: 'https://chainz.cryptoid.info/crea/tx.dws?{txid}',
-	CRW: 'https://chainz.cryptoid.info/crw/tx.dws?{txid}',
 	CRYPTO: 'https://crypto.kmdexplorer.io/tx/{txid}',
 	D: 'https://chainz.cryptoid.info/d/tx.dws?{txid}',
 	DASH: 'https://chainz.cryptoid.info/dash/tx.dws?{txid}',

@@ -387,48 +387,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'CRW',
-		rpcport: 9341,
-		pubtype: 0,
-		p2shtype: 28,
-		wiftype: 128,
-		txfee: 10000,
-		electrumServers: [
-			{
-				host: 'blr-crwseed.infernopool.com',
-				port: 50001,
-			},
-			{
-				host: 'sfo-crwseed.infernopool.com',
-				port: 50001,
-			},
-			{
-				host: 'nyc-crwseed.infernopool.com',
-				port: 50001,
-			},
-			{
-				host: 'ams-crwseed.infernopool.com',
-				port: 50001,
-			},
-			{
-				host: 'tor-crwseed.infernopool.com',
-				port: 50001,
-			},
-			{
-				host: 'lon-crwseed.infernopool.com',
-				port: 50001,
-			},
-			{
-				host: 'fra-crwseed.infernopool.com',
-				port: 50001,
-			},
-			{
-				host: 'sgp-crwseed.infernopool.com',
-				port: 50001,
-			},
-		],
-	},
-	{
 		coin: 'CRYPTO',
 		name: 'Crypto777',
 		asset: 'CRYPTO',
