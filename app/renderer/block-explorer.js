@@ -135,7 +135,6 @@ const explorers = new Map(Object.entries({
 	XCOIN: 'http://xcoin.ddns.net/tx/{txid}',
 	XMY: 'https://cryptap.us/myr/explorer/tx/{txid}',
 	XRE: 'http://revolvercoin.org:3001/tx/{txid}',
-	XSG: 'https://explorer.snowgem.org/tx/{txid}',
 	XSN: 'https://xsnexplorer.io/transactions/{txid}',
 	XZC: 'http://explorer.zcoin.io/tx/{txid}',
 	ZEC: 'https://explorer.zcha.in/transactions/{txid}',

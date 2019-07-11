@@ -1870,27 +1870,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'XSG',
-		name: 'SnowGem',
-		rpcport: 16112,
-		taddr: 28,
-		pubtype: 40,
-		p2shtype: 45,
-		wiftype: 128,
-		txversion: 4,
-		txfee: 10000,
-		electrumServers: [
-			{
-				host: 'electrumsvr.snowgem.org',
-				port: 50001,
-			},
-			{
-				host: 'electrumsvr2.snowgem.org',
-				port: 50001,
-			},
-		],
-	},
-	{
 		coin: 'XZC',
 		rpcport: 8888,
 		pubtype: 82,
