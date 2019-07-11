@@ -268,29 +268,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'BTCZ',
-		rpcport: 1979,
-		taddr: 28,
-		pubtype: 184,
-		p2shtype: 189,
-		wiftype: 128,
-		txfee: 10000,
-		electrumServers: [
-			{
-				host: 'electrum1.cipig.net',
-				port: 10056,
-			},
-			{
-				host: 'electrum2.cipig.net',
-				port: 10056,
-			},
-			{
-				host: 'electrum3.cipig.net',
-				port: 10056,
-			},
-		],
-	},
-	{
 		coin: 'BTG',
 		rpcport: 12332,
 		pubtype: 38,
