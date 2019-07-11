@@ -97,24 +97,24 @@ const supportedCurrencies = [
 		txfee: 1000,
 		electrumServers: [
 			{
+				host: 'bch.imaginary.cash',
+				port: 50001,
+			},
+			{
+				host: 'bch.loping.net',
+				port: 50001,
+			},
+			{
 				host: 'electron.coinucopia.io',
 				port: 50001,
 			},
 			{
-				host: 'electroncash.dk',
+				host: 'electrumx-bch.cryptonermal.net',
 				port: 50001,
-			},
-			{
-				host: 'electrum.imaginary.cash',
-				port: 50001,
-			},
-			{
-				host: 'electron-cash.dragon.zone',
-				port: 60001,
 			},
 			{
 				host: 'wallet.satoshiscoffeehouse.com',
-				port: 60001,
+				port: 50001,
 			},
 		],
 	},
@@ -125,15 +125,15 @@ const supportedCurrencies = [
 		rpcport: 8923,
 		electrumServers: [
 			{
-				host: 'electrum1.cipig.net',
+				host: 'test1.cipig.net',
 				port: 10022,
 			},
 			{
-				host: 'electrum2.cipig.net',
+				host: 'test2.cipig.net',
 				port: 10022,
 			},
 			{
-				host: 'electrum3.cipig.net',
+				host: 'test3.cipig.net',
 				port: 10022,
 			},
 		],
@@ -304,14 +304,6 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrumx-us.bitcoingold.org',
-				port: 50001,
-			},
-			{
-				host: 'electrumx-eu.btcgpu.org',
-				port: 50001,
-			},
-			{
-				host: 'electrumx-us.btcgpu.org',
 				port: 50001,
 			},
 		],
@@ -1235,11 +1227,11 @@ const supportedCurrencies = [
 				port: 50001,
 			},
 			{
-				host: 'node.ispol.sk',
-				port: 50003,
+				host: 'electrum.ltc.xurious.com',
+				port: 50001,
 			},
 			{
-				host: 'electrum-ltc.wilv.in',
+				host: 'ltc.rentonisk.com',
 				port: 50001,
 			},
 			{
@@ -1305,16 +1297,12 @@ const supportedCurrencies = [
 		txfee: 10000,
 		electrumServers: [
 			{
-				host: 'electrum1.cipig.net',
-				port: 10079,
+				host: 'elex01-ams.turinex.eu',
+				port: 50001,
 			},
 			{
-				host: 'electrum2.cipig.net',
-				port: 10079,
-			},
-			{
-				host: 'electrum3.cipig.net',
-				port: 10079,
+				host: '95.85.35.152',
+				port: 50001,
 			},
 		],
 	},
@@ -1404,16 +1392,16 @@ const supportedCurrencies = [
 		txfee: 100000,
 		electrumServers: [
 			{
-				host: 'electrum1.cipig.net',
-				port: 10066,
+				host: 'nmc.bitcoins.sk',
+				port: 50002,
 			},
 			{
-				host: 'electrum2.cipig.net',
-				port: 10066,
+				host: 'electrum-nmc.le-space.de',
+				port: 50002,
 			},
 			{
-				host: 'electrum3.cipig.net',
-				port: 10066,
+				host: 'ulrichard.ch',
+				port: 50006,
 			},
 		],
 	},
@@ -1612,6 +1600,18 @@ const supportedCurrencies = [
 		txfee: 400000,
 		electrumServers: [
 			{
+				host: 's1.qtum.info',
+				port: 50001,
+			},
+			{
+				host: 's2.qtum.info',
+				port: 50001,
+			},
+			{
+				host: 's3.qtum.info',
+				port: 50001,
+			},
+			{
 				host: 's4.qtum.info',
 				port: 50001,
 			},
@@ -1620,11 +1620,19 @@ const supportedCurrencies = [
 				port: 50001,
 			},
 			{
+				host: 's6.qtum.info',
+				port: 50001,
+			},
+			{
 				host: 's7.qtum.info',
 				port: 50001,
 			},
 			{
 				host: 's8.qtum.info',
+				port: 50001,
+			},
+			{
+				host: 's9.qtum.info',
 				port: 50001,
 			},
 		],
@@ -1784,6 +1792,14 @@ const supportedCurrencies = [
 			},
 			{
 				host: 'electrum4.smartcash.cc',
+				port: 50001,
+			},
+			{
+				host: 'electrum5.smartcash.cc',
+				port: 50001,
+			},
+			{
+				host: 'electrum6.smartcash.cc',
 				port: 50001,
 			},
 		],
@@ -2096,11 +2112,15 @@ const supportedCurrencies = [
 		txfee: 10000,
 		electrumServers: [
 			{
-				host: 'electrumx01.zcoin.io',
+				host: 'electrumx.zcoin.io',
 				port: 50001,
 			},
 			{
 				host: 'electrumx02.zcoin.io',
+				port: 50001,
+			},
+			{
+				host: 'electrumx03.zcoin.io',
 				port: 50001,
 			},
 		],

@@ -98,7 +98,7 @@ const explorers = new Map(Object.entries({
 	MVP: 'http://mvp.explorer.supernet.org/tx/{txid}',
 	MZC: 'http://mazacoin.thecoin.pw/tx/{txid}',
 	NAV: 'https://chainz.cryptoid.info/nav/tx.dws?{txid}',
-	NMC: 'https://namecoin.webbtc.com/tx/{txid}',
+	NMC: 'https://nmc.tokenview.com/en/tx/{txid}',
 	OOT: 'http://explorer.utrum.io/tx/{txid}',
 	ORE: 'https://explorer.galactrum.org/tx/{txid}',
 	PAC: 'http://usa.pacblockexplorer.com:3002/tx/{txid}',
