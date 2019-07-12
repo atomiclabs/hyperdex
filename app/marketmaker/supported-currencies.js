@@ -119,26 +119,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'BEER',
-		name: 'Beer',
-		asset: 'BEER',
-		rpcport: 8923,
-		electrumServers: [
-			{
-				host: 'test1.cipig.net',
-				port: 10022,
-			},
-			{
-				host: 'test2.cipig.net',
-				port: 10022,
-			},
-			{
-				host: 'test3.cipig.net',
-				port: 10022,
-			},
-		],
-	},
-	{
 		coin: 'BITSOKO',
 		name: 'Bitsoko',
 		etomic: '0xb72627650f1149ea5e54834b2f468e5d430e67bf',
@@ -1191,6 +1171,27 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'MORTY',
+		name: 'Morty (TESTCOIN)',
+		asset: 'MORTY',
+		rpcport: 63812,
+		mm2: 1,
+		electrumServers: [
+			{
+				host: 'test1.cipig.net',
+				port: 10018,
+			},
+			{
+				host: 'test2.cipig.net',
+				port: 10018,
+			},
+			{
+				host: 'test3.cipig.net',
+				port: 10018,
+			},
+		],
+	},
+	{
 		coin: 'MSHARK',
 		name: 'MiliShark',
 		asset: 'MSHARK',
@@ -1370,26 +1371,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'PIZZA',
-		name: 'Pizza',
-		asset: 'PIZZA',
-		rpcport: 11116,
-		electrumServers: [
-			{
-				host: 'electrum1.cipig.net',
-				port: 10024,
-			},
-			{
-				host: 'electrum2.cipig.net',
-				port: 10024,
-			},
-			{
-				host: 'electrum3.cipig.net',
-				port: 10024,
-			},
-		],
-	},
-	{
 		coin: 'PLU',
 		name: 'Pluton',
 		etomic: '0xD8912C10681D8B21Fd3742244f44658dBA12264E',
@@ -1430,6 +1411,27 @@ const supportedCurrencies = [
 		name: 'Populous XBRL Token',
 		etomic: '0xc14830e53aa344e8c14603a91229a0b925b0b262',
 		rpcport: 80,
+	},
+	{
+		coin: 'RICK',
+		name: 'Rick (TESTCOIN)',
+		asset: 'RICK',
+		rpcport: 28223,
+		mm2: 1,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10017,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10017,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10017,
+			},
+		],
 	},
 	{
 		coin: 'QASH',

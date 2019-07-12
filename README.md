@@ -36,7 +36,7 @@ Built on the Komodo Platform's <a href="https://barterdex.supernet.org">BarterDE
 
 ### This software is currently in beta
 
-There is a risk of loss of funds. Only trade in real currency if you can take that risk. We recommend trading the test currencies `BEER` and `PIZZA` instead. You can get free `BEER` at the `BEER` [faucet](https://www.atomicexplorer.com/#/faucet).
+There is a risk of loss of funds. Only trade in real currency if you can take that risk. We recommend trading the test currencies `RICK` and `MORTY` instead. You can get free `RICK` [here](https://www.atomicexplorer.com/#/faucet/rick) and free `MORTY` [here](https://www.atomicexplorer.com/#/faucet/morty).
 
 
 ### HyperDEX is just a GUI
@@ -107,7 +107,3 @@ HyperDEX is a free and open source project. You can help support its development
 | ------- | ----------------------------------- |
 | **BTC** | `1HyperDEXfMx459ZFh6Ram5uymS8AiRAQf`|
 | **KMD** | `RHyper8TJyHK6uZ3AXzUwC2uVRdt7cfxEC`|
-
-## License
-
-MIT

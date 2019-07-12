@@ -25,7 +25,6 @@ exports.appViews = [
 
 exports.defaultEnabledCurrencies = [
 	'BCH',
-	'BEER',
 	'BTC',
 	'CHIPS',
 	'DASH',
@@ -33,11 +32,12 @@ exports.defaultEnabledCurrencies = [
 	'HUSH',
 	'KMD',
 	'LTC',
+	'MORTY',
 	'MSHARK',
 	'MYTH',
 	'OOT',
-	'PIZZA',
 	'REVS',
+	'RICK',
 	'SUPERNET',
 	'VTC',
 	'ZEC',
@@ -49,11 +49,11 @@ exports.alwaysEnabledCurrencies = [
 ];
 
 exports.ignoreExternalPrice = new Set([
-	'REVS',
-	'SUPERNET',
-	'PIZZA',
-	'BEER',
 	'CALL',
+	'MORTY',
+	'REVS',
+	'RICK',
+	'SUPERNET',
 ]);
 
 exports.hiddenCurrencies = [

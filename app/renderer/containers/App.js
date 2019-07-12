@@ -18,8 +18,8 @@ const config = remote.require('./config');
 const {decryptSeedPhrase, setCurrencies} = remote.require('./portfolio-util');
 
 const excludedTestCurrencies = new Set([
-	'PIZZA',
-	'BEER',
+	'MORTY',
+	'RICK',
 ]);
 
 class AppContainer extends SuperContainer {
@@ -100,7 +100,7 @@ class AppContainer extends SuperContainer {
 		currencies = currencies.slice();
 
 		if (isNightlyBuild) {
-			currencies.push('PIZZA', 'BEER');
+			currencies.push('RICK', 'MORTY');
 		}
 
 		this.setState({

@@ -56,6 +56,8 @@ const removedCurrencies = [
 	'STAK',
 	'VIA',
 	'XSG',
+	'BEER',
+	'PIZZA',
 ];
 
 const createPortfolio = async ({name, seedPhrase, password}) => {
