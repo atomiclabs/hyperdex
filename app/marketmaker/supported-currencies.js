@@ -1178,15 +1178,15 @@ const supportedCurrencies = [
 		mm2: 1,
 		electrumServers: [
 			{
-				host: 'test1.cipig.net',
+				host: 'electrum1.cipig.net',
 				port: 10018,
 			},
 			{
-				host: 'test2.cipig.net',
+				host: 'electrum2.cipig.net',
 				port: 10018,
 			},
 			{
-				host: 'test3.cipig.net',
+				host: 'electrum3.cipig.net',
 				port: 10018,
 			},
 		],
