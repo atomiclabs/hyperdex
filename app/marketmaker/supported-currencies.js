@@ -1172,7 +1172,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'MORTY',
-		name: 'Morty (TESTCOIN)',
+		name: 'Morty [Test]',
 		asset: 'MORTY',
 		rpcport: 63812,
 		mm2: 1,
@@ -1414,7 +1414,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'RICK',
-		name: 'Rick (TESTCOIN)',
+		name: 'Rick [Test]',
 		asset: 'RICK',
 		rpcport: 28223,
 		mm2: 1,
