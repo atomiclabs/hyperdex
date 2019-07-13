@@ -151,9 +151,9 @@ class LoginContainer extends Container {
 
 		this.setActiveView('LoggingIn');
 
-		await appContainer.setEnabledCurrencies(portfolio.currencies);
-
 		const api = await createApi(seedPhrase);
+
+		await appContainer.setEnabledCurrencies(portfolio.currencies);
 
 		await enableCurrencies(api);
 

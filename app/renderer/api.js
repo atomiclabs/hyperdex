@@ -294,6 +294,16 @@ export default class Api {
 		};
 	}
 
+	// Mm v2
+	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#coins_needed_for_kick_start
+	async coinsNeededForKickStart() {
+		const {result} = await this.request({
+			method: 'coins_needed_for_kick_start',
+		});
+
+		return result;
+	}
+
 	async _createTransaction(opts) {
 		ow(opts, 'opts', ow.object.exactShape({
 			symbol: symbolPredicate,
@@ -430,19 +440,6 @@ export default class Api {
 		}));
 
 		return getCurrency(opts.symbol).etomic ? this._withdrawEth(opts) : this._withdrawBtcFork(opts);
-	}
-
-	kickstart(opts) {
-		ow(opts, 'opts', ow.object.exactShape({
-			requestId: ow.number.positive.finite,
-			quoteId: ow.number.positive.finite,
-		}));
-
-		return this.request({
-			method: 'kickstart',
-			requestid: opts.requestId,
-			quoteid: opts.quoteId,
-		});
 	}
 
 	listUnspent(coin, address) {
