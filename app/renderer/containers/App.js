@@ -1,6 +1,6 @@
 import EventEmitter from 'events';
 import electron, {remote} from 'electron';
-import {is, darkMode} from 'electron-util';
+import {is, api, darkMode, activeWindow} from 'electron-util';
 import ipc from 'electron-better-ipc';
 import _ from 'lodash';
 import Cycled from 'cycled';
@@ -285,9 +285,15 @@ class AppContainer extends SuperContainer {
 
 	disableCoin(coin) {
 		this.setState(prevState => {
-			this.api.disableCoin(coin);
+			this.api.disableCurrency(coin);
 			const enabledCoins = prevState.enabledCoins.filter(enabledCoin => enabledCoin !== coin);
 			setCurrencies(prevState.portfolio.id, enabledCoins);
+
+			// TODO: Remove this when https://github.com/artemii235/SuperNET/issues/459 is fixed.
+			api.dialog.showMessageBox(activeWindow(), {
+				message: 'Marketmaker v2 cannot currently disable currencies when running, so you need to restart HyperDEX for it to take effect.',
+			});
+
 			return {enabledCoins};
 		}, () => {
 			this.events.emit('enabled-currencies-changed');

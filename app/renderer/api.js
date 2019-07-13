@@ -119,13 +119,15 @@ export default class Api {
 		return response.status === 'active';
 	}
 
-	disableCoin(coin) {
-		ow(coin, 'coin', symbolPredicate);
+	// Mm v2 doesn't currently have an endpoint for disabling a coin, so we do nothing.
+	// https://github.com/artemii235/SuperNET/issues/459
+	async disableCurrency(/** symbol */) {
+		/// ow(symbol, 'symbol', symbolPredicate);
 
-		return this.request({
-			method: 'disable',
-			coin,
-		});
+		// return this.request({
+		// 	method: 'disable',
+		// 	coin: symbol,
+		// });
 	}
 
 	balance(coin, address) {
