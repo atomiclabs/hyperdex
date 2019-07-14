@@ -116,7 +116,7 @@ export default class Api {
 		// ETH/ERC20-based token
 		const response = await this.request({
 			method: 'enable',
-			coin: 'ETH', // TODO
+			coin: symbol,
 			urls: [
 				'http://eth1.cipig.net:8555',
 				'http://eth2.cipig.net:8555',
@@ -127,7 +127,7 @@ export default class Api {
 			mm2: 1,
 		});
 
-		const isSuccess = response.status === 'success';
+		const isSuccess = response.result === 'success';
 		if (!isSuccess) {
 			const error = `Could not enable ETH/ERC20 currency: ${symbol}`;
 			console.error(error);

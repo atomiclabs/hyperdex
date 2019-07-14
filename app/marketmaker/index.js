@@ -77,6 +77,18 @@ class Marketmaker {
 
 		const port = await getPort();
 
+		// We leave out `electrumServers` since it's not needed
+		// and to prevent issues on Windows with too long arguments
+		const coins = supportedCurrencies.map(currency => {
+			currency = _.omit(currency, ['electrumServers']);
+
+			// Translate to exepcted mm v2 format
+			currency.etomic = currency.contractAddress;
+			delete currency.contractAddress;
+
+			return currency;
+		});
+
 		options = {
 			...options,
 			gui: 'hyperdex',
@@ -84,9 +96,7 @@ class Marketmaker {
 			netid: 9999, // TODO: Set this to `0` when mm v2 is production ready
 			rpcport: port,
 			rpccors: is.development ? 'http://localhost:8080' : 'app://-',
-			// We leave out `electrumServers` since it's not needed
-			// and to prevent issues on Windows with too long arguments
-			coins: supportedCurrencies.map(currency => _.omit(currency, ['electrumServers'])),
+			coins,
 		};
 
 		this.port = options.rpcport;
