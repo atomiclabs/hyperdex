@@ -145,14 +145,15 @@ export default class Api {
 		return this.request({method: 'getcoins'});
 	}
 
-	async orderBook(base, rel) {
-		ow(base, 'base', symbolPredicate);
-		ow(rel, 'rel', symbolPredicate);
+	// Mm v2
+	async orderBook(baseCurrency, quoteCurrency) {
+		ow(baseCurrency, 'baseCurrency', symbolPredicate);
+		ow(quoteCurrency, 'quoteCurrency', symbolPredicate);
 
 		const response = await this.request({
 			method: 'orderbook',
-			base,
-			rel,
+			base: baseCurrency,
+			rel: quoteCurrency,
 		});
 
 		const formatOrders = orders => orders
