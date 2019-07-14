@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 import util from 'util';
-import {sha256} from 'crypto-hash';
 import PQueue from 'p-queue';
 import ow from 'ow';
 import _ from 'lodash';
@@ -14,13 +13,13 @@ const errorWithObject = (message, object) => new Error(`${message}:\n${util.form
 const genericError = object => errorWithObject('Encountered an error', object);
 
 export default class Api {
-	constructor({endpoint, seedPhrase, concurrency = 1}) {
+	constructor({endpoint, rpcPassword, concurrency = 1}) {
 		ow(endpoint, 'endpoint', ow.string);
-		ow(seedPhrase, 'seedPhrase', ow.string);
+		ow(rpcPassword, 'rpcPassword', ow.string);
 		ow(concurrency, 'concurrency', ow.number.positive.integerOrInfinite);
 
 		this.endpoint = endpoint;
-		this.token = sha256(seedPhrase);
+		this.rpcPassword = rpcPassword;
 		this.queue = new PQueue({concurrency});
 	}
 
@@ -29,8 +28,8 @@ export default class Api {
 
 		const body = {
 			...data,
-			needjson: 1,
-			userpass: await this.token,
+			// TODO: When https://github.com/artemii235/SuperNET/issues/298 is fixed, rename `userpass` to `rpc_password` and also reduce the places we pass around `seedPhrase`.
+			userpass: this.rpcPassword,
 		};
 
 		let result;

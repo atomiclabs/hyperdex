@@ -9,6 +9,7 @@ const getPort = require('get-port');
 const logger = require('electron-timber');
 const makeDir = require('make-dir');
 const _ = require('lodash');
+const {sha256} = require('crypto-hash');
 const {supportedCurrencies} = require('./supported-currencies');
 
 // `electron-builder` uses different names
@@ -78,10 +79,9 @@ class Marketmaker {
 
 		options = {
 			...options,
-			client: 1,
 			gui: 'hyperdex',
 			userhome: os.homedir(),
-			netid: 9999, // Since Marketmaker v2 is not yet compatible with v1
+			netid: 9999, // TODO: Set this to `0` when mm v2 is production ready
 			rpcport: port,
 			rpccors: is.development ? 'http://localhost:8080' : 'app://-',
 			// We leave out `electrumServers` since it's not needed
@@ -92,6 +92,8 @@ class Marketmaker {
 		this.port = options.rpcport;
 
 		if (options.seedPhrase) {
+			// eslint-disable-next-line camelcase
+			options.rpc_password = await sha256(options.seedPhrase);
 			options.passphrase = options.seedPhrase;
 			delete options.seedPhrase;
 		} else {
@@ -99,11 +101,14 @@ class Marketmaker {
 		}
 
 		// NOTE: It's very important that this is a different directory than mm v1, as the database is not compatible
+		// TODO: Update the path here when mm v2 is production ready
 		const cwd = await makeDir(path.join(electron.app.getPath('userData'), 'marketmaker2-test'));
 
-		logger.log('Spawning Marketmaker with options:', JSON.stringify({...options, passphrase: '<redacted>'}));
-
-		logger.log('Spawning Marketmaker with options:', JSON.stringify({...options, passphrase: '<redacted>'}));
+		logger.log('Spawning Marketmaker with options:', JSON.stringify({
+			...options,
+			passphrase: '<redacted>',
+			rpc_password: '<redacted>', // eslint-disable-line camelcase
+		}));
 
 		// Uncomment this to get the command to run Marketmaker manually
 		// options.coins = supportedCurrencies;

@@ -3,6 +3,7 @@ import {setWindowBounds} from 'electron-util';
 import ipc from 'electron-better-ipc';
 import {Container} from 'unstated';
 import LoginBox from 'views/LoginBox';
+import {sha256} from 'crypto-hash';
 import {minWindowSize} from '../../constants';
 import {isDevelopment} from '../../util-common';
 import Api from '../api';
@@ -38,7 +39,7 @@ const initApi = async seedPhrase => {
 
 	return new Api({
 		endpoint: url,
-		seedPhrase,
+		rpcPassword: await sha256(seedPhrase),
 	});
 };
 
