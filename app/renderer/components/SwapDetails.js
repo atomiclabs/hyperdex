@@ -80,7 +80,7 @@ class SwapDetails extends React.Component {
 		const transactions = swap.stages.map(stage => (
 			<React.Fragment key={stage.event.type}>
 				<div className="arrow completed">→</div>
-				{stage.event.data ? (
+				{stage.event.data && stage.event.data.tx_hash ? (
 					<ExternalLink url={stage.event.data.tx_hash ? blockExplorer.tx(stage.event.data.coin, stage.event.data.tx_hash) : null}>
 						<div className="item completed">
 							<h6>{t(`swapStages.${stage.event.type}`)}</h6>

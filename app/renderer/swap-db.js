@@ -175,7 +175,10 @@ class SwapDB {
 			const failedEvent = events.find(event => errorEvents.includes(event.event.type));
 			const nonSwapEvents = ['Started', 'Negotiated', 'Finished'];
 			const totalSwapEvents = successEvents.filter(type => !nonSwapEvents.includes(type));
-			const swapEvents = events.filter(event => !nonSwapEvents.includes(event.event.type));
+			const swapEvents = events.filter(event => (
+				!nonSwapEvents.includes(event.event.type) &&
+				!errorEvents.includes(event.event.type)
+			));
 			const isFinished = !failedEvent && events.some(event => event.event.type === 'Finished');
 			const isSwapping = !failedEvent && !isFinished && swapEvents.length > 0;
 			const maxSwapProgress = 0.8;
@@ -194,13 +197,11 @@ class SwapDB {
 				swap.status = 'failed';
 				swap.progress = 1;
 
-				// TODO
 				swap.error = {
-					code: undefined,
-					message: failedEvent,
+					code: failedEvent.event.type,
+					message: failedEvent.event.data.error,
 				};
 			} else if (isFinished) {
-				console.log('FINISHED!!!');
 				swap.status = 'completed';
 				swap.progress = 1;
 			} else if (isSwapping) {
