@@ -56,9 +56,7 @@ exports.ignoreExternalPrice = new Set([
 	'SUPERNET',
 ]);
 
-exports.hiddenCurrencies = [
-	'ETOMIC',
-];
+exports.hiddenCurrencies = [];
 
 exports.appTimeStarted = Date.now();
 

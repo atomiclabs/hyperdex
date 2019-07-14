@@ -1,6 +1,6 @@
 // TODO(lukechilds): Extract this into an npm package when it's more mature
 import ow from 'ow';
-import {isEtomic} from '../marketmaker/supported-currencies';
+import {isEthBased} from '../marketmaker/supported-currencies';
 
 const explorers = new Map(Object.entries({
 	888: 'https://chainz.cryptoid.info/octo/tx.dws?{txid}',
@@ -55,7 +55,6 @@ const explorers = new Map(Object.entries({
 	EMC2: 'https://chainz.cryptoid.info/emc2/tx.dws?{txid}',
 	ERC: 'https://chainz.cryptoid.info/erc/tx.dws?{txid}',
 	ETH: 'https://etherscan.io/tx/{txid}',
-	ETOMIC: 'https://etomic.kmdexplorer.io/tx/{txid}',
 	FAIR: 'https://chain.fair.to/transaction?transaction={txid}',
 	FJC: 'http://explorer.fujicoin.org/tx/{txid}',
 	FLO: 'https://florincoin.info/tx/{txid}',
@@ -151,7 +150,7 @@ blockExplorer.tx = (symbol, txid) => {
 	ow(symbol, 'symbol', ow.string.uppercase);
 	ow(txid, 'txid', ow.string);
 
-	const explorer = explorers.get(isEtomic(symbol) ? 'ETH' : symbol);
+	const explorer = explorers.get(isEthBased(symbol) ? 'ETH' : symbol);
 
 	// Fallback
 	if (!explorer) {

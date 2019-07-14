@@ -54,7 +54,7 @@ class WithdrawModal extends React.Component {
 		});
 
 		const currency = getCurrency(symbol);
-		const txFeeCurrencySymbol = currency.etomic ? 'ETH' : symbol;
+		const txFeeCurrencySymbol = currency.contractAddress ? 'ETH' : symbol;
 		const {cmcPriceUsd} = appContainer.getCurrencyPrice(txFeeCurrencySymbol);
 		const txFeeUsd = formatCurrency(txFee * cmcPriceUsd);
 

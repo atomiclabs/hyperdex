@@ -101,22 +101,40 @@ export default class Api {
 				servers,
 			});
 
-			const success = response.result === 'success';
-
-			if (!success) {
+			const isSuccess = response.result === 'success';
+			if (!isSuccess) {
 				const error = `Could not connect to ${symbol} Electrum server`;
 				console.error(error);
 				// eslint-disable-next-line no-new
 				new Notification(error);
+				return;
 			}
 
 			console.log('Enabled Electrum for currency:', symbol);
-
-			return success;
+			return;
 		}
 
-		const response = await this.request({method: 'enable', coin: symbol});
-		return response.status === 'active';
+		// ETH/ERC20-based token
+		const response = await this.request({
+			method: 'enable',
+			coin: 'ETH', // TODO
+			urls: [
+				'http://eth1.cipig.net:8555',
+				'http://eth2.cipig.net:8555',
+				'http://eth3.cipig.net:8555',
+			],
+			swap_contract_address: '0x8500AFc0bc5214728082163326C2FF0C73f4a871',
+			gas_station_url: 'https://ethgasstation.info/json/ethgasAPI.json',
+			mm2: 1,
+		});
+
+		const isSuccess = response.status === 'success';
+		if (!isSuccess) {
+			const error = `Could not enable ETH/ERC20 currency: ${symbol}`;
+			console.error(error);
+			// eslint-disable-next-line no-new
+			new Notification(error);
+		}
 	}
 
 	// Mm v2 doesn't currently have an endpoint for disabling a coin, so we do nothing.
@@ -440,7 +458,7 @@ export default class Api {
 			amount: ow.number.positive.finite,
 		}));
 
-		return getCurrency(opts.symbol).etomic ? this._withdrawEth(opts) : this._withdrawBtcFork(opts);
+		return getCurrency(opts.symbol).contractAddress ? this._withdrawEth(opts) : this._withdrawBtcFork(opts);
 	}
 
 	listUnspent(coin, address) {

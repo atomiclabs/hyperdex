@@ -59,11 +59,6 @@ const createApi = async seedPhrase => {
 
 const enableCurrencies = async api => {
 	console.time('enable-currencies');
-
-	// TODO: ERC20 is not yet supported with mm2
-	// ETOMIC needs to be enabled first otherwise ETH/ERC20 tokens will fail
-	// await api.enableCurrency('ETOMIC');
-
 	await Promise.all(appContainer.state.enabledCoins.map(x => api.enableCurrency(x)));
 	console.timeEnd('enable-currencies');
 };
