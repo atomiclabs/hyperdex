@@ -40,6 +40,7 @@ const initApi = async seedPhrase => {
 	return new Api({
 		endpoint: url,
 		rpcPassword: await sha256(seedPhrase),
+		concurrency: 10,
 	});
 };
 

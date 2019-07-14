@@ -13,7 +13,7 @@ const errorWithObject = (message, object) => new Error(`${message}:\n${util.form
 const genericError = object => errorWithObject('Encountered an error', object);
 
 export default class Api {
-	constructor({endpoint, rpcPassword, concurrency = 1}) {
+	constructor({endpoint, rpcPassword, concurrency = Infinity}) {
 		ow(endpoint, 'endpoint', ow.string);
 		ow(rpcPassword, 'rpcPassword', ow.string);
 		ow(concurrency, 'concurrency', ow.number.positive.integerOrInfinite);
