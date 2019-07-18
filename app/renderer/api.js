@@ -178,7 +178,6 @@ export default class Api {
 				address: order.address,
 				depth: order.depth,
 				price: order.price,
-				averageVolume: order.avevolume,
 				maxVolume: order.maxvolume,
 				zCredits: order.zcredits,
 			}));

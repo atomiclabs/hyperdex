@@ -85,7 +85,6 @@ const Center = props => {
 					<thead>
 						<tr>
 							<th>{t('order.price', {symbol: state.quoteCurrency})}</th>
-							<th>{t('order.averageVolume')}</th>
 							<th>{t('order.maxVolume')}</th>
 						</tr>
 					</thead>
@@ -95,7 +94,6 @@ const Center = props => {
 							return props.getOrderBook().map((row, i) => (
 								<tr key={i} onClick={() => selectRow(row)}>
 									<td>{row.price}</td>
-									<td>{roundTo(row.averageVolume, 8)}</td>
 									<td>{roundTo(row.maxVolume, 8)}</td>
 								</tr>
 							));
