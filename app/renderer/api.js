@@ -318,7 +318,7 @@ export default class Api {
 			symbol: symbolPredicate,
 			address: ow.string,
 			amount: ow.number.positive.finite,
-			max: ow.optional.number.positive.finite,
+			max: ow.boolean,
 		}));
 
 		const {max = false} = options;

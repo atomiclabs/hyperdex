@@ -62,6 +62,7 @@ class WithdrawModal extends React.Component {
 			address,
 			amount: Number(amount),
 			// TODO: Support `max` option
+			max: false,
 		});
 
 		const txFee = 'amount' in feeDetails ? feeDetails.amount : feeDetails.total_fee;
