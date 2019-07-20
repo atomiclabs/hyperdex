@@ -77,7 +77,7 @@
 		"browser-env": "^3.2.6",
 		"clean-webpack-plugin": "^1.0.0",
 		"copy-webpack-plugin": "^4.6.0",
-		"cryptocurrency-icons": "^0.13.0",
+		"cryptocurrency-icons": "^0.15.0",
 		"css-loader": "^2.0.1",
 		"delay-cli": "^1.1.0",
 		"devtron": "^1.4.0",
