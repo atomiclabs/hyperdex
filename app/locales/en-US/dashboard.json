@@ -40,10 +40,10 @@
 	},
 	"withdraw": {
 		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
+		"confirmNetworkFee": "Confirm Transaction Fee",
 		"label": "Withdraw",
 		"maxAmount": "Max",
-		"networkFee": "Network Fee",
+		"networkFee": "Transaction Fee",
 		"recipientLabel": "Recipient",
 		"recipientPlaceholder": "Enter {{symbol}} Address",
 		"remainingBalance": "Remaining balance",

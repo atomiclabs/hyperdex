@@ -57,6 +57,10 @@ export default class Api {
 				console.groupEnd(groupLabel);
 			}
 		} catch (error) {
+			if (isDevelopment) {
+				console.error('Request error', error, body);
+			}
+
 			if (error.message === 'Failed to fetch') {
 				error.message = 'Could not connect to Marketmaker';
 			}
@@ -321,142 +325,42 @@ export default class Api {
 		return result;
 	}
 
-	async _createTransaction(opts) {
-		ow(opts, 'opts', ow.object.exactShape({
+	// Mm v2
+	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#send_raw_transaction
+	async sendRawTransaction(options) {
+		ow(options, 'options', ow.object.exactShape({
+			symbol: symbolPredicate,
+			txHex: ow.string,
+		}));
+
+		const {tx_hash: txHash} = await this.request({
+			method: 'send_raw_transaction',
+			coin: options.symbol,
+			tx_hex: options.txHex,
+		});
+
+		return txHash;
+	}
+
+	// Mm v2
+	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#withdraw
+	async withdraw(options) {
+		ow(options, 'options', ow.object.exactShape({
 			symbol: symbolPredicate,
 			address: ow.string,
 			amount: ow.number.positive.finite,
+			max: ow.optional.number.positive.finite,
 		}));
 
-		const result = await this.request({
+		const {max = false} = options;
+
+		return this.request({
 			method: 'withdraw',
-			coin: opts.symbol,
-			outputs: [{[opts.address]: opts.amount}],
-			broadcast: 0,
+			coin: options.symbol,
+			to: options.address,
+			amount: String(options.amount),
+			max,
 		});
-
-		if (!result.complete) {
-			throw errorWithObject('Couldn\'t create withdrawal transaction', result);
-		}
-
-		return {
-			...opts,
-			...result,
-		};
-	}
-
-	async _broadcastTransaction(symbol, rawTransaction) {
-		ow(symbol, 'symbol', symbolPredicate);
-		ow(rawTransaction, 'rawTransaction', ow.string);
-
-		const response = await this.request({
-			method: 'sendrawtransaction',
-			coin: symbol,
-			signedtx: rawTransaction,
-		});
-
-		if (!response.result === 'success') {
-			throw errorWithObject('Couldn\'t broadcast transaction', response);
-		}
-
-		return response.txid;
-	}
-
-	async _withdrawBtcFork(opts) {
-		ow(opts, 'opts', ow.object.exactShape({
-			symbol: symbolPredicate,
-			address: ow.string,
-			amount: ow.number.positive.finite,
-		}));
-
-		const {
-			hex: rawTransaction,
-			txfee: txFeeSatoshis,
-			txid,
-			amount,
-			symbol,
-			address,
-		} = await this._createTransaction(opts);
-
-		// Convert from satoshis
-		const SATOSHIS = 100000000;
-		const txFee = txFeeSatoshis / SATOSHIS;
-
-		const broadcast = async () => {
-			await this._broadcastTransaction(opts.symbol, rawTransaction);
-
-			return {txid, amount, symbol, address};
-		};
-
-		return {
-			txFee,
-			broadcast,
-		};
-	}
-
-	async _withdrawEth(opts) {
-		ow(opts, 'opts', ow.object.exactShape({
-			symbol: symbolPredicate,
-			address: ow.string,
-			amount: ow.number.positive.finite,
-		}));
-
-		const {
-			eth_fee: txFee,
-			gas_price: gasPrice,
-			gas,
-		} = await this.request({
-			method: 'eth_withdraw',
-			coin: opts.symbol,
-			to: opts.address,
-			amount: opts.amount,
-			broadcast: 0,
-		});
-
-		let hasBroadcast = false;
-		const broadcast = async () => {
-			if (hasBroadcast) {
-				throw new Error('Transaction has already been broadcast');
-			}
-
-			hasBroadcast = true;
-
-			const response = await this.request({
-				method: 'eth_withdraw',
-				gas,
-				gas_price: gasPrice,
-				coin: opts.symbol,
-				to: opts.address,
-				amount: opts.amount,
-				broadcast: 1,
-			});
-
-			if (response.error) {
-				throw errorWithObject('Couldn\'t create withdrawal transaction', response);
-			}
-
-			return {
-				txid: response.tx_id,
-				symbol: opts.symbol,
-				amount: opts.amount,
-				address: opts.address,
-			};
-		};
-
-		return {
-			txFee,
-			broadcast,
-		};
-	}
-
-	withdraw(opts) {
-		ow(opts, 'opts', ow.object.exactShape({
-			symbol: symbolPredicate,
-			address: ow.string,
-			amount: ow.number.positive.finite,
-		}));
-
-		return getCurrency(opts.symbol).contractAddress ? this._withdrawEth(opts) : this._withdrawBtcFork(opts);
 	}
 
 	listUnspent(coin, address) {
