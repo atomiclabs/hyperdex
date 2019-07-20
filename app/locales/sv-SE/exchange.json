@@ -17,7 +17,7 @@
 		"failedTrade": "Det gick inte att {{type}} {{baseCurrency}}",
 		"maxOnePendingSwap": "Endast en väntande swap i taget, försök igen om {{wait}} sekunder.",
 		"maxPrice": "MAX",
-		"maxVolume": "Max volume",
+		"maxVolume": "Maxvolym",
 		"price": "Pris {{symbol}}",
 		"sell": "Sälj",
 		"sellOrders": "Säljordrar",
