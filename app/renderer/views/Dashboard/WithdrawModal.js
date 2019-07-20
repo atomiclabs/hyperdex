@@ -56,7 +56,7 @@ class WithdrawModal extends React.Component {
 
 		const {
 			fee_details: feeDetails,
-			tx_hex: txHex
+			tx_hex: txHex,
 		} = await appContainer.api.withdraw({
 			symbol,
 			address,

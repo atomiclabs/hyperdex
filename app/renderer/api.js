@@ -9,8 +9,10 @@ import {isDevelopment} from '../util-common';
 const symbolPredicate = ow.string.uppercase;
 const uuidPredicate = ow.string.matches(/[a-z\d-]/);
 
+/* eslint-disable no-unused-vars */
 const errorWithObject = (message, object) => new Error(`${message}:\n${util.format(object)}`);
 const genericError = object => errorWithObject('Encountered an error', object);
+/* eslint-enable no-unused-vars */
 
 export default class Api {
 	constructor({endpoint, rpcPassword, concurrency = Infinity}) {
@@ -77,10 +79,7 @@ export default class Api {
 		return result;
 	}
 
-	botList() {
-		return this.request({method: 'bot_list'});
-	}
-
+	// Mm v2
 	async enableCurrency(symbol) {
 		ow(symbol, 'symbol', symbolPredicate);
 
@@ -151,21 +150,6 @@ export default class Api {
 		// });
 	}
 
-	balance(coin, address) {
-		ow(coin, 'coin', symbolPredicate);
-		ow(address, 'address', ow.string);
-
-		return this.request({
-			method: 'balance',
-			coin,
-			address,
-		});
-	}
-
-	coins() {
-		return this.request({method: 'getcoins'});
-	}
-
 	// Mm v2
 	async orderBook(baseCurrency, quoteCurrency) {
 		ow(baseCurrency, 'baseCurrency', symbolPredicate);
@@ -197,8 +181,8 @@ export default class Api {
 	}
 
 	// Mm v2
-	async order(opts) {
-		ow(opts, 'opts', ow.object.exactShape({
+	async order(options) {
+		ow(options, 'options', ow.object.exactShape({
 			type: ow.string.oneOf(['buy', 'sell']),
 			baseCurrency: symbolPredicate,
 			quoteCurrency: symbolPredicate,
@@ -207,12 +191,12 @@ export default class Api {
 		}));
 
 		const {result} = await this.request({
-			method: opts.type,
+			method: options.type,
 			gtc: 1, // TODO: Looks like this is missing from mm v2
-			base: opts.baseCurrency,
-			rel: opts.quoteCurrency,
-			price: opts.price,
-			volume: opts.volume,
+			base: options.baseCurrency,
+			rel: options.quoteCurrency,
+			price: options.price,
+			volume: options.volume,
 		});
 
 		result.baseAmount = Number(result.base_amount);
@@ -284,21 +268,6 @@ export default class Api {
 		}
 	}
 
-	async getFee(coin) {
-		ow(coin, 'coin', symbolPredicate);
-
-		const response = await this.request({
-			method: 'getfee',
-			coin,
-		});
-
-		if (response.result !== 'success') {
-			throw genericError(response);
-		}
-
-		return response.txfee;
-	}
-
 	// Mm v2
 	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#my_balance
 	async myBalance(currency) {
@@ -361,26 +330,6 @@ export default class Api {
 			amount: String(options.amount),
 			max,
 		});
-	}
-
-	listUnspent(coin, address) {
-		ow(coin, 'coin', symbolPredicate);
-		ow(address, 'address', ow.string);
-
-		return this.request({
-			method: 'listunspent',
-			coin,
-			address,
-		});
-	}
-
-	async funds() {
-		const coins = (await this.coins()).filter(coin => coin.status === 'active');
-		return Promise.all(coins.map(coin => this.balance(coin.coin, coin.smartaddress)));
-	}
-
-	ticker() {
-		return this.request({method: 'ticker'});
 	}
 
 	async stop() {
