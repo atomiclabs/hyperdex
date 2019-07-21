@@ -18,7 +18,8 @@ PouchDB.plugin(cryptoPouch);
 
 class SwapDB {
 	constructor(portfolioId, seedPhrase) {
-		this.db = new PouchDB(`swaps-${portfolioId}`, {adapter: 'idb'});
+		// Using `2` so it won't conflict with HyperDEX versions using marketmaker v1.
+		this.db = new PouchDB(`swaps2-${portfolioId}`, {adapter: 'idb'});
 
 		this.db.crypto(seedPhrase);
 
