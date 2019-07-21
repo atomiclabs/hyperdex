@@ -37,7 +37,7 @@
 		"node-dir": "^0.1.17",
 		"plur": "^3.1.1",
 		"strict-import": "^0.2.0",
-		"write-json-file": "^4.1.0"
+		"write-json-file": "^3.0.2"
 	},
 	"xo": false
 }
