@@ -14,6 +14,12 @@ const errorWithObject = (message, object) => new Error(`${message}:\n${util.form
 const genericError = object => errorWithObject('Encountered an error', object);
 /* eslint-enable no-unused-vars */
 
+const reportError = error => {
+	console.error(error);
+	// eslint-disable-next-line no-new
+	new Notification(error);
+};
+
 export default class Api {
 	constructor({endpoint, rpcPassword, concurrency = Infinity}) {
 		ow(endpoint, 'endpoint', ow.string);
@@ -64,7 +70,7 @@ export default class Api {
 			}
 
 			if (error.message === 'Failed to fetch') {
-				error.message = 'Could not connect to Marketmaker';
+				error.message = 'Request to Marketmaker failed';
 			}
 
 			throw error;
@@ -97,18 +103,19 @@ export default class Api {
 				// protocol: 'SSL',
 			}));
 
-			const response = await this.request({
-				method: 'electrum',
-				coin: symbol,
-				servers,
-			});
+			try {
+				const response = await this.request({
+					method: 'electrum',
+					coin: symbol,
+					servers,
+				});
 
-			const isSuccess = response.result === 'success';
-			if (!isSuccess) {
-				const error = `Could not connect to ${symbol} Electrum server`;
-				console.error(error);
-				// eslint-disable-next-line no-new
-				new Notification(error);
+				const isSuccess = response.result === 'success';
+				if (!isSuccess) {
+					reportError(`Could not connect to ${symbol} Electrum server`);
+				}
+			} catch (error) {
+				reportError(`Could not connect to ${symbol} Electrum server: ${error}`);
 				return;
 			}
 
@@ -116,26 +123,27 @@ export default class Api {
 			return;
 		}
 
-		// ETH/ERC20-based token
-		const response = await this.request({
-			method: 'enable',
-			coin: symbol,
-			urls: [
-				'http://eth1.cipig.net:8555',
-				'http://eth2.cipig.net:8555',
-				'http://eth3.cipig.net:8555',
-			],
-			swap_contract_address: '0x8500AFc0bc5214728082163326C2FF0C73f4a871',
-			gas_station_url: 'https://ethgasstation.info/json/ethgasAPI.json',
-			mm2: 1,
-		});
+		try {
+			// ETH/ERC20-based token
+			const response = await this.request({
+				method: 'enable',
+				coin: symbol,
+				urls: [
+					'http://eth1.cipig.net:8555',
+					'http://eth2.cipig.net:8555',
+					'http://eth3.cipig.net:8555',
+				],
+				swap_contract_address: '0x8500AFc0bc5214728082163326C2FF0C73f4a871',
+				gas_station_url: 'https://ethgasstation.info/json/ethgasAPI.json',
+				mm2: 1,
+			});
 
-		const isSuccess = response.result === 'success';
-		if (!isSuccess) {
-			const error = `Could not enable ETH/ERC20 currency: ${symbol}`;
-			console.error(error);
-			// eslint-disable-next-line no-new
-			new Notification(error);
+			const isSuccess = response.result === 'success';
+			if (!isSuccess) {
+				reportError(`Could not enable ETH/ERC20 currency ${symbol}`);
+			}
+		} catch (error) {
+			reportError(`Could not enable ETH/ERC20 currency ${symbol}: ${error}`);
 		}
 	}
 
