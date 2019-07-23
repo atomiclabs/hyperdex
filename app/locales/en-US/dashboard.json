@@ -1,7 +1,7 @@
 {
 	"intro": {
 		"title": "✨ Thanks for Helping Us Test HyperDEX!",
-		"description": "<0>Please keep in mind <1>this project is still in Beta</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>MORTY</1> and <3>RICK</3> instead. You can get free <5>MORTY</5> at the <7><0>MORTY</0> faucet</7>.</2><3>HyperDEX is Open Source software provided \"as is\", without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
+		"description": "<0>Please keep in mind <1>this project is still in Beta</1>.</0><1>Although loss of funds is unlikely, you should only trade with real currency if you can take that risk.</1><2>If you just want to test HyperDEX, try trading between the test currencies <1>RICK</1> and <3>MORTY</3> instead. You can get free <5>RICK</5> <7>here</7> and free <9>MORTY</9> <11>here</11>.</2><3>HyperDEX is Open Source software provided \"as is\", without warranty of any kind. The authors or copyright holders are not liable for any damages caused as a result of using this software.</3><4>By using HyperDEX you are agreeing to the terms of the <1>MIT License</1>.</4>"
 	},
 	"activity": {
 		"noActivity": "No activity yet",
@@ -40,10 +40,10 @@
 	},
 	"withdraw": {
 		"amountLabel": "Amount",
-		"confirmNetworkFee": "Confirm Network Fee",
+		"confirmNetworkFee": "Confirm Transaction Fee",
 		"label": "Withdraw",
 		"maxAmount": "Max",
-		"networkFee": "Network Fee",
+		"networkFee": "Transaction Fee",
 		"recipientLabel": "Recipient",
 		"recipientPlaceholder": "Enter {{symbol}} Address",
 		"remainingBalance": "Remaining balance",

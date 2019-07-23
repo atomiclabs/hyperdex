@@ -18,6 +18,7 @@ const SortDirections = {
 	DESC: Symbol('desc'),
 };
 
+// eslint-disable-next-line no-unused-vars
 class CancelButton extends React.Component {
 	static propTypes = {
 		swap: PropTypes.object.isRequired,
@@ -95,6 +96,7 @@ const SwapHeader = props => (
 	</div>
 );
 
+// eslint-disable-next-line no-unused-vars
 const SwapItem = ({style, swap, showCancel, openSwap}) => (
 	<div className={`row ${swap.orderType}`} style={style} onClick={openSwap}>
 		<div className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}</div>
@@ -105,11 +107,15 @@ const SwapItem = ({style, swap, showCancel, openSwap}) => (
 			<div className="status__icon" data-status={swap.status}>{swap.statusFormatted}</div>
 		</div>
 		<div className="buttons">
-			{showCancel && (
-				<div className="cancel">
-					<CancelButton swap={swap}/>
-				</div>
-			)}
+			{
+				/* TODO: Add back the cancel button when https://github.com/artemii235/SuperNET/issues/463 is fixed
+				showCancel && (
+					<div className="cancel">
+						<CancelButton swap={swap}/>
+					</div>
+				)
+				*/
+			}
 		</div>
 	</div>
 );

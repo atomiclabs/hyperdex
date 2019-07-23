@@ -1,6 +1,7 @@
 {
 	"scripts": {
-		"postinstall": "electron-builder install-app-deps",
+		"get-marketmaker": "node scripts/get-marketmaker",
+		"postinstall": "electron-builder install-app-deps && npm run get-marketmaker",
 		"lint": "xo && stylelint 'app/renderer/**/*.scss'",
 		"test": "yarn lint && ava",
 		"start:watch": "webpack-dev-server --hot",
@@ -21,11 +22,14 @@
 		"csv-string": "^3.1.5",
 		"cycled": "^1.0.0",
 		"date-fns": "^1.29.0",
+		"decompress": "^4.2.0",
 		"delay": "^4.2.0",
 		"electron-unhandled": "^2.2.0",
 		"electron-util": "^0.10.2",
 		"emittery": "^0.4.1",
 		"filter-console": "^0.1.1",
+		"got": "^9.6.0",
+		"hasha": "^5.0.0",
 		"hoist-non-react-statics": "^3.3.0",
 		"lodash": "^4.17.11",
 		"mem": "^4.0.0",
@@ -182,6 +186,14 @@
 		},
 		"nsis": {
 			"createDesktopShortcut": "always"
+		}
+	},
+	"marketmaker": {
+		"version": "046402090",
+		"hashes": {
+			"macos": "ee481906ab76cc81bfa3892e6dbde8336d275a485bbeb6c92af0019dea7cd41337c93c31566895cec2cc3baa02a181cb1aaa14556cb200fb2af9475664c7b9a4",
+			"linux": "5f9da6c9bd868936cddafb72a3c544294c682494dc2ef4d51a5f3bd85a81ecc4faddb3aff11081da33b95ec0acf793ad7f06d2d6a67fc4bbffb7e3200dad10fa",
+			"windows": "39e3bd0382154338ce9aec75f5e19573401b4f62fc91a978bfbff66a12445b2cadd66b072baa33927ae098f6ac51c05428491183bdd606f1c9a976afb4b07047"
 		}
 	}
 }

@@ -12,21 +12,23 @@ import './WithdrawModal.scss';
 
 const t = translate('dashboard');
 
-const getInitialProps = () => ({
+const getInitialState = () => ({
 	isOpen: false,
 	recipientAddress: '',
 	amount: '',
 	amountInUsd: '',
 	isWithdrawing: false,
 	isBroadcasting: false,
+	symbol: '',
+	address: '',
 	txFeeCurrencySymbol: '',
 	txFee: 0,
 	txFeeUsd: 0,
-	broadcast: false,
+	txHex: '',
 });
 
 class WithdrawModal extends React.Component {
-	state = getInitialProps();
+	state = getInitialState();
 
 	constructor(props) {
 		super(props);
@@ -34,11 +36,16 @@ class WithdrawModal extends React.Component {
 	}
 
 	open = () => {
+		this.resetState();
 		this.setState({isOpen: true});
 	};
 
 	close = () => {
-		this.setState(getInitialProps());
+		this.resetState();
+	};
+
+	resetState = () => {
+		this.setState(getInitialState());
 	};
 
 	withdrawButtonHandler = async () => {
@@ -47,24 +54,38 @@ class WithdrawModal extends React.Component {
 		const {symbol} = dashboardContainer.activeCurrency;
 		const {recipientAddress: address, amount} = this.state;
 
-		const {txFee, broadcast} = await appContainer.api.withdraw({
+		const {
+			fee_details: feeDetails,
+			tx_hex: txHex,
+		} = await appContainer.api.withdraw({
 			symbol,
 			address,
 			amount: Number(amount),
+			// TODO: Support `max` option
+			max: false,
 		});
 
+		const txFee = 'amount' in feeDetails ? feeDetails.amount : feeDetails.total_fee;
+
 		const currency = getCurrency(symbol);
-		const txFeeCurrencySymbol = currency.etomic ? 'ETH' : symbol;
+		const txFeeCurrencySymbol = currency.contractAddress ? 'ETH' : symbol;
 		const {cmcPriceUsd} = appContainer.getCurrencyPrice(txFeeCurrencySymbol);
 		const txFeeUsd = formatCurrency(txFee * cmcPriceUsd);
 
-		this.setState({txFeeCurrencySymbol, txFee, txFeeUsd, broadcast});
+		// TODO: For ETH-based currencies, show the gas amount and gas price.
+
+		this.setState({symbol, address, txFeeCurrencySymbol, txFee, txFeeUsd, txHex});
 	};
 
 	confirmButtonHandler = async () => {
 		this.setState({isBroadcasting: true});
-		const {txid, amount, symbol, address} = await this.state.broadcast();
-		console.log({txid, amount, symbol, address});
+		const {symbol, address, amount, txFee, txFeeUsd, txHex} = this.state;
+		console.log('Raw transaction details', {symbol, address, amount, txFee, txFeeUsd, txHex});
+
+		const broadcastTxHash = await appContainer.api.sendRawTransaction({symbol, txHex});
+
+		// TODO: Show the user the broadcast tx hash
+		console.log('Broadcast TX hash', broadcastTxHash);
 
 		// TODO: The notification should be clickable and open a block explorer for the currency.
 		// We'll need to have a list of block explorers for each currency.
@@ -110,10 +131,6 @@ class WithdrawModal extends React.Component {
 							/>
 						</div>
 						<div className="section">
-							<p>
-								{/* TODO: Remove this when #302 is fixed */}
-								<small>{'Note: HyperDEX doesn\'t yet calculate the TX fee, so you can\'t withdraw the whole balance. Try withdrawing slightly less.'}</small>
-							</p>
 							<label>{t('withdraw.amountLabel')}:</label>
 							<div className="amount-inputs">
 								<Input
@@ -166,12 +183,12 @@ class WithdrawModal extends React.Component {
 								<span>{t('withdraw.remainingBalance')}:</span>
 								<span className={remainingBalance < 0 ? 'negative-balance' : ''}>{remainingBalance} {currencyInfo.symbol}</span>
 							</div>
-							<div className={`info ${this.state.broadcast || 'hidden'}`}>
+							<div className={`info ${this.state.txHex || 'hidden'}`}>
 								<span>{t('withdraw.networkFee')}:</span>
 								<span>{this.state.txFee} {this.state.txFeeCurrencySymbol} ({this.state.txFeeUsd})</span>
 							</div>
 						</div>
-						{this.state.broadcast ? (
+						{this.state.txHex ? (
 							<Button
 								primary
 								className="confirm-button"

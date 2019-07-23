@@ -1,12 +1,12 @@
 import EventEmitter from 'events';
 import electron, {remote} from 'electron';
-import {is, darkMode} from 'electron-util';
+import {is, api, darkMode, activeWindow} from 'electron-util';
 import ipc from 'electron-better-ipc';
 import _ from 'lodash';
 import Cycled from 'cycled';
 import roundTo from 'round-to';
 import SuperContainer from 'containers/SuperContainer';
-import {isPast, addHours} from 'date-fns';
+/// import {isPast, addHours} from 'date-fns';
 import {appViews, alwaysEnabledCurrencies, hiddenCurrencies} from '../../constants';
 import {getCurrencyName} from '../../marketmaker/supported-currencies';
 import fireEvery from '../fire-every';
@@ -29,7 +29,6 @@ class AppContainer extends SuperContainer {
 		enabledCoins: alwaysEnabledCurrencies,
 		currencies: [],
 		swapHistory: [],
-		doneInitialKickstart: false,
 	};
 
 	events = new EventEmitter();
@@ -45,23 +44,6 @@ class AppContainer extends SuperContainer {
 		});
 	}
 
-	async kickstartStuckSwaps() {
-		const {doneInitialKickstart} = this.state;
-		this.state.swapHistory
-			.filter(swap => (
-				swap.status === 'swapping' &&
-				(!doneInitialKickstart || isPast(addHours(swap.timeStarted, 4)))
-			))
-			.forEach(async swap => {
-				const {requestId, quoteId} = swap;
-				await this.api.kickstart({requestId, quoteId});
-			});
-
-		if (!doneInitialKickstart) {
-			await this.setState({doneInitialKickstart: true});
-		}
-	}
-
 	initSwapHistoryListener() {
 		const setSwapHistory = async () => {
 			await this.setState({swapHistory: await this.swapDB.getSwaps()});
@@ -71,15 +53,35 @@ class AppContainer extends SuperContainer {
 
 		this.swapDB.on('change', setSwapHistory);
 
-		this.api.socket.on('message', message => {
+		// TODO: Change this to `1` second.
+		fireEvery({seconds: 10}, async () => {
 			const uuids = this.state.swapHistory.map(swap => swap.uuid);
-			if (uuids.includes(message.uuid)) {
-				this.swapDB.updateSwapData(message);
-			}
-		});
+			const recentSwaps = await this.api.myRecentSwaps();
+			console.log('recentSwaps', recentSwaps);
 
-		fireEvery({minutes: 15}, async () => {
-			await this.kickstartStuckSwaps();
+			await Promise.all(uuids.map(async uuid => {
+				const swap = recentSwaps.find(x => x.uuid === uuid);
+				if (!swap) {
+					console.error('Could not find swap:', uuid);
+				}
+
+				// Const errorEvent = swap.events.find(event => swap.error_events.includes(event.type));
+				// if (errorEvent) {
+				// 	swap.errorEvent = errorEvent;
+				// }
+
+				console.log('swap', swap);
+
+				// Const status = await this.api.mySwapStatus(uuid);
+				// console.log('update', status);
+				// TODO: Finish this. It's for tracking swap status.
+				// Blocked by https://github.com/artemii235/SuperNET/issues/451
+				//
+				// We *could* use `my_swap_status` instead of `order_status`, but it's very low-level. Would be nicer to be able to use `order_status`.
+				// From Artem: As of now you have to follow these steps: create order -> check order_status -> if there's no order check my_swap_status with same uuid -> if swap is not found there's something unexpected.
+				//
+				this.swapDB.updateSwapData(swap);
+			}));
 		});
 	}
 
@@ -96,15 +98,22 @@ class AppContainer extends SuperContainer {
 		this.setActiveView(this.views.previous());
 	}
 
-	setEnabledCurrencies(currencies) {
+	async setEnabledCurrencies(currencies) {
 		currencies = currencies.slice();
 
 		if (isNightlyBuild) {
 			currencies.push('RICK', 'MORTY');
 		}
 
+		// Force-enable currencies that have active swaps.
+		const kickStartCurrencies = await this.api.coinsNeededForKickStart();
+
 		this.setState({
-			enabledCoins: _.union(alwaysEnabledCurrencies, currencies),
+			enabledCoins: _.union(
+				alwaysEnabledCurrencies,
+				kickStartCurrencies,
+				currencies
+			),
 		});
 	}
 
@@ -168,11 +177,19 @@ class AppContainer extends SuperContainer {
 		if (!this.stopWatchingCurrencies) {
 			this.stopWatchingCurrencies = await fireEvery({seconds: 1}, async () => {
 				const {price: kmdPriceInUsd} = this.coinPrices.find(x => x.symbol === 'KMD');
-				let {portfolio: currencies} = await this.api.portfolio();
+				const enabledCurrencies = (await this.api.getEnabledCurrencies()).map(x => x.ticker);
 
-				if (!currencies) {
-					throw new Error('Could not fetch the portfolio from Marketmaker');
-				}
+				// This imitates the `portfolio` endpoint which is no longer available in mm v2
+				let currencies = await Promise.all(enabledCurrencies.map(async currency => {
+					const {address, balance} = await this.api.myBalance(currency);
+
+					return {
+						coin: currency,
+						address,
+						balance,
+						price: 0, // TODO: No way to get this with mm v2 yet: https://github.com/artemii235/SuperNET/issues/450
+					};
+				}));
 
 				// TODO(sindresorhus): Move the returned `mm` currency info to a sub-property and only have cleaned-up top-level properties. For example, `mm` has too many properties for just the balance.
 
@@ -252,9 +269,15 @@ class AppContainer extends SuperContainer {
 
 	disableCoin(coin) {
 		this.setState(prevState => {
-			this.api.disableCoin(coin);
+			this.api.disableCurrency(coin);
 			const enabledCoins = prevState.enabledCoins.filter(enabledCoin => enabledCoin !== coin);
 			setCurrencies(prevState.portfolio.id, enabledCoins);
+
+			// TODO: Remove this when https://github.com/artemii235/SuperNET/issues/459 is fixed.
+			api.dialog.showMessageBox(activeWindow(), {
+				message: 'Marketmaker v2 cannot currently disable currencies when running, so you need to restart HyperDEX for it to take effect.',
+			});
+
 			return {enabledCoins};
 		}, () => {
 			this.events.emit('enabled-currencies-changed');

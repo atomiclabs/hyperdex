@@ -1,5 +1,4 @@
 'use strict';
-
 const coinlist = require('coinlist');
 const _ = require('lodash');
 const {hiddenCurrencies} = require('../constants');
@@ -31,61 +30,61 @@ const supportedCurrencies = [
 	{
 		coin: '1ST',
 		name: 'FirstBlood',
-		etomic: '0xAf30D2a7E90d7DC361c8C4585e9BB7D2F6f15bc7',
+		contractAddress: '0xAf30D2a7E90d7DC361c8C4585e9BB7D2F6f15bc7',
 		rpcport: 80,
 	},
 	{
 		coin: 'ADT',
 		name: 'adToken',
-		etomic: '0xD0D6D6C5Fe4a677D343cC433536BB717bAe167dD',
+		contractAddress: '0xD0D6D6C5Fe4a677D343cC433536BB717bAe167dD',
 		rpcport: 80,
 	},
 	{
 		coin: 'AE',
 		name: 'Aeternity',
-		etomic: '0x5ca9a71b1d01849c0a95490cc00559717fcf0d1d',
+		contractAddress: '0x5CA9a71B1d01849C0a95490Cc00559717fCF0D1d',
 		rpcport: 80,
 	},
 	{
 		coin: 'AMB',
 		name: 'Ambrosus',
-		etomic: '0x4DC3643DbC642b72C158E7F3d2ff232df61cb6CE',
+		contractAddress: '0x4DC3643DbC642b72C158E7F3d2ff232df61cb6CE',
 		rpcport: 80,
 	},
 	{
 		coin: 'ANN',
 		name: 'Agent Not Needed',
-		etomic: '0xe0e73E8fc3a0fA161695be1D75E1Bc3E558957c4',
+		contractAddress: '0xe0e73E8fc3a0fA161695be1D75E1Bc3E558957c4',
 		rpcport: 80,
 	},
 	{
 		coin: 'ANT',
 		name: 'Aragon',
-		etomic: '0x960b236A07cf122663c4303350609A66A7B288C0',
+		contractAddress: '0x960b236A07cf122663c4303350609A66A7B288C0',
 		rpcport: 80,
 	},
 	{
 		coin: 'AST',
 		name: 'AirSwap',
-		etomic: '0x27054b13b1B798B345b591a4d22e6562d47eA75a',
+		contractAddress: '0x27054b13b1B798B345b591a4d22e6562d47eA75a',
 		rpcport: 80,
 	},
 	{
 		coin: 'BAT',
 		name: 'Basic Attention Token',
-		etomic: '0x0D8775F648430679A709E98d2b0Cb6250d2887EF',
+		contractAddress: '0x0D8775F648430679A709E98d2b0Cb6250d2887EF',
 		rpcport: 80,
 	},
 	{
 		coin: 'BBT',
 		name: 'Bitboost',
-		etomic: '0x1500205f50bf3fd976466d0662905c9ff254fc9c',
+		contractAddress: '0x1500205f50bf3FD976466d0662905c9ff254fc9c',
 		rpcport: 80,
 	},
 	{
 		coin: 'BCAP',
 		name: 'Bcap',
-		etomic: '0xFf3519eeeEA3e76F1F699CCcE5E23ee0bdDa41aC',
+		contractAddress: '0xFf3519eeeEA3e76F1F699CCcE5E23ee0bdDa41aC',
 		rpcport: 80,
 	},
 	{
@@ -121,7 +120,7 @@ const supportedCurrencies = [
 	{
 		coin: 'BITSOKO',
 		name: 'Bitsoko',
-		etomic: '0xb72627650f1149ea5e54834b2f468e5d430e67bf',
+		contractAddress: '0xB72627650F1149Ea5e54834b2f468E5d430E67bf',
 		rpcport: 80,
 	},
 	{
@@ -150,13 +149,13 @@ const supportedCurrencies = [
 	{
 		coin: 'BNB',
 		name: 'Binance Coin',
-		etomic: '0xB8c77482e45F1F44dE1745F52C74426C631bDD52',
+		contractAddress: '0xB8c77482e45F1F44dE1745F52C74426C631bDD52',
 		rpcport: 80,
 	},
 	{
 		coin: 'BNT',
 		name: 'Bancor',
-		etomic: '0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C',
+		contractAddress: '0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C',
 		rpcport: 80,
 	},
 	{
@@ -182,7 +181,7 @@ const supportedCurrencies = [
 	{
 		coin: 'BOX',
 		name: 'Beonbox',
-		etomic: '0x01e579be97433f861340268521a7a2ab9829082c',
+		contractAddress: '0x01E579BE97433f861340268521A7a2ab9829082C',
 		rpcport: 80,
 	},
 	{
@@ -225,7 +224,7 @@ const supportedCurrencies = [
 	{
 		coin: 'BTCL',
 		name: 'BTC Lite',
-		etomic: '0x5acd19b9c91e596b1f062f18e3d02da7ed8d1e50',
+		contractAddress: '0x5acD19b9c91e596b1f062f18e3D02da7eD8D1e50',
 		rpcport: 80,
 	},
 	{
@@ -249,31 +248,31 @@ const supportedCurrencies = [
 	{
 		coin: 'BTK',
 		name: 'BitcoinToken',
-		etomic: '0xdb8646F5b487B5Dd979FAC618350e85018F557d4',
+		contractAddress: '0xdb8646F5b487B5Dd979FAC618350e85018F557d4',
 		rpcport: 80,
 	},
 	{
 		coin: 'BTM',
 		name: 'Bytom',
-		etomic: '0xcB97e65F07DA24D46BcDD078EBebd7C6E6E3d750',
+		contractAddress: '0xcB97e65F07DA24D46BcDD078EBebd7C6E6E3d750',
 		rpcport: 80,
 	},
 	{
 		coin: 'CDT',
 		name: 'Blox',
-		etomic: '0x177d39AC676ED1C67A2b268AD7F1E58826E5B0af',
+		contractAddress: '0x177d39AC676ED1C67A2b268AD7F1E58826E5B0af',
 		rpcport: 80,
 	},
 	{
 		coin: 'CENNZ',
 		name: 'Centrality',
-		etomic: '0x1122b6a0e00dce0563082b6e2953f3a943855c1f',
+		contractAddress: '0x1122B6a0E00DCe0563082b6e2953f3A943855c1F',
 		rpcport: 80,
 	},
 	{
 		coin: 'CFI',
 		name: 'Cofound.it',
-		etomic: '0x12FEF5e57bF45873Cd9B62E9DBd7BFb99e32D73e',
+		contractAddress: '0x12FEF5e57bF45873Cd9B62E9DBd7BFb99e32D73e',
 		rpcport: 80,
 	},
 	{
@@ -322,7 +321,7 @@ const supportedCurrencies = [
 	{
 		coin: 'CIX',
 		name: 'Cryptonetix',
-		etomic: '0x1175a66a5c3343Bbf06AA818BB482DdEc30858E0',
+		contractAddress: '0x1175a66a5c3343Bbf06AA818BB482DdEc30858E0',
 		rpcport: 80,
 	},
 	{
@@ -389,19 +388,19 @@ const supportedCurrencies = [
 	{
 		coin: 'CS',
 		name: 'Credits',
-		etomic: '0x46b9ad944d1059450da1163511069c718f699d31',
+		contractAddress: '0x46b9Ad944d1059450Da1163511069C718F699D31',
 		rpcport: 80,
 	},
 	{
 		coin: 'CVC',
 		name: 'Civic',
-		etomic: '0x41e5560054824eA6B0732E656E3Ad64E20e94E45',
+		contractAddress: '0x41e5560054824eA6B0732E656E3Ad64E20e94E45',
 		rpcport: 80,
 	},
 	{
 		coin: 'DAI',
 		name: 'Dai',
-		etomic: '0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359',
+		contractAddress: '0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359',
 		rpcport: 80,
 	},
 	{
@@ -456,19 +455,19 @@ const supportedCurrencies = [
 	{
 		coin: 'DATA',
 		name: 'Streamr DATAcoin',
-		etomic: '0x0cf0ee63788a0849fe5297f3407f701e122cc023',
+		contractAddress: '0x0Cf0Ee63788A0849fE5297F3407f701E122cC023',
 		rpcport: 80,
 	},
 	{
 		coin: 'DCN',
 		name: 'Dentacoin',
-		etomic: '0x08d32b0da63e2C3bcF8019c9c5d849d7a9d791e6',
+		contractAddress: '0x08d32b0da63e2C3bcF8019c9c5d849d7a9d791e6',
 		rpcport: 80,
 	},
 	{
 		coin: 'DEC8',
-		name: 'DEC8 (TESTCOIN)',
-		etomic: '0x3ab100442484dc2414aa75b2952a0a6f03f8abfd',
+		name: 'DEC8 [Test]',
+		contractAddress: '0x3aB100442484Dc2414Aa75B2952A0a6f03f8aBFd',
 		rpcport: 80,
 	},
 	{
@@ -516,26 +515,26 @@ const supportedCurrencies = [
 	{
 		coin: 'DGD',
 		name: 'DigixDAO',
-		etomic: '0xE0B7927c4aF23765Cb51314A0E0521A9645F0E2A',
+		contractAddress: '0xE0B7927c4aF23765Cb51314A0E0521A9645F0E2A',
 		decimals: 9,
 		rpcport: 80,
 	},
 	{
 		coin: 'DGPT',
 		name: 'DigiPulse',
-		etomic: '0xf6cFe53d6FEbaEEA051f400ff5fc14F0cBBDacA1',
+		contractAddress: '0xf6cFe53d6FEbaEEA051f400ff5fc14F0cBBDacA1',
 		rpcport: 80,
 	},
 	{
 		coin: 'DICE',
 		name: 'Etheroll',
-		etomic: '0x2e071D2966Aa7D8dECB1005885bA1977D6038A65',
+		contractAddress: '0x2e071D2966Aa7D8dECB1005885bA1977D6038A65',
 		rpcport: 80,
 	},
 	{
 		coin: 'DNT',
 		name: 'District0x',
-		etomic: '0x0AbdAce70D3790235af448C88547603b945604ea',
+		contractAddress: '0x0AbdAce70D3790235af448C88547603b945604ea',
 		rpcport: 80,
 	},
 	{
@@ -563,37 +562,37 @@ const supportedCurrencies = [
 	{
 		coin: 'DRGN',
 		name: 'Dragonchain',
-		etomic: '0x419c4db4b9e25d6db2ad9691ccb832c8d9fda05e',
+		contractAddress: '0x419c4dB4B9e25d6Db2AD9691ccb832C8D9fDA05E',
 		rpcport: 80,
 	},
 	{
 		coin: 'DROP',
 		name: 'Dropil',
-		etomic: '0x4672bad527107471cb5067a887f4656d585a8a31',
+		contractAddress: '0x4672bAD527107471cB5067a887f4656D585a8A31',
 		rpcport: 80,
 	},
 	{
 		coin: 'DRT',
 		name: 'DomRaider',
-		etomic: '0x9af4f26941677c706cfecf6d3379ff01bb85d5ab',
+		contractAddress: '0x9AF4f26941677C706cfEcf6D3379FF01bB85D5Ab',
 		rpcport: 80,
 	},
 	{
 		coin: 'EDG',
 		name: 'Edgeless',
-		etomic: '0x08711D3B02C8758F2FB3ab4e80228418a7F8e39c',
+		contractAddress: '0x08711D3B02C8758F2FB3ab4e80228418a7F8e39c',
 		rpcport: 80,
 	},
 	{
 		coin: 'ELD',
 		name: 'Electrum Dark',
-		etomic: '0xaaf7d4cd097317d68174215395eb02c2cca81e31',
+		contractAddress: '0xaaF7d4CD097317D68174215395eB02c2ccA81E31',
 		rpcport: 80,
 	},
 	{
 		coin: 'ELF',
 		name: 'aelf',
-		etomic: '0xbf2179859fc6D5BEE9Bf9158632Dc51678a4100e',
+		contractAddress: '0xbf2179859fc6D5BEE9Bf9158632Dc51678a4100e',
 		rpcport: 80,
 	},
 	{
@@ -621,51 +620,31 @@ const supportedCurrencies = [
 	{
 		coin: 'ENG',
 		name: 'Enigma',
-		etomic: '0xf0ee6b27b759c9893ce4f094b49ad28fd15a23e4',
+		contractAddress: '0xf0Ee6b27b759C9893Ce4f094b49ad28fd15A23e4',
 		rpcport: 80,
 	},
 	{
 		coin: 'ENJ',
 		name: 'Enjin Coin',
-		etomic: '0xF629cBd94d3791C9250152BD8dfBDF380E2a3B9c',
+		contractAddress: '0xF629cBd94d3791C9250152BD8dfBDF380E2a3B9c',
 		rpcport: 80,
 	},
 	{
 		coin: 'ETH',
-		etomic: '0x0000000000000000000000000000000000000000',
+		contractAddress: '0x0000000000000000000000000000000000000000',
 		rpcport: 80,
 	},
 	{
 		coin: 'ETA',
 		name: 'Etheera',
-		etomic: '0x9195e00402abe385f2d00a32af40b271f2e87925',
+		contractAddress: '0x9195E00402abe385f2D00A32Af40b271F2e87925',
 		rpcport: 80,
 	},
 	{
 		coin: 'ETHOS',
 		name: 'Ethos',
-		etomic: '0x5Af2Be193a6ABCa9c8817001F45744777Db30756',
+		contractAddress: '0x5Af2Be193a6ABCa9c8817001F45744777Db30756',
 		rpcport: 80,
-	},
-	{
-		coin: 'ETOMIC',
-		name: 'Etomic',
-		asset: 'ETOMIC',
-		rpcport: 10271,
-		electrumServers: [
-			{
-				host: 'electrum1.cipig.net',
-				port: 10025,
-			},
-			{
-				host: 'electrum2.cipig.net',
-				port: 10025,
-			},
-			{
-				host: 'electrum3.cipig.net',
-				port: 10025,
-			},
-		],
 	},
 	{
 		coin: 'FAIR',
@@ -714,13 +693,13 @@ const supportedCurrencies = [
 	{
 		coin: 'FLLW',
 		name: 'FollowCoin',
-		etomic: '0x0200412995f1bafef0d3f97c4e28ac2515ec1ece',
+		contractAddress: '0x0200412995f1baFef0D3F97C4E28Ac2515EC1eCE',
 		rpcport: 80,
 	},
 	{
 		coin: 'FSN',
 		name: 'Fusion',
-		etomic: '0xd0352a019e9ab9d757776f532377aaebd36fd541',
+		contractAddress: '0xD0352a019e9AB9d757776F532377aAEbd36Fd541',
 		rpcport: 80,
 	},
 	{
@@ -752,13 +731,13 @@ const supportedCurrencies = [
 	{
 		coin: 'FUN',
 		name: 'FunFair',
-		etomic: '0x419D0d8BdD9aF5e606Ae2232ed285Aff190E711b',
+		contractAddress: '0x419D0d8BdD9aF5e606Ae2232ed285Aff190E711b',
 		rpcport: 80,
 	},
 	{
 		coin: 'FYN',
 		name: 'FundYourselfNow',
-		etomic: '0x88FCFBc22C6d3dBaa25aF478C578978339BDe77a',
+		contractAddress: '0x88FCFBc22C6d3dBaa25aF478C578978339BDe77a',
 		rpcport: 80,
 	},
 	{
@@ -786,13 +765,13 @@ const supportedCurrencies = [
 	{
 		coin: 'GNO',
 		name: 'Gnosis',
-		etomic: '0x6810e776880C02933D47DB1b9fc05908e5386b96',
+		contractAddress: '0x6810e776880C02933D47DB1b9fc05908e5386b96',
 		rpcport: 80,
 	},
 	{
 		coin: 'GPN',
 		name: 'GPN Coin',
-		etomic: '0xE2b407160AAd5540eAc0e80338b9a5085C60F25B',
+		contractAddress: '0xE2b407160AAd5540eAc0e80338b9a5085C60F25B',
 		rpcport: 80,
 	},
 	{
@@ -824,32 +803,32 @@ const supportedCurrencies = [
 	{
 		coin: 'GTO',
 		name: 'Gifto',
-		etomic: '0xc5bbae50781be1669306b9e001eff57a2957b09d',
+		contractAddress: '0xC5bBaE50781Be1669306b9e001EFF57a2957b09d',
 		rpcport: 80,
 	},
 	{
 		coin: 'GUP',
 		name: 'Matchpool',
-		etomic: '0xf7B098298f7C69Fc14610bf71d5e02c60792894C',
+		contractAddress: '0xf7B098298f7C69Fc14610bf71d5e02c60792894C',
 		rpcport: 80,
 	},
 	{
 		coin: 'GUSD',
 		name: 'Gemini dollar',
 		decimals: 2,
-		etomic: '0x056fd409e1d7a124bd7017459dfea2f387b6d5cd',
+		contractAddress: '0x056Fd409E1d7A124BD7017459dFEa2F387b6d5Cd',
 		rpcport: 80,
 	},
 	{
 		coin: 'HGT',
 		name: 'HelloGold',
-		etomic: '0xba2184520A1cC49a6159c57e61E1844E085615B6',
+		contractAddress: '0xba2184520A1cC49a6159c57e61E1844E085615B6',
 		rpcport: 80,
 	},
 	{
 		coin: 'HMQ',
 		name: 'Humaniq',
-		etomic: '0xcbCC0F036ED4788F63FC0fEE32873d6A7487b908',
+		contractAddress: '0xcbCC0F036ED4788F63FC0fEE32873d6A7487b908',
 		rpcport: 80,
 	},
 	/* Disabled because of #289
@@ -918,37 +897,37 @@ const supportedCurrencies = [
 	{
 		coin: 'HYD',
 		name: 'Hydra',
-		etomic: '0xD233495C48EB0143661fFC8458EAfc21b633f97f',
+		contractAddress: '0xD233495C48EB0143661fFC8458EAfc21b633f97f',
 		rpcport: 80,
 	},
 	{
 		coin: 'ICN',
 		name: 'Iconomi',
-		etomic: '0x888666CA69E0f178DED6D75b5726Cee99A87D698',
+		contractAddress: '0x888666CA69E0f178DED6D75b5726Cee99A87D698',
 		rpcport: 80,
 	},
 	{
 		coin: 'IND',
 		name: 'Indorse Token',
-		etomic: '0xf8e386EDa857484f5a12e4B5DAa9984E06E73705',
+		contractAddress: '0xf8e386EDa857484f5a12e4B5DAa9984E06E73705',
 		rpcport: 80,
 	},
 	{
 		coin: 'IOST',
 		name: 'IOST',
-		etomic: '0xfa1a856cfa3409cfa145fa4e20eb270df3eb21ab',
+		contractAddress: '0xFA1a856Cfa3409CFa145Fa4e20Eb270dF3EB21ab',
 		rpcport: 80,
 	},
 	{
 		coin: 'JOI',
 		name: 'JointEDU',
-		etomic: '0x58ded6994124b4fff298f1416aca3fc9cdba37b2',
+		contractAddress: '0x58deD6994124B4FFF298f1416aCa3fC9Cdba37b2',
 		rpcport: 80,
 	},
 	{
 		coin: 'JST',
 		name: 'JST (TESTCOIN)',
-		etomic: '0x996a8ae0304680f6a69b8a9d7c6e37d65ab5ab56',
+		contractAddress: '0x996a8aE0304680F6A69b8A9d7C6E37D65AB5AB56',
 		rpcport: 80,
 	},
 	{
@@ -975,7 +954,7 @@ const supportedCurrencies = [
 	{
 		coin: 'KIN',
 		name: 'Kin',
-		etomic: '0x818fc6c2ec5986bc6e2cbf00939d90556ab12ce5',
+		contractAddress: '0x818Fc6C2Ec5986bc6E2CBf00939d90556aB12ce5',
 		rpcport: 80,
 	},
 	{
@@ -998,7 +977,7 @@ const supportedCurrencies = [
 	{
 		coin: 'KNC',
 		name: 'Kyber Network',
-		etomic: '0xdd974D5C2e2928deA5F71b9825b8b646686BD200',
+		contractAddress: '0xdd974D5C2e2928deA5F71b9825b8b646686BD200',
 		rpcport: 80,
 	},
 	{
@@ -1024,31 +1003,31 @@ const supportedCurrencies = [
 	{
 		coin: 'LALA',
 		name: 'LALA World',
-		etomic: '0xfd107b473ab90e8fbd89872144a3dc92c40fa8c9',
+		contractAddress: '0xfD107B473AB90e8Fbd89872144a3DC92C40Fa8C9',
 		rpcport: 80,
 	},
 	{
 		coin: 'LIKE',
 		name: 'LikeCoin',
-		etomic: '0x02f61fd266da6e8b102d4121f5ce7b992640cf98',
+		contractAddress: '0x02F61Fd266DA6E8B102D4121f5CE7b992640CF98',
 		rpcport: 80,
 	},
 	{
 		coin: 'LINK',
 		name: 'ChainLink',
-		etomic: '0x514910771af9ca656af840dff83e8264ecf986ca',
+		contractAddress: '0x514910771AF9Ca656af840dff83E8264EcF986CA',
 		rpcport: 80,
 	},
 	{
 		coin: 'LOOM',
 		name: 'Loom Network',
-		etomic: '0xa4e8c3ec456107ea67d3075bf9e3df3a75823db0',
+		contractAddress: '0xA4e8C3Ec456107eA67d3075bF9e3DF3A75823DB0',
 		rpcport: 80,
 	},
 	{
 		coin: 'LRC',
 		name: 'Loopring',
-		etomic: '0xEF68e7C694F40c8202821eDF525dE3782458639f',
+		contractAddress: '0xEF68e7C694F40c8202821eDF525dE3782458639f',
 		decimals: 18,
 		rpcport: 80,
 	},
@@ -1081,49 +1060,49 @@ const supportedCurrencies = [
 	{
 		coin: 'LUN',
 		name: 'Lunyr',
-		etomic: '0xfa05A73FfE78ef8f1a739473e462c54bae6567D9',
+		contractAddress: '0xfa05A73FfE78ef8f1a739473e462c54bae6567D9',
 		rpcport: 80,
 	},
 	{
 		coin: 'LYS',
 		name: 'Lightyears',
-		etomic: '0xdd41fbd1ae95c5d9b198174a28e04be6b3d1aa27',
+		contractAddress: '0xdD41fBd1Ae95C5D9B198174A28e04Be6b3d1aa27',
 		rpcport: 80,
 	},
 	{
 		coin: 'MANA',
 		name: 'Decentraland',
-		etomic: '0x0F5D2fB29fb7d3CFeE444a200298f468908cC942',
+		contractAddress: '0x0F5D2fB29fb7d3CFeE444a200298f468908cC942',
 		rpcport: 80,
 	},
 	{
 		coin: 'MCO',
 		name: 'Monaco',
-		etomic: '0xB63B606Ac810a52cCa15e44bB630fd42D8d1d83d',
+		contractAddress: '0xB63B606Ac810a52cCa15e44bB630fd42D8d1d83d',
 		rpcport: 80,
 	},
 	{
 		coin: 'MGO',
 		name: 'MobileGo',
-		etomic: '0x40395044Ac3c0C57051906dA938B54BD6557F212',
+		contractAddress: '0x40395044Ac3c0C57051906dA938B54BD6557F212',
 		rpcport: 80,
 	},
 	{
 		coin: 'MKR',
 		name: 'Maker',
-		etomic: '0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2',
+		contractAddress: '0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2',
 		rpcport: 80,
 	},
 	{
 		coin: 'MLN',
 		name: 'Melon',
-		etomic: '0xBEB9eF514a379B997e0798FDcC901Ee474B6D9A1',
+		contractAddress: '0xBEB9eF514a379B997e0798FDcC901Ee474B6D9A1',
 		rpcport: 80,
 	},
 	{
 		coin: 'MMX',
 		name: 'Mechanix Token',
-		etomic: '0xe7c33a0e04f2316bb321c4ad2976873d09538b56',
+		contractAddress: '0xe7C33a0E04F2316Bb321C4AD2976873d09538B56',
 		rpcport: 80,
 	},
 	{
@@ -1172,7 +1151,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'MORTY',
-		name: 'Morty (TESTCOIN)',
+		name: 'Morty [Test]',
 		asset: 'MORTY',
 		rpcport: 63812,
 		mm2: 1,
@@ -1214,32 +1193,32 @@ const supportedCurrencies = [
 	{
 		coin: 'MTL',
 		name: 'Metal',
-		etomic: '0xF433089366899D83a9f26A773D59ec7eCF30355e',
+		contractAddress: '0xF433089366899D83a9f26A773D59ec7eCF30355e',
 		rpcport: 80,
 	},
 	{
 		coin: 'MYB',
 		name: 'MyBit Token',
-		etomic: '0x5d60d8d7ef6d37e16ebabc324de3be57f135e0bc',
+		contractAddress: '0x5d60d8d7eF6d37E16EBABc324de3bE57f135e0BC',
 		rpcport: 80,
 	},
 	{
 		coin: 'MYTH',
 		name: 'Unicoin',
 		decimals: 18,
-		etomic: '0x277ab4b9dde09a8e710fd755deeb9d0d9532d047',
+		contractAddress: '0x277AB4b9DDE09A8E710fd755deeB9d0d9532d047',
 		rpcport: 80,
 	},
 	{
 		coin: 'NAS',
 		name: 'Nebulas',
-		etomic: '0x5d65d971895edc438f465c17db6992698a52318d',
+		contractAddress: '0x5d65D971895Edc438f465c17DB6992698a52318D',
 		rpcport: 80,
 	},
 	{
 		coin: 'NET',
 		name: 'Nimiq',
-		etomic: '0xcfb98637bcae43C13323EAa1731cED2B716962fD',
+		contractAddress: '0xcfb98637bcae43C13323EAa1731cED2B716962fD',
 		rpcport: 80,
 	},
 	{
@@ -1267,37 +1246,37 @@ const supportedCurrencies = [
 	{
 		coin: 'NMR',
 		name: 'Numeraire',
-		etomic: '0x1776e1F26f98b1A5dF9cD347953a26dd3Cb46671',
+		contractAddress: '0x1776e1F26f98b1A5dF9cD347953a26dd3Cb46671',
 		rpcport: 80,
 	},
 	{
 		coin: 'NOAH',
 		name: 'Noah Coin',
-		etomic: '0x58a4884182d9e835597f405e5f258290e46ae7c2',
+		contractAddress: '0x58a4884182d9E835597f405e5F258290E46ae7C2',
 		rpcport: 80,
 	},
 	{
 		coin: 'OCC',
 		name: 'Original Crypto Coin',
-		etomic: '0x0235fe624e044a05eed7a43e16e3083bc8a4287a',
+		contractAddress: '0x0235fE624e044A05eeD7A43E16E3083bc8A4287A',
 		rpcport: 80,
 	},
 	{
 		coin: 'OCT',
 		name: 'Octus',
-		etomic: '0x7e9d365C0C97Fe5FcAdcc1B513Af974b768C5867',
+		contractAddress: '0x7e9d365C0C97Fe5FcAdcc1B513Af974b768C5867',
 		rpcport: 80,
 	},
 	{
 		coin: 'OMG',
 		name: 'OmiseGo',
-		etomic: '0xd26114cd6EE289AccF82350c8d8487fedB8A0C07',
+		contractAddress: '0xd26114cd6EE289AccF82350c8d8487fedB8A0C07',
 		rpcport: 80,
 	},
 	{
 		coin: 'ONNI',
 		name: 'Misericordae',
-		etomic: '0xbd9c6028e1132a6b52f1ca15c0933a2fd342e21f',
+		contractAddress: '0xBd9c6028e1132A6B52F1ca15C0933A2FD342E21f',
 		rpcport: 80,
 	},
 	{
@@ -1339,19 +1318,19 @@ const supportedCurrencies = [
 	{
 		coin: 'PAT',
 		name: 'Pangea Arbitration Token',
-		etomic: '0xBB1fA4FdEB3459733bF67EbC6f893003fA976a82',
+		contractAddress: '0xBB1fA4FdEB3459733bF67EbC6f893003fA976a82',
 		rpcport: 80,
 	},
 	{
 		coin: 'PAY',
 		name: 'TenX',
-		etomic: '0xB97048628DB6B661D4C2aA833e95Dbe1A905B280',
+		contractAddress: '0xB97048628DB6B661D4C2aA833e95Dbe1A905B280',
 		rpcport: 80,
 	},
 	{
 		coin: 'PCL',
 		name: 'Peculium',
-		etomic: '0x3618516f45cd3c913f81f9987af41077932bc40d',
+		contractAddress: '0x3618516F45CD3c913F81F9987AF41077932Bc40d',
 		rpcport: 80,
 	},
 	{
@@ -1373,48 +1352,48 @@ const supportedCurrencies = [
 	{
 		coin: 'PLU',
 		name: 'Pluton',
-		etomic: '0xD8912C10681D8B21Fd3742244f44658dBA12264E',
+		contractAddress: '0xD8912C10681D8B21Fd3742244f44658dBA12264E',
 		rpcport: 80,
 	},
 	{
 		coin: 'POLY',
 		name: 'Polymath',
-		etomic: '0x9992ec3cf6a55b00978cddf2b27bc6882d88d1ec',
+		contractAddress: '0x9992eC3cF6A55b00978cdDF2b27BC6882d88D1eC',
 		rpcport: 80,
 	},
 	{
 		coin: 'POWR',
 		name: 'Power Ledger',
-		etomic: '0x595832f8fc6bf59c85c527fec3740a1b7a361269',
+		contractAddress: '0x595832F8FC6BF59c85C527fEC3740A1b7a361269',
 		rpcport: 80,
 	},
 	{
 		coin: 'PPT',
 		name: 'Populous',
-		etomic: '0xd4fa1460F537bb9085d22C7bcCB5DD450Ef28e3a',
+		contractAddress: '0xd4fa1460F537bb9085d22C7bcCB5DD450Ef28e3a',
 		rpcport: 80,
 	},
 	{
 		coin: 'PRL',
 		name: 'Oyster',
-		etomic: '0x1844b21593262668b7248d0f57a220caaba46ab9',
+		contractAddress: '0x1844b21593262668B7248d0f57a220CaaBA46ab9',
 		rpcport: 80,
 	},
 	{
 		coin: 'PURC',
 		name: 'Peurcoin',
-		etomic: '0x7148b80b38278853ca8263cfc0b57d4478ae6a6e',
+		contractAddress: '0x7148B80b38278853Ca8263Cfc0b57d4478ae6A6e',
 		rpcport: 80,
 	},
 	{
 		coin: 'PXT',
 		name: 'Populous XBRL Token',
-		etomic: '0xc14830e53aa344e8c14603a91229a0b925b0b262',
+		contractAddress: '0xc14830E53aA344E8c14603A91229A0b925b0B262',
 		rpcport: 80,
 	},
 	{
 		coin: 'RICK',
-		name: 'Rick (TESTCOIN)',
+		name: 'Rick [Test]',
 		asset: 'RICK',
 		rpcport: 28223,
 		mm2: 1,
@@ -1436,19 +1415,19 @@ const supportedCurrencies = [
 	{
 		coin: 'QASH',
 		name: 'Qash',
-		etomic: '0x618E75Ac90b12c6049Ba3b27f5d5F8651b0037F6',
+		contractAddress: '0x618E75Ac90b12c6049Ba3b27f5d5F8651b0037F6',
 		rpcport: 80,
 	},
 	{
 		coin: 'QBIT',
 		name: 'Qubitica',
-		etomic: '0x1602af2C782cC03F9241992E243290Fccf73Bb13',
+		contractAddress: '0x1602af2C782cC03F9241992E243290Fccf73Bb13',
 		rpcport: 80,
 	},
 	{
 		coin: 'QSP',
 		name: 'Quantstamp',
-		etomic: '0x99ea4dB9EE77ACD40B119BD1dC4E33e1C070b80d',
+		contractAddress: '0x99ea4dB9EE77ACD40B119BD1dC4E33e1C070b80d',
 		rpcport: 80,
 	},
 	{
@@ -1500,31 +1479,31 @@ const supportedCurrencies = [
 	{
 		coin: 'R',
 		name: 'Revain',
-		etomic: '0x48f775efbe4f5ece6e0df2f7b5932df56823b990',
+		contractAddress: '0x48f775EFBE4F5EcE6e0DF2f7b5932dF56823B990',
 		rpcport: 80,
 	},
 	{
 		coin: 'RCN',
 		name: 'Ripio Credit Network',
-		etomic: '0xF970b8E36e23F7fC3FD752EeA86f8Be8D83375A6',
+		contractAddress: '0xF970b8E36e23F7fC3FD752EeA86f8Be8D83375A6',
 		rpcport: 80,
 	},
 	{
 		coin: 'RDN',
 		name: 'Raiden Network Token',
-		etomic: '0x255Aa6DF07540Cb5d3d297f0D0D4D84cb52bc8e6',
+		contractAddress: '0x255Aa6DF07540Cb5d3d297f0D0D4D84cb52bc8e6',
 		rpcport: 80,
 	},
 	{
 		coin: 'REP',
 		name: 'Augur',
-		etomic: '0xE94327D07Fc17907b4DB788E5aDf2ed424adDff6',
+		contractAddress: '0xE94327D07Fc17907b4DB788E5aDf2ed424adDff6',
 		rpcport: 80,
 	},
 	{
 		coin: 'REQ',
 		name: 'Request Network',
-		etomic: '0x8f8221aFbB33998d8584A2B05749bA73c37a938a',
+		contractAddress: '0x8f8221aFbB33998d8584A2B05749bA73c37a938a',
 		rpcport: 80,
 	},
 	{
@@ -1550,43 +1529,43 @@ const supportedCurrencies = [
 	{
 		coin: 'RHOC',
 		name: 'RChain',
-		etomic: '0x168296bb09e24a88805cb9c33356536b980d3fc5',
+		contractAddress: '0x168296bb09e24A88805CB9c33356536B980D3fC5',
 		rpcport: 80,
 	},
 	{
 		coin: 'RLC',
 		name: 'iExec RLC',
-		etomic: '0x607F4C5BB672230e8672085532f7e901544a7375',
+		contractAddress: '0x607F4C5BB672230e8672085532f7e901544a7375',
 		rpcport: 80,
 	},
 	{
 		coin: 'RLTY',
 		name: 'SMARTRealty',
-		etomic: '0xbe99b09709fc753b09bcf557a992f6605d5997b0',
+		contractAddress: '0xbe99B09709fc753b09BCf557A992F6605D5997B0',
 		rpcport: 80,
 	},
 	{
 		coin: 'RVT',
 		name: 'Rivetz',
-		etomic: '0x3d1ba9be9f66b8ee101911bc36d3fb562eac2244',
+		contractAddress: '0x3d1BA9be9f66B8ee101911bC36D3fB562eaC2244',
 		rpcport: 80,
 	},
 	{
 		coin: 'SALT',
 		name: 'Salt',
-		etomic: '0x4156D3342D5c385a87D264F90653733592000581',
+		contractAddress: '0x4156D3342D5c385a87D264F90653733592000581',
 		rpcport: 80,
 	},
 	{
 		coin: 'SAN',
 		name: 'Santiment',
-		etomic: '0x7C5A0CE9267ED19B22F8cae653F198e3E8daf098',
+		contractAddress: '0x7C5A0CE9267ED19B22F8cae653F198e3E8daf098',
 		rpcport: 80,
 	},
 	{
 		coin: 'SANC',
 		name: 'Sancoj',
-		etomic: '0x03ec7bb59be036870ef696a2abf124f496d6735a',
+		contractAddress: '0x03eC7BB59be036870eF696A2abF124f496d6735A',
 		rpcport: 80,
 	},
 	{
@@ -1648,55 +1627,55 @@ const supportedCurrencies = [
 	{
 		coin: 'SNGLS',
 		name: 'SingularDTV',
-		etomic: '0xaeC2E87E0A235266D9C5ADc9DEb4b2E29b54D009',
+		contractAddress: '0xaeC2E87E0A235266D9C5ADc9DEb4b2E29b54D009',
 		rpcport: 80,
 	},
 	{
 		coin: 'SNT',
 		name: 'Status',
-		etomic: '0x744d70FDBE2Ba4CF95131626614a1763DF805B9E',
+		contractAddress: '0x744d70FDBE2Ba4CF95131626614a1763DF805B9E',
 		rpcport: 80,
 	},
 	{
 		coin: 'SPANK',
 		name: 'SpankChain',
-		etomic: '0x42d6622dece394b54999fbd73d108123806f6a18',
+		contractAddress: '0x42d6622deCe394b54999Fbd73D108123806f6a18',
 		rpcport: 80,
 	},
 	{
 		coin: 'SRN',
 		name: 'SIRIN LABS Token',
-		etomic: '0x68d57c9a1c35f63e2c83ee8e49a64e9d70528d25',
+		contractAddress: '0x68d57c9a1C35f63E2c83eE8e49A64e9d70528D25',
 		rpcport: 80,
 	},
 	{
 		coin: 'STORJ',
 		name: 'Storj',
-		etomic: '0xB64ef51C888972c908CFacf59B47C1AfBC0Ab8aC',
+		contractAddress: '0xB64ef51C888972c908CFacf59B47C1AfBC0Ab8aC',
 		rpcport: 80,
 	},
 	{
 		coin: 'STORM',
 		name: 'Storm',
-		etomic: '0xd0a4b8946cb52f0661273bfbc6fd0e0c75fc6433',
+		contractAddress: '0xD0a4b8946Cb52f0661273bfbC6fD0E0C75Fc6433',
 		rpcport: 80,
 	},
 	{
 		coin: 'STRM41',
 		name: 'Stream41',
-		etomic: '0xbad7a7f7ba71ce3659fe6dcad34af86b9de2a4b2',
+		contractAddress: '0xbaD7a7F7bA71CE3659fE6dCaD34aF86b9DE2A4B2',
 		rpcport: 80,
 	},
 	{
 		coin: 'STWY',
 		name: 'StorweeyToken',
-		etomic: '0x8a8c71f032362fca2994f75d854f911ec381ac5a',
+		contractAddress: '0x8A8C71f032362fCA2994f75D854f911Ec381AC5A',
 		rpcport: 80,
 	},
 	{
 		coin: 'SUB',
 		name: 'Substratum',
-		etomic: '0x8D75959f1E61EC2571aa72798237101F084DE63a',
+		contractAddress: '0x8D75959f1E61EC2571aa72798237101F084DE63a',
 		rpcport: 80,
 	},
 	{
@@ -1722,49 +1701,49 @@ const supportedCurrencies = [
 	{
 		coin: 'SWT',
 		name: 'Swarm City',
-		etomic: '0xB9e7F8568e08d5659f5D29C4997173d84CdF2607',
+		contractAddress: '0xB9e7F8568e08d5659f5D29C4997173d84CdF2607',
 		rpcport: 80,
 	},
 	{
 		coin: 'TAAS',
 		name: 'TaaS',
-		etomic: '0xE7775A6e9Bcf904eb39DA2b68c5efb4F9360e08C',
+		contractAddress: '0xE7775A6e9Bcf904eb39DA2b68c5efb4F9360e08C',
 		rpcport: 80,
 	},
 	{
 		coin: 'TIME',
 		name: 'Chronobank',
-		etomic: '0x6531f133e6DeeBe7F2dcE5A0441aA7ef330B4e53',
+		contractAddress: '0x6531f133e6DeeBe7F2dcE5A0441aA7ef330B4e53',
 		rpcport: 80,
 	},
 	{
 		coin: 'TKN',
 		name: 'TokenCard',
-		etomic: '0xaAAf91D9b90dF800Df4F55c205fd6989c977E73a',
+		contractAddress: '0xaAAf91D9b90dF800Df4F55c205fd6989c977E73a',
 		rpcport: 80,
 	},
 	{
 		coin: 'TRST',
 		name: 'Trust',
-		etomic: '0xCb94be6f13A1182E4A4B6140cb7bf2025d28e41B',
+		contractAddress: '0xCb94be6f13A1182E4A4B6140cb7bf2025d28e41B',
 		rpcport: 80,
 	},
 	{
 		coin: 'TUSD',
 		name: 'TrueUSD',
-		etomic: '0x0000000000085d4780B73119b644AE5ecd22b376',
+		contractAddress: '0x0000000000085d4780B73119b644AE5ecd22b376',
 		rpcport: 80,
 	},
 	{
 		coin: 'UCASH',
 		name: 'U.CASH',
-		etomic: '0x92e52a1a235d9a103d970901066ce910aacefd37',
+		contractAddress: '0x92e52a1A235d9A103D970901066CE910AAceFD37',
 		rpcport: 80,
 	},
 	{
 		coin: 'USDT',
 		name: 'Tether',
-		etomic: '0xdac17f958d2ee523a2206206994597c13d831ec7',
+		contractAddress: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
 		rpcport: 80,
 	},
 	{
@@ -1791,7 +1770,7 @@ const supportedCurrencies = [
 	{
 		coin: 'VSL',
 		name: 'vSlice',
-		etomic: '0x5c543e7AE0A1104f78406C340E9C64FD9fCE5170',
+		contractAddress: '0x5c543e7AE0A1104f78406C340E9C64FD9fCE5170',
 		decimals: 18,
 		rpcport: 80,
 	},
@@ -1824,13 +1803,13 @@ const supportedCurrencies = [
 	{
 		coin: 'WAX',
 		name: 'WAX',
-		etomic: '0x39Bb259F66E1C59d5ABEF88375979b4D20D98022',
+		contractAddress: '0x39Bb259F66E1C59d5ABEF88375979b4D20D98022',
 		rpcport: 80,
 	},
 	{
 		coin: 'WINGS',
 		name: 'Wings',
-		etomic: '0x667088b212ce3d06a1b553a7221E1fD19000d9aF',
+		contractAddress: '0x667088b212ce3d06a1b553a7221E1fD19000d9aF',
 		rpcport: 80,
 	},
 	{
@@ -1856,19 +1835,19 @@ const supportedCurrencies = [
 	{
 		coin: 'WTC',
 		name: 'Waltonchain',
-		etomic: '0xb7cb1c96db6b22b0d3d9536e0108d062bd488f74',
+		contractAddress: '0xb7cB1C96dB6B22b0D3d9536E0108d062BD488F74',
 		rpcport: 80,
 	},
 	{
 		coin: 'XAUR',
 		name: 'Xarum',
-		etomic: '0x4DF812F6064def1e5e029f1ca858777CC98D2D81',
+		contractAddress: '0x4DF812F6064def1e5e029f1ca858777CC98D2D81',
 		rpcport: 80,
 	},
 	{
 		coin: 'XOV',
 		name: 'XOVBank',
-		etomic: '0x153eD9CC1b792979d2Bde0BBF45CC2A7e436a5F9',
+		contractAddress: '0x153eD9CC1b792979d2Bde0BBF45CC2A7e436a5F9',
 		rpcport: 80,
 	},
 	{
@@ -1920,7 +1899,7 @@ const supportedCurrencies = [
 	{
 		coin: 'ZIL',
 		name: 'Zilliqa',
-		etomic: '0x05f4a42e251f2d52b8ed15e9fedaacfcef1fad27',
+		contractAddress: '0x05f4a42e251f2d52b8ed15E9FEdAacFcEF1FAD27',
 		rpcport: 80,
 	},
 	{
@@ -1946,10 +1925,15 @@ const supportedCurrencies = [
 	{
 		coin: 'ZRX',
 		name: '0x',
-		etomic: '0xE41d2489571d322189246DaFA5ebDe1F4699F498',
+		contractAddress: '0xE41d2489571d322189246DaFA5ebDe1F4699F498',
 		rpcport: 80,
 	},
 ];
+
+// TODO: Update the `mm2` compatibility info for individual currencies
+for (const currency of supportedCurrencies) {
+	currency.mm2 = 1;
+}
 
 const getCurrencySymbols = () => (
 	_(supportedCurrencies)
@@ -1968,14 +1952,14 @@ const getCurrencyName = symbol => {
 
 const getCurrency = symbol => supportedCurrencies.find(currency => currency.coin === symbol);
 
-const isEtomic = symbol => {
+const isEthBased = symbol => {
 	const currency = getCurrency(symbol);
 
 	if (!currency) {
-		throw new Error(`Unsupported currency: "${symbol}"`);
+		throw new Error(`Unsupported currency: ${symbol}`);
 	}
 
-	return currency.etomic;
+	return currency.contractAddress;
 };
 
 module.exports = {
@@ -1983,5 +1967,5 @@ module.exports = {
 	getCurrencySymbols,
 	getCurrencyName,
 	getCurrency,
-	isEtomic,
+	isEthBased,
 };

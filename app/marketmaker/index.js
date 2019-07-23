@@ -9,6 +9,7 @@ const getPort = require('get-port');
 const logger = require('electron-timber');
 const makeDir = require('make-dir');
 const _ = require('lodash');
+const {sha256} = require('crypto-hash');
 const {supportedCurrencies} = require('./supported-currencies');
 
 // `electron-builder` uses different names
@@ -76,30 +77,48 @@ class Marketmaker {
 
 		const port = await getPort();
 
+		// We leave out `electrumServers` since it's not needed
+		// and to prevent issues on Windows with too long arguments
+		const coins = supportedCurrencies.map(currency => {
+			currency = _.omit(currency, ['electrumServers']);
+
+			// Translate to exepcted mm v2 format
+			currency.etomic = currency.contractAddress;
+			delete currency.contractAddress;
+
+			return currency;
+		});
+
 		options = {
 			...options,
-			client: 1,
 			gui: 'hyperdex',
 			userhome: os.homedir(),
+			netid: 9999, // TODO: Set this to `0` when mm v2 is production ready
 			rpcport: port,
-			// We leave out `electrumServers` since it's not needed
-			// and to prevent issues on Windows with too long arguments
-			coins: supportedCurrencies.map(currency => _.omit(currency, ['electrumServers'])),
+			rpccors: is.development ? 'http://localhost:8080' : 'app://-',
+			coins,
 		};
 
 		this.port = options.rpcport;
 
 		if (options.seedPhrase) {
+			// eslint-disable-next-line camelcase
+			options.rpc_password = await sha256(options.seedPhrase);
 			options.passphrase = options.seedPhrase;
 			delete options.seedPhrase;
 		} else {
 			throw new Error('The `seedPhrase` option is required');
 		}
 
-		// Marketmaker writes a lot of files directly to CWD, so we make CWD the data directory
-		const cwd = await makeDir(path.join(electron.app.getPath('userData'), 'marketmaker'));
+		// NOTE: It's very important that this is a different directory than mm v1, as the database is not compatible
+		// TODO: Update the path here when mm v2 is production ready
+		const cwd = await makeDir(path.join(electron.app.getPath('userData'), 'marketmaker2-test'));
 
-		logger.log('Spawning Marketmaker with options:', JSON.stringify({...options, passphrase: '<redacted>'}));
+		logger.log('Spawning Marketmaker with options:', JSON.stringify({
+			...options,
+			passphrase: '<redacted>',
+			rpc_password: '<redacted>', // eslint-disable-line camelcase
+		}));
 
 		// Uncomment this to get the command to run Marketmaker manually
 		// options.coins = supportedCurrencies;

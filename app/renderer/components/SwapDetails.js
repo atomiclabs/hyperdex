@@ -12,7 +12,6 @@ import ExternalLink from 'components/ExternalLink';
 import Link from 'components/Link';
 import RightArrowIcon from 'icons/RightArrow';
 import {isDevelopment} from '../../util-common';
-import swapTransactions from '../swap-transactions';
 import blockExplorer from '../block-explorer';
 import {zeroPadFraction} from '../util';
 import {translate} from '../translate';
@@ -78,33 +77,39 @@ class SwapDetails extends React.Component {
 		const swap = appContainer.state.swapHistory.find(swap => swap.uuid === swapId);
 		const {baseCurrency, quoteCurrency} = swap;
 
-		const transactions = swap.transactions.map(tx => (
-			<React.Fragment key={tx.stage}>
+		const transactions = swap.stages.map(stage => (
+			<React.Fragment key={stage.event.type}>
 				<div className="arrow completed">→</div>
-				<ExternalLink url={tx.txid ? blockExplorer.tx(tx.coin, tx.txid) : null}>
+				{stage.event.data && stage.event.data.tx_hash ? (
+					<ExternalLink url={stage.event.data.tx_hash ? blockExplorer.tx(stage.event.data.coin, stage.event.data.tx_hash) : null}>
+						<div className="item completed">
+							<h6>{t(`swapStages.${stage.event.type}`)}</h6>
+							<p>{stage.event.data.total_amount}<br/>{stage.event.data.coin}</p>
+						</div>
+					</ExternalLink>
+				) : (
 					<div className="item completed">
-						<h6>{t(`details.${tx.stage}`)}</h6>
-						<p>{tx.amount}<br/>{tx.coin}</p>
+						<h6>{t(`swapStages.${stage.event.type}`)}</h6>
 					</div>
-				</ExternalLink>
+				)}
 			</React.Fragment>
 		));
 
 		if (swap.status === 'swapping') {
-			swapTransactions.forEach(stage => {
-				const tx = swap.transactions.find(tx => tx.stage === stage);
+			for (const stageType of swap.totalStages) {
+				const isStageFinished = swap.stages.some(x => x.event.type === stageType);
 
-				if (!tx) {
+				if (!isStageFinished) {
 					transactions.push(
-						<React.Fragment key={stage}>
+						<React.Fragment key={stageType}>
 							<div className="arrow">→</div>
 							<div className="item">
-								<h6>{t(`details.${stage}`)}</h6>
+								<h6>{t(`swapStages.${stageType}`)}</h6>
 							</div>
 						</React.Fragment>
 					);
 				}
-			});
+			}
 		}
 
 		const prices = ['requested', 'broadcast', 'executed'].map(value => {
@@ -144,7 +149,7 @@ class SwapDetails extends React.Component {
 					icon="/assets/swap-icon.svg"
 					open={open}
 					didClose={didClose}
-					width="660px"
+					width="800px"
 				>
 					<>
 						<Progress

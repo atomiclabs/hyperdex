@@ -8,7 +8,6 @@ import roundTo from 'round-to';
 import {subDays, isAfter} from 'date-fns';
 import appContainer from 'containers/App';
 import {appTimeStarted} from '../constants';
-import swapTransactions from './swap-transactions';
 import {translate} from './translate';
 
 const t = translate('swap');
@@ -19,7 +18,8 @@ PouchDB.plugin(cryptoPouch);
 
 class SwapDB {
 	constructor(portfolioId, seedPhrase) {
-		this.db = new PouchDB(`swaps-${portfolioId}`, {adapter: 'idb'});
+		// Using `2` so it won't conflict with HyperDEX versions using marketmaker v1.
+		this.db = new PouchDB(`swaps2-${portfolioId}`, {adapter: 'idb'});
 
 		this.db.crypto(seedPhrase);
 
@@ -90,12 +90,12 @@ class SwapDB {
 		return docs[0];
 	}
 
-	updateSwapData = message => {
+	updateSwapData = swapData => {
 		return this.queue(async () => {
-			const swap = await this._getSwapData(message.uuid);
+			const swap = await this._getSwapData(swapData.uuid);
 
 			await this.db.upsert(swap._id, doc => {
-				doc.messages.push(message);
+				doc.swapData = swapData;
 				return doc;
 			});
 		});
@@ -103,45 +103,49 @@ class SwapDB {
 
 	// TODO: We should refactor this into a seperate file
 	_formatSwap(data) {
-		const MATCHED_STEP = 1;
-		const TOTAL_PROGRESS_STEPS = swapTransactions.length + MATCHED_STEP;
+		console.log('swap data', data);
 
-		const {uuid, timeStarted, request, response, messages} = data;
+		const {
+			uuid,
+			timeStarted,
+			request,
+			response,
+			swapData,
+		} = data;
 
-		// If we place a sell order marketmaker just inverts the values and places a buy
-		// on the opposite pair. We need to normalise this otherwise we'll show the
-		// wrong base/quote currencies.
-		const isBuyOrder = (request.baseCurrency === response.base);
-		const responseBaseCurrencyAmount = isBuyOrder ? response.basevalue : response.relvalue;
-		const responseQuoteCurrencyAmount = isBuyOrder ? response.relvalue : response.basevalue;
+		const {
+			action,
+			base: baseCurrency,
+			rel: quoteCurrency,
+			baseAmount,
+			quoteAmount,
+		} = response;
 
 		const swap = {
 			uuid,
-			requestId: undefined,
-			quoteId: undefined,
 			timeStarted,
-			orderType: isBuyOrder ? 'buy' : 'sell',
+			orderType: action === 'Buy' ? 'buy' : 'sell',
 			status: 'pending',
-			statusFormatted: t('status.pending').toLowerCase(),
+			statusFormatted: t('status.open').toLowerCase(),
 			get isActive() {
 				return !['completed', 'failed'].includes(this.status);
 			},
 			error: false,
 			progress: 0,
-			baseCurrency: request.baseCurrency,
-			quoteCurrency: request.quoteCurrency,
-			baseCurrencyAmount: roundTo(responseBaseCurrencyAmount, 8),
-			quoteCurrencyAmount: roundTo(responseQuoteCurrencyAmount, 8),
-			price: roundTo(responseQuoteCurrencyAmount / responseBaseCurrencyAmount, 8),
+			baseCurrency,
+			quoteCurrency,
+			baseCurrencyAmount: roundTo(baseAmount, 8),
+			quoteCurrencyAmount: roundTo(quoteAmount, 8),
+			price: roundTo(quoteAmount / baseAmount, 8),
 			requested: {
 				baseCurrencyAmount: roundTo(request.amount, 8),
 				quoteCurrencyAmount: roundTo(request.total, 8),
 				price: roundTo(request.price, 8),
 			},
 			broadcast: {
-				baseCurrencyAmount: roundTo(responseBaseCurrencyAmount, 8),
-				quoteCurrencyAmount: roundTo(responseQuoteCurrencyAmount, 8),
-				price: roundTo(responseQuoteCurrencyAmount / responseBaseCurrencyAmount, 8),
+				baseCurrencyAmount: roundTo(baseAmount, 8),
+				quoteCurrencyAmount: roundTo(quoteAmount, 8),
+				price: roundTo(quoteAmount / baseAmount, 8),
 			},
 			executed: {
 				baseCurrencyAmount: undefined,
@@ -149,100 +153,77 @@ class SwapDB {
 				price: undefined,
 				percentCheaperThanRequested: undefined,
 			},
-			transactions: [],
+			totalStages: [],
+			stages: [],
 			_debug: {
 				request,
 				response,
-				messages,
+				swapData,
 			},
 		};
 
-		messages.forEach(message => {
-			if (message.requestid) {
-				swap.requestId = message.requestid;
-			}
+		console.log('swapData', swapData);
 
-			if (message.quoteid) {
-				swap.quoteId = message.quoteid;
-			}
+		if (swapData) {
+			const {
+				events,
+				error_events: errorEvents,
+				success_events: successEvents,
+			} = swapData;
 
-			if (message.method === 'connected') {
-				swap.status = 'matched';
-				swap.progress = MATCHED_STEP / TOTAL_PROGRESS_STEPS;
-			}
+			console.log('events', events);
 
-			if (message.method === 'update') {
-				swap.status = 'swapping';
-				// Don't push duplicate messages
-				if (!swap.transactions.find(tx => tx.stage === message.name)) {
-					swap.transactions.push({
-						stage: message.name,
-						coin: message.coin,
-						txid: message.txid,
-						amount: message.amount,
-					});
-				}
-			}
+			const failedEvent = events.find(event => errorEvents.includes(event.event.type));
+			const nonSwapEvents = ['Started', 'Negotiated', 'Finished'];
+			const totalSwapEvents = successEvents.filter(type => !nonSwapEvents.includes(type));
+			const swapEvents = events.filter(event => (
+				!nonSwapEvents.includes(event.event.type) &&
+				!errorEvents.includes(event.event.type)
+			));
+			const isFinished = !failedEvent && events.some(event => event.event.type === 'Finished');
+			const isSwapping = !failedEvent && !isFinished && swapEvents.length > 0;
+			const maxSwapProgress = 0.8;
+			const newestEvent = events[events.length - 1];
 
-			if (message.method === 'tradestatus' && message.status === 'finished') {
-				swap.status = 'completed';
+			console.log('failedEvent', failedEvent);
+			console.log('totalSwapEvents', totalSwapEvents);
+			console.log('swapEvents', swapEvents);
+			console.log('isFinished', isFinished);
+			console.log('isSwapping', isSwapping);
+
+			swap.totalStages = totalSwapEvents;
+			swap.stages = swapEvents;
+
+			if (failedEvent) {
+				swap.status = 'failed';
 				swap.progress = 1;
 
-				// Nuke transaction history and rebuild it from this message.
-				// This will normally result in the same transaction array but
-				// if we were offline and missed some messages this will allow us
-				// to reconstruct what happened.
-				//
-				// It also allows us to correctly rebuild the tx chain of swaps that
-				// didn't quite go to plan like claiming bobdeposit or alicepayment.
-				swap.transactions = message.txChain;
-
-				// Overrride status to failed if we don't have a successful completion transaction
-				if (!(
-					message.sentflags.includes('alicespend') ||
-					message.sentflags.includes('aliceclaim')
-				)) {
-					swap.status = 'failed';
-				}
-
-				const startTx = swap.transactions.find(tx => tx.stage === 'alicepayment');
-				const startAmount = startTx ? startTx.amount : 0;
-				const endTx = swap.transactions.find(tx => ['alicespend', 'aliceclaim'].includes(tx.stage));
-				const endAmount = endTx ? endTx.amount : 0;
-				const executedBaseCurrencyAmount = isBuyOrder ? endAmount : startAmount;
-				const executedQuoteCurrencyAmount = isBuyOrder ? startAmount : endAmount;
-				swap.baseCurrencyAmount = roundTo(executedBaseCurrencyAmount, 8);
-				swap.quoteCurrencyAmount = roundTo(executedQuoteCurrencyAmount, 8);
-				swap.executed.baseCurrencyAmount = swap.baseCurrencyAmount;
-				swap.executed.quoteCurrencyAmount = swap.quoteCurrencyAmount;
-
-				if (endAmount > 0 && startAmount > 0) {
-					swap.price = roundTo(executedQuoteCurrencyAmount / executedBaseCurrencyAmount, 8);
-					swap.executed.price = swap.price;
-					swap.executed.percentCheaperThanRequested = roundTo(100 - ((swap.executed.price / swap.requested.price) * 100), 2);
-					if (!isBuyOrder) {
-						swap.executed.percentCheaperThanRequested = -swap.executed.percentCheaperThanRequested;
-					}
-				}
+				swap.error = {
+					code: failedEvent.event.type,
+					message: failedEvent.event.data.error,
+				};
+			} else if (isFinished) {
+				swap.status = 'completed';
+				swap.progress = 1;
+			} else if (isSwapping) {
+				swap.status = 'swapping';
+				swap.statusFormatted = `swap ${swapEvents.length}/${totalSwapEvents.length}`;
+				swap.progress = 0.1 + ((swapEvents.length / totalSwapEvents.length) * maxSwapProgress);
+			} else if (newestEvent && newestEvent.event.type === 'Negotiated') {
+				swap.status = 'matched';
+				swap.progress = 0.1;
 			}
 
-			if (message.method === 'failed') {
-				// This check is to ignore cancel events when the trade is no longer pending
-				// It's most likely caused by this mm bug
-				// https://github.com/jl777/SuperNET/issues/956
-				if (!(swap.status !== 'pending' && [-9998, -9997].includes(message.error))) {
-					swap.status = 'failed';
-					swap.progress = 1;
+			// TODO(sindresorhus): I've tried to preserve the existing behavior when using mm2. We should probably update the events and naming for mm2 conventions though.
 
-					// TODO: Add error messages once we have errors documented
-					// https://github.com/atomiclabs/hyperdex/issues/180
-					swap.error = {
-						code: message.error,
-						message: `Error Code: ${message.error}`,
-					};
-				}
+			if (!isSwapping) {
+				swap.statusFormatted = t(`status.${swap.status}`).toLowerCase();
 			}
-		});
+		}
+
+		if (swap.status === 'pending') {
+			swap.statusFormatted = t('status.open').toLowerCase();
+		}
 
 		// Show open orders from previous session as cancelled
 		const cancelled = swap.status === 'pending' && isAfter(appTimeStarted, swap.timeStarted);
@@ -252,39 +233,10 @@ class SwapDB {
 				code: undefined,
 				message: undefined,
 			};
+			swap.statusFormatted = t('status.cancelled').toLowerCase();
 		}
 
-		swap.statusFormatted = t(`status.${swap.status}`).toLowerCase();
-		if (swap.status === 'swapping') {
-			const swapProgress = swap.transactions
-				.map(tx => tx.stage)
-				.reduce((prevStageLevel, stage) => {
-					const newStageLevel = swapTransactions.indexOf(stage) + 1;
-					return Math.max(prevStageLevel, newStageLevel);
-				}, 0);
-
-			swap.statusFormatted = `swap ${swapProgress}/${swapTransactions.length}`;
-			swap.progress = (swapProgress + MATCHED_STEP) / TOTAL_PROGRESS_STEPS;
-		}
-
-		if (swap.status === 'failed') {
-			if (swap.error.code === -9999) {
-				swap.statusFormatted = t('status.unmatched').toLowerCase();
-			}
-
-			if (swap.error.code === -9998 || cancelled) {
-				swap.statusFormatted = t('status.cancelled').toLowerCase();
-			}
-
-			if (swap.transactions.find(tx => tx.stage === 'alicereclaim')) {
-				swap.statusFormatted = t('status.reverted').toLowerCase();
-				swap.statusInformation = t('statusInformation.reverted');
-			}
-		}
-
-		if (swap.status === 'pending') {
-			swap.statusFormatted = t('status.open').toLowerCase();
-		}
+		console.log('progress', swap.progress);
 
 		return swap;
 	}

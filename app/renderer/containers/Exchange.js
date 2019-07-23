@@ -1,13 +1,9 @@
 /* eslint-disable react/no-access-state-in-setstate */
 import EventEmitter from 'events';
-import {is, api, activeWindow, appLaunchTimestamp} from 'electron-util';
 import _ from 'lodash';
 import SuperContainer from 'containers/SuperContainer';
 import appContainer from 'containers/App';
-import {translate} from '../translate';
 import fireEvery from '../fire-every';
-
-const t = translate('exchange');
 
 class ExchangeContainer extends SuperContainer {
 	getInitialState() {
@@ -110,37 +106,5 @@ class ExchangeContainer extends SuperContainer {
 }
 
 const exchangeContainer = new ExchangeContainer();
-
-// Warn the user if they try to quit when they have in-progress swaps
-window.addEventListener('beforeunload', event => {
-	// We never want this annoyance in actual development
-	if (is.development) {
-		return;
-	}
-
-	const hasInProgressSwaps = appContainer.state.swapHistory.find(swap => {
-		return swap.timeStarted > appLaunchTimestamp && swap.isActive;
-	});
-
-	if (hasInProgressSwaps) {
-		event.returnValue = true;
-
-		const selectedButtonIndex = api.dialog.showMessageBox(activeWindow(), {
-			type: 'question',
-			title: t('confirmQuitTitle'),
-			message: t('confirmQuitDescription'),
-			buttons: [
-				t('quit'),
-				t('cancel'),
-			],
-			defaultId: 0,
-			cancelId: 1,
-		});
-
-		if (selectedButtonIndex === 0) {
-			api.app.exit();
-		}
-	}
-});
 
 export default exchangeContainer;

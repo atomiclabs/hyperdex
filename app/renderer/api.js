@@ -1,57 +1,43 @@
 /* eslint-disable camelcase */
 import util from 'util';
-import electron from 'electron';
-import {sha256} from 'crypto-hash';
 import PQueue from 'p-queue';
 import ow from 'ow';
 import _ from 'lodash';
 import {getCurrency} from '../marketmaker/supported-currencies';
 import {isDevelopment} from '../util-common';
-import MarketmakerSocket from './marketmaker-socket';
-
-const getPort = electron.remote.require('get-port');
 
 const symbolPredicate = ow.string.uppercase;
-const uuidPredicate = ow.string.alphanumeric.lowercase;
+const uuidPredicate = ow.string.matches(/[a-z\d-]/);
 
+/* eslint-disable no-unused-vars */
 const errorWithObject = (message, object) => new Error(`${message}:\n${util.format(object)}`);
 const genericError = object => errorWithObject('Encountered an error', object);
+/* eslint-enable no-unused-vars */
+
+const reportError = error => {
+	console.error(error);
+	// eslint-disable-next-line no-new
+	new Notification(error);
+};
 
 export default class Api {
-	constructor({endpoint, seedPhrase, concurrency = 1}) {
+	constructor({endpoint, rpcPassword, concurrency = Infinity}) {
 		ow(endpoint, 'endpoint', ow.string);
-		ow(seedPhrase, 'seedPhrase', ow.string);
+		ow(rpcPassword, 'rpcPassword', ow.string);
 		ow(concurrency, 'concurrency', ow.number.positive.integerOrInfinite);
 
 		this.endpoint = endpoint;
-		this.token = sha256(seedPhrase);
-		this.socket = false;
-		this.useQueue = false;
-		this.currentQueueId = 0;
-
+		this.rpcPassword = rpcPassword;
 		this.queue = new PQueue({concurrency});
-	}
-
-	async enableSocket() {
-		const port = await getPort();
-		const {endpoint} = await this.request({method: 'getendpoint', port});
-		const socket = new MarketmakerSocket(endpoint);
-		await socket.connected;
-		this.socket = socket;
-
-		return this.socket;
 	}
 
 	async request(data) {
 		ow(data, 'data', ow.object);
 
-		const queueId = (this.useQueue && this.socket) ? ++this.currentQueueId : 0;
-
 		const body = {
 			...data,
-			needjson: 1,
-			queueid: queueId,
-			userpass: await this.token,
+			// TODO: When https://github.com/artemii235/SuperNET/issues/298 is fixed, rename `userpass` to `rpc_password` and also reduce the places we pass around `seedPhrase`.
+			userpass: this.rpcPassword,
 		};
 
 		let result;
@@ -67,20 +53,24 @@ export default class Api {
 				});
 			});
 
-			result = await ((this.useQueue && this.socket) ? this.socket.getResponse(queueId) : response.json());
+			result = await response.json();
 
 			if (isDevelopment) {
 				// TODO: Use `Intl.RelativeTimeFormat` here when we use an Electron version with Chrome 71
 				const requestDuration = (Date.now() - requestTime) / 1000;
 				const groupLabel = `API method: ${body.method} (${requestDuration}s)`;
 				console.groupCollapsed(groupLabel);
-				console.log('Request:', _.omit(body, ['needjson', 'userpass', this.useQueue ? null : 'queueid']));
+				console.log('Request:', _.omit(body, ['needjson', 'userpass']));
 				console.log('Response:', response.status, result);
 				console.groupEnd(groupLabel);
 			}
 		} catch (error) {
+			if (isDevelopment) {
+				console.error('Request error', error, body);
+			}
+
 			if (error.message === 'Failed to fetch') {
-				error.message = 'Could not connect to Marketmaker';
+				error.message = 'Request to Marketmaker failed';
 			}
 
 			throw error;
@@ -95,10 +85,7 @@ export default class Api {
 		return result;
 	}
 
-	botList() {
-		return this.request({method: 'bot_list'});
-	}
-
+	// Mm v2
 	async enableCurrency(symbol) {
 		ow(symbol, 'symbol', symbolPredicate);
 
@@ -110,78 +97,83 @@ export default class Api {
 		}
 
 		if (currency.electrumServers) {
-			const requests = currency.electrumServers.map(server => this.request({
-				method: 'electrum',
-				coin: symbol,
-				ipaddr: server.host,
-				port: server.port,
+			const servers = currency.electrumServers.map(server => ({
+				url: `${server.host}:${server.port}`,
+				// TODO: Use HTTPS for the Electrum servers that supports it.
+				// protocol: 'SSL',
 			}));
 
-			const responses = await Promise.all(requests);
-			const success = responses.filter(response => response.result === 'success').length > 0;
+			try {
+				const response = await this.request({
+					method: 'electrum',
+					coin: symbol,
+					servers,
+				});
 
-			if (!success) {
-				const error = `Could not connect to ${symbol} Electrum server`;
-				console.error(error);
-				// eslint-disable-next-line no-new
-				new Notification(error);
+				const isSuccess = response.result === 'success';
+				if (!isSuccess) {
+					reportError(`Could not connect to ${symbol} Electrum server`);
+				}
+			} catch (error) {
+				reportError(`Could not connect to ${symbol} Electrum server: ${error}`);
+				return;
 			}
 
 			console.log('Enabled Electrum for currency:', symbol);
-
-			return success;
+			return;
 		}
 
-		const response = await this.request({method: 'enable', coin: symbol});
-		return response.status === 'active';
+		try {
+			// ETH/ERC20-based token
+			const response = await this.request({
+				method: 'enable',
+				coin: symbol,
+				urls: [
+					'http://eth1.cipig.net:8555',
+					'http://eth2.cipig.net:8555',
+					'http://eth3.cipig.net:8555',
+				],
+				swap_contract_address: '0x8500AFc0bc5214728082163326C2FF0C73f4a871',
+				gas_station_url: 'https://ethgasstation.info/json/ethgasAPI.json',
+				mm2: 1,
+			});
+
+			const isSuccess = response.result === 'success';
+			if (!isSuccess) {
+				reportError(`Could not enable ETH/ERC20 currency ${symbol}`);
+			}
+		} catch (error) {
+			reportError(`Could not enable ETH/ERC20 currency ${symbol}: ${error}`);
+		}
 	}
 
-	disableCoin(coin) {
-		ow(coin, 'coin', symbolPredicate);
+	// Mm v2 doesn't currently have an endpoint for disabling a coin, so we do nothing.
+	// https://github.com/artemii235/SuperNET/issues/459
+	async disableCurrency(/** symbol */) {
+		/// ow(symbol, 'symbol', symbolPredicate);
 
-		return this.request({
-			method: 'disable',
-			coin,
-		});
+		// return this.request({
+		// 	method: 'disable',
+		// 	coin: symbol,
+		// });
 	}
 
-	portfolio() {
-		return this.request({method: 'portfolio'});
-	}
-
-	balance(coin, address) {
-		ow(coin, 'coin', symbolPredicate);
-		ow(address, 'address', ow.string);
-
-		return this.request({
-			method: 'balance',
-			coin,
-			address,
-		});
-	}
-
-	coins() {
-		return this.request({method: 'getcoins'});
-	}
-
-	async orderBook(base, rel) {
-		ow(base, 'base', symbolPredicate);
-		ow(rel, 'rel', symbolPredicate);
+	// Mm v2
+	async orderBook(baseCurrency, quoteCurrency) {
+		ow(baseCurrency, 'baseCurrency', symbolPredicate);
+		ow(quoteCurrency, 'quoteCurrency', symbolPredicate);
 
 		const response = await this.request({
 			method: 'orderbook',
-			base,
-			rel,
+			base: baseCurrency,
+			rel: quoteCurrency,
 		});
 
 		const formatOrders = orders => orders
-			.filter(order => order.numutxos > 0)
 			.map(order => ({
 				address: order.address,
 				depth: order.depth,
 				price: order.price,
-				utxoCount: order.numutxos,
-				averageVolume: order.avevolume,
 				maxVolume: order.maxvolume,
 				zCredits: order.zcredits,
 			}));
@@ -196,234 +188,156 @@ export default class Api {
 		return formattedResponse;
 	}
 
-	order(opts) {
-		ow(opts, 'opts', ow.object.exactShape({
+	// Mm v2
+	async order(options) {
+		ow(options, 'options', ow.object.exactShape({
 			type: ow.string.oneOf(['buy', 'sell']),
 			baseCurrency: symbolPredicate,
 			quoteCurrency: symbolPredicate,
-			amount: ow.number.finite,
-			total: ow.number.finite,
 			price: ow.number.finite,
+			volume: ow.number.finite,
 		}));
 
-		return this.request({
-			method: opts.type,
-			gtc: 1,
-			base: opts.baseCurrency,
-			rel: opts.quoteCurrency,
-			basevolume: opts.amount,
-			relvolume: opts.total,
-			price: opts.price,
+		const {result} = await this.request({
+			method: options.type,
+			gtc: 1, // TODO: Looks like this is missing from mm v2
+			base: options.baseCurrency,
+			rel: options.quoteCurrency,
+			price: options.price,
+			volume: options.volume,
 		});
+
+		result.baseAmount = Number(result.base_amount);
+		delete result.base_amount;
+
+		result.quoteAmount = Number(result.rel_amount);
+		delete result.rel_amount;
+
+		return result;
 	}
 
+	// Mm v2
+	async orderStatus(uuid) {
+		ow(uuid, 'uuid', uuidPredicate);
+
+		const {result} = await this.request({
+			method: 'order_status',
+			uuid,
+		});
+
+		return result;
+	}
+
+	// Mm v2
+	async mySwapStatus(uuid) {
+		ow(uuid, 'uuid', uuidPredicate);
+
+		const {result} = await this.request({
+			method: 'my_swap_status',
+			params: {uuid},
+		});
+
+		return result;
+	}
+
+	// Mm v2
+	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#my_recent_swaps
+	// TODO: Add support for the input arguments it supports.
+	async myRecentSwaps() {
+		const {result} = await this.request({
+			method: 'my_recent_swaps',
+		});
+
+		return result.swaps;
+	}
+
+	// Mm v2
+	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#get_enabled_coins
+	async getEnabledCurrencies() {
+		const {result} = await this.request({
+			method: 'get_enabled_coins',
+		});
+
+		return result;
+	}
+
+	// Mm v2
+	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#cancel_order
 	async cancelOrder(uuid) {
 		ow(uuid, 'uuid', uuidPredicate);
 
 		const response = await this.request({
-			method: 'cancel',
+			method: 'cancel_order',
 			uuid,
 		});
 
 		if (response.error) {
-			if (/uuid not cancellable/.test(response.error)) {
-				throw new Error('Order cannot be cancelled');
-			}
-
 			throw new Error(response.error);
 		}
-
-		if (response.result !== 'success') {
-			throw genericError(response);
-		}
-
-		return response.status;
 	}
 
-	async getFee(coin) {
-		ow(coin, 'coin', symbolPredicate);
+	// Mm v2
+	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#my_balance
+	async myBalance(currency) {
+		ow(currency, 'currency', symbolPredicate);
 
 		const response = await this.request({
-			method: 'getfee',
-			coin,
+			method: 'my_balance',
+			coin: currency,
 		});
 
-		if (response.result !== 'success') {
-			throw genericError(response);
-		}
-
-		return response.txfee;
+		return {
+			address: response.address,
+			balance: Number(response.balance),
+		};
 	}
 
-	async _createTransaction(opts) {
-		ow(opts, 'opts', ow.object.exactShape({
+	// Mm v2
+	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#coins_needed_for_kick_start
+	async coinsNeededForKickStart() {
+		const {result} = await this.request({
+			method: 'coins_needed_for_kick_start',
+		});
+
+		return result;
+	}
+
+	// Mm v2
+	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#send_raw_transaction
+	async sendRawTransaction(options) {
+		ow(options, 'options', ow.object.exactShape({
+			symbol: symbolPredicate,
+			txHex: ow.string,
+		}));
+
+		const {tx_hash: txHash} = await this.request({
+			method: 'send_raw_transaction',
+			coin: options.symbol,
+			tx_hex: options.txHex,
+		});
+
+		return txHash;
+	}
+
+	// Mm v2
+	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#withdraw
+	async withdraw(options) {
+		ow(options, 'options', ow.object.exactShape({
 			symbol: symbolPredicate,
 			address: ow.string,
 			amount: ow.number.positive.finite,
+			max: ow.boolean,
 		}));
 
-		const result = await this.request({
+		const {max = false} = options;
+
+		return this.request({
 			method: 'withdraw',
-			coin: opts.symbol,
-			outputs: [{[opts.address]: opts.amount}],
-			broadcast: 0,
+			coin: options.symbol,
+			to: options.address,
+			amount: String(options.amount),
+			max,
 		});
-
-		if (!result.complete) {
-			throw errorWithObject('Couldn\'t create withdrawal transaction', result);
-		}
-
-		return {
-			...opts,
-			...result,
-		};
-	}
-
-	async _broadcastTransaction(symbol, rawTransaction) {
-		ow(symbol, 'symbol', symbolPredicate);
-		ow(rawTransaction, 'rawTransaction', ow.string);
-
-		const response = await this.request({
-			method: 'sendrawtransaction',
-			coin: symbol,
-			signedtx: rawTransaction,
-		});
-
-		if (!response.result === 'success') {
-			throw errorWithObject('Couldn\'t broadcast transaction', response);
-		}
-
-		return response.txid;
-	}
-
-	async _withdrawBtcFork(opts) {
-		ow(opts, 'opts', ow.object.exactShape({
-			symbol: symbolPredicate,
-			address: ow.string,
-			amount: ow.number.positive.finite,
-		}));
-
-		const {
-			hex: rawTransaction,
-			txfee: txFeeSatoshis,
-			txid,
-			amount,
-			symbol,
-			address,
-		} = await this._createTransaction(opts);
-
-		// Convert from satoshis
-		const SATOSHIS = 100000000;
-		const txFee = txFeeSatoshis / SATOSHIS;
-
-		const broadcast = async () => {
-			await this._broadcastTransaction(opts.symbol, rawTransaction);
-
-			return {txid, amount, symbol, address};
-		};
-
-		return {
-			txFee,
-			broadcast,
-		};
-	}
-
-	async _withdrawEth(opts) {
-		ow(opts, 'opts', ow.object.exactShape({
-			symbol: symbolPredicate,
-			address: ow.string,
-			amount: ow.number.positive.finite,
-		}));
-
-		const {
-			eth_fee: txFee,
-			gas_price: gasPrice,
-			gas,
-		} = await this.request({
-			method: 'eth_withdraw',
-			coin: opts.symbol,
-			to: opts.address,
-			amount: opts.amount,
-			broadcast: 0,
-		});
-
-		let hasBroadcast = false;
-		const broadcast = async () => {
-			if (hasBroadcast) {
-				throw new Error('Transaction has already been broadcast');
-			}
-
-			hasBroadcast = true;
-
-			const response = await this.request({
-				method: 'eth_withdraw',
-				gas,
-				gas_price: gasPrice,
-				coin: opts.symbol,
-				to: opts.address,
-				amount: opts.amount,
-				broadcast: 1,
-			});
-
-			if (response.error) {
-				throw errorWithObject('Couldn\'t create withdrawal transaction', response);
-			}
-
-			return {
-				txid: response.tx_id,
-				symbol: opts.symbol,
-				amount: opts.amount,
-				address: opts.address,
-			};
-		};
-
-		return {
-			txFee,
-			broadcast,
-		};
-	}
-
-	withdraw(opts) {
-		ow(opts, 'opts', ow.object.exactShape({
-			symbol: symbolPredicate,
-			address: ow.string,
-			amount: ow.number.positive.finite,
-		}));
-
-		return getCurrency(opts.symbol).etomic ? this._withdrawEth(opts) : this._withdrawBtcFork(opts);
-	}
-
-	kickstart(opts) {
-		ow(opts, 'opts', ow.object.exactShape({
-			requestId: ow.number.positive.finite,
-			quoteId: ow.number.positive.finite,
-		}));
-
-		return this.request({
-			method: 'kickstart',
-			requestid: opts.requestId,
-			quoteid: opts.quoteId,
-		});
-	}
-
-	listUnspent(coin, address) {
-		ow(coin, 'coin', symbolPredicate);
-		ow(address, 'address', ow.string);
-
-		return this.request({
-			method: 'listunspent',
-			coin,
-			address,
-		});
-	}
-
-	async funds() {
-		const coins = (await this.coins()).filter(coin => coin.status === 'active');
-		return Promise.all(coins.map(coin => this.balance(coin.coin, coin.smartaddress)));
-	}
-
-	ticker() {
-		return this.request({method: 'ticker'});
 	}
 
 	async stop() {

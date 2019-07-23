@@ -85,7 +85,6 @@ const Center = props => {
 					<thead>
 						<tr>
 							<th>{t('order.price', {symbol: state.quoteCurrency})}</th>
-							<th>{t('order.averageVolume')}</th>
 							<th>{t('order.maxVolume')}</th>
 						</tr>
 					</thead>
@@ -95,7 +94,6 @@ const Center = props => {
 							return props.getOrderBook().map((row, i) => (
 								<tr key={i} onClick={() => selectRow(row)}>
 									<td>{row.price}</td>
-									<td>{roundTo(row.averageVolume, 8)}</td>
 									<td>{roundTo(row.maxVolume, 8)}</td>
 								</tr>
 							));
@@ -139,17 +137,6 @@ class Bottom extends React.Component {
 		const {baseCurrency, quoteCurrency} = exchangeContainer.state;
 		const {price, amount, total, type} = this.props;
 
-		const requestOpts = {
-			type,
-			baseCurrency,
-			quoteCurrency,
-			price: Number(price),
-			amount: Number(amount),
-			total: Number(total),
-		};
-
-		const result = await api.order(requestOpts);
-
 		const orderError = error => {
 			// eslint-disable-next-line no-new
 			new Notification(t('order.failedTrade', {baseCurrency, type}), {body: error});
@@ -157,27 +144,30 @@ class Bottom extends React.Component {
 			this.setState({hasError: true});
 		};
 
-		// TODO: If we get this error we should probably show a more helpful error
-		// and grey out the order form for result.wait seconds.
-		// Or alternatively if we know there is a pending trade, prevent them from
-		// placing an order until it's matched.
-		if (result.error) {
-			let {error} = result;
-			if (error === 'only one pending request at a time') {
-				error = t('order.maxOnePendingSwap', {wait: result.wait});
-			}
+		const requestOpts = {
+			type,
+			baseCurrency,
+			quoteCurrency,
+			price: Number(price),
+			volume: Number(amount),
+		};
 
+		let swap;
+		try {
+			swap = await api.order(requestOpts);
+		} catch (error) {
+			console.log('a', error);
 			orderError(error);
 			return;
 		}
 
-		// TODO: Temp workaround for marketmaker issue
-		if (!result.pending) {
-			orderError(t('order.unexpectedError'));
-			return;
-		}
+		// This one is not needed by the mm v2 call, but we add it for the swap progress.
+		requestOpts.total = Number(total);
 
-		const swap = result.pending;
+		// We also rename back the property until we can refactor it all.
+		requestOpts.amount = requestOpts.volume;
+		delete requestOpts.volume;
+
 		const {swapDB} = appContainer;
 		await swapDB.insertSwapData(swap, requestOpts);
 		exchangeContainer.setIsSendingOrder(false);

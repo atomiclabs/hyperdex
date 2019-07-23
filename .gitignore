@@ -1,3 +1,4 @@
 node_modules
 /dist
 /app/renderer-dist
+/app/marketmaker/bin

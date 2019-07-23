@@ -14,6 +14,7 @@
 	"dependencies": {
 		"@sindresorhus/slugify": "^0.3.0",
 		"coinlist": "^3.1.2",
+		"crypto-hash": "1.1.0",
 		"crypto-random-string": "^3.0.0",
 		"del": "^4.1.1",
 		"delay": "^4.2.0",
@@ -36,7 +37,7 @@
 		"node-dir": "^0.1.17",
 		"plur": "^3.1.1",
 		"strict-import": "^0.2.0",
-		"write-json-file": "^4.1.0"
+		"write-json-file": "^3.0.2"
 	},
 	"xo": false
 }
