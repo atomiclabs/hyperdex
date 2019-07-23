@@ -3,15 +3,12 @@
 	"chart": {
 		"depth": "Biểu đồ Độ sâu {{baseCurrency}}/{{quoteCurrency}}"
 	},
-	"confirmQuitTitle": "Bạn có chắc muốn thoát?",
-	"confirmQuitDescription": "Bạn có hoán đổi đang thực hiện. HyperDEX sẽ cố gắng để các hoán đổi này tiếp diễn khi bạn khởi chạy ứng dụng vào lần tới, nhưng chúng tôi khuyên bạn hãy để HyperDEX chạy cho đến khi các hoán đổi hoàn tất.",
 	"intro": {
 		"description": " <0>HyperDEX là một cơ chế trao đổi phân cấp. Nó có một sổ lệnh P2P và các giao dịch thực hiện qua<1>các hoán đổi nguyên tử liên-chuỗi</1>. Điều này có nghĩa nó hoạt động hơi khác so với cơ chế trao đổi tập trung.</0><1>Phải mất một lúc để các lệnh có thể lưu chuyển trong mạng lưới P2P. Bạn phải chờ một lúc thì mới thấy sổ lệnh hiện thị.</1><2>HyperDEX cần bạn cung cấp chính xác quy mô<1>UTXOs</1> để tạo ra một hoán đổi thành công. Với mỗi một UTXO bạn chỉ có thể tạo một hoán đổi. Cách dễ nhất để bạn có thể tham gia một hoán đổi là nạp hai hoặc ba khoản tiền nhỏ vào tài khoản của bạn thay vì nạp vào một lần một khoản tiền lớn.</2><3>Một hoán đổi nguyên tử bao gồm sáu giao dịch trên-chuỗi. Khi trao đổi một đồng tiền với phí giao dịch cao, việc tăng nhẹ giá của bạn là rất quan trọng để bù đắp chi phí giao dịch. Điều này thậm chí còn đặc biệt quan trọng nếu bạn giao dịch với số lượng nhỏ</3>",
 		"title": "Giao Dịch trên HyperDEX Hoạt động như nào"
 	},
 	"order": {
 		"amount": "Số lượng {{symbol}}",
-		"averageVolume": "Khối lượng Trung bình",
 		"buy": "Mua",
 		"buyOrders": "Đơn hàng Mua",
 		"failedTrade": "Thất bại {{type}} {{baseCurrency}}",
