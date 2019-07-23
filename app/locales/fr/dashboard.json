@@ -1,7 +1,7 @@
 {
 	"intro": {
 		"title": "Merci de nous aider à tester HyperDEX !",
-		"description": "<0>N'oublie pas que <1>ce projet est encore en Beta</1>.</0><1>Bien qu'il soit peu probable que tu perdes des fonds, tu ne dois trader avec de l'argent que si tu peux courir ce risque.</1><2> Si tu veux juste essayer HyperDEX, essaie plutôt le trading entre les devises de test <1>MORTY</1> et <3>RICK</3>. Tu peux obtenir de la <5>MORTY</5> gratuitement au <7>robinet à <0>MORTY</0></7>. </2><3>HyperDEX est un logiciel libre fourni \"tel quel\", sans aucune garantie. Les auteurs ou les ayants droit déclinent toute responsabilité quant aux dommages pouvant résulter de l'utilisation de ce logiciel. </3><4>En utilisant HyperDEX, tu accepte les conditions de la <1>licence MIT</1>.</4>"
+		"description": "<0>N'oublie pas que <1>ce projet est encore en Beta</1>.</0><1>Bien qu'il soit peu probable que tu perdes des fonds, tu ne dois trader avec de l'argent que si tu peux courir ce risque.</1><2> Si tu veux juste essayer HyperDEX, essaie plutôt le trading entre les devises de test <1>BEER</1> et <3>PIZZA</3>. Tu peux obtenir de la <5>BEER</5> gratuitement au <7>robinet à <0>BEER</0></7>. </2><3>HyperDEX est un logiciel libre fourni \"tel quel\", sans aucune garantie. Les auteurs ou les ayants droit déclinent toute responsabilité quant aux dommages pouvant résulter de l'utilisation de ce logiciel. </3><4>En utilisant HyperDEX, tu accepte les conditions de la <1>licence MIT</1>.</4>"
 	},
 	"activity": {
 		"noActivity": "Pas encore d'activité",
