@@ -4,12 +4,6 @@
 	"timedOut": "Hết thời gian hoán đổi",
 	"title": "Hoán đổi",
 	"details": {
-		"aliceclaim": "Alice Claim",
-		"alicereclaim": "Alice Reclaim",
-		"alicepayment": "Alice đã thanh toán",
-		"alicespend": "Alice đã Chi tiêu",
-		"bobdeposit": "Bob đã Nạp tiền",
-		"bobpayment": "Bob đã Thanh toán",
 		"broadcast": "Công bố",
 		"buy": "Mua",
 		"copyDebugData": "Sao chép Dữ liệu Gỡ lỗi Hoán đổi",
@@ -28,6 +22,20 @@
 		"youReceived": "Bạn đã nhận",
 		"yourOffer": "Bạn đưa",
 		"view": "Xem"
+	},
+	"swapStages": {
+		"TakerFeeSent": "Taker fee sent",
+		"MakerPaymentReceived": "Maker payment received",
+		"MakerPaymentWaitConfirmStarted": "Maker payment confirmation started",
+		"MakerPaymentValidatedAndConfirmed": "Maker payment validated and confirmed",
+		"TakerPaymentSent": "Taker payment sent",
+		"TakerPaymentSpent": "Taker payment spent",
+		"MakerPaymentSpent": "Maker payment spent",
+		"TakerFeeValidated": "Taker free validated",
+		"MakerPaymentSent": "Maker payment sent",
+		"TakerPaymentReceived": "Taker payment received",
+		"TakerPaymentWaitConfirmStarted": "Taker payment confirmation started",
+		"TakerPaymentValidatedAndConfirmed": "Taker payment validated and confirmed"
 	},
 	"list": {
 		"baseAmount": "Base amount",
