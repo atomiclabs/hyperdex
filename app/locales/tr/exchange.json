@@ -3,15 +3,12 @@
 	"chart": {
 		"depth": "{{baseCurrency}}/{{quoteCurrency}} Derinlik Grafiği"
 	},
-	"confirmQuitTitle": "Çıkmak istediğine emin misin?",
-	"confirmQuitDescription": "Devam eden takas işlemlerin bulunuyor. HyperDEX uygulamayı bir sonraki açışında takasları devam ettirmeyi deneyecek ama takaslar bitene kadar HyperDEX'i açık bırakmanı tavsiye ederiz.",
 	"intro": {
 		"description": " <0>HyperDEX merkezde olmayan bir borsadır. Uçtan uca bir sipariş defteri vardır ve işlemler <1>atomik çapraz zincir ticareti ile yapılır</1>. Bu merkezi borsadan biraz daha farklı çalıştığı anlamına gelir.</0><1>Borsa emirlerinin uçtan uca ağda ilerlemesi biraz zaman alabilir. Sipariş defterinin görünmesi için biraz beklemeniz gerekebilir.</1><2>HyperDEX başarılı bir takas yapabilmek için doğru boyutlanmış <1>UTXOlara</1>sahip olmanızı gerektirir. Her UTXO için bir takas yapabilirsiniz. Takas yapabilmenizi garantilemenin en kolay yolu hesabınıza bir büyük meblağdansa iki yada üç küçük para girişi yapmanızdır.</2><3>Atomik Çapraz takası altı zincir içinde işlemden oluşur. Yüksek işlem ücretlerine sahip bir para birimiyle takas yapılırken tüm işlem ücretlerini karşılamak için fiyatınızı biraz yükseltmeniz önemlidir. Bu özellikle küçük miktarlarla işlem yaparken önemlidir.</3>",
 		"title": "HyperDEX ile Nasıl Ticaret Yapılır"
 	},
 	"order": {
 		"amount": "Miktar {{symbol}}",
-		"averageVolume": "Ort Hac",
 		"buy": "Satın al",
 		"buyOrders": "Alış Emirleri",
 		"failedTrade": "{{type}}{{baseCurrency}} başarısız oldu",
