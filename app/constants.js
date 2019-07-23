@@ -24,23 +24,26 @@ exports.appViews = [
 ];
 
 exports.defaultEnabledCurrencies = [
-	'BCH',
-	'BTC',
 	'CHIPS',
-	'DASH',
 	'DOGE',
-	'HUSH',
 	'KMD',
-	'LTC',
 	'MORTY',
-	'MSHARK',
-	'MYTH',
-	'OOT',
-	'REVS',
 	'RICK',
 	'SUPERNET',
-	'VTC',
-	'ZEC',
+
+	// These are left out for now.
+	// TODO: Revise this list when HyperDEX is more mature.
+	// 'BCH',
+	// 'BTC',
+	// 'DASH',
+	// 'HUSH',
+	// 'LTC',
+	// 'MSHARK',
+	// 'MYTH',
+	// 'OOT',
+	// 'REVS',
+	// 'VTC',
+	// 'ZEC',
 ];
 
 exports.alwaysEnabledCurrencies = [
