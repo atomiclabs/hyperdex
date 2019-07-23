@@ -4,12 +4,6 @@
 	"timedOut": "Byttehandel utløpte",
 	"title": "Bytte",
 	"details": {
-		"aliceclaim": "Alice krav",
-		"alicereclaim": "Alice tilbakekrav",
-		"alicepayment": "Alice betaling",
-		"alicespend": "Alice brukt",
-		"bobdeposit": "Bob innskudd",
-		"bobpayment": "Bob betaling",
 		"broadcast": "Kringkastet",
 		"buy": "Kjøp",
 		"copyDebugData": "Kopiér feilsøkingsdata for byttehandelen",
@@ -28,6 +22,20 @@
 		"youReceived": "Du mottok",
 		"yourOffer": "Ditt bud",
 		"view": "Vis"
+	},
+	"swapStages": {
+		"TakerFeeSent": "Taker fee sent",
+		"MakerPaymentReceived": "Maker payment received",
+		"MakerPaymentWaitConfirmStarted": "Maker payment confirmation started",
+		"MakerPaymentValidatedAndConfirmed": "Maker payment validated and confirmed",
+		"TakerPaymentSent": "Taker payment sent",
+		"TakerPaymentSpent": "Taker payment spent",
+		"MakerPaymentSpent": "Maker payment spent",
+		"TakerFeeValidated": "Taker free validated",
+		"MakerPaymentSent": "Maker payment sent",
+		"TakerPaymentReceived": "Taker payment received",
+		"TakerPaymentWaitConfirmStarted": "Taker payment confirmation started",
+		"TakerPaymentValidatedAndConfirmed": "Taker payment validated and confirmed"
 	},
 	"list": {
 		"baseAmount": "Grunnbeløp",
