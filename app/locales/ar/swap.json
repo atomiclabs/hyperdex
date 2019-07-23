@@ -32,10 +32,10 @@
 		"TakerPaymentSpent": "تم صرف دفع المستلم",
 		"MakerPaymentSpent": "تم صرف دفع الصانع",
 		"TakerFeeValidated": "مطابقة المستلم مجانًا",
-		"MakerPaymentSent": "Maker payment sent",
-		"TakerPaymentReceived": "Taker payment received",
-		"TakerPaymentWaitConfirmStarted": "Taker payment confirmation started",
-		"TakerPaymentValidatedAndConfirmed": "Taker payment validated and confirmed"
+		"MakerPaymentSent": "تم إرسال دفع الصانع",
+		"TakerPaymentReceived": "تم استلام دفع المستلم",
+		"TakerPaymentWaitConfirmStarted": "بدء تأكيد دفع المستلم",
+		"TakerPaymentValidatedAndConfirmed": "تمت مطابقة وتأكيد دفع المستلم"
 	},
 	"list": {
 		"baseAmount": "Base amount",
