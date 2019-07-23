@@ -3,15 +3,12 @@
 	"chart": {
 		"depth": "{{baseCurrency}}/{{quoteCurrency}} Tiefendiagramm"
 	},
-	"confirmQuitTitle": "Möchtest du wirklich beenden?",
-	"confirmQuitDescription": "Es sind Tauschgeschäfte im Gange. HyperDEX versucht, die Tauschgeschäfte beim nächsten Ausführen der App fortzusetzen, wir empfehlen jedoch, HyperDEX nicht zu beenden, bis die Tauschgeschäfte abgeschlossen sind.",
 	"intro": {
 		"description": " <0>HyperDEX ist eine dezentralisierte Tauschbörse. Es verfügt über ein P2P-Auftragsbuch, und Tauschgeschäfte werden über <1>Cross-Chain Atomic Swaps</1> abgewickelt. Dies bedeutet eine Funktionsweise, die von jener einer zentralen Tauschbörse leicht abweicht.</0><1>Aufträge können etwas Zeit benötigen, um über das P2P-Netzwerk übertragen zu werden. Du musst etwas warten, bis das Auftragsbuch angezeigt wird.</1><2>Du musst <1>UTXOs</1> in der korrekten Größe haben, um einen erfolgreichen Tausch abzuschließen. Für jede UTXO kannst du einen Tausch ausführen. Die einfachste Art, einen Tausch zu gewährleisten, ist die Durchführung zweier oder dreier kleinerer Einzahlungen auf dein Konto anstatt einer großen Einzahlung.</2><3>Ein Atomic Swap besteht aus sechs On-Chain-Transaktionen. Beim Tauschen von Währungen mit hohen Transaktionsgebühren musst du deinen Preis leicht erhöhen, um die gesamte Transaktionsgebühr auszugleichen. Dies ist besonders beim Handeln mit kleinen Beträgen sehr wichtig.</3>",
 		"title": "Wie das Handeln mit HyperDEX funktioniert"
 	},
 	"order": {
 		"amount": "Betrag {{symbol}}",
-		"averageVolume": "Durchschn. Vol",
 		"buy": "Kaufen:",
 		"buyOrders": "Kaufaufträge",
 		"failedTrade": "{{type}} von {{baseCurrency}} fehlgeschlagen",
