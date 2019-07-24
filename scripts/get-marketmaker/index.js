@@ -33,10 +33,11 @@ const osNameToDirectory = new Map([
 	['Windows_NT', 'win'],
 ]);
 
-const checkHash = (filename, hash, expectedHash) => {
-	if (hash !== expectedHash) {
-		throw new Error(`The ${filename} hash ${hash} doesn't match the expected hash: ${expectedHash}`);
-	}
+const checkHash = (/* filename, hash, expectedHash */) => {
+	/// Disabled until https://github.com/KomodoPlatform/atomicDEX-API/issues/496 is fixed
+	// if (hash !== expectedHash) {
+	// 	throw new Error(`The ${filename} hash ${hash} doesn't match the expected hash: ${expectedHash}`);
+	// }
 };
 
 const unzip = async (osName, cachedBuildPath) => {
