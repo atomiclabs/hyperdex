@@ -63,6 +63,7 @@ class AppContainer extends SuperContainer {
 				const swap = recentSwaps.find(x => x.uuid === uuid);
 				if (!swap) {
 					console.error('Could not find swap:', uuid);
+					return;
 				}
 
 				// Const errorEvent = swap.events.find(event => swap.error_events.includes(event.type));
