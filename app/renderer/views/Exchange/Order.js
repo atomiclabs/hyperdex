@@ -42,6 +42,7 @@ class Top extends React.Component {
 		return (
 			<div className="top">
 				<Select
+					searchable
 					className="currency-selector"
 					value={selectedCurrency.symbol}
 					options={selectData}

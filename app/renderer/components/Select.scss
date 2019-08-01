@@ -277,8 +277,11 @@
 	border-bottom: none;
 }
 
-.Select-option:hover,
-.Select--multi .Select-option.is-focused {
+.Select-option.is-focused {
+	background: var(--input-border-color);
+}
+
+.Select-option.is-selected {
 	background: var(--input-border-color);
 	color: var(--primary-color);
 }
