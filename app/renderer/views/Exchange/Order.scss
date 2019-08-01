@@ -27,7 +27,7 @@
 
 			.Select-input > input {
 				color: var(--text-color);
-				width: 150px !important;
+				width: 150px !important; // stylelint-disable-line declaration-no-important
 			}
 		}
 
