@@ -179,7 +179,7 @@ export default class Api {
 			.map(order => ({
 				address: order.address,
 				depth: order.depth,
-				price: order.price,
+				price: Number(order.price),
 				maxVolume: order.maxvolume,
 				zCredits: order.zcredits,
 			}));
