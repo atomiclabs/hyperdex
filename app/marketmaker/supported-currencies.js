@@ -1840,6 +1840,7 @@ const supportedCurrencies = [
 		p2shtype: 189,
 		wiftype: 128,
 		txversion: 4,
+		overwintered: 1,
 		txfee: 10000,
 		electrumServers: [
 			{
