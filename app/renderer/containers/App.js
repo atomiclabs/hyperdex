@@ -176,7 +176,8 @@ class AppContainer extends SuperContainer {
 	// TODO: We should use the portfolio socket event instead once it's implemented
 	async watchCurrencies() {
 		if (!this.stopWatchingCurrencies) {
-			this.stopWatchingCurrencies = await fireEvery({seconds: 1}, async () => {
+			// TODO: Make this 1 second again when mm2 has caching.
+			this.stopWatchingCurrencies = await fireEvery({seconds: 5}, async () => {
 				const {price: kmdPriceInUsd} = this.coinPrices.find(x => x.symbol === 'KMD');
 				const enabledCurrencies = (await this.api.getEnabledCurrencies()).map(x => x.ticker);
 
