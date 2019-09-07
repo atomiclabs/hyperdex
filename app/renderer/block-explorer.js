@@ -110,7 +110,6 @@ const explorers = new Map(Object.entries({
 	SBTC: 'http://block.superbtc.org/tx/{txid}',
 	SCRIV: 'http://explorer.scriv.network/tx/{txid}',
 	SEQ: 'https://seq.blocksandchain.com/tx/{txid}',
-	SIB: 'https://chain.sibcoin.net/en/tx/{txid}',
 	SMART: 'https://explorer3.smartcash.cc/tx/{txid}',
 	SMC: 'http://smartchain.cc/tx/{txid}',
 	SPK: 'http://explorer.sparkscoin.io/tx/{txid}',

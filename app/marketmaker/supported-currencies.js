@@ -1524,28 +1524,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'SIB',
-		rpcport: 1944,
-		pubtype: 63,
-		p2shtype: 40,
-		wiftype: 128,
-		txfee: 10000,
-		electrumServers: [
-			{
-				host: 'electrum1.cipig.net',
-				port: 10050,
-			},
-			{
-				host: 'electrum2.cipig.net',
-				port: 10050,
-			},
-			{
-				host: 'electrum3.cipig.net',
-				port: 10050,
-			},
-		],
-	},
-	{
 		coin: 'SMART',
 		rpcport: 9679,
 		pubtype: 63,
