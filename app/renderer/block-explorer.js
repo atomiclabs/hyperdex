@@ -54,7 +54,6 @@ const explorers = new Map(Object.entries({
 	EMC2: 'https://chainz.cryptoid.info/emc2/tx.dws?{txid}',
 	ERC: 'https://chainz.cryptoid.info/erc/tx.dws?{txid}',
 	ETH: 'https://etherscan.io/tx/{txid}',
-	FAIR: 'https://chain.fair.to/transaction?transaction={txid}',
 	FJC: 'http://explorer.fujicoin.org/tx/{txid}',
 	FLO: 'https://florincoin.info/tx/{txid}',
 	FRK: 'https://cryptobe.com/tx/{txid}',

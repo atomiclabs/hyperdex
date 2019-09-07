@@ -624,28 +624,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'FAIR',
-		rpcport: 40405,
-		pubtype: 95,
-		p2shtype: 36,
-		wiftype: 223,
-		txfee: 2000000,
-		electrumServers: [
-			{
-				host: 'electrum1.cipig.net',
-				port: 10063,
-			},
-			{
-				host: 'electrum2.cipig.net',
-				port: 10063,
-			},
-			{
-				host: 'electrum3.cipig.net',
-				port: 10063,
-			},
-		],
-	},
-	{
 		coin: 'FJC',
 		rpcport: 3776,
 		pubtype: 36,
