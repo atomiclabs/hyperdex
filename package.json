@@ -190,7 +190,7 @@
 		}
 	},
 	"marketmaker": {
-		"version": "44cc70600",
+		"version": "3e42fe181",
 		"hashes": {
 			"macos": "b3a116173a590e290b3ac5bad8ae436f0e2e469130880e2c04fc1bd040f003f3ed07f7fa573678081884974bb340894996308461f7e0aab7305db7a5be7f4e53",
 			"linux": "3f7125b66dedc783d71810141fb2a8c62e8a6384885fddba04106e701e9f1c09dcb62fec414e1941caf6517dffd2f78fab1d01a920c0b1e3fbeca637e6292b0e",
