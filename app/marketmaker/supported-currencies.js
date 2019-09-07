@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 'use strict';
 const coinlist = require('coinlist');
 const _ = require('lodash');
@@ -104,10 +105,6 @@ const supportedCurrencies = [
 				port: 50001,
 			},
 			{
-				host: 'electron.coinucopia.io',
-				port: 50001,
-			},
-			{
 				host: 'electrumx-bch.cryptonermal.net',
 				port: 50001,
 			},
@@ -140,6 +137,7 @@ const supportedCurrencies = [
 		name: 'Bots',
 		asset: 'BOTS',
 		rpcport: 11964,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -163,6 +161,10 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'BTC',
+		rpcport: 8332,
+		pubtype: 0,
+		p2shtype: 5,
+		wiftype: 128,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -183,6 +185,7 @@ const supportedCurrencies = [
 		name: 'Bitcoin Hush',
 		asset: 'BTCH',
 		rpcport: 8800,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -257,6 +260,7 @@ const supportedCurrencies = [
 		name: 'Chainmakers',
 		asset: 'CHAIN',
 		rpcport: 15587,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -307,6 +311,7 @@ const supportedCurrencies = [
 		asset: 'CCL',
 		rpcport: 20849,
 		txversion: 4,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -325,8 +330,9 @@ const supportedCurrencies = [
 	{
 		coin: 'COQUI',
 		name: 'Coqui Cash',
-		asset: 'COQUI',
-		rpcport: 14276,
+		asset: 'COQUICASH',
+		rpcport: 19712,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -347,6 +353,7 @@ const supportedCurrencies = [
 		name: 'Crypto777',
 		asset: 'CRYPTO',
 		rpcport: 8516,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -452,6 +459,7 @@ const supportedCurrencies = [
 		name: 'InstantDEX',
 		asset: 'DEX',
 		rpcport: 11890,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -471,7 +479,7 @@ const supportedCurrencies = [
 		coin: 'DGB',
 		rpcport: 14022,
 		pubtype: 30,
-		p2shtype: 5,
+		p2shtype: 63,
 		wiftype: 128,
 		txfee: 100000,
 		electrumServers: [
@@ -520,7 +528,7 @@ const supportedCurrencies = [
 		pubtype: 30,
 		p2shtype: 22,
 		wiftype: 158,
-		txfee: 100000000,
+		txfee: 500000000,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -791,6 +799,7 @@ const supportedCurrencies = [
 		coin: 'HODL',
 		asset: 'HODL',
 		rpcport: 14431,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -891,6 +900,7 @@ const supportedCurrencies = [
 		asset: 'JUMBLR',
 		active: 0,
 		rpcport: 15106,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -914,6 +924,13 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'KMD',
+		rpcport: 7771,
+		pubtype: 60,
+		p2shtype: 85,
+		wiftype: 188,
+		txversion: 4,
+		overwintered: 1,
+		txfee: 1000,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -940,6 +957,7 @@ const supportedCurrencies = [
 		name: 'KeyValue',
 		asset: 'KV',
 		rpcport: 8299,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -982,7 +1000,7 @@ const supportedCurrencies = [
 	{
 		coin: 'LRC',
 		name: 'Loopring',
-		contractAddress: '0xEF68e7C694F40c8202821eDF525dE3782458639f',
+		contractAddress: '0xBBbbCA6A901c926F240b89EacB641d8Aec7AEafD',
 		decimals: 18,
 		rpcport: 80,
 	},
@@ -1108,7 +1126,7 @@ const supportedCurrencies = [
 		coin: 'MORTY',
 		name: 'Morty [Test]',
 		asset: 'MORTY',
-		rpcport: 63812,
+		rpcport: 16348,
 		mm2: 1,
 		electrumServers: [
 			{
@@ -1130,6 +1148,7 @@ const supportedCurrencies = [
 		name: 'MiliShark',
 		asset: 'MSHARK',
 		rpcport: 8846,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -1239,6 +1258,7 @@ const supportedCurrencies = [
 		name: 'Utrum',
 		asset: 'OOT',
 		rpcport: 12467,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.utrum.io',
@@ -1255,6 +1275,7 @@ const supportedCurrencies = [
 		name: 'Pangea Poker',
 		asset: 'PANGEA',
 		rpcport: 14068,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -1293,6 +1314,7 @@ const supportedCurrencies = [
 		name: 'Pungo Token',
 		asset: 'PGT',
 		rpcport: 46705,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.pungo.cloud',
@@ -1350,7 +1372,7 @@ const supportedCurrencies = [
 		coin: 'RICK',
 		name: 'Rick [Test]',
 		asset: 'RICK',
-		rpcport: 28223,
+		rpcport: 25435,
 		mm2: 1,
 		electrumServers: [
 			{
@@ -1466,6 +1488,7 @@ const supportedCurrencies = [
 		name: 'Revs',
 		asset: 'REVS',
 		rpcport: 10196,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -1616,6 +1639,7 @@ const supportedCurrencies = [
 		name: 'Supernet',
 		asset: 'SUPERNET',
 		rpcport: 11341,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -1685,6 +1709,8 @@ const supportedCurrencies = [
 		asset: 'VRSC',
 		rpcport: 27486,
 		txversion: 4,
+		overwintered: 1,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'el0.vrsc.0x03.services',
@@ -1750,6 +1776,7 @@ const supportedCurrencies = [
 		name: 'Wireless Coin',
 		asset: 'WLC',
 		rpcport: 12167,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -1840,6 +1867,7 @@ const supportedCurrencies = [
 		name: 'ChainZilla',
 		asset: 'ZILLA',
 		rpcport: 10041,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',

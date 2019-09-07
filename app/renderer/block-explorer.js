@@ -58,7 +58,7 @@ const explorers = new Map(Object.entries({
 	FLO: 'https://florincoin.info/tx/{txid}',
 	FRK: 'https://cryptobe.com/tx/{txid}',
 	FTC: 'https://fsight.chain.tips/tx/{txid}',
-	GAME: 'https://blockexplorer.gamecredits.com/transactions/{txid}',
+	GAME: 'https://www.gamecredits.network/tx/{txid}',
 	GLD: 'https://chainz.cryptoid.info/gld/tx.dws?{txid}',
 	GLT: 'https://explorer.globaltoken.org/tx/{txid}',
 	GRLC: 'https://garli.co.in/tx/{txid}',
