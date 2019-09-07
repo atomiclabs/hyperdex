@@ -124,29 +124,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'BLK',
-		isPoS: 1,
-		rpcport: 15715,
-		pubtype: 25,
-		p2shtype: 85,
-		wiftype: 153,
-		txfee: 100000,
-		electrumServers: [
-			{
-				host: 'electrum1.cipig.net',
-				port: 10054,
-			},
-			{
-				host: 'electrum2.cipig.net',
-				port: 10054,
-			},
-			{
-				host: 'electrum3.cipig.net',
-				port: 10054,
-			},
-		],
-	},
-	{
 		coin: 'BNB',
 		name: 'Binance Coin',
 		contractAddress: '0xB8c77482e45F1F44dE1745F52C74426C631bDD52',

@@ -16,7 +16,6 @@ const explorers = new Map(Object.entries({
 	BDL: 'https://explorer.bitdeal.co.in/tx/{txid}',
 	BGN: 'http://BGN.explorer.supernet.org/tx/{txid}',
 	BITS: 'http://explorer.v2.bitstarcoin.com/tx/{txid}',
-	BLK: 'https://chainz.cryptoid.info/blk//tx.dws?{txid}',
 	BLOCK: 'https://chainz.cryptoid.info/block/tx.dws?{txid}',
 	BOTS: 'https://bots.kmdexplorer.io/tx/{txid}',
 	BTA: 'https://chainz.cryptoid.info/bta/tx.dws?{txid}',
