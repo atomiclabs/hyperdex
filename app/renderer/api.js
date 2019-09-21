@@ -89,9 +89,9 @@ export default class Api {
 	async enableCurrency(symbol) {
 		ow(symbol, 'symbol', symbolPredicate);
 
-		// TODO: Remove this when https://github.com/KomodoPlatform/atomicDEX-API/issues/492 is fixed
-		if (symbol === 'OOT') {
-			console.error('Ignoring OOT currency as it\'s not working');
+		// TODO: Remove `OOT` when https://github.com/KomodoPlatform/atomicDEX-API/issues/492 is fixed
+		if (symbol === 'OOT' || symbol === 'USDT') {
+			console.error(`Ignoring ${symbol} currency as it's not working with mm2`);
 			return;
 		}
 

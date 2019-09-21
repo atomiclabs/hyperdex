@@ -1726,12 +1726,13 @@ const supportedCurrencies = [
 		contractAddress: '0x92e52a1A235d9A103D970901066CE910AAceFD37',
 		rpcport: 80,
 	},
-	{
-		coin: 'USDT',
-		name: 'Tether',
-		contractAddress: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
-		rpcport: 80,
-	},
+	// Temporarily disabled as it's not working with mm2
+	// {
+	// 	coin: 'USDT',
+	// 	name: 'Tether',
+	// 	contractAddress: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
+	// 	rpcport: 80,
+	// },
 	{
 		coin: 'VRSC',
 		name: 'VerusCoin',
