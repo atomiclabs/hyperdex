@@ -101,10 +101,6 @@ const supportedCurrencies = [
 				port: 50001,
 			},
 			{
-				host: 'bch.loping.net',
-				port: 50001,
-			},
-			{
 				host: 'electrumx-bch.cryptonermal.net',
 				port: 50001,
 			},
@@ -137,6 +133,8 @@ const supportedCurrencies = [
 		name: 'Bots',
 		asset: 'BOTS',
 		rpcport: 11964,
+		txversion: 4,
+		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
@@ -185,6 +183,8 @@ const supportedCurrencies = [
 		name: 'Bitcoin Hush',
 		asset: 'BTCH',
 		rpcport: 8800,
+		txversion: 4,
+		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
@@ -260,6 +260,8 @@ const supportedCurrencies = [
 		name: 'Chainmakers',
 		asset: 'CHAIN',
 		rpcport: 15587,
+		txversion: 4,
+		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
@@ -311,6 +313,7 @@ const supportedCurrencies = [
 		asset: 'CCL',
 		rpcport: 20849,
 		txversion: 4,
+		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
@@ -332,6 +335,8 @@ const supportedCurrencies = [
 		name: 'Coqui Cash',
 		asset: 'COQUICASH',
 		rpcport: 19712,
+		txversion: 4,
+		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
@@ -353,6 +358,8 @@ const supportedCurrencies = [
 		name: 'Crypto777',
 		asset: 'CRYPTO',
 		rpcport: 8516,
+		txversion: 4,
+		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
@@ -459,6 +466,8 @@ const supportedCurrencies = [
 		name: 'InstantDEX',
 		asset: 'DEX',
 		rpcport: 11890,
+		txversion: 4,
+		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
@@ -799,6 +808,8 @@ const supportedCurrencies = [
 		coin: 'HODL',
 		asset: 'HODL',
 		rpcport: 14431,
+		txversion: 4,
+		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
@@ -900,6 +911,8 @@ const supportedCurrencies = [
 		asset: 'JUMBLR',
 		active: 0,
 		rpcport: 15106,
+		txversion: 4,
+		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
@@ -957,6 +970,8 @@ const supportedCurrencies = [
 		name: 'KeyValue',
 		asset: 'KV',
 		rpcport: 8299,
+		txversion: 4,
+		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
@@ -1127,6 +1142,8 @@ const supportedCurrencies = [
 		name: 'Morty [Test]',
 		asset: 'MORTY',
 		rpcport: 16348,
+		txversion: 4,
+		overwintered: 1,
 		mm2: 1,
 		electrumServers: [
 			{
@@ -1148,6 +1165,8 @@ const supportedCurrencies = [
 		name: 'MiliShark',
 		asset: 'MSHARK',
 		rpcport: 8846,
+		txversion: 4,
+		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
@@ -1275,6 +1294,8 @@ const supportedCurrencies = [
 		name: 'Pangea Poker',
 		asset: 'PANGEA',
 		rpcport: 14068,
+		txversion: 4,
+		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
@@ -1314,6 +1335,8 @@ const supportedCurrencies = [
 		name: 'Pungo Token',
 		asset: 'PGT',
 		rpcport: 46705,
+		txversion: 4,
+		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
@@ -1373,6 +1396,8 @@ const supportedCurrencies = [
 		name: 'Rick [Test]',
 		asset: 'RICK',
 		rpcport: 25435,
+		txversion: 4,
+		overwintered: 1,
 		mm2: 1,
 		electrumServers: [
 			{
@@ -1488,6 +1513,8 @@ const supportedCurrencies = [
 		name: 'Revs',
 		asset: 'REVS',
 		rpcport: 10196,
+		txversion: 4,
+		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
@@ -1639,6 +1666,8 @@ const supportedCurrencies = [
 		name: 'Supernet',
 		asset: 'SUPERNET',
 		rpcport: 11341,
+		txversion: 4,
+		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
@@ -1776,6 +1805,8 @@ const supportedCurrencies = [
 		name: 'Wireless Coin',
 		asset: 'WLC',
 		rpcport: 12167,
+		txversion: 4,
+		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
