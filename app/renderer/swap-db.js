@@ -47,6 +47,12 @@ class SwapDB {
 		})();
 
 		this.pQueue = new PQueue({concurrency: 1});
+
+		// NOTE: this is only for debug
+		// please remove these lines when we merge code
+		if(typeof window !== 'undefined') {
+			window.swapDB = this
+		}
 	}
 
 	async migrate() {
