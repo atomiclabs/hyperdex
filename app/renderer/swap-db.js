@@ -50,8 +50,8 @@ class SwapDB {
 
 		// NOTE: this is only for debug
 		// please remove these lines when we merge code
-		if(typeof window !== 'undefined') {
-			window.swapDB = this
+		if (typeof window !== 'undefined') {
+			window.swapDB = this;
 		}
 	}
 
@@ -109,7 +109,7 @@ class SwapDB {
 
 	// TODO: We should refactor this into a seperate file
 	_formatSwap(data) {
-		console.log('swap data', data);
+		// Console.log('swap data', data);
 
 		const {
 			uuid,
@@ -168,7 +168,7 @@ class SwapDB {
 			},
 		};
 
-		console.log('swapData', swapData);
+		// Console.log('swapData', swapData);
 
 		if (swapData) {
 			const {
@@ -177,7 +177,7 @@ class SwapDB {
 				success_events: successEvents,
 			} = swapData;
 
-			console.log('events', events);
+			// Console.log('events', events);
 
 			const failedEvent = events.find(event => errorEvents.includes(event.event.type));
 			const nonSwapEvents = ['Started', 'Negotiated', 'Finished'];
@@ -191,11 +191,11 @@ class SwapDB {
 			const maxSwapProgress = 0.8;
 			const newestEvent = events[events.length - 1];
 
-			console.log('failedEvent', failedEvent);
-			console.log('totalSwapEvents', totalSwapEvents);
-			console.log('swapEvents', swapEvents);
-			console.log('isFinished', isFinished);
-			console.log('isSwapping', isSwapping);
+			// Console.log('failedEvent', failedEvent);
+			// console.log('totalSwapEvents', totalSwapEvents);
+			// console.log('swapEvents', swapEvents);
+			// console.log('isFinished', isFinished);
+			// console.log('isSwapping', isSwapping);
 
 			swap.totalStages = totalSwapEvents;
 			swap.stages = swapEvents;
@@ -242,7 +242,7 @@ class SwapDB {
 			swap.statusFormatted = t('status.cancelled').toLowerCase();
 		}
 
-		console.log('progress', swap.progress);
+		// Console.log('progress', swap.progress);
 
 		return swap;
 	}

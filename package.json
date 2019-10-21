@@ -4,6 +4,7 @@
 		"postinstall": "electron-builder install-app-deps && npm run get-marketmaker",
 		"lint": "xo && stylelint 'app/renderer/**/*.scss'",
 		"test": "yarn lint && ava",
+		"test:unit": "ava",
 		"start:watch": "webpack-dev-server --hot",
 		"start:launch": "wait-for-localhost 8080 && run-electron app",
 		"start": "yarn && run-p --race start:*",
@@ -137,7 +138,10 @@
 			"unicorn/filename-case": "off",
 			"import/exports-last": "error",
 			"react/jsx-fragments": "off"
-		}
+		},
+		"ignores": [
+			"test/renderer/__mocks__/**"
+		]
 	},
 	"stylelint": {
 		"extends": "stylelint-config-xo-scss",
