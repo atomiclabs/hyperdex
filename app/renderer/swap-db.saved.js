@@ -18,8 +18,8 @@ PouchDB.plugin(cryptoPouch);
 
 class SwapDB {
 	constructor(portfolioId, seedPhrase) {
-		// Using `orders2` so it won't conflict with prev db
-		this.db = new PouchDB(`orders2-${portfolioId}`, {adapter: 'idb'});
+		// Using `2` so it won't conflict with HyperDEX versions using marketmaker v1.
+		this.db = new PouchDB(`swaps2-${portfolioId}`, {adapter: 'idb'});
 
 		this.db.crypto(seedPhrase);
 
@@ -47,12 +47,6 @@ class SwapDB {
 		})();
 
 		this.pQueue = new PQueue({concurrency: 1});
-
-		// NOTE: this is only for debug
-		// please remove these lines when we merge code
-		if (typeof window !== 'undefined') {
-			window.swapDB = this;
-		}
 	}
 
 	async migrate() {
@@ -75,19 +69,13 @@ class SwapDB {
 		});
 	}
 
-	// TODO: rename this to insertOrderData
 	insertSwapData(swap, requestOpts) {
-		console.log(swap)
 		return this.queue(() => this.db.post({
 			uuid: swap.uuid,
 			timeStarted: Date.now(),
 			request: requestOpts,
 			response: swap,
 			messages: [],
-			swaps: {},
-    		startedSwaps:[],
-			// NOTE: taker order will be converted to maker order if it is not matched in 30s
-			type: "Taker"
 		}));
 	}
 
