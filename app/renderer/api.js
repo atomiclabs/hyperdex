@@ -4,7 +4,11 @@ import PQueue from 'p-queue';
 import ow from 'ow';
 import _ from 'lodash';
 import {getCurrency} from '../marketmaker/supported-currencies';
-import {isDevelopment} from '../util-common';
+// import {isDevelopment} from '../util-common';
+
+// NOTE: temporarily turn off this feature
+// enable when we merge code
+const isDevelopment = false;
 
 const symbolPredicate = ow.string.uppercase;
 const uuidPredicate = ow.string.matches(/[a-z\d-]/);
@@ -272,6 +276,16 @@ export default class Api {
 	async getEnabledCurrencies() {
 		const {result} = await this.request({
 			method: 'get_enabled_coins',
+		});
+
+		return result;
+	}
+
+	// Mm v2
+	// https://developers.atomicdex.io/basic-docs/atomicdex/atomicdex-api.html#cancel-all-orders
+	async cancelAllOrders() {
+		const {result} = await this.request({
+			method: 'cancel_all_orders'
 		});
 
 		return result;
