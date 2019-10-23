@@ -247,6 +247,16 @@ export default class Api {
 	}
 
 	// Mm v2
+	// https://developers.atomicdex.io/basic-docs/atomicdex/atomicdex-api.html#my-orders
+	async myOrders() {
+		const {result} = await this.request({
+			method: 'my_orders',
+		});
+
+		return result;
+	}
+
+	// Mm v2
 	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#my_recent_swaps
 	// TODO: Add support for the input arguments it supports.
 	async myRecentSwaps() {
