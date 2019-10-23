@@ -227,15 +227,13 @@ export default class Api {
 	}
 
 	// Mm v2
-	async orderStatus(uuid) {
+	orderStatus(uuid) {
 		ow(uuid, 'uuid', uuidPredicate);
 
-		const {result} = await this.request({
+		return this.request({
 			method: 'order_status',
 			uuid,
 		});
-
-		return result;
 	}
 
 	// Mm v2
@@ -285,7 +283,10 @@ export default class Api {
 	// https://developers.atomicdex.io/basic-docs/atomicdex/atomicdex-api.html#cancel-all-orders
 	async cancelAllOrders() {
 		const {result} = await this.request({
-			method: 'cancel_all_orders'
+			method: 'cancel_all_orders',
+			cancel_by: {
+				type: 'All'
+			}
 		});
 
 		return result;

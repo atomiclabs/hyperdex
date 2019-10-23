@@ -56,8 +56,40 @@ class AppContainer extends SuperContainer {
 		// TODO: Change this to `1` second.
 		fireEvery({seconds: 10}, async () => {
 			const uuids = this.state.swapHistory.map(swap => swap.uuid);
+
+			const orders = await this.swapDB.getSwaps2();
+			// console.log('orders', orders);
+			const orderIds = orders.map(order => order.uuid);
+			// console.log('orderIds', orderIds);
+			const orderTypes = orders.map(order => order.type);
+			console.log('orderTypes', orderTypes);
+
+			console.log(`load recent orders`);
+			const myOrders = await this.api.myOrders();
+			// const takerOrders = myOrders.taker_orders;
+			// const makerOrders = myOrders.maker_orders;
+			// console.log('takerOrders', takerOrders);
+			// console.log('makerOrders', makerOrders);
+
+			await Promise.all(orderIds.map(async uuid => {
+				console.log(`order uuid = ${uuid}`);
+				const data = await this.api.orderStatus(uuid);
+				if(data.error){
+					console.error(data.error);
+					return;
+				}
+				const { type, order } = data;
+				order.type = type;
+				this.swapDB.updateOrderData(order);
+			}));
+
+
+
+
+
+
 			const recentSwaps = await this.api.myRecentSwaps();
-			console.log('recentSwaps', recentSwaps);
+			// console.log('recentSwaps', recentSwaps);
 
 			await Promise.all(uuids.map(async uuid => {
 				const swap = recentSwaps.find(x => x.uuid === uuid);

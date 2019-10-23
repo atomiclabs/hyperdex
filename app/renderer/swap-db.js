@@ -19,9 +19,13 @@ PouchDB.plugin(cryptoPouch);
 class SwapDB {
 	constructor(portfolioId, seedPhrase) {
 		// Using `orders2` so it won't conflict with prev db
-		this.db = new PouchDB(`orders2-${portfolioId}`, {adapter: 'idb'});
+		this.db = new PouchDB(`swaps2-${portfolioId}`, {adapter: 'idb'});
+
+		this.db2 = new PouchDB(`orders2-${portfolioId}`, {adapter: 'idb'});
 
 		this.db.crypto(seedPhrase);
+
+		this.db2.crypto(seedPhrase);
 
 		const ee = new Emittery();
 		this.on = ee.on.bind(ee);
@@ -75,20 +79,42 @@ class SwapDB {
 		});
 	}
 
-	// TODO: rename this to insertOrderData
-	insertSwapData(swap, requestOpts) {
-		console.log(swap)
-		return this.queue(() => this.db.post({
-			uuid: swap.uuid,
+	// NOTE: new api
+	insertOrderData(order, requestOpts) {
+		console.log(order);
+		return this.queue(() => this.db2.post({
+			uuid: order.uuid,
 			timeStarted: Date.now(),
 			request: requestOpts,
-			response: swap,
+			response: order,
 			messages: [],
 			swaps: {},
     		startedSwaps:[],
 			// NOTE: taker order will be converted to maker order if it is not matched in 30s
 			type: "Taker"
 		}));
+	}
+
+	insertSwapData(swap, requestOpts) {
+		return this.queue(() => this.db.post({
+			uuid: swap.uuid,
+			timeStarted: Date.now(),
+			request: requestOpts,
+			response: swap,
+			messages: [],
+		}));
+	}
+
+	// NOTE: new api
+	async _getSwapData2(uuid) {
+		await this.ready;
+
+		const {docs} = await this.db2.find({
+			selector: {uuid},
+			limit: 1,
+		});
+
+		return docs[0];
 	}
 
 	async _getSwapData(uuid) {
@@ -100,6 +126,19 @@ class SwapDB {
 		});
 
 		return docs[0];
+	}
+
+	// NOTE: new api
+	updateOrderData = (orderData, swapsData) => {
+		console.log(orderData, swapsData, 'updateOrderData');
+		return this.queue(async () => {
+			const order = await this._getSwapData2(orderData.uuid);
+
+			await this.db2.upsert(order._id, doc => {
+				doc.type = orderData.type;
+				return doc;
+			});
+		});
 	}
 
 	updateSwapData = swapData => {
@@ -116,7 +155,6 @@ class SwapDB {
 	// TODO: We should refactor this into a seperate file
 	_formatSwap(data) {
 		// Console.log('swap data', data);
-
 		const {
 			uuid,
 			timeStarted,
@@ -279,12 +317,51 @@ class SwapDB {
 		// https://github.com/pouchdb/pouchdb/issues/7206
 		const {docs} = await this.db.find(options.query || query);
 
+		const result = await this.db2.find(options.query || query);
+		console.log(result.docs, 'result.docs');
+
+		return docs;
+	}
+
+	async _getAllSwapData2(options = {}) {
+		await this.ready;
+
+		options = {
+			since: true,
+			sort: 'desc',
+			...options,
+		};
+
+		const query = {
+			selector: {
+				timeStarted: {
+					$gt: options.since,
+				},
+			},
+			sort: [
+				{
+					timeStarted: options.sort,
+				},
+			],
+		};
+
+		// We need `timeStarted: {$gt: true}` so PouchDB can sort.
+		// https://github.com/pouchdb/pouchdb/issues/7206
+		const {docs} = await this.db2.find(options.query || query);
+
 		return docs;
 	}
 
 	async getSwaps(options) {
 		const swapData = await this._getAllSwapData(options);
 		return swapData.map(this._formatSwap);
+	}
+
+	// NOTE: new api
+	async getSwaps2(options) {
+		const swapData = await this._getAllSwapData2(options);
+		// return swapData.map(this._formatSwap);
+		return swapData;
 	}
 
 	async getSwapCount() {

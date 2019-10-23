@@ -170,6 +170,8 @@ class Bottom extends React.Component {
 		delete requestOpts.volume;
 
 		const {swapDB} = appContainer;
+		// NOTE: new api
+		await swapDB.insertOrderData(swap, requestOpts);
 		await swapDB.insertSwapData(swap, requestOpts);
 		exchangeContainer.setIsSendingOrder(false);
 	};
