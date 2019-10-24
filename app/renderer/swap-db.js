@@ -5,6 +5,7 @@ import cryptoPouch from 'crypto-pouch';
 import Emittery from 'emittery';
 import PQueue from 'p-queue';
 import roundTo from 'round-to';
+import ow from 'ow';
 import {subDays, isAfter} from 'date-fns';
 import appContainer from 'containers/App';
 import {appTimeStarted} from '../constants';
@@ -130,12 +131,26 @@ class SwapDB {
 
 	// NOTE: new api
 	updateOrderData = (orderData, swapsData) => {
-		console.log(orderData, swapsData, 'updateOrderData');
 		return this.queue(async () => {
 			const order = await this._getSwapData2(orderData.uuid);
 
 			await this.db2.upsert(order._id, doc => {
 				doc.type = orderData.type;
+				console.log(doc, 'updateOrderData');
+				return doc;
+			});
+		});
+	}
+	// NOTE: new api
+	updateSwapData2 = (uuid, swapData) => {
+		return this.queue(async () => {
+			const order = await this._getSwapData2(uuid);
+
+			await this.db2.upsert(order._id, doc => {
+				if(doc.startedSwaps.indexOf(swapData.uuid) === -1) {
+					doc.startedSwaps.push(swapData.uuid);
+				}
+				doc.swaps[swapData.uuid] = swapData;
 				return doc;
 			});
 		});
@@ -316,10 +331,6 @@ class SwapDB {
 		// We need `timeStarted: {$gt: true}` so PouchDB can sort.
 		// https://github.com/pouchdb/pouchdb/issues/7206
 		const {docs} = await this.db.find(options.query || query);
-
-		const result = await this.db2.find(options.query || query);
-		console.log(result.docs, 'result.docs');
-
 		return docs;
 	}
 
@@ -367,6 +378,16 @@ class SwapDB {
 	async getSwapCount() {
 		const entries = await this.db.allDocs();
 		return entries.rows.length - 1; // We don't count the `_design` doc
+	}
+
+	// NOTE: new api
+	// https://pouchdb.com/api.html#delete_document
+	async removeAOrder(uuid) {
+		ow(uuid, 'uuid', ow.string);
+		return this.queue(async () => {
+			const order = await this._getSwapData2(uuid);
+			await this.db2.remove(order);
+		});
 	}
 
 	async destroy() {
