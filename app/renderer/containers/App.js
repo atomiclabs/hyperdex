@@ -29,6 +29,8 @@ class AppContainer extends SuperContainer {
 		enabledCoins: alwaysEnabledCurrencies,
 		currencies: [],
 		swapHistory: [],
+		// NOTE: new api
+		ordersHistory: [],
 	};
 
 	events = new EventEmitter();
@@ -47,6 +49,8 @@ class AppContainer extends SuperContainer {
 	initSwapHistoryListener() {
 		const setSwapHistory = async () => {
 			await this.setState({swapHistory: await this.swapDB.getSwaps()});
+			// NOTE: new api
+			await this.setState({ordersHistory: await this.swapDB.getOrders()});
 		};
 
 		setSwapHistory();
@@ -55,41 +59,56 @@ class AppContainer extends SuperContainer {
 
 		// TODO: Change this to `1` second.
 		fireEvery({seconds: 10}, async () => {
-			const uuids = this.state.swapHistory.map(swap => swap.uuid);
+			const orderIds = this.state.ordersHistory.map(swap => swap.uuid);
+			console.log('orderIds', orderIds);
 
-			const orders = await this.swapDB.getSwaps2();
-			// console.log('orders', orders);
-			const orderIds = orders.map(order => order.uuid);
-			// console.log('orderIds', orderIds);
-			const orderTypes = orders.map(order => order.type);
+			const orderTypes = this.state.ordersHistory.map(order => order.type);
 			console.log('orderTypes', orderTypes);
 
 			console.log(`load recent orders`);
 			const myOrders = await this.api.myOrders();
+			console.log(myOrders, 'myOrders');
+			const orders = _.merge(_.get(myOrders, 'taker_orders'), _.get(myOrders, 'maker_orders'))
+			console.log(orders, 'orders');
 			// const takerOrders = myOrders.taker_orders;
 			// const makerOrders = myOrders.maker_orders;
 			// console.log('takerOrders', takerOrders);
 			// console.log('makerOrders', makerOrders);
 
 			await Promise.all(orderIds.map(async uuid => {
-				console.log(`order uuid = ${uuid}`);
-				const data = await this.api.orderStatus(uuid);
-				if(data.error){
-					console.error(data.error);
+				const order = orders[uuid];
+				if (!order) {
+					console.error('Could not find order:', uuid);
 					return;
 				}
-				const { type, order } = data;
-				order.type = type;
-				this.swapDB.updateOrderData(order);
+
+
+				// const data = await this.api.orderStatus(uuid);
+				// if(data.error){
+				// 	console.error(data.error);
+				// 	// check if taker order is matched
+				// 	const swap = await this.api.mySwapStatus(uuid);
+				// 	if(swap) {
+				// 		console.log(swap, 'swap');
+				// 		this.swapDB.updateSwapData2(uuid, swap);
+				// 	}
+				// 	return;
+				// }
+				// console.log(`order uuid = ${uuid}`);
+				// const { type, order } = data;
+				// order.type = type;
+				// this.swapDB.updateOrderData(order);
 			}));
 
 
+		});
 
-
-
-
+		// TODO: Change this to `1` second.
+		// TODO: Change this to `1` second.
+		fireEvery({seconds: 10}, async () => {
+			const uuids = this.state.swapHistory.map(swap => swap.uuid);
 			const recentSwaps = await this.api.myRecentSwaps();
-			// console.log('recentSwaps', recentSwaps);
+			console.log('recentSwaps', recentSwaps);
 
 			await Promise.all(uuids.map(async uuid => {
 				const swap = recentSwaps.find(x => x.uuid === uuid);

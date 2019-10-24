@@ -10,6 +10,7 @@ import {subDays, isAfter} from 'date-fns';
 import appContainer from 'containers/App';
 import {appTimeStarted} from '../constants';
 import {translate} from './translate';
+import formatOrder from './format-order-data';
 
 const t = translate('swap');
 
@@ -43,6 +44,8 @@ class SwapDB {
 		// https://github.com/pouchdb/pouchdb/issues/7207
 		this.ready = (async () => {
 			await this.db.createIndex({index: {fields: ['timeStarted', 'uuid']}});
+			// NOTE: new api
+			await this.db2.createIndex({index: {fields: ['timeStarted', 'uuid']}});
 			await this.migrate();
 
 			// We need to regularly check if pending swaps have timed out.
@@ -192,9 +195,6 @@ class SwapDB {
 			orderType: action === 'Buy' ? 'buy' : 'sell',
 			status: 'pending',
 			statusFormatted: t('status.open').toLowerCase(),
-			get isActive() {
-				return !['completed', 'failed'].includes(this.status);
-			},
 			error: false,
 			progress: 0,
 			baseCurrency,
@@ -224,6 +224,9 @@ class SwapDB {
 				request,
 				response,
 				swapData,
+			},
+			get isActive() {
+				return !['completed', 'failed'].includes(this.status);
 			},
 		};
 
@@ -334,7 +337,8 @@ class SwapDB {
 		return docs;
 	}
 
-	async _getAllSwapData2(options = {}) {
+	// NOTE: new api
+	async _getAllOrdersData(options = {}) {
 		await this.ready;
 
 		options = {
@@ -369,10 +373,9 @@ class SwapDB {
 	}
 
 	// NOTE: new api
-	async getSwaps2(options) {
-		const swapData = await this._getAllSwapData2(options);
-		// return swapData.map(this._formatSwap);
-		return swapData;
+	async getOrders(options) {
+		const ordersData = await this._getAllOrdersData(options);
+		return ordersData.map(formatOrder);
 	}
 
 	async getSwapCount() {
@@ -392,6 +395,11 @@ class SwapDB {
 
 	async destroy() {
 		await this.db.destroy();
+	}
+
+	// NOTE: new api
+	async destroy2() {
+		await this.db2.destroy();
 	}
 
 	async statsSince(timestamp) {
