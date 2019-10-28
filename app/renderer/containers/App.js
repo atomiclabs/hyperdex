@@ -94,6 +94,7 @@ class AppContainer extends SuperContainer {
 			console.log(ordersJustChangeToMaker, 'ordersJustChangeToMaker');
 
 			await Promise.all(activeOrders.map(async uuid => {
+				try {
 				const order = this.state.ordersHistory.find(x => x.uuid === uuid);
 				if(!order) {
 					console.error('Could not find order:', uuid);
@@ -103,8 +104,6 @@ class AppContainer extends SuperContainer {
 				const isOrdersJustChangeToMaker = ordersJustChangeToMaker.indexOf(uuid) !== -1;
 				let isMakerOrder = order.orderType === "Maker";
 				let isTakerOrder = order.orderType === "Taker";
-				// const activeSwaps = order.swaps ? order.swaps.filter(e => e && ['failed', 'completed'].indexOf(e.status) !== -1) : [];
- 				const activeSwaps = order.startedSwaps;
 				// update order status
 				if(isOrdersJustCompleted) {
 					await this.swapDB.markOrderCompleted(uuid);
@@ -118,6 +117,13 @@ class AppContainer extends SuperContainer {
 				}
 
 				// update order swaps
+				// const activeSwaps = order.swaps ? order.swaps.filter(e => e && ['failed', 'completed'].indexOf(e.status) !== -1) : [];
+				const orderInMM2 = orders[uuid];
+				let activeSwaps = order.startedSwaps;
+				if(orderInMM2) {
+	 				activeSwaps = _.concat(activeSwaps, orderInMM2.started_swaps);
+				}
+
 				if(isTakerOrder && isOrdersJustCompleted) {
 					// taker order just matched and filled
 					console.log('isTakerOrder && isOrdersJustCompleted');
@@ -181,6 +187,10 @@ class AppContainer extends SuperContainer {
 				// console.log(`order uuid = ${uuid}`);
 				// const { type, order } = data;
 				// order.type = type;
+
+				} catch(err) {
+					console.log(err);
+				}
 			}));
 
 			makerActiveOrders = makerOrdersInThisLoops;
