@@ -63,20 +63,7 @@ class SwapDetails extends React.Component {
 		config.set('swapModalShowAdvanced', showAdvanced);
 	};
 
-	render() {
-		const {
-			swapId,
-			open,
-			didClose,
-		} = this.props;
-
-		if (!swapId) {
-			return null;
-		}
-
-		const swap = appContainer.state.swapHistory.find(swap => swap.uuid === swapId);
-		const {baseCurrency, quoteCurrency} = swap;
-
+	showTransaction = swap => {
 		const transactions = swap.stages.map(stage => (
 			<React.Fragment key={stage.event.type}>
 				<div className="arrow completed">→</div>
@@ -94,7 +81,6 @@ class SwapDetails extends React.Component {
 				)}
 			</React.Fragment>
 		));
-
 		if (swap.status === 'swapping') {
 			for (const stageType of swap.totalStages) {
 				const isStageFinished = swap.stages.some(x => x.event.type === stageType);
@@ -111,6 +97,63 @@ class SwapDetails extends React.Component {
 				}
 			}
 		}
+		return (
+			<div className="transactions" key={swap.uuid}>
+			{transactions}
+			</div>
+		);
+	}
+
+	render() {
+		const {
+			swapId,
+			open,
+			didClose,
+		} = this.props;
+
+		if (!swapId) {
+			return null;
+		}
+
+		const swap = appContainer.state.swapHistory.find(swap => swap.uuid === swapId);
+		const order = appContainer.state.ordersHistory.find(order => order.uuid === swapId);
+
+		const {baseCurrency, quoteCurrency} = swap;
+
+		// const transactions = swap.stages.map(stage => (
+		// 	<React.Fragment key={stage.event.type}>
+		// 		<div className="arrow completed">→</div>
+		// 		{stage.event.data && stage.event.data.tx_hash ? (
+		// 			<ExternalLink url={stage.event.data.tx_hash ? blockExplorer.tx(stage.event.data.coin, stage.event.data.tx_hash) : null}>
+		// 				<div className="item completed">
+		// 					<h6>{t(`swapStages.${stage.event.type}`)}</h6>
+		// 					<p>{stage.event.data.total_amount}<br/>{stage.event.data.coin}</p>
+		// 				</div>
+		// 			</ExternalLink>
+		// 		) : (
+		// 			<div className="item completed">
+		// 				<h6>{t(`swapStages.${stage.event.type}`)}</h6>
+		// 			</div>
+		// 		)}
+		// 	</React.Fragment>
+		// ));
+
+		// if (swap.status === 'swapping') {
+		// 	for (const stageType of swap.totalStages) {
+		// 		const isStageFinished = swap.stages.some(x => x.event.type === stageType);
+
+		// 		if (!isStageFinished) {
+		// 			transactions.push(
+		// 				<React.Fragment key={stageType}>
+		// 					<div className="arrow">→</div>
+		// 					<div className="item">
+		// 						<h6>{t(`swapStages.${stageType}`)}</h6>
+		// 					</div>
+		// 				</React.Fragment>
+		// 			);
+		// 		}
+		// 	}
+		// }
 
 		const prices = ['requested', 'broadcast', 'executed'].map(value => {
 			if (!swap[value].price) {
@@ -218,15 +261,25 @@ class SwapDetails extends React.Component {
 											</p>
 										)}
 									</div>
-									{(transactions.length > 0) && (
+									{/* {(transactions.length > 0) && (
 										<>
 											<h4>{t('details.transactions')}</h4>
 											<div className="transactions">
 												{transactions}
 											</div>
 										</>
+									)} */}
+									{(order.swaps.length > 0) && (
+										<>
+											<h4>{t('details.transactions')}</h4>
+											{order.swaps.map(this.showTransaction)}
+										</>
 									)}
-									<p>ID: {swap.uuid}</p>
+									<p>
+										ID: {swap.uuid}
+										<br />
+										Type: {order.orderType}
+									</p>
 									{isDevelopment &&
 										<Button
 											value={t('details.copyDebugData')}

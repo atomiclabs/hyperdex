@@ -11,6 +11,8 @@ export default function formatOrder(data) {
 		timeStarted,
 		request,
 		response,
+		status,
+		type,
 		swaps,
     	startedSwaps
 	} = data;
@@ -26,8 +28,9 @@ export default function formatOrder(data) {
 	const order = {
 		uuid,
 		timeStarted,
-		orderType: action === 'Buy' ? 'buy' : 'sell',
-		status: 'pending',
+		// swapType: action === 'Buy' ? 'buy' : 'sell', // This is swap type
+		orderType: type,
+		status,
 		statusFormatted: t('status.open').toLowerCase(),
 		error: false,
 		progress: 0,
@@ -62,14 +65,27 @@ export default function formatOrder(data) {
 		// get isActive() {
 		// 	return !['completed', 'failed'].includes(this.status);
 		// },
+		startedSwaps,
+		get isActive() {
+			if(this.status === "Active") {
+				return true;
+			}
+			const activeSwaps = this.swaps.filter(e => {
+				if(!e) return true;
+				return ['failed', 'completed'].indexOf(e.status) === -1;
+			})
+			return activeSwaps.length > 0;
+		}
 	};
 
-	console.log('order data', order);
+	// console.log('order data', order);
 	order.swaps = startedSwaps.map(e => formatSwap(swaps[e]));
 	return order;
 }
 
 export function formatSwap(data) {
+	if(!data) return null;
+
 	const swap = {
 		status: 'pending',
 		statusFormatted: t('status.open').toLowerCase(),

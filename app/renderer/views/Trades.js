@@ -27,6 +27,8 @@ TabView.propTypes = {
 const OpenOrders = () => {
 	const {state} = appContainer;
 	const filteredData = state.swapHistory.filter(swap => swap.isActive);
+	// const filteredData = state.swapHistory;
+
 	return <SwapList showCancel showHeader swaps={filteredData}/>;
 };
 

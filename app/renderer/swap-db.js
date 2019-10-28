@@ -34,11 +34,11 @@ class SwapDB {
 		this.off = ee.off.bind(ee);
 		this.once = ee.once.bind(ee);
 
-		this.db.changes({
+		this.db2.changes({
 			since: 'now',
 			live: true,
 			include_docs: true, // eslint-disable-line camelcase
-		}).on('change', ({doc: swap}) => ee.emit('change', swap));
+		}).on('change', ({doc: order}) => ee.emit('change', order));
 
 		// To be able to sort via timeStarted it MUST be the fist item in the index.
 		// https://github.com/pouchdb/pouchdb/issues/7207
@@ -85,7 +85,6 @@ class SwapDB {
 
 	// NOTE: new api
 	insertOrderData(order, requestOpts) {
-		console.log(order);
 		return this.queue(() => this.db2.post({
 			uuid: order.uuid,
 			timeStarted: Date.now(),
@@ -95,7 +94,8 @@ class SwapDB {
 			swaps: {},
     		startedSwaps:[],
 			// NOTE: taker order will be converted to maker order if it is not matched in 30s
-			type: "Taker"
+			type: "Taker",
+			status: "Active"
 		}));
 	}
 
@@ -107,18 +107,6 @@ class SwapDB {
 			response: swap,
 			messages: [],
 		}));
-	}
-
-	// NOTE: new api
-	async _getSwapData2(uuid) {
-		await this.ready;
-
-		const {docs} = await this.db2.find({
-			selector: {uuid},
-			limit: 1,
-		});
-
-		return docs[0];
 	}
 
 	async _getSwapData(uuid) {
@@ -133,27 +121,84 @@ class SwapDB {
 	}
 
 	// NOTE: new api
-	updateOrderData = (orderData, swapsData) => {
+	async _getOrderData(uuid) {
+		await this.ready;
+
+		const {docs} = await this.db2.find({
+			selector: {uuid},
+			limit: 1,
+		});
+
+		return docs[0];
+	}
+
+	// NOTE: new api
+	updateOrderData = (orderData, /*swapsData*/) => {
 		return this.queue(async () => {
-			const order = await this._getSwapData2(orderData.uuid);
+			const order = await this._getOrderData(orderData.uuid);
 
 			await this.db2.upsert(order._id, doc => {
 				doc.type = orderData.type;
-				console.log(doc, 'updateOrderData');
+				// for(let i = 0; i < swapsData.length; i+=1) {
+				// 	const swap = swapsData[i];
+				// 	if(doc.startedSwaps.indexOf(swap.uuid) === -1) {
+				// 		doc.startedSwaps.push(swap.uuid);
+				// 	}
+				// 	doc.swaps[swap.uuid] = swap;
+				// }
 				return doc;
 			});
 		});
 	}
+
 	// NOTE: new api
-	updateSwapData2 = (uuid, swapData) => {
+	markOrderCompleted = uuid => {
 		return this.queue(async () => {
-			const order = await this._getSwapData2(uuid);
+			const order = await this._getOrderData(uuid);
+			await this.db2.upsert(order._id, doc => {
+				doc.status = 'Completed';
+				return doc;
+			});
+		});
+	}
+
+	// NOTE: new api
+	addSwapToOrder= (uuid, swapuuid) => {
+		return this.queue(async () => {
+			const order = await this._getOrderData(uuid);
+			await this.db2.upsert(order._id, doc => {
+				if(doc.startedSwaps.indexOf(swapuuid) === -1) {
+					doc.startedSwaps.push(swapuuid);
+				}
+				return doc;
+			});
+		});
+	}
+
+	// NOTE: new api
+	markOrderType = (uuid, type) => {
+		return this.queue(async () => {
+			const order = await this._getOrderData(uuid);
+			await this.db2.upsert(order._id, doc => {
+				doc.type = type;
+				return doc;
+			});
+		});
+	}
+
+	// NOTE: new api
+	updateSwapData2 = (uuid, swapsData) => {
+		return this.queue(async () => {
+			const order = await this._getOrderData(uuid);
 
 			await this.db2.upsert(order._id, doc => {
-				if(doc.startedSwaps.indexOf(swapData.uuid) === -1) {
-					doc.startedSwaps.push(swapData.uuid);
+				for(let i = 0; i < swapsData.length; i+=1) {
+					const swap = swapsData[i];
+					if(doc.startedSwaps.indexOf(swap.uuid) === -1) {
+						doc.startedSwaps.push(swap.uuid);
+					}
+					doc.swaps[swap.uuid] = swap;
 				}
-				doc.swaps[swapData.uuid] = swapData;
 				return doc;
 			});
 		});
@@ -378,6 +423,12 @@ class SwapDB {
 		return ordersData.map(formatOrder);
 	}
 
+	// NOTE: new api
+	async getRawOrders(options) {
+		const ordersData = await this._getAllOrdersData(options);
+		return ordersData;
+	}
+
 	async getSwapCount() {
 		const entries = await this.db.allDocs();
 		return entries.rows.length - 1; // We don't count the `_design` doc
@@ -388,7 +439,7 @@ class SwapDB {
 	async removeAOrder(uuid) {
 		ow(uuid, 'uuid', ow.string);
 		return this.queue(async () => {
-			const order = await this._getSwapData2(uuid);
+			const order = await this._getOrderData(uuid);
 			await this.db2.remove(order);
 		});
 	}
