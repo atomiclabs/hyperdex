@@ -94,7 +94,7 @@ class AppContainer extends SuperContainer {
 			console.log(ordersJustChangeToMaker, 'ordersJustChangeToMaker');
 
 			await Promise.all(activeOrders.map(async uuid => {
-				try {
+			try {
 				const order = this.state.ordersHistory.find(x => x.uuid === uuid);
 				if(!order) {
 					console.error('Could not find order:', uuid);
@@ -132,9 +132,38 @@ class AppContainer extends SuperContainer {
 				}
 
 				if(isMakerOrder && isOrdersJustCompleted) {
-					// taker order just matched and filled
+					// maker order just matched and filled
 					console.log('isMakerOrder && isOrdersJustCompleted');
-					return;
+					// NOTE:
+					// because this issue https://github.com/KomodoPlatform/atomicDEX-API/issues/451
+					// we only allow user to open one order for each coin pair for now
+					// Because there is only one order at a time so all current swaps will be its
+					const { baseCurrency, quoteCurrency, orderType } = order;
+					for(let i = 0; i < recentSwaps.length; i+=1) {
+						const swap = recentSwaps[i];
+						const {
+							events,
+							error_events: errorEvents,
+							success_events: successEvents,
+						} = swap;
+
+						const failedEvent = events.find(event => errorEvents.includes(event.event.type));
+						const isFinished = !failedEvent && events.some(event => event.event.type === 'Finished');
+
+						if(activeSwaps.indexOf(swap.uuid) !== -1) {
+							// found last swap, stop loops
+							break;
+						}
+
+						if(
+							swap.my_info.my_coin === quoteCurrency &&
+							swap.my_info.other_coin=== baseCurrency &&
+							swap.type === orderType &&
+							!isFinished
+						) {
+							activeSwaps.push(swap.uuid);
+						}
+					}
 				}
 
 				if(activeSwaps.length === 0) {
@@ -149,48 +178,9 @@ class AppContainer extends SuperContainer {
 					await this.swapDB.updateSwapData2(uuid, swapsData);
 				}
 
-				// update order swaps
-
-				// const orderInDB = orders[uuid];
-				// if (!orderInDB) {
-				// 	// NOTE: Order is not active
-				// 	console.error('Could not find order:', uuid);
-				// 	return;
-				// }
-				// const {type, order} = await this.api.orderStatus(uuid);
-				// order.type = type;
-				// if(type === 'Maker') {
-				// 	// Maker order
-				// 	console.log(order, 'order');
-				// 	const swapsData = order.started_swaps
-				// 	.map(swapID => recentSwaps.find(x => x.uuid === swapID))
-				// 	.filter(el => el); // filter undefined
-				// 	console.log(swapsData, 'swapsData');
-				// 	this.swapDB.updateOrderData(order, swapsData);
-				// }
-				// if(type === 'Taker') {
-				// 	this.swapDB.updateOrderData(order, []);
-				// }
-
-
-
-				// if(data.error){
-				// 	console.error(data.error);
-				// 	// check if taker order is matched
-				// 	const swap = await this.api.mySwapStatus(uuid);
-				// 	if(swap) {
-				// 		console.log(swap, 'swap');
-				// 		this.swapDB.updateSwapData2(uuid, swap);
-				// 	}
-				// 	return;
-				// }
-				// console.log(`order uuid = ${uuid}`);
-				// const { type, order } = data;
-				// order.type = type;
-
-				} catch(err) {
-					console.log(err);
-				}
+			} catch(err) {
+				console.log(err);
+			}
 			}));
 
 			makerActiveOrders = makerOrdersInThisLoops;

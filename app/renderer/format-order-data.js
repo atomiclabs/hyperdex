@@ -33,6 +33,7 @@ export default function formatOrder(data) {
 		status,
 		statusFormatted: t('status.open').toLowerCase(),
 		error: false,
+		// NOTE: this is swap field, we should remove this when atomiclabs#615 is solved
 		progress: 0,
 		baseCurrency,
 		quoteCurrency,
