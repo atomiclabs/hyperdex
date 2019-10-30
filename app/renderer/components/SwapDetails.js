@@ -65,7 +65,7 @@ class SwapDetails extends React.Component {
 
 	showTransaction = swap => {
 		const transactions = swap.stages.map(stage => (
-			<React.Fragment key={stage.event.type}>
+			<React.Fragment key={`${swap.uuid}-${stage.event.type}`}>
 				<div className="arrow completed">→</div>
 				{stage.event.data && stage.event.data.tx_hash ? (
 					<ExternalLink url={stage.event.data.tx_hash ? blockExplorer.tx(stage.event.data.coin, stage.event.data.tx_hash) : null}>
@@ -87,7 +87,7 @@ class SwapDetails extends React.Component {
 
 				if (!isStageFinished) {
 					transactions.push(
-						<React.Fragment key={stageType}>
+						<React.Fragment key={`${swap.uuid}-${stageType}`}>
 							<div className="arrow">→</div>
 							<div className="item">
 								<h6>{t(`swapStages.${stageType}`)}</h6>
@@ -97,9 +97,10 @@ class SwapDetails extends React.Component {
 				}
 			}
 		}
+
 		return (
 			<div className="transactions" key={swap.uuid}>
-			{transactions}
+				{transactions}
 			</div>
 		);
 	}
@@ -119,41 +120,6 @@ class SwapDetails extends React.Component {
 		const order = appContainer.state.ordersHistory.find(order => order.uuid === swapId);
 
 		const {baseCurrency, quoteCurrency} = swap;
-
-		// const transactions = swap.stages.map(stage => (
-		// 	<React.Fragment key={stage.event.type}>
-		// 		<div className="arrow completed">→</div>
-		// 		{stage.event.data && stage.event.data.tx_hash ? (
-		// 			<ExternalLink url={stage.event.data.tx_hash ? blockExplorer.tx(stage.event.data.coin, stage.event.data.tx_hash) : null}>
-		// 				<div className="item completed">
-		// 					<h6>{t(`swapStages.${stage.event.type}`)}</h6>
-		// 					<p>{stage.event.data.total_amount}<br/>{stage.event.data.coin}</p>
-		// 				</div>
-		// 			</ExternalLink>
-		// 		) : (
-		// 			<div className="item completed">
-		// 				<h6>{t(`swapStages.${stage.event.type}`)}</h6>
-		// 			</div>
-		// 		)}
-		// 	</React.Fragment>
-		// ));
-
-		// if (swap.status === 'swapping') {
-		// 	for (const stageType of swap.totalStages) {
-		// 		const isStageFinished = swap.stages.some(x => x.event.type === stageType);
-
-		// 		if (!isStageFinished) {
-		// 			transactions.push(
-		// 				<React.Fragment key={stageType}>
-		// 					<div className="arrow">→</div>
-		// 					<div className="item">
-		// 						<h6>{t(`swapStages.${stageType}`)}</h6>
-		// 					</div>
-		// 				</React.Fragment>
-		// 			);
-		// 		}
-		// 	}
-		// }
 
 		const prices = ['requested', 'broadcast', 'executed'].map(value => {
 			if (!swap[value].price) {

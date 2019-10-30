@@ -28,7 +28,7 @@ export default function formatOrder(data) {
 	const order = {
 		uuid,
 		timeStarted,
-		// swapType: action === 'Buy' ? 'buy' : 'sell', // This is swap type
+		action: action === 'Buy' ? 'buy' : 'sell', // This is swap type
 		orderType: type,
 		status,
 		statusFormatted: t('status.open').toLowerCase(),
@@ -87,15 +87,18 @@ export default function formatOrder(data) {
 export function formatSwap(data) {
 	if(!data) return null;
 
-	const swap = {
-		status: 'pending',
-		statusFormatted: t('status.open').toLowerCase(),
-	};
 	const {
+		uuid,
 		events,
 		error_events: errorEvents,
 		success_events: successEvents,
 	} = data;
+
+	const swap = {
+		uuid,
+		status: 'pending',
+		statusFormatted: t('status.open').toLowerCase(),
+	};
 
 	const failedEvent = events.find(event => errorEvents.includes(event.event.type));
 	const nonSwapEvents = ['Started', 'Negotiated', 'Finished'];

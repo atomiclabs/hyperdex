@@ -207,6 +207,12 @@ export default class Api {
 			price: ow.number.finite,
 			volume: ow.number.finite,
 		}));
+		// NOTE: we only allow one order for one pair for now
+		if(options.type === 'buy') {
+			await this.cancelAllOrdersByPair(options.quoteCurrency, options.baseCurrency);
+		} else {
+			await this.cancelAllOrdersByPair(options.baseCurrency, options.quoteCurrency);
+		}
 
 		const {result} = await this.request({
 			method: options.type,
@@ -222,6 +228,24 @@ export default class Api {
 
 		result.quoteAmount = Number(result.rel_amount);
 		delete result.rel_amount;
+
+		return result;
+	}
+
+	// Mm v2
+	// Note: new api
+	async cancelAllOrdersByPair(baseCurrency, quoteCurrency) {
+		console.log(baseCurrency, quoteCurrency);
+		const {result} = await this.request({
+			method: 'cancel_all_orders',
+			cancel_by: {
+				type: 'Pair',
+				data: {
+					base: baseCurrency,
+					rel: quoteCurrency
+				}
+			}
+		});
 
 		return result;
 	}

@@ -206,6 +206,7 @@
 		}
 
 		&__icon[data-status='pending'],
+		&__icon[data-status='active'],
 		&__icon[data-status='matched'],
 		&__icon[data-status='swapping'] {
 			background-color: var(--primary-color);

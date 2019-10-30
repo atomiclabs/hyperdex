@@ -98,13 +98,13 @@ const SwapHeader = props => (
 
 // eslint-disable-next-line no-unused-vars
 const SwapItem = ({style, swap, showCancel, openSwap}) => (
-	<div className={`row ${swap.orderType}`} style={style} onClick={openSwap}>
+	<div className={`row ${swap.action || swap.orderType}`} style={style} onClick={openSwap}>
 		<div className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}</div>
 		<div className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</div>
 		<div className="base-amount">{swap.baseCurrencyAmount} {swap.baseCurrency}</div>
 		<div className="quote-amount">{swap.quoteCurrencyAmount} {swap.quoteCurrency}</div>
 		<div className="status">
-			<div className="status__icon" data-status={swap.status}>{swap.statusFormatted}</div>
+			<div className="status__icon" data-status={_.lowerCase(swap.status)}>{swap.statusFormatted}</div>
 		</div>
 		<div className="buttons">
 			{
