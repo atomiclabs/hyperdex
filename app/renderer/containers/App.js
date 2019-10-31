@@ -89,10 +89,6 @@ class AppContainer extends SuperContainer {
 
 			const recentSwaps = await this.api.myRecentSwaps();
 
-			console.log(activeOrders, 'activeOrders');
-			console.log(ordersJustCompleted, 'ordersJustCompleted');
-			console.log(ordersJustChangeToMaker, 'ordersJustChangeToMaker');
-
 			await Promise.all(activeOrders.map(async uuid => {
 			try {
 				const order = this.state.ordersHistory.find(x => x.uuid === uuid);

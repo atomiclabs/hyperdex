@@ -138,6 +138,17 @@ class Bottom extends React.Component {
 		const {baseCurrency, quoteCurrency} = exchangeContainer.state;
 		const {price, amount, total, type} = this.props;
 
+		const openOrders = appContainer.state.ordersHistory
+		.filter(order => order.status !== 'Completed')
+		.filter(order => baseCurrency === order.baseCurrency && quoteCurrency === order.quoteCurrency)
+		.map(order => order.uuid);
+
+		// NOTE: we only allow one order for one pair for now
+		// Cancel prev order in same orderbook
+		for(let i = 0; i < openOrders.length; i++) {
+			await api.cancelOrder(openOrders[i]);
+		}
+
 		const orderError = error => {
 			// eslint-disable-next-line no-new
 			new Notification(t('order.failedTrade', {baseCurrency, type}), {body: error});
