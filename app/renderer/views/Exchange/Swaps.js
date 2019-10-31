@@ -12,7 +12,6 @@ import './Swaps.scss';
 
 const t = translate('exchange');
 
-// const getOpenOrders = () => appContainer.state.swapHistory.filter(swap => swap.isActive);
 const getOpenOrders = () => appContainer.state.ordersHistory.filter(order => order.status !== 'Completed');
 
 const TabView = ({component}) => (

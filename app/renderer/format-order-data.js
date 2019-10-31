@@ -71,16 +71,18 @@ export default function formatOrder(data) {
 			if(this.status === "Active") {
 				return true;
 			}
-			const activeSwaps = this.swaps.filter(e => {
+			const swaps = this.startedSwaps.map(e => formatSwap(this.swaps[e]));
+			const activeSwaps = swaps.filter(e => {
 				if(!e) return true;
 				return ['failed', 'completed'].indexOf(e.status) === -1;
-			})
+			});
 			return activeSwaps.length > 0;
 		}
 	};
 
-	// console.log('order data', order);
-	order.swaps = startedSwaps.map(e => formatSwap(swaps[e]));
+	order.swaps = startedSwaps
+	.map(e => formatSwap(swaps[e]))
+	.filter(el => el); // remove undefined
 	return order;
 }
 

@@ -64,6 +64,8 @@ class SwapDetails extends React.Component {
 	};
 
 	showTransaction = swap => {
+		if(!swap) return null;
+
 		const transactions = swap.stages.map(stage => (
 			<React.Fragment key={`${swap.uuid}-${stage.event.type}`}>
 				<div className="arrow completed">→</div>
@@ -119,7 +121,7 @@ class SwapDetails extends React.Component {
 		const swap = appContainer.state.swapHistory.find(swap => swap.uuid === swapId);
 		const order = appContainer.state.ordersHistory.find(order => order.uuid === swapId);
 
-		const {baseCurrency, quoteCurrency} = swap;
+		const {baseCurrency, quoteCurrency} = order;
 
 		const prices = ['requested', 'broadcast', 'executed'].map(value => {
 			if (!swap[value].price) {
