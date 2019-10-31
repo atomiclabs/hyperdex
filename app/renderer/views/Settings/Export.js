@@ -79,9 +79,9 @@ class Export extends React.Component {
 
 	render() {
 		/// TODO: Use async rendering here when it's out in React
-		if (this.state.swapCount === undefined) {
+		if (this.state.ordersCount === undefined) {
 			(async () => {
-				this.setState({swapCount: await appContainer.swapDB.getSwapCount()});
+				this.setState({ordersCount: await appContainer.swapDB.getOrdersCount()});
 			})();
 		}
 
@@ -90,7 +90,7 @@ class Export extends React.Component {
 				<label style={{marginBottom: '10px'}}>{t('export.sectionLabel')}</label>
 				<Button
 					value={t('export.exportTradeHistory')}
-					disabled={!(this.state.swapCount > 0)}
+					disabled={!(this.state.ordersCount > 0)}
 					onClick={this.handleClick}
 				/>
 			</div>

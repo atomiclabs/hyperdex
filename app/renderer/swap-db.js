@@ -429,8 +429,8 @@ class SwapDB {
 		return ordersData;
 	}
 
-	async getSwapCount() {
-		const entries = await this.db.allDocs();
+	async getOrdersCount() {
+		const entries = await this.db2.allDocs();
 		return entries.rows.length - 1; // We don't count the `_design` doc
 	}
 
