@@ -71,7 +71,7 @@ export default function formatOrder(data) {
 			if(this.status === "Active") {
 				return true;
 			}
-			const swaps = this.startedSwaps.map(e => formatSwap(this.swaps[e]));
+			const swaps = this.startedSwaps.map(e => formatSwap(this.originSwapsField[e]));
 			const activeSwaps = swaps.filter(e => {
 				if(!e) return true;
 				return ['failed', 'completed'].indexOf(e.status) === -1;
@@ -79,6 +79,12 @@ export default function formatOrder(data) {
 			return activeSwaps.length > 0;
 		}
 	};
+
+	if(order.status === 'Completed') {
+		order.statusFormatted = status;
+	}
+
+	order.originSwapsField = swaps
 
 	order.swaps = startedSwaps
 	.map(e => formatSwap(swaps[e]))

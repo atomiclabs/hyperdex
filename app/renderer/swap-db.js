@@ -454,22 +454,22 @@ class SwapDB {
 	}
 
 	async statsSince(timestamp) {
-		const swaps = await this.getSwaps({since: timestamp});
-		const successfulSwaps = swaps.filter(swap => swap.status === 'completed');
+		const orders = await this.getOrders({since: timestamp});
+		const successfulOrders = orders.filter(swap => swap.status === 'Completed');
 
 		const tradedCurrencies = new Set();
-		for (const swap of successfulSwaps) {
+		for (const swap of successfulOrders) {
 			tradedCurrencies.add(swap.baseCurrency);
 			tradedCurrencies.add(swap.quoteCurrency);
 		}
 
 		let totalSwapsWorthInUsd = 0;
-		for (const swap of successfulSwaps) {
+		for (const swap of successfulOrders) {
 			totalSwapsWorthInUsd += swap.quoteCurrencyAmount * appContainer.getCurrency(swap.quoteCurrency).cmcPriceUsd;
 		}
 
 		return {
-			successfulSwapCount: successfulSwaps.length,
+			successfulSwapCount: successfulOrders.length,
 			currencyCount: tradedCurrencies.size,
 			totalSwapsWorthInUsd,
 		};

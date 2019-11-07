@@ -65,11 +65,11 @@ class AppContainer extends SuperContainer {
 		fireEvery({seconds: 10}, async () => {
 			let activeOrders = this.state.ordersHistory.filter(order => order.isActive).map(order => order.uuid);
 
-			const orderTypes = this.state.ordersHistory.map(order => order.orderType);
-			console.log('orderTypes', orderTypes);
+			// const orderTypes = this.state.ordersHistory.map(order => order.orderType);
+			// console.log('orderTypes', orderTypes);
 
-			const orderStatus = this.state.ordersHistory.map(order => order.status);
-			console.log('orderStatus', orderStatus);
+			// const orderStatus = this.state.ordersHistory.map(order => order.status);
+			// console.log('orderStatus', orderStatus);
 
 			console.log(`load recent orders`);
 			const myOrders = await this.api.myOrders();
@@ -129,7 +129,7 @@ class AppContainer extends SuperContainer {
 
 				if(isMakerOrder && isOrdersJustCompleted) {
 					// maker order just matched and filled
-					console.log('isMakerOrder && isOrdersJustCompleted');
+					console.log(`isMakerOrder && isOrdersJustCompleted ${uuid}`);
 					// NOTE:
 					// because this issue https://github.com/KomodoPlatform/atomicDEX-API/issues/451
 					// we only allow user to open one order for each coin pair for now
