@@ -27,7 +27,7 @@ TabView.propTypes = {
 const OpenOrders = () => {
 	const {state} = appContainer;
 	const filteredData = state.swapHistory.filter(swap => swap.isActive);
-	// const filteredData = state.ordersHistory.filter(order => order.status !== 'Completed');
+	// const filteredData = state.ordersHistory.filter(order => order.status !== 'completed');
 
 	return <SwapList showCancel showHeader swaps={filteredData}/>;
 };
@@ -35,7 +35,7 @@ const OpenOrders = () => {
 const TradeHistory = () => {
 	const {state} = appContainer;
 	const filteredData = state.swapHistory.filter(swap => !swap.isActive);
-	// const filteredData = state.ordersHistory.filter(order => order.status === 'Completed');
+	// const filteredData = state.ordersHistory.filter(order => order.status === 'completed');
 
 	return (
 		<SwapFilters swaps={filteredData}>

@@ -94,8 +94,8 @@ class SwapDB {
 			swaps: {},
     		startedSwaps:[],
 			// NOTE: taker order will be converted to maker order if it is not matched in 30s
-			type: "Taker",
-			status: "Active"
+			type: "taker",
+			status: "active"
 		}));
 	}
 
@@ -156,7 +156,7 @@ class SwapDB {
 		return this.queue(async () => {
 			const order = await this._getOrderData(uuid);
 			await this.db2.upsert(order._id, doc => {
-				doc.status = 'Completed';
+				doc.status = 'completed';
 				return doc;
 			});
 		});
@@ -455,7 +455,7 @@ class SwapDB {
 
 	async statsSince(timestamp) {
 		const orders = await this.getOrders({since: timestamp});
-		const successfulOrders = orders.filter(swap => swap.status === 'Completed');
+		const successfulOrders = orders.filter(swap => swap.status === 'completed');
 
 		const tradedCurrencies = new Set();
 		for (const swap of successfulOrders) {

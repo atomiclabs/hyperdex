@@ -118,13 +118,17 @@ class SwapDetails extends React.Component {
 			return null;
 		}
 
-		const swap = appContainer.state.swapHistory.find(swap => swap.uuid === swapId);
+		// const swap = appContainer.state.swapHistory.find(swap => swap.uuid === swapId);
 		const order = appContainer.state.ordersHistory.find(order => order.uuid === swapId);
+		// get last swap
+		let swap = null;
+		if(order.swaps.length > 0)
+			swap = order.swaps[order.swaps.length - 1];
 
 		const {baseCurrency, quoteCurrency} = order;
 
 		const prices = ['requested', 'broadcast', 'executed'].map(value => {
-			if (!swap[value].price) {
+			if (!order[value].price) {
 				return null;
 			}
 
@@ -132,23 +136,23 @@ class SwapDetails extends React.Component {
 				<div key={value}>
 					<h6>{t(`details.${value}`)}</h6>
 					<p>
-						<span className="label">{t(`details.${swap.orderType}`)}:</span> {zeroPadFraction(swap[value].baseCurrencyAmount)} {baseCurrency}
+						<span className="label">{t(`details.${order.action}`)}:</span> {zeroPadFraction(order[value].baseCurrencyAmount)} {baseCurrency}
 						<br/>
-						<span className="label">{t('details.for')}:</span> {zeroPadFraction(swap[value].quoteCurrencyAmount)} {quoteCurrency}
+						<span className="label">{t('details.for')}:</span> {zeroPadFraction(order[value].quoteCurrencyAmount)} {quoteCurrency}
 						<br/>
-						<span className="label">{t('details.price')}:</span> {zeroPadFraction(swap[value].price)} {quoteCurrency}
+						<span className="label">{t('details.price')}:</span> {zeroPadFraction(order[value].price)} {quoteCurrency}
 					</p>
 				</div>
 			);
 		});
 
-		const overview = getOverview(swap);
+		const overview = getOverview(order);
 
 		const titleComponent = (
 			<div className="title">
-				<div>{title(swap.statusFormatted)}</div>
-				<div className="title__main">{baseCurrency}/{quoteCurrency} {t(`details.${swap.orderType}`)} {t('details.order')}</div>
-				<div>{formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}</div>
+				<div>{title(order.statusFormatted)}</div>
+				<div className="title__main">{baseCurrency}/{quoteCurrency} {t(`details.${order.orderType}`)} {t('details.order')}</div>
+				<div>{formatDate(order.timeStarted, 'HH:mm DD/MM/YY')}</div>
 			</div>
 		);
 
@@ -164,16 +168,16 @@ class SwapDetails extends React.Component {
 				>
 					<>
 						<Progress
-							value={swap.progress}
+							value={swap ? swap.progress : 0}
 							color={
-								(swap.status === 'completed' && 'var(--success-color)') ||
-								(swap.status === 'failed' && 'var(--error-color)') ||
+								(swap && swap.status === 'completed' && 'var(--success-color)') ||
+								(swap && swap.status === 'failed' && 'var(--error-color)') ||
 							null
 							}
 						/>
 						<div className="section overview">
 							<div className="from">
-								{swap.isActive && (
+								{order.isActive && (
 									<div className="currency-animation">
 										<div className="scale-wrapper">
 											<CurrencyIcon className="to" symbol={overview.forCurrency}/>
@@ -185,7 +189,7 @@ class SwapDetails extends React.Component {
 								<p>{overview.fromTitle}</p>
 								<p className="amount">{overview.fromAmount} {overview.fromCurrency}</p>
 							</div>
-							{!swap.isActive && (
+							{!order.isActive && (
 								<RightArrowIcon className="RightArrow" size="20px"/>
 							)}
 							<div className="to">
@@ -207,11 +211,11 @@ class SwapDetails extends React.Component {
 							<div className="details">
 								<div className="section progress">
 									<p>
-										{(swap.status === 'failed' && swap.error) && (
+										{swap && (swap.status === 'failed' && swap.error) && (
 											swap.error.message
 										)}
 									</p>
-									{swap.statusInformation && (
+									{swap && swap.statusInformation && (
 										<p>{swap.statusInformation}</p>
 									)}
 								</div>
@@ -221,22 +225,14 @@ class SwapDetails extends React.Component {
 										<div className="offer">
 											{prices}
 										</div>
-										{swap.executed.percentCheaperThanRequested > 0 && (
+										{/* {swap && swap.executed && swap.executed.percentCheaperThanRequested > 0 && (
 											<p>
 												{t('details.stats', {
-													percentCheaperThanRequested: swap.executed.percentCheaperThanRequested,
+													percentCheaperThanRequested: swap && swap.executed.percentCheaperThanRequested,
 												})}
 											</p>
-										)}
+										)} */}
 									</div>
-									{/* {(transactions.length > 0) && (
-										<>
-											<h4>{t('details.transactions')}</h4>
-											<div className="transactions">
-												{transactions}
-											</div>
-										</>
-									)} */}
 									{(order.swaps.length > 0) && (
 										<>
 											<h4>{t('details.transactions')}</h4>
@@ -244,9 +240,9 @@ class SwapDetails extends React.Component {
 										</>
 									)}
 									<p>
-										ID: {swap.uuid}
+										ID: {order.uuid}
 										<br />
-										Type: {order.orderType}
+										Type: {t(`details.${order.orderType}`)}
 									</p>
 									{isDevelopment &&
 										<Button

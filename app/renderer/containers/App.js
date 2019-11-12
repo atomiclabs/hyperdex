@@ -98,8 +98,8 @@ class AppContainer extends SuperContainer {
 				}
 				const isOrdersJustCompleted = ordersJustCompleted.indexOf(uuid) !== -1;
 				const isOrdersJustChangeToMaker = ordersJustChangeToMaker.indexOf(uuid) !== -1;
-				let isMakerOrder = order.orderType === "Maker";
-				let isTakerOrder = order.orderType === "Taker";
+				let isMakerOrder = order.orderType === "maker";
+				let isTakerOrder = order.orderType === "taker";
 				// update order status
 				if(isOrdersJustCompleted) {
 					await this.swapDB.markOrderCompleted(uuid);
@@ -107,7 +107,7 @@ class AppContainer extends SuperContainer {
 
 				// update order type
 				if(isOrdersJustChangeToMaker) {
-					await this.swapDB.markOrderType(uuid, 'Maker');
+					await this.swapDB.markOrderType(uuid, 'maker');
 					isMakerOrder = true;
 					isTakerOrder = false;
 				}
@@ -135,7 +135,7 @@ class AppContainer extends SuperContainer {
 					// we only allow user to open one order for each coin pair for now
 					// Because there is only one order at a time so all current swaps will be its
 					const { baseCurrency, quoteCurrency, orderType } = order;
-					for(let i = 0; i < recentSwaps.length; i+=1) {
+					for(let i = 0; i < recentSwaps.length; i += 1) {
 						const swap = recentSwaps[i];
 						const {
 							events,
@@ -153,8 +153,8 @@ class AppContainer extends SuperContainer {
 
 						if(
 							swap.my_info.my_coin === quoteCurrency &&
-							swap.my_info.other_coin=== baseCurrency &&
-							swap.type === orderType &&
+							swap.my_info.other_coin === baseCurrency &&
+							swap.type === _.startCase(orderType) &&
 							!isFinished
 						) {
 							activeSwaps.push(swap.uuid);

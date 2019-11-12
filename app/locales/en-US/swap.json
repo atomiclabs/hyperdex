@@ -5,6 +5,8 @@
 	"title": "Swap",
 	"details": {
 		"broadcast": "Broadcast",
+		"maker": "Maker",
+		"taker": "Taker",
 		"buy": "Buy",
 		"copyDebugData": "Copy Swap Debug Data",
 		"exchanging": "Exchanging",

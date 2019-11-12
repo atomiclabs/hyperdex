@@ -68,7 +68,7 @@ export default function formatOrder(data) {
 		// },
 		startedSwaps,
 		get isActive() {
-			if(this.status === "Active") {
+			if(this.status === "active") {
 				return true;
 			}
 			const swaps = this.startedSwaps.map(e => formatSwap(this.originSwapsField[e]));
@@ -80,7 +80,7 @@ export default function formatOrder(data) {
 		}
 	};
 
-	if(order.status === 'Completed') {
+	if(order.status === 'completed') {
 		order.statusFormatted = status;
 	}
 
