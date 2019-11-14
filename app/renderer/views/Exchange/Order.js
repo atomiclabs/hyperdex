@@ -9,6 +9,7 @@ import Select from 'components/Select';
 import CurrencySelectOption from 'components/CurrencySelectOption';
 import exchangeContainer from 'containers/Exchange';
 import appContainer from 'containers/App';
+import tradesContainer from 'containers/Trades';
 import CrosshairIcon from 'icons/Crosshair';
 import {formatCurrency} from '../../util';
 import {translate} from '../../translate';
@@ -146,8 +147,10 @@ class Bottom extends React.Component {
 		// NOTE: we only allow one order for one pair for now
 		// Cancel prev order in same orderbook
 		for(let i = 0; i < openOrders.length; i++) {
+			await tradesContainer.setIsSwapCancelling(openOrders[i], true);
 			await api.cancelOrder(openOrders[i]);
 		}
+		this.forceUpdate();
 
 		const orderError = error => {
 			// eslint-disable-next-line no-new

@@ -43,7 +43,8 @@ class CancelButton extends React.Component {
 				type="button"
 				className="cancel__button"
 				disabled={
-					swap.status !== 'pending' ||
+					// swap.status !== 'pending' ||
+					swap.status !== 'active' ||
 					tradesContainer.state.isSwapCancelling[swap.uuid]
 				}
 				onClick={event => {
@@ -115,6 +116,11 @@ const SwapItem = ({style, swap, showCancel, openSwap}) => (
 					</div>
 				)
 				*/
+				showCancel && (
+					<div className="cancel">
+						<CancelButton swap={swap}/>
+					</div>
+				)
 			}
 		</div>
 	</div>

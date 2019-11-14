@@ -244,18 +244,6 @@ export default class Api {
 	}
 
 	// Mm v2
-	// Note: new api
-	async cancelOrder(uuid) {
-		ow(uuid, 'uuid', uuidPredicate);
-		const {result} = await this.request({
-			method: 'cancel_order',
-			uuid
-		});
-
-		return result;
-	}
-
-	// Mm v2
 	orderStatus(uuid) {
 		ow(uuid, 'uuid', uuidPredicate);
 
