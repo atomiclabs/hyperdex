@@ -73,7 +73,8 @@ class SwapDetails extends React.Component {
 					<ExternalLink url={stage.event.data.tx_hash ? blockExplorer.tx(stage.event.data.coin, stage.event.data.tx_hash) : null}>
 						<div className="item completed">
 							<h6>{t(`swapStages.${stage.event.type}`)}</h6>
-							<p>{stage.event.data.total_amount}<br/>{stage.event.data.coin}</p>
+							{/* <p>{stage.event.data.total_amount}<br/>{stage.event.data.coin}</p> */}
+							{parseFloat(stage.event.data.my_balance_change) !== 0 && (<p>{stage.event.data.my_balance_change}<br/>{stage.event.data.coin}</p>)}
 						</div>
 					</ExternalLink>
 				) : (
