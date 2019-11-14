@@ -80,15 +80,16 @@ export default function formatOrder(data) {
 		}
 	};
 
-	if(order.status === 'completed') {
-		order.statusFormatted = status;
-	}
-
 	order.originSwapsField = swaps
 
 	order.swaps = startedSwaps
 	.map(e => formatSwap(swaps[e]))
 	.filter(el => el); // remove undefined
+
+	if(!order.isActive) {
+		order.statusFormatted = 'completed';
+	}
+
 	return order;
 }
 
