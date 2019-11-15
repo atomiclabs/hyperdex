@@ -4,12 +4,13 @@ import _ from 'lodash';
 import SuperContainer from 'containers/SuperContainer';
 import appContainer from 'containers/App';
 import fireEvery from '../fire-every';
+import { alwaysEnabledCurrencies } from '../../constants';
 
 class ExchangeContainer extends SuperContainer {
 	getInitialState() {
 		return {
-			baseCurrency: 'CHIPS',
-			quoteCurrency: 'KMD',
+			baseCurrency: alwaysEnabledCurrencies[0],
+			quoteCurrency: alwaysEnabledCurrencies[1],
 			activeSwapsView: 'OpenOrders',
 			orderBook: {
 				bids: [],
@@ -84,15 +85,18 @@ class ExchangeContainer extends SuperContainer {
 		) {
 			return;
 		}
-
 		if (!_.isEqual(this.state.orderBook, orderBook)) {
+			// sort orderbook
+			orderBook.asks = _.orderBy(orderBook.asks, ['price'], ['asc']);
+			orderBook.bids = _.orderBy(orderBook.bids, ['price'], ['desc']);
+
 			this.setState({orderBook});
 		}
 	}
 
 	async watchOrderBook() {
 		if (!this.stopWatchingOrderBook) {
-			this.stopWatchingOrderBook = await fireEvery({seconds: 2}, async () => {
+			this.stopWatchingOrderBook = await fireEvery({seconds: 5}, async () => {
 				await this.fetchOrderBook();
 			});
 		}
