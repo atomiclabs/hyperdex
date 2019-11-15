@@ -47,8 +47,8 @@ exports.defaultEnabledCurrencies = [
 ];
 
 exports.alwaysEnabledCurrencies = [
-	'KMD',
-	'CHIPS',
+	'BTC',
+	'KMD'
 ];
 
 exports.ignoreExternalPrice = new Set([
