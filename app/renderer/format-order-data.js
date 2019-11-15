@@ -87,7 +87,11 @@ export default function formatOrder(data) {
 	.filter(el => el); // remove undefined
 
 	if(!order.isActive) {
-		order.statusFormatted = 'completed';
+		if (order.status === 'cancelled') {
+			order.statusFormatted = t('status.cancelled').toLowerCase();
+		} else {
+			order.statusFormatted = t('status.completed').toLowerCase();
+		}
 	}
 
 	return order;

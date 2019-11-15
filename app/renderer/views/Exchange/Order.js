@@ -140,7 +140,7 @@ class Bottom extends React.Component {
 		const {price, amount, total, type} = this.props;
 
 		const openOrders = appContainer.state.ordersHistory
-		.filter(order => order.status !== 'completed')
+		.filter(order => order.isActive)
 		.filter(order => baseCurrency === order.baseCurrency && quoteCurrency === order.quoteCurrency)
 		.map(order => order.uuid);
 

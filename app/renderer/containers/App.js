@@ -100,10 +100,6 @@ class AppContainer extends SuperContainer {
 				const isOrdersJustChangeToMaker = ordersJustChangeToMaker.indexOf(uuid) !== -1;
 				let isMakerOrder = order.orderType === "maker";
 				let isTakerOrder = order.orderType === "taker";
-				// update order status
-				if(isOrdersJustCompleted) {
-					await this.swapDB.markOrderCompleted(uuid);
-				}
 
 				// update order type
 				if(isOrdersJustChangeToMaker) {
@@ -116,6 +112,7 @@ class AppContainer extends SuperContainer {
 				// const activeSwaps = order.swaps ? order.swaps.filter(e => e && ['failed', 'completed'].indexOf(e.status) !== -1) : [];
 				const orderInMM2 = orders[uuid];
 				let activeSwaps = order.startedSwaps;
+				const swapLength = activeSwaps.length;
 				if(orderInMM2) {
 	 				activeSwaps = _.concat(activeSwaps, orderInMM2.started_swaps);
 				}
@@ -172,6 +169,17 @@ class AppContainer extends SuperContainer {
 
 				if(swapsData.length > 0) {
 					await this.swapDB.updateSwapData2(uuid, swapsData);
+				}
+				// update order status
+				if(isOrdersJustCompleted) {
+					// if the order is just removed from orderbook
+					// and there is no new swap in it
+					// then order is canceled by user
+					if(swapLength === activeSwaps.length) {
+						await this.swapDB.updateOrderStatus(uuid, 'cancelled');
+					} else {
+						await this.swapDB.updateOrderStatus(uuid, 'completed');
+					}
 				}
 
 			} catch(err) {

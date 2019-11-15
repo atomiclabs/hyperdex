@@ -152,11 +152,11 @@ class SwapDB {
 	}
 
 	// NOTE: new api
-	markOrderCompleted = uuid => {
+	updateOrderStatus = (uuid, status) => {
 		return this.queue(async () => {
 			const order = await this._getOrderData(uuid);
 			await this.db2.upsert(order._id, doc => {
-				doc.status = 'completed';
+				doc.status = status;
 				return doc;
 			});
 		});
