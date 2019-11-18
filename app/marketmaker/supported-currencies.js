@@ -827,10 +827,10 @@ const supportedCurrencies = [
 		contractAddress: '0xcbCC0F036ED4788F63FC0fEE32873d6A7487b908',
 		rpcport: 80,
 	},
-	/* Disabled because of #289
 	{
 		coin: 'HODL',
 		asset: 'HODL',
+		name: "HODL",
 		rpcport: 14431,
 		txversion: 4,
 		overwintered: 1,
@@ -850,6 +850,8 @@ const supportedCurrencies = [
 			},
 		],
 	},
+	/* Disabled because of #289
+	NOTE: coin seems dead, see https://coinmarketcap.com/currencies/hodlcoin/ and https://www.unnamed.exchange/Exchange/Basic?market=HODL_BTC
 	{
 		coin: 'HODLC',
 		name: 'Hodlcoin',
