@@ -24,13 +24,14 @@ exports.appViews = [
 ];
 
 exports.defaultEnabledCurrencies = [
+	'BTC',
+	'KMD',
 	'CHIPS',
 	'DOGE',
-	'KMD',
 	'MORTY',
 	'RICK',
 	'SUPERNET',
-
+	'ETH',
 	// These are left out for now.
 	// TODO: Revise this list when HyperDEX is more mature.
 	// 'BCH',

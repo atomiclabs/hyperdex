@@ -11,9 +11,17 @@ import exchangeContainer from 'containers/Exchange';
 import appContainer from 'containers/App';
 import tradesContainer from 'containers/Trades';
 import CrosshairIcon from 'icons/Crosshair';
+import {getCurrency} from '../../../marketmaker/supported-currencies';
 import {formatCurrency} from '../../util';
 import {translate} from '../../translate';
 import './Order.scss';
+
+
+const isEthBased = symbol => {
+	const currency = getCurrency(symbol);
+
+	return !!currency.contractAddress;
+};
 
 const t = translate('exchange');
 
@@ -135,10 +143,13 @@ class Bottom extends React.Component {
 		this.setState({hasError: false});
 		exchangeContainer.setIsSendingOrder(true);
 
-		const {api} = appContainer;
+		const {api, state: appState} = appContainer;
 		const {baseCurrency, quoteCurrency} = exchangeContainer.state;
 		const {price, amount, total, type} = this.props;
 
+		const {currencies} = appState;
+		const isECR20 = isEthBased(quoteCurrency) || isEthBased(baseCurrency);
+		const balanceOfEthereum = currencies.find(o => o && o.coin === 'ETH');
 		const openOrders = appContainer.state.ordersHistory
 		.filter(order => order.isActive)
 		.filter(order => baseCurrency === order.baseCurrency && quoteCurrency === order.quoteCurrency)
@@ -169,9 +180,15 @@ class Bottom extends React.Component {
 
 		let swap;
 		try {
+			if(isECR20 && !balanceOfEthereum){
+				throw new Error(`${base} is ECR20 token, please enable ETH coin first.`);
+			}
+			if(isECR20 && balanceOfEthereum.balance < 0.001) {
+				throw new Error(`ETH balance 0 is too low to cover gas fee, required 0.001`);
+			}
 			swap = await api.order(requestOpts);
 		} catch (error) {
-			console.log('a', error);
+			console.log('open new order', error);
 			orderError(error);
 			return;
 		}
