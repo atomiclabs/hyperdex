@@ -848,12 +848,11 @@ const supportedCurrencies = [
 	*/
 	{
 		coin: 'HUSH',
-		rpcport: 8822,
-		taddr: 28,
-		pubtype: 184,
-		p2shtype: 189,
-		wiftype: 128,
-		txfee: 1000,
+		rpcport: 18031,
+		txversion: 4,
+		overwintered: 1,
+		mm2: 1,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
