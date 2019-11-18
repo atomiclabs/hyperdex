@@ -830,7 +830,7 @@ const supportedCurrencies = [
 	{
 		coin: 'HODL',
 		asset: 'HODL',
-		name: "HODL",
+		name: 'HODL',
 		rpcport: 14431,
 		txversion: 4,
 		overwintered: 1,
@@ -874,6 +874,8 @@ const supportedCurrencies = [
 	*/
 	{
 		coin: 'HUSH',
+		asset: 'HUSH3',
+		fname: 'Hush',
 		rpcport: 18031,
 		txversion: 4,
 		overwintered: 1,
