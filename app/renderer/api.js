@@ -113,10 +113,12 @@ export default class Api {
 				// protocol: 'SSL',
 			}));
 
+
 			try {
 				const response = await this.request({
 					method: 'electrum',
 					coin: symbol,
+					mm2: currency.mm2,
 					servers,
 				});
 
