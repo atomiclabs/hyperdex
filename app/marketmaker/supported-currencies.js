@@ -262,6 +262,12 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
+		coin: 'BUSD',
+		name: 'Binance USD',
+		contractAddress: '0x4Fabb145d64652a948d72533023f6E7A623C7C53',
+		rpcport: 80,
+	},
+	{
 		coin: 'CDT',
 		name: 'Blox',
 		contractAddress: '0x177d39AC676ED1C67A2b268AD7F1E58826E5B0af',
@@ -780,6 +786,26 @@ const supportedCurrencies = [
 				port: 10072,
 			},
 		],
+	},
+	{
+		coin: 'GIN',
+		name: 'Gincoin',
+		fname: 'GINcoin',
+		rpcport: 10211,
+		pubtype: 38,
+		p2shtype: 10,
+		wiftype: 198,
+		txfee: 10000,
+		electrumServers: [
+			{
+				host: 'electrum1.gincoin.io',
+				port: 6001,
+			},
+			{
+				host: 'electrum2.gincoin.io',
+				port: 6001,
+			},
+		]
 	},
 	{
 		coin: 'GNO',
@@ -1820,6 +1846,12 @@ const supportedCurrencies = [
 		coin: 'UCASH',
 		name: 'U.CASH',
 		contractAddress: '0x92e52a1A235d9A103D970901066CE910AAceFD37',
+		rpcport: 80,
+	},
+	{
+		coin: 'USDC',
+		fname: 'USD Coin',
+		contractAddress: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
 		rpcport: 80,
 	},
 	// Temporarily disabled as it's not working with mm2
