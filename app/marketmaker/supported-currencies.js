@@ -1102,6 +1102,31 @@ const supportedCurrencies = [
 		contractAddress: '0x40395044Ac3c0C57051906dA938B54BD6557F212',
 		rpcport: 80,
 	},
+	/* Not yet supported in mm2
+	{
+		coin: 'MGW',
+		name: 'MGW',
+		fname: 'MultiGateway',
+		rpcport: 12386,
+		txversion: 4,
+		overwintered: 1,
+		required_confirmations: 2,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10015,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10015,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10015,
+			},
+		],
+	},
+	*/
 	{
 		coin: 'MKR',
 		name: 'Maker',
