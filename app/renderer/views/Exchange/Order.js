@@ -148,6 +148,7 @@ class Bottom extends React.Component {
 		const {price, amount, total, type} = this.props;
 
 		const {currencies} = appState;
+		const base = isEthBased(quoteCurrency) ? quoteCurrency : baseCurrency;
 		const isECR20 = isEthBased(quoteCurrency) || isEthBased(baseCurrency);
 		const balanceOfEthereum = currencies.find(o => o && o.coin === 'ETH');
 		const openOrders = appContainer.state.ordersHistory
