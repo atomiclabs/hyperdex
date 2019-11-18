@@ -58,6 +58,7 @@ exports.ignoreExternalPrice = new Set([
 	'REVS',
 	'RICK',
 	'SUPERNET',
+	"BET",
 ]);
 
 exports.hiddenCurrencies = [];
