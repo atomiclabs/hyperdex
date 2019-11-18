@@ -193,6 +193,7 @@ class AppContainer extends SuperContainer {
 
 		// TODO: Change this to `1` second.
 		fireEvery({seconds: 10}, async () => {
+			console.log(`load recent swaps`);
 			const uuids = this.state.swapHistory.map(swap => swap.uuid);
 			const recentSwaps = await this.api.myRecentSwaps();
 			// console.log('recentSwaps', recentSwaps);
@@ -200,7 +201,7 @@ class AppContainer extends SuperContainer {
 			await Promise.all(uuids.map(async uuid => {
 				const swap = recentSwaps.find(x => x.uuid === uuid);
 				if (!swap) {
-					console.error('Could not find swap:', uuid);
+					// console.error('Could not find swap:', uuid);
 					return;
 				}
 
