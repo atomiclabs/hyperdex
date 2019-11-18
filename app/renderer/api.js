@@ -94,7 +94,9 @@ export default class Api {
 		ow(symbol, 'symbol', symbolPredicate);
 
 		// TODO: Remove `OOT` when https://github.com/KomodoPlatform/atomicDEX-API/issues/492 is fixed
-		if (symbol === 'OOT' || symbol === 'USDT') {
+		// above TODO should be fixed.
+		// if (symbol === 'OOT' || symbol === 'USDT') {
+		if (symbol === 'USDT') {
 			console.error(`Ignoring ${symbol} currency as it's not working with mm2`);
 			return;
 		}
