@@ -111,6 +111,29 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'BET',
+		asset: 'BET',
+		fname: 'BET',
+		rpcport: 14250,
+		txversion: 4,
+		overwintered: 1,
+		required_confirmations: 2,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10012,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10012,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10012,
+			},
+		],
+	},
+	{
 		coin: 'BITSOKO',
 		name: 'Bitsoko',
 		contractAddress: '0xB72627650F1149Ea5e54834b2f468E5d430E67bf',
