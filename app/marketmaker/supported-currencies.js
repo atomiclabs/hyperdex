@@ -463,7 +463,7 @@ const supportedCurrencies = [
 	},
 	{
 		coin: 'DEX',
-		name: 'InstantDEX',
+		name: 'DEX',
 		asset: 'DEX',
 		rpcport: 11890,
 		txversion: 4,
