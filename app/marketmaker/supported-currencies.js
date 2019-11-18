@@ -1039,6 +1039,29 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'LABS',
+		name: 'LABS',
+		fname: 'Komodo LABS',
+		rpcport: 40265,
+		txversion: 4,
+		overwintered: 1,
+		required_confirmations: 2,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10019,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10019,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10019,
+			},
+		]
+	},
+	{
 		coin: 'LALA',
 		name: 'LALA World',
 		contractAddress: '0xfD107B473AB90e8Fbd89872144a3DC92C40Fa8C9',
