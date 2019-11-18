@@ -355,6 +355,29 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'COMMOD',
+		name: 'COMMOD',
+		asset: 'COMMOD',
+		rpcport: 27048,
+		txversion: 4,
+		overwintered: 1,
+		required_confirmations: 2,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10022,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10022,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10022,
+			},
+		]
+	},
+	{
 		coin: 'COQUI',
 		name: 'Coqui Cash',
 		asset: 'COQUICASH',
@@ -1102,7 +1125,6 @@ const supportedCurrencies = [
 		contractAddress: '0x40395044Ac3c0C57051906dA938B54BD6557F212',
 		rpcport: 80,
 	},
-	/* Not yet supported in mm2
 	{
 		coin: 'MGW',
 		name: 'MGW',
@@ -1126,7 +1148,6 @@ const supportedCurrencies = [
 			},
 		],
 	},
-	*/
 	{
 		coin: 'MKR',
 		name: 'Maker',
