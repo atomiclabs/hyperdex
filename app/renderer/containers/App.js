@@ -63,7 +63,7 @@ class AppContainer extends SuperContainer {
 
 		// TODO: Change this to `1` second.
 		fireEvery({seconds: 10}, async () => {
-			let activeOrders = this.state.ordersHistory.filter(order => order.isActive).map(order => order.uuid);
+			let activeOrders = this.state.ordersHistory.filter(order => order.isActive || order.status === 'matched').map(order => order.uuid);
 
 			// const orderTypes = this.state.ordersHistory.map(order => order.orderType);
 			// console.log('orderTypes', orderTypes);
@@ -109,24 +109,24 @@ class AppContainer extends SuperContainer {
 				}
 
 				// update order swaps
-				// const activeSwaps = order.swaps ? order.swaps.filter(e => e && ['failed', 'completed'].indexOf(e.status) !== -1) : [];
 				const orderInMM2 = orders[uuid];
 				let activeSwaps = order.startedSwaps;
-				const swapLength = activeSwaps.length;
 				if(orderInMM2) {
+					// if order is still active, update new swap
 	 				activeSwaps = _.concat(activeSwaps, orderInMM2.started_swaps);
 				}
 
-				if(isTakerOrder && isOrdersJustCompleted) {
+				// if(isTakerOrder && isOrdersJustCompleted && order.status !== 'matched') {
+				if(isTakerOrder && order.status === 'matched' && activeSwaps.indexOf(uuid) === -1) {
 					// taker order just matched and filled
 					console.log('isTakerOrder && isOrdersJustCompleted');
 					activeSwaps.push(uuid);
-					await this.swapDB.addSwapToOrder(uuid, uuid);
 				}
 
-				if(isMakerOrder && isOrdersJustCompleted) {
+				// if(isMakerOrder && isOrdersJustCompleted && order.status !== 'matched') {
+				if(isMakerOrder && order.status === 'matched' && order.receivedByMe >= order.requested.baseCurrencyAmount) {
 					// maker order just matched and filled
-					console.log(`isMakerOrder && isOrdersJustCompleted ${uuid}`);
+					console.log(`isMakerOrder && matched ${uuid}`);
 					// NOTE:
 					// because this issue https://github.com/KomodoPlatform/atomicDEX-API/issues/451
 					// we only allow user to open one order for each coin pair for now
@@ -170,18 +170,15 @@ class AppContainer extends SuperContainer {
 				if(swapsData.length > 0) {
 					await this.swapDB.updateSwapData2(uuid, swapsData);
 				}
+
 				// update order status
-				if(isOrdersJustCompleted) {
-					// if the order is just removed from orderbook
-					// and there is no new swap in it
-					// then order is canceled by user
-					if(swapLength === activeSwaps.length) {
-						await this.swapDB.updateOrderStatus(uuid, 'cancelled');
-					} else {
-						await this.swapDB.updateOrderStatus(uuid, 'completed');
-					}
+				if(order.status === 'matched' && order.receivedByMe >= order.requested.baseCurrencyAmount) {
+					await this.swapDB.updateOrderStatus(uuid, 'completed');
 				}
 
+				if(isOrdersJustCompleted && order.status === 'active') {
+					await this.swapDB.updateOrderStatus(uuid, 'matched');
+				}
 			} catch(err) {
 				console.log(err);
 			}

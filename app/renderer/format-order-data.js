@@ -31,7 +31,7 @@ export default function formatOrder(data) {
 		action: action === 'Buy' ? 'buy' : 'sell', // This is swap type
 		orderType: type,
 		status,
-		statusFormatted: t('status.open').toLowerCase(),
+		statusFormatted: t(`status.${status}`).toLowerCase(),
 		error: false,
 		// NOTE: this is swap field, we should remove this when atomiclabs#615 is solved
 		progress: 0,
@@ -63,10 +63,15 @@ export default function formatOrder(data) {
 			response,
 			// swapData,
 		},
-		// get isActive() {
-		// 	return !['completed', 'failed'].includes(this.status);
-		// },
 		startedSwaps,
+		get isOpen() {
+			return this.status === 'active' || order.status === 'matched';
+		},
+		get receivedByMe() {
+			return this.swaps.reduce((accumulator, currentValue) => {
+				return accumulator + currentValue.receivedByMe;
+			}, 0);
+		},
 		get isActive() {
 			if(this.status === "active") {
 				return true;
@@ -86,14 +91,6 @@ export default function formatOrder(data) {
 	.map(e => formatSwap(swaps[e]))
 	.filter(el => el); // remove undefined
 
-	if(!order.isActive) {
-		if (order.status === 'cancelled') {
-			order.statusFormatted = t('status.cancelled').toLowerCase();
-		} else {
-			order.statusFormatted = t('status.completed').toLowerCase();
-		}
-	}
-
 	return order;
 }
 
@@ -111,6 +108,22 @@ export function formatSwap(data) {
 		uuid,
 		status: 'pending',
 		statusFormatted: t('status.open').toLowerCase(),
+		cacheReceivedByMeAmount: 0,
+		get receivedByMe() {
+			if(this.cacheReceivedByMeAmount > 0) return this.cacheReceivedByMeAmount;
+
+			const finishedStage = this.totalStages.indexOf('TakerFeeSent') !== -1 ? 'MakerPaymentSpent' : 'TakerPaymentSpent';
+			const stage = this.stages.find(({ event }) => {
+				return finishedStage === event.type;
+			});
+			if(!stage) {
+				// if not found
+				return 0;
+			}
+			const {event} = stage;
+			this.cacheReceivedByMeAmount = parseFloat(event.data.received_by_me) + parseFloat(event.data.fee_details.amount);
+			return this.cacheReceivedByMeAmount;
+		}
 	};
 
 	const failedEvent = events.find(event => errorEvents.includes(event.event.type));

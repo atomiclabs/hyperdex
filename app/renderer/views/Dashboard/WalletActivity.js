@@ -95,7 +95,7 @@ const Activity = () => {
 	// );
 
 	const orders = appContainer.state.ordersHistory.filter(order => {
-		return !order.isActive &&
+		return !order.isOpen &&
 		[order.baseCurrency, order.quoteCurrency].includes(activeCurrency.symbol)
 	});
 

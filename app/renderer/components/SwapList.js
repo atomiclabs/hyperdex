@@ -26,13 +26,14 @@ class CancelButton extends React.Component {
 
 	cancelSwap = async swapUuid => {
 		await tradesContainer.setIsSwapCancelling(swapUuid, true);
-		this.forceUpdate();
-
+		const {swapDB, api} = appContainer;
 		try {
-			await appContainer.api.cancelOrder(swapUuid);
+			await api.cancelOrder(swapUuid);
+			await swapDB.updateOrderStatus(swapUuid, 'cancelled');
 		} catch (error) {
 			unhandled.logError(error);
 		}
+		this.forceUpdate();
 	};
 
 	render() {

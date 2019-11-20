@@ -28,7 +28,7 @@ const OpenOrders = () => {
 	const {state} = appContainer;
 	// const filteredData = state.swapHistory.filter(swap => swap.isActive);
 	// const filteredData = state.ordersHistory.filter(order => order.status !== 'completed');
-	const filteredData = state.ordersHistory.filter(order => order.isActive);
+	const filteredData = state.ordersHistory.filter(order => order.isOpen);
 
 	return <SwapList showCancel showHeader swaps={filteredData}/>;
 };
@@ -37,7 +37,7 @@ const TradeHistory = () => {
 	const {state} = appContainer;
 	// const filteredData = state.swapHistory.filter(swap => !swap.isActive);
 	// const filteredData = state.ordersHistory.filter(order => order.status === 'completed');
-	const filteredData = state.ordersHistory.filter(order => !order.isActive);
+	const filteredData = state.ordersHistory.filter(order => !order.isOpen);
 
 	return (
 		<SwapFilters swaps={filteredData}>

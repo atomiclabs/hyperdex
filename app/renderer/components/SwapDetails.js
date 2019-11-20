@@ -84,7 +84,7 @@ class SwapDetails extends React.Component {
 				)}
 			</React.Fragment>
 		));
-		if (swap.status === 'swapping') {
+		if (swap.totalStages) {
 			for (const stageType of swap.totalStages) {
 				const isStageFinished = swap.stages.some(x => x.event.type === stageType);
 
@@ -178,7 +178,7 @@ class SwapDetails extends React.Component {
 						/>
 						<div className="section overview">
 							<div className="from">
-								{order.isActive && (
+								{order.isOpen && (
 									<div className="currency-animation">
 										<div className="scale-wrapper">
 											<CurrencyIcon className="to" symbol={overview.forCurrency}/>
@@ -190,7 +190,7 @@ class SwapDetails extends React.Component {
 								<p>{overview.fromTitle}</p>
 								<p className="amount">{overview.fromAmount} {overview.fromCurrency}</p>
 							</div>
-							{!order.isActive && (
+							{!order.isOpen && (
 								<RightArrowIcon className="RightArrow" size="20px"/>
 							)}
 							<div className="to">

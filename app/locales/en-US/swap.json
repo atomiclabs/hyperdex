@@ -57,6 +57,7 @@
 		"reverted": "Reverted",
 		"pending": "Pending",
 		"open": "Open",
+		"active": "Open",
 		"unmatched": "Unmatched",
 		"cancelled": "Cancelled"
 	},

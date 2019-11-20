@@ -163,19 +163,6 @@ class SwapDB {
 	}
 
 	// NOTE: new api
-	addSwapToOrder= (uuid, swapuuid) => {
-		return this.queue(async () => {
-			const order = await this._getOrderData(uuid);
-			await this.db2.upsert(order._id, doc => {
-				if(doc.startedSwaps.indexOf(swapuuid) === -1) {
-					doc.startedSwaps.push(swapuuid);
-				}
-				return doc;
-			});
-		});
-	}
-
-	// NOTE: new api
 	markOrderType = (uuid, type) => {
 		return this.queue(async () => {
 			const order = await this._getOrderData(uuid);

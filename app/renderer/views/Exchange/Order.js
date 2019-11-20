@@ -16,7 +16,6 @@ import {formatCurrency} from '../../util';
 import {translate} from '../../translate';
 import './Order.scss';
 
-
 const isEthBased = symbol => {
 	const currency = getCurrency(symbol);
 
@@ -143,7 +142,8 @@ class Bottom extends React.Component {
 		this.setState({hasError: false});
 		exchangeContainer.setIsSendingOrder(true);
 
-		const {api, state: appState} = appContainer;
+		const {api, state: appState, swapDB} = appContainer;
+
 		const {baseCurrency, quoteCurrency} = exchangeContainer.state;
 		const {price, amount, total, type} = this.props;
 
@@ -151,17 +151,24 @@ class Bottom extends React.Component {
 		const base = isEthBased(quoteCurrency) ? quoteCurrency : baseCurrency;
 		const isECR20 = isEthBased(quoteCurrency) || isEthBased(baseCurrency);
 		const balanceOfEthereum = currencies.find(o => o && o.coin === 'ETH');
-		const openOrders = appContainer.state.ordersHistory
-		.filter(order => order.isActive)
+		const openOrders = appState.ordersHistory
+		.filter(order => order.status === 'active')
 		.filter(order => baseCurrency === order.baseCurrency && quoteCurrency === order.quoteCurrency)
 		.map(order => order.uuid);
 
 		// NOTE: we only allow one order for one pair for now
 		// Cancel prev order in same orderbook
 		for(let i = 0; i < openOrders.length; i++) {
-			await tradesContainer.setIsSwapCancelling(openOrders[i], true);
-			await api.cancelOrder(openOrders[i]);
+			try {
+				await tradesContainer.setIsSwapCancelling(openOrders[i], true);
+				await api.cancelOrder(openOrders[i]);
+				await swapDB.updateOrderStatus(openOrders[i], 'cancelled');
+			} catch (error) {
+				// Note: we ignore all error
+				console.log('open new order', error);
+			}
 		}
+
 		this.forceUpdate();
 
 		const orderError = error => {
@@ -201,7 +208,6 @@ class Bottom extends React.Component {
 		requestOpts.amount = requestOpts.volume;
 		delete requestOpts.volume;
 
-		const {swapDB} = appContainer;
 		// NOTE: new api
 		await swapDB.insertOrderData(swap, requestOpts);
 		await swapDB.insertSwapData(swap, requestOpts);
