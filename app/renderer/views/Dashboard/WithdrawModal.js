@@ -65,7 +65,7 @@ class WithdrawModal extends React.Component {
 			max: false,
 		});
 
-		const txFee = 'amount' in feeDetails ? feeDetails.amount : feeDetails.total_fee;
+		const txFee = 'amount' in feeDetails ? parseFloat(feeDetails.amount) : parseFloat(feeDetails.total_fee);
 
 		const currency = getCurrency(symbol);
 		const txFeeCurrencySymbol = currency.contractAddress ? 'ETH' : symbol;
