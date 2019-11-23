@@ -311,6 +311,19 @@ export default class Api {
 	}
 
 	// Mm v2
+	// https://developers.atomicdex.io/basic-docs/atomicdex/atomicdex-api.html#get-trade-fee
+	async getTradeFee(currency) {
+		ow(currency, 'currency', symbolPredicate);
+
+		const {result} = await this.request({
+			method: 'get_trade_fee',
+			coin: currency,
+		});
+
+		return result;
+	}
+
+	// Mm v2
 	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#cancel_order
 	async cancelOrder(uuid) {
 		ow(uuid, 'uuid', uuidPredicate);

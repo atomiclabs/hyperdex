@@ -49,10 +49,13 @@ class WithdrawModal extends React.Component {
 	};
 
 	withdrawButtonHandler = async () => {
+
 		this.setState({isWithdrawing: true});
 
 		const {symbol} = dashboardContainer.activeCurrency;
+		const {balance} = appContainer.getCurrency(symbol);
 		const {recipientAddress: address, amount} = this.state;
+		const max = Number(amount) === Number(balance) ? true : false;
 
 		const {
 			fee_details: feeDetails,
@@ -61,8 +64,7 @@ class WithdrawModal extends React.Component {
 			symbol,
 			address,
 			amount: Number(amount),
-			// TODO: Support `max` option
-			max: false,
+			max,
 		});
 
 		const txFee = 'amount' in feeDetails ? parseFloat(feeDetails.amount) : parseFloat(feeDetails.total_fee);
