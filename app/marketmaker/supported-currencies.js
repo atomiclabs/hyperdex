@@ -110,29 +110,30 @@ const supportedCurrencies = [
 			},
 		],
 	},
-	// {
-	// 	coin: 'BET',
-	// 	asset: 'BET',
-	// 	fname: 'BET',
-	// 	rpcport: 14250,
-	// 	txversion: 4,
-	// 	overwintered: 1,
-	// 	required_confirmations: 2,
-	// 	electrumServers: [
-	// 		{
-	// 			host: 'electrum1.cipig.net',
-	// 			port: 10012,
-	// 		},
-	// 		{
-	// 			host: 'electrum2.cipig.net',
-	// 			port: 10012,
-	// 		},
-	// 		{
-	// 			host: 'electrum3.cipig.net',
-	// 			port: 10012,
-	// 		},
-	// 	],
-	// },
+	{
+		coin: 'BET',
+		asset: 'BET',
+		fname: 'BET',
+		name: "BET",
+		rpcport: 14250,
+		txversion: 4,
+		overwintered: 1,
+		required_confirmations: 2,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10012,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10012,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10012,
+			},
+		],
+	},
 	{
 		coin: 'BITSOKO',
 		name: 'Bitsoko',
@@ -261,6 +262,12 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
+		coin: 'BUSD',
+		name: 'Binance USD',
+		contractAddress: '0x4Fabb145d64652a948d72533023f6E7A623C7C53',
+		rpcport: 80,
+	},
+	{
 		coin: 'CDT',
 		name: 'Blox',
 		contractAddress: '0x177d39AC676ED1C67A2b268AD7F1E58826E5B0af',
@@ -352,6 +359,29 @@ const supportedCurrencies = [
 				port: 10029,
 			},
 		],
+	},
+	{
+		coin: 'COMMOD',
+		name: 'COMMOD',
+		asset: 'COMMOD',
+		rpcport: 27048,
+		txversion: 4,
+		overwintered: 1,
+		required_confirmations: 2,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10022,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10022,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10022,
+			},
+		]
 	},
 	{
 		coin: 'COQUI',
@@ -758,6 +788,22 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'GIN',
+		name: 'Gincoin',
+		fname: 'GINcoin',
+		rpcport: 10211,
+		pubtype: 38,
+		p2shtype: 10,
+		wiftype: 198,
+		txfee: 10000,
+		electrumServers: [
+			{
+				host: 'electrum2.gincoin.io',
+				port: 6001,
+			},
+		]
+	},
+	{
 		coin: 'GNO',
 		name: 'Gnosis',
 		contractAddress: '0x6810e776880C02933D47DB1b9fc05908e5386b96',
@@ -826,10 +872,10 @@ const supportedCurrencies = [
 		contractAddress: '0xcbCC0F036ED4788F63FC0fEE32873d6A7487b908',
 		rpcport: 80,
 	},
-	/* Disabled because of #289
 	{
 		coin: 'HODL',
 		asset: 'HODL',
+		name: 'HODL',
 		rpcport: 14431,
 		txversion: 4,
 		overwintered: 1,
@@ -849,6 +895,8 @@ const supportedCurrencies = [
 			},
 		],
 	},
+	/* Disabled because of #289
+	NOTE: coin seems dead, see https://coinmarketcap.com/currencies/hodlcoin/ and https://www.unnamed.exchange/Exchange/Basic?market=HODL_BTC
 	{
 		coin: 'HODLC',
 		name: 'Hodlcoin',
@@ -871,6 +919,8 @@ const supportedCurrencies = [
 	*/
 	{
 		coin: 'HUSH',
+		asset: 'HUSH3',
+		fname: 'Hush',
 		rpcport: 18031,
 		txversion: 4,
 		overwintered: 1,
@@ -1011,6 +1061,29 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'LABS',
+		name: 'LABS',
+		fname: 'Komodo LABS',
+		rpcport: 40265,
+		txversion: 4,
+		overwintered: 1,
+		required_confirmations: 2,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10019,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10019,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10019,
+			},
+		]
+	},
+	{
 		coin: 'LALA',
 		name: 'LALA World',
 		contractAddress: '0xfD107B473AB90e8Fbd89872144a3DC92C40Fa8C9',
@@ -1096,6 +1169,29 @@ const supportedCurrencies = [
 		name: 'MobileGo',
 		contractAddress: '0x40395044Ac3c0C57051906dA938B54BD6557F212',
 		rpcport: 80,
+	},
+	{
+		coin: 'MGW',
+		name: 'MGW',
+		fname: 'MultiGateway',
+		rpcport: 12386,
+		txversion: 4,
+		overwintered: 1,
+		required_confirmations: 2,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10015,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10015,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10015,
+			},
+		],
 	},
 	{
 		coin: 'MKR',
@@ -1748,6 +1844,12 @@ const supportedCurrencies = [
 		contractAddress: '0x92e52a1A235d9A103D970901066CE910AAceFD37',
 		rpcport: 80,
 	},
+	{
+		coin: 'USDC',
+		fname: 'USD Coin',
+		contractAddress: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+		rpcport: 80,
+	},
 	// Temporarily disabled as it's not working with mm2
 	// {
 	// 	coin: 'USDT',
@@ -1764,17 +1866,30 @@ const supportedCurrencies = [
 		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
+			// TODO: check in with 0x03 on VRSC discord to replace, use cipi in meantime
+			// {
+			// 	host: 'el0.vrsc.0x03.services',
+			// 	port: 10000,
+			// },
+			// {
+			// 	host: 'el1.vrsc.0x03.services',
+			// 	port: 10000,
+			// },
+			// {
+			// 	host: 'el2.vrsc.0x03.services',
+			// 	port: 10000,
+			// },
 			{
-				host: 'el0.vrsc.0x03.services',
-				port: 10000,
+				host: 'electrum1.cipig.net',
+				port: 10021
 			},
 			{
-				host: 'el1.vrsc.0x03.services',
-				port: 10000,
+				host: 'electrum2.cipig.net',
+				port: 10021
 			},
 			{
-				host: 'el2.vrsc.0x03.services',
-				port: 10000,
+				host: 'electrum3.cipig.net',
+				port: 10021
 			},
 		],
 	},
