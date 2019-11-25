@@ -798,10 +798,6 @@ const supportedCurrencies = [
 		txfee: 10000,
 		electrumServers: [
 			{
-				host: 'electrum1.gincoin.io',
-				port: 6001,
-			},
-			{
 				host: 'electrum2.gincoin.io',
 				port: 6001,
 			},
