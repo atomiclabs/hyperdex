@@ -1870,17 +1870,30 @@ const supportedCurrencies = [
 		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
+			// TODO: check in with 0x03 on VRSC discord to replace, use cipi in meantime
+			// {
+			// 	host: 'el0.vrsc.0x03.services',
+			// 	port: 10000,
+			// },
+			// {
+			// 	host: 'el1.vrsc.0x03.services',
+			// 	port: 10000,
+			// },
+			// {
+			// 	host: 'el2.vrsc.0x03.services',
+			// 	port: 10000,
+			// },
 			{
-				host: 'el0.vrsc.0x03.services',
-				port: 10000,
+				host: 'electrum1.cipig.net',
+				port: 10021
 			},
 			{
-				host: 'el1.vrsc.0x03.services',
-				port: 10000,
+				host: 'electrum2.cipig.net',
+				port: 10021
 			},
 			{
-				host: 'el2.vrsc.0x03.services',
-				port: 10000,
+				host: 'electrum3.cipig.net',
+				port: 10021
 			},
 		],
 	},
