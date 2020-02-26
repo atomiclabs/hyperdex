@@ -29,6 +29,8 @@ class AppContainer extends SuperContainer {
 		enabledCoins: alwaysEnabledCurrencies,
 		currencies: [],
 		swapHistory: [],
+		// NOTE: new api
+		ordersHistory: [],
 	};
 
 	events = new EventEmitter();
@@ -45,24 +47,158 @@ class AppContainer extends SuperContainer {
 	}
 
 	initSwapHistoryListener() {
+
 		const setSwapHistory = async () => {
 			await this.setState({swapHistory: await this.swapDB.getSwaps()});
+			// NOTE: new api
+			await this.setState({ordersHistory: await this.swapDB.getOrders()});
 		};
 
 		setSwapHistory();
 
 		this.swapDB.on('change', setSwapHistory);
 
+		let makerActiveOrders = [];
+		let takerActiveOrders = [];
+
 		// TODO: Change this to `1` second.
 		fireEvery({seconds: 10}, async () => {
+			let activeOrders = this.state.ordersHistory.filter(order => order.isActive || order.status === 'matched').map(order => order.uuid);
+
+			// const orderTypes = this.state.ordersHistory.map(order => order.orderType);
+			// console.log('orderTypes', orderTypes);
+
+			// const orderStatus = this.state.ordersHistory.map(order => order.status);
+			// console.log('orderStatus', orderStatus);
+
+			console.log(`load recent orders`);
+			const myOrders = await this.api.myOrders();
+			const takerOrders = myOrders.taker_orders;
+			const makerOrders = myOrders.maker_orders;
+			const orders = _.merge(takerOrders, makerOrders);
+			const activeOrdersInThisLoops = _.keys(orders);
+			const makerOrdersInThisLoops = _.keys(makerOrders);
+			const takerOrdersInThisLoops = _.keys(takerOrders);
+
+			const ordersJustCompleted = _.differenceWith(activeOrders, activeOrdersInThisLoops, _.isEqual);
+			const newOrders = _.differenceWith(activeOrdersInThisLoops, activeOrders, _.isEqual);
+			const ordersJustChangeToMaker = _.differenceWith(makerOrdersInThisLoops, makerActiveOrders, _.isEqual);
+
+			// Add new order to loop
+			activeOrders = _.concat(activeOrders, newOrders);
+
+			const recentSwaps = await this.api.myRecentSwaps();
+
+			await Promise.all(activeOrders.map(async uuid => {
+			try {
+				const order = this.state.ordersHistory.find(x => x.uuid === uuid);
+				if(!order) {
+					console.error('Could not find order:', uuid);
+					return;
+				}
+				const isOrdersJustCompleted = ordersJustCompleted.indexOf(uuid) !== -1;
+				const isOrdersJustChangeToMaker = ordersJustChangeToMaker.indexOf(uuid) !== -1;
+				let isMakerOrder = order.orderType === "maker";
+				let isTakerOrder = order.orderType === "taker";
+
+				// update order type
+				if(isOrdersJustChangeToMaker) {
+					await this.swapDB.markOrderType(uuid, 'maker');
+					isMakerOrder = true;
+					isTakerOrder = false;
+				}
+
+				// update order swaps
+				const orderInMM2 = orders[uuid];
+				let activeSwaps = order.startedSwaps;
+				if(orderInMM2) {
+					// if order is still active, update new swap
+	 				activeSwaps = _.concat(activeSwaps, orderInMM2.started_swaps);
+				}
+
+				// if(isTakerOrder && isOrdersJustCompleted && order.status !== 'matched') {
+				if(isTakerOrder && order.status === 'matched' && activeSwaps.indexOf(uuid) === -1) {
+					// taker order just matched and filled
+					console.log('isTakerOrder && isOrdersJustCompleted');
+					activeSwaps.push(uuid);
+				}
+
+				// if(isMakerOrder && isOrdersJustCompleted && order.status !== 'matched') {
+				if(isMakerOrder && order.status === 'matched' && order.receivedByMe >= order.requested.baseCurrencyAmount) {
+					// maker order just matched and filled
+					console.log(`isMakerOrder && matched ${uuid}`);
+					// NOTE:
+					// because this issue https://github.com/KomodoPlatform/atomicDEX-API/issues/451
+					// we only allow user to open one order for each coin pair for now
+					// Because there is only one order at a time so all current swaps will be its
+					const { baseCurrency, quoteCurrency, orderType } = order;
+					for(let i = 0; i < recentSwaps.length; i += 1) {
+						const swap = recentSwaps[i];
+						const {
+							events,
+							error_events: errorEvents,
+							success_events: successEvents,
+						} = swap;
+
+						const failedEvent = events.find(event => errorEvents.includes(event.event.type));
+						const isFinished = !failedEvent && events.some(event => event.event.type === 'Finished');
+
+						if(activeSwaps.indexOf(swap.uuid) !== -1) {
+							// found last swap, stop loops
+							break;
+						}
+
+						if(
+							swap.my_info.my_coin === quoteCurrency &&
+							swap.my_info.other_coin === baseCurrency &&
+							swap.type === _.startCase(orderType) &&
+							!isFinished
+						) {
+							activeSwaps.push(swap.uuid);
+						}
+					}
+				}
+
+				if(activeSwaps.length === 0) {
+					activeOrders = _.without(activeOrders, uuid);
+				}
+
+				const swapsData = activeSwaps
+				.map(swapID => recentSwaps.find(x => x.uuid === swapID))
+				.filter(el => el); // remove undefined
+
+				if(swapsData.length > 0) {
+					await this.swapDB.updateSwapData2(uuid, swapsData);
+				}
+
+				// update order status
+				if(order.status === 'matched' && order.receivedByMe >= order.requested.baseCurrencyAmount) {
+					await this.swapDB.updateOrderStatus(uuid, 'completed');
+				}
+
+				if(isOrdersJustCompleted && order.status === 'active') {
+					await this.swapDB.updateOrderStatus(uuid, 'matched');
+				}
+			} catch(err) {
+				console.log(err);
+			}
+			}));
+
+			makerActiveOrders = makerOrdersInThisLoops;
+			takerActiveOrders = takerOrdersInThisLoops;
+		});
+
+		// TODO: Change this to `1` second.
+		fireEvery({seconds: 10}, async () => {
+			console.log(`load recent swaps`);
 			const uuids = this.state.swapHistory.map(swap => swap.uuid);
 			const recentSwaps = await this.api.myRecentSwaps();
-			console.log('recentSwaps', recentSwaps);
+			// console.log('recentSwaps', recentSwaps);
 
 			await Promise.all(uuids.map(async uuid => {
 				const swap = recentSwaps.find(x => x.uuid === uuid);
 				if (!swap) {
-					console.error('Could not find swap:', uuid);
+					// console.error('Could not find swap:', uuid);
 					return;
 				}
 
@@ -71,7 +207,7 @@ class AppContainer extends SuperContainer {
 				// 	swap.errorEvent = errorEvent;
 				// }
 
-				console.log('swap', swap);
+				// console.log('swap', swap);
 
 				// Const status = await this.api.mySwapStatus(uuid);
 				// console.log('update', status);
@@ -274,11 +410,6 @@ class AppContainer extends SuperContainer {
 			this.api.disableCurrency(coin);
 			const enabledCoins = prevState.enabledCoins.filter(enabledCoin => enabledCoin !== coin);
 			setCurrencies(prevState.portfolio.id, enabledCoins);
-
-			// TODO: Remove this when https://github.com/artemii235/SuperNET/issues/459 is fixed.
-			api.dialog.showMessageBox(activeWindow(), {
-				message: 'Marketmaker v2 cannot currently disable currencies when running, so you need to restart HyperDEX for it to take effect.',
-			});
 
 			return {enabledCoins};
 		}, () => {

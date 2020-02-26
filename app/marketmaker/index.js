@@ -93,7 +93,11 @@ class Marketmaker {
 			...options,
 			gui: 'hyperdex',
 			userhome: os.homedir(),
+
 			netid: 9999, // TODO: Set this to `0` when mm v2 is production ready
+			// netid: 2323,
+			// seednodes: ['35.173.213.220'],
+
 			rpcport: port,
 			rpccors: is.development ? 'http://localhost:8080' : 'app://-',
 			coins,

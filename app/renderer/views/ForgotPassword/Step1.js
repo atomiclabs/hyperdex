@@ -15,7 +15,8 @@ const ForgotPasswordStep1 = () => {
 		<div className="ForgotPassword">
 			<LoginBackButton view="LoginBox" progress={0}/>
 			<h1>{t('enterSeedPhrase')}</h1>
-			<p>TODO: Put some explanation here on what to do.</p>
+			{/* <p>TODO: Put some explanation here on what to do.</p> */}
+			<p></p>
 			<div className="form-group" style={{width: '460px'}}>
 				<TextArea
 					required

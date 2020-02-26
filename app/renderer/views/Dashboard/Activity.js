@@ -71,7 +71,7 @@ ActivityList.propTypes = {
 };
 
 const Activity = () => {
-	const successfulSwaps = appContainer.state.swapHistory.filter(x => x.status === 'completed');
+	const successfulSwaps = appContainer.state.ordersHistory.filter(order => order.status === 'completed');
 
 	return (
 		<div className="Dashboard--Activity">

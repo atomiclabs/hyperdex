@@ -14,7 +14,8 @@ const RestorePortfolioStep1 = () => {
 		<div className="RestorePortfolio">
 			<LoginBackButton view="NewPortfolio" progress={0}/>
 			<h1>{t('restore.enterSeedPhrase')}</h1>
-			<p>TODO: Put some explanation here on what to do.</p>
+			{/* <p>TODO: Put some explanation here on what to do.</p> */}
+			<p></p>
 			<form style={{marginTop: '20px'}} onSubmit={container.handleStep1Submit}>
 				<div className="form-group" style={{width: '460px'}}>
 					<TextArea

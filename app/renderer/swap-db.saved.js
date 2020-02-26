@@ -5,12 +5,10 @@ import cryptoPouch from 'crypto-pouch';
 import Emittery from 'emittery';
 import PQueue from 'p-queue';
 import roundTo from 'round-to';
-import ow from 'ow';
 import {subDays, isAfter} from 'date-fns';
 import appContainer from 'containers/App';
 import {appTimeStarted} from '../constants';
 import {translate} from './translate';
-import formatOrder from './format-order-data';
 
 const t = translate('swap');
 
@@ -20,32 +18,26 @@ PouchDB.plugin(cryptoPouch);
 
 class SwapDB {
 	constructor(portfolioId, seedPhrase) {
-		// Using `orders2` so it won't conflict with prev db
+		// Using `2` so it won't conflict with HyperDEX versions using marketmaker v1.
 		this.db = new PouchDB(`swaps2-${portfolioId}`, {adapter: 'idb'});
 
-		this.db2 = new PouchDB(`orders2-${portfolioId}`, {adapter: 'idb'});
-
 		this.db.crypto(seedPhrase);
-
-		this.db2.crypto(seedPhrase);
 
 		const ee = new Emittery();
 		this.on = ee.on.bind(ee);
 		this.off = ee.off.bind(ee);
 		this.once = ee.once.bind(ee);
 
-		this.db2.changes({
+		this.db.changes({
 			since: 'now',
 			live: true,
 			include_docs: true, // eslint-disable-line camelcase
-		}).on('change', ({doc: order}) => ee.emit('change', order));
+		}).on('change', ({doc: swap}) => ee.emit('change', swap));
 
 		// To be able to sort via timeStarted it MUST be the fist item in the index.
 		// https://github.com/pouchdb/pouchdb/issues/7207
 		this.ready = (async () => {
 			await this.db.createIndex({index: {fields: ['timeStarted', 'uuid']}});
-			// NOTE: new api
-			await this.db2.createIndex({index: {fields: ['timeStarted', 'uuid']}});
 			await this.migrate();
 
 			// We need to regularly check if pending swaps have timed out.
@@ -55,12 +47,6 @@ class SwapDB {
 		})();
 
 		this.pQueue = new PQueue({concurrency: 1});
-
-		// NOTE: this is only for debug
-		// please remove these lines when we merge code
-		if (typeof window !== 'undefined') {
-			window.swapDB = this;
-		}
 	}
 
 	async migrate() {
@@ -81,22 +67,6 @@ class SwapDB {
 			await this.ready;
 			fn();
 		});
-	}
-
-	// NOTE: new api
-	insertOrderData(order, requestOpts) {
-		return this.queue(() => this.db2.post({
-			uuid: order.uuid,
-			timeStarted: Date.now(),
-			request: requestOpts,
-			response: order,
-			messages: [],
-			swaps: {},
-    		startedSwaps:[],
-			// NOTE: taker order will be converted to maker order if it is not matched in 30s
-			type: "taker",
-			status: "active"
-		}));
 	}
 
 	insertSwapData(swap, requestOpts) {
@@ -120,77 +90,6 @@ class SwapDB {
 		return docs[0];
 	}
 
-	// NOTE: new api
-	async _getOrderData(uuid) {
-		await this.ready;
-
-		const {docs} = await this.db2.find({
-			selector: {uuid},
-			limit: 1,
-		});
-
-		return docs[0];
-	}
-
-	// NOTE: new api
-	updateOrderData = (orderData, /*swapsData*/) => {
-		return this.queue(async () => {
-			const order = await this._getOrderData(orderData.uuid);
-
-			await this.db2.upsert(order._id, doc => {
-				doc.type = orderData.type;
-				// for(let i = 0; i < swapsData.length; i+=1) {
-				// 	const swap = swapsData[i];
-				// 	if(doc.startedSwaps.indexOf(swap.uuid) === -1) {
-				// 		doc.startedSwaps.push(swap.uuid);
-				// 	}
-				// 	doc.swaps[swap.uuid] = swap;
-				// }
-				return doc;
-			});
-		});
-	}
-
-	// NOTE: new api
-	updateOrderStatus = (uuid, status) => {
-		return this.queue(async () => {
-			const order = await this._getOrderData(uuid);
-			await this.db2.upsert(order._id, doc => {
-				doc.status = status;
-				return doc;
-			});
-		});
-	}
-
-	// NOTE: new api
-	markOrderType = (uuid, type) => {
-		return this.queue(async () => {
-			const order = await this._getOrderData(uuid);
-			await this.db2.upsert(order._id, doc => {
-				doc.type = type;
-				return doc;
-			});
-		});
-	}
-
-	// NOTE: new api
-	updateSwapData2 = (uuid, swapsData) => {
-		return this.queue(async () => {
-			const order = await this._getOrderData(uuid);
-
-			await this.db2.upsert(order._id, doc => {
-				for(let i = 0; i < swapsData.length; i+=1) {
-					const swap = swapsData[i];
-					if(doc.startedSwaps.indexOf(swap.uuid) === -1) {
-						doc.startedSwaps.push(swap.uuid);
-					}
-					doc.swaps[swap.uuid] = swap;
-				}
-				return doc;
-			});
-		});
-	}
-
 	updateSwapData = swapData => {
 		return this.queue(async () => {
 			const swap = await this._getSwapData(swapData.uuid);
@@ -205,6 +104,7 @@ class SwapDB {
 	// TODO: We should refactor this into a seperate file
 	_formatSwap(data) {
 		// Console.log('swap data', data);
+
 		const {
 			uuid,
 			timeStarted,
@@ -227,6 +127,9 @@ class SwapDB {
 			orderType: action === 'Buy' ? 'buy' : 'sell',
 			status: 'pending',
 			statusFormatted: t('status.open').toLowerCase(),
+			get isActive() {
+				return !['completed', 'failed'].includes(this.status);
+			},
 			error: false,
 			progress: 0,
 			baseCurrency,
@@ -256,9 +159,6 @@ class SwapDB {
 				request,
 				response,
 				swapData,
-			},
-			get isActive() {
-				return !['completed', 'failed'].includes(this.status);
 			},
 		};
 
@@ -366,35 +266,6 @@ class SwapDB {
 		// We need `timeStarted: {$gt: true}` so PouchDB can sort.
 		// https://github.com/pouchdb/pouchdb/issues/7206
 		const {docs} = await this.db.find(options.query || query);
-		return docs;
-	}
-
-	// NOTE: new api
-	async _getAllOrdersData(options = {}) {
-		await this.ready;
-
-		options = {
-			since: true,
-			sort: 'desc',
-			...options,
-		};
-
-		const query = {
-			selector: {
-				timeStarted: {
-					$gt: options.since,
-				},
-			},
-			sort: [
-				{
-					timeStarted: options.sort,
-				},
-			],
-		};
-
-		// We need `timeStarted: {$gt: true}` so PouchDB can sort.
-		// https://github.com/pouchdb/pouchdb/issues/7206
-		const {docs} = await this.db2.find(options.query || query);
 
 		return docs;
 	}
@@ -404,59 +275,32 @@ class SwapDB {
 		return swapData.map(this._formatSwap);
 	}
 
-	// NOTE: new api
-	async getOrders(options) {
-		const ordersData = await this._getAllOrdersData(options);
-		return ordersData.map(formatOrder);
-	}
-
-	// NOTE: new api
-	async getRawOrders(options) {
-		const ordersData = await this._getAllOrdersData(options);
-		return ordersData;
-	}
-
-	async getOrdersCount() {
-		const entries = await this.db2.allDocs();
+	async getSwapCount() {
+		const entries = await this.db.allDocs();
 		return entries.rows.length - 1; // We don't count the `_design` doc
-	}
-
-	// NOTE: new api
-	// https://pouchdb.com/api.html#delete_document
-	async removeAOrder(uuid) {
-		ow(uuid, 'uuid', ow.string);
-		return this.queue(async () => {
-			const order = await this._getOrderData(uuid);
-			await this.db2.remove(order);
-		});
 	}
 
 	async destroy() {
 		await this.db.destroy();
 	}
 
-	// NOTE: new api
-	async destroy2() {
-		await this.db2.destroy();
-	}
-
 	async statsSince(timestamp) {
-		const orders = await this.getOrders({since: timestamp});
-		const successfulOrders = orders.filter(swap => swap.status === 'completed');
+		const swaps = await this.getSwaps({since: timestamp});
+		const successfulSwaps = swaps.filter(swap => swap.status === 'completed');
 
 		const tradedCurrencies = new Set();
-		for (const swap of successfulOrders) {
+		for (const swap of successfulSwaps) {
 			tradedCurrencies.add(swap.baseCurrency);
 			tradedCurrencies.add(swap.quoteCurrency);
 		}
 
 		let totalSwapsWorthInUsd = 0;
-		for (const swap of successfulOrders) {
+		for (const swap of successfulSwaps) {
 			totalSwapsWorthInUsd += swap.quoteCurrencyAmount * appContainer.getCurrency(swap.quoteCurrency).cmcPriceUsd;
 		}
 
 		return {
-			successfulSwapCount: successfulOrders.length,
+			successfulSwapCount: successfulSwaps.length,
 			currencyCount: tradedCurrencies.size,
 			totalSwapsWorthInUsd,
 		};

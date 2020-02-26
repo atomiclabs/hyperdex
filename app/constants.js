@@ -24,13 +24,14 @@ exports.appViews = [
 ];
 
 exports.defaultEnabledCurrencies = [
+	'BTC',
+	'KMD',
 	'CHIPS',
 	'DOGE',
-	'KMD',
 	'MORTY',
 	'RICK',
 	'SUPERNET',
-
+	'ETH',
 	// These are left out for now.
 	// TODO: Revise this list when HyperDEX is more mature.
 	// 'BCH',
@@ -47,8 +48,8 @@ exports.defaultEnabledCurrencies = [
 ];
 
 exports.alwaysEnabledCurrencies = [
-	'KMD',
-	'CHIPS',
+	'BTC',
+	'KMD'
 ];
 
 exports.ignoreExternalPrice = new Set([
@@ -57,6 +58,8 @@ exports.ignoreExternalPrice = new Set([
 	'REVS',
 	'RICK',
 	'SUPERNET',
+	"BET",
+	"HODL",
 ]);
 
 exports.hiddenCurrencies = [];

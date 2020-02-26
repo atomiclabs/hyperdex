@@ -1,0 +1,116 @@
+{
+	"uuid": "a26144dc-237c-4d32-b34d-e73ce9b34f83",
+	"timeStarted": 1571374940996,
+	"swapData": {
+		"recoverable": false,
+		"type": "Taker",
+		"uuid": "a26144dc-237c-4d32-b34d-e73ce9b34f83",
+		"success_events": ["Started", "Negotiated", "TakerFeeSent", "MakerPaymentReceived", "MakerPaymentWaitConfirmStarted", "MakerPaymentValidatedAndConfirmed", "TakerPaymentSent", "TakerPaymentSpent", "MakerPaymentSpent", "Finished"],
+		"my_info": {
+			"my_amount": "0.101",
+			"my_coin": "RICK",
+			"other_amount": "0.1",
+			"other_coin": "MORTY",
+			"started_at": 1571374942
+		},
+		"events": [{
+			"timestamp": 1571374943340,
+			"event": {
+				"type": "Started",
+				"data": {
+					"lock_duration": 7800,
+					"maker": "7932139a858bb9c65eafdc74fa0798617efc18b81c0c5946c798c7a5a6b95d08",
+					"maker_amount": "0.1",
+					"maker_coin": "MORTY",
+					"maker_coin_start_block": 114678,
+					"maker_payment_confirmations": 1,
+					"maker_payment_wait": 1571377542,
+					"my_persistent_pub": "02471f64357636038d6db76677369f3995bbaf4531bf39a919286ca36f1a680002",
+					"started_at": 1571374942,
+					"taker_amount": "0.101",
+					"taker_coin": "RICK",
+					"taker_coin_start_block": 112702,
+					"taker_payment_confirmations": 1,
+					"taker_payment_lock": 1571382742,
+					"uuid": "a26144dc-237c-4d32-b34d-e73ce9b34f83"
+				}
+			}
+		}, {
+			"timestamp": 1571375004475,
+			"event": {
+				"type": "Negotiated",
+				"data": {
+					"maker_payment_locktime": 1571390541,
+					"maker_pubkey": "027932139a858bb9c65eafdc74fa0798617efc18b81c0c5946c798c7a5a6b95d08",
+					"secret_hash": "493c54d9b4bebd4d522874711543dcc528245056"
+				}
+			}
+		}, {
+			"timestamp": 1571375010539,
+			"event": {
+				"type": "TakerFeeSent",
+				"data": {
+					"block_height": 0,
+					"coin": "RICK",
+					"internal_id": "e28691d4fa793db3fea47510e50ab50160ccbfdaf3193e94b56c2e83ad759fb1",
+					"my_balance_change": "-0.00013998",
+					"received_by_me": "0.899267",
+					"spent_by_me": "0.89940698",
+					"timestamp": 0,
+					"total_amount": "0.89940698",
+					"tx_hash": "e28691d4fa793db3fea47510e50ab50160ccbfdaf3193e94b56c2e83ad759fb1",
+					"tx_hex": "0400008085202f8901c932eb1b75a7c8660fc17aa086eeef64df2509c0f3e2a1a9def1dc2c906d3906010000006a47304402202d518186d84e2de10f75d4f52d5d5d6353312e08ed67657412754fc30d50319102202b76d60f6763bea9270d480b99ab3b3e90fa7370810a37c2c9ecb5ef11cd52f9012102471f64357636038d6db76677369f3995bbaf4531bf39a919286ca36f1a680002ffffffff02c6320000000000001976a914ca1e04745e8ca0c60d8c5881531d51bec470743f88ac2c2c5c05000000001976a914b1cc1a6fe678e98fda7572a76679363dcfad6a8f88ac9c47a95d000000000000000000000000000000",
+					"to": ["RRVJBpA5MoeTo3beA1iP6euWWrWcJdJtXu", "RThtXup6Zo7LZAi8kRWgjAyi1s4u6U9Cpf"],
+					"from": ["RRVJBpA5MoeTo3beA1iP6euWWrWcJdJtXu"],
+					"fee_details": {
+						"amount": "0.00001"
+					}
+				}
+			}
+		}, {
+			"timestamp": 1571375700549,
+			"event": {
+				"type": "MakerPaymentValidateFailed",
+				"data": {
+					"error": "taker_swap:605] Error waiting for 'maker-payment' data: taker_swap:601] timeout (690.0 > 690.0)"
+				}
+			}
+		}, {
+			"timestamp": 1571375700551,
+			"event": {
+				"type": "Finished"
+			}
+		}],
+		"error_events": ["StartFailed", "NegotiateFailed", "TakerFeeSendFailed", "MakerPaymentValidateFailed", "TakerPaymentTransactionFailed", "TakerPaymentDataSendFailed", "TakerPaymentWaitForSpendFailed", "MakerPaymentSpendFailed", "TakerPaymentRefunded", "TakerPaymentRefundFailed"]
+	},
+	"request": {
+		"type": "buy",
+		"baseCurrency": "MORTY",
+		"quoteCurrency": "RICK",
+		"price": 1.0605,
+		"total": 0.10605,
+		"amount": 0.1
+	},
+	"response": {
+		"action": "Buy",
+		"base": "MORTY",
+		"dest_pub_key": "0000000000000000000000000000000000000000000000000000000000000000",
+		"method": "request",
+		"rel": "RICK",
+		"sender_pubkey": "471f64357636038d6db76677369f3995bbaf4531bf39a919286ca36f1a680002",
+		"uuid": "a26144dc-237c-4d32-b34d-e73ce9b34f83",
+		"baseAmount": 0.1,
+		"quoteAmount": 0.10605,
+		"base_amount_rat": [
+			[1, [2764472320, 232830]],
+			[1, [1874919424, 2328306]]
+		],
+		"rel_amount_rat": [
+			[1, [2121]],
+			[1, [20000]]
+		]
+	},
+	"messages": [],
+	"_id": "5197344a-4a44-4009-9e15-997bd40a1dd9",
+	"_rev": "978-ba5f2909d20eff34fd02af21143f540c"
+}

@@ -5,6 +5,8 @@
 	"title": "Swap",
 	"details": {
 		"broadcast": "Broadcast",
+		"maker": "Maker",
+		"taker": "Taker",
 		"buy": "Buy",
 		"copyDebugData": "Copy Swap Debug Data",
 		"exchanging": "Exchanging",
@@ -55,6 +57,7 @@
 		"reverted": "Reverted",
 		"pending": "Pending",
 		"open": "Open",
+		"active": "Open",
 		"unmatched": "Unmatched",
 		"cancelled": "Cancelled"
 	},

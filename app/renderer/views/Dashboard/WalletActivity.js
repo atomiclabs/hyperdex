@@ -89,15 +89,25 @@ ActivityList.propTypes = {
 const Activity = () => {
 	const {activeCurrency} = dashboardContainer;
 
-	const swaps = appContainer.state.swapHistory.filter(swap =>
-		!swap.isActive &&
-		[swap.baseCurrency, swap.quoteCurrency].includes(activeCurrency.symbol)
-	);
+	// const swaps = appContainer.state.swapHistory.filter(swap =>
+	// 	!swap.isActive &&
+	// 	[swap.baseCurrency, swap.quoteCurrency].includes(activeCurrency.symbol)
+	// );
+
+	const orders = appContainer.state.ordersHistory.filter(order => {
+		return !order.isOpen &&
+		[order.baseCurrency, order.quoteCurrency].includes(activeCurrency.symbol)
+	});
 
 	return (
-		<div className="Wallet--Activity">
-			<ActivityList items={swaps}/>
-		</div>
+		<>
+			<div className="Wallet--Activity">
+				<ActivityList items={orders}/>
+			</div>
+			{/* <div className="Wallet--Activity">
+				<ActivityList items={swaps}/>
+			</div> */}
+		</>
 	);
 };
 

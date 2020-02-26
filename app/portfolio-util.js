@@ -61,6 +61,7 @@ const removedCurrencies = [
 	'BLK',
 	'FAIR',
 	'SIB',
+	"HODLC",
 ];
 
 const createPortfolio = async ({name, seedPhrase, password}) => {

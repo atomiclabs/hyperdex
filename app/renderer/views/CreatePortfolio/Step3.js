@@ -15,7 +15,8 @@ const CreatePortfolioStep3 = () => {
 		<div className="CreatePortfolio">
 			<LoginBackButton view="CreatePortfolioStep2" progress={0.50}/>
 			<h1>{t('create.confirmSeedPhrase')}</h1>
-			<p>TODO: Put some explanation here on what to do.</p>
+			{/* <p>TODO: Put some explanation here on what to do.</p> */}
+			<p></p>
 			<form style={{marginTop: '20px'}} onSubmit={container.handleStep3Submit}>
 				<div className="form-group" style={{width: '460px'}}>
 					<TextArea

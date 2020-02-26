@@ -11,24 +11,6 @@ We use the `name` property only when the currency is not on `coinmarketcap.com`.
 
 const supportedCurrencies = [
 	{
-		coin: '$PAC',
-		rpcport: 7111,
-		pubtype: 55,
-		p2shtype: 10,
-		wiftype: 204,
-		txfee: 10000,
-		electrumServers: [
-			{
-				host: 'electrum.paccoin.io',
-				port: 50001,
-			},
-			{
-				host: 'electro-pac.paccoin.io',
-				port: 50001,
-			},
-		],
-	},
-	{
 		coin: '1ST',
 		name: 'FirstBlood',
 		contractAddress: '0xAf30D2a7E90d7DC361c8C4585e9BB7D2F6f15bc7',
@@ -53,12 +35,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'ANN',
-		name: 'Agent Not Needed',
-		contractAddress: '0xe0e73E8fc3a0fA161695be1D75E1Bc3E558957c4',
-		rpcport: 80,
-	},
-	{
 		coin: 'ANT',
 		name: 'Aragon',
 		contractAddress: '0x960b236A07cf122663c4303350609A66A7B288C0',
@@ -74,18 +50,6 @@ const supportedCurrencies = [
 		coin: 'BAT',
 		name: 'Basic Attention Token',
 		contractAddress: '0x0D8775F648430679A709E98d2b0Cb6250d2887EF',
-		rpcport: 80,
-	},
-	{
-		coin: 'BBT',
-		name: 'Bitboost',
-		contractAddress: '0x1500205f50bf3FD976466d0662905c9ff254fc9c',
-		rpcport: 80,
-	},
-	{
-		coin: 'BCAP',
-		name: 'Bcap',
-		contractAddress: '0xFf3519eeeEA3e76F1F699CCcE5E23ee0bdDa41aC',
 		rpcport: 80,
 	},
 	{
@@ -111,10 +75,28 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'BITSOKO',
-		name: 'Bitsoko',
-		contractAddress: '0xB72627650F1149Ea5e54834b2f468E5d430E67bf',
-		rpcport: 80,
+		coin: 'BET',
+		asset: 'BET',
+		fname: 'BET',
+		name: "BET",
+		rpcport: 14250,
+		txversion: 4,
+		overwintered: 1,
+		required_confirmations: 2,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10012,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10012,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10012,
+			},
+		],
 	},
 	{
 		coin: 'BNB',
@@ -150,12 +132,6 @@ const supportedCurrencies = [
 				port: 10007,
 			},
 		],
-	},
-	{
-		coin: 'BOX',
-		name: 'Beonbox',
-		contractAddress: '0x01E579BE97433f861340268521A7a2ab9829082C',
-		rpcport: 80,
 	},
 	{
 		coin: 'BTC',
@@ -202,12 +178,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'BTCL',
-		name: 'BTC Lite',
-		contractAddress: '0x5acD19b9c91e596b1f062f18e3D02da7eD8D1e50',
-		rpcport: 80,
-	},
-	{
 		coin: 'BTG',
 		rpcport: 12332,
 		pubtype: 38,
@@ -226,15 +196,15 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'BTK',
-		name: 'BitcoinToken',
-		contractAddress: '0xdb8646F5b487B5Dd979FAC618350e85018F557d4',
-		rpcport: 80,
-	},
-	{
 		coin: 'BTM',
 		name: 'Bytom',
 		contractAddress: '0xcB97e65F07DA24D46BcDD078EBebd7C6E6E3d750',
+		rpcport: 80,
+	},
+	{
+		coin: 'BUSD',
+		name: 'Binance USD',
+		contractAddress: '0x4Fabb145d64652a948d72533023f6E7A623C7C53',
 		rpcport: 80,
 	},
 	{
@@ -247,12 +217,6 @@ const supportedCurrencies = [
 		coin: 'CENNZ',
 		name: 'Centrality',
 		contractAddress: '0x1122B6a0E00DCe0563082b6e2953f3A943855c1F',
-		rpcport: 80,
-	},
-	{
-		coin: 'CFI',
-		name: 'Cofound.it',
-		contractAddress: '0x12FEF5e57bF45873Cd9B62E9DBd7BFb99e32D73e',
 		rpcport: 80,
 	},
 	{
@@ -302,12 +266,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'CIX',
-		name: 'Cryptonetix',
-		contractAddress: '0x1175a66a5c3343Bbf06AA818BB482DdEc30858E0',
-		rpcport: 80,
-	},
-	{
 		coin: 'CCL',
 		name: 'CoinCollect',
 		asset: 'CCL',
@@ -329,6 +287,29 @@ const supportedCurrencies = [
 				port: 10029,
 			},
 		],
+	},
+	{
+		coin: 'COMMOD',
+		name: 'COMMOD',
+		asset: 'COMMOD',
+		rpcport: 27048,
+		txversion: 4,
+		overwintered: 1,
+		required_confirmations: 2,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10022,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10022,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10022,
+			},
+		]
 	},
 	{
 		coin: 'COQUI',
@@ -456,14 +437,8 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'DEC8',
-		name: 'DEC8 [Test]',
-		contractAddress: '0x3aB100442484Dc2414Aa75B2952A0a6f03f8aBFd',
-		rpcport: 80,
-	},
-	{
 		coin: 'DEX',
-		name: 'InstantDEX',
+		name: 'DEX',
 		asset: 'DEX',
 		rpcport: 11890,
 		txversion: 4,
@@ -514,18 +489,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'DGPT',
-		name: 'DigiPulse',
-		contractAddress: '0xf6cFe53d6FEbaEEA051f400ff5fc14F0cBBDacA1',
-		rpcport: 80,
-	},
-	{
-		coin: 'DICE',
-		name: 'Etheroll',
-		contractAddress: '0x2e071D2966Aa7D8dECB1005885bA1977D6038A65',
-		rpcport: 80,
-	},
-	{
 		coin: 'DNT',
 		name: 'District0x',
 		contractAddress: '0x0AbdAce70D3790235af448C88547603b945604ea',
@@ -552,36 +515,6 @@ const supportedCurrencies = [
 				port: 10060,
 			},
 		],
-	},
-	{
-		coin: 'DRGN',
-		name: 'Dragonchain',
-		contractAddress: '0x419c4dB4B9e25d6Db2AD9691ccb832C8D9fDA05E',
-		rpcport: 80,
-	},
-	{
-		coin: 'DROP',
-		name: 'Dropil',
-		contractAddress: '0x4672bAD527107471cB5067a887f4656D585a8A31',
-		rpcport: 80,
-	},
-	{
-		coin: 'DRT',
-		name: 'DomRaider',
-		contractAddress: '0x9AF4f26941677C706cfEcf6D3379FF01bB85D5Ab',
-		rpcport: 80,
-	},
-	{
-		coin: 'EDG',
-		name: 'Edgeless',
-		contractAddress: '0x08711D3B02C8758F2FB3ab4e80228418a7F8e39c',
-		rpcport: 80,
-	},
-	{
-		coin: 'ELD',
-		name: 'Electrum Dark',
-		contractAddress: '0xaaF7d4CD097317D68174215395eB02c2ccA81E31',
-		rpcport: 80,
 	},
 	{
 		coin: 'ELF',
@@ -629,87 +562,15 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'ETA',
-		name: 'Etheera',
-		contractAddress: '0x9195E00402abe385f2D00A32Af40b271F2e87925',
-		rpcport: 80,
-	},
-	{
-		coin: 'ETHOS',
-		name: 'Ethos',
-		contractAddress: '0x5Af2Be193a6ABCa9c8817001F45744777Db30756',
-		rpcport: 80,
-	},
-	{
-		coin: 'FJC',
-		rpcport: 3776,
-		pubtype: 36,
-		p2shtype: 16,
-		wiftype: 164,
-		txfee: 100000,
-		electrumServers: [
-			{
-				host: 'electrumx1.fujicoin.org',
-				port: 50001,
-			},
-			{
-				host: 'electrumx2.fujicoin.org',
-				port: 50001,
-			},
-			{
-				host: 'electrumx3.fujicoin.org',
-				port: 50001,
-			},
-		],
-	},
-	{
-		coin: 'FLLW',
-		name: 'FollowCoin',
-		contractAddress: '0x0200412995f1baFef0D3F97C4E28Ac2515EC1eCE',
-		rpcport: 80,
-	},
-	{
 		coin: 'FSN',
 		name: 'Fusion',
 		contractAddress: '0xD0352a019e9AB9d757776F532377aAEbd36Fd541',
 		rpcport: 80,
 	},
 	{
-		coin: 'FTC',
-		rpcport: 9337,
-		pubtype: 14,
-		p2shtype: 5,
-		wiftype: 142,
-		txfee: 1000000,
-		electrumServers: [
-			{
-				host: 'electrumx-gb-1.feathercoin.network',
-				port: 50001,
-			},
-			{
-				host: 'electrumx-gb-2.feathercoin.network',
-				port: 50001,
-			},
-			{
-				host: 'electrumx-ch-1.feathercoin.ch',
-				port: 50001,
-			},
-			{
-				host: 'electrumx-de-2.feathercoin.ch',
-				port: 50001,
-			},
-		],
-	},
-	{
 		coin: 'FUN',
 		name: 'FunFair',
 		contractAddress: '0x419D0d8BdD9aF5e606Ae2232ed285Aff190E711b',
-		rpcport: 80,
-	},
-	{
-		coin: 'FYN',
-		name: 'FundYourselfNow',
-		contractAddress: '0x88FCFBc22C6d3dBaa25aF478C578978339BDe77a',
 		rpcport: 80,
 	},
 	{
@@ -735,15 +596,25 @@ const supportedCurrencies = [
 		],
 	},
 	{
+		coin: 'GIN',
+		name: 'Gincoin',
+		fname: 'GINcoin',
+		rpcport: 10211,
+		pubtype: 38,
+		p2shtype: 10,
+		wiftype: 198,
+		txfee: 10000,
+		electrumServers: [
+			{
+				host: 'electrum2.gincoin.io',
+				port: 6001,
+			},
+		]
+	},
+	{
 		coin: 'GNO',
 		name: 'Gnosis',
 		contractAddress: '0x6810e776880C02933D47DB1b9fc05908e5386b96',
-		rpcport: 80,
-	},
-	{
-		coin: 'GPN',
-		name: 'GPN Coin',
-		contractAddress: '0xE2b407160AAd5540eAc0e80338b9a5085C60F25B',
 		rpcport: 80,
 	},
 	{
@@ -779,12 +650,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'GUP',
-		name: 'Matchpool',
-		contractAddress: '0xf7B098298f7C69Fc14610bf71d5e02c60792894C',
-		rpcport: 80,
-	},
-	{
 		coin: 'GUSD',
 		name: 'Gemini dollar',
 		decimals: 2,
@@ -792,21 +657,9 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'HGT',
-		name: 'HelloGold',
-		contractAddress: '0xba2184520A1cC49a6159c57e61E1844E085615B6',
-		rpcport: 80,
-	},
-	{
-		coin: 'HMQ',
-		name: 'Humaniq',
-		contractAddress: '0xcbCC0F036ED4788F63FC0fEE32873d6A7487b908',
-		rpcport: 80,
-	},
-	/* Disabled because of #289
-	{
 		coin: 'HODL',
 		asset: 'HODL',
+		name: 'HODL',
 		rpcport: 14431,
 		txversion: 4,
 		overwintered: 1,
@@ -827,33 +680,14 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'HODLC',
-		name: 'Hodlcoin',
-		rpcport: 11989,
-		pubtype: 40,
-		p2shtype: 5,
-		wiftype: 168,
-		txfee: 5000,
-		electrumServers: [
-			{
-				host: 'hodl.amit.systems',
-				port: 17989,
-			},
-			{
-				host: 'hodl2.amit.systems',
-				port: 17989,
-			},
-		],
-	},
-	*/
-	{
 		coin: 'HUSH',
-		rpcport: 8822,
-		taddr: 28,
-		pubtype: 184,
-		p2shtype: 189,
-		wiftype: 128,
-		txfee: 1000,
+		asset: 'HUSH3',
+		fname: 'Hush',
+		rpcport: 18031,
+		txversion: 4,
+		overwintered: 1,
+		mm2: 1,
+		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
@@ -870,39 +704,9 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'HYD',
-		name: 'Hydra',
-		contractAddress: '0xD233495C48EB0143661fFC8458EAfc21b633f97f',
-		rpcport: 80,
-	},
-	{
-		coin: 'ICN',
-		name: 'Iconomi',
-		contractAddress: '0x888666CA69E0f178DED6D75b5726Cee99A87D698',
-		rpcport: 80,
-	},
-	{
-		coin: 'IND',
-		name: 'Indorse Token',
-		contractAddress: '0xf8e386EDa857484f5a12e4B5DAa9984E06E73705',
-		rpcport: 80,
-	},
-	{
 		coin: 'IOST',
 		name: 'IOST',
 		contractAddress: '0xFA1a856Cfa3409CFa145Fa4e20Eb270dF3EB21ab',
-		rpcport: 80,
-	},
-	{
-		coin: 'JOI',
-		name: 'JointEDU',
-		contractAddress: '0x58deD6994124B4FFF298f1416aCa3fC9Cdba37b2',
-		rpcport: 80,
-	},
-	{
-		coin: 'JST',
-		name: 'JST (TESTCOIN)',
-		contractAddress: '0x996a8aE0304680F6A69b8A9d7C6E37D65AB5AB56',
 		rpcport: 80,
 	},
 	{
@@ -966,39 +770,27 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'KV',
-		name: 'KeyValue',
-		asset: 'KV',
-		rpcport: 8299,
+		coin: 'LABS',
+		name: 'LABS',
+		fname: 'Komodo LABS',
+		rpcport: 40265,
 		txversion: 4,
 		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
 			{
 				host: 'electrum1.cipig.net',
-				port: 10016,
+				port: 10019,
 			},
 			{
 				host: 'electrum2.cipig.net',
-				port: 10016,
+				port: 10019,
 			},
 			{
 				host: 'electrum3.cipig.net',
-				port: 10016,
+				port: 10019,
 			},
-		],
-	},
-	{
-		coin: 'LALA',
-		name: 'LALA World',
-		contractAddress: '0xfD107B473AB90e8Fbd89872144a3DC92C40Fa8C9',
-		rpcport: 80,
-	},
-	{
-		coin: 'LIKE',
-		name: 'LikeCoin',
-		contractAddress: '0x02F61Fd266DA6E8B102D4121f5CE7b992640CF98',
-		rpcport: 80,
+		]
 	},
 	{
 		coin: 'LINK',
@@ -1046,18 +838,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'LUN',
-		name: 'Lunyr',
-		contractAddress: '0xfa05A73FfE78ef8f1a739473e462c54bae6567D9',
-		rpcport: 80,
-	},
-	{
-		coin: 'LYS',
-		name: 'Lightyears',
-		contractAddress: '0xdD41fBd1Ae95C5D9B198174A28e04Be6b3d1aa27',
-		rpcport: 80,
-	},
-	{
 		coin: 'MANA',
 		name: 'Decentraland',
 		contractAddress: '0x0F5D2fB29fb7d3CFeE444a200298f468908cC942',
@@ -1070,10 +850,27 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'MGO',
-		name: 'MobileGo',
-		contractAddress: '0x40395044Ac3c0C57051906dA938B54BD6557F212',
-		rpcport: 80,
+		coin: 'MGW',
+		name: 'MGW',
+		fname: 'MultiGateway',
+		rpcport: 12386,
+		txversion: 4,
+		overwintered: 1,
+		required_confirmations: 2,
+		electrumServers: [
+			{
+				host: 'electrum1.cipig.net',
+				port: 10015,
+			},
+			{
+				host: 'electrum2.cipig.net',
+				port: 10015,
+			},
+			{
+				host: 'electrum3.cipig.net',
+				port: 10015,
+			},
+		],
 	},
 	{
 		coin: 'MKR',
@@ -1092,24 +889,6 @@ const supportedCurrencies = [
 		name: 'Mechanix Token',
 		contractAddress: '0xe7C33a0E04F2316Bb321C4AD2976873d09538B56',
 		rpcport: 80,
-	},
-	{
-		coin: 'MNX',
-		rpcport: 17786,
-		pubtype: 75,
-		p2shtype: 5,
-		wiftype: 128,
-		txfee: 10000,
-		electrumServers: [
-			{
-				host: 'elex01-ams.turinex.eu',
-				port: 50001,
-			},
-			{
-				host: '95.85.35.152',
-				port: 50001,
-			},
-		],
 	},
 	{
 		coin: 'MONA',
@@ -1190,28 +969,9 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'MYB',
-		name: 'MyBit Token',
-		contractAddress: '0x5d60d8d7eF6d37E16EBABc324de3bE57f135e0BC',
-		rpcport: 80,
-	},
-	{
-		coin: 'MYTH',
-		name: 'Unicoin',
-		decimals: 18,
-		contractAddress: '0x277AB4b9DDE09A8E710fd755deeB9d0d9532d047',
-		rpcport: 80,
-	},
-	{
 		coin: 'NAS',
 		name: 'Nebulas',
 		contractAddress: '0x5d65D971895Edc438f465c17DB6992698a52318D',
-		rpcport: 80,
-	},
-	{
-		coin: 'NET',
-		name: 'Nimiq',
-		contractAddress: '0xcfb98637bcae43C13323EAa1731cED2B716962fD',
 		rpcport: 80,
 	},
 	{
@@ -1249,27 +1009,9 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'OCC',
-		name: 'Original Crypto Coin',
-		contractAddress: '0x0235fE624e044A05eeD7A43E16E3083bc8A4287A',
-		rpcport: 80,
-	},
-	{
-		coin: 'OCT',
-		name: 'Octus',
-		contractAddress: '0x7e9d365C0C97Fe5FcAdcc1B513Af974b768C5867',
-		rpcport: 80,
-	},
-	{
 		coin: 'OMG',
 		name: 'OmiseGo',
 		contractAddress: '0xd26114cd6EE289AccF82350c8d8487fedB8A0C07',
-		rpcport: 80,
-	},
-	{
-		coin: 'ONNI',
-		name: 'Misericordae',
-		contractAddress: '0xBd9c6028e1132A6B52F1ca15C0933A2FD342E21f',
 		rpcport: 80,
 	},
 	{
@@ -1313,21 +1055,9 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'PAT',
-		name: 'Pangea Arbitration Token',
-		contractAddress: '0xBB1fA4FdEB3459733bF67EbC6f893003fA976a82',
-		rpcport: 80,
-	},
-	{
 		coin: 'PAY',
 		name: 'TenX',
 		contractAddress: '0xB97048628DB6B661D4C2aA833e95Dbe1A905B280',
-		rpcport: 80,
-	},
-	{
-		coin: 'PCL',
-		name: 'Peculium',
-		contractAddress: '0x3618516F45CD3c913F81F9987AF41077932Bc40d',
 		rpcport: 80,
 	},
 	{
@@ -1350,12 +1080,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'PLU',
-		name: 'Pluton',
-		contractAddress: '0xD8912C10681D8B21Fd3742244f44658dBA12264E',
-		rpcport: 80,
-	},
-	{
 		coin: 'POLY',
 		name: 'Polymath',
 		contractAddress: '0x9992eC3cF6A55b00978cdDF2b27BC6882d88D1eC',
@@ -1371,24 +1095,6 @@ const supportedCurrencies = [
 		coin: 'PPT',
 		name: 'Populous',
 		contractAddress: '0xd4fa1460F537bb9085d22C7bcCB5DD450Ef28e3a',
-		rpcport: 80,
-	},
-	{
-		coin: 'PRL',
-		name: 'Oyster',
-		contractAddress: '0x1844b21593262668B7248d0f57a220CaaBA46ab9',
-		rpcport: 80,
-	},
-	{
-		coin: 'PURC',
-		name: 'Peurcoin',
-		contractAddress: '0x7148B80b38278853Ca8263Cfc0b57d4478ae6A6e',
-		rpcport: 80,
-	},
-	{
-		coin: 'PXT',
-		name: 'Populous XBRL Token',
-		contractAddress: '0xc14830E53aA344E8c14603A91229A0b925b0B262',
 		rpcport: 80,
 	},
 	{
@@ -1544,18 +1250,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'RLTY',
-		name: 'SMARTRealty',
-		contractAddress: '0xbe99B09709fc753b09BCf557A992F6605D5997B0',
-		rpcport: 80,
-	},
-	{
-		coin: 'RVT',
-		name: 'Rivetz',
-		contractAddress: '0x3d1BA9be9f66B8ee101911bC36D3fB562eaC2244',
-		rpcport: 80,
-	},
-	{
 		coin: 'SALT',
 		name: 'Salt',
 		contractAddress: '0x4156D3342D5c385a87D264F90653733592000581',
@@ -1566,46 +1260,6 @@ const supportedCurrencies = [
 		name: 'Santiment',
 		contractAddress: '0x7C5A0CE9267ED19B22F8cae653F198e3E8daf098',
 		rpcport: 80,
-	},
-	{
-		coin: 'SANC',
-		name: 'Sancoj',
-		contractAddress: '0x03eC7BB59be036870eF696A2abF124f496d6735A',
-		rpcport: 80,
-	},
-	{
-		coin: 'SMART',
-		rpcport: 9679,
-		pubtype: 63,
-		p2shtype: 18,
-		wiftype: 191,
-		txfee: 200000,
-		electrumServers: [
-			{
-				host: 'electrum1.smartcash.cc',
-				port: 50001,
-			},
-			{
-				host: 'electrum2.smartcash.cc',
-				port: 50001,
-			},
-			{
-				host: 'electrum3.smartcash.cc',
-				port: 50001,
-			},
-			{
-				host: 'electrum4.smartcash.cc',
-				port: 50001,
-			},
-			{
-				host: 'electrum5.smartcash.cc',
-				port: 50001,
-			},
-			{
-				host: 'electrum6.smartcash.cc',
-				port: 50001,
-			},
-		],
 	},
 	{
 		coin: 'SNGLS',
@@ -1620,18 +1274,6 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'SPANK',
-		name: 'SpankChain',
-		contractAddress: '0x42d6622deCe394b54999Fbd73D108123806f6a18',
-		rpcport: 80,
-	},
-	{
-		coin: 'SRN',
-		name: 'SIRIN LABS Token',
-		contractAddress: '0x68d57c9a1C35f63E2c83eE8e49A64e9d70528D25',
-		rpcport: 80,
-	},
-	{
 		coin: 'STORJ',
 		name: 'Storj',
 		contractAddress: '0xB64ef51C888972c908CFacf59B47C1AfBC0Ab8aC',
@@ -1641,24 +1283,6 @@ const supportedCurrencies = [
 		coin: 'STORM',
 		name: 'Storm',
 		contractAddress: '0xD0a4b8946Cb52f0661273bfbC6fD0E0C75Fc6433',
-		rpcport: 80,
-	},
-	{
-		coin: 'STRM41',
-		name: 'Stream41',
-		contractAddress: '0xbaD7a7F7bA71CE3659fE6dCaD34aF86b9DE2A4B2',
-		rpcport: 80,
-	},
-	{
-		coin: 'STWY',
-		name: 'StorweeyToken',
-		contractAddress: '0x8A8C71f032362fCA2994f75D854f911Ec381AC5A',
-		rpcport: 80,
-	},
-	{
-		coin: 'SUB',
-		name: 'Substratum',
-		contractAddress: '0x8D75959f1E61EC2571aa72798237101F084DE63a',
 		rpcport: 80,
 	},
 	{
@@ -1685,12 +1309,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'SWT',
-		name: 'Swarm City',
-		contractAddress: '0xB9e7F8568e08d5659f5D29C4997173d84CdF2607',
-		rpcport: 80,
-	},
-	{
 		coin: 'TAAS',
 		name: 'TaaS',
 		contractAddress: '0xE7775A6e9Bcf904eb39DA2b68c5efb4F9360e08C',
@@ -1703,27 +1321,15 @@ const supportedCurrencies = [
 		rpcport: 80,
 	},
 	{
-		coin: 'TKN',
-		name: 'TokenCard',
-		contractAddress: '0xaAAf91D9b90dF800Df4F55c205fd6989c977E73a',
-		rpcport: 80,
-	},
-	{
-		coin: 'TRST',
-		name: 'Trust',
-		contractAddress: '0xCb94be6f13A1182E4A4B6140cb7bf2025d28e41B',
-		rpcport: 80,
-	},
-	{
 		coin: 'TUSD',
 		name: 'TrueUSD',
 		contractAddress: '0x0000000000085d4780B73119b644AE5ecd22b376',
 		rpcport: 80,
 	},
 	{
-		coin: 'UCASH',
-		name: 'U.CASH',
-		contractAddress: '0x92e52a1A235d9A103D970901066CE910AAceFD37',
+		coin: 'USDC',
+		fname: 'USD Coin',
+		contractAddress: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
 		rpcport: 80,
 	},
 	// Temporarily disabled as it's not working with mm2
@@ -1742,26 +1348,32 @@ const supportedCurrencies = [
 		overwintered: 1,
 		required_confirmations: 2,
 		electrumServers: [
+			// TODO: check in with 0x03 on VRSC discord to replace, use cipi in meantime
+			// {
+			// 	host: 'el0.vrsc.0x03.services',
+			// 	port: 10000,
+			// },
+			// {
+			// 	host: 'el1.vrsc.0x03.services',
+			// 	port: 10000,
+			// },
+			// {
+			// 	host: 'el2.vrsc.0x03.services',
+			// 	port: 10000,
+			// },
 			{
-				host: 'el0.vrsc.0x03.services',
-				port: 10000,
+				host: 'electrum1.cipig.net',
+				port: 10021
 			},
 			{
-				host: 'el1.vrsc.0x03.services',
-				port: 10000,
+				host: 'electrum2.cipig.net',
+				port: 10021
 			},
 			{
-				host: 'el2.vrsc.0x03.services',
-				port: 10000,
+				host: 'electrum3.cipig.net',
+				port: 10021
 			},
 		],
-	},
-	{
-		coin: 'VSL',
-		name: 'vSlice',
-		contractAddress: '0x5c543e7AE0A1104f78406C340E9C64FD9fCE5170',
-		decimals: 18,
-		rpcport: 80,
 	},
 	{
 		coin: 'VTC',
@@ -1790,18 +1402,6 @@ const supportedCurrencies = [
 		],
 	},
 	{
-		coin: 'WAX',
-		name: 'WAX',
-		contractAddress: '0x39Bb259F66E1C59d5ABEF88375979b4D20D98022',
-		rpcport: 80,
-	},
-	{
-		coin: 'WINGS',
-		name: 'Wings',
-		contractAddress: '0x667088b212ce3d06a1b553a7221E1fD19000d9aF',
-		rpcport: 80,
-	},
-	{
 		coin: 'WLC',
 		name: 'Wireless Coin',
 		asset: 'WLC',
@@ -1828,18 +1428,6 @@ const supportedCurrencies = [
 		coin: 'WTC',
 		name: 'Waltonchain',
 		contractAddress: '0xb7cB1C96dB6B22b0D3d9536E0108d062BD488F74',
-		rpcport: 80,
-	},
-	{
-		coin: 'XAUR',
-		name: 'Xarum',
-		contractAddress: '0x4DF812F6064def1e5e029f1ca858777CC98D2D81',
-		rpcport: 80,
-	},
-	{
-		coin: 'XOV',
-		name: 'XOVBank',
-		contractAddress: '0x153eD9CC1b792979d2Bde0BBF45CC2A7e436a5F9',
 		rpcport: 80,
 	},
 	{

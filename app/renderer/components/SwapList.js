@@ -26,13 +26,14 @@ class CancelButton extends React.Component {
 
 	cancelSwap = async swapUuid => {
 		await tradesContainer.setIsSwapCancelling(swapUuid, true);
-		this.forceUpdate();
-
+		const {swapDB, api} = appContainer;
 		try {
-			await appContainer.api.cancelOrder(swapUuid);
+			await api.cancelOrder(swapUuid);
+			await swapDB.updateOrderStatus(swapUuid, 'cancelled');
 		} catch (error) {
 			unhandled.logError(error);
 		}
+		this.forceUpdate();
 	};
 
 	render() {
@@ -43,7 +44,8 @@ class CancelButton extends React.Component {
 				type="button"
 				className="cancel__button"
 				disabled={
-					swap.status !== 'pending' ||
+					// swap.status !== 'pending' ||
+					swap.status !== 'active' ||
 					tradesContainer.state.isSwapCancelling[swap.uuid]
 				}
 				onClick={event => {
@@ -98,13 +100,13 @@ const SwapHeader = props => (
 
 // eslint-disable-next-line no-unused-vars
 const SwapItem = ({style, swap, showCancel, openSwap}) => (
-	<div className={`row ${swap.orderType}`} style={style} onClick={openSwap}>
+	<div className={`row ${swap.action || swap.orderType}`} style={style} onClick={openSwap}>
 		<div className="timestamp">{formatDate(swap.timeStarted, 'HH:mm DD/MM/YY')}</div>
 		<div className="pairs">{swap.baseCurrency}/{swap.quoteCurrency}</div>
 		<div className="base-amount">{swap.baseCurrencyAmount} {swap.baseCurrency}</div>
 		<div className="quote-amount">{swap.quoteCurrencyAmount} {swap.quoteCurrency}</div>
 		<div className="status">
-			<div className="status__icon" data-status={swap.status}>{swap.statusFormatted}</div>
+			<div className="status__icon" data-status={_.lowerCase(swap.status)}>{swap.statusFormatted}</div>
 		</div>
 		<div className="buttons">
 			{
@@ -115,6 +117,11 @@ const SwapItem = ({style, swap, showCancel, openSwap}) => (
 					</div>
 				)
 				*/
+				showCancel && (
+					<div className="cancel">
+						<CancelButton swap={swap}/>
+					</div>
+				)
 			}
 		</div>
 	</div>

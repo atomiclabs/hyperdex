@@ -4,7 +4,11 @@ import PQueue from 'p-queue';
 import ow from 'ow';
 import _ from 'lodash';
 import {getCurrency} from '../marketmaker/supported-currencies';
-import {isDevelopment} from '../util-common';
+// import {isDevelopment} from '../util-common';
+
+// NOTE: temporarily turn off this feature
+// enable when we merge code
+const isDevelopment = false;
 
 const symbolPredicate = ow.string.uppercase;
 const uuidPredicate = ow.string.matches(/[a-z\d-]/);
@@ -90,7 +94,9 @@ export default class Api {
 		ow(symbol, 'symbol', symbolPredicate);
 
 		// TODO: Remove `OOT` when https://github.com/KomodoPlatform/atomicDEX-API/issues/492 is fixed
-		if (symbol === 'OOT' || symbol === 'USDT') {
+		// above TODO should be fixed.
+		// if (symbol === 'OOT' || symbol === 'USDT') {
+		if (symbol === 'USDT') {
 			console.error(`Ignoring ${symbol} currency as it's not working with mm2`);
 			return;
 		}
@@ -109,10 +115,12 @@ export default class Api {
 				// protocol: 'SSL',
 			}));
 
+
 			try {
 				const response = await this.request({
 					method: 'electrum',
 					coin: symbol,
+					mm2: currency.mm2,
 					servers,
 				});
 
@@ -153,15 +161,13 @@ export default class Api {
 		}
 	}
 
-	// Mm v2 doesn't currently have an endpoint for disabling a coin, so we do nothing.
-	// https://github.com/artemii235/SuperNET/issues/459
-	async disableCurrency(/** symbol */) {
-		/// ow(symbol, 'symbol', symbolPredicate);
+	async disableCurrency(symbol) {
+		ow(symbol, 'symbol', symbolPredicate);
 
-		// return this.request({
-		// 	method: 'disable',
-		// 	coin: symbol,
-		// });
+		return this.request({
+			method: 'disable_coin',
+			coin: symbol,
+		});
 	}
 
 	// Mm v2
@@ -223,15 +229,30 @@ export default class Api {
 	}
 
 	// Mm v2
-	async orderStatus(uuid) {
-		ow(uuid, 'uuid', uuidPredicate);
-
+	// Note: new api
+	async cancelAllOrdersByPair(baseCurrency, quoteCurrency) {
 		const {result} = await this.request({
-			method: 'order_status',
-			uuid,
+			method: 'cancel_all_orders',
+			cancel_by: {
+				type: 'Pair',
+				data: {
+					base: baseCurrency,
+					rel: quoteCurrency
+				}
+			}
 		});
 
 		return result;
+	}
+
+	// Mm v2
+	orderStatus(uuid) {
+		ow(uuid, 'uuid', uuidPredicate);
+
+		return this.request({
+			method: 'order_status',
+			uuid,
+		});
 	}
 
 	// Mm v2
@@ -247,13 +268,26 @@ export default class Api {
 	}
 
 	// Mm v2
-	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#my_recent_swaps
-	// TODO: Add support for the input arguments it supports.
-	async myRecentSwaps() {
+	// https://developers.atomicdex.io/basic-docs/atomicdex/atomicdex-api.html#my-orders
+	async myOrders() {
 		const {result} = await this.request({
-			method: 'my_recent_swaps',
+			method: 'my_orders',
 		});
 
+		return result;
+	}
+
+	// Mm v2
+	// https://github.com/artemii235/developer-docs/blob/mm/docs/basic-docs/atomicdex/atomicdex-api.md#my_recent_swaps
+	// TODO: Add support for the input arguments it supports.
+	async myRecentSwaps(fromUUID = null) {
+		const query = {
+			method: 'my_recent_swaps'
+		};
+		if(!fromUUID) {
+			query.from_uuid = fromUUID;
+		}
+		const {result} = await this.request(query);
 		return result.swaps;
 	}
 
@@ -262,6 +296,32 @@ export default class Api {
 	async getEnabledCurrencies() {
 		const {result} = await this.request({
 			method: 'get_enabled_coins',
+		});
+
+		return result;
+	}
+
+	// Mm v2
+	// https://developers.atomicdex.io/basic-docs/atomicdex/atomicdex-api.html#cancel-all-orders
+	async cancelAllOrders() {
+		const {result} = await this.request({
+			method: 'cancel_all_orders',
+			cancel_by: {
+				type: 'All'
+			}
+		});
+
+		return result;
+	}
+
+	// Mm v2
+	// https://developers.atomicdex.io/basic-docs/atomicdex/atomicdex-api.html#get-trade-fee
+	async getTradeFee(currency) {
+		ow(currency, 'currency', symbolPredicate);
+
+		const {result} = await this.request({
+			method: 'get_trade_fee',
+			coin: currency,
 		});
 
 		return result;
