@@ -26,25 +26,7 @@ exports.appViews = [
 exports.defaultEnabledCurrencies = [
 	'BTC',
 	'KMD',
-	'CHIPS',
-	'DOGE',
-	'MORTY',
-	'RICK',
-	'SUPERNET',
-	'ETH',
-	// These are left out for now.
 	// TODO: Revise this list when HyperDEX is more mature.
-	// 'BCH',
-	// 'BTC',
-	// 'DASH',
-	// 'HUSH',
-	// 'LTC',
-	// 'MSHARK',
-	// 'MYTH',
-	// 'OOT',
-	// 'REVS',
-	// 'VTC',
-	// 'ZEC',
 ];
 
 exports.alwaysEnabledCurrencies = [
@@ -60,6 +42,7 @@ exports.ignoreExternalPrice = new Set([
 	'SUPERNET',
 	"BET",
 	"HODL",
+	"DEX",
 ]);
 
 exports.hiddenCurrencies = [];

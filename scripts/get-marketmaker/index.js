@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
+const ghGot = require('gh-got');
 const got = require('got');
 const hasha = require('hasha');
 const pkgConf = require('pkg-conf');
@@ -11,7 +12,8 @@ const decompress = require('decompress');
 The hash used in `marketmaker.hashes` is SHA512.
 */
 
-const baseUrl = 'http://195.201.0.6/mm2/';
+// TODO manage beta version from package.json
+const ghBaseURL = 'repos/KomodoPlatform/atomicDEX-API/releases/tags/beta-2.0.1698' // 'http://195.201.0.6/mm2/';
 
 const cacheDirectory = path.join(os.homedir(), '.marketmaker');
 
@@ -33,6 +35,7 @@ const osNameToDirectory = new Map([
 	['Windows_NT', 'win'],
 ]);
 
+// TODO:
 const checkHash = (/* filename, hash, expectedHash */) => {
 	/// Disabled until https://github.com/KomodoPlatform/atomicDEX-API/issues/496 is fixed
 	// if (hash !== expectedHash) {
@@ -59,7 +62,7 @@ const main = async () => {
 
 	await Promise.all(osNames.map(async osName => {
 		const expectedHash = hashes[osNameMap.get(osName)];
-		const filename = `mm2-${version}-${osName}.zip`;
+		const filename = `mm2-${version}-${osName}-Release.zip`;
 		const cachedBuildPath = path.join(cacheDirectory, filename);
 
 		if (fs.existsSync(cachedBuildPath)) {
@@ -69,10 +72,15 @@ const main = async () => {
 			return;
 		}
 
-		const downloadUrl = `${baseUrl}${filename}`;
+		// TODO OAuth app token
+		const token = fs.readFileSync(path.resolve(__dirname, 'token.txt'), 'utf8');
+		const releaseInfo = await ghGot(ghBaseURL, {token: token }).releaseInfo();
+		const assets = releaseInfo.assets;
+		const downloadUrl = assets.find(asset => asset.name === filename).browser_download_url;
+		
 		console.log(`Downloading: ${downloadUrl}`);
-		const {body} = await got(downloadUrl, {encoding: 'buffer'});
-
+		const {body} = await got(downloadUrl, {responseType: 'buffer', encoding: 'buffer'});
+				
 		checkHash(filename, hasha(body), expectedHash);
 		try {
 			fs.mkdirSync(cacheDirectory);

@@ -104,7 +104,7 @@ const Center = props => {
 							return props.getOrderBook().map((row, i) => (
 								<tr key={i} onClick={() => selectRow(row)}>
 									<td>{row.price}</td>
-									<td>{roundTo(row.maxVolume, 8)}</td>
+									<td>{roundTo(parseFloat(row.maxVolume), 8)}</td>
 								</tr>
 							));
 							/* eslint-enable react/no-array-index-key */
