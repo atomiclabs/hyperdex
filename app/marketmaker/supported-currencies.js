@@ -923,6 +923,7 @@ const supportedCurrencies = [
 		rpcport: 16348,
 		txversion: 4,
 		overwintered: 1,
+		required_confirmations: 2,
 		mm2: 1,
 		electrumServers: [
 			{
@@ -1104,6 +1105,7 @@ const supportedCurrencies = [
 		rpcport: 25435,
 		txversion: 4,
 		overwintered: 1,
+		required_confirmations: 2,
 		mm2: 1,
 		electrumServers: [
 			{
@@ -1515,6 +1517,7 @@ const supportedCurrencies = [
 // TODO: Update the `mm2` compatibility info for individual currencies
 for (const currency of supportedCurrencies) {
 	currency.mm2 = 1;
+
 	// TODO: remove this: 
 	// (mm2.0 waits for 2 confirmations, where the 2nd confirmation means the transaction has been notarized.
 	// only applies for KMD ACs)
