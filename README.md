@@ -30,7 +30,7 @@
 
 ## HyperDEX is a truly decentralised cryptocurrency exchange.
 
-Built on the Komodo Platform's <a href="https://barterdex.supernet.org">BarterDEX</a> network, HyperDEX is entirely peer-to-peer and all trades are made via on-chain atomic swaps. As a result, you are in full custody of your funds the entire time, your private keys never leave your machine.
+HyperDEX is entirely peer-to-peer and all trades are made via atomic swaps. As a result, you are in full custody of your funds the entire time, your private keys never leave your machine and you never have to trust a central entity ever again.
 
 ## Caveats
 
@@ -39,19 +39,14 @@ Built on the Komodo Platform's <a href="https://barterdex.supernet.org">BarterDE
 There is a risk of loss of funds. Only trade in real currency if you can take that risk. We recommend trading the test currencies `RICK` and `MORTY` instead. You can get free `RICK` [here](https://www.atomicexplorer.com/#/faucet/rick) and free `MORTY` [here](https://www.atomicexplorer.com/#/faucet/morty).
 
 
-### HyperDEX is just a GUI
+### HyperDEX is a GUI
 
-HyperDEX is only a GUI layer on top of the `marketmaker` daemon which connects to the Komodo Platform's BarterDEX network. `marketmaker` is an [independent project](https://github.com/jl777/SuperNET/blob/master/iguana/exchanges/mm.c).
+HyperDEX is a GUI layer on top of the `atomicdex` protocol. `atomicdex` is an [independent project](https://github.com/komodoplatform/atomicdex-api) built by the Komodo Platform team.
 
-`marketmaker` is currently in the prototype stage and as a result can be quite buggy and unreliable, which will affect HyperDEX usage.
+`atomicdex` is currently in beta stage and as a result can be buggy and unreliable, which will affect HyperDEX usage.
 
 There are some known `marketmaker` issues:
-- Order matching doesn't always succeed.
 - Trades can sometimes get stuck.
-- Poor single threaded performance. (makes the GUI appear laggy)
-- Trades don't always cancel.
-
-There is a rewrite of `marketmaker` in progress which we are expecting to resolve many of these issues.
 
 ### All marketmaker communication is currently unencrypted
 
@@ -65,9 +60,9 @@ This means there is an element of trust involved. It's technically possible for 
 
 We are planning to add an option to connect to your own trusted electrum server.
 
-### We currently only require 1 confirmation for each transaction
+### We currently require 2 confirmations on most coins for each transaction
 
-For many currencies 1 confirmation is cost effective to 51% attack. This would allow an attacker to double spend and effectively reverse trades.
+For many currencies 1 confirmation is cost effective to 51% attack. This would allow an attacker to double spend and effectively reverse trades. For Komodo Ecosystem coins, 2 confirmations means that once the transaction gets 2 or more confirmations, it is protected through delayed-Proof-of-Work, which essentially means your transaction has been secured with BTC-hashrate. Read more about that [here](https://www.binance.vision/blockchain/delayed-proof-of-work-explained)
 
 We are planning to add an option to specify the number of confirmations your are comfortable with per currency.
 
