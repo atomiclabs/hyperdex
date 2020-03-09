@@ -18,9 +18,9 @@ const ghBaseURL = 'repos/KomodoPlatform/atomicDEX-API/releases/tags/beta-2.0.169
 const cacheDirectory = path.join(os.homedir(), '.marketmaker');
 
 const osNames = [
-	// 'Darwin',
+	'Darwin',
 	'Linux',
-	// 'Windows_NT',
+	'Windows_NT',
 ];
 
 const osNameMap = new Map([
