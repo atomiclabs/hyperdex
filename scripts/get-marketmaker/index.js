@@ -74,8 +74,9 @@ const main = async () => {
 
 		// TODO OAuth app token
 		const token = fs.readFileSync(path.resolve(__dirname, 'token.txt'), 'utf8');
-		const releaseInfo = await ghGot(ghBaseURL, {token: token }).releaseInfo();
-		const assets = releaseInfo.assets;
+		const response = await ghGot(ghBaseURL, { token: token });
+		const assets = response.body.assets;
+
 		const downloadUrl = assets.find(asset => asset.name === filename).browser_download_url;
 		
 		console.log(`Downloading: ${downloadUrl}`);
