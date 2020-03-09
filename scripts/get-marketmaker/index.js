@@ -18,9 +18,9 @@ const ghBaseURL = 'repos/KomodoPlatform/atomicDEX-API/releases/tags/beta-2.0.169
 const cacheDirectory = path.join(os.homedir(), '.marketmaker');
 
 const osNames = [
-	'Darwin',
+	// 'Darwin',
 	'Linux',
-	'Windows_NT',
+	// 'Windows_NT',
 ];
 
 const osNameMap = new Map([
@@ -72,11 +72,8 @@ const main = async () => {
 			return;
 		}
 
-		// TODO OAuth app token
-		const token = fs.readFileSync(path.resolve(__dirname, 'token.txt'), 'utf8');
-		const response = await ghGot(ghBaseURL, { token: token });
+		const response = await ghGot(ghBaseURL);
 		const assets = response.body.assets;
-
 		const downloadUrl = assets.find(asset => asset.name === filename).browser_download_url;
 		
 		console.log(`Downloading: ${downloadUrl}`);
