@@ -1,7 +1,7 @@
 {
 	"settings": {
-		"customUrl": "URL d'animateur de marché personnalisée",
-		"exampleUrl": "Exemple : {{url}}",
+		"customUrl": "Custom Marketmaker URL",
+		"exampleUrl": "Example: {{url}}",
 		"invalidUrl": "URL invalide",
 		"title": "Paramètres de l'application"
 	},
