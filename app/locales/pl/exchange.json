@@ -3,15 +3,12 @@
 	"chart": {
 		"depth": "Wykres głębokości {{baseCurrency}}/{{quoteCurrency}}"
 	},
-	"confirmQuitTitle": "Czy na pewno chcesz opuścić aplikację?",
-	"confirmQuitDescription": "Swapy w toku. HyperDEX spróbuje kontynuować swapy, kiedy następnym razem otworzysz aplikację, ale zalecamy pozostawienie programu włączonego do czasu, aż swapy zostaną zrealizowane.",
 	"intro": {
 		"description": " <0>HyperDEX to zdecentralizowany program wymiany walut, z zestawieniem zleceń P2P, w którym handel przeprowadzany jest za pomocą <1>wielołańcuchowych transakcji atomic swap</1>. Oznacza to, że system ten działa inaczej niż scentralizowana wymiana walut.</0><1> Przemieszczenie się zleceń po sieci P2P może potrwać jakiś czas, dlatego możliwe, że będziesz musiał(a) zaczekać na pojawienie się Twojego zestawienia zleceń.</1><2>Aby skutecznie dokonywać swapów, HyperDEX wymaga, aby <1>transakcje UTXO</1> miały właściwy rozmiar. Na każdą transakcję UTXO przypada jeden swap. Najprostszym sposobem na upewnienie się, że możesz brać udział w swapie, jest dokonanie dwóch lub trzech mniejszych wpłat na konto w przeciwieństwie do jednej dużej wpłaty.</2><3> Atomic swap składa się z sześciu transakcji w obrębie łańcucha waluty. Handlując walutą o wysokich opłatach transakcyjnych, należy pamiętać, żeby nieco podwyższyć cenę, mając na uwadze wspomniane opłaty, zwłaszcza w przypadku małych kwot.</3>,",
 		"title": "Jak działa handel z HyperDEX"
 	},
 	"order": {
 		"amount": "Kwota {{symbol}}",
-		"averageVolume": "Śr. wolumen",
 		"buy": "Kup",
 		"buyOrders": "Zlecenia skupu",
 		"failedTrade": "{{type}} {{baseCurrency}} nie powiodło się",
