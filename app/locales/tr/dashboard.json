@@ -1,7 +1,7 @@
 {
 	"intro": {
 		"title": "✨ HyperDEX'i Test Etmemizde Bize Yardım Ettiğin için Teşekkürler!",
-		"description": "<0>Lütfen unutma <1>bu proje hala beta aşamasında</1>.</0><1>Para kaybetmek ihtimali olmasa da bu riski almak istiyorsan sadece gerçek para ile işlem yapmalısın.</1><2>HyperDEX'i sadece test etmek istiyorsan, test para birimleri <1>MORTY</1> ve <3>RICK</3> ile işlem yapmayı dene. <7><0>MORTY</0>musluğundan bedava <5>MORTY</5>kazanabilirsin</7>.</2><3>HyperDEX herhangi bir garanti olmadan \"sunulan\" Açık Kaynak bir yazılımdır. Geliştiriciler ya da hak sahipleri bu yazılım kullanımından kaynaklanan herhangi bir zarar için sorumlu tutulamaz.</3><4> HyperDEX kullanarak <1>MIT Lisans</1> şartlarını kabul etmiş olursun.</4>"
+		"description": "<0>Lütfen unutma <1>bu proje hala beta aşamasında</1>.</0><1>Para kaybetmek ihtimali olmasa da bu riski almak istiyorsan sadece gerçek para ile işlem yapmalısın.</1><2>HyperDEX'i sadece test etmek istiyorsan, test para birimleri <1>BEER</1> ve <3>PIZZA</3> ile işlem yapmayı dene. <7><0>BEER</0>musluğundan bedava <5>BEER</5>kazanabilirsin</7>.</2><3>HyperDEX herhangi bir garanti olmadan \"sunulan\" Açık Kaynak bir yazılımdır. Geliştiriciler ya da hak sahipleri bu yazılım kullanımından kaynaklanan herhangi bir zarar için sorumlu tutulamaz.</3><4> HyperDEX kullanarak <1>MIT Lisans</1> şartlarını kabul etmiş olursun.</4>"
 	},
 	"activity": {
 		"noActivity": "Henüz işlem yok",
