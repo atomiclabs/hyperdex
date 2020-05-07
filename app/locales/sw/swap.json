@@ -4,12 +4,6 @@
 	"timedOut": "Muda wa badilisho umekwisha",
 	"title": "Badilisho",
 	"details": {
-		"aliceclaim": "Alice Claim",
-		"alicereclaim": "Alice Reclaim",
-		"alicepayment": "Malipo ya Alice",
-		"alicespend": "Matumizi ya Alice",
-		"bobdeposit": "Amana ya Bob",
-		"bobpayment": "Malipo ya Bob",
 		"broadcast": "Tangaza",
 		"buy": "Nunua",
 		"copyDebugData": "Nakili Data ya Utatuzi wa Mabadilisho",
@@ -28,6 +22,20 @@
 		"youReceived": "Umepokea",
 		"yourOffer": "Bei yako",
 		"view": "Angalia"
+	},
+	"swapStages": {
+		"TakerFeeSent": "Taker fee sent",
+		"MakerPaymentReceived": "Maker payment received",
+		"MakerPaymentWaitConfirmStarted": "Maker payment confirmation started",
+		"MakerPaymentValidatedAndConfirmed": "Maker payment validated and confirmed",
+		"TakerPaymentSent": "Taker payment sent",
+		"TakerPaymentSpent": "Taker payment spent",
+		"MakerPaymentSpent": "Maker payment spent",
+		"TakerFeeValidated": "Taker free validated",
+		"MakerPaymentSent": "Maker payment sent",
+		"TakerPaymentReceived": "Taker payment received",
+		"TakerPaymentWaitConfirmStarted": "Taker payment confirmation started",
+		"TakerPaymentValidatedAndConfirmed": "Taker payment validated and confirmed"
 	},
 	"list": {
 		"baseAmount": "Base amount",
