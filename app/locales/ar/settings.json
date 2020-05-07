@@ -1,13 +1,13 @@
 {
 	"app": "التطبيق",
 	"deletePortfolio": {
-		"confirm": "I understand, delete this portfolio",
+		"confirm": "أتفهم، احذف هذه الحافظة",
 		"description": "<0>Unless you save your seed phrase, this action cannot be undone and will permanently delete the <1><0>{{name}}</0></1> portfolio.</0><1>Please type in the name of the portfolio to confirm.</1>",
-		"title": "Delete Portfolio"
+		"title": "حدد الحافظة"
 	},
 	"enabledCurrencies": "العملات المفعلة",
 	"logOutAppSettings": "<0><0>تسجيل الخروج</0> لمعرفة المزيد من إعدادات التطبيق.</0>",
-	"name": "Name",
+	"name": "الاسم",
 	"manage": "Manage",
 	"export": {
 		"sectionLabel": "Export",
