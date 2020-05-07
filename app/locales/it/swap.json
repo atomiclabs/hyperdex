@@ -4,12 +4,6 @@
 	"timedOut": "Scambio scaduto",
 	"title": "Scambio",
 	"details": {
-		"aliceclaim": "Alice Claim",
-		"alicereclaim": "Alice Reclaim",
-		"alicepayment": "Pagamento di Alice",
-		"alicespend": "Alice ha speso",
-		"bobdeposit": "Deposito di Bob",
-		"bobpayment": "Pagamento di Bob",
 		"broadcast": "Trasmissione",
 		"buy": "Acquista",
 		"copyDebugData": "Copia dati di debug dello scambio",
@@ -28,6 +22,20 @@
 		"youReceived": "Hai ricevuto",
 		"yourOffer": "La tua offerta",
 		"view": "Visualizza"
+	},
+	"swapStages": {
+		"TakerFeeSent": "Taker fee sent",
+		"MakerPaymentReceived": "Maker payment received",
+		"MakerPaymentWaitConfirmStarted": "Maker payment confirmation started",
+		"MakerPaymentValidatedAndConfirmed": "Maker payment validated and confirmed",
+		"TakerPaymentSent": "Taker payment sent",
+		"TakerPaymentSpent": "Taker payment spent",
+		"MakerPaymentSpent": "Maker payment spent",
+		"TakerFeeValidated": "Taker free validated",
+		"MakerPaymentSent": "Maker payment sent",
+		"TakerPaymentReceived": "Taker payment received",
+		"TakerPaymentWaitConfirmStarted": "Taker payment confirmation started",
+		"TakerPaymentValidatedAndConfirmed": "Taker payment validated and confirmed"
 	},
 	"list": {
 		"baseAmount": "Base amount",
