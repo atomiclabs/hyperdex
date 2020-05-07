@@ -4,12 +4,6 @@
 	"timedOut": "स्वैप समय समाप्त हुआ",
 	"title": "स्वैप",
 	"details": {
-		"aliceclaim": "Alice Claim",
-		"alicereclaim": "Alice Reclaim",
-		"alicepayment": "Alice भुगतान",
-		"alicespend": "Alice व्यय",
-		"bobdeposit": "Bob डिपॉजिट",
-		"bobpayment": "Bob भुगतान",
 		"broadcast": "ब्रॉडकास्ट",
 		"buy": "खरीदें",
 		"copyDebugData": "स्वैप डीबग डेटा कॉपी करें",
@@ -28,6 +22,20 @@
 		"youReceived": "आपने प्राप्त किया",
 		"yourOffer": "आपका ऑफर",
 		"view": "देखें"
+	},
+	"swapStages": {
+		"TakerFeeSent": "Taker fee sent",
+		"MakerPaymentReceived": "Maker payment received",
+		"MakerPaymentWaitConfirmStarted": "Maker payment confirmation started",
+		"MakerPaymentValidatedAndConfirmed": "Maker payment validated and confirmed",
+		"TakerPaymentSent": "Taker payment sent",
+		"TakerPaymentSpent": "Taker payment spent",
+		"MakerPaymentSpent": "Maker payment spent",
+		"TakerFeeValidated": "Taker free validated",
+		"MakerPaymentSent": "Maker payment sent",
+		"TakerPaymentReceived": "Taker payment received",
+		"TakerPaymentWaitConfirmStarted": "Taker payment confirmation started",
+		"TakerPaymentValidatedAndConfirmed": "Taker payment validated and confirmed"
 	},
 	"list": {
 		"baseAmount": "Base amount",
