@@ -4,12 +4,6 @@
 	"timedOut": "سویپ کا وقت ختم",
 	"title": "سویپ کریں",
 	"details": {
-		"aliceclaim": "ایلس دعوی کرتی ہے",
-		"alicereclaim": "ایلس نے دوبارہ دعوی کیا",
-		"alicepayment": "Alice کی ادائیگی",
-		"alicespend": "Alice خرچ کرتی ہے",
-		"bobdeposit": "Bob ڈپازٹ کرتا ہے",
-		"bobpayment": "Bob کی ادائیگی",
 		"broadcast": "نشریات",
 		"buy": "خریدیں",
 		"copyDebugData": "سویپ ڈیبگ ڈیٹا کاپی کریں",
@@ -28,6 +22,20 @@
 		"youReceived": "آپ نے موصول کیا",
 		"yourOffer": "آپ کی پیشکش",
 		"view": "دیکھیں"
+	},
+	"swapStages": {
+		"TakerFeeSent": "Taker fee sent",
+		"MakerPaymentReceived": "Maker payment received",
+		"MakerPaymentWaitConfirmStarted": "Maker payment confirmation started",
+		"MakerPaymentValidatedAndConfirmed": "Maker payment validated and confirmed",
+		"TakerPaymentSent": "Taker payment sent",
+		"TakerPaymentSpent": "Taker payment spent",
+		"MakerPaymentSpent": "Maker payment spent",
+		"TakerFeeValidated": "Taker free validated",
+		"MakerPaymentSent": "Maker payment sent",
+		"TakerPaymentReceived": "Taker payment received",
+		"TakerPaymentWaitConfirmStarted": "Taker payment confirmation started",
+		"TakerPaymentValidatedAndConfirmed": "Taker payment validated and confirmed"
 	},
 	"list": {
 		"baseAmount": "Base amount",
