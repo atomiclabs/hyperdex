@@ -4,12 +4,6 @@
 	"timedOut": "スワップがタイムアウトしました",
 	"title": "スワップ",
 	"details": {
-		"aliceclaim": "Alice Claim",
-		"alicereclaim": "Alice Reclaim",
-		"alicepayment": "アリスさんの支払い",
-		"alicespend": "アリスさんの出費",
-		"bobdeposit": "ボブさんの入金",
-		"bobpayment": "ボブさんの支払い",
 		"broadcast": "ブロードキャスト",
 		"buy": "購入",
 		"copyDebugData": "スワップデバッグデータをコピー",
@@ -28,6 +22,20 @@
 		"youReceived": "スワップ後",
 		"yourOffer": "あなたのオファー",
 		"view": "表示"
+	},
+	"swapStages": {
+		"TakerFeeSent": "Taker fee sent",
+		"MakerPaymentReceived": "Maker payment received",
+		"MakerPaymentWaitConfirmStarted": "Maker payment confirmation started",
+		"MakerPaymentValidatedAndConfirmed": "Maker payment validated and confirmed",
+		"TakerPaymentSent": "Taker payment sent",
+		"TakerPaymentSpent": "Taker payment spent",
+		"MakerPaymentSpent": "Maker payment spent",
+		"TakerFeeValidated": "Taker free validated",
+		"MakerPaymentSent": "Maker payment sent",
+		"TakerPaymentReceived": "Taker payment received",
+		"TakerPaymentWaitConfirmStarted": "Taker payment confirmation started",
+		"TakerPaymentValidatedAndConfirmed": "Taker payment validated and confirmed"
 	},
 	"list": {
 		"baseAmount": "Base amount",
