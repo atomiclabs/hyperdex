@@ -3,15 +3,12 @@
 	"chart": {
 		"depth": "{{baseCurrency}}/{{quoteCurrency}} Kedalaman Grafik"
 	},
-	"confirmQuitTitle": "Anda yakin ingin keluar?",
-	"confirmQuitDescription": "Anda memiliki swap dalam proses. HyperDEX akan mencoba untuk melanjutkan swap pada saat Anda menjalankan aplikasi berikutnya, tapi kami sarankan Anda meninggalkan HyperDEX berjalan hingga swap selesai.",
 	"intro": {
 		"description": " <0>HyperDEX adalah pertukaran terdesentralisasi. Memiliki buku pesanan P2P dan trade dilakukan melalui <1>swap atomik lintas rantai</ 1>. Ini berarti kerjanya sedikit berbeda daripada trade terpusat.</ 0><1> Pesanan membutuhkan waktu beberapa saat untuk menyebar di seluruh jaringan P2P. Anda perlu menunggu beberapa saat agar buku pesanan ditampilkan.</1><2> HyperDEX membutuhkan Anda untuk memiliki ukuran <1>UTXOs</ 1> yang tepat untuk membuat swap yang sukses. Untuk setiap UTXO Anda dapat membuat satu swap. Cara termudah untuk memastikan Anda dapat berpartisipasi dalam swap adalah dengan membuat dua atau tiga deposit yang lebih kecil ke akun Anda daripada satu deposit besar. </2><3> Swap atomik terdiri dari enam transaksi berantai. Ketika trading mata uang dengan biaya transaksi tinggi, penting untuk sedikit menaikkan harga Anda ke akun untuk total biaya transaksi. Ini sangat penting ketika melakukan trading dalam jumlah kecil.</ 3>",
 		"title": "Bagaimana Trading bekerja dengan HyperDEX"
 	},
 	"order": {
 		"amount": "Jumlah {{symbol}}",
-		"averageVolume": "Vol Avg",
 		"buy": "Beli",
 		"buyOrders": "Membeli Pesanan",
 		"failedTrade": "Gagal untuk {{type}} {{baseCurrency}}",

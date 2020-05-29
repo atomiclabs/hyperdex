@@ -4,12 +4,6 @@
 	"timedOut": "Schimbul a expirat",
 	"title": "Schimbă",
 	"details": {
-		"aliceclaim": "Alice Cere",
-		"alicereclaim": "Alice Revendică",
-		"alicepayment": "Alice Plătește",
-		"alicespend": "Alice Consumă",
-		"bobdeposit": "Bob Depune",
-		"bobpayment": "Bob Plătește",
 		"broadcast": "Difuzează tranzacțiile",
 		"buy": "Cumpară",
 		"copyDebugData": "Copiază datele de jurnal ale schimbului",
@@ -28,6 +22,20 @@
 		"youReceived": "Ai primit",
 		"yourOffer": "Comanda ta",
 		"view": "Vizualizează"
+	},
+	"swapStages": {
+		"TakerFeeSent": "Taker fee sent",
+		"MakerPaymentReceived": "Maker payment received",
+		"MakerPaymentWaitConfirmStarted": "Maker payment confirmation started",
+		"MakerPaymentValidatedAndConfirmed": "Maker payment validated and confirmed",
+		"TakerPaymentSent": "Taker payment sent",
+		"TakerPaymentSpent": "Taker payment spent",
+		"MakerPaymentSpent": "Maker payment spent",
+		"TakerFeeValidated": "Taker free validated",
+		"MakerPaymentSent": "Maker payment sent",
+		"TakerPaymentReceived": "Taker payment received",
+		"TakerPaymentWaitConfirmStarted": "Taker payment confirmation started",
+		"TakerPaymentValidatedAndConfirmed": "Taker payment validated and confirmed"
 	},
 	"list": {
 		"baseAmount": "Suma de bază",

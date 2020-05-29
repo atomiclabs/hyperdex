@@ -3,15 +3,12 @@
 	"chart": {
 		"depth": "{{baseCurrency}}/{{quoteCurrency}} 走勢圖"
 	},
-	"confirmQuitTitle": "您确定要退出吗？",
-	"confirmQuitDescription": "您有正在進行中的交換訂單。退出後，HyperDEX 將在您下次運行程式時繼續嘗試此交換訂單，所以我們建議您將 HyperDEX 留在後台以便交易儘快完成。",
 	"intro": {
 		"description": "<0>HyperDEX 是去中心化的交易所。它使用 P2P 訂單帳本透過<1>跨鏈原子交換</1>技術進行交易。這意味著其工作原理和中心化的交易所有所區別。</0><1>訂單需要花一些時間在 P2P 網路上擴散傳播。您可能需要等候一些時間後才會看到訂單在帳本上顯示出來。</1><2>HyperDEX 要求您擁有正確數額的 <1>UTXO</1> 才能成功完成交換。每擁有一個 UTXO 都可允許您進行一次簡單交換。保證您能參與交換最簡單的方法是做兩次或三次小額存款，而不是一次將全部款項存入。</2><3>一次原子交換由 6 筆鏈上交易組成。在交易收取較高交易手續費的貨幣時，請務必略微調高價格，以確保足額支付手續費。在交易額度較低時這尤其重要。</3>",
 		"title": "HyperDEX 如何處理交易"
 	},
 	"order": {
 		"amount": "{{symbol}} 數額",
-		"averageVolume": "平均數額",
 		"buy": "買入",
 		"buyOrders": "買單",
 		"failedTrade": "{{type}} {{baseCurrency}} 失敗",

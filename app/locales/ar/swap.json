@@ -4,12 +4,6 @@
 	"timedOut": "انتهت مهلة المبادلة",
 	"title": "مبادلة",
 	"details": {
-		"aliceclaim": "Alice Claim",
-		"alicereclaim": "Alice Reclaim",
-		"alicepayment": "عملية دفع Alice",
-		"alicespend": "Alice المنفقة",
-		"bobdeposit": "وديعة Bob",
-		"bobpayment": "مدفوعات Bob",
 		"broadcast": "بث",
 		"buy": "شراء",
 		"copyDebugData": "نسخ بيانات اكتشاف مشاكل المبادلة",
@@ -28,6 +22,20 @@
 		"youReceived": "استلمت",
 		"yourOffer": "عرضك",
 		"view": "عرض"
+	},
+	"swapStages": {
+		"TakerFeeSent": "تم إرسال رسوم المستلم",
+		"MakerPaymentReceived": "تم استلام دفع الصانع",
+		"MakerPaymentWaitConfirmStarted": "بدء تأكيد دفع الصانع",
+		"MakerPaymentValidatedAndConfirmed": "تمت مطابقة وتأكيد دفع الصانع",
+		"TakerPaymentSent": "تم إرسال دفع المستلم",
+		"TakerPaymentSpent": "تم صرف دفع المستلم",
+		"MakerPaymentSpent": "تم صرف دفع الصانع",
+		"TakerFeeValidated": "مطابقة المستلم مجانًا",
+		"MakerPaymentSent": "تم إرسال دفع الصانع",
+		"TakerPaymentReceived": "تم استلام دفع المستلم",
+		"TakerPaymentWaitConfirmStarted": "بدء تأكيد دفع المستلم",
+		"TakerPaymentValidatedAndConfirmed": "تمت مطابقة وتأكيد دفع المستلم"
 	},
 	"list": {
 		"baseAmount": "Base amount",

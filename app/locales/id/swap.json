@@ -4,12 +4,6 @@
 	"timedOut": "Waktu swap habis",
 	"title": "Swap",
 	"details": {
-		"aliceclaim": "Alice Claim",
-		"alicereclaim": "Alice Reclaim",
-		"alicepayment": "Pembayaran Alice",
-		"alicespend": "Pengeluaran Alice",
-		"bobdeposit": "Deposit Bob",
-		"bobpayment": "Pembayaran Bob",
 		"broadcast": "Siarkan",
 		"buy": "Beli",
 		"copyDebugData": "Salin Data Debug Swap",
@@ -28,6 +22,20 @@
 		"youReceived": "Anda menerima",
 		"yourOffer": "Tawaran Anda",
 		"view": "Tampilkan"
+	},
+	"swapStages": {
+		"TakerFeeSent": "Taker fee sent",
+		"MakerPaymentReceived": "Maker payment received",
+		"MakerPaymentWaitConfirmStarted": "Maker payment confirmation started",
+		"MakerPaymentValidatedAndConfirmed": "Maker payment validated and confirmed",
+		"TakerPaymentSent": "Taker payment sent",
+		"TakerPaymentSpent": "Taker payment spent",
+		"MakerPaymentSpent": "Maker payment spent",
+		"TakerFeeValidated": "Taker free validated",
+		"MakerPaymentSent": "Maker payment sent",
+		"TakerPaymentReceived": "Taker payment received",
+		"TakerPaymentWaitConfirmStarted": "Taker payment confirmation started",
+		"TakerPaymentValidatedAndConfirmed": "Taker payment validated and confirmed"
 	},
 	"list": {
 		"baseAmount": "Base amount",

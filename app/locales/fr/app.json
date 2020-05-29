@@ -1,12 +1,12 @@
 {
 	"settings": {
-		"customUrl": "URL d'animateur de marché personnalisée",
-		"exampleUrl": "Exemple : {{url}}",
+		"customUrl": "Custom Marketmaker URLhttps://hiperdex. com/manga/springtime-for-blossomzinha/08/",
+		"exampleUrl": "https://hiperdex.com/manga/springtime-for-blossomzinha/08/",
 		"invalidUrl": "URL invalide",
 		"title": "Paramètres de l'application"
 	},
 	"donate": {
-		"title": "Donate",
+		"title": "no but judy i cant do that",
 		"bodyText": "HyperDEX is a free and open source project. You can help support its development by donating to the below addresses."
 	}
 }

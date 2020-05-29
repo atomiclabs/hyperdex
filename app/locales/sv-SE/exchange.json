@@ -3,21 +3,18 @@
 	"chart": {
 		"depth": "{{baseCurrency}}/{{quoteCurrency}} fördjupningsdiagram"
 	},
-	"confirmQuitTitle": "Är du säker på att du vill avsluta?",
-	"confirmQuitDescription": "Du har pågående swaps. HyperDEX försöker fortsätta med dessa swaps nästa gång du kör appen, men vi rekommenderar att du låter HyperDEX köras tills de är klara.",
 	"intro": {
 		"description": " <0>HyperDEX är en decentraliserad börs. Den har en P2P-orderbok och handel görs via <1>atomiska korskedjebyten</1>. Det innebär att det fungerar något annorlunda än en centraliserad börs.</0><1>Ordrar kan ta en stund att spridas över P2P-nätverket. Du kanske måste vänta en stund för att orderboken ska visas.</1><2>HyperDEX kräver att du har <1>UTXO</1> i korrekt storlek för en lyckad swap. För varje UTXO kan du göra en swap. Det enklaste sättet att säkerställa att du kan delta i en swap är att göra två eller tre mindre insättningar till ditt konto hellre än en stor insättning.</2><3>Ett atomiskt byte består av sex transaktioner på kedjan. När du handlar en valuta med höga transaktionsavgifter är det viktigt att öka priset något för att ta med de totala transaktionsavgifterna i beräkningen. Det är särskilt viktigt när du handlar med små belopp.</3>",
 		"title": "Så här fungerar handel med HyperDEX"
 	},
 	"order": {
 		"amount": "Belopp {{symbol}}",
-		"averageVolume": "Genomsn. vol",
 		"buy": "Köp",
 		"buyOrders": "Köpordrar",
 		"failedTrade": "Det gick inte att {{type}} {{baseCurrency}}",
 		"maxOnePendingSwap": "Endast en väntande swap i taget, försök igen om {{wait}} sekunder.",
 		"maxPrice": "MAX",
-		"maxVolume": "Max vol",
+		"maxVolume": "Maxvolym",
 		"price": "Pris {{symbol}}",
 		"sell": "Sälj",
 		"sellOrders": "Säljordrar",

@@ -4,12 +4,6 @@
 	"timedOut": "交换超时",
 	"title": "交换",
 	"details": {
-		"aliceclaim": "Alice Claim",
-		"alicereclaim": "Alice Reclaim",
-		"alicepayment": "Alice 支付",
-		"alicespend": "Alice 花费",
-		"bobdeposit": "Bob 存款",
-		"bobpayment": "Bob 支付",
 		"broadcast": "广播",
 		"buy": "买入",
 		"copyDebugData": "复制交换调试数据",
@@ -28,6 +22,20 @@
 		"youReceived": "您得到了",
 		"yourOffer": "您的报价",
 		"view": "查看"
+	},
+	"swapStages": {
+		"TakerFeeSent": "Taker fee sent",
+		"MakerPaymentReceived": "Maker payment received",
+		"MakerPaymentWaitConfirmStarted": "Maker payment confirmation started",
+		"MakerPaymentValidatedAndConfirmed": "Maker payment validated and confirmed",
+		"TakerPaymentSent": "Taker payment sent",
+		"TakerPaymentSpent": "Taker payment spent",
+		"MakerPaymentSpent": "Maker payment spent",
+		"TakerFeeValidated": "Taker free validated",
+		"MakerPaymentSent": "Maker payment sent",
+		"TakerPaymentReceived": "Taker payment received",
+		"TakerPaymentWaitConfirmStarted": "Taker payment confirmation started",
+		"TakerPaymentValidatedAndConfirmed": "Taker payment validated and confirmed"
 	},
 	"list": {
 		"baseAmount": "Base amount",

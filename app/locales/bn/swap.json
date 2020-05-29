@@ -4,12 +4,6 @@
 	"timedOut": "বিনিময়ের সময় অতিক্রান্ত হয়েছে",
 	"title": "বিনিময়",
 	"details": {
-		"aliceclaim": "Alice দাবি",
-		"alicereclaim": "Alice Reclaim",
-		"alicepayment": "Alice পেমেন্ট",
-		"alicespend": "Alice ব্যয়",
-		"bobdeposit": "Bob ডিপোজিট",
-		"bobpayment": "Bob পেমেন্ট",
 		"broadcast": "সম্প্রচার",
 		"buy": "ক্রয় করুন",
 		"copyDebugData": "বিনিময়ের ডিবাগ ডেটা কপি করুন",
@@ -28,6 +22,20 @@
 		"youReceived": "আপনি পেয়েছেন",
 		"yourOffer": "আপনার অফার",
 		"view": "দেখুন"
+	},
+	"swapStages": {
+		"TakerFeeSent": "Taker fee sent",
+		"MakerPaymentReceived": "Maker payment received",
+		"MakerPaymentWaitConfirmStarted": "Maker payment confirmation started",
+		"MakerPaymentValidatedAndConfirmed": "Maker payment validated and confirmed",
+		"TakerPaymentSent": "Taker payment sent",
+		"TakerPaymentSpent": "Taker payment spent",
+		"MakerPaymentSpent": "Maker payment spent",
+		"TakerFeeValidated": "Taker free validated",
+		"MakerPaymentSent": "Maker payment sent",
+		"TakerPaymentReceived": "Taker payment received",
+		"TakerPaymentWaitConfirmStarted": "Taker payment confirmation started",
+		"TakerPaymentValidatedAndConfirmed": "Taker payment validated and confirmed"
 	},
 	"list": {
 		"baseAmount": "Base amount",

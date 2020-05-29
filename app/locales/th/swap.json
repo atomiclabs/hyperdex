@@ -4,12 +4,6 @@
 	"timedOut": "การสวอปหมดเวลา",
 	"title": "สวอป",
 	"details": {
-		"aliceclaim": "Alice Claim",
-		"alicereclaim": "Alice Reclaim",
-		"alicepayment": "การชำระเงินของอลิส",
-		"alicespend": "การใช้จ่ายของอลิส",
-		"bobdeposit": "การฝากของบ๊อบ",
-		"bobpayment": "การชำระเงินของบ๊อบ",
 		"broadcast": "การถ่ายถอด",
 		"buy": "ซื้อ",
 		"copyDebugData": "คัดลอกข้อมูลเพื่อแก้ปัญหาการสวอป",
@@ -28,6 +22,20 @@
 		"youReceived": "คุณได้รับ",
 		"yourOffer": "ข้อเสนอของคุณ",
 		"view": "ดู"
+	},
+	"swapStages": {
+		"TakerFeeSent": "Taker fee sent",
+		"MakerPaymentReceived": "Maker payment received",
+		"MakerPaymentWaitConfirmStarted": "Maker payment confirmation started",
+		"MakerPaymentValidatedAndConfirmed": "Maker payment validated and confirmed",
+		"TakerPaymentSent": "Taker payment sent",
+		"TakerPaymentSpent": "Taker payment spent",
+		"MakerPaymentSpent": "Maker payment spent",
+		"TakerFeeValidated": "Taker free validated",
+		"MakerPaymentSent": "Maker payment sent",
+		"TakerPaymentReceived": "Taker payment received",
+		"TakerPaymentWaitConfirmStarted": "Taker payment confirmation started",
+		"TakerPaymentValidatedAndConfirmed": "Taker payment validated and confirmed"
 	},
 	"list": {
 		"baseAmount": "Base amount",

@@ -3,15 +3,12 @@
 	"chart": {
 		"depth": "Grafico di profondità di {{baseCurrency}}/{{quoteCurrency}}"
 	},
-	"confirmQuitTitle": "Sei sicuro di voler uscire?",
-	"confirmQuitDescription": "Ci sono degli scambi in corso. HyperDEX cercherà di continuare gli scambi la prossima volta che aprirai l'app, ma ti consigliamo di lasciare HyperDEX in esecuzione fino al completamento degli scambi.",
 	"intro": {
 		"description": " <0>HyperDEX è un mercato decentralizzato. Ha un portafoglio ordini P2P e gli scambi vengono effettuati tramite <1>scambi atomici a catena incrociata</1>. Questo significa che funziona in modo leggermente diverso rispetto ad un mercato centralizzato.</0><1>Gli ordini possono richiedere un po' di tempo per essere propagati attraverso la rete P2P. Potrebbe essere necessario attendere prima di poter visualizzare il portafoglio ordini.</1><2>HyperDEX necessita che tu abbia misurato correttamente gli <1>UTXO</1> affinché uno scambio avvenga con successo. Per ciascun UTXO puoi effettuare un singolo scambio. Il modo più semplice per assicurarti di poter partecipare ad uno scambio è quello di effettuare due o tre piccoli depositi sul tuo account invece che un singolo grosso deposito.</2><3>Uno scambio atomico si compone di sei transazioni a catena. Quando scambi una valuta con un'alta commissione per la transazione, è importante aumentare leggermente il prezzo del tuo account per le commissioni totali della transazione. Ciò è importante in modo particolare quando si scambiano delle somme piccole.</3>",
 		"title": "Come funziona il trading con HyperDEX"
 	},
 	"order": {
 		"amount": "Importo {{symbol}}",
-		"averageVolume": "Vol medio",
 		"buy": "Acquista",
 		"buyOrders": "Ordini di acquisto",
 		"failedTrade": "Impossibile {{type}} {{baseCurrency}}",

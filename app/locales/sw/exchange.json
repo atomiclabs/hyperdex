@@ -3,15 +3,12 @@
 	"chart": {
 		"depth": "Chati ya Kina cha {{baseCurrency}}/{{quoteCurrency}}"
 	},
-	"confirmQuitTitle": "Una uhakika unataka kuondoka?",
-	"confirmQuitDescription": "Una mabadilishano yanayoendelea. HyperDEX itajaribu kuendelea na mabadilishano haya utakapoendesha programu baadaye, lakini tunapendekeza uache HyperDEX ikiendelea hadi mabadilishano yakamilike.",
 	"intro": {
 		"description": " <0>HyperDEX ni soko lisilogatuliwa. Ina kitabu cha maagizo cha P2P na biashara hufanywa kupitia <1>mabadilishano ya sarafu pepe mbalimbali</1>. Hii ina maana kuwa inafanya kazi kwa njia tofauti kidogo na biashara ya kubadilishana iliyogatuliwa.</0><1>Maagizo yanaweza kuchukua muda mrefu kabla ya kuzalishwa kote kwenye mtandao wa P2P. Huenda ukahitaji kusubiri kwa muda ili kitabu cha maagizo kionekane.</1><2>HyperDEX inakuhitaji uwe na <1>UTXO</1> zenye ukubwa sahihi ili ufanikiwe kubadilishana. Kwa kila UTXO unaweza kufanya badilisho moja. Njia rahisi ya kuhakikisha kuwa unaweza kushiriki katika badilisho ni kuweka amana mbili au tatu ndogo katika akaunti yako badala ya amana moja kubwa.</2><3>Badilisho atomiki huwa na miamala sita mfululizo. Unapofanya biashara ya sarafu iliyo na kiasi kikubwa cha ada ya manunuzi, ni muhimu uongeze bei yako kidogo ili ulipie ada ya jumla ya manunuzi. Jambo hili ni muhimu hasa unapofanya biashara ya kiasi kidogo.</3>",
 		"title": "Jinsi Biashara Inavyofanya Kazi kwa HyperDEX"
 	},
 	"order": {
 		"amount": "Kiasi {{symbol}}",
-		"averageVolume": "Kiasi Wastani",
 		"buy": "Nunua",
 		"buyOrders": "Nunua Bidhaa",
 		"failedTrade": "Hukuweza {{type}} {{baseCurrency}}",
