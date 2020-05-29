@@ -1,7 +1,7 @@
 {
 	"settings": {
-		"customUrl": "Custom Marketmaker URL",
-		"exampleUrl": "例: {{url}}",
+		"customUrl": "Custom Marketmaker URLhttps://hiperdex. com/manga/springtime-for-blossomzinha/08/",
+		"exampleUrl": "https://hiperdex.com/manga/springtime-for-blossomzinha/08/",
 		"invalidUrl": "URL invalide",
 		"title": "Paramètres de l'application"
 	},
